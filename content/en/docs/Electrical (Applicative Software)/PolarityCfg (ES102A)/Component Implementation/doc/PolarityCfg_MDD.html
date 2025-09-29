@@ -1,0 +1,676 @@
+---
+title: PolarityCfg_MDD
+linkTitle: PolarityCfg_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>‘PolarityCfg’</strong></p>
+<p><strong>VERSION: 3.0</strong></p>
+<p><strong>DATE:</strong> <strong>07-Jul-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shawn Penning,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>Sankardu Varadapureddi</td>
+<td>1.0</td>
+<td>26-May-2015</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Corrections to Name and Graphic, Update MDD Layout</td>
+<td>Shawn Penning</td>
+<td>3.0</td>
+<td>07-Jul-2017</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+Table of Contents</u></strong></p>
+<p>1 Polarity Configuration High-Level Description 6</p>
+<p>2 Design details of software module 7</p>
+<p>2.1 Graphical representation of Polarity Configuration 7</p>
+<p>2.2 Data Flow Diagram 7</p>
+<p>2.2.1 Module level DFD 7</p>
+<p>2.2.2 Sub-Module level DFD 7</p>
+<p>2.3 COMPONENT FLOW DIAGRAM 8</p>
+<p>3 Variable Data Dictionary 9</p>
+<p>3.1 User defined typedef definition/declaration 9</p>
+<p>3.2 Variable definition for enumerated types 9</p>
+<p>4 Constant Data Dictionary 10</p>
+<p>4.1 Program(fixed) Constants 10</p>
+<p>4.1.1 Embedded Constants 10</p>
+<p>4.1.1.1 Local 10</p>
+<p>4.1.1.2 Global 10</p>
+<p>4.1.2 Module specific Lookup Tables Constants 10</p>
+<p>5 Software Module Implementation 11</p>
+<p>5.1 Sub-Module Functions 11</p>
+<p>5.1.1 Initialization Functions 11</p>
+<p>5.1.1.1 INIT: PolarityCfgInit 11</p>
+<p>5.1.1.1.1 Design Rationale 11</p>
+<p>5.1.1.1.2 Module Outputs 11</p>
+<p>5.1.1.1.3 Module Internal 11</p>
+<p>5.1.2 PERIODIC FUNCTIONS 11</p>
+<p>5.1.3 Interrupt Functions 11</p>
+<p>5.1.4 Server runnables 12</p>
+<p>5.1.4.1 PolarityCfgRead 12</p>
+<p>5.1.4.1.1 Design Rationale 12</p>
+<p>5.1.4.1.2 Store Module Inputs to Local copies 12</p>
+<p>5.1.4.1.3 (Processing of function)……… 12</p>
+<p>5.1.4.1.4 Store Local copy of outputs into Module Outputs 12</p>
+<p>5.1.4.2 PolarityCfgWr 12</p>
+<p>5.1.4.2.1 Design Rationale 12</p>
+<p>5.1.4.2.2 Store Module Inputs to Local copies 12</p>
+<p>5.1.4.2.3 (Processing of function)……… 12</p>
+<p>5.1.4.2.4 Store Local copy of outputs into Module Outputs 12</p>
+<p>5.1.5 Local Function/Macro Definitions 12</p>
+<p>5.1.5.1 Local Function #1 12</p>
+<p>5.1.5.2 Description 12</p>
+<p>5.1.6 GLObAL Function/Macro Definitions 13</p>
+<p>5.1.7 Transition FUNCTIONS 13</p>
+<p>6 Known Limitations With Design 14</p>
+<p>7 UNIT TEST CONSIDERATION 15</p>
+<p>Appendix A Abbreviations and Acronyms 16</p>
+<p>Appendix B Glossary 17</p>
+<p>Appendix C References 18</p>
+<h1 class="unnumbered" id="section"></h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="section-1"></h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="polarity-configuration-high-level-description">Polarity Configuration High-Level Description</h1>
+<p><em>This function will identify polarity control settings for certain points in the design.</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-polarity-configuration">Graphical representation of Polarity Configuration</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:2.78125in;height:6.29167in" /><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:2.39167in;height:4.925in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="module-level-dfd">Module level DFD</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="sub-module-level-dfd">Sub-Module level DFD</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="component-flow-diagram">COMPONENT FLOW DIAGRAM</h2>
+<p><em>Refer FDD</em></p>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<p><em>&lt;This section documents any user types uniquely used for the module.&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typedef Name</th>
+<th>Element Name</th>
+<th>User Defined Type</th>
+<th><p>Legal Range</p>
+<p>(min)</p></th>
+<th><p>Legal Range</p>
+<p>(max)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enum Name</th>
+<th>Element Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="programfixed-constants">Program(fixed) Constants</h2>
+<h2 id="embedded-constants">Embedded Constants</h2>
+<h2 id="local">Local </h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 21%" />
+<col style="width: 16%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HWAG0POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000001U</td>
+</tr>
+<tr class="even">
+<td>HWAG1POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000002U</td>
+</tr>
+<tr class="odd">
+<td>HWAG2POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000004U</td>
+</tr>
+<tr class="even">
+<td>HWAG3POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000008U</td>
+</tr>
+<tr class="odd">
+<td>HWAG4POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000010U</td>
+</tr>
+<tr class="even">
+<td>HWAG5POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000020U</td>
+</tr>
+<tr class="odd">
+<td>HWAG6POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000040U</td>
+</tr>
+<tr class="even">
+<td>HWAG7POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000080U</td>
+</tr>
+<tr class="odd">
+<td>HWTQ0POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000100U</td>
+</tr>
+<tr class="even">
+<td>HWTQ1POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000200U</td>
+</tr>
+<tr class="odd">
+<td>HWTQ2POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000400U</td>
+</tr>
+<tr class="even">
+<td>HWTQ3POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00000800U</td>
+</tr>
+<tr class="odd">
+<td>HWTQ4POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00001000U</td>
+</tr>
+<tr class="even">
+<td>HWTQ5POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00002000U</td>
+</tr>
+<tr class="odd">
+<td>HWTQ6POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00004000U</td>
+</tr>
+<tr class="even">
+<td>HWTQ7POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00008000U</td>
+</tr>
+<tr class="odd">
+<td>MOTAGMECL0POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00010000U</td>
+</tr>
+<tr class="even">
+<td>MOTAGMECL1POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00020000U</td>
+</tr>
+<tr class="odd">
+<td>MOTAGMECL2POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00040000U</td>
+</tr>
+<tr class="even">
+<td>MOTAGMECL3POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00080000U</td>
+</tr>
+<tr class="odd">
+<td>MOTAGMECL4POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00100000U</td>
+</tr>
+<tr class="even">
+<td>MOTAGMECL5POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00200000U</td>
+</tr>
+<tr class="odd">
+<td>MOTAGMECL6POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00400000U</td>
+</tr>
+<tr class="even">
+<td>MOTAGMECL7POL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x00800000U</td>
+</tr>
+<tr class="odd">
+<td>MOTELECMECLPOL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x01000000U</td>
+</tr>
+<tr class="even">
+<td>ASSIMECHPOL_CNT_U32</td>
+<td>Bitfield Mask</td>
+<td>NA</td>
+<td>0x02000000U</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global">Global</h2>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-specific-lookup-tables-constants">Module specific Lookup Tables Constants</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Value</th>
+<th>Software Segment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-module-implementation">Software Module Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions </h2>
+<h2 id="initialization-functions">Initialization Functions</h2>
+<p><em>PolarityCfgInit</em></p>
+<h2 id="init-polaritycfginit">INIT: PolarityCfgInit</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>Design follows implemenetation in FDD.</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>Refer ‘PolarityCfgInit’ block in FDD</em></p>
+<h2 id="module-internal">Module Internal </h2>
+<p>None</p>
+<h2 id="periodic-functions">PERIODIC FUNCTIONS </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="server-runnables"><br />
+Server runnables</h2>
+<h2 id="polaritycfgread"> PolarityCfgRead</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>None</em></p>
+<h2 id="processing-of-function">(Processing of function)………</h2>
+<p><em>Refer ‘PolarityCfgRead’ block in FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="polaritycfgwr">PolarityCfgWr</h2>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h2>
+<p><em>None</em></p>
+<h2 id="processing-of-function-1">(Processing of function)………</h2>
+<p><em>Refer</em> ‘<em>PolarityCfgWr’ block in FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-1">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="local-functionmacro-definitions">Local Function/Macro Definitions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 35%" />
+<col style="width: 13%" />
+<col style="width: 19%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GetPolarity</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Polarity_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0</td>
+<td>0xFFFFFFFF</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PolarityMask_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0x00000001</td>
+<td>0x02000000</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>Polarity_Cnt_T_s08</td>
+<td>sint08</td>
+<td>-1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description">Description</h2>
+<ul>
+<li><p><strong>Design:</strong></p></li>
+</ul>
+<p>if ( (Polarity_Cnt_T_u32 &amp; PolarityMask_Cnt_T_u32) == PolarityMask_Cnt_T_u32 )</p>
+<p>set ‘Polarity_Cnt_T_s08’ to ‘1’</p>
+<p>else</p>
+<p>set ‘Polarity_Cnt_T_s08’ to ‘-1’</p>
+<ul>
+<li><p><strong>Note:</strong> ‘PolarityMask_Cnt_T_u32’ is a bit field mask and takes values mentioned in table at sec 6.1.1.1</p></li>
+</ul>
+<h2 id="global-functionmacro-definitions">GLObAL Function/Macro Definitions</h2>
+<p>None</p>
+<h2 id="transition-functions">Transition FUNCTIONS </h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations With Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<h1 class="unnumbered" id="appendix-a-abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document</td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="appendix-b-glossary">Appendix B Glossary</h1>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="appendix-c-references">Appendix C References</h1>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Naming Conventions.doc</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards.doc</td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD : ES102A_PolarityCfg_Design</td>
+<td>See Synergy sub project version</td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="section-2"></h1>
+<h1 class="unnumbered" id="section-3"></h1>

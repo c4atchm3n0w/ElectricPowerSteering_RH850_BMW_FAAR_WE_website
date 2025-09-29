@@ -1,0 +1,600 @@
+---
+title: BmwVehSpd_MDD
+linkTitle: BmwVehSpd_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>BmwVehSpd</strong></p>
+<p><strong>June 22, 2018</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Marek Brykczyński,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Tychy, Poland<br />
+<u>Change History</u></strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial version</td>
+<td>Matthew Leser</td>
+<td>1.0</td>
+<td>27-Feb-2018</td>
+</tr>
+<tr class="odd">
+<td>Updated according to design 3.0.0</td>
+<td>Marek Brykczyński</td>
+<td>2.0</td>
+<td>25-Jun-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u></p>
+<p>1 Introduction 5</p>
+<p>1.1 Purpose 5</p>
+<p>1.2 Scope 5</p>
+<p>2 BmwVehSpd High-Level Description 6</p>
+<p>3 Design details of software module 7</p>
+<p>3.1 Graphical representation of BmwVehSpd 7</p>
+<p>3.2 Data Flow Diagram 7</p>
+<p>3.2.1 Component level DFD 7</p>
+<p>3.2.2 Function level DFD 7</p>
+<p>4 Constant Data Dictionary 8</p>
+<p>4.1 Program (fixed) Constants 8</p>
+<p>4.1.1 Embedded Constants 8</p>
+<p>5 Software Component Implementation 9</p>
+<p>5.1 Sub-Module Functions 9</p>
+<p>5.1.1 BmwVehSpdInit1 9</p>
+<p>5.1.1.1 Design Rationale 9</p>
+<p>5.1.1.2 Module Outputs 9</p>
+<p>5.1.2 BmwVehSpdPer1 9</p>
+<p>5.1.2.1 Design Rationale 9</p>
+<p>5.1.2.2 Module Outputs 9</p>
+<p>5.2 Server Runnables 9</p>
+<p>5.3 Interrupt Functions 9</p>
+<p>5.3.1 Interrupt Function Name 9</p>
+<p>5.4 Module Internal (Local) Functions 9</p>
+<p>5.4.1 Cntr 9</p>
+<p>5.4.2 VehSpdVldCalcn 10</p>
+<p>5.4.3 VehSpdRateLim 10</p>
+<p>5.4.4 ProcessSecondAndGateState 10</p>
+<p>5.4.5 ProcessThirdAndGateState 10</p>
+<p>5.4.6 ProcessSixthAndGateState 10</p>
+<p>5.4.7 ProcessFourthAndGateState 11</p>
+<p>5.4.8 ProcessThridConditionOfOrGate 11</p>
+<p>5.5 GLOBAL Function/Macro Definitions 11</p>
+<p>6 Known Limitations with Design 12</p>
+<p>7 UNIT TEST CONSIDERATION 13</p>
+<p>Appendix A Abbreviations and Acronyms 14</p>
+<p>Appendix B Glossary 15</p>
+<p>Appendix C Please references 16</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module Design Document for CF080A_BmwVehSpd_Impl</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="bmwvehspd-high-level-description">BmwVehSpd High-Level Description</h1>
+<p>The BmwVehSpd software component is responsible for determining the Vehicle Speed. </p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<p>Please refer FDD</p>
+<h2 id="graphical-representation-of-bmwvehspd">Graphical representation of BmwVehSpd</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:6.5in;height:4.37153in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Please refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Please refer FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Please refer FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Please refer .m file for constants</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="bmwvehspdinit1">BmwVehSpdInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p>Please refer FDD</p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p>None</p>
+<h2 id="bmwvehspdper1">BmwVehSpdPer1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>Please refer FDD.</p>
+<h2 id="module-outputs-1">Module Outputs</h2>
+<p>None</p>
+<h2 id="server-runnables">Server Runnables </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="interrupt-function-name">Interrupt Function Name</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h3 id="cntr">Cntr</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>Cntr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CntrTrigInp_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SigValVld_Cnt_T_logl</td>
+<td>const pointer to boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>CdnDurnSigValVld_Cnt_T_logl</td>
+<td>const pointer to boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehspdvldcalcn">VehSpdVldCalcn</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSpdVldCalcn</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwSecurVehSpdSts_Cnt_T_enum</td>
+<td>uint8</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>VehSpdVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vehspdratelim">VehSpdRateLim</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSpdRateLim</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwSecurVehSpdSts_Cnt_T_enum</td>
+<td>uint8</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>IntEpsVehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>*Rte_Pim_VehSpdLimPrev()</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+</tbody>
+</table>
+<h3 id="processsecondandgatestate">ProcessSecondAndGateState</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessSecondAndGateState</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwCogVehSpdVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwCogVehSpdQlfrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BmwCogVehSpdQlfr_Cnt_T_enum</td>
+<td>uint8</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>SecondAndGateEval_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="processthirdandgatestate">ProcessThirdAndGateState</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessThirdAndGateState</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwCogVehSpdVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwCogVehSpdQlfrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BmwCogVehSpdQlfr_Cnt_T_enum</td>
+<td>uint8</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ThirdAndGateEval_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="processsixthandgatestate">ProcessSixthAndGateState</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessSixthAndGateState</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwPinionAgQlfr_Cnt_T_enum</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>SixthAndGateEval_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="processfourthandgatestate">ProcessFourthAndGateState</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessFourthAndGateState</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>ThirdAndGateEval_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SixthAndGateEval_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>function’s return value</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="processthridconditionoforgate">ProcessThridConditionOfOrGate</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessThridConditionOfOrGate</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwCogVehSpdQlfrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CdnDurnSigValVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BmwCogVehSpdQlfr_Cnt_T_enum</td>
+<td>uint8</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>LogicResult_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None.</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Please reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="please-references">Please references</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD: CF080A_BmwVehSpd_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>

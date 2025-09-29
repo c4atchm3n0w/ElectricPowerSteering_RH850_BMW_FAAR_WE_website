@@ -1,0 +1,1041 @@
+---
+title: TechnicalReference_Crcs
+linkTitle: TechnicalReference_Crcs
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR CRC&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;4.03.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Tobias&#160;Schmid&#160;<br/>
+2006-12-13&#160;<br/>
+1.0&#160;<br/>
+Initial&#160;Version&#160;<br/>
+Tobias&#160;Schmid&#160;<br/>
+2008-01-21&#160;<br/>
+3.00.00&#160;<br/>
+Update&#160;to&#160;ASR&#160;2.1&#160;<br/>Changed&#160;versioning&#160;to new&#160;notation&#160;<br/>
+Claudia&#160;Mausz&#160;<br/>
+2008-05-19&#160;<br/>
+4.00.00&#160;<br/>
+Update&#160;to&#160;ASR&#160;3&#160;<br/>Add&#160;Crc8&#160;calculation&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2014-11-18&#160;<br/>
+4.01.00&#160;<br/>
+Update&#160;to&#160;ASR&#160;4&#160;<br/>Add&#160;Crc8H2F&#160;calculation&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2015-05-08&#160;<br/>
+4.02.00&#160;<br/>
+SafeBSW&#160;<br/>Add&#160;Crc32P4 calculation&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2016-11-24&#160;<br/>
+4.03.00&#160;<br/>
+Add&#160;Crc64&#160;calculation&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CRCLibrary.pdf&#160;<br/>
+V4.2.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CRCLibrary.pdf&#160;<br/>
+V4.3.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+V1.6.0&#160;<br/>
+<b>Scope&#160;of&#160;the&#160;Document</b>&#160;&#160;<br/>
+This&#160;&#160;technical&#160;&#160;reference&#160;&#160;describes&#160;&#160;the&#160;&#160;general&#160;&#160;use&#160;&#160;of&#160;&#160;the&#160;&#160;CRC&#160;&#160;library&#160;&#160;basis&#160;&#160;software.&#160;<br/>There are&#160;no&#160;aspects&#160;which&#160;are controller specific.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Crcs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/></a><a href="TechnicalReference_Crcs.html#8">2.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#8">Architecture&#160;Overview&#160;........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;9</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9">Features&#160;............................................................................................................&#160;9&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9">Deviations&#160;..........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Additions/&#160;Extensions&#160;.......................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Initialization&#160;......................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.3&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">States&#160;..............................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.4&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Main Functions&#160;................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.5&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Error&#160;Handling&#160;..................................................................................................&#160;10&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.5.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">3.5.3&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Parameter&#160;Checking&#160;........................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11"><b>Integration&#160;...................................................................................................................&#160;11</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Scope of&#160;Delivery&#160;.............................................................................................&#160;11&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Static Files&#160;.......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Dynamic&#160;Files&#160;..................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">4.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Include Structure&#160;..............................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12"><b>API&#160;Description&#160;...........................................................................................................&#160;12</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Type&#160;Definitions&#160;...............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">5.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Interrupt&#160;Service Routines&#160;provided by&#160;CRC&#160;....................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">5.3&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Services provided by&#160;CRC&#160;...............................................................................&#160;12&#160;<br/>5.3.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Crc_CalculateCRC8&#160;.........................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#13">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#13">Crc_CalculateCRC8H2F&#160;..................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#14">5.3.3&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#14">Crc_CalculateCRC16&#160;.......................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#15">5.3.4&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#15">Crc_CalculateCRC32&#160;.......................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#17">5.3.5&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#17">Crc_CalculateCRC32P4&#160;..................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#18">5.3.6&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#18">Crc_CalculateCRC64&#160;.......................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#19">5.3.7&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#19">Crc_GetVersionInfo&#160;..........................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#19">5.4&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#19">Services used by&#160;CRC&#160;.....................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">5.5&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">Callback&#160;Functions&#160;...........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">5.6&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">Configurable Interfaces&#160;....................................................................................&#160;20&#160;<br/>5.6.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">Notifications&#160;.....................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">5.6.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">Callout&#160;Functions&#160;.............................................................................&#160;20&#160;</a><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<a href="TechnicalReference_Crcs.html#20">5.6.3&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#20">Hook&#160;Functions&#160;................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#21"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#21"><b>Configuration&#160;..............................................................................................................&#160;21</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#21">Configuration Variants&#160;......................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;22</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">Glossary&#160;..........................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">7.2&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">Abbreviations&#160;...................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#23"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#23"><b>Contact&#160;........................................................................................................................&#160;23</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_Crcs.html#8">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#8">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Include structure&#160;.......................................................................................&#160;11&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Crcs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.......................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#9">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#10">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Static&#160;files&#160;.................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#11">Generated&#160;files&#160;.........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Type&#160;definitions&#160;.........................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#12">Std_VersionInfoType&#160;.................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#13">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#13">SAE-J1850&#160;CRC8 Standard&#160;.....................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#13">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#13">Crc_CalculateCRC8&#160;.................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#14">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#14">CRC&#160;calculation&#160;based&#160;on 0x2F&#160;polynomial&#160;..............................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#14">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#14">Crc_CalculateCRC8H2F&#160;...........................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#15">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#15">CCITT&#160;CRC16&#160;Standard&#160;...........................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#15">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#15">Crc_CalculateCRC16&#160;...............................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#16">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#16">IEEE-802.3&#160;CRC32&#160;Ethernet&#160;Standard&#160;.....................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#16">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#16">Crc_CalculateCRC32&#160;...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#17">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#17">CRC32&#160;calculation based on&#160;0xF4ACFB13&#160;polynomial&#160;(E2E&#160;Protection&#160;<br/>Profile 4)&#160;...................................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#17">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#17">Crc_CalculateCRC32P4&#160;...........................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#19">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#19">Crc_GetVersionInfo&#160;..................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">Glossary&#160;...................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crcs.html#22">Abbreviations&#160;............................................................................................&#160;22&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>4.00.00&#160;<br/>
+Update&#160;to&#160;AUTOSAR&#160;Version&#160;3&#160;<br/>Add&#160;Crc8&#160;calculation&#160;<br/>
+4.01.00&#160;<br/>
+Update&#160;to&#160;AUTOSAR&#160;Version&#160;4&#160;<br/>Add&#160;Crc8&#160;calculation based&#160;on&#160;0x2F&#160;polynomial&#160;<br/>
+4.02.00&#160;<br/>
+Crc32&#160;E2E&#160;Profile 4&#160;routine&#160;was added due&#160;to SafeBSW&#160;<br/>
+4.03.00&#160;<br/>
+Crc64&#160;(ECMA)&#160;E2E&#160;Profile 7&#160;routine&#160;was added&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;CRC&#160;as specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_Crcs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+CRC_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+CRC_MODULE_ID &#160;&#160;<br/>
+201&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[3])&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>&#160;<br/>This&#160;component&#160;implements&#160;service&#160;functions&#160;in&#160;ANSI&#160;C&#160;for&#160;calculating&#160;CRC&#160;checksums.&#160;<br/>The&#160;module&#160;allows&#160;pre-compile&#160;configuration&#160;of&#160;the&#160;calculation&#160;method,&#160;which&#160;is&#160;used&#160;to&#160;<br/>compute&#160;the&#160;CRC&#160;values.&#160;The&#160;six&#160;possible&#160;methods&#160;are&#160;table&#160;based&#160;or&#160;runtime&#160;calculation&#160;<br/>of&#160;CRC&#160;values.&#160;<br/>There are&#160;six&#160;different&#160;CRC calculation&#160;services available:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Two&#160;different&#160;services&#160;for checksum&#160;calculation&#160;of&#160;8bit CRC&#160;value&#160;from&#160;a&#160;buffer&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Checksum&#160;calculation&#160;of&#160;16bit CRC&#160;value&#160;from&#160;a&#160;buffer&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Two&#160;different&#160;services&#160;for checksum&#160;calculation&#160;of&#160;32bit CRC&#160;value&#160;from&#160;a&#160;buffer&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Checksum&#160;calculation&#160;of&#160;64bit CRC&#160;value&#160;from&#160;a&#160;buffer&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;CRC&#160;is&#160;located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+No&#160;&#160;interface&#160;from&#160;other&#160;module&#160;&#160;is&#160;required.&#160;The&#160;CRC&#160;component&#160;is&#160;a&#160;service&#160;&#160;module.&#160;It&#160;<br/>can&#160;be&#160;called&#160;from&#160;any&#160;module&#160;or application&#160;(e.g.&#160;NVRAM Manager).&#160;&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>CRC.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Crcs.html#9">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Crcs.html#9">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+Vector&#160;Informatik&#160;provides&#160;further&#160;CRC&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR&#160;standard.&#160;The&#160;<br/>corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Crcs.html#10">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Crc8 calculation based&#160;on the&#160;SAE-J1850&#160;CRC8 Standard&#160;<br/>Crc8 calculation based&#160;on 0x2F&#160;polynomial&#160;<br/>Crc16&#160;calculation based&#160;on&#160;the&#160;CCITT&#160;CRC16&#160;Standard&#160;<br/>Crc32&#160;calculation based&#160;on&#160;the&#160;IEEE-802.3&#160;Ethernet&#160;Standard&#160;<br/>Crc32&#160;calculation based&#160;on&#160;0xF4ACFB13&#160;polynomial&#160;(E2E&#160;Profile 4)&#160;<br/>Crc64&#160;calculation based&#160;on&#160;0x42F0E1EBA9EA3693&#160;polynomial&#160;(E2E&#160;Profile 7)&#160;<br/>For&#160;all&#160;CRC&#160;calculations&#160;following&#160;methods&#160;can&#160;be used:&#160;<br/><b>&gt;&#160;&#160;</b>Table&#160;based&#160;calculation:&#160;results in&#160;fast&#160;execution,&#160;but&#160;increases code&#160;size&#160;(ROM&#160;<br/>
+table)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Runtime&#160;calculation:&#160;results in&#160;smaller code&#160;size,&#160;but&#160;slower execution&#160;time&#160;<br/>
+All&#160;routines&#160;are&#160;re-entrant&#160;and&#160;can&#160;be&#160;used&#160;by&#160;multiple applications&#160;at&#160;the&#160;same&#160;time.&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;&#160;</b><br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Hardware&#160;based&#160;CRC&#160;calculation&#160;<br/>Debugging&#160;concept&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>none&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+No&#160;initialization&#160;is necessary.&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+This component&#160;does&#160;not&#160;contain&#160;any&#160;state&#160;machine.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+This&#160;component&#160;does&#160;not&#160;have&#160;a&#160;main&#160;function.&#160;It&#160;only&#160;contains&#160;the&#160;routines&#160;to&#160;calculate&#160;<br/>the&#160;&#160;checksums.&#160;&#160;These&#160;&#160;API&#160;&#160;functions&#160;&#160;are&#160;&#160;called&#160;&#160;from&#160;&#160;other&#160;&#160;modules,&#160;&#160;e.g.&#160;&#160;NVRAM&#160;<br/>Manager.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+Module&#160;CRC does not&#160;provide&#160;any&#160;development&#160;error detection&#160;mechanism.&#160;<br/>
+<b>3.5.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+Module&#160;CRC does not&#160;provide&#160;any&#160;production&#160;error detection&#160;mechanism.&#160;<br/>
+&#160;<br/>
+<b>3.5.3&#160;</b><br/>
+<b>Parameter&#160;Checking&#160;</b><br/>
+Module&#160;CRC’s&#160;functions do&#160;not&#160;perform&#160;any&#160;parameter checks.&#160;&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-11_1.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-11_2.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-11_3.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-11_4.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-11_5.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;&#160;CRC&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;CRC&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Crcs.html#11">rs&#160;&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Crcs.html#11">4.1.2.</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Crc.c&#160;<br/>
+Implementation&#160;of&#160;the&#160;CRC&#160;routines&#160;<br/>
+Crc.h&#160;<br/>
+Header&#160;file of&#160;the&#160;CRC&#160;routines&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Crc_Cfg.h&#160;<br/>
+Configuration of&#160;the&#160;CRC&#160;routines&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Include&#160;Structure&#160;</b><br/>
+<b>cmp&#160;Component&#160;View</b><br/>
+Crc_Cfg.h<br/>
+Crc.h<br/>
+«include»<br/>
+«use»<br/>
+«include»<br/>
+application&#160;/&#160;other&#160;BSW&#160;module<br/>
+Crc.c<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Include&#160;structure&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;types defined&#160;by&#160;the&#160;CRC&#160;are&#160;described&#160;in&#160;this chapter.&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+Crc_DataRefType&#160;<br/>
+P2CONST&#160;&#160;Pointer&#160;type&#160;for&#160;pointers&#160;<br/>
+0-255 (uint8)&#160;<br/>
+to data buffers,&#160;from&#160;<br/>which the&#160;CRC&#160;value&#160;is&#160;to&#160;<br/>be&#160;calculated.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Type&#160;definitions&#160;<br/>
+<b>&#160;Std_VersionInfoType&#160;</b><br/>
+<b>Struct&#160;Element&#160;Name&#160;&#160;C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+Std_VersionInfoType&#160;<br/>
+Struct&#160;<br/>
+Returns&#160;the&#160;version&#160;<br/>
+uint16 vendorID&#160;<br/>
+information&#160;<br/>
+uint16 moduleID&#160;<br/>
+uint8 sw_major_version&#160;<br/>
+uint8 sw_minor_version&#160;<br/>
+uint8&#160;sw_patch_version&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;Std_VersionInfoType&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Interrupt&#160;Service&#160;Routines&#160;provided by&#160;CRC&#160;&#160;</b><br/>
+The&#160;CRC&#160;component&#160;does not&#160;provide&#160;any&#160;interrupt&#160;service&#160;routines.&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;provided by&#160;CRC&#160;</b><br/>
+<b>5.3.1&#160;</b><br/>
+<b>Crc_CalculateCRC8&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint8&#160;<b>Crc_CalculateCRC8</b>&#160;(Crc_DataRefType&#160;Crc_DataPtr, uint32 Crc_Length, uint8&#160;<br/>Crc_StartValue8,&#160;boolean Crc_IsFirstCall&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Crc_DataPtr&#160;<br/>
+Pointer&#160;to&#160;start address&#160;of&#160;data&#160;block&#160;to&#160;be&#160;calculated&#160;<br/>
+Crc_Length&#160;<br/>
+Length&#160;of&#160;data&#160;to be&#160;calculated&#160;(in bytes)&#160;<br/>
+Crc_StartValue8&#160;<br/>
+Value&#160;the&#160;algorithm&#160;starts&#160;with&#160;<br/>
+Crc_IsFirstCall&#160;<br/>
+TRUE:&#160;First call&#160;in&#160;a&#160;sequence or&#160;individual&#160;CRC calculation;&#160;start from&#160;initial&#160;<br/>value,&#160;ignore&#160;Crc_StartValue8.&#160;<br/>FALSE: Subsequent call&#160;in&#160;a call&#160;sequence;&#160;Crc_StartValue8&#160;is&#160;interpreted&#160;to&#160;<br/>be&#160;the return value&#160;of&#160;the previous&#160;function call.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint8&#160;<br/>
+8 bit result&#160;of&#160;CRC calculation&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service performs&#160;a&#160;CRC8 calculation&#160;synchronously&#160;on&#160;Crc_Length&#160;data&#160;bytes, pointed&#160;to&#160;by&#160;<br/>Crc_DataPtr,&#160;with&#160;the&#160;starting&#160;value&#160;of&#160;Crc_StartValue8.&#160;The&#160;CRC8 routine is&#160;based&#160;on the SAE-J1850&#160;<br/>CRC8&#160;Standard:&#160;<br/>
+<b>SAE-J1850 CRC8 &#160;Standard&#160;</b><br/>
+<b>value&#160;</b><br/>
+CRC&#160;result&#160;width&#160;<br/>
+8 bits&#160;<br/>
+Polynomial&#160;<br/>
+1Dh&#160;<br/>
+Initial&#160;value&#160;<br/>
+FFh&#160;<br/>
+Input&#160;data&#160;reflected&#160;<br/>
+No&#160;<br/>
+Result&#160;data&#160;reflected&#160;<br/>
+No&#160;<br/>
+XOR&#160;value&#160;<br/>
+FFh&#160;<br/>
+Check&#160;<br/>
+4Bh&#160;<br/>
+Magic&#160;check&#160;<br/>
+C4h&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;SAE-J1850&#160;CRC8&#160;Standard&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;large data blocks&#160;have&#160;to be&#160;calculated&#160;(&gt;32&#160;bytes),&#160;the&#160;table&#160;based&#160;calculation method&#160;<br/>
+should be&#160;configured&#160;in&#160;order&#160;to&#160;decrease&#160;the&#160;calculation time.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;CRC&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;Crc_CalculateCRC8&#160;<br/>
+&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>Crc_CalculateCRC8H2F&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint8&#160;<b>Crc_CalculateCRC8H2F</b>&#160;(Crc_DataRefType&#160;Crc_DataPtr, uint32 Crc_Length,&#160;<br/>uint8 Crc_StartValue8H2F, boolean Crc_IsFirstCall&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Crc_DataPtr&#160;<br/>
+Pointer&#160;to start&#160;address&#160;of&#160;data&#160;block&#160;to&#160;be&#160;calculated&#160;<br/>
+Crc_Length&#160;<br/>
+Length&#160;of&#160;data&#160;to be&#160;calculated (in bytes)&#160;<br/>
+Crc_StartValue8H2F&#160;<br/>
+Value&#160;the&#160;algorithm&#160;starts&#160;with&#160;<br/>
+Crc_IsFirstCall&#160;<br/>
+TRUE:&#160;First call&#160;in&#160;a&#160;sequence or&#160;individual&#160;CRC calculation;&#160;start from&#160;initial&#160;<br/>value,&#160;ignore&#160;Crc_StartValue8H2F.&#160;<br/>FALSE: Subsequent call&#160;in&#160;a call&#160;sequence;&#160;Crc_StartValue8H2F is&#160;<br/>interpreted&#160;to&#160;be&#160;the&#160;return&#160;value&#160;of&#160;the previous&#160;function&#160;call.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint8&#160;<br/>
+8 bit result&#160;of&#160;CRC calculation&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service performs&#160;a&#160;CRC8 calculation&#160;synchronously&#160;on&#160;Crc_Length&#160;data&#160;bytes, pointed&#160;to&#160;by&#160;<br/>Crc_DataPtr,&#160;with&#160;the&#160;starting&#160;value&#160;of&#160;Crc_StartValue8H2F.&#160;The&#160;CRC8 routine&#160;is&#160;based&#160;on&#160;the&#160;generator&#160;<br/>polynomial&#160;0x2F:&#160;<br/>
+<b>CRC8 routine&#160;based on&#160;0x2F&#160;polynomial&#160;</b><br/>
+<b>value&#160;</b><br/>
+CRC&#160;result&#160;width&#160;<br/>
+8 bits&#160;<br/>
+Polynomial&#160;<br/>
+2Fh&#160;<br/>
+Initial&#160;value&#160;<br/>
+FFh&#160;<br/>
+Input&#160;data&#160;reflected&#160;<br/>
+No&#160;<br/>
+Result&#160;data&#160;reflected&#160;<br/>
+No&#160;<br/>
+XOR&#160;value&#160;<br/>
+FFh&#160;<br/>
+Check&#160;<br/>
+DFh&#160;<br/>
+Magic&#160;check&#160;<br/>
+42h&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;CRC&#160;calculation&#160;based&#160;on&#160;0x2F&#160;polynomial&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;large data blocks&#160;have&#160;to be&#160;calculated&#160;(&gt;32&#160;bytes),&#160;the&#160;table&#160;based&#160;calculation method&#160;<br/>
+should be&#160;configured&#160;in&#160;order&#160;to&#160;decrease&#160;the&#160;calculation time.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;CRC&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;Crc_CalculateCRC8H2F&#160;<br/>
+&#160;<br/>
+<b>5.3.3&#160;</b><br/>
+<b>Crc_CalculateCRC16&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint16&#160;<b>Crc_CalculateCRC16</b>&#160;(Crc_DataRefType&#160;Crc_DataPtr, uint32 Crc_Length,&#160;<br/>uint16 Crc_StartValue16, boolean&#160;Crc_IsFirstCall&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Crc_DataPtr&#160;<br/>
+Pointer&#160;to start address&#160;of&#160;data&#160;block&#160;to&#160;be&#160;calculated&#160;<br/>
+Crc_Length&#160;<br/>
+Length&#160;of&#160;data&#160;to be&#160;calculated (in bytes)&#160;<br/>
+Crc_StartValue16&#160;<br/>
+Value&#160;the&#160;algorithm&#160;starts&#160;with&#160;<br/>
+Crc_IsFirstCall&#160;<br/>
+TRUE:&#160;First call&#160;in&#160;a&#160;sequence or&#160;individual&#160;CRC calculation;&#160;start from&#160;initial&#160;<br/>value,&#160;ignore&#160;Crc_StartValue16.&#160;<br/>FALSE: Subsequent call&#160;in&#160;a call&#160;sequence;&#160;Crc_StartValue16 is&#160;interpreted to&#160;<br/>be&#160;the return value&#160;of&#160;the previous&#160;function call.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint16&#160;<br/>
+16&#160;bit result of&#160;CRC&#160;calculation&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service performs&#160;a&#160;CRC16 calculation&#160;synchronously&#160;on&#160;Crc_Length&#160;data&#160;bytes, pointed&#160;to by&#160;<br/>Crc_DataPtr,&#160;with&#160;the&#160;starting&#160;value&#160;of&#160;Crc_StartValue16.&#160;The&#160;CRC16 routine&#160;is&#160;based&#160;on the CCITT&#160;<br/>CRC16&#160;Standard:&#160;<br/>
+<b>CCITT&#160;CRC16&#160;&#160;Standard&#160;</b><br/>
+<b>value&#160;</b><br/>
+CRC&#160;result&#160;width&#160;<br/>
+16&#160;bits&#160;<br/>
+Polynomial&#160;<br/>
+1021h&#160;<br/>
+Initial&#160;value&#160;<br/>
+FFFFh&#160;<br/>
+Input&#160;data&#160;reflected&#160;<br/>
+No&#160;<br/>
+Result&#160;data&#160;reflected&#160;<br/>
+No&#160;<br/>
+XOR&#160;value&#160;<br/>
+0000h&#160;<br/>
+Check&#160;<br/>
+29B1h&#160;<br/>
+Magic&#160;check&#160;<br/>
+0000h&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;CCITT&#160;CRC16&#160;Standard&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;large data blocks&#160;have&#160;to be&#160;calculated&#160;(&gt;32&#160;bytes),&#160;the&#160;table&#160;based&#160;calculation method&#160;<br/>
+should be&#160;configured&#160;in&#160;order&#160;to&#160;decrease&#160;the&#160;calculation time.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;CRC&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;Crc_CalculateCRC16&#160;<br/>
+&#160;<br/>
+<b>5.3.4&#160;</b><br/>
+<b>Crc_CalculateCRC32&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint32&#160;<b>Crc_CalculateCRC32</b>&#160;(Crc_DataRefType&#160;Crc_DataPtr, uint32 Crc_Length,&#160;<br/>uint32&#160;Crc_StartValue32,&#160;boolean Crc_IsFirstCall)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Crc_DataPtr&#160;<br/>
+Pointer&#160;to start address&#160;of&#160;data&#160;block&#160;to&#160;be&#160;calculated&#160;<br/>
+Crc_Length&#160;<br/>
+Length&#160;of&#160;data&#160;to be&#160;calculated (in bytes)&#160;<br/>
+Crc_StartValue32&#160;<br/>
+Value&#160;the&#160;algorithm&#160;starts&#160;with&#160;<br/>
+Crc_IsFirstCall&#160;<br/>
+TRUE:&#160;First call&#160;in&#160;a&#160;sequence&#160;or individual&#160;CRC calculation;&#160;start from&#160;initial&#160;<br/>value,&#160;ignore&#160;Crc_StartValue32.&#160;<br/>FALSE: Subsequent call&#160;in&#160;a call&#160;sequence;&#160;Crc_StartValue32 is&#160;interpreted to&#160;<br/>be&#160;the return value&#160;of&#160;the previous&#160;function call.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint32&#160;<br/>
+32&#160;bit result of&#160;CRC&#160;calculation&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-16_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service performs&#160;a&#160;CRC32 calculation&#160;synchronously&#160;on&#160;Crc_Length&#160;data&#160;bytes, pointed&#160;to by&#160;<br/>Crc_DataPtr,&#160;with&#160;the&#160;starting&#160;value&#160;of&#160;Crc_StartValue32.&#160;The&#160;CRC32 routine&#160;is&#160;based&#160;on the IEEE-802.3&#160;<br/>CRC32&#160;Ethernet&#160;Standard:&#160;<br/>
+<b>IEEE-802.3&#160;CRC32&#160;Ethernet&#160;Standard&#160;</b><br/>
+<b>value&#160;</b><br/>
+CRC&#160;result&#160;width&#160;<br/>
+32&#160;bits&#160;<br/>
+Polynomial&#160;<br/>
+04C11DB7h&#160;<br/>
+Initial&#160;value&#160;<br/>
+FFFFFFFFh&#160;<br/>
+Input&#160;data&#160;reflected&#160;<br/>
+Yes&#160;<br/>
+Result&#160;data&#160;reflected&#160;<br/>
+Yes&#160;<br/>
+XOR&#160;value&#160;<br/>
+FFFFFFFFh&#160;<br/>
+Check&#160;<br/>
+CBF43926h&#160;<br/>
+Magic&#160;check*&#160;<br/>
+DEBB20E3h&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;IEEE-802.3&#160;CRC32&#160;Ethernet&#160;Standard&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>*Important&#160;note&#160;<br/></b>To&#160;match&#160;the&#160;magic&#160;check&#160;value,&#160;the&#160;CRC&#160;must&#160;be appended&#160;in little endian&#160;format,&#160;<br/>
+&#160;&#160;i.e.&#160;low&#160;significant&#160;byte&#160;first.&#160;This&#160;is&#160;due&#160;to&#160;the&#160;reflections&#160;of&#160;the&#160;input&#160;and&#160;the result.&#160;<br/>
+Example of&#160;magic&#160;check:&#160;calculation of&#160;IEEE-802.3&#160;CRC32&#160;over&#160;data&#160;bytes&#160;31h 32h&#160;<br/>33h 34h 35h&#160;36h 37h&#160;38h 39h:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC generation:&#160;CRC&#160;over 31h&#160;32h&#160;33h&#160;34h&#160;35h&#160;36h&#160;37h&#160;38h&#160;39h,&#160;<br/>
+initial value&#160;FFFFFFFFh:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC-result:&#160;CBh&#160;F4h&#160;39h&#160;26h&#160;(See&#160;check&#160;value)&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC check:&#160;CRC over 31h&#160;32h&#160;33h&#160;34h&#160;35h&#160;36h&#160;37h&#160;38h&#160;39h&#160;26h&#160;39h&#160;<br/>
+F4h&#160;CBh&#160;(CRC-result&#160;was appended&#160;to&#160;data&#160;bytes in&#160;little&#160;endian&#160;<br/>format), initial value&#160;FFFFFFFFh:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC-result:&#160;21h&#160;44h&#160;DFh&#160;1Ch&#160;<br/>
+<b>&gt;&#160;&#160;</b>Magic check = CRC-result XORed&#160;with&#160;‘XOR&#160;value’:&#160;<br/>
+DEBB20E3h&#160;= 2144DF1Ch&#160;xor FFFFFFFFh&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;large data blocks&#160;have&#160;to be&#160;calculated&#160;(&gt;32&#160;bytes),&#160;the&#160;table&#160;based&#160;calculation method&#160;<br/>
+should be&#160;configured&#160;in&#160;order&#160;to&#160;decrease&#160;the&#160;calculation time.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There&#160;is&#160;no&#160;specific&#160;caller.&#160;CRC&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Crc_CalculateCRC32&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>5.3.5&#160;</b><br/>
+<b>Crc_CalculateCRC32P4&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint32&#160;<b>Crc_CalculateCRC32P4</b>&#160;(Crc_DataRefType&#160;Crc_DataPtr, uint32 Crc_Length,&#160;<br/>uint32&#160;Crc_StartValue32,&#160;boolean Crc_IsFirstCall)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Crc_DataPtr&#160;<br/>
+Pointer&#160;to start address&#160;of&#160;data&#160;block&#160;to&#160;be&#160;calculated&#160;<br/>
+Crc_Length&#160;<br/>
+Length&#160;of&#160;data&#160;to be&#160;calculated (in bytes)&#160;<br/>
+Crc_StartValue32&#160;<br/>
+Value&#160;the&#160;algorithm&#160;starts&#160;with&#160;<br/>
+Crc_IsFirstCall&#160;<br/>
+TRUE:&#160;First call&#160;in&#160;a&#160;sequence or&#160;individual&#160;CRC calculation;&#160;start from&#160;initial&#160;<br/>value,&#160;ignore&#160;Crc_StartValue32.&#160;<br/>FALSE: Subsequent call&#160;in&#160;a call&#160;sequence;&#160;Crc_StartValue32 is&#160;interpreted to&#160;<br/>be&#160;the return value&#160;of&#160;the previous&#160;function call.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint32&#160;<br/>
+32&#160;bit result of&#160;CRC calculation&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service performs&#160;a&#160;CRC32 calculation synchronously&#160;on&#160;Crc_Length&#160;data&#160;bytes, pointed&#160;to by&#160;<br/>Crc_DataPtr,&#160;with&#160;the&#160;starting&#160;value&#160;of&#160;Crc_StartValue32.&#160;The&#160;CRC32 routine&#160;is&#160;based&#160;on the 0xF4ACFB13&#160;<br/>polynomial&#160;(E2E&#160;Protection&#160;Profile&#160;4):&#160;<br/>
+&#160;<br/>
+<b>CRC&#160;32&#160;routine&#160;based&#160;on&#160;0xF4ACFB13&#160;</b><br/>
+<b>value&#160;</b><br/>
+<b>polyonmial&#160;<br/></b>CRC&#160;result&#160;width&#160;<br/>
+32&#160;bits&#160;<br/>
+Polynomial&#160;<br/>
+F4ACFB13h&#160;<br/>
+Initial&#160;value&#160;<br/>
+FFFFFFFFh&#160;<br/>
+Input&#160;data&#160;reflected&#160;<br/>
+Yes&#160;<br/>
+Result&#160;data&#160;reflected&#160;<br/>
+Yes&#160;<br/>
+XOR&#160;value&#160;<br/>
+FFFFFFFFh&#160;<br/>
+Check&#160;<br/>
+1697D06Ah&#160;<br/>
+Magic&#160;check&#160;<br/>
+6FB32240h&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;CRC32&#160;calculation&#160;based&#160;on&#160;0xF4ACFB13&#160;polynomial&#160;(E2E&#160;Protection&#160;Profile&#160;4)&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;large data&#160;blocks&#160;have to&#160;be&#160;calculated&#160;(&gt;32&#160;bytes), the&#160;table based calculation&#160;method&#160;should be&#160;<br/>
+configured&#160;in&#160;order&#160;to decrease the&#160;calculation&#160;time.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is&#160;no&#160;specific&#160;caller.&#160;CRC can&#160;be&#160;called from&#160;anywhere.&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;Crc_CalculateCRC32P4&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-18_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>5.3.6&#160;</b><br/>
+<b>Crc_CalculateCRC64&#160;</b><br/>
+&#160;<br/>
+<b>Prototype&#160;</b><br/>
+uint64&#160;<b>Crc_CalculateCRC64</b>&#160;(Crc_DataRefType&#160;Crc_DataPtr, uint32 Crc_Length,&#160;<br/>uint64 Crc_StartValue64, boolean Crc_IsFirstCall)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Crc_DataPtr&#160;<br/>
+Pointer&#160;to start address&#160;of&#160;data&#160;block&#160;to&#160;be&#160;calculated&#160;<br/>
+Crc_Length&#160;<br/>
+Length&#160;of&#160;data&#160;to be&#160;calculated (in bytes)&#160;<br/>
+Crc_StartValue64&#160;<br/>
+Value&#160;the&#160;algorithm&#160;starts&#160;with&#160;<br/>
+Crc_IsFirstCall&#160;<br/>
+TRUE:&#160;First call&#160;in&#160;a&#160;sequence or&#160;individual&#160;CRC calculation;&#160;start&#160;<br/>from&#160;initial&#160;value,&#160;ignore Crc_StartValue64.&#160;<br/>FALSE: Subsequent call&#160;in&#160;a call&#160;sequence;&#160;Crc_StartValue64 is&#160;<br/>interpreted&#160;to&#160;be&#160;the&#160;return&#160;value&#160;of&#160;the previous&#160;function&#160;call.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint64&#160;<br/>
+64&#160;bit result of&#160;CRC calculation&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service performs&#160;a&#160;CRC64 calculation synchronously&#160;on&#160;Crc_Length&#160;data&#160;bytes, pointed&#160;to by&#160;<br/>Crc_DataPtr,&#160;with&#160;the&#160;starting&#160;value&#160;of&#160;Crc_StartValue64.&#160;The&#160;CRC64 routine&#160;is&#160;based&#160;on the ECMA&#160;<br/>Standard&#160;used&#160;by&#160;E2E&#160;Profile&#160;7:&#160;<br/>
+<b>ECMA&#160;Standard&#160;</b><br/>
+<b>value&#160;</b><br/>
+CRC&#160;result&#160;width&#160;<br/>
+64&#160;bits&#160;<br/>
+Polynomial&#160;<br/>
+42F0E1EBA9EA3693h&#160;<br/>
+Initial&#160;value&#160;<br/>
+FFFFFFFFFFFFFFFFh&#160;<br/>
+Input&#160;data&#160;reflected&#160;<br/>
+Yes&#160;<br/>
+Result&#160;data&#160;reflected&#160;<br/>
+Yes&#160;<br/>
+XOR&#160;value&#160;<br/>
+FFFFFFFFFFFFFFFFh&#160;<br/>
+Check&#160;<br/>
+995DC9BBDF1939FAh&#160;<br/>
+Magic&#160;check*&#160;<br/>
+49958C9ABD7D353Fh&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;IEEE-802.3&#160;CRC32&#160;Ethernet&#160;Standard&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>*Important&#160;note&#160;<br/></b>To&#160;match&#160;the&#160;magic&#160;check&#160;value,&#160;the&#160;CRC&#160;must&#160;be appended&#160;in little endian&#160;format,&#160;<br/>
+&#160;&#160;i.e.&#160;low&#160;significant&#160;byte&#160;first.&#160;This&#160;is&#160;due&#160;to&#160;the&#160;reflections&#160;of&#160;the&#160;input&#160;and&#160;the result.&#160;<br/>
+Example of&#160;magic&#160;check:&#160;calculation of&#160;ECMA&#160;CRC64&#160;over&#160;data&#160;bytes 31h&#160;32h 33h&#160;<br/>34h 35h 36h&#160;37h 38h&#160;39h:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC generation:&#160;CRC&#160;over 31h&#160;32h&#160;33h&#160;34h&#160;35h&#160;36h&#160;37h&#160;38h&#160;39h,&#160;<br/>
+initial value&#160;FFFFFFFFFFFFFFFFh:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC-result:&#160;99h&#160;5Dh&#160;C9h&#160;BBh&#160;DFh19h&#160;39h&#160;FAh&#160;(See&#160;check value)&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC check:&#160;CRC over 31h&#160;32h&#160;33h&#160;34h&#160;35h&#160;36h&#160;37h&#160;38h&#160;39h&#160;FAh&#160;39h&#160;<br/>
+19h&#160;DFh&#160;BBh&#160;C9h&#160;5Dh&#160;99h&#160;(CRC-result was appended&#160;to&#160;data&#160;bytes in&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+little&#160;endian&#160;format), initial value&#160;FFFFFFFFFFFFFFFFh:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRC-result:&#160;B6h&#160;6Ah&#160;73h&#160;65h&#160;42h&#160;82h&#160;CAh&#160;C0h&#160;<br/>
+<b>&gt;&#160;&#160;</b>Magic check = CRC-result XORed&#160;with&#160;‘XOR&#160;value’:&#160;<br/>
+49958C9ABD7D353Fh&#160;=&#160;B66A73654282CAC0h&#160;XOR&#160;<br/>FFFFFFFFFFFFFFFFh&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&gt;&#160;&#160;If&#160;large data&#160;blocks&#160;have to&#160;be&#160;calculated&#160;(&gt;32&#160;bytes), the&#160;table based calculation&#160;method&#160;should be&#160;<br/>
+configured&#160;in&#160;order&#160;to decrease the&#160;calculation&#160;time.&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;There is&#160;no&#160;specific&#160;caller.&#160;CRC can&#160;be&#160;called from&#160;anywhere.&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;Crc_CalculateCRC64&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>5.3.7&#160;</b><br/>
+<b>Crc_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Crc_GetVersionInfo&#160;</b>(&#160;Std_VersionInfoType *Versioninfo&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Versioninfo&#160;<br/>
+Pointer&#160;to&#160;where to store the version&#160;information&#160;of&#160;this&#160;module&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service returns&#160;the&#160;version information&#160;of&#160;the module.&#160;The&#160;version information includes:&#160;<br/><b>&gt;&#160;&#160;</b>Module ID&#160;<br/>
+<b>&gt;&#160;&#160;</b>Vendor&#160;ID&#160;<br/>
+<b>&gt;&#160;&#160;</b>Vendor&#160;specific&#160;version numbers&#160;<br/>
+This&#160;function&#160;is&#160;pre-compile time configurable&#160;On/Off&#160;by&#160;the&#160;configuration&#160;parameter&#160;<br/>CrcVersionInfoApi.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Application&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;Crc_GetVersionInfo&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;CRC&#160;</b><br/>
+The&#160;CRC&#160;component&#160;does not&#160;use&#160;services&#160;from&#160;other modules.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+Module&#160;CRC’s&#160;functions do&#160;not&#160;provide&#160;any&#160;callback&#160;functions.&#160;<br/>
+<b>5.6&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>5.6.1&#160;</b><br/>
+<b>Notifications&#160;</b><br/>
+The&#160;CRC&#160;module&#160;does&#160;not&#160;provide&#160;notifications&#160;for&#160;upper&#160;layers.&#160;The&#160;CRC&#160;routines&#160;return&#160;<br/>the&#160;checksum;&#160;this value&#160;will be&#160;evaluated&#160;by&#160;application&#160;or other&#160;modules.&#160;<br/>
+<b>5.6.2&#160;</b><br/>
+<b>Callout Functions&#160;&#160;</b><br/>
+The&#160;CRC&#160;module&#160;does&#160;not&#160;provide&#160;callout&#160;functions.&#160;<br/>
+<b>5.6.3&#160;</b><br/>
+<b>Hook&#160;Functions&#160;&#160;</b><br/>
+The&#160;CRC&#160;module&#160;does&#160;not&#160;provide&#160;hook&#160;functions.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;CRC&#160;supports the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;configuration&#160;classes&#160;of&#160;the&#160;CRC&#160;parameters&#160;depend&#160;on&#160;the&#160;supported&#160;configuration&#160;<br/>variants.&#160;For their&#160;definitions please&#160;see&#160;the&#160;Crc_bswmd.arxml file.&#160;<br/>CRC can&#160;be&#160;configured&#160;using&#160;the&#160;following&#160;tool:&#160;<br/>
+<b>&gt;&#160;&#160;</b>DaVinci Configurator&#160;5&#160;(AUTOSAR 4&#160;packages&#160;only). Parameters are explained&#160;within&#160;<br/>
+the&#160;tool.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+CRC&#160;<br/>
+Cyclic&#160;Redundancy&#160;Check&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application&#160;Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+CCITT&#160;<br/>
+Commité&#160;Consultatif&#160;Internationale&#160;Télégrafique&#160;et&#160;Téléfonique&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+E2E&#160;<br/>
+End&#160;to End&#160;<br/>
+ECMA&#160;<br/>
+European&#160;Computer&#160;Manufacturers&#160;Association&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+IEEE&#160;<br/>
+Institute&#160;of&#160;Electrical&#160;and&#160;Electronics&#160;Engineers&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+NVRAM&#160;Manager&#160;<br/>
+Non&#160;Volatile&#160;Random&#160;Access&#160;Memory&#160;Manager&#160;<br/>
+ROM&#160;<br/>
+Read Only&#160;Memory&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SAE&#160;<br/>
+Society&#160;of&#160;Automotive Engineers&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crc/doc/TechnicalReference_Crc-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRC&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;4.03.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_Crcs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#8">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#9">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#9">3.1.1 Deviations</a></li>
+<li><a href="TechnicalReference_Crcs.html#10">3.1.2 Additions/ Extensions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#10">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_Crcs.html#10">3.3 States</a></li>
+<li><a href="TechnicalReference_Crcs.html#10">3.4 Main Functions</a></li>
+<li><a href="TechnicalReference_Crcs.html#10">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#10">3.5.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_Crcs.html#10">3.5.2 Production Code Error Reporting</a></li>
+<li><a href="TechnicalReference_Crcs.html#10">3.5.3 Parameter Checking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#11">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#11">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#11">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Crcs.html#11">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#11">4.2 Include Structure</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#12">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#12">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_Crcs.html#12">5.2 Interrupt Service Routines provided by CRC</a></li>
+<li><a href="TechnicalReference_Crcs.html#12">5.3 Services provided by CRC</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#12">5.3.1 Crc_CalculateCRC8</a></li>
+<li><a href="TechnicalReference_Crcs.html#13">5.3.2 Crc_CalculateCRC8H2F</a></li>
+<li><a href="TechnicalReference_Crcs.html#14">5.3.3 Crc_CalculateCRC16</a></li>
+<li><a href="TechnicalReference_Crcs.html#15">5.3.4 Crc_CalculateCRC32</a></li>
+<li><a href="TechnicalReference_Crcs.html#17">5.3.5 Crc_CalculateCRC32P4</a></li>
+<li><a href="TechnicalReference_Crcs.html#18">5.3.6 Crc_CalculateCRC64</a></li>
+<li><a href="TechnicalReference_Crcs.html#19">5.3.7 Crc_GetVersionInfo</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#19">5.4 Services used by CRC</a></li>
+<li><a href="TechnicalReference_Crcs.html#20">5.5 Callback Functions</a></li>
+<li><a href="TechnicalReference_Crcs.html#20">5.6 Configurable Interfaces</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#20">5.6.1 Notifications</a></li>
+<li><a href="TechnicalReference_Crcs.html#20">5.6.2 Callout Functions</a></li>
+<li><a href="TechnicalReference_Crcs.html#20">5.6.3 Hook Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#21">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#21">6.1 Configuration Variants</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#22">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Crcs.html#22">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_Crcs.html#22">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crcs.html#23">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

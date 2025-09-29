@@ -1,0 +1,293 @@
+---
+title: Optimized SinCos Algorithm Rev 001
+linkTitle: Optimized SinCos Algorithm Rev 001
+weight: 4
+---
+
+<p><strong>Optimized SinCos Algorithm</strong></p>
+<ol type="1">
+<li><p><strong>Background:</strong></p></li>
+</ol>
+<blockquote>
+<p>The following diagram is an overview of the operations that are performed during digital motor angle initialization to compute their correction tables.</p>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.emf" />Generate Reconstructed Waveform Pseudo Code:</p>
+<p><em>for n = 0 to 128</em> // size of correction table</p>
+</blockquote>
+<p><span class="math inline">$ReconstructedWaveform\lbrack n\rbrack \cong \sum_{i = 1}^{12}{Acoeff\lbrack i\rbrack*\cos\left( \frac{n*2pi*i}{127} \right) +}Bcoeff\lbrack i\rbrack*\sin\left( \frac{n*2pi*i}{127} \right)$</span></p>
+<blockquote>
+<p>As shown in the pseudo code there is several calls to the sine and cosine function (128 * 12). Furthermore, the algorithm requires both the sine and cosine of the same angle. During benchmarking activities the following algorithm was developed and shown to have significant time improvements (~= 5.5 mSec vs ~= 2.4 mSec) over the standard sine and cosine library functions.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>Sine and Cosine as Taylor Series:</strong></p></li>
+</ol>
+<p><span class="math display">$$Sin(x) = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!}\ldots$$</span></p>
+<p><span class="math display">$$Cos(x) = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \frac{x^{5}}{5!}\ldots$$</span></p>
+<ol start="3" type="1">
+<li><p><strong>Range Reduction:</strong></p></li>
+</ol>
+<p>Although the Taylor Series for sine and cosine are exact it technically takes an infinite number of terms. The purpose of limiting the value of x into the Taylor Series is so that it doesn’t take many terms before the factorial in the denominator dwarfs the numerator. To limit the input range of x the following identity is used:</p>
+<p><span class="math display"><em>S</em><em>i</em><em>n</em>(<em>A</em>+<em>B</em>) = <em>S</em><em>i</em><em>n</em>(<em>A</em>)<em>C</em><em>o</em><em>s</em>(<em>B</em>) + <em>S</em><em>i</em><em>n</em>(<em>B</em>)<em>C</em><em>o</em><em>s</em>(<em>A</em>)</span></p>
+<p>For reasons that will be discussed later B will be declared as 22.5n, where n is an integer between 0 and 15. Using this technique the largest x input into the Taylor Series will be +/- 11.25 Degrees (0.1963 Radians).</p>
+<p>Now that the maximum input value of x has been established it is possible to determine the number of terms in the Taylor Series that are required to achieve acceptable levels of accuracy.</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 30%" />
+<col style="width: 16%" />
+<col style="width: 25%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong># of Terms</strong></th>
+<th><strong>Sin(x)</strong></th>
+<th><strong>Sin(x) Max Error</strong></th>
+<th><strong>Cos(x)</strong></th>
+<th><strong>Cos(x) Max Error</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td><span class="math display"><em>S</em><em>i</em><em>n</em>(<em>x</em>) = <em>x</em></span></td>
+<td><strong>0.001259</strong></td>
+<td><span class="math display"><em>C</em><em>o</em><em>s</em>(<em>x</em>) = 1</span></td>
+<td><strong>0.0192</strong></td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td><span class="math display">$$Sin(x) = x - \frac{x^{3}}{3!}$$</span></td>
+<td><strong>2.4297E-6</strong></td>
+<td><span class="math display">$$Cos(x) = 1 - \frac{x^{2}}{2!}$$</span></td>
+<td><strong>6.18515E-5</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td><span class="math display">$$Sin(x) = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!}$$</span></td>
+<td><strong>2.2312E-9</strong></td>
+<td><span class="math display">$$Cos(x) = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!}$$</span></td>
+<td><strong>7.953E-8</strong></td>
+</tr>
+</tbody>
+</table>
+<p>As the table above shows an acceptable level of accuracy can be achieved with only 2 terms in the sine and cosine Taylor Series once the input has been range limited to +/- 11.25 degrees.</p>
+<ol start="4" type="1">
+<li><p><strong>Algorithm:</strong></p></li>
+</ol>
+<p><strong>Calculate n &amp; B:</strong></p>
+<p>As shown before, n is the largest integer that satisfies: 22.5n &lt; x. This can be performed using integer math where:</p>
+<p><span class="math display">$$n = floor\left( \frac{x*8}{\pi} \right):where\frac{8}{\pi}Radians = 22.5\ Degrees$$</span></p>
+<p>The above equation will leave a remainder that ranges from 0 to 22.5 degrees. By adding in a 0.5 term the result will round up leaving a remainder with the desired range of +/- 11.25 Degrees. Therefore n is calculated as:</p>
+<p><span class="math display">$$n = floor\left( \frac{x*8}{\pi} + 0.5 \right)$$</span></p>
+<p>The B term is a simple multiple of n:</p>
+<p><span class="math display">$$B = \frac{\pi}{8}*n$$</span></p>
+<p><strong>Determine A:</strong></p>
+<p>The A term is the effective remainder of the input angle <em>x</em> minus the B term.</p>
+<p><span class="math inline"></span><span class="math display"><em>A</em> = <em>x</em> − <em>B</em></span></p>
+<p><strong>Compute Sin(A) &amp; Cos(A):</strong></p>
+<p>Once input x has been range limited into A the term limited Taylor Series of sine and cosine can be computed:</p>
+<p><span class="math display">$$Sin(A) = A - \frac{A^{3}}{3!}$$</span></p>
+<p><span class="math display">$$Cos(A) = 1 - \frac{A^{2}}{2!}$$</span></p>
+<p><strong>Compute Sin(x):</strong></p>
+<p>Now that Sin(A) &amp; Cos(A) have been determined they can be combined with Sin(B) &amp; Cos(B) to determine Sin(x). The B term is a function of n, which was earlier stated to be a multiple of 22.5 degrees of which there are 16 per revolution. Input x is has no theoretical bound but determining Sin(B) &amp; Cos(B) can be simplified by normalizing n into a single revolution. With n having 16 steps per revolution the normalization is a simple bit mask.</p>
+<p><span class="math display"><em>n</em><sub><em>n</em><em>r</em><em>m</em><em>l</em></sub> = <em>n</em> &amp; 0<em>x</em><em>F</em></span></p>
+<p>With normalized n determined it can be used as an index into a switch case statement to determine Sin(x)</p>
+<p>Switch (n_nrml)</p>
+<p>Case 0:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 0) + Sin(22.5 * 0)Cos(A)</p>
+<p>Case 1:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 1) + Sin(22.5 * 1)Cos(A)</p>
+<p>Case 2:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 2) + Sin(22.5 * 2)Cos(A)</p>
+<p>Case 3:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 3) + Sin(22.5 * 3)Cos(A)</p>
+<p>Case 4:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 4) + Sin(22.5 * 4)Cos(A)</p>
+<p>Case 5:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 5) + Sin(22.5 * 5)Cos(A)</p>
+<p>Case 6:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 6) + Sin(22.5 * 6)Cos(A)</p>
+<p>Case 7:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 7) + Sin(22.5 * 7)Cos(A)</p>
+<p>Case 8:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 8) + Sin(22.5 * 8)Cos(A)</p>
+<p>Case 9:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 9) + Sin(22.5 * 9)Cos(A)</p>
+<p>Case 10:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 10) + Sin(22.5 * 10)Cos(A)</p>
+<p>Case 11:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 11) + Sin(22.5 * 11)Cos(A)</p>
+<p>Case 12:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 12) + Sin(22.5 * 12)Cos(A)</p>
+<p>Case 13:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 13) + Sin(22.5 * 13)Cos(A)</p>
+<p>Case 14:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 14) + Sin(22.5 * 14)Cos(A)</p>
+<p>Case 15:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 15) + Sin(22.5 * 15)Cos(A)</p>
+<p>The Sin(B) &amp; Cos(B) terms above can be simplified due to their symmetrical nature into 3 predefined constants:</p>
+<p><span class="math inline"></span><span class="math display"><em>S</em><em>i</em><em>n</em>(22.5) = <em>C</em><em>o</em><em>s</em>(67.5) = 0.38263</span></p>
+<p><span class="math display"><em>S</em><em>i</em><em>n</em>(45.0) = <em>C</em><em>o</em><em>s</em>(45.0) = 0.70710</span></p>
+<p><span class="math display"><em>S</em><em>i</em><em>n</em>(67.5) = <em>C</em><em>o</em><em>s</em>(22.5) = 0.92387</span></p>
+<p><strong>Cos(x) for Free (almost):</strong></p>
+<p>The previous calculation computed Sin(x) as a function of Sin(A), Cos(A), Sin(B) &amp; Cos(B). As it turns out cosine has a similar trig identity that uses the exact same terms.</p>
+<p><span class="math display"><em>C</em><em>o</em><em>s</em>(<em>A</em>+<em>B</em>) = <em>C</em><em>o</em><em>s</em>(<em>A</em>)<em>C</em><em>o</em><em>s</em>(<em>B</em>) − <em>S</em><em>i</em><em>n</em>(<em>A</em>)<em>S</em><em>i</em><em>n</em>(<em>B</em>)</span></p>
+<p>The switch case can be modified to simultaneously be used to return the sine and cosine of the same angle at the same time:</p>
+<p>Switch (n_nrml)</p>
+<p>Case 0:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 0) + Sin(22.5 * 0)Cos(A)</p>
+<blockquote>
+<p>Cosx = Cos(A)Cos(22.5 * 0) + Sin(A) Sin(22.5 * 0)</p>
+</blockquote>
+<p>Case 1:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 1) + Sin(22.5 * 1)Cos(A)</p>
+<blockquote>
+<p>Cosx = Cos(A)Cos(22.5 * 1) + Sin(A) Sin(22.5 * 1)</p>
+</blockquote>
+<p>Case 2:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 2) + Sin(22.5 * 2)Cos(A)</p>
+<blockquote>
+<p>Cosx = Cos(A)Cos(22.5 * 2) + Sin(A) Sin(22.5 * 2)</p>
+</blockquote>
+<p>Case 3:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 3) + Sin(22.5 * 3)Cos(A)</p>
+<blockquote>
+<p>Cosx = Cos(A)Cos(22.5 * 3) + Sin(A) Sin(22.5 * 3)</p>
+</blockquote>
+<p>Case 4:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 4) + Sin(22.5 * 4)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 4) + Sin(A) Sin(22.5 * 4)</p>
+<p>Case 5:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 5) + Sin(22.5 * 5)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 5) + Sin(A) Sin(22.5 * 5)</p>
+<p>Case 6:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 6) + Sin(22.5 * 6)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 6) + Sin(A) Sin(22.5 * 6)</p>
+<p>Case 7:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 7) + Sin(22.5 * 7)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 7) + Sin(A) Sin(22.5 * 7)</p>
+<p>Case 8:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 8) + Sin(22.5 * 8)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 8) + Sin(A) Sin(22.5 * 8)</p>
+<p>Case 9:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 9) + Sin(22.5 * 9)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 9) + Sin(A) Sin(22.5 * 9)</p>
+<p>Case 10:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 10) + Sin(22.5 * 10)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 10) + Sin(A) Sin(22.5 *10)</p>
+<p>Case 11:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 11) + Sin(22.5 * 11)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 11) + Sin(A) Sin(22.5 * 11)</p>
+<p>Case 12:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 12) + Sin(22.5 * 12)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 12) + Sin(A) Sin(22.5 * 12)</p>
+<p>Case 13:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 13) + Sin(22.5 * 13)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 13) + Sin(A) Sin(22.5 * 13)</p>
+<p>Case 14:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 14) + Sin(22.5 * 14)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 14) + Sin(A) Sin(22.5 * 14)</p>
+<p>Case 15:</p>
+<p>Sinx = Sin(A)Cos(22.5 * 15) + Sin(22.5 * 15)Cos(A)</p>
+<p>Cosx = Cos(A)Cos(22.5 * 15) + Sin(A) Sin(22.5 * 15)</p>
+<ol start="5" type="1">
+<li><p><strong>Performance:</strong></p></li>
+</ol>
+<p>The following graph shows the output and error of the algorithm. The maximum errors for sine and cosine are:</p>
+<p>SinErrorMax = 6.1799e-05</p>
+<p>CosErrorMax = 6.1618e-05</p>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:6.5in;height:4.86944in" /></p>
+<ol start="6" type="1">
+<li><p><strong>Matlab Code:</strong></p></li>
+</ol>
+<p>%% Optimized SinCos Algorithm</p>
+<p>ArraySize = uint16(100000);</p>
+<p>PiOverEight = pi/8;</p>
+<p>EightOverPi = 8/pi;</p>
+<p>sin225 = sin(22.5/180*pi);</p>
+<p>sin450 = sin(45.0/180*pi);</p>
+<p>sin675 = sin(67.5/180*pi);</p>
+<p>x = linspace(-2*pi, 2*pi,ArraySize)';</p>
+<p>SinX = zeros(ArraySize,1);</p>
+<p>CosX = zeros(ArraySize,1);</p>
+<p>n = int16(floor(x * EightOverPi + 0.5));</p>
+<p>A = (x - double(n) * PiOverEight);</p>
+<p>SinA = A - (A.^3)/6;%+(A.^5)/120;</p>
+<p>CosA = 1 - (A.^2)/2;%+(A.^4)/24;</p>
+<p>n_nrml = bitand(n,15);</p>
+<p>for i = 1:ArraySize</p>
+<p>switch n_nrml(i)</p>
+<p>case 0</p>
+<p>SinX(i) = SinA(i);</p>
+<p>CosX(i) = CosA(i);</p>
+<p>case 1</p>
+<p>SinX(i) = sin675 * SinA(i) + sin225 * CosA(i);</p>
+<p>CosX(i) = -sin225 * SinA(i) + sin675 * CosA(i);</p>
+<p>case 2</p>
+<p>SinX(i) = sin450 * SinA(i) + sin450 * CosA(i);</p>
+<p>CosX(i) = -sin450 * SinA(i) + sin450 * CosA(i);</p>
+<p>case 3</p>
+<p>SinX(i) = sin225 * SinA(i) + sin675 * CosA(i);</p>
+<p>CosX(i) = -sin675 * SinA(i) + sin225 * CosA(i);</p>
+<p>case 4</p>
+<p>SinX(i) = CosA(i);</p>
+<p>CosX(i) = -SinA(i);</p>
+<p>case 5</p>
+<p>SinX(i) = -sin225 * SinA(i) + sin675 * CosA(i);</p>
+<p>CosX(i) = -sin675 * SinA(i) + -sin225 * CosA(i);</p>
+<p>case 6</p>
+<p>SinX(i) = -sin450 * SinA(i) + sin450 * CosA(i);</p>
+<p>CosX(i) = -sin450 * SinA(i) + -sin450 * CosA(i);</p>
+<p>case 7</p>
+<p>SinX(i) = -sin675 * SinA(i) + sin225 * CosA(i);</p>
+<p>CosX(i) = -sin225 * SinA(i) + -sin675 * CosA(i);</p>
+<p>case 8</p>
+<p>SinX(i) = -SinA(i);</p>
+<p>CosX(i) = -CosA(i);</p>
+<p>case 9</p>
+<p>SinX(i) = -sin675 * SinA(i) + -sin225 * CosA(i);</p>
+<p>CosX(i) = sin225 * SinA(i) + -sin675 * CosA(i);</p>
+<p>case 10</p>
+<p>SinX(i) = -sin450 * SinA(i) + -sin450 * CosA(i);</p>
+<p>CosX(i) = sin450 * SinA(i) + -sin450 * CosA(i);</p>
+<p>case 11</p>
+<p>SinX(i) = -sin225 * SinA(i) + -sin675 * CosA(i);</p>
+<p>CosX(i) = sin675 * SinA(i) + -sin225 * CosA(i);</p>
+<p>case 12</p>
+<p>SinX(i) = -CosA(i);</p>
+<p>CosX(i) = SinA(i);</p>
+<p>case 13</p>
+<p>SinX(i) = sin225 * SinA(i) + -sin675 * CosA(i);</p>
+<p>CosX(i) = sin675 * SinA(i) + sin225 * CosA(i);</p>
+<p>case 14</p>
+<p>SinX(i) = sin450 * SinA(i) + -sin450 * CosA(i);</p>
+<p>CosX(i) = sin450 * SinA(i) + sin450 * CosA(i);</p>
+<p>case 15</p>
+<p>SinX(i) = sin675 * SinA(i) + -sin225 * CosA(i);</p>
+<p>CosX(i) = sin225 * SinA(i) + sin675 * CosA(i);</p>
+<p>end</p>
+<p>end</p>
+<p>SinError = sin(x) - SinX;</p>
+<p>CosError = cos(x) - CosX;</p>
+<p>SinErrorMax = max(SinError)</p>
+<p>CosErrorMax = max(CosError)</p>
+<p>subplot(2,2,1) % first subplot</p>
+<p>plot(x*180/pi,SinX)</p>
+<p>title('Sin(x)')</p>
+<p>xlabel('Angle (Degrees)')</p>
+<p>ylabel('Sin(x) (Unitless)')</p>
+<p>subplot(2,2,2) % second subplot</p>
+<p>plot(x*180/pi,CosX)</p>
+<p>title('Cos(x)')</p>
+<p>xlabel('Angle (Degrees)')</p>
+<p>ylabel('Cos(x) (Unitless)')</p>
+<p>subplot(2,2,3) % third subplot</p>
+<p>plot(x*180/pi,SinError)</p>
+<p>title('Sin(x) Error')</p>
+<p>xlabel('Angle (Degrees)')</p>
+<p>ylabel('Sin(x) Error (Unitless)')</p>
+<p>subplot(2,2,4) % fourth subplot</p>
+<p>plot(x*180/pi,CosError)</p>
+<p>title('Cos(x) Error')</p>
+<p>xlabel('Angle (Degrees)')</p>
+<p>ylabel('Cos(x) Error (Unitless)')</p>

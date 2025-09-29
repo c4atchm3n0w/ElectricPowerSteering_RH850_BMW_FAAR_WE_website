@@ -1,0 +1,433 @@
+---
+title: StmClassic_IntegrationManuals
+linkTitle: StmClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-1_1.png"/><br/>
+Stm&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.2.0<br/>
+2017-12-14<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;14<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="StmClassic_IntegrationManuals.html#3"><b>1&#160;Introduction</b></a><br/>
+<b>3</b><br/>
+<a href="StmClassic_IntegrationManuals.html#3">1.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#3">General</a><br/>
+3<br/>
+<a href="StmClassic_IntegrationManuals.html#3">1.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#3">Functional&#160;overview</a><br/>
+3<br/>
+<a href="StmClassic_IntegrationManuals.html#4"><b>2&#160;Acronyms&#160;and&#160;abbreviations</b></a><br/>
+<b>4</b><br/>
+<a href="StmClassic_IntegrationManuals.html#5"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="StmClassic_IntegrationManuals.html#6"><b>4&#160;Limitations&#160;and&#160;Known&#160;Issues</b></a><br/>
+<b>6</b><br/>
+<a href="StmClassic_IntegrationManuals.html#7"><b>5&#160;Software&#160;Architecture</b></a><br/>
+<b>7</b><br/>
+<a href="StmClassic_IntegrationManuals.html#7">5.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#7">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+7<br/>
+<a href="StmClassic_IntegrationManuals.html#7">5.1.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#7">RTE</a><br/>
+7<br/>
+<a href="StmClassic_IntegrationManuals.html#7">5.1.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#7">Com</a><br/>
+7<br/>
+<a href="StmClassic_IntegrationManuals.html#7">5.1.3</a><br/>
+<a href="StmClassic_IntegrationManuals.html#7">Dem</a><br/>
+7<br/>
+<a href="StmClassic_IntegrationManuals.html#7">5.1.4</a><br/>
+<a href="StmClassic_IntegrationManuals.html#7">BswM</a><br/>
+7<br/>
+<a href="StmClassic_IntegrationManuals.html#7">5.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#7">Dependencies&#160;to&#160;BMW&#160;modules</a><br/>
+7<br/>
+<a href="StmClassic_IntegrationManuals.html#8"><b>6&#160;Integration</b></a><br/>
+<b>8</b><br/>
+<a href="StmClassic_IntegrationManuals.html#8">6.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#8">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+8<br/>
+<a href="StmClassic_IntegrationManuals.html#8">6.1.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#8">Com</a><br/>
+8<br/>
+<a href="StmClassic_IntegrationManuals.html#8">6.1.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#8">BswM</a><br/>
+8<br/>
+<a href="StmClassic_IntegrationManuals.html#9">6.1.3</a><br/>
+<a href="StmClassic_IntegrationManuals.html#9">Dem</a><br/>
+9<br/>
+<a href="StmClassic_IntegrationManuals.html#9">6.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#9">Configuration</a><br/>
+9<br/>
+<a href="StmClassic_IntegrationManuals.html#9">6.2.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#9">StmGeneral</a><br/>
+9<br/>
+<a href="StmClassic_IntegrationManuals.html#11">6.3</a><br/>
+<a href="StmClassic_IntegrationManuals.html#11">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+11<br/>
+<a href="StmClassic_IntegrationManuals.html#11">6.3.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#11">Assembly&#160;connectors</a><br/>
+11<br/>
+<a href="StmClassic_IntegrationManuals.html#12">6.3.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#12">Event&#160;Mapping</a><br/>
+12<br/>
+<a href="StmClassic_IntegrationManuals.html#12">6.3.3</a><br/>
+<a href="StmClassic_IntegrationManuals.html#12">Data&#160;Mapping</a><br/>
+12<br/>
+<a href="StmClassic_IntegrationManuals.html#13">6.3.4</a><br/>
+<a href="StmClassic_IntegrationManuals.html#13">Exclusive&#160;Areas</a><br/>
+13<br/>
+<a href="StmClassic_IntegrationManuals.html#13">6.4</a><br/>
+<a href="StmClassic_IntegrationManuals.html#13">Software&#160;Integration</a><br/>
+13<br/>
+<a href="StmClassic_IntegrationManuals.html#13">6.4.1</a><br/>
+<a href="StmClassic_IntegrationManuals.html#13">SWCD</a><br/>
+13<br/>
+<a href="StmClassic_IntegrationManuals.html#14">6.4.2</a><br/>
+<a href="StmClassic_IntegrationManuals.html#14">Startup/Initialisation</a><br/>
+14<br/>
+<a href="StmClassic_IntegrationManuals.html#14">6.4.3</a><br/>
+<a href="StmClassic_IntegrationManuals.html#14">Normal&#160;Operation</a><br/>
+14<br/>
+<a href="StmClassic_IntegrationManuals.html#14">6.4.4</a><br/>
+<a href="StmClassic_IntegrationManuals.html#14">Shutdown/Deactivation</a><br/>
+14<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;14<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;and&#160;integration&#160;of&#160;the<br/>BMW&#160;System&#160;Function&#160;Stm.<br/>
+<b>General</b><br/>
+For&#160;a&#160;general&#160;introduction&#160;to&#160;the&#160;BAC4&#160;Platform&#160;Modules,&#160;please&#160;refer&#160;to&#160;[1].<br/>
+This&#160;document&#160;only&#160;describes&#160;topics&#160;related&#160;to&#160;the&#160;Stm&#160;BAC4&#160;Module.<br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;of&#160;the&#160;BMW&#160;system<br/>function&#160;Stm.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Stm&#160;functionality&#160;is&#160;to&#160;supervise&#160;signals&#160;that&#160;are&#160;communicated&#160;on&#160;the&#160;system<br/>busses&#160;and&#160;maintain&#160;these&#160;states&#160;for&#160;the&#160;local&#160;ECU.&#160;This&#160;means:<br/>
+This&#160;means:<br/>
+Make&#160;these&#160;states&#160;available&#160;as&#160;modes&#160;to&#160;other&#160;software.<br/>React&#160;on&#160;some&#160;changes&#160;of&#160;these&#160;states&#160;(for&#160;instance&#160;setting&#160;Dem&#160;enable&#160;conditions).<br/>React&#160;on&#160;timeouts&#160;of&#160;these&#160;communicated&#160;states&#160;(set&#160;default&#160;values,&#160;report&#160;error&#160;events&#160;accordingly).<br/>
+The&#160;Stm&#160;module&#160;itself&#160;is&#160;modeled&#160;as&#160;a&#160;SWC&#160;residing&#160;above&#160;the&#160;RTE.<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;14<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-4_1.png"/><br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;abbreviations</b><br/>
+<b>AbbreviationDescription<br/>/&#160;Acronym<br/></b>AUTOSAR<br/>
+Automotive&#160;Open&#160;Systems&#160;Architecture&#160;group<br/>
+BAC<br/>
+BMW&#160;AUTOSAR&#160;Core<br/>
+ECU<br/>
+Electronical&#160;Control&#160;Unit<br/>
+BswM<br/>
+Basic&#160;Software&#160;Mode&#160;Manager<br/>
+Com<br/>
+Communication&#160;Module<br/>
+Dem<br/>
+Diagnostic&#160;Event&#160;Manager<br/>
+PDU<br/>
+Protocol&#160;Data&#160;Unit<br/>
+RTE<br/>
+Runtime&#160;Environment<br/>
+Stm<br/>
+Status&#160;Monitoring<br/>
+SWC<br/>
+Software&#160;Component<br/>
+SWCD<br/>
+Software&#160;Component&#160;Description<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;14<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-5_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;14<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-6_1.png"/><br/>
+<b>4</b><br/>
+<b>Limitations&#160;and&#160;Known&#160;Issues</b><br/>
+Currently&#160;there&#160;are&#160;no&#160;limitations&#160;known.<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;14<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-7_1.png"/><br/>
+<b>5</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Stm&#160;Module&#160;depends&#160;on&#160;the&#160;following&#160;BSW&#160;modules:<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;Stm&#160;module&#160;uses&#160;RTE&#160;client/server&#160;communication&#160;to&#160;communicate&#160;with<br/>other&#160;SWCs&#160;and&#160;BSW.&#160;Additionally&#160;the&#160;scheduling&#160;is&#160;done&#160;by&#160;the&#160;RTE.<br/>
+<b>Com</b><br/>
+According&#160;to&#160;chapter&#160;1.2&#160;the&#160;Stm&#160;modules&#160;main&#160;objective&#160;is&#160;to&#160;monitor&#160;certain&#160;bus&#160;signals.&#160;Therefore,<br/>these&#160;signals&#160;have&#160;to&#160;be&#160;configured&#160;in&#160;Com&#160;and&#160;the&#160;data&#160;element&#160;to&#160;Com&#160;signal&#160;mapping&#160;has&#160;to&#160;be<br/>correctly&#160;implemented.<br/>
+<b>Dem</b><br/>
+The&#160;Stm&#160;controls&#160;a&#160;Dem&#160;specific&#160;EnableCondition.&#160;It&#160;uses&#160;the&#160;Client-Server&#160;interface&#160;EnableCondition<br/>provided&#160;by&#160;the&#160;Dem.<br/>
+<b>BswM</b><br/>
+The&#160;Stm&#160;module&#160;expects&#160;that&#160;it&#160;will&#160;be&#160;notified&#160;via&#160;ModeSwitchEvents,&#160;whether&#160;the&#160;ComSignal&#160;for<br/>centralErrorLock&#160;can&#160;be&#160;received&#160;or&#160;not.&#160;The&#160;receive&#160;ability&#160;depends&#160;on&#160;the&#160;state&#160;(started/stopped)&#160;of&#160;the<br/>ComPduGroup&#160;the&#160;ComSignal&#160;is&#160;part&#160;of.&#160;We&#160;suggest&#160;that&#160;the&#160;integrator&#160;monitors&#160;state&#160;changes&#160;of&#160;this<br/>ComPduGroup&#160;and&#160;notifies&#160;these&#160;by&#160;ModeSwitches&#160;with&#160;a&#160;corresponding&#160;rule&#160;configuration&#160;in&#160;the&#160;BswM.<br/>
+<b>Dependencies&#160;to&#160;BMW&#160;modules</b><br/>
+Stm&#160;does&#160;not&#160;have&#160;dependencies&#160;to&#160;other&#160;modules.<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;14<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-8_1.png"/><br/>
+<b>6</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+<b>Com</b><br/>
+It&#160;is&#160;optional&#160;to&#160;configure&#160;the&#160;following&#160;signals&#160;in&#160;the&#160;Com&#160;module.&#160;In&#160;case&#160;you&#160;disable&#160;the&#160;corresponding<br/>feature&#160;in&#160;all&#160;configuration&#160;variants&#160;of&#160;container&#160;StmFeatureActivation,&#160;you&#160;do&#160;not&#160;need&#160;to&#160;configure&#160;the<br/>related&#160;ComSignal.&#160;Also&#160;in&#160;cases,&#160;you&#160;use&#160;RTE&#160;transformers&#160;to&#160;serialize&#160;network&#160;data&#160;into&#160;data&#160;elements<br/>the&#160;configuration&#160;is&#160;done&#160;outside&#160;of&#160;Com.<br/>
+<b>ComSignal&#160;for&#160;Stm&#160;data&#160;element&#160;vehicleState</b><br/>
+The&#160;ComSignal&#160;for&#160;the&#160;data&#160;element&#160;vehicleState&#160;shall&#160;be&#160;configured.&#160;This&#160;signal&#160;is&#160;currently&#160;named<br/>ST_CON_VEH&#160;in&#160;the&#160;BMW&#160;message&#160;catalog&#160;and&#160;is&#160;part&#160;of&#160;the&#160;PDU&#160;CON_VEH&#160;in&#160;CAN&#160;and&#160;Flexray<br/>configurations.&#160;In&#160;case&#160;of&#160;Ethernet&#160;configuration&#160;it&#160;is&#160;part&#160;of&#160;event&#160;VehicleCondition&#160;of&#160;service<br/>VehicleCondition&#160;in&#160;package&#160;BMW.INFRASTRUCTURE.&#160;<b>Note:&#160;</b>This&#160;is&#160;a&#160;new&#160;variant&#160;of&#160;the&#160;vehicle&#160;state<br/>information,&#160;which&#160;starts&#160;in&#160;the&#160;service&#160;pack&#160;2015.<br/>
+<b>ComSignal&#160;for&#160;Stm&#160;data&#160;element&#160;energyState</b><br/>
+The&#160;ComSignal&#160;for&#160;the&#160;data&#160;element&#160;energyState&#160;shall&#160;be&#160;configured.&#160;This&#160;signal&#160;is&#160;currently&#160;named<br/>ST_ENERG_FZM&#160;in&#160;the&#160;BMW&#160;message&#160;catalog&#160;and&#160;is&#160;part&#160;of&#160;the&#160;PDU&#160;FZZSTD&#160;in&#160;CAN&#160;and&#160;Flexray<br/>configurations.&#160;In&#160;case&#160;of&#160;Ethernet&#160;configuration,&#160;it&#160;is&#160;part&#160;of&#160;field&#160;VehicleStatus&#160;(member<br/>statusEnergyFZM)&#160;of&#160;service&#160;StatusEnergy&#160;in&#160;package&#160;BMW.INFRASTRUCTURE.&#160;<b>Note:&#160;</b>This&#160;is&#160;a&#160;new<br/>variant&#160;of&#160;the&#160;vehicle&#160;state&#160;information,&#160;which&#160;starts&#160;in&#160;the&#160;service&#160;pack&#160;2015.<br/>
+<b>ComSignal&#160;for&#160;Stm&#160;data&#160;element&#160;centralErrorLock</b><br/>
+The&#160;ComSignal&#160;for&#160;the&#160;data&#160;element&#160;centralErrorLock&#160;shall&#160;be&#160;configured.&#160;This&#160;signal&#160;is&#160;currently&#160;named<br/>ST_ILK_ERRM_FZM&#160;in&#160;the&#160;BMW&#160;message&#160;catalog&#160;and&#160;is&#160;part&#160;of&#160;the&#160;PDU&#160;FZZSTD&#160;in&#160;CAN&#160;and&#160;Flexray<br/>configurations.&#160;In&#160;case&#160;of&#160;Ethernet&#160;configuration,&#160;it&#160;is&#160;part&#160;of&#160;field&#160;VehicleStatus&#160;(member<br/>statusInterlockErrorMemoryFZM)&#160;of&#160;service&#160;StatusEnergy&#160;in&#160;package&#160;BMW.INFRASTRUCTURE.<br/>
+<b>BswM</b><br/>
+Configure&#160;a&#160;rule&#160;and&#160;depending&#160;ActionLists&#160;to&#160;switch&#160;a&#160;ModeDeclarationGroup&#160;that&#160;is&#160;based&#160;on&#160;the<br/>interface&#160;ErrorMemoryLockSignalReceptionMode,&#160;depending&#160;on&#160;the&#160;ComSignalGroup&#160;state&#160;to&#160;either<br/>EM_LOCK_RECEIVABLE&#160;or&#160;EM_LOCK_NOT_RECEIVABLE.<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;14<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-9_1.png"/><br/>
+<b>Dem</b><br/>
+Stm&#160;interacts&#160;with&#160;Dem&#160;in&#160;a&#160;way,&#160;that&#160;it&#160;controls&#160;a&#160;so&#160;called&#160;Dem&#160;EnableCondition,&#160;which&#160;in&#160;turn&#160;controls&#160;if<br/>status&#160;changes&#160;(triggered&#160;by&#160;Dem_ReportErrorStatus/Dem_SetEventStatus)&#160;for&#160;Dem&#160;Events&#160;which&#160;are<br/>linked&#160;to&#160;this&#160;EnableCondition&#160;shall&#160;be&#160;ignored&#160;or&#160;not.<br/>
+<b>DemEnableConditionSupport</b><br/>
+DemEnableConditionSupport&#160;hast&#160;to&#160;be&#160;enabled&#160;in&#160;Dem&#160;configuration.<br/>
+<b>DemEnableCondition/DemEnableConditionGroup</b><br/>
+Inside&#160;Dem&#160;configuration&#160;an&#160;unique/special&#160;EnableCondition&#160;for&#160;Stm&#160;shall&#160;be&#160;configured.&#160;This<br/>EnableCondition&#160;shall&#160;be&#160;referenced&#160;by&#160;all&#160;EnableConditionGroups&#160;in&#160;the&#160;system,&#160;that&#160;depend&#160;on&#160;this<br/>EnableCondition.&#160;Example:&#160;At&#160;BMW&#160;the&#160;permission&#160;to&#160;report&#160;communication&#160;error&#160;relevant&#160;Dem&#160;events<br/>depends&#160;on&#160;the&#160;state&#160;of&#160;different&#160;sources&#160;(operating&#160;mode,&#160;diagnostic&#160;state&#160;and&#160;Stm&#160;centralErrorLock).<br/>Each&#160;of&#160;these&#160;sources&#160;is&#160;connected&#160;to&#160;its&#160;own&#160;EnableCondition&#160;and&#160;all&#160;these&#160;conditions&#160;are&#160;combined&#160;in<br/>one&#160;EnableConditionGroup.&#160;At&#160;the&#160;end,&#160;all&#160;Dem&#160;Events&#160;that&#160;represent&#160;communication&#160;errors&#160;shall<br/>reference&#160;this&#160;EnableGroup&#160;via&#160;their&#160;DemEnableConditionGroupRef&#160;parameter.<br/>
+<b>Configuration</b><br/>
+The&#160;Stm&#160;configuration&#160;allows&#160;configuring&#160;the&#160;timeout&#160;supervision&#160;values&#160;for&#160;the&#160;four&#160;different<br/>ComSignals.&#160;The&#160;Stm&#160;configuration&#160;contains&#160;one&#160;configuration&#160;container&#160;StmGeneral&#160;and&#160;one&#160;container<br/>StmFeatureActivation.<br/>
+<b>StmGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;Stm.<br/>
+<b>StmInitialCentralErrorLockTimeout</b><br/>
+This&#160;FLOAT-parameter&#160;specifies&#160;the&#160;first/initial&#160;timeout&#160;in&#160;seconds&#160;after&#160;the&#160;ComPduGroup&#160;started&#160;to<br/>which&#160;the&#160;ComSignal&#160;mapped&#160;to&#160;data&#160;element&#160;centralErrorLock&#160;belongs.&#160;The&#160;default&#160;value&#160;as&#160;defined&#160;by<br/>Stm&#160;represents&#160;the&#160;value&#160;that&#160;is&#160;demanded&#160;by&#160;BMW&#160;specification.<br/>
+<b>Note:&#160;</b>This&#160;parameter&#160;is&#160;ONLY&#160;for&#160;documentation&#160;purposes.&#160;The&#160;integrator&#160;has&#160;to&#160;make&#160;manually&#160;sure<br/>that&#160;the&#160;ComFirstTimeout&#160;configuration&#160;parameter&#160;of&#160;BSW&#160;module&#160;Com&#160;of&#160;the&#160;relevant&#160;signal&#160;is&#160;set&#160;to<br/>this&#160;value.&#160;The&#160;Stm&#160;module&#160;is&#160;a&#160;SWC&#160;and&#160;therefore&#160;can&#160;only&#160;parameterize&#160;values&#160;in&#160;its&#160;SWCD.&#160;Since<br/>there&#160;is&#160;in&#160;AUTOSAR&#160;NO&#160;connection&#160;from&#160;the&#160;SWCD&#160;to&#160;ComFirstTimeout&#160;configuration,&#160;this<br/>configuration&#160;value&#160;can&#160;only&#160;be&#160;documented.<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;14<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-10_1.png"/><br/>
+<b>StmCentralErrorLockTimeout</b><br/>
+This&#160;FLOAT-parameter&#160;specifies&#160;the&#160;regular&#160;timeout&#160;in&#160;seconds&#160;after&#160;the&#160;ComPduGroup&#160;started&#160;to<br/>which&#160;the&#160;ComSignal&#160;mapped&#160;to&#160;data&#160;element&#160;centralErrorLock&#160;belongs.&#160;The&#160;default&#160;value&#160;as&#160;defined&#160;by<br/>Stm&#160;represents&#160;the&#160;value&#160;that&#160;is&#160;required&#160;by&#160;BMW&#160;specification&#160;at&#160;the&#160;time&#160;of&#160;development&#160;of&#160;this<br/>module.&#160;In&#160;case&#160;this&#160;requirement&#160;changes,&#160;the&#160;value&#160;can&#160;be&#160;adapted&#160;in&#160;a&#160;range&#160;from&#160;1.0&#160;to&#160;32.0&#160;seconds.<br/>
+The&#160;chosen&#160;value&#160;will&#160;be&#160;generated&#160;into&#160;the&#160;SWCD&#160;of&#160;the&#160;Stm&#160;module.&#160;The&#160;BSW&#160;stack&#160;RTE&#160;tooling<br/>should&#160;care&#160;for&#160;the&#160;correct&#160;timeout&#160;configuration&#160;in&#160;the&#160;Com&#160;configuration.&#160;That&#160;is,&#160;the&#160;Com&#160;configuration<br/>value&#160;ComTimeout&#160;of&#160;the&#160;relevant&#160;signal&#160;should&#160;be&#160;set&#160;to&#160;the&#160;chosen&#160;value&#160;automatically.&#160;In&#160;case&#160;the<br/>tooling&#160;does&#160;not&#160;support&#160;this&#160;feature,&#160;the&#160;integrator&#160;has&#160;to&#160;manually&#160;correct&#160;the&#160;Com&#160;configuration.<br/>
+<b>StmEnergyStateTimeout</b><br/>
+This&#160;FLOAT-parameter&#160;specifies&#160;the&#160;regular&#160;timeout&#160;in&#160;seconds&#160;after&#160;the&#160;ComPduGroup&#160;started&#160;to<br/>which&#160;the&#160;ComSignal&#160;mapped&#160;to&#160;data&#160;element&#160;energyState&#160;belongs.&#160;The&#160;default&#160;value&#160;as&#160;defined&#160;by&#160;Stm<br/>represents&#160;the&#160;value&#160;that&#160;is&#160;required&#160;by&#160;BMW&#160;specification&#160;at&#160;the&#160;time&#160;of&#160;development&#160;of&#160;this&#160;module.&#160;In<br/>case&#160;this&#160;requirement&#160;changes,&#160;the&#160;value&#160;can&#160;be&#160;adapted&#160;in&#160;a&#160;range&#160;from&#160;1.0&#160;to&#160;32.0&#160;seconds.<br/>
+The&#160;chosen&#160;value&#160;will&#160;be&#160;generated&#160;into&#160;the&#160;SWCD&#160;of&#160;the&#160;Stm&#160;module.&#160;The&#160;BSW&#160;stack&#160;RTE&#160;tooling<br/>should&#160;care&#160;for&#160;the&#160;correct&#160;timeout&#160;configuration&#160;in&#160;the&#160;Com&#160;configuration.&#160;That&#160;is,&#160;the&#160;Com&#160;configuration<br/>value&#160;ComTimeout&#160;of&#160;the&#160;relevant&#160;signal&#160;should&#160;be&#160;set&#160;to&#160;the&#160;chosen&#160;value&#160;automatically.&#160;In&#160;case&#160;the<br/>tooling&#160;does&#160;not&#160;support&#160;this&#160;feature,&#160;the&#160;integrator&#160;has&#160;to&#160;manually&#160;correct&#160;the&#160;Com&#160;configuration.<br/>
+<b>StmVehicleStateTimeout</b><br/>
+This&#160;FLOAT-parameter&#160;specifies&#160;the&#160;regular&#160;timeout&#160;in&#160;seconds&#160;after&#160;the&#160;ComPduGroup&#160;started&#160;to<br/>which&#160;the&#160;ComSignal&#160;mapped&#160;to&#160;data&#160;element&#160;vehicleState&#160;belongs.&#160;The&#160;default&#160;value&#160;as&#160;defined&#160;by&#160;Stm<br/>represents&#160;the&#160;value&#160;that&#160;is&#160;required&#160;by&#160;BMW&#160;specification&#160;at&#160;the&#160;time&#160;of&#160;development&#160;of&#160;this&#160;module.&#160;In<br/>case&#160;this&#160;requirement&#160;changes,&#160;the&#160;value&#160;can&#160;be&#160;adapted&#160;in&#160;a&#160;range&#160;from&#160;0.1&#160;to&#160;32.0&#160;seconds.<br/>
+The&#160;chosen&#160;value&#160;will&#160;be&#160;generated&#160;into&#160;the&#160;SWCD&#160;of&#160;the&#160;Stm&#160;module.&#160;The&#160;BSW&#160;stack&#160;RTE&#160;tooling<br/>should&#160;care&#160;for&#160;the&#160;correct&#160;timeout&#160;configuration&#160;in&#160;the&#160;Com&#160;configuration.&#160;That&#160;is,&#160;the&#160;Com&#160;configuration<br/>value&#160;ComTimeout&#160;of&#160;the&#160;relevant&#160;signal&#160;should&#160;be&#160;set&#160;to&#160;the&#160;chosen&#160;value&#160;automatically.&#160;In&#160;case&#160;the<br/>tooling&#160;does&#160;not&#160;support&#160;this&#160;feature,&#160;the&#160;integrator&#160;has&#160;to&#160;manually&#160;correct&#160;the&#160;Com&#160;configuration.<br/>
+<b>StmComVariant</b><br/>
+With&#160;this&#160;enumeration&#160;switch&#160;it&#160;can&#160;be&#160;configured&#160;whether&#160;Stm&#160;module&#160;is&#160;integrated&#160;within&#160;a&#160;boardnet<br/>where&#160;the&#160;central&#160;error&#160;lock&#160;signal/event&#160;is&#160;sent&#160;cyclically&#160;or&#160;not.&#160;In&#160;case&#160;Stm&#160;is&#160;integrated&#160;within&#160;a<br/>boardnet,&#160;where&#160;the&#160;central&#160;error&#160;lock&#160;is&#160;only&#160;sent&#160;&#34;on-change&#34;,&#160;Stm&#160;has&#160;to&#160;implement&#160;timeout&#160;monitoring<br/>on&#160;its&#160;own&#160;and&#160;will&#160;call&#160;back&#160;the&#160;source&#160;of&#160;the&#160;central&#160;error&#160;lock&#160;signal/event&#160;via&#160;a&#160;C/S&#160;getter&#160;call.&#160;Currently<br/>the&#160;central&#160;error&#160;lock&#160;signal/event&#160;is&#160;sent&#160;cyclically&#160;in&#160;all&#160;BMW&#160;boardnet&#160;configurations,&#160;therefore&#160;the<br/>DEFAULT&#160;and&#160;to&#160;be&#160;used&#160;value&#160;of&#160;this&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;STM_COM_CYCLIC_DATAELEMENTS.<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;14<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-11_1.png"/><br/>
+<b>StmFeatureActivation</b><br/>
+This&#160;container&#160;is&#160;a&#160;so-called&#160;multiple&#160;configuration&#160;container.&#160;It&#160;allows&#160;you&#160;to&#160;configure&#160;multiple&#160;instances<br/>of&#160;these&#160;configuration,&#160;where&#160;you&#160;can&#160;choose&#160;at&#160;runtime,&#160;which&#160;of&#160;these&#160;configurations&#160;shall&#160;be&#160;chosen.<br/>This&#160;allows&#160;post-build-selectable&#160;integration&#160;scenarios.&#160;In&#160;this&#160;container&#160;you&#160;can&#160;enable/disable&#160;certain<br/>signal&#160;supervisions.&#160;It&#160;is&#160;designed&#160;with&#160;a&#160;postbuild-selectable&#160;configuration&#160;concept,&#160;to&#160;support&#160;scenarios,<br/>where&#160;the&#160;same&#160;ECU&#160;software&#160;is&#160;integrated&#160;in&#160;different&#160;vehicle&#160;configurations/bordnet&#160;topologies,&#160;where<br/>the&#160;integrator&#160;needs&#160;the&#160;possibility&#160;to&#160;select&#160;at&#160;runtime&#160;which&#160;signal&#160;supervisions&#160;are&#160;needed&#160;in&#160;the<br/>current&#160;vehicle.&#160;For&#160;a&#160;general&#160;concept,&#160;how&#160;the&#160;BMW&#160;AUTOSAR&#160;Core&#160;handles&#160;SWCs&#160;with&#160;post&#160;build<br/>selectable&#160;support&#160;see&#160;[3].<br/>
+<b>StmCentralErrorLockEnabled</b><br/>
+Enable/Disable&#160;the&#160;central&#160;error&#160;lock&#160;supervision.<br/>
+<b>StmEnergyStateEnabled</b><br/>
+Enable/Disable&#160;the&#160;energy&#160;state&#160;supervision.<br/>
+<b>StmVehicleStateEnabled</b><br/>
+Enable/Disable&#160;the&#160;vehicle&#160;state&#160;supervision.<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE</b><br/>
+After&#160;performing&#160;the&#160;steps&#160;indicated&#160;in&#160;chapter&#160;6.1&#160;and&#160;6.2,&#160;the&#160;RTE&#160;configuration&#160;can&#160;be&#160;started.&#160;In&#160;other<br/>way,&#160;the&#160;RTE&#160;will&#160;report&#160;an&#160;interface&#160;incompatibility&#160;error.<br/>
+<b>Assembly&#160;connectors</b><br/>
+<b>Dem&#160;connection</b><br/>
+During&#160;integration,&#160;you&#160;have&#160;to&#160;connect&#160;the&#160;R-Port&#160;CentralErrorLockEnableCondition&#160;with&#160;the&#160;related<br/>Dem&#160;P-Port,&#160;that&#160;Dem&#160;must&#160;provide&#160;after&#160;the&#160;Stm&#160;specific&#160;EnableCondition&#160;has&#160;been&#160;configured&#160;(see<br/>chapter&#160;6.1.3).<br/>
+<b>ModeDeclarationGroup&#160;connection</b><br/>
+The&#160;R-Port&#160;EMLockSignalReceptionModeNotificationPort&#160;of&#160;Stm&#160;has&#160;to&#160;be&#160;connected&#160;with&#160;the<br/>corresponding&#160;P-Port&#160;of&#160;the&#160;mode&#160;manager.&#160;In&#160;case,&#160;you&#160;followed&#160;the&#160;suggestion&#160;(see&#160;chapter&#160;5.1.4)&#160;to<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;14<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-12_1.png"/><br/>
+control&#160;this&#160;ModeDeclarationGroup&#160;through&#160;the&#160;BswM&#160;module,&#160;the&#160;generated&#160;SWCD&#160;of&#160;the&#160;BswM<br/>module&#160;will&#160;provide&#160;the&#160;corresponding&#160;P-Port.<br/>
+<b>Event&#160;Mapping</b><br/>
+Stm&#160;has&#160;the&#160;following&#160;runnables&#160;(in&#160;brackets&#160;it&#160;is&#160;noted,&#160;whether&#160;it&#160;can&#160;be&#160;invoked&#160;concurrently):<br/>
+Runnable_ErrorCentralErrorLock&#160;(true).<br/>Runnable_ErrorEnergyMode&#160;(true).<br/>Runnable_ErrorVehicleState&#160;(true).<br/>Runnable_StopCentralErrorLockSupervision&#160;(false).<br/>Runnable_InitialCELSupervision&#160;(false).<br/>Runnable_ReceiveCentralErrorLock&#160;(true).<br/>Runnable_ReceiveEnergyMode&#160;(true).<br/>Runnable_ReceiveVehicleState&#160;(true).<br/>
+Depending&#160;at&#160;your&#160;RTE&#160;tooling&#160;at&#160;least&#160;the&#160;runnables&#160;that&#160;cannot&#160;be&#160;invoked&#160;concurrently&#160;must&#160;be<br/>mapped&#160;to&#160;tasks.<br/>
+<b>Data&#160;Mapping</b><br/>
+The&#160;following&#160;S/R&#160;data&#160;elements&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;corresponding&#160;ComSignals&#160;(see&#160;chapter&#160;6.1):<br/>
+centralErrorLock&#160;(R-Port&#160;CentralErrorLockRx).<br/>energyState&#160;(R-Port&#160;EnergyModeRx).<br/>vehicleState&#160;(R-Port&#160;VehicleStateRx).<br/>
+<b>Note:&#160;</b>The&#160;three&#160;data&#160;elements&#160;shown&#160;above&#160;are&#160;primitive&#160;data&#160;types&#160;from&#160;the&#160;viewpoint&#160;of&#160;Stm.&#160;In&#160;the<br/>bordnet&#160;configuration&#160;these&#160;data&#160;types&#160;are&#160;embedded&#160;within&#160;signalgroups/complex&#160;datatypes.&#160;In&#160;the<br/>AUTOSAR-Extracts&#160;provided&#160;by&#160;BMW&#160;therefore&#160;complex&#160;(record&#160;types)&#160;data&#160;elements&#160;are&#160;provided<br/>within&#160;the&#160;corresponding&#160;ports&#160;of&#160;the&#160;outer&#160;ECU&#160;composition.&#160;To&#160;connect&#160;sub-elements&#160;(members)&#160;of<br/>the&#160;ports&#160;of&#160;the&#160;outer&#160;composition&#160;with&#160;the&#160;primitive&#160;type&#160;data&#160;elements&#160;of&#160;Stm&#160;ports&#160;a&#160;port-interface<br/>mapping&#160;has&#160;to&#160;created,&#160;which&#160;is&#160;then&#160;attached&#160;to&#160;the&#160;delegation&#160;assembly&#160;connector.<br/>
+Example&#160;for&#160;a&#160;port&#160;interface&#160;mapping&#160;for&#160;centralErrorLock&#160;datat-element:<br/>
+&lt;?<b>xml&#160;version</b>=&#34;&#160;1.0&#160;&#34;&#160;?&gt;<br/>&lt;PORT−INTERFACE−MAPPING−SET&gt;<br/>
+&lt;SHORT−NAME&gt;StmMappingSet&lt;&#160;/SHORT−NAME&gt;<br/>&lt;PORT−INTERFACE−MAPPINGS&gt;<br/>
+&lt;VARIABLE−AND−PARAMETER−INTERFACE−MAPPING&gt;<br/>
+&lt;SHORT−NAME&gt;Mapping_Stm_CentralErrorLockRx&lt;&#160;/SHORT−NAME&gt;<br/>&lt;DATA−MAPPINGS&gt;<br/>
+&lt;DATA−PROTOTYPE−MAPPING&gt;<br/>
+&lt;FIRST−DATA−PROTOTYPE−REF&#160;DEST=&#34;VARIABLE−DATA−PROTOTYPE&#34;&gt;&#160;/BMW/&#160;INFRASTRUCTURE&#160;/&#160;STATUSENERGY&#160;/&#160;V&#160;e&#160;h&#160;i&#160;c&#160;l&#160;e&#160;S&#160;t&#160;a&#160;t&#160;u&#160;s&#160;/&#160;F&#160;i&#160;e&#160;l&#160;d&#160;N&#160;o&#160;t&#160;i&#160;f&#160;i&#160;e&#160;r&#160;V&#160;e&#160;h&#160;i&#160;c&#160;l&#160;e&#160;S&#160;t&#160;a&#160;t&#160;u&#160;s&#160;/&#160;N&#160;o&#160;t&#160;i&#160;f&#160;i&#160;e&#160;r&#160;&lt;&#160;/&#160;FIRST−DATA−PROTOTYPE−REF&gt;<br/>&lt;SECOND−DATA−PROTOTYPE−REF&#160;DEST=&#34;VARIABLE−DATA−PROTOTYPE&#34;&gt;&#160;/BMW/&#160;P&#160;l&#160;a&#160;t&#160;f&#160;o&#160;r&#160;m&#160;/&#160;Stm&#160;/&#160;P&#160;o&#160;r&#160;t&#160;I&#160;n&#160;t&#160;e&#160;r&#160;f&#160;a&#160;c&#160;e&#160;s&#160;/&#160;C&#160;e&#160;n&#160;t&#160;r&#160;a&#160;l&#160;E&#160;r&#160;r&#160;o&#160;r&#160;L&#160;o&#160;c&#160;k&#160;S&#160;i&#160;g&#160;n&#160;a&#160;l&#160;I&#160;n&#160;t&#160;e&#160;r&#160;f&#160;a&#160;c&#160;e&#160;/&#160;c&#160;e&#160;n&#160;t&#160;r&#160;a&#160;l&#160;E&#160;r&#160;r&#160;o&#160;r&#160;L&#160;o&#160;c&#160;k&#160;&lt;&#160;/SECOND−DATA−PROTOTYPE−REF&gt;<br/>&lt;SUB−<b>ELEMENT</b>−MAPPINGS&gt;<br/>
+&lt;SUB−<b>ELEMENT</b>−MAPPING&gt;<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;14<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-13_1.png"/><br/>
+&lt;FIRST−ELEMENTS&gt;<br/>
+&lt;APPLICATION−COMPOSITE−DATA−TYPE−SUB−<b>ELEMENT</b>−REF&gt;<br/>
+&lt;APPLICATION−COMPOSITE−<b>ELEMENT</b>−IREF&gt;<br/>
+&lt;ROOT−DATA−PROTOTYPE−REF&#160;DEST=&#34;VARIABLE−DATA−PROTOTYPE&#34;&gt;&#160;/BMW/&#160;INFRASTRUCTURE&#160;/&#160;STATUSENERGY&#160;/&#160;V&#160;e&#160;h&#160;i&#160;c&#160;l&#160;e&#160;S&#160;t&#160;a&#160;t&#160;u&#160;s&#160;/&#160;F&#160;i&#160;e&#160;l&#160;d&#160;N&#160;o&#160;t&#160;i&#160;f&#160;i&#160;e&#160;r&#160;V&#160;e&#160;h&#160;i&#160;c&#160;l&#160;e&#160;S&#160;t&#160;a&#160;t&#160;u&#160;s&#160;/&#160;N&#160;o&#160;t&#160;i&#160;f&#160;i&#160;e&#160;r&#160;&lt;&#160;/ROOT−DATA−PROTOTYPE−REF&gt;<br/>&lt;TARGET−DATA−PROTOTYPE−REF&#160;DEST=&#34;APPLICATION−RECORD−ELEMENT&#34;&gt;&#160;/BMW/&#160;INFRASTRUCTURE&#160;/&#160;ApplicationDataTypes&#160;/&#160;V&#160;e&#160;h&#160;i&#160;c&#160;l&#160;e&#160;S&#160;t&#160;a&#160;t&#160;e&#160;/&#160;statusInterlockErrorMemoryFZM&#160;&lt;&#160;/&#160;TARGET−DATA−PROTOTYPE−REF&gt;<br/>
+&lt;&#160;/&#160;APPLICATION−COMPOSITE−<b>ELEMENT</b>−IREF&gt;<br/>
+&lt;&#160;/&#160;APPLICATION−COMPOSITE−DATA−TYPE−SUB−<b>ELEMENT</b>−REF&gt;<br/>
+&lt;&#160;/&#160;FIRST−ELEMENTS&gt;<br/>
+&lt;&#160;/&#160;SUB−<b>ELEMENT</b>−MAPPING&gt;<br/>
+&lt;&#160;/&#160;SUB−<b>ELEMENT</b>−MAPPINGS&gt;<br/>
+&lt;&#160;/&#160;DATA−PROTOTYPE−MAPPING&gt;<br/>
+&lt;&#160;/&#160;DATA−MAPPINGS&gt;<br/>
+&lt;&#160;/&#160;VARIABLE−AND−PARAMETER−INTERFACE−MAPPING&gt;<br/>
+&lt;&#160;/&#160;PORT−INTERFACE−MAPPINGS&gt;<br/>
+&lt;&#160;/&#160;PORT−INTERFACE−MAPPING−SET&gt;<br/>
+<b>Exclusive&#160;Areas</b><br/>
+The&#160;exclusive&#160;area&#160;&#34;CentralErrorLockReadWrite_EA&#34;&#160;has&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;RTE.<br/>
+<b>Software&#160;Integration</b><br/>
+<b>SWCD</b><br/>
+The&#160;file&#160;Stm_ext_interfaces.arxml&#160;contains&#160;two&#160;external&#160;dependencies,&#160;which&#160;are&#160;defined&#160;here&#160;to&#160;express<br/>the&#160;expectations&#160;of&#160;Stm&#160;(see&#160;explanation&#160;in&#160;[1]):<br/>
+A&#160;mode&#160;declaration&#160;group&#160;that&#160;indicates,&#160;whether&#160;the&#160;centralErrorLock&#160;signal&#160;is&#160;currently&#160;receivable&#160;or<br/>not.<br/>The&#160;ClientServer&#160;interface&#160;of&#160;Dem&#160;module&#160;to&#160;control&#160;so&#160;called&#160;EnableConditions&#160;(see&#160;chapter&#160;6.1.3).<br/>
+<b>Mode&#160;Declaration&#160;Group&#160;ErrorMemoryLockSignalReceptionMode</b><br/>
+The&#160;Stm&#160;expects&#160;that&#160;there&#160;exists&#160;a&#160;ModeDeclarationGroup&#160;that&#160;is&#160;controlled&#160;by&#160;integration&#160;code,&#160;that<br/>indicates,&#160;whether&#160;the&#160;centralErrorLock&#160;is&#160;currently&#160;receivable&#160;or&#160;not.&#160;In&#160;general,&#160;this&#160;depends&#160;on&#160;the&#160;state<br/>of&#160;the&#160;ComPduGoup,&#160;which&#160;the&#160;related&#160;ComSignal&#160;is&#160;connected&#160;to.&#160;The&#160;integrator&#160;shall&#160;configure&#160;the<br/>BswM&#160;rule&#160;system&#160;in&#160;a&#160;way&#160;that&#160;as&#160;soon&#160;as&#160;the&#160;corresponding&#160;PduGroup&#160;is&#160;stopped,&#160;the<br/>ModeDeclarationGroup&#160;changes&#160;to&#160;mode&#160;EM_LOCK_NOT_RECEIVABLE.&#160;In&#160;case&#160;the&#160;PduGroup&#160;is<br/>started,&#160;the&#160;mode&#160;shall&#160;be&#160;changed&#160;to&#160;EM_LOCK_RECEIVABLE.<br/>
+<b>Interface&#160;EnableCondition&#160;of&#160;Dem</b><br/>
+In&#160;Stm_ext_interfaces.arxml&#160;you&#160;find&#160;BMWs&#160;interpretation&#160;of&#160;EnableCondition&#160;interface&#160;of&#160;the&#160;Dem&#160;BSW<br/>module.&#160;In&#160;case&#160;the&#160;interface&#160;signature&#160;looks&#160;different&#160;in&#160;your&#160;Dem&#160;implementation&#160;(which&#160;is&#160;very<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;14<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_IntegrationManual-14_1.png"/><br/>
+unlikely),&#160;you&#160;could&#160;adapt&#160;it&#160;here,&#160;at&#160;least&#160;to&#160;a&#160;extent&#160;that&#160;does&#160;not&#160;change&#160;the&#160;C-signature&#160;of&#160;the&#160;runnable,<br/>implementing&#160;the&#160;C/S&#160;call.<br/>
+<b>Startup/Initialisation</b><br/>
+Stm&#160;does&#160;not&#160;need&#160;a&#160;dedicated&#160;initialization&#160;or&#160;startup.&#160;It&#160;has&#160;no&#160;cyclically&#160;runnables&#160;but&#160;is&#160;fully&#160;driven&#160;by<br/>data&#160;received&#160;events/data&#160;received&#160;error&#160;events/mode&#160;switch&#160;events.<br/>
+<b>Normal&#160;Operation</b><br/>
+Stm&#160;is&#160;automatically&#160;in&#160;normal&#160;operation.<br/>
+<b>Shutdown/Deactivation</b><br/>
+Not&#160;needed&#160;(see&#160;above).<br/>
+StmClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;14&#160;of&#160;14<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#3">1 Introduction</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#3">1.1 General</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#3">1.2 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="StmClassic_IntegrationManuals.html#4">2 Acronyms and abbreviations</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#5">3 Related documentation</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#6">4 Limitations and Known Issues</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#7">5 Software Architecture</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#7">5.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#7">5.1.1 RTE</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#7">5.1.2 Com</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#7">5.1.3 Dem</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#7">5.1.4 BswM</a></li>
+</ul>
+</li>
+<li><a href="StmClassic_IntegrationManuals.html#7">5.2 Dependencies to BMW modules</a></li>
+</ul>
+</li>
+<li><a href="StmClassic_IntegrationManuals.html#8">6 Integration</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#8">6.1 Configuration of other Modules</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#8">6.1.1 Com</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#8">6.1.2 BswM</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#9">6.1.3 Dem</a></li>
+</ul>
+</li>
+<li><a href="StmClassic_IntegrationManuals.html#9">6.2 Configuration</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#9">6.2.1 StmGeneral</a></li>
+</ul>
+</li>
+<li><a href="StmClassic_IntegrationManuals.html#11">6.3 Configuration of the RTE</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#11">6.3.1 Assembly connectors</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#12">6.3.2 Event Mapping</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#12">6.3.3 Data Mapping</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#13">6.3.4 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="StmClassic_IntegrationManuals.html#13">6.4 Software Integration</a>
+<ul>
+<li><a href="StmClassic_IntegrationManuals.html#13">6.4.1 SWCD</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#14">6.4.2 Startup/Initialisation</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#14">6.4.3 Normal Operation</a></li>
+<li><a href="StmClassic_IntegrationManuals.html#14">6.4.4 Shutdown/Deactivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

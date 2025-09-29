@@ -1,0 +1,1347 @@
+---
+title: ExcpnHndlg Module Design Document
+linkTitle: ExcpnHndlg Module Design Document
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>ExcpnHndlg</strong></p>
+<p><strong>04-Apr-2018</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shruthi Raghavan,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 18%" />
+<col style="width: 9%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Avinash James</td>
+<td>1.0</td>
+<td>05-Apr-2016</td>
+</tr>
+<tr class="odd">
+<td>Updated the #define for ECC single bit code flash fault</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>18-Apr-2016</td>
+</tr>
+<tr class="even">
+<td>Updated for v3.2.0 of the FDD</td>
+<td>Selva Sengottaiyan</td>
+<td>3.0</td>
+<td>24-June-2016</td>
+</tr>
+<tr class="odd">
+<td>Updated for v4.0.0 of the FDD</td>
+<td>Avinash James</td>
+<td>4.0</td>
+<td>17-Aug-2016</td>
+</tr>
+<tr class="even">
+<td>Updated to remove constants that were used for parameter byte for CVM startup tests because this test is removed from CM101A</td>
+<td>Shruthi Raghavan</td>
+<td>5.0</td>
+<td>18-May-2017</td>
+</tr>
+<tr class="odd">
+<td>Added constants for the handling of code flash register write MCAL failure.</td>
+<td>Shruthi Raghavan</td>
+<td>6.0</td>
+<td>25-May-2017</td>
+</tr>
+<tr class="even">
+<td>Removed the ProcEcmRst Function</td>
+<td>Avinash James</td>
+<td>7.0</td>
+<td>25-Jul-2017</td>
+</tr>
+<tr class="odd">
+<td>Added local constants</td>
+<td>Avinash James</td>
+<td>8.0</td>
+<td>21-Sep-2017</td>
+</tr>
+<tr class="even">
+<td>Added handler for DTS single bit ECC error</td>
+<td>Avinash James</td>
+<td>9.0</td>
+<td>04-Apr-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u><a href="#introduction">1 Introduction <span>7</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>7</span></a></p>
+<p><a href="#excpnhndlg-high-level-description">2 ExcpnHndlg &amp; High-Level Description <span>8</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>9</span></a></p>
+<p><a href="#graphical-representation-of-excpnhndlg">3.1 Graphical representation of ExcpnHndlg <span>9</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>9</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>9</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>9</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>10</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>10</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>10</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>14</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>14</span></a></p>
+<p><a href="#init-excpnhndlginit1">5.1.1 Init: ExcpnHndlgInit1 <span>14</span></a></p>
+<p><a href="#design-rationale">5.1.1.1 Design Rationale <span>14</span></a></p>
+<p><a href="#module-outputs">5.1.1.2 Module Outputs <span>14</span></a></p>
+<p><a href="#init-excpnhndlginit2">5.1.2 Init: ExcpnHndlgInit2 <span>14</span></a></p>
+<p><a href="#design-rationale-1">5.1.2.1 Design Rationale <span>14</span></a></p>
+<p><a href="#module-outputs-1">5.1.2.2 Module Outputs <span>14</span></a></p>
+<p><a href="#per-excpnhndlgper1">5.1.3 Per: ExcpnHndlgPer1 <span>14</span></a></p>
+<p><a href="#design-rationale-2">5.1.3.1 Design Rationale <span>14</span></a></p>
+<p><a href="#store-module-inputs-to-local-copies">5.1.3.2 Store Module Inputs to Local copies <span>14</span></a></p>
+<p><a href="#processing-of-function">5.1.3.3 (Processing of function)……… <span>14</span></a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">5.1.3.4 Store Local copy of outputs into Module Outputs <span>14</span></a></p>
+<p><a href="#server-runables">5.2 Server Runables <span>14</span></a></p>
+<p><a href="#chkforstrtuptest">5.2.1 ChkForStrtUpTest <span>14</span></a></p>
+<p><a href="#design-rationale-3">5.2.1.1 Design Rationale <span>14</span></a></p>
+<p><a href="#processing-of-function-1">5.2.1.2 (Processing of function)……… <span>14</span></a></p>
+<p><a href="#fenmiclkmonr0rtlowrlimflt">5.2.2 FeNmiClkMonr0RtLowrLimFlt <span>15</span></a></p>
+<p><a href="#design-rationale-4">5.2.2.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-of-function-2">5.2.2.2 (Processing of function)……… <span>15</span></a></p>
+<p><a href="#fenmiclkmonr0rtupprlimflt">5.2.3 FeNmiClkMonr0RtUpprLimFlt <span>15</span></a></p>
+<p><a href="#design-rationale-5">5.2.3.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-of-function-3">5.2.3.2 (Processing of function)……… <span>15</span></a></p>
+<p><a href="#fenmiclkmonr1rtlowrlimflt">5.2.4 FeNmiClkMonr1RtLowrLimFlt <span>15</span></a></p>
+<p><a href="#design-rationale-6">5.2.4.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-of-function-4">5.2.4.2 (Processing of function)……… <span>15</span></a></p>
+<p><a href="#fenmiclkmonr1rtupprlimflt">5.2.5 FeNmiClkMonr1RtUpprLimFlt <span>15</span></a></p>
+<p><a href="#design-rationale-7">5.2.5.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-of-function-5">5.2.5.2 (Processing of function)……… <span>15</span></a></p>
+<p><a href="#fenmiclkmonr2rtlowrlimflt">5.2.6 FeNmiClkMonr2RtLowrLimFlt <span>15</span></a></p>
+<p><a href="#design-rationale-8">5.2.6.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-of-function-6">5.2.6.2 (Processing of function)……… <span>15</span></a></p>
+<p><a href="#fenmiclkmonr2rtupprlimflt">5.2.7 FeNmiClkMonr2RtUpprLimFlt <span>15</span></a></p>
+<p><a href="#design-rationale-9">5.2.7.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-of-function-7">5.2.7.2 (Processing of function)……… <span>16</span></a></p>
+<p><a href="#fenmiclkmonr3rtlowrlimflt">5.2.8 FeNmiClkMonr3RtLowrLimFlt <span>16</span></a></p>
+<p><a href="#design-rationale-10">5.2.8.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-of-function-8">5.2.8.2 (Processing of function)……… <span>16</span></a></p>
+<p><a href="#fenmiclkmonr3rtupprlimflt">5.2.9 FeNmiClkMonr3RtUpprLimFlt <span>16</span></a></p>
+<p><a href="#design-rationale-11">5.2.9.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-of-function-9">5.2.9.2 (Processing of function)……… <span>16</span></a></p>
+<p><a href="#fenmidmatrf">5.2.10 FeNmiDmaTrf <span>16</span></a></p>
+<p><a href="#design-rationale-12">5.2.10.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-of-function-10">5.2.10.2 (Processing of function)……… <span>16</span></a></p>
+<p><a href="#fenmidmaregacsprotnerr">5.2.11 FeNmiDmaRegAcsProtnErr <span>16</span></a></p>
+<p><a href="#design-rationale-13">5.2.11.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-of-function-11">5.2.11.2 (Processing of function)……… <span>16</span></a></p>
+<p><a href="#fenmiecmmstchkrcmp">5.2.12 FeNmiEcmMstChkrCmp <span>16</span></a></p>
+<p><a href="#design-rationale-14">5.2.12.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-of-function-12">5.2.12.2 (Processing of function)……… <span>16</span></a></p>
+<p><a href="#fenmiopermoderrflsprogmmodstrtd">5.2.13 FeNmiOperModErrFlsProgmModStrtd <span>17</span></a></p>
+<p><a href="#design-rationale-15">5.2.13.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-of-function-13">5.2.13.2 (Processing of function)……… <span>17</span></a></p>
+<p><a href="#fenmiopermoderrsngchipinactv">5.2.14 FeNmiOperModErrSngChipInactv <span>17</span></a></p>
+<p><a href="#design-rationale-16">5.2.14.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-of-function-14">5.2.14.2 (Processing of function)……… <span>17</span></a></p>
+<p><a href="#fenmiopermoderrtestmodstrtd">5.2.15 FeNmiOperModErrTestModStrtd <span>17</span></a></p>
+<p><a href="#design-rationale-17">5.2.15.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-of-function-15">5.2.15.2 (Processing of function)……… <span>17</span></a></p>
+<p><a href="#fenmipeg">5.2.16 FeNmiPeg <span>17</span></a></p>
+<p><a href="#design-rationale-18">5.2.16.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-of-function-16">5.2.16.2 (Processing of function)……… <span>17</span></a></p>
+<p><a href="#fenmiwdg">5.2.17 FeNmiWdg <span>17</span></a></p>
+<p><a href="#design-rationale-19">5.2.17.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-of-function-17">5.2.17.2 (Processing of function)……… <span>17</span></a></p>
+<p><a href="#getmcudiagcidndata">5.2.18 GetMcuDiagcIdnData <span>18</span></a></p>
+<p><a href="#design-rationale-21">5.2.18.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-of-function-19">5.2.18.2 (Processing of function)……… <span>18</span></a></p>
+<p><a href="#procmpuexcpnerr">5.2.19 ProcMpuExcpnErr <span>18</span></a></p>
+<p><a href="#design-rationale-22">5.2.19.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-of-function-20">5.2.19.2 (Processing of function)……… <span>18</span></a></p>
+<p><a href="#procnoncritoserr">5.2.20 ProcNonCritOsErr <span>18</span></a></p>
+<p><a href="#design-rationale-23">5.2.20.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-of-function-21">5.2.20.2 (Processing of function)……… <span>18</span></a></p>
+<p><a href="#procprmntoserr">5.2.21 ProcPrmntOsErr <span>18</span></a></p>
+<p><a href="#design-rationale-24">5.2.21.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-of-function-22">5.2.21.2 (Processing of function)……… <span>18</span></a></p>
+<p><a href="#procprvlgdinstrexcpnerr">5.2.22 ProcPrvlgdInstrExcpnErr <span>18</span></a></p>
+<p><a href="#design-rationale-25">5.2.22.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-of-function-23">5.2.22.2 (Processing of function)……… <span>18</span></a></p>
+<p><a href="#procukwnexcpnerr">5.2.23 ProcUkwnExcpnErr <span>19</span></a></p>
+<p><a href="#design-rationale-26">5.2.23.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-of-function-24">5.2.23.2 (Processing of function)……… <span>19</span></a></p>
+<p><a href="#setmcudiagcidndata">5.2.24 SetMcuDiagcIdnData <span>19</span></a></p>
+<p><a href="#design-rationale-27">5.2.24.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-of-function-25">5.2.24.2 (Processing of function)……… <span>19</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>19</span></a></p>
+<p><a href="#algnerrirq">5.3.1 AlgnErrIrq <span>19</span></a></p>
+<p><a href="#design-rationale-28">5.3.1.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-of-the-isr-function..">5.3.1.2 (Processing of the ISR function)….. <span>19</span></a></p>
+<p><a href="#fpuerrirq">5.3.2 FpuErrIrq <span>19</span></a></p>
+<p><a href="#design-rationale-29">5.3.2.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-of-the-isr-function..-1">5.3.2.2 (Processing of the ISR function)….. <span>19</span></a></p>
+<p><a href="#syserrirq">5.3.3 SysErrIrq <span>19</span></a></p>
+<p><a href="#design-rationale-30">5.3.3.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-of-the-isr-function..-2">5.3.3.2 (Processing of the ISR function)….. <span>19</span></a></p>
+<p><a href="#resdoperirq">5.3.4 ResdOperIrq <span>20</span></a></p>
+<p><a href="#design-rationale-31">5.3.4.1 Design Rationale <span>20</span></a></p>
+<p><a href="#processing-of-the-isr-function..-3">5.3.4.2 (Processing of the ISR function)….. <span>20</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>20</span></a></p>
+<p><a href="#procstrtuporswrst">5.4.1 ProcStrtUpOrSwRst <span>20</span></a></p>
+<p><a href="#design-rationale-32">5.4.1.1 Design Rationale <span>20</span></a></p>
+<p><a href="#processing">5.4.1.2 Processing <span>20</span></a></p>
+<p><a href="#procpinrst">5.4.2 ProcPinRst <span>20</span></a></p>
+<p><a href="#design-rationale-33">5.4.2.1 Design Rationale <span>20</span></a></p>
+<p><a href="#processing-1">5.4.2.2 Processing <span>20</span></a></p>
+<p><a href="#mcudiagcrstchk">5.4.3 McuDiagcRstChk <span>20</span></a></p>
+<p><a href="#design-rationale-34">5.4.3.1 Design Rationale <span>21</span></a></p>
+<p><a href="#processing-2">5.4.3.2 Processing <span>21</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>21</span></a></p>
+<p><a href="#global-function-1">5.5.1 GLOBAL Function #1 <span>21</span></a></p>
+<p><a href="#design-rationale-35">5.5.1.1 Design Rationale <span>21</span></a></p>
+<p><a href="#processing-3">5.5.1.2 processing <span>21</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>22</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>23</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>24</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>25</span></a></p>
+<p><a href="#references">Appendix C References <span>26</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This document details the design in the FDD and also lists out any deviations which were made from the design for the implementation due to any constraints in development. ExcpnHndlg MDD describes the exception handling / reset cause determination for microcontroller diagnostics</p>
+<h1 id="excpnhndlg-high-level-description">ExcpnHndlg &amp; High-Level Description</h1>
+<p>Refer FDD</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-excpnhndlg">Graphical representation of ExcpnHndlg</h2>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:2.87986in;height:1.71319in" /></p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p><strong>N/A</strong></p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p><strong>N/A</strong></p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 17%" />
+<col style="width: 12%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FPCFGININVAL_CNT_T_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>0x0000001CU</td>
+</tr>
+<tr class="even">
+<td>FPCFGREGID_CNT_S32</td>
+<td>1</td>
+<td>Counts</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>FPCFGSELNID_CNT_S32</td>
+<td>1</td>
+<td>Counts</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>FPUINVLDOPERSTSBIT_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00004000U))</td>
+</tr>
+<tr class="odd">
+<td>FPUDIVBYZEROSTSBIT_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00002000U))</td>
+</tr>
+<tr class="even">
+<td>FPUOVFSTSBIT_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00001000U))</td>
+</tr>
+<tr class="odd">
+<td>MEMERRINFOREADWRBIT_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00000001U))</td>
+</tr>
+<tr class="even">
+<td>CF1STERSTRADRPARMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00000004U))</td>
+</tr>
+<tr class="odd">
+<td>CF1STERSTRDBLBITMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00000002U))</td>
+</tr>
+<tr class="even">
+<td>CF1STERSTRSNGBITMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x00000001U))</td>
+</tr>
+<tr class="odd">
+<td>PRPHLBUSDATAPARMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x10000000U))</td>
+</tr>
+<tr class="even">
+<td>DTSDBLBITMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x80000000U))</td>
+</tr>
+<tr class="odd">
+<td>CODFLSSNGBITHARDFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>CODFLSECCDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>CODFLSADRPAR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="even">
+<td>CODFLASHEXECENAREGFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="odd">
+<td>MEMBISTSTRTUPTESTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>LCLRAMECCSNGBITHARDFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>LCLRAMECCDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>INVLDRAMAREA_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="odd">
+<td>DTSDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>DTSSNGBITFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="odd">
+<td>SPI0PRPHLRAMDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>SPI1PRPHLRAMDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>SPI2PRPHLRAMDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>SPI3PRPHLRAMDBLBIT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>BISTCODECCFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>LOGLBISTSTRTUPTESTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="odd">
+<td>BISTNOTCMPL_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="even">
+<td>CPULOCKSTEPSTRTUPTESTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>32U</td>
+</tr>
+<tr class="odd">
+<td>DMALOCKSTEPSTRTUPTESTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>64U</td>
+</tr>
+<tr class="even">
+<td>FACIRSTTRFERR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="odd">
+<td>LOCKSTEPCOMP_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>SYSVCIE_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>RESDOPER_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="even">
+<td>ALGNREAD_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="odd">
+<td>ALGNWR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="even">
+<td>INSTRFETCH_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>32U</td>
+</tr>
+<tr class="odd">
+<td>INTCNCTRESDAREA_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>64U</td>
+</tr>
+<tr class="even">
+<td>INVLDMEMACS_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="odd">
+<td>CLKMONR0RTLOWRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="even">
+<td>CLKMONR0RTUPPRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="odd">
+<td>CLKMONR2RTLOWRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>64U</td>
+</tr>
+<tr class="even">
+<td>CLKMONR2RTUPPRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="odd">
+<td>OPERMODERRFLSPROGMMODSTRTD_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>OPERMODERRTESTMODSTRTD_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>OPERMODERRSNGCHIPINACTV_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="even">
+<td>CLKMONR1RTLOWRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="odd">
+<td>CLKMONR1RTUPPRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="even">
+<td>CLKMONR3RTLOWRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>64U</td>
+</tr>
+<tr class="odd">
+<td>CLKMONR3RTUPPRLIMFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="even">
+<td>DATAANDINSTRPROTNERR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>ECMSTSFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>EIINTRPTSTRTUPFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>ECMMSTSTRTUPTESTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="even">
+<td>ECMCHKRSTRTUPTESTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="odd">
+<td>ECMPSDOERRINJFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="even">
+<td>ECMRTMSTCHKRCOMPFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="odd">
+<td>FPUINVLDOPEREXCPN_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>FPUDIVBYZEROEXCPN_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="odd">
+<td>FPUOVFEXCPN_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="even">
+<td>FPUUKWNEXCPN_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="odd">
+<td>UKWNRST_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>UKWNECMRST_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>BACKUPRAMTSTFAILRINBTLDR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="even">
+<td>UKWNSWRST_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="odd">
+<td>BACKUPRAMTSTFAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>32U</td>
+</tr>
+<tr class="even">
+<td>FLSBTLDRPREOSSRTUPEXCPN_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>64U</td>
+</tr>
+<tr class="odd">
+<td>STRTUPRSTINFOFAILD_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="even">
+<td>PROGFLOW_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>DEADLINEMONR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>ALVMONR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>4U</td>
+</tr>
+<tr class="odd">
+<td>WDGTOUT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>PEGRTFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>IPGRTFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>8U</td>
+</tr>
+<tr class="even">
+<td>PBGSTRTUPTSTAILR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="odd">
+<td>PBGRTFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>32U</td>
+</tr>
+<tr class="even">
+<td>DBGRST_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>OSCRITFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>UKWNEXCPN_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="odd">
+<td>OSNONCRITFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="even">
+<td>DMATRFERR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>DMAREGACSPROTCNERR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>PRPHLBUSDATAPARSTRTUPFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>64U</td>
+</tr>
+<tr class="odd">
+<td>PRPHLBUSDATAPARPRTFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="even">
+<td>INTCVMOVERVLTGMONR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>INTCVMUNDERVLTGMONR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>INTMONRLOVCCFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>16U</td>
+</tr>
+<tr class="odd">
+<td>EXTVLTGMONRFLT_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>128U</td>
+</tr>
+<tr class="even">
+<td>UPPR16BITMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0xFFFF0000U))</td>
+</tr>
+<tr class="odd">
+<td>LOWR16BITMASK_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint32)(0x0000FFFFU))</td>
+</tr>
+<tr class="even">
+<td>INTCNCTRESDAREA1UPPRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XFFFF4FFFU)</td>
+</tr>
+<tr class="odd">
+<td>INTCNCTRESDAREA1LOWRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0xFFFF0000U)</td>
+</tr>
+<tr class="even">
+<td>INTCNCTRESDAREA2UPPRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XFFFEBFFFU)</td>
+</tr>
+<tr class="odd">
+<td>INTCNCTRESDAREA2LOWRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0xFFFE0000U)</td>
+</tr>
+<tr class="even">
+<td>INTCNCTRESDAREA3UPPRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XFE9FFFFFU)</td>
+</tr>
+<tr class="odd">
+<td>INTCNCTRESDAREA3LOWRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XFB000000U)</td>
+</tr>
+<tr class="even">
+<td>INTCNCTRESDAREA4UPPRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XF8FFFFFFU)</td>
+</tr>
+<tr class="odd">
+<td>INTCNCTRESDAREA4LOWRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XF3000000U)</td>
+</tr>
+<tr class="even">
+<td>INVLDMEMACSUPPRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0XFFFF7EFFU)</td>
+</tr>
+<tr class="odd">
+<td>INVLDMEMACSLOWRADR_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>(0xFFFF7900U)</td>
+</tr>
+<tr class="even">
+<td>FEPCREGID_CNT_S32</td>
+<td>1</td>
+<td>Counts</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>FEPCSELNID_CNT_S32</td>
+<td>1</td>
+<td>Counts</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>MEAREGID_CNT_S32</td>
+<td>1</td>
+<td>Counts</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>MEASELNID_CNT_S32</td>
+<td>1</td>
+<td>Counts</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>NROFBRAMDATREGS_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint8)4U)</td>
+</tr>
+<tr class="odd">
+<td>SIZEOFBRAMDATREGS_CNT_U08</td>
+<td>1</td>
+<td>Counts</td>
+<td>((uint8)4U)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-excpnhndlginit1">Init: ExcpnHndlgInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>Non-RTE function because it needs to be called before the OS is started - so that floating point exceptions can be enabled before anything uses floating point</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="init-excpnhndlginit2">Init: ExcpnHndlgInit2</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>RTE function to initialize all the NTCs to pass</em></p>
+<h2 id="module-outputs-1">Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="per-excpnhndlgper1">Per: ExcpnHndlgPer1</h2>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p><em>RTE Periodic function called every 2 ms to check for OS errors</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>Refer MDD</em></p>
+<h2 id="processing-of-function"> (Processing of function)………</h2>
+<p><em>Triggered on Timing Event every 2ms</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="server-runables">Server Runables </h2>
+<h2 id="chkforstrtuptest">ChkForStrtUpTest</h2>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-1"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr0rtlowrlimflt">FeNmiClkMonr0RtLowrLimFlt</h2>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-2"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr0rtupprlimflt">FeNmiClkMonr0RtUpprLimFlt</h2>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-3"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr1rtlowrlimflt">FeNmiClkMonr1RtLowrLimFlt</h2>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-4"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr1rtupprlimflt">FeNmiClkMonr1RtUpprLimFlt</h2>
+<h2 id="design-rationale-7">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-5"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr2rtlowrlimflt">FeNmiClkMonr2RtLowrLimFlt</h2>
+<h2 id="design-rationale-8">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-6"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr2rtupprlimflt">FeNmiClkMonr2RtUpprLimFlt</h2>
+<h2 id="design-rationale-9">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-7"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr3rtlowrlimflt">FeNmiClkMonr3RtLowrLimFlt</h2>
+<h2 id="design-rationale-10">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-8"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiclkmonr3rtupprlimflt">FeNmiClkMonr3RtUpprLimFlt</h2>
+<h2 id="design-rationale-11">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-9"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmidmatrf">FeNmiDmaTrf</h2>
+<h2 id="design-rationale-12">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-10"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmidmaregacsprotnerr">FeNmiDmaRegAcsProtnErr</h2>
+<h2 id="design-rationale-13">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-11"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiecmmstchkrcmp">FeNmiEcmMstChkrCmp</h2>
+<h2 id="design-rationale-14">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-12"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiopermoderrflsprogmmodstrtd">FeNmiOperModErrFlsProgmModStrtd</h2>
+<h2 id="design-rationale-15">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-13"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiopermoderrsngchipinactv">FeNmiOperModErrSngChipInactv</h2>
+<h2 id="design-rationale-16">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-14"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiopermoderrtestmodstrtd">FeNmiOperModErrTestModStrtd</h2>
+<h2 id="design-rationale-17">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-15"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmipeg">FeNmiPeg</h2>
+<h2 id="design-rationale-18">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-16"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmiwdg">FeNmiWdg</h2>
+<h2 id="design-rationale-19">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-17"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fenmidtseccsngbiterr">FeNmiDtsEccSngBitErr</h2>
+<h2 id="design-rationale-20">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-18"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="getmcudiagcidndata">GetMcuDiagcIdnData</h2>
+<h2 id="design-rationale-21">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-19"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="procmpuexcpnerr">ProcMpuExcpnErr</h2>
+<h2 id="design-rationale-22">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-20"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="procnoncritoserr">ProcNonCritOsErr</h2>
+<h2 id="design-rationale-23">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-21"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="procprmntoserr">ProcPrmntOsErr</h2>
+<h2 id="design-rationale-24">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-22"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="procprvlgdinstrexcpnerr">ProcPrvlgdInstrExcpnErr</h2>
+<h2 id="design-rationale-25">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-23"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="procukwnexcpnerr">ProcUkwnExcpnErr</h2>
+<h2 id="design-rationale-26">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-24"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="setmcudiagcidndata">SetMcuDiagcIdnData</h2>
+<h2 id="design-rationale-27">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-25"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<h2 id="algnerrirq">AlgnErrIrq </h2>
+<h2 id="design-rationale-28">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-the-isr-function..">(Processing of the ISR function)…..</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="fpuerrirq">FpuErrIrq </h2>
+<h2 id="design-rationale-29">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-the-isr-function..-1">(Processing of the ISR function)…..</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="syserrirq">SysErrIrq</h2>
+<h2 id="design-rationale-30">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-the-isr-function..-2">(Processing of the ISR function)…..</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="resdoperirq">ResdOperIrq</h2>
+<h2 id="design-rationale-31">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-the-isr-function..-3">(Processing of the ISR function)…..</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="procstrtuporswrst">ProcStrtUpOrSwRst </h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcStrtUpOrSwRst</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-32">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing">Processing</h2>
+<h2 id="procpinrst">ProcPinRst </h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcPinRst</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-33">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-1">Processing</h2>
+<h2 id="mcudiagcrstchk">McuDiagcRstChk </h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>McuDiagcRstChk</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>RstInfo_Cnt_T_enum</td>
+<td>McuDiagc1</td>
+<td>Refer FDD*</td>
+<td>Refer FDD*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>McuDiagcRstChk_Cnt_T_lgc</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-34">Design Rationale</h2>
+<p><em>Checks if the reset cause is power on/Flash Progamming /Hard Reset /Soft Reset.</em></p>
+<h2 id="processing-2">Processing</h2>
+<p>Refer the FDD</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>&lt;If these are numerous and defined in a separate source file then reference the source file only.&gt;</p>
+<h2 id="global-function-1">GLOBAL Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>(if none, write None)</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>(Insert more rows for additional passed arguments)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-35">Design Rationale</h2>
+<h2 id="processing-3">processing</h2>
+<p>(Place flowchart/design for local function)</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 61%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>1.02</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.02</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.01</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD (CM101A_ExcpnHndlg_Design)</td>
+<td>See Synergy Subproject version</td>
+</tr>
+</tbody>
+</table>

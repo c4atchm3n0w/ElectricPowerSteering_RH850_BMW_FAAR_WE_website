@@ -1,0 +1,983 @@
+---
+title: GateDrv0Ctrl_MDD
+linkTitle: GateDrv0Ctrl_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>Gate Drive 0 Control</strong></p>
+<p><strong>VERSION:</strong> <strong>9</strong></p>
+<p><strong>DATE:</strong> <strong>12-Jan-2018</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shawn Penning,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 55%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Version</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Rijvi Ahmed</td>
+<td>07-July-2016</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updated to design revision 1.8.0</td>
+<td>Avinash James</td>
+<td>21-Jan-2017</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated to design revision 2.0.0</td>
+<td>Shruthi Raghavan</td>
+<td>17-Feb-2017</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Updated to design revision 2.1.0</td>
+<td>Shruthi Raghavan</td>
+<td>27-Feb-2017</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Updated to design revision 2.3.0</td>
+<td>Shruthi Raghavan</td>
+<td>14-Mar-2017</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Updated to design revision 2.4.0 – Fix for phase reasonableness issues found during integration</td>
+<td>Shruthi Raghavan</td>
+<td>24-Mar-2017</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td><p>Removed unused inputs from OperFltMonSt function.</p>
+<p>Added UT considerations per anomaly EA4#11845</p></td>
+<td>Shruthi Raghavan</td>
+<td>26-May-2017</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Updated graphical representation for the new outputs and client call. Added details for changed &amp; new local functions<br />
+Added new enum type and local constant</td>
+<td>Shruthi Raghavan</td>
+<td>11-Sep-2017</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Updated design rationale for the state machine in Configuration State of gate drive. Added UT considerations per test corrections required in anomaly corrective action.</td>
+<td>Shawn Penning</td>
+<td>12-Jan-2018</td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 5</a></p>
+<p><a href="#references">2 References 6</a></p>
+<p><a href="#gatedrv0ctrl-high-level-description">3 GATEDRV0CTRL &amp; High-Level Description 7</a></p>
+<p><a href="#design-details-of-software-module">4 Design details of software module 8</a></p>
+<p><a href="#graphical-representation-of-gatedrv0ctrl">4.1 Graphical representation of GATEDRV0CTRL 8</a></p>
+<p><a href="#variable-data-dictionary">5 Variable Data Dictionary 9</a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">5.1 User defined typedef definition/declaration 9</a></p>
+<p><a href="#variable-definition-for-enumerated-types">5.2 Variable definition for enumerated types 9</a></p>
+<p><a href="#constant-data-dictionary">6 Constant Data Dictionary 10</a></p>
+<p><a href="#programfixed-constants">6.1 Program(fixed) Constants 10</a></p>
+<p><a href="#embedded-constants">6.1.1 Embedded Constants 10</a></p>
+<p><a href="#local">6.1.1.1 Local 10</a></p>
+<p><a href="#global">6.1.1.2 Global 10</a></p>
+<p><a href="#module-specific-lookup-tables-constants">6.1.2 Module specific Lookup Tables Constants 10</a></p>
+<p><a href="#software-module-implementation">7 Software Module Implementation 11</a></p>
+<p><a href="#sub-module-functions">7.1 Sub-Module Functions 11</a></p>
+<p><a href="#initialization-functions">7.2 Initialization Functions 11</a></p>
+<p><a href="#per-gatedrv0ctrlinit1">7.2.1 Per: GateDrv0CtrlInit1 11</a></p>
+<p><a href="#periodic-functions">7.3 PERIODIC FUNCTIONS 11</a></p>
+<p><a href="#per-gatedrv0ctrlper1">7.3.1 Per: GateDrv0CtrlPer1 11</a></p>
+<p><a href="#design-rationale">7.3.1.1 Design Rationale 11</a></p>
+<p><a href="#processing-of-function">7.3.1.2 Processing of Function 11</a></p>
+<p><a href="#per-gatedrv0ctrlper2">7.3.2 Per: GateDrv0CtrlPer2 11</a></p>
+<p><a href="#design-rationale-1">7.3.2.1 Design Rationale 11</a></p>
+<p><a href="#processing-of-function-1">7.3.2.2 Processing of Function 11</a></p>
+<p><a href="#interrupt-functions">7.4 Interrupt Functions 11</a></p>
+<p><a href="#serial-communication-functions">7.5 Serial Communication Functions 11</a></p>
+<p><a href="#local-functionmacro-definitions">7.6 Local Function/Macro Definitions 12</a></p>
+<p><a href="#local-function-1">7.6.1 Local Function #1 12</a></p>
+<p><a href="#description">7.6.1.1 Description 12</a></p>
+<p><a href="#local-function-2">7.6.2 Local Function #2 12</a></p>
+<p><a href="#description-1">7.6.2.1 Description 12</a></p>
+<p><a href="#local-function-3">7.6.3 Local Function #3 12</a></p>
+<p><a href="#description-2">7.6.3.1 Description 12</a></p>
+<p><a href="#local-function-4">7.6.4 Local Function #4 12</a></p>
+<p><a href="#description-3">7.6.4.1 Description 12</a></p>
+<p><a href="#local-function-5">7.6.5 Local Function #5 12</a></p>
+<p><a href="#description-4">7.6.5.1 Description 13</a></p>
+<p><a href="#local-function-6">7.6.6 Local Function #6 13</a></p>
+<p><a href="#description-5">7.6.6.1 Description 13</a></p>
+<p><a href="#local-function-7">7.6.7 Local Function #7 13</a></p>
+<p><a href="#description-6">7.6.7.1 Description 13</a></p>
+<p><a href="#local-function-8">7.6.8 Local Function #8 13</a></p>
+<p><a href="#description-7">7.6.8.1 Description 13</a></p>
+<p><a href="#local-function-9">7.6.9 Local Function #9 13</a></p>
+<p><a href="#description-8">7.6.9.1 Description 14</a></p>
+<p><a href="#local-function-10">7.6.10 Local Function #10 14</a></p>
+<p><a href="#description-9">7.6.10.1 Description 14</a></p>
+<p><a href="#local-function-11">7.6.11 Local Function #11 14</a></p>
+<p><a href="#description-10">7.6.11.1 Description 14</a></p>
+<p><a href="#global-functionmacro-definitions">7.7 GLObAL Function/Macro Definitions 14</a></p>
+<p><a href="#known-limitations-with-design">8 Known Limitations With Design 15</a></p>
+<p><a href="#unit-test-consideration">9 UNIT TEST CONSIDERATION 16</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Abbreviation</td>
+<td>Description</td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Sr. No.</td>
+<td>Title</td>
+<td>Version</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>MDD Guidelines</td>
+<td>1.02</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>1.02</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Software Coding Standards</td>
+<td>1.01</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>FDD – ES311A_GateDrv0Ctrl_Design</td>
+<td>See synergy sub project version</td>
+</tr>
+</tbody>
+</table>
+<h1 id="gatedrv0ctrl-high-level-description">GATEDRV0CTRL &amp; High-Level Description</h1>
+<p>This module configures the GateDrive0 connected with SPI channel CSIH2. It also does the diagnostics for GateDrive0 using SPI interface.</p>
+<p>It also performs phase reasonable diagnostics when the inverter 0 fault input is active. Detects FET fault and indicates the type of fault and also in the case of single fet fault it indicates the phase faulted as well. Phase reasonableness is disabled on a phase with shorted FET</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-gatedrv0ctrl">Graphical representation of GATEDRV0CTRL</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:2.67431in;height:4.92292in" /></p>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Typedef Name</td>
+<td>Element Name</td>
+<td>User Defined Type</td>
+<td><p>Legal Range</p>
+<p>(min)</p></td>
+<td><p>Legal Range</p>
+<p>(max)</p></td>
+</tr>
+<tr class="even">
+<td>GateDrvCfgSt</td>
+<td>-</td>
+<td>Enumeration</td>
+<td>0</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 59%" />
+<col style="width: 13%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Enum Name</td>
+<td>Element Name</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td rowspan="5">GateDrvCfgSt</td>
+<td>GATEDRVCFGST_RSTGATEDRVST</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>GATEDRVCFGST_WAIT2MS</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>GATEDRVCFGST_CFGREG</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>GATEDRVCFGST_SETUPSPIREGREAD</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>GATEDRVCFGST_READBACKREGS</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="programfixed-constants">Program(fixed) Constants</h2>
+<h2 id="embedded-constants">Embedded Constants</h2>
+<h2 id="local">Local</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Units</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>GATEDRVOFFSTCHKSIZE_CNT_U08</td>
+<td>1U</td>
+<td>Cnt</td>
+<td>((TblSize_m(ELECGLBPRM_GATEDRVOFFSTCHKDATA_CNT_U16)/8U) - 1U)</td>
+</tr>
+<tr class="odd">
+<td>BITMASK0_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x01U</td>
+</tr>
+<tr class="even">
+<td>BITMASK2_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x04U</td>
+</tr>
+<tr class="odd">
+<td>BITMASK4_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x10U</td>
+</tr>
+<tr class="even">
+<td>MOTDRVERRMIN_NANOSEC_F32</td>
+<td>Single precision float</td>
+<td>NanoSec</td>
+<td>0.0F</td>
+</tr>
+<tr class="odd">
+<td>MOTDRVERRMAX_NANOSEC_F32</td>
+<td>Single precision float</td>
+<td>NanoSec</td>
+<td>40000000.0F</td>
+</tr>
+<tr class="even">
+<td>DIAG2REGBOOTSTRPSPLYFLTSTRTPOS_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>5U</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global">Global</h2>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+</tr>
+<tr class="even">
+<td>Refer to the FDD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-specific-lookup-tables-constants">Module specific Lookup Tables Constants</h2>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 10%" />
+<col style="width: 31%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Value</td>
+<td>Software Segment</td>
+</tr>
+<tr class="even">
+<td>Refer to the design</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-module-implementation">Software Module Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>None</p>
+<h2 id="initialization-functions">Initialization Functions</h2>
+<h2 id="per-gatedrv0ctrlinit1">Per: GateDrv0CtrlInit1</h2>
+<h2 id="periodic-functions">PERIODIC FUNCTIONS</h2>
+<h2 id="per-gatedrv0ctrlper1">Per: GateDrv0CtrlPer1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p>None</p>
+<h2 id="processing-of-function">Processing of Function</h2>
+<p>See design model for details.</p>
+<h2 id="per-gatedrv0ctrlper2">Per: GateDrv0CtrlPer2</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>It is the intent of this design to hold the value of</p>
+<p>MotDrvr0IninTestCmpl between iterations of GateDrv0CtrlPer2.</p>
+<p>There was an inexplicable model issue in which MotDrvr0IninTestCmpl</p>
+<p>was being reset to 0 when MotDrvr0IninTestCmpl was not being</p>
+<p>written in the IF branch of model (refer model notes)</p>
+<p>Implementation Considerations:</p>
+<p>No need to use a PIM or a static variable as this signal is an RTE</p>
+<p>output. Since RTE signals work like a static variable, the</p>
+<p>implementation always holds the last value.</p>
+<h2 id="processing-of-function-1">Processing of Function</h2>
+<p>See design model for details.</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="serial-communication-functions">Serial Communication Functions</h2>
+<p>None</p>
+<h2 id="local-functionmacro-definitions">Local Function/Macro Definitions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 16%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>SpiAsyncTx</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="3"><strong>Arguments Passed</strong></td>
+<td>Channel_Cnt_T_u08</td>
+<td>Spi_ChannelType</td>
+<td>0</td>
+<td>Full</td>
+</tr>
+<tr class="odd">
+<td>TxData_Cnt_T_u16</td>
+<td>Spi_DataType</td>
+<td>0</td>
+<td>Full</td>
+</tr>
+<tr class="even">
+<td>Sequence_Cnt_T_u08</td>
+<td>Spi_SequenceType</td>
+<td>0</td>
+<td>Full</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description">Description</h2>
+<p>(void) Spi_WriteIB( Channel_Cnt_T_u08, &amp;TxData_Cnt_T_u16 );</p>
+<p>(void) Call_Spi_AsyncTransmit( Sequence_Cnt_T_u08 );</p>
+<h2 id="local-function-2">Local Function #2</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffStVrfySt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-1">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/OffState Verification State</strong>block in design model.</p>
+<h2 id="local-function-3">Local Function #3</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffStVrfyData</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>Flt_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-2">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/OffState Verification State/OffSt Verification Chk and Transition to Config State/OffStChk Incomplete/Offstate Verification /OffState Verification Check</strong> block in design model.</p>
+<p>*It is optimized in the implementation to reduce the high static path count.</p>
+<h2 id="local-function-4">Local Function #4</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CfgSt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-3">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/Configuration State</strong> block in design model.</p>
+<p>The state machine is implemented slightly differently in code vs the model, but they are functionally equivalent.<br />
+The model adds 1 to the GateDrv0CfgCnt Pim to change to the next state in Configuration,but the code assigns values from a local enumeration (see section 5.2) instead of performing arithmetic on the Pim. The enumerated state assigned to GateDrv0CfgCnt Pim will match with the resulting state in the model.</p>
+<h2 id="local-function-5">Local Function #5</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ReadBackRegs</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-4">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/Configuration State/Read back Registers</strong> block in design model.</p>
+<h2 id="local-function-6">Local Function #6</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OperFltMonrSt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="6"><strong>Arguments Passed</strong></td>
+<td>PhaOnTiMeasdA_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td>PhaOnTiMeasdB_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td>PhaOnTiMeasdC_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td>PhaOnTiSumAExp_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td>PhaOnTiSumBExp_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td>PhaOnTiSumCExp_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*MotDrvErrA_NanoSec_T_f32</td>
+<td>Single precision float</td>
+<td>0.0F</td>
+<td>40000000.0F</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*MotDrvErrB_NanoSec_T_f32</td>
+<td>Single precision float</td>
+<td>0.0F</td>
+<td>40000000.0F</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*MotDrvErrC_NanoSec_T_f32</td>
+<td>Single precision float</td>
+<td>0.0F</td>
+<td>40000000.0F</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-5">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/Operate Fault Monitor State</strong> block in design model.</p>
+<h2 id="local-function-7">Local Function #7</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GateDrvDetermineOnStSngFETFlt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>*SpclSnpshtData0_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*SpclSnpshtData1_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*SpclSnpshtData2_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>GenGateDrvFlt_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-6">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/Operate Fault Monitor State/Determine Faults/Status Register indicates Fault/Determine OnState Single FET Fault</strong> block in design model.</p>
+<h2 id="local-function-8">Local Function #8</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GateDrvDetermineVltgFlt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>*SpclSnpshtData0_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*SpclSnpshtData1_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*SpclSnpshtData2_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>GenGateDrvFlt_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-7">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/Operate Fault Monitor State/Determine Faults/Status Register indicates Fault/Determine VREG/Bootstrap Voltage Fault</strong> block in design model.</p>
+<h2 id="local-function-9">Local Function #9</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GateDrvDetermineGenericFlt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>GateDrvAllSts_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>0xFFFF</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*SpclSnpshtData0_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*SpclSnpshtData1_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*SpclSnpshtData2_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0U</td>
+<td>4294967295U</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>GenGateDrvFlt_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-8">Description</h2>
+<p>See <strong>GateDrv0Ctrl/GateDrv0CtrlPer2/Gate Drive Enable/Gate Drive State/Operate Fault Monitor State/Determine Faults/Status Register indicates Fault/Determine Generic Gate Drive Fault</strong> block in design model.</p>
+<h2 id="local-function-10">Local Function #10</h2>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 31%" />
+<col style="width: 20%" />
+<col style="width: 12%" />
+<col style="width: 13%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>SetNtcStInfo</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>PhaOnTiMeasd_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PhaOnTiSumExp_NanoSec_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>AbsltErr_NanoSec_T_f32</td>
+<td>Single precision float</td>
+<td>0</td>
+<td>3.4E+38</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BitMask_Cnt_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>127</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>NtcStInfo_Uls_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>Flt_Uls_T_lgc</td>
+<td>Boolean</td>
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-9">Description</h2>
+<p>See <strong>ES311A_GateDrv0Ctrl/GateDrv0Ctrl/GateDrv0CtrlPer2/GateDrv Enable/Disable/Gate Drive Enable/Gate Drive State/Operate Fault Monitor State/Determine Faults/No Faults/GateDrvPhaReasbnChk/MeasdPhaFltChkABC</strong> block in design model. This function implements <strong>NtcStInfoPhaA</strong>, <strong>NtcStInfoPhaB</strong> and <strong>NtcStInfoPhaC</strong> common functionality.</p>
+<h2 id="local-function-11">Local Function #11</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ChkResVrfyRegs</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>PrmByte_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>128</td>
+<td>138</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-10">Description</h2>
+<p>Check Results of Verify GateDrive0 Registers based on calculated parameter byte and take appropriate action</p>
+<h2 id="local-function-12">Local Function #12</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>WriteOutput</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-11">Description</h2>
+<p>Implements the ‘<strong>ES311A_GateDrv0Ctrl_new/GateDrv0Ctrl/GateDrv0CtrlPer2/Write Output</strong>’ block in simulink model.</p>
+<h2 id="global-functionmacro-definitions">GLObAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations With Design</h1>
+<p>Note: The PIM Ivtr0InactvSts is written in Per2 and used in Per1 as well as Per2. Data consistency is not an issue because of explicit scheduling requirements given in the integration manual.</p>
+<p>Note:</p>
+<ol type="1">
+<li><p>At multiple places, the implementation does not reset the error counter PIM when rollover to zero happens but the model does. This is because in the code the rollover is automatic (and marked intentional ), whereas in the model it isn’t that way and requires a manual reset.</p></li>
+<li><p>In all the cases where (1) is applicable, the model comments say 65535 rather than 4294967295 as the value at which reset should occur. Upon discussion with FDD owner, the comment is wrong and will be changed with the next update.</p></li>
+</ol>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<ol type="1">
+<li><p>Overflow is intentional and acceptable on PhaOnTiSumAExp_NanoSec_T_u32, PhaOnTiSumBExp_NanoSec_T_u32 and PhaOnTiSumCExp_NanoSec_T_u32 in Per2 function.</p></li>
+<li><p>Rollover is intentional on Rte_Pim_GateDrv0SpiTrsmErrCntr. The code has comments that also mention this consideration.<br />
+<strong><u>Note:</u></strong> While the code and model do not exactly match on the implementation (because the model manually resets this error counter, while the code lets it auto-reset due to rollover), the output should be the same for the PIM because functionally they are same.</p></li>
+<li><p>The model is designed such that the table ELECGLBPRM_GATEDRVOFFSTCHKDATA_CNT_U16 is never indexed with a value of greater than its size in real life. However, in code we need an explicit check for safety. For this reason, when Rte_Pim_GateDrv0OffStChkIdx is given a value greater than or equal to the size of this table, the model and code will behave differently (this is expected , because it is an impossible scenario in the real world).<br />
+-&gt;<br />
+<em><strong><u>For PIL testing, the consideration is that</u></strong></em> the input values given to Rte_Pim_GateDrv0OffStChkIdx when MIL vectors are not available should be less than or equal to (GATEDRVOFFSTCHKSIZE_CNT_U08).</p></li>
+<li><p>This component has a config parameter. Use the file from local/include folder and NOT the one from local/generate folder for testing so that Tessy can vary the value of the configuration parameter in the range that it is given in the data dictionary.</p></li>
+<li><p>Please rectify wrong expected values of tests as part of anomaly corrective action. See PDF attached here (refer to both root cause and corrective action).</p></li>
+</ol>

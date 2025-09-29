@@ -1,0 +1,318 @@
+---
+title: TechnicalReference_AutoConnects
+linkTitle: TechnicalReference_AutoConnects
+weight: 18
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Auto-Connect Port Prototypes&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Authors&#160;<br/>
+Pavol&#160;Gramblicka&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a>Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Pavol&#160;Gramblicka&#160;<br/>
+2015-04-28&#160;<br/>
+0.1.0&#160;<br/>
+Initial&#160;version&#160;<br/>
+Pavol&#160;Gramblicka&#160;<br/>
+2015-04-28&#160;<br/>
+1.0.0&#160;<br/>
+Final&#160;version&#160;<br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+2&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=3></a>Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_AutoConnects.html#5"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#5"><b>Overview&#160;.......................................................................................................................&#160;5</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#5">Intended&#160;Audience&#160;.............................................................................................&#160;5&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#5">1.2&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#5">Terms&#160;and&#160;Acronyms&#160;.........................................................................................&#160;5&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#6"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#6"><b>Input&#160;Port&#160;Prototypes&#160;...................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#7"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#7"><b>Auto-Connect&#160;................................................................................................................&#160;7</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#7">Auto-Connect&#160;–&#160;simple pattern&#160;...........................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#9">3.2&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#9">Auto-Connect&#160;–&#160;enhanced patterns&#160;....................................................................&#160;9&#160;<br/>3.2.1&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#9">Prefix,&#160;Postfix&#160;.....................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#10">3.2.2&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#10">Complex&#160;patterns&#160;using&#160;the&#160;component&#160;prototype&#160;name&#160;..................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#13"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#13"><b>Contact&#160;........................................................................................................................&#160;13</b>&#160;</a><br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+3&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_AutoConnects.html#6">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#6">Start&#160;the&#160;contextless auto-connecting&#160;.........................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#6">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#6">Start&#160;the&#160;context&#160;dependent&#160;auto-connecting&#160;..............................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#7">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#7">Simple auto-connect&#160;scenario&#160;.....................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#8">Figure&#160;3-2&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#8">List&#160;of&#160;proposed&#160;connections&#160;......................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#9">Figure&#160;3-3&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#9">Context&#160;dependent&#160;auto-connecting&#160;of&#160;a&#160;prefixed&#160;port&#160;prototype&#160;................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#10">Figure&#160;3-4&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#10">Context&#160;dependent&#160;auto-connecting&#160;with a&#160;prefixed&#160;naming&#160;&#160;pattern&#160;........&#160;10&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#11">Figure&#160;3-5&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#11">Context&#160;dependent&#160;auto-connecting&#160;of&#160;a&#160;port&#160;prototype&#160;without&#160;the&#160;<br/>component&#160;restriction&#160;...............................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#12">Figure&#160;3-6&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#12">Context&#160;dependent&#160;auto-connecting&#160;of&#160;port&#160;prototypes&#160;with the&#160;<br/>component&#160;restriction&#160;...............................................................................&#160;12&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_AutoConnects.html#5">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_AutoConnects.html#5">Terms&#160;and&#160;Acronyms&#160;..................................................................................&#160;5&#160;</a><br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+4&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>1&#160;&#160;Overview&#160;</b><br/>
+DaVinci&#160;Developer&#160;is&#160;part&#160;of&#160;Vector’s&#160;solution&#160;for&#160;AUTOSAR&#160;compatible&#160;software&#160;design.&#160;It&#160;<br/>is&#160;&#160;used&#160;&#160;to&#160;&#160;design&#160;&#160;and&#160;&#160;configure&#160;&#160;software&#160;&#160;components&#160;&#160;and&#160;&#160;provides&#160;&#160;various&#160;&#160;concepts&#160;&#160;to&#160;<br/>support this&#160;process.&#160;<br/>This&#160;document&#160;describes&#160;a&#160;part&#160;of&#160;the&#160;design&#160;process&#160;related&#160;to&#160;DaVinci&#160;Developer&#160;from&#160;a&#160;<br/>technical&#160;&#160;point&#160;&#160;of&#160;&#160;view,&#160;&#160;trying&#160;&#160;to&#160;&#160;give&#160;&#160;the&#160;&#160;user&#160;&#160;a&#160;&#160;better&#160;&#160;understanding&#160;&#160;of&#160;&#160;the&#160;&#160;internal&#160;<br/>processes&#160;and&#160;how&#160;the&#160;tool reacts&#160;in&#160;different&#160;situations.&#160;<br/>
+<b>1.1&#160;</b><br/>
+<b>&#160;Intended&#160;Audience&#160;</b><br/>
+This&#160;document&#160;aims&#160;at&#160;developers&#160;who&#160;are&#160;involved&#160;in&#160;the&#160;AUTOSAR&#160;design&#160;process&#160;and&#160;<br/>use&#160;DaVinci Developer&#160;to&#160;integrate&#160;various software components.&#160;<br/>
+<b>1.2&#160;</b><br/>
+<b>Terms&#160;and&#160;Acronyms&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Definition&#160;</b><br/>
+DEV&#160;<br/>
+DaVinci&#160;Developer&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Terms&#160;and&#160;Acronyms&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+5&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-6_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-6_2.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>2&#160;&#160;Input&#160;Port&#160;Prototypes&#160;</b><br/>
+The&#160;&#160;auto-connect&#160;&#160;functionality&#160;&#160;may&#160;&#160;be&#160;&#160;started&#160;&#160;contextless&#160;&#160;from&#160;&#160;the&#160;&#160;<b>Software&#160;&#160;Design</b>&#160;<br/>toolba<a href="TechnicalReference_AutoConnects.html#6">r (Figure&#160;2-1) or&#160;</a>from&#160;the&#160;context&#160;menu&#160;of&#160;the&#160;graphic view<a href="TechnicalReference_AutoConnects.html#6">&#160;(Figure&#160;2-2).</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;Start&#160;the&#160;contextless&#160;auto-connecting&#160;<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Start&#160;the&#160;context&#160;dependent&#160;auto-connecting&#160;<br/>
+1.&#160;&#160;In&#160;case&#160;of&#160;the&#160;contextless connecting,&#160;all&#160;port&#160;prototypes&#160;of&#160;the&#160;parent&#160;composition&#160;are&#160;<br/>
+considered.&#160;<br/>
+2.&#160;&#160;In&#160;case&#160;of&#160;the&#160;context&#160;dependent&#160;connecting,&#160;the&#160;connections are&#160;created&#160;according&#160;to&#160;<br/>
+the&#160;provided&#160;selection.&#160;<br/>
+<b>&gt;&#160;&#160;no selection</b>&#160;–&#160;all&#160;port&#160;prototypes within&#160;the&#160;composition&#160;are considered&#160;<br/>
+<b>&gt;&#160;&#160;a&#160;component is&#160;selected</b>&#160;–&#160;all&#160;port prototypes of&#160;the&#160;component&#160;are&#160;considered&#160;<br/>
+<b>&gt;&#160;&#160;single&#160;port prototype&#160;selection</b>&#160;–&#160;only&#160;these&#160;port&#160;prototypes are considered&#160;to&#160;<br/>
+be&#160;the&#160;source&#160;resp.&#160;destination&#160;of&#160;a&#160;proposed&#160;connector&#160;prototype&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+6&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-7_1.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>3&#160;&#160;Auto-Connect&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Auto-Connect&#160;–&#160;simple&#160;pattern&#160;</b><br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;Simple&#160;auto-connect&#160;scenario&#160;&#160;&#160;<br/>
+&#160;<br/>
+Imagine&#160;&#160;we&#160;&#160;want&#160;&#160;to&#160;&#160;use&#160;&#160;the&#160;&#160;context&#160;&#160;dependent&#160;&#160;auto-connect&#160;&#160;for&#160;&#160;the&#160;&#160;port&#160;&#160;prototype&#160;<br/><b>Counter</b><i>&#160;</i>of&#160;the&#160;component&#160;<b>SWC1</b><i>.</i>&#160;<br/>
+1.&#160;&#160;Select&#160;the&#160;port&#160;prototype&#160;<br/>
+2.&#160;&#160;Right&#160;mouse-click on&#160;port prototype&#160;to&#160;open&#160;the&#160;context&#160;menu&#160;<br/>
+3.&#160;&#160;Choose&#160;<b>Complete Connectors</b>&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+7&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-8_1.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+&#160;<br/>
+Figure&#160;3-2&#160;&#160;List&#160;of&#160;proposed&#160;connections&#160;<br/>
+The&#160;algorithm&#160;is&#160;looking&#160;for counterparts&#160;for the&#160;selected&#160;port&#160;prototype&#160;<b>SWC1.Counter</b>&#160;<br/>
+<b>&gt;&#160;&#160;</b>in&#160;the&#160;first&#160;step,&#160;the&#160;naming&#160;pattern is&#160;analyzed&#160;to&#160;provide&#160;a&#160;key&#160;string&#160;<br/>
+<b>&gt;&#160;&#160;</b>simple&#160;pattern without&#160;prefix&#160;resp.&#160;postfix&#160;is used&#160;i.e.&#160;only&#160;the&#160;name&#160;of&#160;the&#160;port&#160;<br/>
+prototype&#160;is&#160;essential&#160;for&#160;the&#160;search&#160;algorithm,&#160;key&#160;string&#160;=&#160;<b>Counter</b>&#160;<br/>
+<b>&gt;&#160;&#160;</b>for all connectable&#160;port&#160;prototypesi,&#160;if&#160;the&#160;key&#160;string&#160;is a&#160;substring&#160;of&#160;the&#160;name&#160;of&#160;a&#160;<br/>
+connectable&#160;port prototype&#160;a&#160;connection&#160;will be&#160;proposed&#160;<br/>
+<b>&gt;&#160;&#160;</b>a&#160;line&#160;in&#160;the&#160;dialog&#160;then&#160;corresponds&#160;to&#160;the&#160;proposed&#160;connection&#160;<br/>
+<b>&gt;&#160;&#160;</b>additionally&#160;the&#160;algorithm&#160;can&#160;be&#160;refined&#160;with&#160;<b>Connect Options</b>&#160;<br/>
+<b>&gt;&#160;&#160;Match case</b>&#160;–&#160;consider case&#160;sensitive&#160;matching<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;Match&#160;whole&#160;word</b><i>&#160;–</i>&#160;consider&#160;exact&#160;matching<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;Allow&#160;split</b>&#160;–&#160;in&#160;case&#160;of&#160;a&#160;P-Port&#160;more than&#160;one&#160;connection&#160;is&#160;allowed<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;Allow&#160;merge</b><i>&#160;</i>–&#160;in&#160;case&#160;of&#160;an&#160;R-Port&#160;more&#160;than&#160;one&#160;connection&#160;is&#160;allowed<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;Allow&#160;incompatible</b><i>&#160;–</i>&#160;consider&#160;AUTOSAR compatibility&#160;rules&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;you&#160;refined&#160;the&#160;options,&#160;press&#160;<b>Apply</b>&#160;to&#160;take&#160;the&#160;changes into&#160;account<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;</b>to&#160;get&#160;more information&#160;about&#160;proposed&#160;connection&#160;press&#160;right&#160;mouse&#160;button&#160;to&#160;open&#160;<br/>
+the&#160;context&#160;menu<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;</b>with&#160;<b>Show&#160;P-Port</b>&#160;resp.&#160;<b>Show&#160;Connected</b><i>&#160;</i>menu&#160;buttons&#160;the&#160;port&#160;prototypes&#160;might&#160;<br/>
+be&#160;located&#160;in&#160;the&#160;software design<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;</b>with&#160;<b>Add</b>&#160;and&#160;<b>Remove</b>&#160;menu&#160;buttons&#160;the&#160;proposed&#160;list might&#160;be&#160;edited<i>&#160;</i><br/>
+<b>&gt;&#160;&#160;</b>with&#160;the&#160;rest&#160;menu&#160;buttons the&#160;property&#160;dialogs might&#160;be&#160;open<i>&#160;</i><br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+8&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-9_1.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Auto-Connect&#160;–&#160;enhanced patterns&#160;</b><br/>
+In&#160;a&#160;more&#160;complicated&#160;case,&#160;the&#160;naming&#160;pattern&#160;of&#160;the&#160;selected&#160;port&#160;prototype&#160;has&#160;to&#160;be&#160;<br/>identified.&#160;<br/>
+<b>3.2.1&#160;</b><br/>
+<b>Prefix,&#160;Postfix&#160;</b><br/>
+Consider&#160;&#160;the&#160;&#160;designer&#160;&#160;uses&#160;&#160;always&#160;&#160;a&#160;&#160;prefix&#160;&#160;or&#160;&#160;a&#160;&#160;postfix&#160;&#160;for&#160;&#160;his&#160;&#160;port&#160;&#160;prototypes,&#160;&#160;e.g.&#160;<br/><b>SWC1::PPCounter</b>.&#160;In&#160;this&#160;case,&#160;the&#160;algorithm&#160;cannot&#160;find&#160;any&#160;connectable&#160;port&#160;prototype&#160;<br/>which&#160;includes&#160;the&#160;substring&#160;<b>PPCounter</b>&#160;in&#160;his&#160;name.&#160;<br/>
+&#160;<br/>
+Figure&#160;3-3&#160;&#160;Context&#160;dependent&#160;auto-connecting&#160;of&#160;a&#160;prefixed&#160;port&#160;prototype&#160;<br/>
+The&#160;&#160;user&#160;must&#160;&#160;explicitly&#160;&#160;determinate&#160;the&#160;&#160;prefix&#160;&#160;part.&#160;When&#160;&#160;computing&#160;&#160;the&#160;&#160;key&#160;&#160;string,&#160;&#160;the&#160;<br/>prefix&#160;part will be&#160;removed&#160;and&#160;the&#160;algorithm&#160;is running&#160;like&#160;in&#160;the&#160;simple&#160;case.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+9&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-10_1.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+&#160;<br/>
+Figure&#160;3-4&#160;&#160;Context&#160;dependent&#160;auto-connecting&#160;with&#160;a&#160;prefixed&#160;naming&#160;&#160;pattern&#160;<br/>
+<b>3.2.2&#160;</b><br/>
+<b>Complex&#160;patterns&#160;using the&#160;component prototype&#160;name&#160;</b><br/>
+In&#160;a&#160;very&#160;special&#160;case,&#160;the&#160;destination&#160;component&#160;may&#160;be&#160;identified&#160;by&#160;the&#160;naming&#160;pattern.&#160;<br/>This&#160;&#160;scenario&#160;&#160;is&#160;&#160;applicable&#160;&#160;if&#160;&#160;there&#160;&#160;are&#160;&#160;components&#160;&#160;which&#160;&#160;have&#160;&#160;port&#160;&#160;prototypes&#160;&#160;of&#160;&#160;the&#160;<br/>same&#160;&#160;or&#160;&#160;similar&#160;&#160;naming&#160;&#160;but&#160;&#160;the&#160;&#160;proposed&#160;&#160;set&#160;&#160;should&#160;&#160;be&#160;&#160;restricted&#160;&#160;to&#160;&#160;a&#160;&#160;dedicated&#160;<br/>component.&#160;&#160;Suppose&#160;&#160;we&#160;&#160;want&#160;&#160;to&#160;&#160;restrict&#160;&#160;the&#160;&#160;proposal&#160;&#160;to&#160;&#160;component&#160;&#160;<b>SWC2</b>.&#160;&#160;The<a href="TechnicalReference_AutoConnects.html#11">&#160;&#160;Figure&#160;<br/>3-5&#160;</a>displays&#160;such&#160;a&#160;scenario&#160;where&#160;connections&#160;to&#160;<b>SWC2</b>&#160;and&#160;<b>SWC3</b>&#160;will&#160;be&#160;proposed.&#160;In&#160;<br/>our&#160;&#160;example,&#160;&#160;we&#160;&#160;can&#160;&#160;simply&#160;&#160;remove&#160;&#160;the&#160;&#160;connection&#160;&#160;to&#160;&#160;<b>SWC3</b>&#160;&#160;but&#160;&#160;in&#160;&#160;general&#160;&#160;it&#160;&#160;might&#160;&#160;be&#160;<br/>difficult to&#160;identify&#160;such&#160;relations.&#160;<br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+10&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-11_1.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+&#160;<br/>
+Figure&#160;3-5&#160;&#160;Context&#160;dependent&#160;auto-connecting&#160;of&#160;a&#160;port&#160;prototype&#160;without&#160;the&#160;component&#160;restriction&#160;<br/>
+To&#160;&#160;be&#160;&#160;sure&#160;&#160;the&#160;&#160;port&#160;&#160;prototype&#160;&#160;of&#160;&#160;the&#160;&#160;desired&#160;&#160;component&#160;&#160;will&#160;&#160;be&#160;&#160;proposed,&#160;&#160;the&#160;&#160;restriction&#160;<br/>must&#160;be&#160;coded&#160;in&#160;the&#160;name&#160;of&#160;the&#160;selected&#160;port&#160;prototyped.&#160;The&#160;naming&#160;pattern&#160;looks&#160;like&#160;<br/>this &lt;COMPONENT_PROTOTYPE&gt;_&lt;PORT_PROTOTYPE&gt;.&#160;The&#160;algorithm&#160;will parse&#160;the&#160;<br/>port&#160;&#160;prototype&#160;&#160;name&#160;&#160;and&#160;&#160;try&#160;&#160;to&#160;&#160;identify&#160;&#160;corresponding&#160;&#160;parts.&#160;&#160;Additionally&#160;&#160;to&#160;&#160;the&#160;&#160;current&#160;<br/>concept,&#160;the&#160;name&#160;of&#160;the&#160;component&#160;will be&#160;matching.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+11&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_AutoConnect-12_1.png"/><br/>
+Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+&#160;<br/>
+Figure&#160;3-6&#160;&#160;Context&#160;dependent&#160;auto-connecting&#160;of&#160;port&#160;prototypes&#160;with&#160;the&#160;component&#160;restriction&#160;<br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+12&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=13></a>Technical Reference&#160;Auto-Connect&#160;Port Prototypes&#160;<br/>
+<b>4&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>
+<b>www.vector.com&#160;</b><br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+iA&#160;connectable port&#160;prototype is&#160;such a&#160;port&#160;prototype&#160;which allow&#160;for creation&#160;of&#160;a&#160;meaningful&#160;connector&#160;<br/>prototypes.&#160;In&#160;case&#160;of&#160;an&#160;assembly&#160;connector,&#160;if&#160;P-Port is&#160;selected&#160;only&#160;an&#160;R-Port&#160;or PR-Ports&#160;are&#160;<br/>meaningful&#160;and&#160;vice&#160;versa.&#160;In&#160;case of&#160;a&#160;delegation&#160;connector prototypes,&#160;if&#160;P-Port&#160;is&#160;selected only&#160;a&#160;P-Port&#160;<br/>or PR-Port are meaningful&#160;and similar&#160;if&#160;an&#160;R-Port is&#160;selected only&#160;an R-Port or&#160;PR-Port are&#160;meaningful.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.0&#160;<br/>
+13&#160;/&#160;13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_AutoConnects.html#5">1 Overview</a>
+<ul>
+<li><a href="TechnicalReference_AutoConnects.html#5">1.1 &#160;Intended Audience</a></li>
+<li><a href="TechnicalReference_AutoConnects.html#5">1.2 Terms and Acronyms</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_AutoConnects.html#6">2 Input Port Prototypes</a></li>
+<li><a href="TechnicalReference_AutoConnects.html#7">3 Auto-Connect</a>
+<ul>
+<li><a href="TechnicalReference_AutoConnects.html#7">3.1 Auto-Connect – simple pattern</a></li>
+<li><a href="TechnicalReference_AutoConnects.html#9">3.2 Auto-Connect – enhanced patterns</a>
+<ul>
+<li><a href="TechnicalReference_AutoConnects.html#9">3.2.1 Prefix, Postfix</a></li>
+<li><a href="TechnicalReference_AutoConnects.html#10">3.2.2 Complex patterns using the component prototype name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_AutoConnects.html#13">4 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,322 @@
+---
+title: ClsdLoopDampg_MDD
+linkTitle: ClsdLoopDampg_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>ClsdLoopDampg</strong></p>
+<p><strong>April 05, 2018</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>TATA ELXSI,</strong></p>
+<p><strong>INDIA</strong></p>
+<p><strong><br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 37%" />
+<col style="width: 20%" />
+<col style="width: 11%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Krzysztof Byrski</td>
+<td>1</td>
+<td>27-Feb-2018</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><p>Updated to add the additional _Init function generated for autocode in Section 5.</p>
+<p>Updated to add additional local constants required for autocode in Section 4.1.1.1</p></td>
+<td>Vipin David</td>
+<td>2</td>
+<td>05-Apr-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u>1 Introduction 4</p>
+<p>1.1 Purpose 4</p>
+<p>1.2 Scope 4</p>
+<p>2 ClsdLoopDampg &amp; High-Level Description 5</p>
+<p>3 Design details of software module 6</p>
+<p>3.1 Graphical representation of ClsdLoopDampg 6</p>
+<p>3.2 Data Flow Diagram 6</p>
+<p>3.2.1 Component level DFD 6</p>
+<p>3.2.2 Function level DFD 6</p>
+<p>4 Constant Data Dictionary 7</p>
+<p>4.1 Program (fixed) Constants 7</p>
+<p>4.1.1 Embedded Constants 7</p>
+<p>5 Software Component Implementation 8</p>
+<p>5.1 Sub-Module Functions 8</p>
+<p>5.1.1 Init: ClsdLoopDampgInit1 8</p>
+<p>5.1.2 Init: ClsdLoopDampg_Init 8</p>
+<p>5.1.3 Per: ClsdLoopDampgPer1 8</p>
+<p>5.2 Server Runables 8</p>
+<p>5.3 Interrupt Functions 8</p>
+<p>5.4 Module Internal (Local) Functions 9</p>
+<p>5.5 GLOBAL Function/Macro Definitions 9</p>
+<p>6 Known Limitations with Design 10</p>
+<p>7 UNIT TEST CONSIDERATION 11</p>
+<p>Appendix A Abbreviations and Acronyms 12</p>
+<p>Appendix B Glossary 13</p>
+<p>Appendix C References 14</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module Design Document for SF072A_ClsdLoopDampg_Impl.</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="clsdloopdampg-high-level-description">ClsdLoopDampg &amp; High-Level Description</h1>
+<p>This function produces a handwheel reference torque for the closed loop system. This function calculates damping torque based on motor velocity and scaled by factors such a rack force estimation. Closed Loop Damping shall be calibrated based on vehicle speed, and motor velocity. End of Travel shall affect the output signal command based on the EoT State, EoT Delta Angle and EoT Assist Scale.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-clsdloopdampg">Graphical representation of ClsdLoopDampg</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:2.36224in;height:4.34367in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Refer FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Refer FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 19%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Refer SF072A_ClsdLoopDampg_DataDict.m for details.</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>The sub-module functions are grouped based on similar functionality that needs to be executed in a given “State” of the system (refer States and Modes). For a given module, the MDD will identify the type and number of sub-modules required. The sub-module types are described below.</p>
+<h3 id="init-clsdloopdampginit1">Init: ClsdLoopDampgInit1</h3>
+<h4 id="design-rationale">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="module-outputs">Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 id="init-clsdloopdampg_init">Init: ClsdLoopDampg_Init</h3>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<p>This init function is generated by embedded coder and is not present in the Simulink model.</p>
+<p>This function is always empty and is not called.</p>
+<h4 id="module-outputs-1">Module Outputs</h4>
+<p>There are no outputs for this function.</p>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="per-clsdloopdampgper1">Per: ClsdLoopDampgPer1</h3>
+<h4 id="design-rationale-2">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h2 id="server-runables">Server Runables </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<p>None</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<h1 id="abbreviations-and-acronyms">Abbreviations and Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document. (See references)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="glossary">Glossary</h1>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="https://www.autosar.org/fileadmin/files/standards/classic/4-0/software-architecture/implementation-integration/standard/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.4.0 R4.0 Rev 3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline EA4</td>
+<td>1.02</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>EA4 Software Naming Conventions</td>
+<td>1.0.3 draft</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards</td>
+<td>3.0 draft</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>SF072A_ClsdLoopDampg_Design</td>
+<td>See Synergy Sub Project Version</td>
+</tr>
+</tbody>
+</table>

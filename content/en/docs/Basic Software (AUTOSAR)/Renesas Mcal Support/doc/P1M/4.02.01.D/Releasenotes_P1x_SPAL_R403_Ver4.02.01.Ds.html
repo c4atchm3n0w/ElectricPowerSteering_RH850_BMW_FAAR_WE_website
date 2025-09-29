@@ -1,0 +1,1842 @@
+---
+title: Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds
+linkTitle: Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds
+weight: 69
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Release Notes&#160;for&#160;RENESAS&#160;RH850/P1x:&#160;<br/>
+RENESAS_SW-AUTOSAR-P1x: MCAL&#160;Ver4.02.01.D&#160;<br/>
+MP&#160;Quality&#160;<br/>
+1.1&#160;&#160;Purpose:&#160;<br/>
+To deliver AUTOSAR&#160;R4.0.3 MCAL&#160;software&#160;for&#160;P1x&#160;Ver4.02.01.D&#160;release&#160;using&#160;the&#160;following&#160;<br/>
+inputs.&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Device&#160;Manual:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;r01uh0436ej0130-rh850p1x.pdf&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Device&#160;File:&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DF-RH850P1M-EE_V120.zip&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Operating&#160;Precautions:&#160;&#160;&#160;&#160;R01TU0069ED0300_RH850.pdf&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Modules supported:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DIO,&#160;FLS,&#160;MCU, PORT,&#160;SPI&#160;and&#160;WDG.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Note:&#160;In&#160;case&#160;of integration of&#160;this product into safety&#160;related applications&#160;please&#160;contact Renesas&#160;for&#160;<br/>
+additional safety&#160;related&#160;work products.&#160;<br/>
+&#160;<br/>
+Page&#160;1&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=2></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+1.2&#160;<br/>
+Package information&#160;<br/>
+<b>Product&#160;&#160;&#160;</b><br/>
+RH850/P1x&#160;<br/>
+<b>Variant&#160;</b><br/>
+P1M&#160;<br/>
+<b>Product&#160;Release&#160;Version&#160;</b><br/>
+Ver4.02.01.D&#160;<br/>
+<b>AUTOSAR&#160;Specification Version&#160;</b><br/>
+4.0.3&#160;<br/>
+<b>Device&#160;tested on&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Devices supported&#160;</b><br/>
+RH850/P1M&#160;<br/>
+R7F701310&#160;<br/>
+R7F701311&#160;<br/>
+R7F701314&#160;&#160;&#160;<br/>
+R7F701315&#160;&#160;&#160;<br/>
+R7F701318&#160;<br/>
+R7F701319&#160;&#160;&#160;<br/>
+R7F701322&#160;&#160;&#160;<br/>
+R7F701323&#160;&#160;&#160;<br/>
+<b>Release&#160;Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+&#160;<br/>
+Additional&#160;to&#160;the&#160;above&#160;list,&#160;the&#160;following&#160;derivatives (with&#160;ICU-S units)&#160;are&#160;also&#160;supported:&#160;<br/>
+&#160;<br/>
+<b>ICU-S&#160;Devices supported&#160;</b><br/>
+R7F701362&#160;<br/>
+R7F701363&#160;<br/>
+R7F701366&#160;<br/>
+R7F701367&#160;<br/>
+&#160;<br/>
+As there&#160;was&#160;no&#160;impact on&#160;MCAL&#160;identified&#160;due&#160;to&#160;the&#160;ICU-S&#160;unit,&#160;Renesas&#160;recommends&#160;to&#160;use&#160;the&#160;below&#160;equivalent&#160;<br/>
+devices part number&#160;without ICU-S unit,&#160;during&#160;MCAL&#160;configuration,&#160;instead&#160;of&#160;the&#160;actual device&#160;part number&#160;with&#160;<br/>
+ICU-S unit:&#160;<br/>
+&#160;<br/>
+<b>Device&#160;(with ICU-S Support)&#160;</b><br/>
+<b>Equivalent&#160;device(w/o&#160;ICU-S support)&#160;</b><br/>
+R7F701362&#160;<br/>
+R7F701318&#160;<br/>
+R7F701363&#160;<br/>
+R7F701319&#160;<br/>
+R7F701366&#160;<br/>
+R7F701322&#160;<br/>
+R7F701367&#160;<br/>
+R7F701323&#160;<br/>
+&#160;<br/>
+Page&#160;2&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=3></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+1.3&#160;&#160;Tools&#160;&#160;&#160;<br/>
+1.3.1&#160;&#160;GHS&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+GreenHills&#160;<br/>
+Green&#160;Hills&#160;Multi&#160;<br/>
+-c&#160;-Osize&#160;-g&#160;-cpu=rh850g3m&#160;-gsize&#160;-prepare_dispose&#160;<br/>
+Multi IDE&#160;–&#160;<br/>
+V6.1.6&#160;Compiler&#160;<br/>
+-inline_prologue&#160;-sda=all&#160;-Wundef&#160;-no_callt&#160;-reserve_r2&#160;<br/>
+--short_enum&#160;--prototype_errors&#160;--diag_error&#160;193&#160;<br/>
+compiler&#160;<br/>
+Version&#160;2015.1.7&#160;<br/>
+-dual_debug&#160;-large_sda&#160;--no_commons&#160;-shorten_loads&#160;<br/>
+&#160;<br/>
+-shorten_moves&#160;-Wshadow&#160;-nofloatio&#160;<br/>
+-ignore_callt_state_in_interrupts&#160;-delete&#160;<br/>
+1.3.2&#160;&#160;Configuration code&#160;generator&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+ECU&#160;Spectrum&#160;<br/>
+4.0.14&#160;<br/>
+-&#160;<br/>
+1.3.3&#160;&#160;Additional software&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+NA&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+1.4&#160;&#160;Generic Information&#160;<br/>
+1.4.1&#160;&#160;Release&#160;Target&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+<b>Module&#160;</b><br/>
+Generic&#160;<br/>
+<b>Module&#160;Overview&#160;User&#160;Manual&#160;</b><br/>
+R20UT3752EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.10&#160;<br/>
+<b>Getting&#160;Started&#160;for&#160;P1x&#160;MCAL&#160;User&#160;</b><br/>
+R20UT3753EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.8&#160;<br/>
+<b>Manual&#160;</b><br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+1.4.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>Generator&#160;Files&#160;</b><br/>
+P1x_translation.h&#160;&#160;<b>&#160;</b><br/>
+1.0.8<i>&#160;</i><br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;supported&#160;devices list in&#160;'Environment'.&#160;<br/>
+2.&#160;&#160;Updated&#160;copyright information.&#160;<br/>
+<b>Common Files&#160;</b><br/>
+ComStack_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+&#160;&#160;No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Std_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+&#160;&#160;No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Page&#160;3&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=4></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+rh850_Types.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Platform_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>Compiler&#160;Files</b>&#160;<br/>
+Compiler.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Compiler_Cfg.h&#160;&#160;<b>&#160;</b><br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+MemMap.h&#160;&#160;&#160;<br/>
+1.0.10&#160;<br/>
+&#160;&#160;Following&#160;changes&#160;are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Memory&#160;section&#160;<br/>
+FLS_START_SEC_PRIVATERAM_CODE&#160;and&#160;<br/>
+FLS_STOP_SEC_PRIVATERAM_CODE&#160;added&#160;for&#160;FLS&#160;<br/>
+module.&#160;<br/>
+Os.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Os.c&#160;&#160;&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>RUCG&#160;Tool&#160;</b><br/>
+RUCG.exe&#160;<br/>
+1.1<i>&#160;</i><br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+&#160;<br/>
+<b>Getting&#160;Started&#160;for&#160;P1x&#160;MCAL&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3753EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.8<i>&#160;</i><br/>
+&#160;&#160;Following&#160;changes&#160;are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Added&#160;R-number.&#160;<br/>
+2.&#160;&#160;Updated&#160;Notice&#160;and&#160;copyright&#160;information.&#160;<br/>
+<b>Module&#160;Overview&#160;User&#160;Manual&#160;</b><br/>
+R20UT3752EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.10<i>&#160;</i><br/>
+&#160;&#160;Following&#160;changes&#160;are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;New&#160;section&#160;3.4&#160;added&#160;for&#160;Deviation&#160;List.&#160;<br/>
+2.&#160;&#160;Updated&#160;section&#160;3.2&#160;‘RH850&#160;Macros&#160;Definition’&#160;for&#160;adding&#160;<br/>
+explanation&#160;regarding&#160;usage&#160;and&#160;modification&#160;of&#160;macros.&#160;<br/>
+3.&#160;&#160;Updated&#160;R-Number.&#160;<br/>
+4.&#160;&#160;Updated&#160;notice&#160;and&#160;copyright&#160;information.&#160;<br/>
+5.&#160;&#160;Removed&#160;3.2.2&#160;related&#160;information&#160;from&#160;Chapter&#160;2&#160;<br/>
+‘Reference&#160;Documents’&#160;and&#160;‘Definitions’.&#160;<br/>
+6.&#160;&#160;Corrected&#160;page&#160;numbers&#160;<br/>
+<b>RUCG&#160;Tool&#160;User&#160;Manual&#160;</b><br/>
+R20UT3754EJ0101-AUTOSAR.pdf&#160;<br/>
+1.1.3<i>&#160;</i><br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;Updated&#160;notice&#160;and&#160;copyright information.&#160;<br/>
+2.&#160;Updated&#160;R&#160;Number.&#160;<br/>
+Page&#160;4&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=5></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+1.4.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+1.4.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+Page&#160;5&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=6></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+1.5&#160;&#160;Module Index&#160;<br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#7">DIO&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#10">FLS&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#15">MCU&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#18">PORT&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#23">SPI&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#28">WDG&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;6&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=7></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+2&#160;&#160;DIO&#160;<br/>
+2.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+<b>Module&#160;</b><br/>
+DIO&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+1.0.12&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3708EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.10&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3709EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.6&#160;<br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+2.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_DIO_P1M_04_05_12_13_20_<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+21.arxml&#160;<br/>
+1.&#160;&#160;For&#160;Requirement&#160;TPS_ECUC_06004,&#160;ADMIN-DATA&#160;<br/>
+section&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+2.&#160;&#160;Updated&#160;Copyright&#160;information.&#160;<br/>
+R403_DIO_P1M_10_11_14_15_18_<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+19_22_23.arxml&#160;<br/>
+1.&#160;&#160;For&#160;Requirement&#160;TPS_ECUC_06004,&#160;ADMIN-DATA&#160;<br/>
+section&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+2.&#160;&#160;Updated&#160;Copyright information.&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_DIO_P1x_BSWMDT.arxml&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Corrected&#160;Service&#160;ID&#160;of&#160;API&#160;Dio_Init to&#160;decimal&#160;value.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Software&#160;patch&#160;version&#160;is&#160;updated.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Dio.c&#160;<br/>
+1.0.24&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Removed&#160;unnecessary&#160;Requirement tag&#160;<br/>
+'EAAR_PN0034_FR_0017'&#160;and&#160;corrected&#160;requirement&#160;<br/>
+'DIO140'&#160;in&#160;Dio_WritePort.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Added&#160;inclusion&#160;of&#160;&#34;Dio_RegWrite.h&#34;.&#160;<br/>
+Dio_Ram.c&#160;<br/>
+1.0.9&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Dio_Version.c&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Dio.h&#160;<br/>
+1.0.14<i>&#160;</i><br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;'DIO_H_00x&#160;:'.&#160;<br/>
+2.&#160;&#160;Inclusion&#160;of&#160;&#34;Dio_RegWrite.h&#34;&#160;is&#160;removed&#160;and&#160;numeric&#160;<br/>
+Page&#160;7&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=8></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+values&#160;are&#160;appended&#160;with&#160;'U'&#160;for&#160;macro&#160;definitions.&#160;<br/>
+3.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+Dio_Debug.h&#160;<br/>
+1.0.5&#160;<br/>
+Following&#160;changes&#160;are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;'DIO_H_00x&#160;:'.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Dio_PBTypes.h&#160;<br/>
+1.0.15&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;'DIO_H_00x&#160;:'.&#160;<br/>
+2.&#160;&#160;Numeric&#160;values are&#160;appended&#160;with&#160;'U'&#160;for&#160;macro&#160;<br/>
+definitions.&#160;<br/>
+3.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Dio_Ram.h&#160;<br/>
+1.0.13&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;'DIO_H_00x&#160;:'.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;&#160;&#160;<br/>
+Dio_RegWrite.h&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;'DIO_H_00x&#160;:'.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;'Copyright(c)&#160;2017'&#160;corrected&#160;to&#160;<br/>
+'Copyright(c)&#160;2016-2017'.&#160;<br/>
+3.&#160;&#160;Removed&#160;macro&#160;'DIO_DEM_TYPE'&#160;<br/>
+Dio_Version.h&#160;<br/>
+1.0.10&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;'DIO_H_00x&#160;:'.&#160;<br/>
+2.&#160;&#160;Included&#160;&#34;Dem.h&#34;&#160;file.&#160;<br/>
+3.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+<b>DLL&#160;executable code&#160;for&#160;DIO&#160;configuration generation</b>&#160;<br/>
+Dio_X1x.dll&#160;<br/>
+1.0.19&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Tool .dll updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Dio_X1x.cfgxml&#160;<br/>
+1.0.2&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;A&#160;new&#160;filter&#160;option,&#160;&lt;FILTER-RENESAS&gt;&#160;is&#160;added&#160;to&#160;<br/>
+handle&#160;multiple&#160;module&#160;instances&#160;<br/>
+2.&#160;&#160;Copyright information&#160;updated&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b><i>&#160;</i><br/>
+App_DIO_P1M_Sample.c&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Sample&#160;application&#160;is&#160;updated&#160;as per&#160;requirement&#160;<br/>
+EAAR_PN0061_NR_0006.&#160;<br/>
+2.&#160;&#160;Copyright Information&#160;updated.&#160;<br/>
+3.&#160;&#160;Updated&#160;Sample&#160;application&#160;for&#160;checking&#160;all&#160;ports,&#160;<br/>
+channels&#160;and&#160;channel&#160;groups.&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Header&#160;file</b><i>&#160;</i><br/>
+App_DIO_P1M_Sample.h&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Sample&#160;application&#160;is&#160;updated&#160;as per&#160;requirement&#160;<br/>
+Page&#160;8&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=9></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+EAAR_PN0061_NR_0006.&#160;<br/>
+2.&#160;&#160;Copyright Information&#160;updated.&#160;<br/>
+3.&#160;&#160;Updated&#160;Sample&#160;application&#160;for&#160;checking&#160;all&#160;ports,&#160;<br/>
+channels&#160;and&#160;channel&#160;groups.&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3708EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.10&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Section&#160;10.3&#160;Function&#160;Definitions&#160;updated.&#160;<br/>
+2.&#160;&#160;Updated&#160;Chapter&#160;11&#160;Development and&#160;Production&#160;Errors.&#160;<br/>
+3.&#160;&#160;Abbreviations&#160;and&#160;Acronyms&#160;updated.&#160;<br/>
+4.&#160;&#160;Chapter&#160;2&#160;‘Reference&#160;section’&#160;updated.&#160;<br/>
+5.&#160;&#160;R&#160;Number&#160;updated.&#160;<br/>
+6.&#160;&#160;Updated&#160;Driver&#160;Version&#160;Details&#160;in&#160;Chapter&#160;14&#160;‘Release&#160;<br/>
+Details’.&#160;<br/>
+7.&#160;&#160;Updated&#160;section&#160;13.3&#160;‘Memory&#160;and&#160;Throughput’.&#160;<br/>
+8.&#160;&#160;Updated&#160;chapter&#160;4&#160;‘Forethoughts’.&#160;<br/>
+9.&#160;&#160;Updated&#160;notice&#160;and&#160;copyright&#160;information.&#160;<br/>
+10.&#160;Modified&#160;Figure&#160;5-2&#160;in&#160;chapter&#160;5.&#160;<br/>
+R20UT3709EJ0101-AUTOSAR.pdf&#160;<br/>
+&#160;1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;R&#160;Number&#160;updated.&#160;<br/>
+2.&#160;&#160;Updated&#160;notice&#160;and&#160;copyright&#160;information&#160;<br/>
+3.&#160;&#160;Updated&#160;Abbreviations&#160;and&#160;Acronyms&#160;<br/>
+4.&#160;&#160;Page&#160;numbers&#160;corrected.&#160;<br/>
+5.&#160;&#160;Updated&#160;chapter&#160;2&#160;References.&#160;<br/>
+2.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+2.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;9&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=10></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+3&#160;&#160;FLS&#160;<br/>
+3.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+FLS&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+V1.0.4&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3710EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.4&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3711EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.8&#160;<br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+3.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_FLS_P1M_04_05_10_to_15.arx<br/>
+1.1.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+ml&#160;<br/>
+1.&#160;&#160;For&#160;Requirement&#160;TPS_ECUC_06004,&#160;ADMIN-DATA&#160;<br/>
+section&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Updated&#160;Copyright information.&#160;&#160;&#160;<br/>
+R403_FLS_P1M_18_to_23.arxml&#160;<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;For&#160;Requirement&#160;TPS_ECUC_06004,&#160;ADMIN-DATA&#160;<br/>
+section&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Updated&#160;Copyright information.&#160;&#160;&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_FLS_P1x_BSWMDT.arxml&#160;<br/>
+1.0.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;software&#160;patch&#160;version.&#160;<br/>
+2.&#160;&#160;Updated&#160;Copyright information.&#160;<br/>
+3.&#160;&#160;The&#160;tag&#160;IMPLEMENTED-ENTRY-REF is&#160;moved&#160;after&#160;<br/>
+MINIMUM-START-INTERVAL&#160;tag&#160;in&#160;scheduled&#160;function&#160;<br/>
+Fls_Mainfunction.Also&#160;multiple&#160;EXCLUSIVE-AREAS&#160;<br/>
+tags&#160;are&#160;removed&#160;from&#160;inside&#160;<br/>
+BSW-INTERNAL-BEHAVIOR&#160;section.&#160;<br/>
+4.&#160;&#160;Decimal&#160;values are&#160;given&#160;to&#160;the&#160;Service&#160;ID's&#160;of&#160;the&#160;API's&#160;<br/>
+Fls_ReadImmediate,Fls_BlankCheck,Fls_Suspend,&#160;<br/>
+Fls_Resume&#160;and&#160;Fls_GetVersionInfo.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Fls.c&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Elements&#160;of&#160;structure&#160;&#34;Fls_GstVarProperties&#34;&#160;are&#160;renamed.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+3.&#160;&#160;Call&#160;of&#160;Fls_TimeOutCheckAndProcessing()&#160;is&#160;moved&#160;into&#160;<br/>
+Page&#160;10&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=11></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+the&#160;command&#160;switch&#160;case&#160;for&#160;erase,&#160;write&#160;and&#160;blank&#160;check.&#160;<br/>
+4.&#160;&#160;Removed&#160;unnecessary&#160;mapping&#160;of&#160;requirements&#160;<br/>
+AR_PN0040_FR_0017&#160;and&#160;EAAR_PN0034_FR_0017.&#160;<br/>
+5.&#160;&#160;Message&#160;tag&#160;for&#160;Msg(4:0857)&#160;added&#160;in&#160;AUTOSAR&#160;release&#160;<br/>
+version&#160;information&#160;and&#160;Fls_Init&#160;API.&#160;<br/>
+Fls_Irq.c&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Elements&#160;of&#160;structure&#160;&#34;Fls_GstVarProperties&#34;&#160;are&#160;renamed.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Justification&#160;for&#160;Misra&#160;warning&#160;4:0857&#160;is&#160;added.&#160;<br/>
+Fls_Internal.c&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Elements&#160;of&#160;structure&#160;&#34;Fls_GstVarProperties&#34;&#160;are&#160;renamed.&#160;<br/>
+3.&#160;&#160;Message&#160;tag&#160;for&#160;Msg&#160;(4:0857)&#160;added&#160;in&#160;<br/>
+Fls_InitiateWriteJob&#160;API.&#160;<br/>
+4.&#160;&#160;Fls_ProcessCancel,&#160;Fls_TimeOutCheckAndProcessing,&#160;<br/>
+Fls_ProcessRead&#160;and&#160;Fls_ProcessJobResult&#160;APIs&#160;are&#160;<br/>
+improved&#160;to&#160;report FLS_FCU_ERR_INTERNAL&#160;in&#160;case&#160;<br/>
+of&#160;malfunctioning&#160;of&#160;Fls_FcuSwitchMode&#160;API.&#160;<br/>
+5.&#160;&#160;Global&#160;variable&#160;Fls_GblTimeOutMonitor&#160;is&#160;cleared&#160;in&#160;<br/>
+functions&#160;Fls_ProcessJobResult,Fls_ProcessSuspend&#160;and&#160;<br/>
+Fls_CancelInternal&#160;APIs.&#160;Also&#160;<br/>
+Fls_TimeOutCheckAndProcessing&#160;is&#160;modified&#160;regarding&#160;<br/>
+DET&#160;report in&#160;case&#160;of&#160;timeout&#160;error.&#160;<br/>
+6.&#160;&#160;Message&#160;tag&#160;for&#160;Msg&#160;(4:0857)&#160;added&#160;in&#160;AUTOSAR&#160;release&#160;<br/>
+version&#160;information&#160;and&#160;Fls_PreFcuInitCheck&#160;API.&#160;<br/>
+Fls_Private_Fcu.c&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Fls_FcuSwitchMode&#160;API&#160;is&#160;updated&#160;for&#160;Write-Verify&#160;<br/>
+implementation&#160;of&#160;FENTRYR&#160;register.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Fls_FcuSwitchMode&#160;is&#160;improved&#160;to&#160;handle&#160;mode&#160;switch&#160;to&#160;<br/>
+USER and&#160;mode&#160;switch&#160;to&#160;P/E&#160;separately&#160;and&#160;<br/>
+Fls_FcuCheckSequencerStatus&#160;is&#160;added&#160;to&#160;check&#160;<br/>
+FENTRYR&#160;register&#160;to&#160;identify&#160;command&#160;lock&#160;state.&#160;<br/>
+4.&#160;&#160;Fls_FcuForcedStop&#160;is&#160;updated&#160;to&#160;check&#160;for&#160;CMDLK&#160;bit.&#160;<br/>
+5.&#160;&#160;Fls_FcuCopytoRam&#160;<br/>
+Fls_FcuSwitchBFlash,Fls_FcuClearCache&#160;and&#160;<br/>
+Fls_FcuGetFWParam&#160;APIs&#160;are&#160;moved&#160;to&#160;new&#160;memory&#160;<br/>
+section&#160;FLS_START_SEC_PRIVATERAM_CODE.&#160;<br/>
+6.&#160;&#160;Elements&#160;of&#160;structure&#160;&#34;Fls_GstVarProperties&#34;&#160;are&#160;renamed.&#160;<br/>
+7.&#160;&#160;Message&#160;tags&#160;for&#160;Msg&#160;(4:0303)&#160;added&#160;in&#160;<br/>
+Page&#160;11&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=12></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Fls_FcuSwitchBFlash&#160;API&#160;and&#160;Msg&#160;(4:1290)&#160;in&#160;<br/>
+Fls_FcuSwitchMode&#160;API.&#160;Justification&#160;for&#160;Msg(4:0857)&#160;<br/>
+added&#160;and&#160;message&#160;tags&#160;added&#160;for&#160;<br/>
+Fls_FcuPrepareEnvironment and&#160;Fls_FcuForcedStop&#160;APIs.&#160;<br/>
+8.&#160;&#160;Removed&#160;unnecessary&#160;mapping&#160;of&#160;requirement&#160;<br/>
+AR_PN0072_FR_0017.&#160;<br/>
+9.&#160;&#160;Fls_FcuClearStatus&#160;API&#160;is&#160;updated&#160;to&#160;remove&#160;error&#160;bit&#160;<br/>
+checking.&#160;<br/>
+10.&#160;Added&#160;unit design&#160;ID&#160;in&#160;the&#160;API&#160;<br/>
+Fls_FcuCheckSequencerStatus.&#160;<br/>
+11.&#160;Fls_FcuForcedStop&#160;API&#160;is&#160;updated&#160;to&#160;check&#160;for&#160;FRDY&#160;bit&#160;<br/>
+using&#160;FLS_FCU_FRDY_POOL_COUNT&#160;value.&#160;<br/>
+12.&#160;UT&#160;ID&#160;Tag&#160;FLS_UT_002&#160;added&#160;for&#160;the&#160;uncovered&#160;parts&#160;of&#160;<br/>
+the&#160;code&#160;during&#160;Unit&#160;Testing.&#160;<br/>
+Fls_Ram.c&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Fls_GbIntrRqstFlag&#160;changed&#160;to&#160;Fls_GblIntrRqstFlag.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Comments&#160;added&#160;to&#160;justify&#160;usage&#160;of&#160;Global&#160;variables.&#160;<br/>
+Fls_Version.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Fls.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Fls_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Fls_Internal.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Fls_Private_Fcu.h&#160;<br/>
+1.0.3&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Added&#160;Fls_FcuCheckSequencerStatus&#160;API&#160;declaration.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Fls_FcuCopytoRam&#160;<br/>
+Fls_FcuSwitchBFlash,Fls_FcuClearCache&#160;and&#160;<br/>
+Fls_FcuGetFWParam&#160;APIs&#160;are&#160;moved&#160;to&#160;new&#160;memory&#160;<br/>
+section&#160;FLS_START_SEC_PRIVATERAM_CODE.&#160;<br/>
+Fls_Irq.h&#160;<br/>
+1.0.2&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Switch&#160;FLS_INTERRUPT_MODE&#160;is&#160;added&#160;for&#160;declaration&#160;<br/>
+of&#160;Interrupt FLS_FLENDNM_ISR.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Fls_PBTypes.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes&#160;are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Added&#160;FLS_FCU_FRDY_POOL_COUNT&#160;macro.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Updated&#160;memclass&#160;of&#160;<br/>
+Fls_GulTempBuffer.Fls_GblSuspendStatus&#160;is&#160;removed&#160;as&#160;<br/>
+there&#160;is&#160;no&#160;usage.&#160;<br/>
+Page&#160;12&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=13></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+4.&#160;&#160;Value&#160;of&#160;the&#160;macro&#160;<br/>
+FLS_FCU_REGBIT_FASTAT_CMDLK&#160;is&#160;typecasted&#160;to&#160;<br/>
+uint8&#160;<br/>
+Fls_Ram.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Fls_GbIntrRqstFlag&#160;changed&#160;to&#160;Fls_GblIntrRqstFlag.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Comments&#160;added&#160;to&#160;justify&#160;usage&#160;of&#160;Global&#160;variables.&#160;<br/>
+Fls_RegWrite.h&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Macro&#160;banner&#160;for&#160;FLS_REG_WRITE_VERIFY_INIT&#160;is&#160;<br/>
+updated.&#160;<br/>
+Fls_Types.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Elements&#160;of&#160;structure&#160;&#34;Fls_GstVarProperties&#34;&#160;are&#160;renamed.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Fls_Version.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>DLL&#160;executable code&#160;for&#160;FLS configuration generation</b>&#160;<br/>
+Fls_X1x.dll&#160;<br/>
+1.3.11&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Tool .dll updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Fls_X1x.cfgxml&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;A&#160;new&#160;filter&#160;option,&#160;&lt;FILTER-RENESAS&gt;&#160;is&#160;added&#160;to&#160;<br/>
+handle&#160;multiple&#160;module&#160;instances.&#160;&#160;&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file&#160;</b><br/>
+App_FLS_Common_Sample.c&#160;<br/>
+1.1.14&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Ghs&#160;section&#160;FLS_SAMPLE_CODE_RAM&#160;changed&#160;to&#160;<br/>
+FLS_SAMPLE_CODE_ROM&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Test script is updated&#160;for&#160;Delay&#160;function&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file</b>&#160;<br/>
+App_FLS_Common_Sample.h&#160;<br/>
+1.0.3&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Macro&#160;FLS_TEN&#160;is&#160;added&#160;to&#160;optimize&#160;testing&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_FLS_P1M_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_FLS_P1M_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3710EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;Table&#160;for&#160;Abbreviations&#160;and&#160;Acronyms&#160;to&#160;remove&#160;<br/>
+Page&#160;13&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=14></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+unused&#160;Abbreviations/&#160;Acronyms.&#160;<br/>
+2.&#160;&#160;Updated&#160;Chapter&#160;2&#160;Reference&#160;Documents.&#160;<br/>
+3.&#160;&#160;3.&#160;Updated&#160;section&#160;4.1&#160;‘General’&#160;to&#160;add&#160;information&#160;about&#160;<br/>
+Read,&#160;Read&#160;Immediate,&#160;Suspend&#160;and&#160;Resume&#160;operations.&#160;<br/>
+4.&#160;&#160;Updated&#160;section&#160;4.2&#160;‘Preconditions’&#160;to&#160;add&#160;information&#160;<br/>
+about BlankCheck&#160;operation.&#160;<br/>
+5.&#160;&#160;Updated&#160;Chapter&#160;3&#160;and&#160;Chapter&#160;9&#160;to&#160;rename&#160;the&#160;FLS&#160;<br/>
+Driver&#160;Generation&#160;Tool reference&#160;document.&#160;<br/>
+6.&#160;&#160;Updated&#160;Section&#160;13.3.1&#160;with&#160;ROM/RAM&#160;usage&#160;values.&#160;<br/>
+7.&#160;&#160;Updated&#160;Section&#160;13.3.3&#160;‘Throughput Details’&#160;to&#160;add&#160;Note&#160;<br/>
+under&#160;Table&#160;13-6&#160;Throughput&#160;Details&#160;of&#160;the&#160;APIs&#160;and&#160;<br/>
+updated&#160;the&#160;Throughput details.&#160;<br/>
+8.&#160;&#160;Updated&#160;section&#160;12&#160;‘Memory&#160;Organization’&#160;to&#160;remove&#160;<br/>
+unused&#160;memory&#160;segments&#160;and&#160;their&#160;descriptions.&#160;<br/>
+9.&#160;&#160;Updated&#160;Chapter&#160;14&#160;for&#160;FLS Driver&#160;Software&#160;version.&#160;<br/>
+10.&#160;Updated&#160;notice,&#160;address&#160;and&#160;copyright information’s.&#160;<br/>
+11.&#160;Version&#160;of&#160;R-number&#160;is&#160;updated&#160;at&#160;the&#160;end&#160;of&#160;document.&#160;<br/>
+12.&#160;Updated&#160;Section&#160;7.1&#160;to&#160;add&#160;Cautions.&#160;<br/>
+13.&#160;Updated&#160;Section&#160;10.3&#160;with&#160;the&#160;details of&#160;Fls_Resume&#160;API.&#160;<br/>
+R20UT3711EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Abbreviation&#160;and&#160;Acronyms&#160;list is&#160;updated.&#160;<br/>
+2.&#160;&#160;Updated&#160;Section&#160;2.1&#160;for&#160;Document versions.&#160;<br/>
+3.&#160;&#160;Table&#160;headers&#160;are&#160;updated&#160;in&#160;section&#160;8.1&#160;to&#160;specify&#160;correct&#160;<br/>
+ERR&#160;Ids.&#160;<br/>
+4.&#160;&#160;Updated&#160;R&#160;Number.&#160;<br/>
+5.&#160;&#160;Updated&#160;notice,&#160;address&#160;and&#160;copyright information’s.&#160;<br/>
+6.&#160;&#160;Error&#160;message&#160;ERR092033&#160;is&#160;added&#160;in&#160;section&#160;8.1.&#160;<br/>
+3.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+3.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+Page&#160;14&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=15></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+4&#160;&#160;MCU&#160;<br/>
+4.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+<b>Module&#160;</b><br/>
+MCU&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+V1.0.8&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3720EJ0101-AUTOSAR.pdf–&#160;V1.0.9&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3721EJ0101-AUTOSAR.pdf–&#160;V1.0.8&#160;<br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+4.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_MCU_P1M_04_05.arxml&#160;<br/>
+1.1.9&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Description&#160;of&#160;McuLoopCount is updated&#160;<br/>
+R403_MCU_P1M_10_to_15_18_to_<br/>
+1.0.6&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+23.arxml&#160;<br/>
+1.&#160;&#160;Description&#160;of&#160;McuLoopCount is updated&#160;<br/>
+<b>BSWMDT</b><i>&#160;</i><br/>
+R403_MCU_P1x_BSWMDT.arxml<i>&#160;</i><br/>
+1.0.10<i>&#160;</i><br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Software&#160;Version&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+2.&#160;&#160;Fixed&#160;all&#160;AMDC&#160;rule&#160;violations.&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+Mcu.c&#160;<br/>
+1.0.10<i>&#160;</i><br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Updated&#160;Mcu_Init for&#160;initialisation&#160;of&#160;Global&#160;variables.&#160;<br/>
+2.&#160;&#160;Removed&#160;multiple&#160;declarations&#160;in&#160;same&#160;line&#160;from&#160;<br/>
+Mcu_HWInit.&#160;<br/>
+3.&#160;&#160;Removed&#160;justification&#160;for&#160;MISRA&#160;Msg(4:0857)&#160;and&#160;<br/>
+Msg(4:3218)&#160;and&#160;updated&#160;Mcu_StartUPTest for&#160;fixing&#160;<br/>
+MISRA&#160;warnings.&#160;<br/>
+4.&#160;&#160;Modified&#160;naming&#160;of&#160;local&#160;variable&#160;in&#160;function&#160;<br/>
+Mcu_GetResetRawValue.&#160;<br/>
+5.&#160;&#160;Declaration&#160;of&#160;local variables&#160;are&#160;changed&#160;for&#160;using&#160;<br/>
+macros.&#160;<br/>
+6.&#160;&#160;Updated&#160;macros&#160;MCU_PROTECTEDWRITE&#160;and&#160;<br/>
+MCU_PROTECTEDWRITERETNONE&#160;as per&#160;naming&#160;<br/>
+convention.&#160;<br/>
+7.&#160;&#160;Values&#160;move&#160;to&#160;LHS during&#160;comparison&#160;and&#160;proper&#160;<br/>
+spacing&#160;provided&#160;as per&#160;coding&#160;guidelines.&#160;<br/>
+Mcu_Irq.c&#160;<br/>
+1.0.10&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+Page&#160;15&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=16></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;Declaration&#160;of&#160;local variables&#160;are&#160;changed&#160;for&#160;using&#160;<br/>
+macros.&#160;<br/>
+2.&#160;&#160;Updated&#160;macros&#160;MCU_PROTECTEDWRITE&#160;and&#160;<br/>
+MCU_PROTECTEDWRITERETNONE&#160;as per&#160;naming&#160;<br/>
+convention.&#160;<br/>
+Mcu_Ram.c&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Mcu_Version.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Mcu.h&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+2.&#160;&#160;Corrected&#160;macros&#160;MCU_PROTECTEDWRITE&#160;and&#160;<br/>
+MCU_PROTECTEDWRITERETNONE&#160;as&#160;per&#160;naming&#160;<br/>
+convention.&#160;<br/>
+Mcu_Debug.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+Mcu_Irq.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+Mcu_PBTypes.h&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+2.&#160;&#160;Removed&#160;macros&#160;MCU_CLMA0_DELAY_CNT,&#160;<br/>
+MCU_CLMA1_DELAY_CNT,&#160;<br/>
+MCU_CLMA2_DELAY_CNT&#160;and&#160;<br/>
+MCU_CLMA3_DELAY_CNT&#160;as&#160;these&#160;are&#160;not used.&#160;<br/>
+Mcu_Ram.h&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+Mcu_RegWrite.h&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Added&#160;justification&#160;for&#160;MISRA&#160;Msg(4:0857).&#160;<br/>
+2.&#160;&#160;Added&#160;subfix&#160;for&#160;macros.&#160;<br/>
+Mcu_Types.h&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Rrequirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+Mcu_Version.h&#160;<br/>
+1.0.3&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirement tag&#160;'implements'&#160;changed&#160;to&#160;MCU_H_00x.&#160;<br/>
+<b>DLL&#160;executable code&#160;for&#160;MCU&#160;configuration generation</b>&#160;<br/>
+Mcu_P1x.dll&#160;<br/>
+1.1.5&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Tool&#160;.dll updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Mcu_P1x.cfgxml&#160;<br/>
+1.0.1<i>&#160;</i><br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;A&#160;new&#160;filter&#160;option,&#160;&lt;FILTER-RENESAS&gt;&#160;is&#160;added&#160;to&#160;<br/>
+handle&#160;multiple&#160;module&#160;instances.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;&#160;Copyright information&#160;updated.&#160;<br/>
+Page&#160;16&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=17></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b><i>&#160;</i><br/>
+App_MCU_P1M_Sample.c&#160;<br/>
+1.0.6&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Corrected&#160;macros&#160;MCU_PROTECTEDWRITE&#160;as per&#160;<br/>
+naming&#160;convention.&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Header&#160;file</b><i>&#160;</i><br/>
+App_MCU_P1M_Sample.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3720EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Abbreviations&#160;and&#160;Acronyms&#160;updated.&#160;<br/>
+2.&#160;&#160;Chapter&#160;14,&#160;Release&#160;Details&#160;updated.&#160;<br/>
+3.&#160;&#160;Updated&#160;R&#160;number,&#160;Notice&#160;and&#160;Copyright information.&#160;<br/>
+4.&#160;&#160;Section&#160;13.3&#160;Memory&#160;and&#160;Throughput Details&#160;updated.&#160;&#160;&#160;<br/>
+R20UT3721EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;Updated&#160;Abbreviations&#160;and&#160;Acronyms.&#160;<br/>
+2.&#160;&#160;Updated&#160;Error&#160;ERR101044.&#160;<br/>
+3.&#160;&#160;Updated&#160;R&#160;number.&#160;<br/>
+4.&#160;&#160;Updated&#160;Notice&#160;and&#160;Copyright information.&#160;<br/>
+4.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+4.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;17&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=18></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+5&#160;&#160;PORT&#160;<br/>
+5.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+<b>Module&#160;</b><br/>
+PORT&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+V1.5.4&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3722EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.9&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3723EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.9&#160;<br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+5.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_PORT_P1M_04_05.arxml&#160;<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;&#160;Parameter&#160;&#160;&#160;&#160;PortPinLevelValue&#160;is&#160;removed&#160;from&#160;<br/>
+PortGroupJtag0:Pin2&#160;and&#160;PortPinLevelValue,&#160;<br/>
+PortPullUpOption,PortPullDownOption,&#160;<br/>
+PortInputBufferControl,PortBiDirectionControl are&#160;<br/>
+removed&#160;from&#160;PortGroupJtag0:Pin4&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+3.&#160;&#160;ADMIN-DATA&#160;section&#160;updated&#160;as per&#160;the&#160;requirement&#160;<br/>
+TPS_ECUC_06004&#160;<br/>
+R403_PORT_P1M_12_13.arxml&#160;<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;&#160;Parameter&#160;PortPinLevelValue&#160;is&#160;removed&#160;and&#160;<br/>
+PortInputBufferControl,&#160;PortPullUpOption,&#160;<br/>
+PortPullDownOption&#160;are&#160;added&#160;in&#160;PortGroupJtag0:Pin2&#160;and&#160;<br/>
+PortPinLevelValue,&#160;PortPullUpOption,&#160;<br/>
+PortPullDownOption,&#160;<br/>
+PortInputBufferControl,PortBiDirectionControl&#160;are&#160;<br/>
+removed&#160;from&#160;PortGroupJtag0:Pin4.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+3.&#160;&#160;ADMIN-DATA&#160;section&#160;updated&#160;as per&#160;the&#160;requirement&#160;<br/>
+TPS_ECUC_06004&#160;<br/>
+R403_PORT_P1M_18_19_22_23.ar<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+xml&#160;<br/>
+1.&#160;&#160;Literal&#160;of&#160;the&#160;parameter&#160;PortPinInitialMode&#160;is&#160;corrected&#160;for&#160;<br/>
+PortGroup5:Pin7&#160;<br/>
+2.&#160;&#160;Parameter&#160;PortPullUpOption&#160;is&#160;added&#160;to&#160;Portgroup3:Pin5&#160;&#160;&#160;<br/>
+3.&#160;&#160;Parameters&#160;PortPinLevelValue,&#160;PortPullUpOption,&#160;<br/>
+Page&#160;18&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=19></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+PortPullDownOption,&#160;PortInputBufferControl,&#160;<br/>
+PortBiDirectionControl are&#160;removed&#160;<br/>
+fromPortGroupJtag0:Pin4&#160;and&#160;PortPinLevelValue&#160;is&#160;<br/>
+removed&#160;from&#160;PortGroupJtag0:Pin2.&#160;&#160;&#160;&#160;&#160;<br/>
+4.&#160;&#160;Corrected&#160;the&#160;Range&#160;of&#160;the&#160;parameter&#160;<br/>
+PortNumberOfPortPins&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+5.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+6.&#160;&#160;ADMIN-DATA&#160;section&#160;updated&#160;as per&#160;the&#160;requirement&#160;<br/>
+TPS_ECUC_06004&#160;<br/>
+R403_PORT_P1M_20_21.arxml&#160;<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Parameters&#160;PortPinLevelValue,&#160;PortPullUpOption,&#160;<br/>
+PortPullDownOption,&#160;PortInputBufferControl,&#160;<br/>
+PortBiDirectionControl are&#160;removed&#160;from,&#160;<br/>
+PortGroupJtag0:Pin4&#160;and&#160;PortPinLevelValue&#160;is&#160;removed&#160;<br/>
+from&#160;PortGroupJtag0:Pin2.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+3.&#160;&#160;ADMIN-DATA&#160;section&#160;updated&#160;as per&#160;the&#160;requirement&#160;<br/>
+TPS_ECUC_06004&#160;<br/>
+R403_PORT_P1M_10_11_14_15.ar<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+xml&#160;<br/>
+1.&#160;&#160;Parameter&#160;PortPullUpOption&#160;is&#160;added&#160;to&#160;PortGroup2:Pin15&#160;<br/>
+and&#160;Portgroup3:Pin5.&#160;<br/>
+2.&#160;&#160;Parameters&#160;PortPinLevelValue,&#160;PortPullUpOption,&#160;<br/>
+PortPullDownOption,&#160;PortInputBufferControl,&#160;<br/>
+PortBiDirectionControl are&#160;removed&#160;from&#160;<br/>
+PortGroupJtag0:Pin4&#160;and&#160;the&#160;parameters&#160;<br/>
+PortPullUpOption,PortPullDownOption&#160;are&#160;added&#160;in&#160;<br/>
+PortGroupJtag0:Pin2.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;&#160;Corrected&#160;the&#160;Range&#160;of&#160;the&#160;parameter&#160;<br/>
+PortNumberOfPortPins&#160;<br/>
+4.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+5.&#160;&#160;ADMIN-DATA&#160;section&#160;updated&#160;as per&#160;the&#160;requirement&#160;<br/>
+TPS_ECUC_06004&#160;<br/>
+<b>BSWMDT</b><i>&#160;</i><br/>
+R403_PORT_P1x_BSWMDT.arxml<i>&#160;</i><br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;&#160;SW-VERSION&#160;is&#160;updated&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+Port.c&#160;<br/>
+1.5.13&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Write&#160;verify&#160;check&#160;on&#160;PSR&#160;register&#160;is&#160;updated&#160;in&#160;the&#160;<br/>
+Page&#160;19&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=20></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+function&#160;Port_PinModeHWRegSet.&#160;<br/>
+2.&#160;&#160;Missing&#160;UD&#160;IDs are&#160;added&#160;<br/>
+3.&#160;&#160;Macro&#160;Port_ProtectedWrite&#160;is&#160;changed&#160;to&#160;upper&#160;case&#160;<br/>
+4.&#160;&#160;Typecasting&#160;to&#160;PORT_DEM_TYPE&#160;is&#160;removed&#160;in&#160;the&#160;<br/>
+Dem_ReportErrorStatus&#160;call&#160;<br/>
+5.&#160;&#160;Port_SetToDioOrAltMode()&#160;is&#160;updated&#160;<br/>
+6.&#160;&#160;Multiplication&#160;operator&#160;is&#160;replaced&#160;with&#160;AND&#160;in&#160;the&#160;<br/>
+functions&#160;Port_DriveUnivCtrlRegInit&#160;Port_SetPinDirection&#160;<br/>
+and&#160;Port_OpenDrainCtrlRegInit&#160;<br/>
+7.&#160;&#160;Unwanted&#160;MISRA&#160;violations&#160;(4:2962)&#160;and&#160;(4:1891)&#160;are&#160;<br/>
+removed.&#160;<br/>
+Port_Ram.c&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Version.c&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port.h&#160;<br/>
+1.5.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement tags&#160;<br/>
+2.&#160;&#160;Macro&#160;Port_ProtectedWrite&#160;is&#160;changed&#160;to&#160;upper&#160;case&#160;and&#160;<br/>
+added&#160;suffix&#160;&#34;U&#34;&#160;to&#160;all&#160;macros&#160;<br/>
+3.&#160;&#160;Variable&#160;Port_GstConfiguration&#160;is&#160;made&#160;dimensional&#160;to&#160;<br/>
+remove&#160;the&#160;QAC&#160;warning&#160;Msg&#160;(4:3684)&#160;<br/>
+Port_Debug.h&#160;<br/>
+1.0.3&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement&#160;tags.&#160;<br/>
+Port_PBTypes.h&#160;<br/>
+1.4.10&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement tags&#160;<br/>
+2.&#160;&#160;Macro&#160;PORT_DEM_TYPE&#160;is&#160;removed.&#160;Added&#160;suffix&#160;&#34;U&#34;&#160;<br/>
+to&#160;all&#160;the&#160;macros.&#160;Global&#160;arrays&#160;are&#160;made&#160;dimensional.&#160;<br/>
+Structure&#160;name&#160;is&#160;updated&#160;in&#160;the&#160;union&#160;<br/>
+Port_Pin_DioOrAltMode&#160;to&#160;make&#160;it unique.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+Macro&#160;PORT_LONG_WORD_ZERO&#160;is&#160;added.&#160;Tag&#160;name&#160;<br/>
+is&#160;&#160;&#160;&#160;added&#160;for&#160;the&#160;structure&#160;inside&#160;the&#160;union&#160;<br/>
+Port_Pin_DioOrAltMode&#160;and&#160;Port_Pin_Direction&#160;<br/>
+Port_Ram.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement&#160;tags.&#160;<br/>
+Port_RegWrite.h&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement tags&#160;<br/>
+2.&#160;&#160;PORT_DEM_TYPE&#160;is&#160;removed&#160;from&#160;the&#160;macro&#160;<br/>
+PORT_WV_REPORT_ERROR&#160;and&#160;added&#160;suffix&#160;&#34;U&#34;&#160;to&#160;<br/>
+write&#160;verify&#160;macros&#160;<br/>
+Port_Types.h&#160;<br/>
+1.3.4<i>&#160;</i><br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement&#160;tags.&#160;<br/>
+Page&#160;20&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=21></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Port_Version.h&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Updated&#160;the&#160;format&#160;of&#160;requirement&#160;tags.&#160;<br/>
+<b>DLL&#160;executable code&#160;for&#160;PORT&#160;configuration generation</b>&#160;<br/>
+Port_X1x.dll&#160;<br/>
+1.3.15&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Tool&#160;.dll updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Port_X1x.cfgxml&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;A&#160;new&#160;filter&#160;option,&#160;&lt;FILTER-RENESAS&gt;&#160;is&#160;added&#160;to&#160;<br/>
+handle&#160;multiple&#160;module&#160;instances.&#160;<br/>
+2.&#160;&#160;&#160;&#160;Copyright information&#160;updated&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b><i>&#160;</i><br/>
+App_PORT_P1M_Sample.c&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;WriteVerifyErrorNotify&#160;function&#160;added.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;updated&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Header&#160;file</b><i>&#160;</i><br/>
+App_PORT_P1M_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3722EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Section&#160;4.1.General&#160;is&#160;updated&#160;with&#160;the&#160;information&#160;on&#160;pin&#160;<br/>
+level&#160;of&#160;output pin.&#160;<br/>
+2.&#160;&#160;Deviation&#160;regarding&#160;the&#160;parameter&#160;PortPinlevelValue&#160;of&#160;<br/>
+JTag&#160;PortPin&#160;is&#160;removed&#160;from&#160;the&#160;section&#160;4.5.Deviation&#160;List&#160;<br/>
+3.&#160;&#160;Abbreviation&#160;list is&#160;updated.&#160;<br/>
+4.&#160;&#160;Section&#160;10.3&#160;Function&#160;Definitions&#160;is&#160;updated&#160;<br/>
+5.&#160;&#160;Chapter&#160;2&#160;Reference&#160;documents&#160;is&#160;updated&#160;for&#160;device&#160;<br/>
+manual&#160;name&#160;and&#160;version&#160;change.&#160;<br/>
+6.&#160;&#160;Chapter&#160;14&#160;Release&#160;Details&#160;is&#160;updated&#160;with&#160;Port Driver&#160;<br/>
+Software&#160;version.&#160;<br/>
+7.&#160;&#160;Version&#160;of&#160;R-number&#160;is&#160;updated&#160;at&#160;the&#160;end&#160;of&#160;document&#160;<br/>
+8.&#160;&#160;Notice&#160;is&#160;updated&#160;<br/>
+9.&#160;&#160;Section&#160;4.1.General&#160;is&#160;updated&#160;with&#160;the&#160;information&#160;on&#160;<br/>
+default&#160;value&#160;of&#160;PortLoopTimeout&#160;<br/>
+10.&#160;Section&#160;13.2.2.2&#160;is&#160;updated&#160;with&#160;701318&#160;device&#160;information&#160;<br/>
+11.&#160;Chapter&#160;3&#160;and&#160;9&#160;are&#160;updated&#160;with&#160;R-Numbered&#160;Tool User&#160;<br/>
+manual&#160;name.&#160;<br/>
+12.&#160;Chapter&#160;13.3.&#160;Memory&#160;and&#160;Throughput is&#160;updated&#160;<br/>
+13.&#160;Known&#160;limitation&#160;added&#160;for&#160;user&#160;mode&#160;in&#160;the&#160;section&#160;4.3&#160;<br/>
+14.&#160;Macros&#160;PORT_MODE_DIO&#34;&#160;and&#160;<br/>
+&#34;PORT_MODE_ADJUST&#34;&#160;added&#160;in&#160;Section&#160;10.2.4.&#160;<br/>
+15.&#160;Information&#160;on&#160;Port_SetPinDefaultDirection&#160;and&#160;<br/>
+Page&#160;21&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=22></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Port_SetPinDefaultMode&#160;added&#160;in&#160;Chapter&#160;5.&#160;<br/>
+R20UT3723EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Abbreviation&#160;list is&#160;updated.&#160;<br/>
+2.&#160;&#160;R&#160;number&#160;is&#160;updated&#160;at&#160;end&#160;of&#160;the&#160;document&#160;<br/>
+3.&#160;&#160;Notice&#160;is&#160;updated&#160;<br/>
+4.&#160;&#160;Version&#160;of&#160;Parameter&#160;definition&#160;files updated&#160;in&#160;the&#160;section&#160;<br/>
+2.1.Reference&#160;Documents&#160;<br/>
+5.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+5.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+&#160;<br/>
+Page&#160;22&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=23></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+6&#160;&#160;SPI&#160;<br/>
+6.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+<b>Module&#160;</b><br/>
+SPI&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+V1.6.5&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3726EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.11&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3727EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.12&#160;<br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+6.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_SPI_P1M_04_05_12_13_20_2<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.arxml&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;Default value,&#160;MIN&#160;value&#160;and&#160;description&#160;of&#160;SpiTimeOut is&#160;<br/>
+updated.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+3.&#160;&#160;Spelling&#160;corrected&#160;in&#160;the&#160;description&#160;of&#160;<br/>
+SPI_E_ECC_SELFTEST_FAILURE&#160;updated.&#160;<br/>
+R403_SPI_P1M_10_11_14_15_18_1<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+9_22_23.arxml&#160;<br/>
+&#160;<br/>
+4.&#160;&#160;Default value,&#160;MIN&#160;value&#160;and&#160;description&#160;of&#160;SpiTimeOut is&#160;<br/>
+updated.&#160;<br/>
+5.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+6.&#160;&#160;Spelling&#160;corrected&#160;in&#160;the&#160;description&#160;of&#160;<br/>
+SPI_E_ECC_SELFTEST_FAILURE&#160;updated.&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_SPI_P1x_BSWMDT.arxml&#160;<br/>
+1.0.11&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;Order&#160;of&#160;IS-REENTRANT&#160;is&#160;corrected&#160;in&#160;<br/>
+BSW-MODULE-ENTRY&#160;<br/>
+3.&#160;&#160;Spi_GetErrorInfo&#160;is&#160;mentioned&#160;in&#160;BSW-CALLED-ENTITY.&#160;<br/>
+4.&#160;&#160;Software&#160;version&#160;information&#160;is&#160;updated.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Spi.c&#160;<br/>
+1.5.11&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;<i>&#160;</i><br/>
+1.&#160;&#160;QAC&#160;warning&#160;justification&#160;added&#160;at&#160;relevant places.&#160;<br/>
+2.&#160;&#160;A&#160;new&#160;check&#160;is&#160;added&#160;in&#160;Spi_AsyncTransmit()&#160;to&#160;ensure&#160;the&#160;<br/>
+array&#160;element&#160;accessed&#160;from&#160;Spi_GaaSeqQueue[]&#160;is&#160;within&#160;<br/>
+the&#160;defined&#160;array&#160;size.&#160;<br/>
+3.&#160;&#160;Constants&#160;are&#160;moved&#160;to&#160;left hand&#160;side&#160;for&#160;condition&#160;checks&#160;at&#160;<br/>
+Page&#160;23&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=24></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+all&#160;applicable&#160;places&#160;<br/>
+4.&#160;&#160;'U'&#160;is&#160;appended&#160;for&#160;MACRO&#160;definitions&#160;wherever&#160;applicable.&#160;<br/>
+5.&#160;&#160;Declaration&#160;and&#160;initialization&#160;of&#160;LucNoOfErrorsCopied&#160;is&#160;<br/>
+separated&#160;in&#160;Spi_GetErrorInfo&#160;API.&#160;<br/>
+6.&#160;&#160;Removed&#160;unwanted&#160;requirement&#160;mapping&#160;comments&#160;<br/>
+7.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Spi_Irq.c&#160;<br/>
+1.2.12&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;QAC&#160;&#160;warning&#160;&#160;Msg(2:2814),&#160;&#160;Msg(2:3892)&#160;&#160;and&#160;&#160;MISRA&#160;<br/>
+Violation&#160;Msg(4:0303),&#160;Msg(4:0489),Msg(4:0488)&#160;are&#160;added&#160;<br/>
+at&#160;the&#160;respective&#160;places.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+Spi_Driver.c&#160;<br/>
+1.4.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Added&#160;condition&#160;check&#160;in&#160;the&#160;Spi_HWInit and&#160;<br/>
+Spi_HWDeInit to&#160;clear&#160;TIJC&#160;interrupts.&#160;<br/>
+2.&#160;&#160;Spi_HWTransmitSyncJob()&#160;and&#160;Spi_InitiateSycTransmit()&#160;<br/>
+are&#160;updated&#160;to&#160;set&#160;the&#160;variable&#160;'Spi_GblSyncTx'&#160;properly.&#160;<br/>
+3.&#160;&#160;Spi_HWTransmitSyncJob()&#160;is&#160;updated&#160;by&#160;removing&#160;the&#160;<br/>
+setting&#160;of&#160;'Spi_GblSyncTx'.&#160;<br/>
+4.&#160;&#160;Spi_HWWriteIB()&#160;is&#160;updated&#160;to&#160;write&#160;CSIHMCTL0&#160;in&#160;all&#160;<br/>
+possible&#160;combination&#160;of&#160;Tx-mode&#160;and&#160;dual&#160;buffer&#160;mode.&#160;<br/>
+5.&#160;&#160;MISRA&#160;C&#160;RULE&#160;VIOLATION&#160;Msg(4:0303),Msg(4:0400)&#160;<br/>
+and&#160;QAC&#160;Warning&#160;Msg(2:3416),&#160;Msg(0:2755)&#160;are&#160;added&#160;at&#160;<br/>
+the&#160;relevant places.&#160;<br/>
+6.&#160;&#160;Spi_ReceiveISR()&#160;is&#160;updated&#160;by&#160;removing&#160;the&#160;redundant&#160;<br/>
+code&#160;for&#160;32&#160;bit&#160;transmission&#160;in&#160;Tx-only&#160;mode.&#160;<br/>
+7.&#160;&#160;Spi_ProcessSequence&#160;function&#160;call in&#160;Spi_ComErrorISRis&#160;<br/>
+removed.&#160;<br/>
+8.&#160;&#160;In&#160;Spi_ProcessTransmission&#160;function,&#160;critical&#160;section&#160;is&#160;<br/>
+modified.&#160;<br/>
+9.&#160;&#160;In&#160;Spi_ProcessTransmission&#160;function,&#160;LblInitiateTx&#160;is&#160;<br/>
+assigned&#160;with&#160;SPI_TRUE&#160;based&#160;on&#160;the&#160;comparison&#160;of&#160;queue&#160;<br/>
+status&#160;<br/>
+10.&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+11.&#160;Re-initialization&#160;of&#160;the&#160;&#34;Spi_GpDmaUnitConfig&#34;&#160;variable&#160;in&#160;<br/>
+Spi_HWDeInit()&#160;is&#160;removed.&#160;<br/>
+12.&#160;Constants&#160;are&#160;moved&#160;to&#160;left hand&#160;side&#160;for&#160;condition&#160;checks&#160;at&#160;<br/>
+all&#160;applicable&#160;places.&#160;<br/>
+13.&#160;Naming&#160;convention&#160;corrected&#160;from&#160;LucIndex&#160;to&#160;LusIndex&#160;<br/>
+14.&#160;Job&#160;and&#160;sequence&#160;failed&#160;condition&#160;check&#160;is&#160;added&#160;in&#160;<br/>
+Spi_ProcessDualBufferData()&#160;for&#160;dual&#160;buffer&#160;mode..&#160;<br/>
+Page&#160;24&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=25></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Spi_Ram.c&#160;<br/>
+1.2.11&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Spi_Scheduler.c&#160;<br/>
+1.2.16&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Copy&#160;right information&#160;is&#160;updated.&#160;<br/>
+2.&#160;&#160;QAC&#160;warning&#160;Msg(2:3416),&#160;MISRA&#160;Violation&#160;Msg(4:0400)&#160;<br/>
+are&#160;added&#160;at&#160;the&#160;respective&#160;places.&#160;<br/>
+3.&#160;&#160;Spi_GblQueueStatus&#160;is&#160;updated&#160;as SPI_QUEUE_FILLED&#160;in&#160;<br/>
+Spi_PushRemainingJobsToQueue()&#160;and&#160;<br/>
+Spi_PushInterruptableSeqJobs&#160;()&#160;when&#160;jobs&#160;are&#160;queued.Also&#160;<br/>
+Spi_GusAllQueueSts&#160;is&#160;updated&#160;in&#160;<br/>
+Spi_PushRemainingJobsToQueue()&#160;and&#160;<br/>
+Spi_PushInterruptableSeqJobs().&#160;<br/>
+4.&#160;&#160;Constants&#160;are&#160;moved&#160;to&#160;left&#160;hand&#160;side&#160;for&#160;condition&#160;checks&#160;at&#160;<br/>
+all&#160;applicable&#160;places.&#160;<br/>
+Spi_Version.c&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Spi.h&#160;<br/>
+1.1.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;'U'&#160;is&#160;appended&#160;for&#160;MACRO&#160;definitions&#160;wherever&#160;applicable.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+Spi_Driver.h&#160;<br/>
+1.2.12&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Spi_Irq.h&#160;<br/>
+1.2.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Hexadecimal constants&#160;are&#160;updated&#160;with&#160;upper&#160;case.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Spi_LTTypes.h&#160;<br/>
+1.2.15&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Structure&#160;tag&#160;is&#160;added&#160;for&#160;Tst_DmaAddr&#160;and&#160;<br/>
+Tst_ByteAccess.&#160;<br/>
+2.&#160;&#160;'U'&#160;is&#160;appended&#160;for&#160;MACRO&#160;definitions&#160;wherever&#160;applicable.&#160;<br/>
+3.&#160;&#160;Naming&#160;convention&#160;corrected&#160;from&#160;usReserved1&#160;to&#160;<br/>
+ulReserved1&#160;<br/>
+4.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Spi_PBTypes.h&#160;<br/>
+1.2.14&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Spi_Ram.h&#160;<br/>
+1.2.12&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;QAC&#160;warning,&#160;4:0857&#160;is&#160;justified.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+Spi_RegWrite.h&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;SPI_DEM_TYPE&#160;is&#160;removed.&#160;<br/>
+2.&#160;&#160;'U'&#160;is&#160;appended&#160;for&#160;MACRO&#160;definitions&#160;wherever&#160;applicable.&#160;<br/>
+3.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Spi_Scheduler.h&#160;<br/>
+1.2.6&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Spi_Types.h&#160;<br/>
+1.2.11&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;'U'&#160;is&#160;appended&#160;at&#160;relevant places.&#160;<br/>
+Page&#160;25&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=26></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+2.&#160;&#160;Copyright information&#160;updated.&#160;<br/>
+Spi_Version.h&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>DLL&#160;executable&#160;code&#160;for&#160;ICU&#160;configuration generation</b>&#160;<br/>
+Spi_X1x.dll&#160;<br/>
+1.2.17&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Tool .dll updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Spi_X1x.cfgxml&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;A&#160;new&#160;filter&#160;option,&#160;&lt;FILTER-RENESAS&gt;&#160;is&#160;added&#160;to&#160;<br/>
+handle&#160;multiple&#160;module&#160;instances.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;updated&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file&#160;</b><br/>
+App_SPI_Common_Sample.c&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file</b>&#160;<br/>
+App_SPI_Common_Sample.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_SPI_P1M_Sample.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_SPI_P1M_Sample.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3726EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.11&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Section&#160;11.2&#160;is&#160;updated&#160;and&#160;11.3&#160;is&#160;added&#160;with&#160;the&#160;hardware&#160;<br/>
+errors&#160;description&#160;details&#160;<br/>
+2.&#160;&#160;Section&#160;10.3&#160;is&#160;updated&#160;with&#160;the&#160;detailed&#160;description&#160;of&#160;the&#160;<br/>
+functions&#160;<br/>
+3.&#160;&#160;Section&#160;3.1.1&#160;is&#160;updated&#160;with&#160;the&#160;deletion&#160;of&#160;the&#160;redundant&#160;<br/>
+mentioned&#160;Driver.h&#160;file&#160;name&#160;<br/>
+4.&#160;&#160;Throughput details,&#160;RAM/ROM&#160;Usage&#160;and&#160;stack&#160;depth&#160;<br/>
+values&#160;are&#160;updated&#160;in&#160;the&#160;section&#160;13.3&#160;<br/>
+5.&#160;&#160;Section&#160;4.1&#160;is&#160;updated&#160;with&#160;the&#160;SpiTimeOut configuring&#160;<br/>
+details.&#160;<br/>
+6.&#160;&#160;The&#160;unused&#160;segment SPI_CFG_DBTOC_UNSPECIFIED&#160;<br/>
+details are&#160;removed&#160;from&#160;the&#160;chapter&#160;12.&#160;<br/>
+7.&#160;&#160;Abbreviations&#160;and&#160;Acronyms&#160;section&#160;is&#160;updated&#160;<br/>
+8.&#160;&#160;Chapter&#160;14&#160;is&#160;updated&#160;with&#160;the&#160;release&#160;details.&#160;<br/>
+9.&#160;&#160;R-number&#160;is&#160;updated&#160;<br/>
+10.&#160;Notice&#160;and&#160;Company&#160;addresses&#160;are&#160;updated&#160;<br/>
+11.&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+R20UT3727EJ0101-AUTOSAR.pdf&#160;<br/>
+&#160;1.0.12&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;&#160;&#160;<br/>
+1.&#160;&#160;Updated&#160;Pdf&#160;versions&#160;in&#160;section&#160;2.1&#160;‘Reference&#160;Documents’&#160;<br/>
+2.&#160;&#160;Error&#160;messages ERR083005,&#160;ERR083018&#160;and&#160;ERR083037&#160;<br/>
+Page&#160;26&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=27></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+are&#160;rephrased&#160;in&#160;the&#160;section&#160;8.1&#160;<br/>
+3.&#160;&#160;Error&#160;Message,&#160;ERR083095&#160;is&#160;added&#160;in&#160;the&#160;section&#160;8.1&#160;<br/>
+4.&#160;&#160;R-number&#160;is&#160;updated.&#160;<br/>
+5.&#160;&#160;Notice&#160;and&#160;Company&#160;addresses&#160;are&#160;updated&#160;<br/>
+6.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+6.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+6.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;27&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=28></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+7&#160;&#160;WDG&#160;<br/>
+7.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701318&#160;<br/>
+<b>Module&#160;</b><br/>
+WDG&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+V1.0.12&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3728EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.8&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3729EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.6&#160;<br/>
+<b>Date&#160;</b><br/>
+24-Feb-2017&#160;<br/>
+7.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_WDG_P1M_04_05_10_to_15_1<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+8_to_23.arxml&#160;<br/>
+1.&#160;&#160;For&#160;Requirement&#160;TPS_ECUC_06004,&#160;ADMIN-DATA&#160;<br/>
+section&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+2.&#160;&#160;Updated&#160;Copyright information.&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_WDG_P1x_BSWMDT.arxml&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Software&#160;patch&#160;version&#160;is&#160;updated&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+3.&#160;&#160;The&#160;placement of&#160;Service&#160;Id's are&#160;corrected&#160;for&#160;Autosar&#160;<br/>
+API's.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Wdg_59_DriverA.c&#160;<br/>
+1.0.15&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Tag&#160;Message&#160;Msg(2:3416)&#160;in&#160;<br/>
+Wdg_59_DriverA_SetTriggerCondition&#160;is&#160;added.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Followed&#160;naming&#160;conventions&#160;are&#160;changed,&#160;<br/>
+usInitTimerCountValue&#160;to&#160;ulInitTimerCountValue&#160;<br/>
+usSlowTimeValue&#160;to&#160;ulSlowTimeValue&#160;usFastTimeValue&#160;<br/>
+to&#160;ulFastTimeValue&#160;Wdg_59_DriverA_GusTiggerCounter&#160;<br/>
+to&#160;Wdg_59_DriverA_GulTiggerCounter.&#160;<br/>
+4.&#160;&#160;Wdg_59_DriverA_SetMode&#160;is&#160;updated&#160;to&#160;intialize&#160;the&#160;<br/>
+return&#160;value&#160;when&#160;requested&#160;mode&#160;and&#160;current&#160;mode&#160;are&#160;<br/>
+same.&#160;<br/>
+5.&#160;&#160;Redundant&#160;assignment is deleted.&#160;The&#160;value&#160;of&#160;this&#160;object&#160;<br/>
+is&#160;never&#160;used&#160;before&#160;being&#160;modified.&#160;To&#160;avoid&#160;QAC&#160;<br/>
+warning&#160;Msg(4:2982).&#160;<br/>
+Page&#160;28&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=29></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Wdg_59_DriverA_Irq.c&#160;<br/>
+1.0.11&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Added&#160;QAC&#160;warning&#160;justification&#160;for&#160;Msg(2:3416)&#160;and&#160;<br/>
+Msg&#160;tags&#160;in&#160;<br/>
+WDG_59_DRIVERA_TRIGGERFUNCTION_ISR&#160;API.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Macro&#160;WDG_59_DRIVERA_INTWDT_EIC_ADDR&#160;<br/>
+replaced&#160;by&#160;WDG_59_DRIVERA_INTWDTEIC_ADDR&#160;<br/>
+in&#160;interrupt&#160;consistency&#160;check.&#160;<br/>
+4.&#160;&#160;The&#160;naming&#160;convention&#160;has changed&#160;from&#160;<br/>
+Wdg_59_DriverA_GusTiggerCounter&#160;to&#160;<br/>
+Wdg_59_DriverA_GulTiggerCounter&#160;<br/>
+Wdg_59_DriverA_Private.c&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Added&#160;QAC&#160;warning&#160;justification&#160;for&#160;Msg(2:3416)&#160;and&#160;<br/>
+Msg&#160;tags&#160;in&#160;Wdg_59_DriverA_SetModeDetCheck&#160;API.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;The&#160;naming&#160;convention&#160;has changed&#160;from&#160;uiApiId&#160;to&#160;<br/>
+ucApiId&#160;<br/>
+4.&#160;&#160;The&#160;value&#160;of&#160;function&#160;parameter&#160;is&#160;declared&#160;with&#160;the&#160;<br/>
+'const'&#160;type&#160;Qualifier.&#160;To&#160;avoid&#160;QAC&#160;warning&#160;<br/>
+Msg(2:3227).&#160;<br/>
+5.&#160;&#160;For&#160;Wdg_59_DriverA_TriggerFunc&#160;Re-entrancy&#160;is&#160;<br/>
+corrected.&#160;<br/>
+Wdg_59_DriverA_Ram.c&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;The&#160;naming&#160;conventions&#160;are&#160;changed&#160;from&#160;<br/>
+Wdg_59_DriverA_GusTiggerCounter&#160;to&#160;<br/>
+Wdg_59_DriverA_GulTiggerCounter&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Wdg_59_DriverA_Version.c&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes&#160;are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;For&#160;QAC&#160;Warning&#160;Rule&#160;has been&#160;changed&#160;to&#160;NA.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Wdg_59_DriverA.h&#160;<br/>
+1.0.9&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;‘Implements’&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated&#160;<br/>
+3.&#160;&#160;Suffix&#160;'U'&#160;is&#160;added&#160;&#160;&#160;&#160;for&#160;AutoSAR&#160;Macros&#160;<br/>
+Wdg_59_DriverA_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+&#160;&#160;No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Wdg_59_DriverA_Irq.h&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Macro&#160;WDG_59_DRIVERA_INTWDT_EIC_ADDR is&#160;<br/>
+removed.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+Page&#160;29&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=30></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+3.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+Wdg_59_DriverA_PBTypes.h&#160;<br/>
+1.0.11&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Dead&#160;code&#160;is&#160;removed&#160;<br/>
+'WDG_59_DRIVERA_NMI_MASKVALUE,&#160;<br/>
+WDG_59_DRIVERA_NMI_MODE,WDG_59_DRIVER<br/>
+A_RAM,&#160;WDG_59_DRIVERA_ROM&#160;<br/>
+4.&#160;&#160;The&#160;naming&#160;convention&#160;has changed&#160;from&#160;<br/>
+Wdg_59_DriverA_GusTiggerCounter&#160;to&#160;<br/>
+Wdg_59_DriverA_GulTiggerCounter&#160;<br/>
+5.&#160;&#160;Suffix&#160;'U'&#160;is&#160;added&#160;for&#160;WDG_59_DRIVERA_WINDOW&#160;<br/>
+Wdg_59_DriverA_Private.h&#160;<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;The&#160;naming&#160;convention&#160;has changed&#160;from&#160;uiApiId&#160;to&#160;<br/>
+ucApiId&#160;<br/>
+4.&#160;&#160;The&#160;value&#160;of&#160;function&#160;parameter&#160;is&#160;declared&#160;with&#160;the&#160;<br/>
+'const'&#160;type&#160;Qualifier,to&#160;avoid&#160;QAC&#160;warning&#160;<br/>
+Msg(2:3227).&#160;<br/>
+Wdg_59_DriverA_Ram.h&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;The&#160;naming&#160;convention&#160;has changed&#160;from&#160;<br/>
+Wdg_59_DriverA_GusTiggerCounter&#160;to&#160;<br/>
+Wdg_59_DriverA_GulTiggerCounter&#160;<br/>
+Wdg_59_DriverA_RegWrite.h&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+5.&#160;&#160;The&#160;naming&#160;convention&#160;has changed&#160;from&#160;uiApiId&#160;to&#160;<br/>
+ucApiId&#160;<br/>
+Page&#160;30&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=31></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+Wdg_59_DriverA_Types.h&#160;<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;The&#160;naming&#160;convention&#160;are&#160;changed,&#160;<br/>
+usInitTimerCountValue&#160;to&#160;ulInitTimerCountValue,&#160;<br/>
+usSlowTimeValue&#160;to&#160;ulSlowTimeValue,&#160;usFastTimeValue&#160;<br/>
+to&#160;ulFastTimeValue&#160;<br/>
+Wdg_59_DriverA_Version.h&#160;<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Requirements&#160;tag,&#160;'Implements'&#160;is&#160;replaced&#160;with&#160;<br/>
+WDG_H_XXX.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Suffix&#160;'U'&#160;is&#160;added&#160;&#160;&#160;&#160;for&#160;AutoSAR&#160;Macros&#160;<br/>
+<b>DLL&#160;executable code&#160;for&#160;WDG&#160;configuration generation</b>&#160;<br/>
+Wdg_X1x.dll&#160;<br/>
+1.0.21&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Tool .dll updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Wdg_X1x.cfgxml&#160;<br/>
+1.0.1&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;A&#160;new&#160;filter&#160;option,&#160;&lt;FILTER-RENESAS&gt;&#160;is&#160;added&#160;to&#160;<br/>
+handle&#160;multiple&#160;module&#160;instances.&#160;<br/>
+2.&#160;&#160;Copyright information&#160;updated&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file&#160;</b><br/>
+App_WDG_Common_Sample.c&#160;<br/>
+1.0.11&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file</b>&#160;<br/>
+App_WDG_Common_Sample.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_WDG_P1M_Sample.c&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_WDG_P1M_Sample.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;changes&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+R20UT3728EJ0101-AUTOSAR.pdf&#160;<br/>
+1.0.8&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Abbreviation&#160;list is&#160;updated.&#160;<br/>
+2.&#160;&#160;Section&#160;10.3&#160;Function&#160;Definitions&#160;is&#160;updated.&#160;<br/>
+3.&#160;&#160;Chapter&#160;14&#160;release&#160;details version&#160;is&#160;updated.&#160;<br/>
+4.&#160;&#160;Chapter&#160;3&#160;and&#160;9&#160;are&#160;updated&#160;with&#160;R-Numbered&#160;Tool User&#160;<br/>
+manual&#160;name.&#160;<br/>
+5.&#160;&#160;Version&#160;of&#160;R-number&#160;is&#160;updated&#160;at&#160;the&#160;end&#160;of&#160;document.&#160;<br/>
+6.&#160;&#160;Notice&#160;and&#160;copyright information&#160;is&#160;updated.&#160;<br/>
+7.&#160;&#160;Table&#160;of&#160;contents&#160;updated.&#160;<br/>
+8.&#160;&#160;Table&#160;4.1&#160;WDG&#160;Driver&#160;Deviation&#160;List is&#160;updated&#160;to&#160;add&#160;<br/>
+Page&#160;31&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name=32></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;24/02/2017&#160;<br/>
+&#160;<br/>
+not implemented&#160;requirement&#160;‘WDG163’.&#160;<br/>
+9.&#160;&#160;Chapter&#160;10.2.1&#160;Wdg_59_DriverA_ConfigType&#160;is&#160;updated.&#160;<br/>
+10.&#160;Chapter&#160;12&#160;Memory&#160;Organization&#160;is&#160;updated.&#160;<br/>
+R20UT3729EJ0101-AUTOSAR.pdf&#160;<br/>
+&#160;1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:-&#160;<br/>
+1.&#160;&#160;Abbreviation&#160;list is&#160;updated.&#160;<br/>
+2.&#160;&#160;Chapter&#160;3&#160;and&#160;9&#160;are&#160;updated&#160;with&#160;R-Numbered&#160;Tool&#160;User&#160;<br/>
+manual&#160;name.&#160;<br/>
+3.&#160;&#160;Version&#160;of&#160;R-number&#160;is&#160;updated&#160;at&#160;the&#160;end&#160;of&#160;document.&#160;<br/>
+4.&#160;&#160;Notice&#160;and&#160;copyright information&#160;is&#160;updated.&#160;<br/>
+5.&#160;&#160;R403_WDG_P1M_04_05_10_to_15_18_to_23.arxml&#160;<br/>
+version&#160;is&#160;updated&#160;<br/>
+7.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_FixedIssues_Ver4.02.01.D.xlsx.&#160;<br/>
+7.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1M_KnownIssues_QM_CW08_2017.xlsx.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;32&#160;of&#160;32&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#1">Release Notes for RENESAS RH850/P1x:</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#1">1.1 Purpose:</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#2">1.2 Package information</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.3 Tools</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.3.1 GHS</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.3.2 Configuration code generator</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.3.3 Additional software</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.4 Generic Information</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.4.1 Release Target</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#3">1.4.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#5">1.4.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#5">1.4.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#6">1.5 &#160;Module Index</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#7">2 DIO</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#7">2.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#7">2.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#9">2.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#9">2.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#10">3 FLS</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#10">3.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#10">3.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#14">3.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#14">3.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#15">4 MCU</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#15">4.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#15">4.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#17">4.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#17">4.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#18">5 PORT</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#18">5.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#18">5.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#22">5.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#22">5.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#23">6 SPI</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#23">6.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#23">6.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#27">6.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#27">6.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#28">7 WDG</a>
+<ul>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#28">7.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#28">7.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#32">7.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1x_SPAL_R403_Ver4.02.01.Ds.html#32">7.4 Known Issues</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

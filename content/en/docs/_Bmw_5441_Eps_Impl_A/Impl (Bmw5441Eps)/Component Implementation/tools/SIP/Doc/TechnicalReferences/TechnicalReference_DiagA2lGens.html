@@ -1,0 +1,395 @@
+---
+title: TechnicalReference_DiagA2lGens
+linkTitle: TechnicalReference_DiagA2lGens
+weight: 204
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Diag&#160;A2l&#160;Gen&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>A2l&#160;fragment file&#160;generator for&#160;DEM, DCM&#160;and&#160;FIM&#160;<br/>Version&#160;1.02.00&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Alexander&#160;Ditte&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_DiagA2lGen-2_1.png"/><br/>
+Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Alexander&#160;Ditte&#160;<br/>
+2012-04-13&#160;<br/>
+01.00.00&#160;<br/>
+initial&#160;version&#160;<br/>
+Alexander&#160;Ditte&#160;<br/>
+2013-06-12&#160;<br/>
+01.01.00&#160;<br/>
+added&#160;support&#160;for&#160;AR4 DCM&#160;<br/>
+Alexander&#160;Ditte&#160;<br/>
+2013-09-25&#160;<br/>
+01.01.01&#160;<br/>
+update of&#160;chapter<a href="TechnicalReference_DiagA2lGens.html#7">&#160;3.1&#160;</a><br/>
+Alexander&#160;Ditte&#160;<br/>
+2017-03-03&#160;<br/>
+01.02.00&#160;<br/>
+added&#160;chapter<a href="TechnicalReference_DiagA2lGens.html#8">&#160;4&#160;Limitations&#160;</a><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+Scope&#160;of&#160;the&#160;Document<b>&#160;&#160;</b><br/>
+This&#160;&#160;technical&#160;&#160;reference&#160;&#160;describes&#160;&#160;the&#160;&#160;specific&#160;&#160;use&#160;&#160;of&#160;&#160;the&#160;&#160;diagnostic&#160;&#160;A2l&#160;&#160;fragment&#160;&#160;file&#160;<br/>generator&#160;for the&#160;DEM,&#160;DCM&#160;and&#160;FIM&#160;modules.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered&#160;to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+2&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=3></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_DiagA2lGens.html#5"><b>1</b>&#160;&#160;<b>Component&#160;History&#160;........................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#6"><b>2</b>&#160;&#160;<b>Introduction&#160;....................................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#7"><b>3</b>&#160;&#160;<b>Functional&#160;Description&#160;..................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#7">3.1&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#7">Features&#160;..........................................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#8"><b>4</b>&#160;&#160;<b>Limitations&#160;......................................................................................................................&#160;8</b>&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#8">4.1&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#8">DEM&#160;................................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9"><b>5</b>&#160;&#160;<b>Glossary&#160;and&#160;Abbreviations&#160;..........................................................................................&#160;9</b>&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">5.1&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">Glossary&#160;..........................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">5.2&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">Abbreviations&#160;..................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#10"><b>6</b>&#160;&#160;<b>Contact&#160;..........................................................................................................................&#160;10</b>&#160;<br/></a>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+3&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>Tables&#160;</b><br/>
+<a href="TechnicalReference_DiagA2lGens.html#5">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#5">Component&#160;history......................................................................................&#160;5&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#6">Table 2-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#6">Supported&#160;components&#160;and&#160;specifications&#160;..................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#7">Table 3-1&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#7">Command&#160;line&#160;arguments&#160;...........................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">Table 5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">Glossary&#160;.....................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">Table 5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_DiagA2lGens.html#9">Abbreviations&#160;..............................................................................................&#160;9&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+4&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;</b><br/>
+01.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Initial&#160;version&#160;&#160;<br/>
+01.01.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Added&#160;support&#160;for&#160;selective&#160;generation&#160;of&#160;measurement&#160;or&#160;calibration&#160;<br/>
+fragment&#160;content&#160;only&#160;<br/>
+01.02.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Added&#160;support&#160;for&#160;AUTOSAR&#160;4 DCM&#160;<br/>
+<b>&gt;&#160;&#160;</b>Type&#160;definition&#160;template&#160;is&#160;generated&#160;in&#160;an&#160;own&#160;file&#160;<br/>
+Table&#160;1-1&#160;&#160;<br/>
+Component&#160;history&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+5&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=6></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;&#160;diagnostic&#160;&#160;A2l&#160;<br/>fragment&#160;generator&#160;module.&#160;<br/>
+This&#160;generator&#160;shall&#160;support&#160;the&#160;customer&#160;to&#160;calibrate&#160;pre-defined&#160;symbols&#160;of&#160;the&#160;following&#160;<br/>modules:&#160;<br/>
+&#160;<br/>
+<b>Specification&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+3<br/>
+4<br/>
+R&#160;<br/>
+R&#160;<br/>
+&#160;<br/>
+A<br/>
+A<br/>
+S<br/>
+S<br/>
+&#160;<br/>
+<b>Component&#160;</b><br/>
+MICRO<br/>
+MICRO<br/>
+DEM&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+DCM&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FIM&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;2-1&#160;&#160;<br/>
+Supported&#160;components&#160;and&#160;specifications&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+6&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=7></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;generator&#160;can&#160;be&#160;controlled&#160;via&#160;command&#160;line&#160;options.&#160;It&#160;scans&#160;the&#160;given&#160;source&#160;code&#160;<br/>folders&#160;for&#160;configuration&#160;files&#160;of&#160;the&#160;supported&#160;modules.&#160;If&#160;a&#160;known&#160;symbol&#160;is&#160;available&#160;and&#160;<br/>also&#160;the&#160;correct&#160;size&#160;could&#160;be&#160;resolved&#160;an&#160;entry&#160;in&#160;the&#160;A2l&#160;fragment&#160;file&#160;will be&#160;generated.&#160;<br/>
+For&#160;&#160;a&#160;&#160;list&#160;&#160;of&#160;&#160;the&#160;&#160;supported&#160;&#160;calibratable&#160;&#160;and&#160;&#160;measurable&#160;&#160;symbols&#160;&#160;refer&#160;&#160;to&#160;&#160;the&#160;&#160;technical&#160;<br/>reference&#160;of&#160;the&#160;respective&#160;module.&#160;<br/>
+For&#160;this&#160;tool&#160;to&#160;work&#160;correctly&#160;all&#160;paths&#160;for&#160;the&#160;configuration&#160;files&#160;(header&#160;and&#160;source)&#160;&#160;and&#160;<br/>the&#160;static&#160;files&#160;must&#160;be&#160;passed.&#160;<br/>
+&#160;<br/>
+The&#160;following&#160;command&#160;line&#160;options are&#160;supported:&#160;&#160;<br/>
+<b>Argument&#160;</b><br/>
+<b>Optional&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Default&#160;</b><br/>
+[-c&#160;Component]&#160;<br/>
+Yes&#160;<br/>
+Only&#160;the&#160;specified&#160;component&#160;is&#160;<br/>
+All&#160;components&#160;are&#160;<br/>
+taken&#160;into&#160;account&#160;<br/>
+taken&#160;into&#160;account&#160;<br/>
+Dem:&#160;Diagnostic&#160;Event&#160;Manager&#160;<br/>only&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>Dcm:&#160;Diagnostic&#160;Communication&#160;<br/>Manager&#160;only&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>FiM:&#160;Function&#160;Inhibition&#160;Manager&#160;<br/>only&#160;<br/>
+[-f]&#160;<br/>
+Yes&#160;<br/>
+Overwrite&#160;an&#160;existing&#160;output&#160;a2l&#160;<br/>
+A&#160;confirmation&#160;from&#160;the&#160;<br/>
+fragment&#160;file without&#160;confirmation&#160;<br/>
+user&#160;is&#160;required&#160;<br/>
+[-h]&#160;<br/>
+Yes&#160;<br/>
+Shows&#160;a help message&#160;<br/>
+-&#160;<br/>
+[input&#160;…]&#160;<br/>
+No&#160;<br/>
+Source code&#160;folder(s)&#160;to&#160;scan&#160;<br/>
+-&#160;<br/>
+Please add the&#160;folders&#160;for&#160;the&#160;<br/>static&#160;and&#160;generated&#160;files&#160;<br/>
+[-l]&#160;<br/>
+Yes&#160;<br/>
+Write a&#160;log&#160;file&#160;<br/>
+no&#160;file is&#160;generated&#160;<br/>
+[-mc&#160;<br/>
+Yes&#160;<br/>
+Set&#160;the&#160;content&#160;of&#160;the&#160;output&#160;file.&#160;&#160;<br/>
+Measurement&#160;and&#160;<br/>
+MeasurementCalibration]&#160;<br/>
+0:&#160;Measurement&#160;and&#160;Calibration&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+C&#160;&#160;&#160;<br/>
+al&#160;i&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+brat&#160;i&#160;&#160;&#160;&#160;<br/>
+on&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+sy&#160;&#160;&#160;&#160;<br/>
+m&#160;&#160;&#160;&#160;&#160;<br/>
+bol&#160;&#160;&#160;<br/>
+s&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1:&#160;Measurement&#160;only&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>2:&#160;Calibration&#160;only&#160;<br/>
+[-nr]&#160;<br/>
+Yes&#160;<br/>
+If&#160;set&#160;the&#160;given&#160;folders&#160;are not&#160;<br/>
+-&#160;<br/>
+recursively&#160;scanned&#160;&#160;<br/>
+[-o&#160;Out]&#160;<br/>
+Yes&#160;<br/>
+Output&#160;directory&#160;for&#160;the&#160;generated&#160;&#160;Current&#160;working&#160;<br/>file&#160;<br/>
+directory&#160;<br/>
+[-v]&#160;<br/>
+Yes&#160;<br/>
+Print&#160;additional&#160;information&#160;during&#160;&#160;-&#160;<br/>program&#160;execution&#160;<br/>
+Table&#160;3-1&#160;<br/>
+Command&#160;line&#160;arguments&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+7&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=8></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>4&#160;&#160;Limitations&#160;</b><br/>
+<b>4.1&#160;</b><br/>
+<b>DEM&#160;</b><br/>
+Measurement&#160;symbol&#160;generation&#160;only&#160;supported&#160;if&#160;no&#160;Satellites&#160;are&#160;configured.&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+8&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=9></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>5&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer;&#160;generation&#160;tool&#160;for&#160;MICROSAR&#160;<br/>components&#160;<br/>
+GENy&#160;<br/>
+Generation&#160;tool&#160;for&#160;CANbedded&#160;and MICROSAR&#160;components&#160;<br/>
+Table&#160;5-1&#160;&#160;<br/>
+Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPort&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPort&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;5-2&#160;&#160;<br/>
+Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+9&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name=10></a>Technical Reference&#160;MICROSAR Diag&#160;A2l Gen&#160;<br/>
+<b>6&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.02.00&#160;<br/>
+10&#160;/&#160;10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.8.3&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_DiagA2lGens.html#5">1 Component History</a></li>
+<li><a href="TechnicalReference_DiagA2lGens.html#6">2 Introduction</a></li>
+<li><a href="TechnicalReference_DiagA2lGens.html#7">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_DiagA2lGens.html#7">3.1 Features</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_DiagA2lGens.html#8">4 Limitations</a>
+<ul>
+<li><a href="TechnicalReference_DiagA2lGens.html#8">4.1 DEM</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_DiagA2lGens.html#9">5 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_DiagA2lGens.html#9">5.1 Glossary</a></li>
+<li><a href="TechnicalReference_DiagA2lGens.html#9">5.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_DiagA2lGens.html#10">6 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

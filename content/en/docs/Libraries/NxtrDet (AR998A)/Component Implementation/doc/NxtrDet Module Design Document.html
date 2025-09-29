@@ -1,0 +1,324 @@
+---
+title: NxtrDet Module Design Document
+linkTitle: NxtrDet Module Design Document
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>NxtrDet</strong></p>
+<p><strong>Oct 6, 2015</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Lucas Wendling</td>
+<td>1</td>
+<td>10/06/15</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p><a href="#introduction">1 Introduction <span>4</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>4</span></a></p>
+<p><a href="#scope">1.2 Scope <span>4</span></a></p>
+<p><a href="#nxtrdet-high-level-description">2 NxtrDet High-Level Description <span>5</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>6</span></a></p>
+<p><a href="#graphical-representation-of-nxtrdet">3.1 Graphical representation of NxtrDet <span>6</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>6</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>6</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>6</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>7</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>7</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>7</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>8</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>8</span></a></p>
+<p><a href="#init-nxtrdet">5.1.1 Init: NxtrDet <span>8</span></a></p>
+<p><a href="#per-nxtrdet">5.1.2 Per: NxtrDet <span>8</span></a></p>
+<p><a href="#server-runables">5.2 Server Runables <span>8</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>8</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>8</span></a></p>
+<p><a href="#local-function-1">5.4.1 Local Function #1 <span>8</span></a></p>
+<p><a href="#design-rationale">5.4.1.1 Design Rationale <span>8</span></a></p>
+<p><a href="#processing">5.4.1.2 Processing <span>8</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>8</span></a></p>
+<p><a href="#global-function-1">5.5.1 GLOBAL Function #1 <span>8</span></a></p>
+<p><a href="#design-rationale-1">5.5.1.1 Design Rationale <span>8</span></a></p>
+<p><a href="#processing-1">5.5.1.2 Processing <span>8</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>10</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>11</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>12</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>13</span></a></p>
+<p><a href="#references">Appendix C References <span>14</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="nxtrdet-high-level-description">NxtrDet High-Level Description</h1>
+<p><em>See FDD</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-nxtrdet">Graphical representation of NxtrDet</h2>
+<p><em>None</em></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p><strong>N/A</strong></p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p><strong>N/A</strong></p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<p><strong>Constants containing the Nexteer ModuleIDs defined for Det functionality are defined in the .m file included in the doc folder of this component. This is to allow new SWCs adding new Det errors to not drive changes to the design project, only to the implementation project.</strong></p>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-nxtrdet">Init: NxtrDet</h2>
+<p>None</p>
+<h2 id="per-nxtrdet">Per: NxtrDet</h2>
+<p>None</p>
+<h2 id="server-runables">Server Runables </h2>
+<p><em>None</em></p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale">Design Rationale</h2>
+<h2 id="processing">Processing</h2>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<h2 id="global-function-1">GLOBAL Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<h2 id="processing-1">Processing</h2>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>

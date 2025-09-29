@@ -1,0 +1,429 @@
+---
+title: ExcpnHndlg Integration Manual
+linkTitle: ExcpnHndlg Integration Manual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>ExcpnHndlg</strong></p>
+<p><strong>VERSION:</strong> <strong>8</strong></p>
+<p><strong>DATE:</strong> <strong>04/04/18</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shruthi Raghavan,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 51%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl.No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Lucas Wendling</td>
+<td>1.0</td>
+<td>01/19/16</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updated for ChkForStrtUpTest() functions and Clock Monitor FE</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>02/10/16</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated for DTS RAM Double bit ECC error from FENMI to SYSERR</td>
+<td>Avinash James</td>
+<td>3.0</td>
+<td>03/22/16</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Updates for New FENMI Handlers for mode error and removed SPI Dbt Bit handler</td>
+<td>Avinash James</td>
+<td>4.0</td>
+<td>04/05/16</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Updates to build time config paramters</td>
+<td>Avinash James</td>
+<td>5.0</td>
+<td>03/02/17</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Updates to add configuration for name of WdgMgr configuration structure</td>
+<td>Shruthi Raghavan</td>
+<td>6.0</td>
+<td>05/25/17</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Added NVM for storing debug info</td>
+<td>Avinash James</td>
+<td>7.0</td>
+<td>09/21/17</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Added global function FeNmiDtsEccSngBitErr</td>
+<td>Avinash James</td>
+<td>8.0</td>
+<td>04/04/18</td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 4</a></p>
+<p><a href="#references">2 References 5</a></p>
+<p><a href="#dependencies">3 Dependencies 6</a></p>
+<p><a href="#swcs">3.1 SWCs 6</a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project 6</a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS 8</a></p>
+<p><a href="#build-time-config">4.1 Build Time Config 8</a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project 8</a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes 8</a></p>
+<p><a href="#__RefHeading___Toc447790833">4.4 DaVinci Interrupt Configuration Changes 8</a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes 8</a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS 9</a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs 9</a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs 9</a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present 9</a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling 10</a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS 11</a></p>
+<p><a href="#mapping">7.1 Mapping 11</a></p>
+<p><a href="#usage">7.2 Usage 11</a></p>
+<p><a href="#nvm-blocks">7.3 NvM Blocks 11</a></p>
+<p><a href="#compiler-settings">8 Compiler Settings 12</a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO 12</a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings 12</a></p>
+<p><a href="#appendix">9 Appendix 13</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Abbreviation</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 38%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sr. No.</strong></td>
+<td><strong>Title</strong></td>
+<td><strong>Version</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>FDD : CM101A_ ExcpnHndlg_Design</td>
+<td>See Synergy sub project version</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>EA4 Software Naming Conventions</td>
+<td>Software Engineering Process 04.04.02</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Software Design and Coding Standards</td>
+<td>Software Engineering Process 04.04.02</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Module</strong></td>
+<td><strong>Required Feature</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p><strong>SetMcuDiagcIdnData</strong> – Non-Rte Server Interface (called as needed)</p>
+<p><strong>GetMcuDiagcIdnData</strong> – Non-Rte Server Interface (called as needed)</p>
+<p><strong>SysErrIrq/Patched_SysErrIrq</strong> – Interrupt Handler Routine (triggered by Interrupt)</p>
+<p><strong>FpuErrIrq/Patched_FpuErrIrq</strong> – Interrupt Handler Routine (triggered by Interrupt)</p>
+<p><strong>AlgnErrIrq</strong> – Interrupt Handler Routine (triggered by Interrupt)</p>
+<p><strong>ResdOperIrq</strong> – Interrupt Handler Routine (triggered by Interrupt)</p>
+<p><strong>ExcpnHndlgInit1</strong> – Non-RTE initialization function (called during startup before RTE is initialized)</p>
+<p><strong>FeNmiPeg</strong> – Callout function for interrupt response handling (to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiDmaTrf</strong> – Callout function for interrupt response handling (to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiDmaRegAcsProtnErr</strong> – Callout function for interrupt response handling (to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiEcmMstChkrCmp</strong> – Callout function for interrupt response handling (to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiWdg</strong> – Callout function for interrupt response handling (to be called by FENMI Interrupt handler)</p>
+<p><strong>ProcUkwnExcpnErr</strong> – Callout function for OS error response handling (to be called by OS error handler)</p>
+<p><strong>ProcMpuExcpnErr</strong> – Callout function for OS error response handling (to be called by OS error handler)</p>
+<p><strong>ProcPrvlgdInstrExcpnErr</strong> – Callout function for OS error response handling (to be called by OS error handler)</p>
+<p><strong>ProcPrmntOsErr</strong> – Callout function for OS error response handling (to be called by OS error handler)</p>
+<p><strong>ProcNonCritOsErr</strong> – Callout function for OS error response handling (to be called by OS error handler)</p>
+<p><strong>ChkForStrtUpTest_Oper</strong> – (called as needed from both RTE and non-RTE context))</p>
+<p><strong>FeNmiClkMonr0RtLowrLimFlt</strong> – Callout function responding to Clock Monitor 0 Runtime Lower Limit Failure(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr0RtUpprLimFlt</strong> – Callout function responding to Clock Monitor 0 Runtime Upper Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr1RtLowrLimFlt</strong> – Callout function responding to Clock Monitor 1 Runtime Lower Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr1RtUpprLimFlt</strong> – Callout function responding to Clock Monitor 1 Runtime Upper Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr2RtLowrLimFlt</strong> – Callout function responding to Clock Monitor 2 Runtime Lower Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr2RtUpprLimFlt</strong> – Callout function responding to Clock Monitor 2 Runtime Upper Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr3RtLowrLimFlt</strong> – Callout function responding to Clock Monitor 3 Runtime Lower Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p><strong>FeNmiClkMonr3RtUpprLimFlt</strong> – Callout function responding to Clock Monitor 3 Runtime Upper Limit Failure</p>
+<p>(to be called by FENMI Interrupt handler)</p>
+<p>FeNmiOperModErrSngChipInactv – Callout function responding to Single Chip Mode inactive in Single chip mode (to be called by FENMI Interrupt handler)</p>
+<p>FeNmiOperModErrFlsProgmModStrtd – Callout function responding to Flash programming Mode active in Single chip mode (to be called by FENMI Interrupt handler)</p>
+<p>FeNmiOperModErrTestModStrtd – Callout function responding to Test Mode active in Single chip mode (to be called by FENMI Interrupt handler)</p>
+<p>FeNmiDtsEccSngBitErr - Callout function responding to DTS single bit ECC error (to be called by FENMI Interrupt handler)</p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 60%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Modules</strong></td>
+<td><strong>Notes</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>MCUDIAGCERRINJ</strong></td>
+<td><p>STD_ON for micro diag special build</p>
+<p>STD_OFF for all other builds</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<p>N/A</p>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 49%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Parameter</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/ExcpnHndlg/<br />
+ExcpnHndlgCfg/WdgMCfgStr</strong></td>
+<td><p>WdgMConfig structure name. For OS Gen 7 or later, set this to WdgMConfig_Mode0_Core&lt;n&gt;</p>
+<p>Otherwise Set it to WdgMConfig_Mode0<br />
+Name to be given by integrator based on the definition in WdgM_PBcfg.h file from Vector</p></td>
+<td>ExcpnHndlg</td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>ISR Name</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Patched_SysErrIrq</strong></td>
+<td>The ExcpnHndlg module implements an interrupt that needs a patch for a hardware problem that exists on the P1M hardware (see Renesas Technical Update TN-RH8-S001A/E). Nexteer has created the appropriate workaround that subsequently calls the normal interrupt handler code. Therefore, when configuring the SysErrIrq interrupt in the O/S the interrupt handler name should be configured to the Nexteer code with the workaround (“Patched_SysErrIrq”) instead of directly referencing the normal interrupt handler code.</td>
+</tr>
+<tr class="odd">
+<td><strong>Patched_FpuErrIrq</strong></td>
+<td>The ExcpnHndlg module implements an interrupt that needs a patch for a hardware problem that exists on the P1M hardware (see Renesas Technical Update TN-RH8-S001A/E). Nexteer has created the appropriate workaround that subsequently calls the normal interrupt handler code. Therefore, when configuring the FpuErrIrq interrupt in the O/S the interrupt handler name should be configured to the Nexteer code with the workaround (“Patched_FpuErrIrq”) instead of directly referencing the normal interrupt handler code.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 52%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Constant</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p>Refer FDD</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p>Refer FDD</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>Yes</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<blockquote>
+<p>API usage and scheduling of BSW components expected to be captured at a project architectural level and is beyond the scope of this document. Third party documentation can be referenced as needed.</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Init</strong></td>
+<td><strong>Scheduling Requirements</strong></td>
+<td><strong>Trigger</strong></td>
+</tr>
+<tr class="even">
+<td><strong>ExcpnHndlgInit1</strong></td>
+<td>Pre-RTE initializaton</td>
+<td>Once at init</td>
+</tr>
+<tr class="odd">
+<td><strong>ExcpnHndlgInit2</strong></td>
+<td>After diagnostic manager is initialized and NTCs can be set</td>
+<td>RTE initialization</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 57%" />
+<col style="width: 23%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Runnable</strong></td>
+<td><strong>Scheduling Requirements</strong></td>
+<td><strong>Trigger</strong></td>
+</tr>
+<tr class="even">
+<td><strong>ExcpnHndlgPer1</strong></td>
+<td></td>
+<td>2ms</td>
+</tr>
+</tbody>
+</table>
+<p><strong>.</strong></p>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 29%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Memory Section</strong></td>
+<td><strong>Contents</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 26%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Feature</strong></td>
+<td><strong>RAM</strong></td>
+<td><strong>ROM</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p>McuDiagcData</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h1 id="appendix">Appendix</h1>
+<p><em>None</em></p>

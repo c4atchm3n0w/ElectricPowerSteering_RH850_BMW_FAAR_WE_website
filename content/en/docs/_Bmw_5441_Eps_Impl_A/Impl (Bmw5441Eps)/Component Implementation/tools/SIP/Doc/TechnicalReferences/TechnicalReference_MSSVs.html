@@ -1,0 +1,673 @@
+---
+title: TechnicalReference_MSSVs
+linkTitle: TechnicalReference_MSSVs
+weight: 264
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Safe Silence Verifier&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>
+&#160;<br/>Version&#160;1.4&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Authors&#160;<br/>
+Markus&#160;Groß,&#160;Patrick&#160;Markl&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;&#160;Remarks&#160;</b><br/>
+Markus&#160;Groß&#160;<br/>
+2012-07-24&#160;&#160;1.0&#160;<br/>
+Initial&#160;version&#160;<br/>
+Patrick&#160;Markl&#160;<br/>
+2012-08-22&#160;&#160;1.1&#160;<br/>
+Changes&#160;after&#160;review&#160;<br/>
+Markus&#160;Groß&#160;<br/>
+2012-11-15&#160;&#160;1.2&#160;<br/>
+Add&#160;information about&#160;third party&#160;libraries&#160;<br/>
+Markus&#160;Groß&#160;<br/>
+2013-01-15&#160;&#160;1.3&#160;<br/>
+Update&#160;to&#160;reflect&#160;changes&#160;<br/>
+Patrick&#160;Markl&#160;<br/>
+2014-03-03&#160;&#160;1.4&#160;<br/>
+Added&#160;restrictions&#160;chapter&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;&#160;Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;<br/>
+ISO&#160;<br/>
+ISO/IEC&#160;9899:1990,&#160;Programming&#160;languages&#160;-C&#160;<br/>
+Second&#160;<br/>edition&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+2&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=3></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_MSSVs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#6"><b>Introduction...................................................................................................................&#160;6</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#6">Intended&#160;audience&#160;.............................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7"><b>Functional&#160;Description&#160;.................................................................................................&#160;7</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7">Required&#160;Environment&#160;.......................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7">2.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7">Restrictions&#160;........................................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7">2.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#7">Command&#160;Line&#160;Parameters&#160;...............................................................................&#160;7&#160;<br/></a><a href="TechnicalReference_MSSVs.html#8">2.3.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;-h,&#160;--help&#160;.................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">2.3.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;--version&#160;.................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">2.3.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;-v,&#160;--verbose&#160;............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">2.3.4&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;--crcCheck&#160;..............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">2.3.5&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;--openReport&#160;..........................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">2.3.6&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;--stats&#160;................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">2.3.7&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Option&#160;-l,&#160;--logFile&#160;..............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">2.3.8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">Option&#160;-r,&#160;--reportFile&#160;..........................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">2.3.9&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">Option&#160;-p,&#160;--pluginDir&#160;..........................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">2.3.10&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">Option&#160;-D,&#160;--define&#160;.............................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">2.3.11&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">Option&#160;–i,&#160;--inputDir&#160;............................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">2.3.12&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">Command&#160;Line&#160;Usage&#160;.......................................................................&#160;9&#160;<br/>2.3.12.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#9">Option&#160;Only&#160;Parameters&#160;..................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#10">2.3.12.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#10">Parameters&#160;Requiring&#160;A&#160;Value&#160;.......................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#10">2.3.12.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#10">Examples&#160;.......................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11"><b>Analysis&#160;Report&#160;..........................................................................................................&#160;11</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">3.1.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">Structure&#160;..........................................................................................&#160;11&#160;<br/>3.1.1.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">Header&#160;...........................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">3.1.1.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">Information&#160;about&#160;Environment&#160;......................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">3.1.1.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#11">Detailed&#160;Log Output&#160;.......................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#12">3.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#12">Error&#160;Messages&#160;...............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#13">3.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#13">Steps&#160;if&#160;the&#160;Analysis&#160;Fails&#160;................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14"><b>Integration&#160;...................................................................................................................&#160;14</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14">Deliverables&#160;.....................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14">4.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14">GENy&#160;...............................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#16">4.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#16">DaVinci&#160;Configurator&#160;Pro&#160;5...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#18"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#18"><b>Third Party&#160;Libraries&#160;...................................................................................................&#160;18</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#18">Boost&#160;...............................................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#18">5.2&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#18">ChaiScript&#160;........................................................................................................&#160;18&#160;</a><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+3&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<a href="TechnicalReference_MSSVs.html#19">5.3&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#19">LLVM/Clang&#160;.....................................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#20">5.4&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#20">OpenBSD&#160;regex&#160;...............................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#22"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#22"><b>Contact&#160;........................................................................................................................&#160;22</b>&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+4&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>Tables&#160;</b><br/>
+<a href="TechnicalReference_MSSVs.html#8">Table&#160;2-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#8">Command&#160;Line&#160;Parameters&#160;........................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#13">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#13">Message classes and&#160;their&#160;value&#160;..............................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MSSVs.html#14">Locations of&#160;Deliverables in&#160;an&#160;SIP&#160;..........................................................&#160;14&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+5&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-6_1.png"/><br/>
+Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>1&#160;&#160;Introduction&#160;</b><br/>
+MICROSAR&#160;&#160;Safe&#160;&#160;Silence&#160;&#160;Verifier&#160;&#160;(MSSV)&#160;&#160;is&#160;&#160;a&#160;&#160;command&#160;&#160;line&#160;&#160;tool&#160;&#160;delivered&#160;&#160;as&#160;&#160;part&#160;&#160;of&#160;<br/>Silent&#160;&#160;BSW&#160;&#160;packages.&#160;&#160;MSSV&#160;&#160;checks&#160;&#160;based&#160;&#160;on&#160;&#160;rules&#160;&#160;the&#160;&#160;consistency&#160;&#160;of&#160;&#160;generated&#160;<br/>configuration&#160;files&#160;of&#160;the&#160;BSW&#160;modules.&#160;The&#160;result&#160;is&#160;written&#160;to&#160;a&#160;HTML&#160;report.&#160;The&#160;report&#160;<br/>is part of&#160;the&#160;proof&#160;that&#160;the&#160;BSW&#160;modules&#160;fulfill the&#160;Freedom&#160;from&#160;Interference&#160;criteria.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Reference</b>&#160;<br/>For&#160;all&#160;required&#160;steps&#160;to&#160;be&#160;performed&#160;as&#160;part&#160;of&#160;the&#160;Silent&#160;BSW&#160;integration&#160;see&#160;the&#160;<br/>
+&#160;&#160;project&#160;specific&#160;Safety&#160;Manual.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>1.1&#160;</b><br/>
+<b>Intended audience&#160;</b><br/>
+This&#160;document&#160;is relevant&#160;for developers who&#160;integrate&#160;Silent&#160;BSW&#160;into&#160;their&#160;ECU.&#160;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+6&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=7></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>2&#160;&#160;Functional&#160;Description&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;tool&#160;MSSV&#160;and&#160;how&#160;it&#160;can&#160;be&#160;used&#160;to&#160;check&#160;the&#160;consistency&#160;of&#160;<br/>the&#160;generated&#160;configuration&#160;data&#160;for&#160;SilentBSW&#160;modules.&#160;MSSV&#160;supports&#160;configuration&#160;via&#160;<br/>command&#160;line&#160;parameters.&#160;These&#160;are&#160;described&#160;in&#160;the&#160;following&#160;section&#160;together&#160;with&#160;the&#160;<br/>report which&#160;is the&#160;output&#160;of&#160;MSSV.&#160;&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Required Environment&#160;</b><br/>
+MSSV&#160;supports&#160;the&#160;following&#160;operating&#160;systems:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Windows XP&#160;SP3&#160;(32Bit)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Windows 7&#160;(32Bit)&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Windows 7&#160;(64Bit)&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Restrictions&#160;</b><br/>
+MSSV&#160;uses&#160;a&#160;Compiler&#160;front&#160;end&#160;in&#160;order&#160;to&#160;compile&#160;the&#160;input&#160;source&#160;files.&#160;This&#160;Compiler&#160;<br/>front&#160;end&#160;requires&#160;ANSI-C&#160;90<a href="TechnicalReference_MSSVs.html#2">&#160;[1]&#160;</a>conform&#160;source&#160;code.&#160;Some&#160;target&#160;compilers&#160;implement&#160;<br/>specific&#160;&#160;language&#160;&#160;extensions&#160;&#160;which&#160;&#160;might&#160;&#160;prevent&#160;&#160;MSSV&#160;&#160;from&#160;&#160;compiling&#160;&#160;the&#160;&#160;code&#160;<br/>successfully.&#160;The&#160;Vector&#160;BSW&#160;code&#160;does&#160;not&#160;contain&#160;such&#160;language&#160;extensions.&#160;However,&#160;<br/>these&#160;extensions&#160;may&#160;be&#160;included&#160;via&#160;customer&#160;header&#160;files.&#160;In&#160;such&#160;a&#160;case&#160;the&#160;customer&#160;<br/>shall&#160;take&#160;care&#160;that&#160;these&#160;language&#160;extensions&#160;are&#160;encapsulated&#160;via&#160;the&#160;preprocessor&#160;for&#160;<br/>the&#160;&#160;MSSV&#160;&#160;execution.&#160;The&#160;&#160;corresponding&#160;preprocessor&#160;&#160;switches&#160;&#160;can&#160;be&#160;&#160;specified&#160;&#160;via&#160;&#160;the&#160;<br/>command&#160;line&#160;when&#160;calling&#160;MSSV.&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>Command&#160;Line&#160;Parameters&#160;</b><br/>
+MSSV&#160;&#160;is&#160;&#160;configured&#160;&#160;by&#160;&#160;means&#160;&#160;of&#160;&#160;command&#160;&#160;line&#160;&#160;parameters.&#160;This&#160;&#160;chapter&#160;&#160;describes&#160;&#160;the&#160;<br/>available&#160;command&#160;line&#160;parameters and&#160;their&#160;meaning.&#160;<br/>
+<b>Command&#160;Line&#160;Parameter&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Optional&#160;Parameters&#160;<br/>
+&#160;<br/>
+-h,&#160;--help&#160;<br/>
+Display&#160;available options.&#160;<br/>
+--version&#160;<br/>
+Prints&#160;the&#160;version and&#160;exits.&#160;<br/>
+-v,&#160;--verbose&#160;<br/>
+Enables verbose output&#160;of&#160;MSSV.&#160;<br/>
+--crcCheck&#160;<br/>
+Only&#160;perform&#160;CRC32&#160;checks and&#160;then&#160;exit.&#160;<br/>
+--openReport&#160;<br/>
+Open&#160;the&#160;report&#160;file when&#160;finished.&#160;<br/>
+--stats&#160;<br/>
+Display&#160;timing&#160;statistics&#160;when&#160;MSSV&#160;is&#160;finished.&#160;<br/>
+-l,&#160;--logFile&#160;&lt;file&gt;&#160;<br/>
+Specifies&#160;the&#160;filename&#160;of&#160;a&#160;logfile.&#160;&#160;<br/>If&#160;this&#160;parameter&#160;is&#160;missing&#160;MSSV&#160;writes the&#160;log&#160;to&#160;<br/>stdout.&#160;<br/>
+-r,&#160;--reportFile&#160;&lt;file&gt;&#160;<br/>
+Specifies&#160;the&#160;filename&#160;of&#160;the&#160;report.&#160;If&#160;the&#160;parameter&#160;is&#160;<br/>just&#160;a path&#160;the&#160;report&#160;is&#160;written&#160;with the&#160;default&#160;report&#160;<br/>file name.&#160;Otherwise the&#160;specified&#160;report&#160;file name is&#160;<br/>used.&#160;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+7&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=8></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>Command&#160;Line&#160;Parameter&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Optional&#160;Parameters&#160;<br/>
+&#160;<br/>If&#160;this&#160;parameter&#160;is&#160;missing&#160;MSSV&#160;writes the&#160;report&#160;to&#160;<br/>the&#160;current&#160;working&#160;directory.&#160;<br/>
+-p,&#160;--pluginDir&#160;&lt;directory&gt;&#160;<br/>
+Specifies&#160;the&#160;path&#160;of&#160;the&#160;plugin directory.&#160;By&#160;default&#160;<br/>this&#160;is&#160;the&#160;subfolder&#160;“plugins”&#160;in&#160;the&#160;directory&#160;of&#160;MSSV.&#160;<br/>
+-D,&#160;--define&#160;&lt;symbol&gt;&#160;<br/>
+Additional&#160;defines&#160;for&#160;the&#160;compiler.&#160;<br/>
+Required&#160;Parameters&#160;<br/>
+&#160;<br/>
+-i,&#160;--inputDir&#160;&lt;directory&gt;&#160;<br/>
+One&#160;or&#160;more&#160;input&#160;directories.&#160;<br/>
+Table&#160;2-1&#160;&#160;&#160;Command&#160;Line&#160;Parameters&#160;<br/>
+<b>2.3.1&#160;</b><br/>
+<b>Option&#160;-h,&#160;--help&#160;</b><br/>
+This&#160;&#160;command&#160;&#160;line&#160;&#160;option&#160;&#160;prints&#160;&#160;the&#160;&#160;help&#160;&#160;of&#160;&#160;MSSV&#160;&#160;on&#160;&#160;the&#160;&#160;console.&#160;&#160;The&#160;&#160;help&#160;&#160;lists&#160;&#160;all&#160;<br/>command&#160;line&#160;parameters as&#160;displayed&#160;in<a href="TechnicalReference_MSSVs.html#8">&#160;Table&#160;2-1.</a>&#160;<br/>
+<b>2.3.2&#160;&#160;Option&#160;--version&#160;<br/></b>This&#160;parameter displays the&#160;version&#160;of&#160;MSSV&#160;on&#160;the&#160;command&#160;line.&#160;<br/>
+<b>2.3.3&#160;&#160;Option&#160;-v,&#160;--verbose&#160;<br/></b>The&#160;verbose&#160;option&#160;enables&#160;a&#160;verbose&#160;output&#160;of&#160;messages&#160;from&#160;&#160;MSSV.&#160;As&#160;a&#160;default&#160;the&#160;<br/>verbose&#160;&#160;mode&#160;&#160;is&#160;&#160;not&#160;&#160;active.&#160;&#160;This&#160;&#160;means&#160;&#160;that&#160;&#160;MSSV&#160;&#160;only&#160;&#160;displays&#160;&#160;warnings,&#160;&#160;errors&#160;&#160;and&#160;<br/>fatal&#160;&#160;errors&#160;&#160;as&#160;&#160;well&#160;&#160;as&#160;&#160;some&#160;&#160;selected&#160;&#160;note&#160;&#160;messages&#160;&#160;which&#160;&#160;might&#160;&#160;be&#160;&#160;of&#160;&#160;interest&#160;&#160;for&#160;&#160;the&#160;<br/>user.&#160;If&#160;the&#160;verbose&#160;mode&#160;is enabled&#160;MSSV&#160;will display&#160;all&#160;note&#160;messages.&#160;<br/>
+<b>2.3.4&#160;</b><br/>
+<b>Option&#160;--crcCheck&#160;</b><br/>
+The&#160;CRC&#160;check&#160;option&#160;can&#160;be&#160;used&#160;to&#160;check&#160;the&#160;CRC32&#160;checksums&#160;of&#160;the&#160;plugins.&#160;Then&#160;<br/>the&#160;report file&#160;contains&#160;a&#160;report&#160;about&#160;all&#160;plugins&#160;and&#160;their&#160;checksums.&#160;If&#160;the&#160;report&#160;is&#160;green&#160;<br/>all&#160;plugins&#160;are valid.&#160;If&#160;the&#160;report is red&#160;at&#160;least&#160;one&#160;plugin&#160;is invalid.&#160;<br/>
+<b>2.3.5&#160;</b><br/>
+<b>Option&#160;--openReport&#160;</b><br/>
+This command&#160;line&#160;parameter instructs&#160;MSSV&#160;to&#160;open&#160;the&#160;resulting&#160;report HTML&#160;file&#160;after it&#160;<br/>has&#160;&#160;finished.&#160;&#160;Please&#160;&#160;make&#160;&#160;sure&#160;&#160;that&#160;&#160;HTML&#160;&#160;files&#160;&#160;are&#160;&#160;opened&#160;&#160;with&#160;&#160;a&#160;&#160;suitable&#160;&#160;program&#160;&#160;by&#160;<br/>default when&#160;using&#160;this option&#160;(e.g.&#160;if&#160;you&#160;double&#160;click an&#160;HTML&#160;file&#160;in&#160;the&#160;explorer it&#160;should&#160;<br/>open&#160;a&#160;web&#160;browser).&#160;<br/>
+<b>2.3.6&#160;&#160;Option&#160;--stats&#160;<br/></b>The&#160;statistics&#160;option&#160;is&#160;not&#160;particularly&#160;interesting.&#160;Passing&#160;this&#160;option&#160;to&#160;MSSV&#160;will&#160;display&#160;<br/>some&#160;timing&#160;statistics.&#160;These&#160;statistics&#160;include&#160;how&#160;much&#160;time&#160;was&#160;spent&#160;on&#160;each&#160;plugin&#160;<br/>and&#160;to&#160;parse&#160;a&#160;file&#160;etc.&#160;<br/>
+<b>2.3.7&#160;&#160;Option&#160;-l,&#160;--logFile&#160;<br/></b>By&#160;default&#160;MSSV&#160;displays&#160;all&#160;messages&#160;on&#160;the&#160;standard&#160;output&#160;(stdout).&#160;Using&#160;this&#160;option&#160;<br/>MSSV&#160;will&#160;redirect&#160;its&#160;output&#160;to&#160;a&#160;file&#160;instead.&#160;Please&#160;note&#160;that&#160;the&#160;file&#160;which&#160;is&#160;specified&#160;<br/>using&#160;this&#160;option&#160;should&#160;be&#160;writable&#160;&#160;by&#160;&#160;MSSV&#160;&#160;and&#160;be&#160;located&#160;inside&#160;a&#160;directory&#160;&#160;which&#160;&#160;is&#160;<br/>accessible&#160;for&#160;MSSV.&#160;&#160;<br/>The&#160;&#160;resulting&#160;&#160;log&#160;file&#160;will&#160;&#160;have&#160;&#160;the&#160;file&#160;extension&#160;&#160;“.log”&#160;&#160;regardless&#160;&#160;what&#160;&#160;extension&#160;&#160;the&#160;&#160;file&#160;<br/>had&#160;which&#160;was specified&#160;as&#160;the&#160;command&#160;line&#160;parameter.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+8&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=9></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>2.3.8&#160;</b><br/>
+<b>Option&#160;-r,&#160;--reportFile&#160;</b><br/>
+MSSV&#160;writes&#160;a&#160;report&#160;file&#160;at&#160;the&#160;end&#160;of&#160;its&#160;analysis.&#160;This&#160;report&#160;file&#160;is&#160;named&#160;“report.html”&#160;<br/>by&#160;default&#160;and&#160;will be&#160;stored&#160;inside&#160;the&#160;working&#160;directory&#160;from which&#160;MSSV&#160;was called.&#160;<br/>Using&#160;this&#160;command&#160;line&#160;option&#160;it&#160;is&#160;possible&#160;to&#160;specify&#160;a&#160;custom&#160;filename&#160;and&#160;location&#160;for&#160;<br/>the&#160;&#160;report&#160;&#160;file.&#160;&#160;Please&#160;&#160;note&#160;&#160;that&#160;&#160;the&#160;&#160;file&#160;&#160;which&#160;&#160;is&#160;&#160;specified&#160;&#160;using&#160;&#160;this&#160;&#160;option&#160;&#160;should&#160;&#160;be&#160;<br/>writable&#160;by&#160;MSSV&#160;and&#160;be&#160;located&#160;inside&#160;a&#160;directory&#160;which&#160;is accessible&#160;for&#160;MSSV.&#160;&#160;<br/>The&#160;resulting&#160;&#160;report&#160;file&#160;will&#160;have&#160;the&#160;file&#160;extension&#160;“.html”&#160;regardless&#160;what&#160;extension&#160;the&#160;<br/>file&#160;had&#160;which&#160;was specified&#160;as&#160;the&#160;command&#160;line&#160;parameter.&#160;<br/>
+<b>2.3.9&#160;</b><br/>
+<b>Option&#160;-p,&#160;--pluginDir&#160;</b><br/>
+This&#160;option&#160;enables&#160;the&#160;user&#160;to&#160;switch&#160;the&#160;plugin&#160;directory&#160;MSSV&#160;is&#160;using&#160;to&#160;perform&#160;the&#160;<br/>consistency&#160;checks.&#160;This&#160;is useful if&#160;multiple&#160;plugin&#160;directories&#160;exist.&#160;<br/>
+<b>2.3.10&#160;&#160;Option&#160;-D,&#160;--define&#160;<br/></b>Internally&#160;&#160;MSSV&#160;&#160;uses&#160;&#160;a&#160;&#160;compiler&#160;&#160;frontend&#160;&#160;to&#160;&#160;parse&#160;&#160;the&#160;&#160;generated&#160;&#160;source&#160;&#160;code&#160;&#160;and&#160;<br/>preprocess&#160;it.&#160;With&#160;this&#160;option&#160;it&#160;is&#160;possible&#160;to&#160;define&#160;symbols&#160;for&#160;the&#160;preprocessor&#160;without&#160;<br/>adding&#160;them&#160;to&#160;a&#160;header&#160;file.&#160;This&#160;parameter&#160;is&#160;similar&#160;to&#160;the&#160;“-D”&#160;parameter&#160;known&#160;from&#160;<br/>compilers such&#160;as GCC or Clang.&#160;<br/>This&#160;command&#160;line&#160;option&#160;can&#160;be&#160;specified&#160;multiple&#160;times&#160;to&#160;define&#160;an&#160;arbitrary&#160;amount&#160;of&#160;<br/>symbols.&#160;<br/>
+<b>2.3.11&#160;&#160;Option&#160;–i,&#160;--inputDir&#160;<br/></b>MSSV&#160;requires&#160;one&#160;or&#160;more&#160;input&#160;directories&#160;to&#160;operate&#160;correctly.&#160;These&#160;input&#160;directories&#160;<br/>are scanned&#160;for source&#160;code&#160;files,&#160;which&#160;are&#160;processed&#160;by&#160;the&#160;plugins.&#160;<br/>To&#160;&#160;specify&#160;&#160;multiple&#160;&#160;input&#160;&#160;directories&#160;&#160;the&#160;&#160;parameter&#160;&#160;can&#160;&#160;be&#160;&#160;passed&#160;&#160;multiple&#160;&#160;times&#160;&#160;with&#160;<br/>different&#160;values.&#160;The&#160;input&#160;directories&#160;are&#160;not&#160;scanned&#160;recursively&#160;by&#160;default.&#160;However,&#160;if&#160;a&#160;<br/>directory&#160;ends with&#160;“\*”&#160;MSSV&#160;scans&#160;this input&#160;directory&#160;recursively.&#160;<br/>
+<b>2.3.12&#160;&#160;Command Line&#160;Usage&#160;</b><br/>
+<b>2.3.12.1&#160;&#160;Option&#160;Only&#160;Parameters&#160;<br/></b>Option&#160;only&#160;command&#160;line&#160;parameters&#160;can&#160;be&#160;passed&#160;to&#160;MSSV&#160;and&#160;do&#160;not&#160;require&#160;a&#160;value.&#160;<br/>Option&#160;only&#160;command&#160;line&#160;parameters&#160;are:&#160;<br/>
+&#160;&#160;-h /&#160;--help&#160;<br/>&#160;&#160;--version&#160;<br/>&#160;&#160;-v /&#160;--verbose&#160;<br/>&#160;&#160;--crcCheck&#160;<br/>&#160;&#160;--openReport&#160;<br/>&#160;&#160;--stats&#160;<br/>
+These&#160;options can&#160;be&#160;passed&#160;as command&#160;line&#160;option&#160;separated&#160;by&#160;spaces.&#160;<br/>For example:&#160;<br/>MSSV.exe&#160;--help&#160;<br/>
+or&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+9&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=10></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+MSSV.exe&#160;–v&#160;--openReport&#160;...&#160;<br/>
+<b>2.3.12.2&#160;&#160;Parameters&#160;Requiring&#160;A&#160;Value&#160;<br/></b>Parameters which&#160;require&#160;a&#160;value&#160;are:&#160;<br/>
+&#160;&#160;-l /&#160;--logFile&#160;<br/>&#160;&#160;-r /&#160;--reportFile&#160;<br/>&#160;&#160;-p /&#160;--pluginDir&#160;<br/>&#160;&#160;-D /&#160;--define&#160;<br/>&#160;&#160;-i /&#160;--inputDir&#160;<br/>
+These&#160;parameters&#160;require&#160;a&#160;value&#160;if&#160;they&#160;are&#160;specified&#160;on&#160;the&#160;command&#160;line.&#160;The&#160;value&#160;is&#160;<br/>separated&#160;from&#160;the&#160;identifier&#160;using&#160;a&#160;space.&#160;<br/>For example:&#160;<br/>MSSV.exe&#160;--reportFile&#160;myreport.html&#160;--define&#160;DEBUG&#160;...&#160;<br/>
+<b>2.3.12.3&#160;&#160;Examples&#160;</b><br/>
+&#160;<br/>
+<b>Display&#160;MSSV&#160;Help&#160;<br/></b>To&#160;display&#160;the&#160;MSSV&#160;help&#160;use:&#160;<br/>MSSV.exe&#160;--help&#160;<br/>
+&#160;<br/>
+<b>Run&#160;MSSV&#160;with minimum&#160;parameters&#160;</b><br/>
+Assume&#160;&#160;that&#160;&#160;the&#160;&#160;root&#160;&#160;path&#160;&#160;of&#160;&#160;the&#160;&#160;delivery&#160;&#160;is&#160;&#160;D:\delivery.&#160;&#160;To&#160;&#160;run&#160;&#160;MSSV&#160;&#160;with&#160;&#160;the&#160;<br/>minimum required&#160;parameters one&#160;can&#160;use:&#160;<br/>MSSV.exe&#160;--inputDir&#160;D:\delivery\*&#160;<br/>
+This will instruct&#160;MSSV&#160;to&#160;scan&#160;the&#160;root&#160;path&#160;of&#160;the&#160;delivery&#160;recursively.&#160;<br/>
+&#160;<br/>
+<b>Log the&#160;output&#160;of&#160;MSSV&#160;to&#160;a&#160;file&#160;<br/></b>Based&#160;&#160;on&#160;&#160;the&#160;&#160;example&#160;&#160;above,&#160;&#160;one&#160;&#160;can&#160;&#160;extend&#160;&#160;the&#160;&#160;command&#160;&#160;line&#160;&#160;to&#160;&#160;log&#160;&#160;the&#160;&#160;output&#160;&#160;of&#160;<br/>MSSV&#160;to&#160;a&#160;file.&#160;This time&#160;we&#160;use&#160;the&#160;short&#160;form&#160;parameters:&#160;<br/>MSSV.exe&#160;–-inputDir&#160;D:\delivery\*&#160;-l mylog.log&#160;<br/>
+&#160;<br/>
+<b>Write&#160;the&#160;report&#160;to another&#160;file&#160;and&#160;enable&#160;verbose&#160;mode&#160;<br/></b>The&#160;&#160;command&#160;&#160;line&#160;&#160;from&#160;&#160;the&#160;&#160;previous&#160;&#160;example&#160;&#160;is&#160;&#160;adapted&#160;&#160;to&#160;&#160;write&#160;&#160;the&#160;&#160;report&#160;&#160;to&#160;&#160;the&#160;&#160;file&#160;<br/>specified&#160;and&#160;to&#160;enable&#160;verbose&#160;output:&#160;<br/>MSSV.exe&#160;–-inputDir&#160;D:\delivery\*&#160;-r&#160;myreport.html&#160;-v&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+10&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=11></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>3&#160;&#160;Analysis&#160;Report&#160;</b><br/>
+MSSV&#160;generates&#160;a&#160;report&#160;file&#160;after&#160;performing&#160;its&#160;consistency&#160;checks.&#160;By&#160;default&#160;the&#160;report&#160;<br/>file&#160;&#160;is&#160;&#160;named&#160;&#160;“report.html”&#160;&#160;and&#160;&#160;is&#160;&#160;located&#160;&#160;inside&#160;&#160;the&#160;&#160;working&#160;&#160;directory&#160;&#160;where&#160;&#160;MSSV&#160;&#160;was&#160;<br/>executed.&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Structure&#160;</b><br/>
+This&#160;report&#160;file&#160;has&#160;a&#160;simple&#160;structure&#160;to&#160;display&#160;the&#160;most&#160;important&#160;parts&#160;at&#160;a&#160;glance.&#160;The&#160;<br/>parts are&#160;described&#160;in&#160;the&#160;next&#160;sections.&#160;<br/>
+<b>3.1.1.1&#160;</b><br/>
+<b>Header&#160;</b><br/>
+The&#160;header displays whether the&#160;MSSV&#160;consistency&#160;check was successful or&#160;not.&#160;<br/>In&#160;case&#160;the&#160;check&#160;was&#160;successful&#160;and&#160;no&#160;inconsistencies&#160;or&#160;errors&#160;occurred,&#160;the&#160;header&#160;<br/>displays “Overall&#160;Check Result:&#160;Passed”.&#160;<br/>If&#160;&#160;an&#160;&#160;inconsistency&#160;&#160;was&#160;&#160;detected&#160;&#160;or&#160;&#160;other&#160;&#160;errors&#160;&#160;occurred,&#160;&#160;the&#160;&#160;header&#160;&#160;displays&#160;&#160;“Overall&#160;<br/>Check Result:&#160;Fail”.&#160;<br/>Additionally&#160;there&#160;may&#160;be&#160;a&#160;list&#160;of&#160;plugins&#160;which&#160;were&#160;skipped.&#160;This&#160;can&#160;happen&#160;both&#160;if&#160;the&#160;<br/>overall&#160;&#160;check&#160;&#160;result&#160;&#160;is&#160;&#160;pass&#160;&#160;or&#160;&#160;fail.&#160;&#160;In&#160;&#160;case&#160;&#160;one&#160;&#160;or&#160;&#160;more&#160;&#160;plugins&#160;&#160;were&#160;&#160;skipped,&#160;&#160;“Skipped&#160;<br/>Plugins:&#160;&#160;…”&#160;&#160;will&#160;&#160;be&#160;&#160;displayed&#160;&#160;directly&#160;&#160;under&#160;&#160;the&#160;&#160;overall&#160;&#160;check&#160;&#160;result.&#160;&#160;This&#160;&#160;list&#160;&#160;of&#160;&#160;skipped&#160;<br/>plugins&#160;&#160;needs&#160;to&#160;be&#160;manually&#160;reviewed&#160;as&#160;to&#160;why&#160;they&#160;were&#160;&#160;skipped&#160;and&#160;if&#160;&#160;this&#160;has&#160;any&#160;<br/>impact&#160;on&#160;the&#160;consistency&#160;of&#160;the&#160;generated&#160;data.&#160;<br/>For&#160;example&#160;if&#160;a&#160;plugin&#160;was&#160;skipped&#160;because&#160;the&#160;module&#160;it&#160;is&#160;checking&#160;is&#160;not&#160;enabled&#160;and&#160;<br/>not&#160;used,&#160;this&#160;would&#160;most&#160;likely&#160;not&#160;affect&#160;the&#160;consistency&#160;of&#160;the&#160;generated&#160;data.&#160;For&#160;more&#160;<br/>information&#160;refer to&#160;the&#160;project&#160;specific&#160;Safety&#160;Manual.&#160;<br/>
+<b>3.1.1.2&#160;</b><br/>
+<b>Information about&#160;Environment&#160;</b><br/>
+The&#160;&#160;second&#160;&#160;section&#160;&#160;of&#160;&#160;the&#160;&#160;report&#160;&#160;displays&#160;&#160;some&#160;&#160;information&#160;&#160;about&#160;&#160;the&#160;&#160;environment&#160;&#160;of&#160;<br/>MSSV.&#160;This&#160;includes&#160;for&#160;example&#160;the&#160;current&#160;windows&#160;user&#160;and&#160;the&#160;number&#160;of&#160;found&#160;errors&#160;<br/>and&#160;warnings.&#160;<br/>
+<b>3.1.1.3&#160;</b><br/>
+<b>Detailed Log Output&#160;</b><br/>
+The&#160;detailed&#160;log&#160;output&#160;contains&#160;all&#160;messages&#160;from&#160;&#160;MSSV.&#160;This&#160;also&#160;includes&#160;messages&#160;<br/>which&#160;are only&#160;visible&#160;if&#160;the&#160;verbose&#160;mode&#160;is active.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+11&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-12_1.png"/><br/>
+Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Note&#160;<br/></b>The&#160;information&#160;found&#160;in&#160;the&#160;detailed&#160;log&#160;output&#160;is&#160;complex&#160;and not&#160;intended to&#160;be&#160;<br/>
+&#160;&#160;checked.&#160;The&#160;only&#160;relevant&#160;information&#160;for&#160;the&#160;user&#160;is&#160;the&#160;overall&#160;test&#160;result&#160;which says&#160;<br/>
+if&#160;the&#160;check&#160;was successful&#160;or&#160;not.&#160;The&#160;detailed&#160;information becomes&#160;relevant&#160;if&#160;any&#160;<br/>errors&#160;occurred.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>3.2&#160;</b><br/>
+<b>Error&#160;Messages&#160;</b><br/>
+MSSV&#160;&#160;emits&#160;&#160;errors&#160;&#160;either&#160;&#160;in&#160;&#160;the&#160;&#160;detailed&#160;&#160;log&#160;&#160;output&#160;&#160;section&#160;&#160;of&#160;&#160;the&#160;&#160;report&#160;&#160;file&#160;&#160;or&#160;&#160;displays&#160;<br/>them&#160;&#160;as&#160;&#160;message&#160;&#160;boxes.&#160;&#160;Errors&#160;&#160;are&#160;&#160;only&#160;&#160;displayed&#160;&#160;using&#160;&#160;message&#160;&#160;boxes&#160;&#160;if&#160;&#160;the&#160;&#160;report&#160;<br/>could&#160;not&#160;be&#160;opened&#160;or&#160;written&#160;and&#160;hence&#160;cannot&#160;be&#160;emitted&#160;to&#160;the&#160;report.&#160;<br/>This&#160;&#160;leads&#160;&#160;to&#160;&#160;a&#160;&#160;simple&#160;&#160;workflow&#160;&#160;of&#160;&#160;MSSV.&#160;&#160;If&#160;&#160;an&#160;&#160;error&#160;&#160;message&#160;&#160;was&#160;&#160;displayed&#160;&#160;using&#160;&#160;a&#160;<br/>message&#160;&#160;box&#160;&#160;a&#160;&#160;report&#160;&#160;file&#160;&#160;does&#160;&#160;not&#160;&#160;exist.&#160;&#160;If&#160;no&#160;&#160;message&#160;&#160;box&#160;&#160;was&#160;&#160;displayed&#160;&#160;all&#160;&#160;potential&#160;<br/>errors&#160;&#160;can&#160;&#160;be&#160;&#160;found&#160;&#160;in&#160;&#160;the&#160;&#160;report&#160;&#160;alongside&#160;&#160;the&#160;&#160;overall&#160;&#160;verdict&#160;&#160;of&#160;&#160;the&#160;&#160;MSSV&#160;&#160;consistency&#160;<br/>check.&#160;<br/>There exist&#160;four&#160;classes of&#160;MSSV&#160;messages:&#160;<br/>
+&#160;&#160;Note,&#160;<br/>&#160;&#160;Warning,&#160;<br/>&#160;&#160;Error,&#160;<br/>&#160;&#160;Fatal error.&#160;<br/>
+Notes&#160;are&#160;emitted&#160;very&#160;often&#160;and&#160;are&#160;not&#160;of&#160;importance&#160;for&#160;the&#160;user&#160;of&#160;MSSV,&#160;but&#160;can&#160;help&#160;<br/>to&#160;trace&#160;a&#160;problem&#160;if&#160;one&#160;occurred.&#160;<br/>Warnings&#160;indicate&#160;that&#160;a&#160;minor&#160;issue&#160;occurred&#160;which&#160;are&#160;not&#160;relevant&#160;enough&#160;to&#160;issue&#160;an&#160;<br/>error.&#160;For&#160;example&#160;if&#160;a&#160;source&#160;code&#160;file&#160;for&#160;a&#160;plugin&#160;was&#160;not&#160;found,&#160;a&#160;warning&#160;is&#160;emitted.&#160;An&#160;<br/>error&#160;&#160;is&#160;&#160;not&#160;&#160;emitted&#160;&#160;because&#160;&#160;the&#160;&#160;user&#160;&#160;may&#160;&#160;have&#160;&#160;disabled&#160;&#160;the&#160;&#160;module&#160;&#160;intentionally&#160;&#160;in&#160;&#160;the&#160;<br/>generator&#160;and&#160;thus&#160;the&#160;consistency&#160;of&#160;the&#160;project&#160;is&#160;not&#160;affected&#160;by&#160;this&#160;module.&#160;However,&#160;<br/>the&#160;plugin&#160;for&#160;which&#160;the&#160;source&#160;code&#160;file&#160;was&#160;not&#160;found&#160;is&#160;skipped&#160;and&#160;added&#160;to&#160;the&#160;list&#160;of&#160;<br/>skipped&#160;plugins&#160;in&#160;the&#160;report.&#160;This&#160;list&#160;needs&#160;to&#160;be&#160;reviewed&#160;manually.&#160;<br/>An&#160;error&#160;can&#160;occur&#160;during&#160;the&#160;consistency&#160;check&#160;of&#160;a&#160;BSW&#160;module&#160;if&#160;e.g.&#160;an&#160;inconsistency&#160;<br/>was&#160;detected.&#160;Errors&#160;do&#160;not&#160;prevent&#160;MSSV&#160;from&#160;continuing&#160;its&#160;consistency&#160;check&#160;and&#160;help&#160;<br/>the&#160;user to&#160;identify&#160;the&#160;underlying&#160;issue.&#160;<br/>A&#160;fatal&#160;error&#160;indicates&#160;that&#160;a&#160;serious&#160;Issue&#160;occurred&#160;that&#160;prevents&#160;MSSV&#160;from&#160;performing&#160;<br/>the&#160;consistency&#160;check.&#160;<br/>
+The&#160;return&#160;value&#160;of&#160;the&#160;MSSV.exe&#160;is&#160;determined&#160;by&#160;these&#160;four&#160;classes&#160;of&#160;messages.&#160;The&#160;<br/>class&#160;of&#160;the&#160;highest&#160;occurred&#160;message&#160;defines the&#160;return value.&#160;<br/>
+<b>Message&#160;Class&#160;</b><br/>
+<b>Value&#160;</b><br/>
+Note&#160;<br/>
+0&#160;<br/>
+Warning&#160;<br/>
+1&#160;<br/>
+Error&#160;<br/>
+2&#160;<br/>
+Fatal&#160;Error&#160;<br/>
+3&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+12&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=13></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Message&#160;classes&#160;and&#160;their value&#160;<br/>
+For&#160;example&#160;if&#160;a&#160;warning&#160;occurred&#160;and&#160;no&#160;errors&#160;of&#160;any&#160;kind&#160;the&#160;return&#160;value&#160;of&#160;MSSV&#160;is&#160;1.&#160;<br/>If&#160;an&#160;error&#160;and&#160;a&#160;fatal&#160;error&#160;were&#160;emitted&#160;the&#160;return&#160;value&#160;is&#160;3.&#160;If&#160;only&#160;notes&#160;were&#160;emitted&#160;<br/>MSSV&#160;returns 0.&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>Steps&#160;if the&#160;Analysis&#160;Fails&#160;</b><br/>
+In&#160;&#160;case&#160;&#160;the&#160;&#160;MSSV&#160;&#160;analysis&#160;&#160;reports&#160;&#160;a&#160;&#160;failure&#160;&#160;Vector&#160;&#160;has&#160;&#160;to&#160;&#160;be&#160;&#160;informed&#160;&#160;about&#160;&#160;this&#160;&#160;issue.&#160;<br/>Please&#160;use&#160;the&#160;contact&#160;information&#160;found&#160;in&#160;the&#160;project&#160;specific&#160;Safety&#160;Manual.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+13&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-14_1.png"/><br/>
+Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+Since&#160;MSSV&#160;checks&#160;the&#160;consistency&#160;of&#160;the&#160;generated&#160;data&#160;it&#160;is&#160;convenient&#160;to&#160;run&#160;&#160;MSSV&#160;<br/>automatically&#160;&#160;after&#160;&#160;the&#160;&#160;data&#160;&#160;is&#160;&#160;generated.&#160;&#160;To&#160;&#160;integrate&#160;&#160;MSSV&#160;&#160;into&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;3&#160;<br/>workflow&#160;&#160;a&#160;&#160;GENy&#160;&#160;post&#160;&#160;generation&#160;&#160;application&#160;&#160;can&#160;&#160;be&#160;&#160;used.&#160;&#160;For&#160;&#160;integration&#160;&#160;into&#160;<br/>MICROSAR&#160;4&#160;DaVinci Configurator&#160;Pro&#160;5&#160;supports&#160;external&#160;generation&#160;steps to&#160;allow&#160;easy&#160;<br/>integration.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Deliverables&#160;</b><br/>
+The&#160;following&#160;table&#160;describes&#160;which&#160;parts&#160;are&#160;delivered&#160;with&#160;the&#160;&#160;MSSV&#160;tool&#160;and&#160;where&#160;to&#160;<br/>find&#160;them.&#160;<br/>
+&#160;<br/>
+<b>Deliverable&#160;</b><br/>
+<b>Location&#160;</b><br/>
+MSSV.exe&#160;<br/>
+.\Generators\MSSV\MSSV.exe&#160;<br/>
+Technical&#160;Reference&#160;<br/>
+.\Doc\TechnicalReferences\TechnicalReference_MSSV.pdf&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Locations&#160;of&#160;Deliverables&#160;in&#160;an&#160;SIP&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>GENy&#160;</b><br/>
+&#160;<br/>
+Start&#160;&#160;GENy&#160;&#160;and&#160;&#160;select&#160;&#160;the&#160;&#160;menu&#160;&#160;“Configuration”.&#160;&#160;Next&#160;&#160;select&#160;&#160;the&#160;&#160;menu&#160;&#160;item&#160;&#160;“Post&#160;<br/>Generation&#160;Applications...”.&#160;This&#160;will display&#160;the&#160;following&#160;window:&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+14&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-15_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-15_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-15_3.png"/><br/>
+Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+&#160;<br/>
+In&#160;this&#160;window&#160;you&#160;can&#160;enter&#160;the&#160;&#160;MSSV&#160;command&#160;line.&#160;First&#160;enter&#160;the&#160;path&#160;to&#160;the&#160;&#160;MSSV&#160;<br/>executable&#160;and&#160;then&#160;add&#160;any&#160;parameters&#160;to&#160;it.&#160;The&#160;input&#160;directory&#160;is&#160;specified&#160;as&#160;absolute&#160;<br/>path&#160;using&#160;the&#160;respective&#160;command&#160;line&#160;parameter.&#160;<br/>
+&#160;<br/>
+To&#160;test&#160;the&#160;post&#160;generation&#160;application&#160;select&#160;again&#160;the&#160;menu&#160;“Configuration”&#160;and&#160;click&#160;the&#160;<br/>item&#160;“Generate&#160;System”.&#160;Alternatively&#160;you&#160;can&#160;press&#160;F7.&#160;This&#160;will&#160;trigger&#160;GENy&#160;to&#160;generate&#160;<br/>the&#160;data&#160;for the&#160;current&#160;configuration.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+After&#160;&#160;the&#160;&#160;Generation&#160;&#160;has&#160;&#160;finished&#160;&#160;generating&#160;&#160;the&#160;&#160;data&#160;&#160;a&#160;&#160;messagebox&#160;&#160;will&#160;&#160;be&#160;&#160;displayed.&#160;<br/>This&#160;&#160;messagebox&#160;&#160;displays&#160;&#160;the&#160;&#160;previously&#160;&#160;set&#160;&#160;up&#160;&#160;post&#160;&#160;generation&#160;&#160;application&#160;&#160;and&#160;&#160;shows&#160;<br/>exactly&#160;what&#160;command&#160;line&#160;will be&#160;executed&#160;if&#160;the&#160;button&#160;“OK” is clicked.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+15&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-16_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-16_3.png"/><br/>
+Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+To&#160;run&#160;the&#160;post&#160;generation&#160;application&#160;click the&#160;“OK”&#160;button.&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>DaVinci&#160;Configurator&#160;Pro 5&#160;</b><br/>
+&#160;<br/>
+Start&#160;DaVinci&#160;Configurator&#160;Pro&#160;5&#160;and&#160;select&#160;the&#160;menu&#160;“Project”.&#160;Next&#160;select&#160;the&#160;menu&#160;item&#160;<br/>“Settings”.&#160;<br/>
+&#160;<br/>
+To&#160;&#160;add&#160;&#160;a&#160;&#160;new&#160;&#160;external&#160;&#160;generation&#160;&#160;step,&#160;&#160;select&#160;&#160;“External&#160;&#160;Generation&#160;&#160;Steps”.&#160;&#160;This&#160;&#160;will&#160;<br/>display&#160;the&#160;following&#160;window:&#160;<br/>
+&#160;<br/>
+Click&#160;on&#160;the&#160;Add&#160;button&#160;with&#160;the&#160;“+”&#160;symbol&#160;and&#160;enter&#160;the&#160;MSSV&#160;path&#160;and&#160;command&#160;line&#160;<br/>arguments.&#160;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+16&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-17_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-17_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_MSSV-17_4.png"/><br/>
+Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Note&#160;<br/></b>It&#160;is&#160;required&#160;to set&#160;a&#160;working&#160;directory&#160;for&#160;a post&#160;generation step.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+Now&#160;&#160;the&#160;&#160;external&#160;&#160;generation&#160;&#160;step&#160;&#160;needs&#160;&#160;to&#160;&#160;be&#160;&#160;configured&#160;&#160;to&#160;&#160;be&#160;&#160;run&#160;&#160;after&#160;&#160;the&#160;&#160;DaVinci&#160;<br/>Generators. To&#160;configure&#160;this&#160;click&#160;on&#160;the&#160;item&#160;“Code&#160;Generation”&#160;in&#160;the&#160;location&#160;bar&#160;in&#160;the&#160;<br/>same&#160;window.&#160;<br/>
+&#160;<br/>
+Now&#160;select&#160;the&#160;MSSV&#160;Generation&#160;Step&#160;and&#160;enable&#160;it&#160;by&#160;checking&#160;the&#160;check&#160;box&#160;in&#160;front&#160;of&#160;<br/>it.&#160;&#160;Additionally&#160;&#160;MSSV&#160;&#160;should&#160;&#160;be&#160;&#160;run&#160;&#160;after&#160;&#160;DaVinci&#160;&#160;Configurator&#160;&#160;Pro&#160;&#160;generated&#160;&#160;the&#160;&#160;data.&#160;<br/>Therefore&#160;&#160;it&#160;&#160;is&#160;&#160;necessary&#160;&#160;to&#160;&#160;move&#160;&#160;it&#160;&#160;after&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;Code&#160;&#160;Generation&#160;&#160;using&#160;&#160;the&#160;&#160;Down&#160;<br/>button&#160;with&#160;the&#160;“”&#160;symbol.&#160;<br/>Now&#160;&#160;MSSV&#160;&#160;will&#160;&#160;be&#160;&#160;automatically&#160;&#160;executed&#160;&#160;after&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;Configurator&#160;&#160;Pro&#160;&#160;has&#160;<br/>generated&#160;the&#160;data.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Note&#160;<br/></b>MSSV&#160;will&#160;also be&#160;executed&#160;if&#160;the&#160;data&#160;was not&#160;successfully&#160;generated.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+17&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=18></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>5&#160;&#160;Third&#160;Party&#160;Libraries&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>Boost&#160;</b><br/>
+Boost&#160;Software&#160;License&#160;-&#160;Version&#160;1.0&#160;-&#160;August 17th,&#160;2003&#160;<br/>
+&#160;<br/>
+Permission&#160;is&#160;hereby&#160;granted, free&#160;of&#160;charge,&#160;to&#160;any&#160;person&#160;or organization&#160;<br/>
+obtaining&#160;a copy&#160;of&#160;the software and accompanying&#160;documentation&#160;covered by&#160;<br/>
+this&#160;license (the&#160;&#34;Software&#34;)&#160;to&#160;use,&#160;reproduce,&#160;display,&#160;distribute,&#160;<br/>
+execute,&#160;and&#160;transmit the&#160;Software,&#160;and to&#160;prepare derivative&#160;works&#160;of&#160;the&#160;<br/>
+Software,&#160;and&#160;to&#160;permit third-parties&#160;to&#160;whom&#160;the Software is&#160;furnished&#160;to&#160;<br/>
+do&#160;so,&#160;all&#160;subject to&#160;the&#160;following:&#160;<br/>
+&#160;<br/>
+The&#160;copyright&#160;notices&#160;in the&#160;Software&#160;and&#160;this&#160;entire statement, including&#160;<br/>
+the&#160;above&#160;license grant,&#160;this&#160;restriction&#160;and&#160;the&#160;following&#160;disclaimer,&#160;<br/>
+must be included&#160;in&#160;all&#160;copies&#160;of&#160;the Software,&#160;in&#160;whole or&#160;in part, and&#160;<br/>
+all&#160;derivative&#160;works&#160;of&#160;the Software,&#160;unless&#160;such copies&#160;or derivative&#160;<br/>
+works&#160;are solely&#160;in&#160;the&#160;form&#160;of&#160;machine-executable object code&#160;generated by&#160;<br/>
+a source language processor.&#160;<br/>
+&#160;<br/>
+THE&#160;SOFTWARE&#160;IS&#160;PROVIDED&#160;&#34;AS&#160;IS&#34;,&#160;WITHOUT&#160;WARRANTY&#160;OF&#160;ANY&#160;KIND, EXPRESS&#160;OR&#160;<br/>
+IMPLIED, INCLUDING&#160;BUT&#160;NOT&#160;LIMITED&#160;TO&#160;THE&#160;WARRANTIES&#160;OF&#160;MERCHANTABILITY,&#160;<br/>
+FITNESS&#160;FOR&#160;A&#160;PARTICULAR&#160;PURPOSE,&#160;TITLE&#160;AND NON-INFRINGEMENT. IN NO&#160;EVENT&#160;<br/>
+SHALL&#160;THE&#160;COPYRIGHT&#160;HOLDERS&#160;OR&#160;ANYONE&#160;DISTRIBUTING&#160;THE&#160;SOFTWARE&#160;BE&#160;LIABLE&#160;<br/>
+FOR&#160;ANY&#160;DAMAGES&#160;OR&#160;OTHER LIABILITY,&#160;WHETHER IN&#160;CONTRACT,&#160;TORT&#160;OR OTHERWISE,&#160;<br/>
+ARISING&#160;FROM,&#160;OUT&#160;OF&#160;OR IN CONNECTION&#160;WITH&#160;THE&#160;SOFTWARE&#160;OR&#160;THE&#160;USE&#160;OR OTHER&#160;<br/>
+DEALINGS&#160;IN&#160;THE&#160;SOFTWARE.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>ChaiScript&#160;</b><br/>
+Copyright&#160;2009-2012&#160;Jason&#160;Turner&#160;and Jonathan&#160;Turner.&#160;All&#160;Rights&#160;Reserved.&#160;<br/>
+Redistribution and use&#160;in source and binary&#160;forms, with or&#160;without&#160;<br/>
+modification, are&#160;permitted&#160;provided that&#160;the&#160;following&#160;conditions&#160;are&#160;<br/>
+met:&#160;<br/>
+&#160;<br/>
+&#160;&#160;*&#160;Redistributions&#160;of&#160;source code must retain&#160;the&#160;above copyright&#160;<br/>
+&#160; &#160;&#160;notice,&#160;this&#160;list&#160;of&#160;conditions&#160;and&#160;the&#160;following disclaimer.&#160;<br/>
+&#160;&#160;*&#160;Redistributions&#160;in&#160;binary&#160;form&#160;must reproduce the&#160;above&#160;<br/>
+&#160; &#160;&#160;copyright&#160;notice,&#160;this&#160;list of&#160;conditions&#160;and&#160;the&#160;following&#160;<br/>
+&#160; &#160;&#160;disclaimer in the documentation&#160;and/or other&#160;materials&#160;provided&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+18&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=19></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+&#160; &#160;&#160;with the distribution.&#160;<br/>
+&#160;&#160;*&#160;Neither the name of&#160;Jason&#160;Turner&#160;nor&#160;Jonathan&#160;Turner&#160;nor&#160;the&#160;&#160;<br/>
+&#160; &#160;&#160;name of&#160;contributors&#160;may&#160;be used&#160;to&#160;endorse or&#160;promote&#160;products&#160;derived&#160;<br/>
+&#160; &#160;&#160;from&#160;this&#160;software&#160;without specific&#160;prior&#160;written permission.&#160;<br/>
+&#160;<br/>
+THIS&#160;SOFTWARE&#160;IS&#160;PROVIDED BY&#160;THE&#160;COPYRIGHT&#160;HOLDERS&#160;AND CONTRIBUTORS&#160;<br/>
+&#34;AS&#160;IS&#34;&#160;AND&#160;ANY&#160;EXPRESS&#160;OR IMPLIED&#160;WARRANTIES,&#160;INCLUDING,&#160;BUT&#160;NOT&#160;<br/>
+LIMITED&#160;TO,&#160;THE&#160;IMPLIED&#160;WARRANTIES&#160;OF&#160;MERCHANTABILITY&#160;AND FITNESS&#160;FOR&#160;<br/>
+A&#160;PARTICULAR&#160;PURPOSE&#160;ARE&#160;DISCLAIMED.&#160;IN&#160;NO&#160;EVENT&#160;SHALL&#160;THE&#160;COPYRIGHT&#160;<br/>
+OWNER OR CONTRIBUTORS&#160;BE&#160;LIABLE&#160;FOR&#160;ANY&#160;DIRECT, INDIRECT, INCIDENTAL,&#160;<br/>
+SPECIAL,&#160;EXEMPLARY, OR CONSEQUENTIAL&#160;DAMAGES&#160;(INCLUDING,&#160;BUT&#160;NOT&#160;<br/>
+LIMITED&#160;TO, PROCUREMENT&#160;OF&#160;SUBSTITUTE&#160;GOODS&#160;OR&#160;SERVICES;&#160;LOSS&#160;OF&#160;USE,&#160;<br/>
+DATA, OR PROFITS; OR&#160;BUSINESS&#160;INTERRUPTION)&#160;HOWEVER CAUSED&#160;AND ON&#160;ANY&#160;<br/>
+THEORY&#160;OF&#160;LIABILITY,&#160;WHETHER IN CONTRACT, STRICT&#160;LIABILITY, OR&#160;TORT&#160;<br/>
+(INCLUDING&#160;NEGLIGENCE&#160;OR OTHERWISE)&#160;ARISING&#160;IN&#160;ANY&#160;WAY&#160;OUT&#160;OF&#160;THE&#160;USE&#160;<br/>
+OF&#160;THIS&#160;SOFTWARE, EVEN IF&#160;ADVISED&#160;OF&#160;THE&#160;POSSIBILITY&#160;OF&#160;SUCH DAMAGE.&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>LLVM/Clang&#160;</b><br/>
+University&#160;of&#160;Illinois/NCSA&#160;<br/>
+Open&#160;Source&#160;License&#160;<br/>
+&#160;<br/>
+Copyright&#160;(c)&#160;2003-2012 University&#160;of&#160;Illinois&#160;at&#160;Urbana-Champaign.&#160;<br/>
+All&#160;rights&#160;reserved.&#160;<br/>
+&#160;<br/>
+Developed&#160;by:&#160;<br/>
+&#160;<br/>
+&#160; &#160;&#160;LLVM&#160;Team&#160;<br/>
+&#160;<br/>
+&#160; &#160;&#160;University&#160;of&#160;Illinois&#160;at Urbana-Champaign&#160;<br/>
+&#160;<br/>
+&#160; &#160;&#160;http://llvm.org&#160;<br/>
+&#160;<br/>
+Permission&#160;is&#160;hereby&#160;granted, free&#160;of&#160;charge,&#160;to&#160;any&#160;person&#160;obtaining&#160;a&#160;copy&#160;of&#160;<br/>
+this&#160;software and&#160;associated documentation&#160;files&#160;(the&#160;&#34;Software&#34;),&#160;to&#160;deal&#160;with&#160;<br/>
+the&#160;Software&#160;without restriction, including&#160;without&#160;limitation&#160;the&#160;rights&#160;to&#160;<br/>
+use,&#160;copy, modify,&#160;merge, publish,&#160;distribute,&#160;sublicense,&#160;and/or&#160;sell&#160;copies&#160;<br/>
+of&#160;the Software,&#160;and&#160;to permit persons&#160;to&#160;whom&#160;the&#160;Software&#160;is&#160;furnished to&#160;do&#160;<br/>
+so,&#160;subject to&#160;the&#160;following&#160;conditions:&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+19&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=20></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+&#160; &#160;&#160;*&#160;Redistributions&#160;of&#160;source code must retain the above copyright&#160;notice,&#160;<br/>
+&#160; &#160; &#160;&#160;this&#160;list of&#160;conditions&#160;and the&#160;following disclaimers.&#160;<br/>
+&#160;<br/>
+&#160; &#160;&#160;*&#160;Redistributions&#160;in&#160;binary&#160;form&#160;must reproduce the&#160;above copyright&#160;notice,&#160;<br/>
+&#160; &#160; &#160;&#160;this&#160;list of&#160;conditions&#160;and the&#160;following disclaimers&#160;in the&#160;<br/>
+&#160; &#160; &#160;&#160;documentation and/or&#160;other&#160;materials&#160;provided&#160;with&#160;the&#160;distribution.&#160;<br/>
+&#160;<br/>
+&#160; &#160;&#160;*&#160;Neither&#160;the&#160;names&#160;of&#160;the LLVM&#160;Team, University&#160;of&#160;Illinois&#160;at&#160;<br/>
+&#160; &#160; &#160;&#160;Urbana-Champaign,&#160;nor&#160;the names&#160;of&#160;its&#160;contributors&#160;may&#160;be&#160;used&#160;to&#160;<br/>
+&#160; &#160; &#160;&#160;endorse&#160;or promote&#160;products&#160;derived from&#160;this&#160;Software&#160;without&#160;specific&#160;<br/>
+&#160; &#160; &#160;&#160;prior&#160;written&#160;permission.&#160;<br/>
+&#160;<br/>
+THE&#160;SOFTWARE&#160;IS&#160;PROVIDED&#160;&#34;AS&#160;IS&#34;,&#160;WITHOUT&#160;WARRANTY&#160;OF&#160;ANY&#160;KIND, EXPRESS&#160;OR&#160;<br/>
+IMPLIED, INCLUDING&#160;BUT&#160;NOT&#160;LIMITED&#160;TO&#160;THE&#160;WARRANTIES&#160;OF&#160;MERCHANTABILITY, FITNESS&#160;<br/>
+FOR&#160;A&#160;PARTICULAR&#160;PURPOSE&#160;AND NONINFRINGEMENT. &#160;IN NO&#160;EVENT&#160;SHALL&#160;THE&#160;<br/>
+CONTRIBUTORS&#160;OR COPYRIGHT&#160;HOLDERS&#160;BE&#160;LIABLE&#160;FOR&#160;ANY&#160;CLAIM,&#160;DAMAGES&#160;OR OTHER&#160;<br/>
+LIABILITY,&#160;WHETHER IN&#160;AN&#160;ACTION OF&#160;CONTRACT,&#160;TORT&#160;OR OTHERWISE,&#160;ARISING&#160;FROM,&#160;<br/>
+OUT&#160;OF&#160;OR IN CONNECTION&#160;WITH&#160;THE&#160;SOFTWARE&#160;OR&#160;THE&#160;USE&#160;OR OTHER DEALINGS&#160;WITH&#160;THE&#160;<br/>
+SOFTWARE.&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>OpenBSD regex&#160;</b><br/>
+$OpenBSD: COPYRIGHT,v&#160;1.3&#160;2003/06/02&#160;20:18:36 millert&#160;Exp $&#160;<br/>
+&#160;<br/>
+Copyright&#160;1992,&#160;1993,&#160;1994 Henry&#160;Spencer.&#160;&#160;All&#160;rights&#160;reserved.&#160;<br/>
+This&#160;software is&#160;not&#160;subject&#160;to&#160;any&#160;license of&#160;the&#160;American&#160;Telephone&#160;<br/>
+and&#160;Telegraph Company&#160;or&#160;of&#160;the Regents&#160;of&#160;the University&#160;of&#160;California.&#160;<br/>
+&#160;<br/>
+Permission&#160;is&#160;granted&#160;to&#160;anyone to&#160;use this&#160;software for&#160;any&#160;purpose on&#160;<br/>
+any&#160;computer system, and&#160;to&#160;alter it and redistribute&#160;it,&#160;subject&#160;<br/>
+to&#160;the following&#160;restrictions:&#160;<br/>
+&#160;<br/>
+1.&#160;The&#160;author&#160;is&#160;not responsible&#160;for the&#160;consequences&#160;of&#160;use of&#160;this&#160;<br/>
+&#160; &#160;software, no&#160;matter how&#160;awful, even if&#160;they&#160;arise from&#160;flaws&#160;in&#160;it.&#160;<br/>
+&#160;<br/>
+2.&#160;The&#160;origin of&#160;this&#160;software must not&#160;be&#160;misrepresented, either by&#160;<br/>
+&#160; &#160;explicit claim&#160;or by&#160;omission. &#160;Since few users&#160;ever read sources,&#160;<br/>
+&#160; &#160;credits&#160;must appear in&#160;the documentation.&#160;<br/>
+&#160;<br/>
+3.&#160;Altered&#160;versions&#160;must be plainly&#160;marked&#160;as&#160;such,&#160;and must not&#160;be&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+20&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=21></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+&#160; &#160;misrepresented&#160;as&#160;being&#160;the&#160;original&#160;software. &#160;Since few&#160;users&#160;<br/>
+&#160; &#160;ever read sources, credits&#160;must appear&#160;in the&#160;documentation.&#160;<br/>
+&#160;<br/>
+4.&#160;This&#160;notice may&#160;not&#160;be removed&#160;or altered.&#160;<br/>
+&#160;<br/>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=&#160;<br/>
+/*-&#160;<br/>
+&#160;*&#160;Copyright&#160;(c)&#160;1994&#160;<br/>
+&#160;*&#160;&#160;The&#160;Regents&#160;of&#160;the University&#160;of&#160;California.&#160;&#160;All&#160;rights&#160;reserved.&#160;<br/>
+&#160;*&#160;<br/>
+&#160;*&#160;Redistribution&#160;and use&#160;in&#160;source and&#160;binary&#160;forms, with&#160;or&#160;without&#160;<br/>
+&#160;*&#160;modification, are&#160;permitted provided&#160;that&#160;the&#160;following conditions&#160;<br/>
+&#160;*&#160;are met:&#160;<br/>
+&#160;*&#160;1.&#160;Redistributions&#160;of&#160;source code must retain&#160;the&#160;above&#160;copyright&#160;<br/>
+&#160;*&#160; &#160;&#160;notice,&#160;this&#160;list of&#160;conditions&#160;and&#160;the&#160;following disclaimer.&#160;<br/>
+&#160;*&#160;2.&#160;Redistributions&#160;in binary&#160;form&#160;must reproduce the&#160;above&#160;copyright&#160;<br/>
+&#160;*&#160; &#160;&#160;notice,&#160;this&#160;list of&#160;conditions&#160;and&#160;the&#160;following disclaimer in the&#160;<br/>
+&#160;*&#160; &#160;&#160;documentation&#160;and/or&#160;other materials&#160;provided&#160;with the&#160;distribution.&#160;<br/>
+&#160;*&#160;3.&#160;Neither&#160;the&#160;name of&#160;the University&#160;nor&#160;the&#160;names&#160;of&#160;its&#160;contributors&#160;<br/>
+&#160;*&#160; &#160;&#160;may&#160;be used&#160;to&#160;endorse or&#160;promote&#160;products&#160;derived&#160;from&#160;this&#160;software&#160;<br/>
+&#160;*&#160; &#160;&#160;without specific&#160;prior&#160;written permission.&#160;<br/>
+&#160;*&#160;<br/>
+&#160;*&#160;THIS&#160;SOFTWARE&#160;IS&#160;PROVIDED BY&#160;THE&#160;REGENTS&#160;AND CONTRIBUTORS&#160;``AS&#160;IS''&#160;AND&#160;<br/>
+&#160;*&#160;ANY&#160;EXPRESS&#160;OR IMPLIED&#160;WARRANTIES, INCLUDING, BUT&#160;NOT&#160;LIMITED&#160;TO,&#160;THE&#160;<br/>
+&#160;*&#160;IMPLIED&#160;WARRANTIES&#160;OF&#160;MERCHANTABILITY&#160;AND FITNESS&#160;FOR&#160;A&#160;PARTICULAR PURPOSE&#160;<br/>
+&#160;*&#160;ARE&#160;DISCLAIMED.&#160;&#160;IN NO&#160;EVENT&#160;SHALL&#160;THE&#160;REGENTS&#160;OR CONTRIBUTORS&#160;BE&#160;LIABLE&#160;<br/>
+&#160;*&#160;FOR&#160;ANY&#160;DIRECT, INDIRECT, INCIDENTAL,&#160;SPECIAL,&#160;EXEMPLARY, OR CONSEQUENTIAL&#160;<br/>
+&#160;*&#160;DAMAGES&#160;(INCLUDING, BUT&#160;NOT&#160;LIMITED&#160;TO, PROCUREMENT&#160;OF&#160;SUBSTITUTE&#160;GOODS&#160;<br/>
+&#160;*&#160;OR SERVICES;&#160;LOSS&#160;OF&#160;USE, DATA, OR&#160;PROFITS; OR&#160;BUSINESS&#160;INTERRUPTION)&#160;<br/>
+&#160;*&#160;HOWEVER CAUSED&#160;AND ON&#160;ANY&#160;THEORY&#160;OF&#160;LIABILITY,&#160;WHETHER IN CONTRACT, STRICT&#160;<br/>
+&#160;*&#160;LIABILITY, OR&#160;TORT&#160;(INCLUDING&#160;NEGLIGENCE&#160;OR OTHERWISE)&#160;ARISING&#160;IN&#160;ANY&#160;WAY&#160;<br/>
+&#160;*&#160;OUT&#160;OF&#160;THE&#160;USE&#160;OF&#160;THIS&#160;SOFTWARE, EVEN&#160;IF&#160;ADVISED OF&#160;THE&#160;POSSIBILITY&#160;OF&#160;<br/>
+&#160;*&#160;SUCH DAMAGE.&#160;<br/>
+&#160;*&#160;<br/>
+&#160;*&#160;&#160;@(#)COPYRIGHT&#160;&#160;8.1&#160;(Berkeley)&#160;3/16/94&#160;<br/>
+&#160;*/&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+21&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+<a name=22></a>Technical Reference&#160;MICROSAR Safe&#160;Silence&#160;Verifier&#160;<br/>
+<b>6&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>
+<b>www.vector.com&#160;</b><br/>
+<b>&#160;</b><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4&#160;<br/>
+22&#160;/&#160;22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.3&#160;<br/>
+<hr/>
+</body>
+</html>

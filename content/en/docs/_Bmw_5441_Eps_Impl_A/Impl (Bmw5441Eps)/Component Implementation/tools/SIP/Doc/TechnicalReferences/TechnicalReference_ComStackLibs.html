@@ -1,0 +1,1531 @@
+---
+title: TechnicalReference_ComStackLibs
+linkTitle: TechnicalReference_ComStackLibs
+weight: 168
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR ComStackLib&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>ComStackLib based BSW&#160;generators&#160;<br/>Version&#160;2.01.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-2_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;&#160;Remarks&#160;</b><br/>
+Gunnar&#160;Meiss&#160;&#160;2013-03-25&#160;&#160;1.00.00&#160;&#160;initial&#160;version&#160;<br/>Gunnar&#160;Meiss&#160;&#160;2013-08-23&#160;&#160;1.01.00&#160;&#160;ESCAN00068919&#160;Remove&#160;<br/>
+&lt;MSN&gt;UseSignedDataTypesInIndexArrays&#160;<br/>ESCAN00070017&#160;Remove &lt;MSN&gt;_Resource.xml&#160;<br/>
+Gunnar&#160;Meiss&#160;&#160;2014-10-06&#160;&#160;2.00.00&#160;&#160;ESCAN00078776&#160;AR4-698:&#160;Post-Build Selectable&#160;<br/>
+(Identity&#160;Manager)&#160;<br/>
+Gunnar&#160;Meiss&#160;&#160;2014-12-19&#160;&#160;2.00.01&#160;&#160;ESCAN00080380&#160;Minor&#160;typing&#160;and&#160;grammar&#160;corrections&#160;<br/>Gunnar&#160;Meiss&#160;&#160;2016-03-30&#160;&#160;2.00.02&#160;&#160;ESCAN00089127&#160;Extend MD_CSL_3355_3356&#160;with the&#160;<br/>
+aspects&#160;of&#160;the&#160;PRQA&#160;Rule 3358&#160;and&#160;3359&#160;<br/>ESCAN00089126&#160;Support&#160;a&#160;justification&#160;for&#160;PRQA&#160;Rule&#160;<br/>310 and PCSymbolicNonDereferenciateablePointers&#160;<br/>Added&#160;chapter<a href="TechnicalReference_ComStackLibs.html#18">&#160;Freedom&#160;from&#160;Interference&#160;</a><br/>
+Gunnar&#160;Meiss&#160;&#160;2016-07-19&#160;&#160;2.00.03&#160;&#160;ESCAN00091055&#160;Extend&#160;<br/>
+MD_CSL_3355_3356_3358_3359&#160;with the&#160;aspects&#160;of&#160;<br/>PRQA&#160;Rule 3325&#160;<br/>
+Gunnar&#160;Meiss&#160;&#160;2017-03-24&#160;&#160;2.01.00&#160;&#160;<a href="alm:entity?guid=STORYC-28AB713C-50EB-42E8-A457-80739549AAC7">STORYC-534:</a>&#160;&lt;MSN&gt;MinimizeNumericalDataTypes&#160;is&#160;<br/>
+always&#160;enabled&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;Vector&#160;<br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;/&#160;MICROSAR&#160;<br/>
+2.2.0&#160;<br/>
+Scope&#160;of&#160;the&#160;Document<b>&#160;</b><br/>
+This&#160;&#160;technical&#160;&#160;reference&#160;&#160;describes&#160;&#160;the&#160;&#160;general&#160;&#160;use&#160;&#160;of&#160;&#160;the&#160;&#160;ComStackLib&#160;&#160;based&#160;&#160;BSW&#160;<br/>generators.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-3_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_ComStackLibs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/></a><a href="TechnicalReference_ComStackLibs.html#8">2.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#8">Architecture&#160;Overview&#160;........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;9</b>&#160;<br/></a><a href="TechnicalReference_ComStackLibs.html#10">3.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#10">CONFIG-CLASS&#160;of&#160;Data&#160;..................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#10">CONFIG-CLASS&#160;PRE-COMPILE&#160;Optimizations&#160;..............................................&#160;10&#160;<br/>3.2.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#10">Optimize Const&#160;Data&#160;to&#160;Defines&#160;.......................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#11">3.2.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#11">Optimize Bool&#160;Data&#160;in Structs&#160;..........................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#12">3.2.3&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#12">Data&#160;Deduplication and&#160;Reduction&#160;...................................................&#160;12&#160;<br/></a><a href="TechnicalReference_ComStackLibs.html#13">3.2.3.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#13">Equal&#160;Data&#160;.....................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#14">3.2.3.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#14">Unary&#160;and Binary&#160;Operations&#160;.........................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#15">3.2.4&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#15">Data&#160;Streaming&#160;................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#16">3.3&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#16">CONFIG-CLASS&#160;Independent&#160;Optimizations&#160;...................................................&#160;16&#160;<br/>3.3.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#16">Sort&#160;Struct&#160;Elements&#160;........................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#17">3.3.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#17">Optimize Data&#160;Types&#160;........................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#18">3.4&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#18">SELECTABLE&#160;Optimizations&#160;............................................................................&#160;18&#160;<br/>3.4.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#18">Merge of&#160;VAR&#160;and CONST&#160;Based&#160;Data&#160;...........................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#18">3.5&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#18">Freedom&#160;from&#160;Interference&#160;..............................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#19"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#19"><b>Integration&#160;...................................................................................................................&#160;19</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#19">Dynamic&#160;Files&#160;..................................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#21">4.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#21">IMPLEMENTATION-CONFIG-VARIANT&#160;dependent&#160;Data&#160;................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">4.3&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">Optimization Levels&#160;..........................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#24">4.4&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#24">MISRA,&#160;PRQA&#160;and Compiler&#160;Warnings&#160;............................................................&#160;24&#160;<br/>4.4.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#24">General&#160;............................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#31">4.4.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#31">Bitfields&#160;............................................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#32">4.4.3&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#32">&lt;MSN&gt;_Has&#160;Macros&#160;in the&#160;SELECTABLE&#160;Use Case&#160;......................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33"><b>Configuration&#160;..............................................................................................................&#160;33</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33">Configuration Variants&#160;......................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33">5.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33">Configuration with a&#160;GCE&#160;.................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#39"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#39"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;39</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#39">Glossary&#160;..........................................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#40">6.2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#40">Abbreviations&#160;...................................................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#41"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#41"><b>Contact&#160;........................................................................................................................&#160;41</b>&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Illustrations</b>&#160;<br/><a href="TechnicalReference_ComStackLibs.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#7">Embedded&#160;Code&#160;Aspects&#160;...........................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#8">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#8">AUTOSAR&#160;4.2&#160;Architecture&#160;Overview&#160;.........................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#9">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#9">Resources&#160;in&#160;compiler&#160;optimization variants&#160;...............................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#10">Figure&#160;3-2&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#10">Using&#160;defines&#160;for&#160;CONST&#160;data&#160;..................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#11">Figure&#160;3-3&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#11">Boolean struct&#160;data&#160;variants&#160;.....................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#12">Figure&#160;3-4&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#12">Boolean struct&#160;data&#160;versus&#160;Bitmasking&#160;.....................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#13">Figure&#160;3-5&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#13">Data&#160;deduplication without&#160;operations&#160;......................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#14">Figure&#160;3-6&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#14">Data&#160;deduplication with&#160;operations&#160;...........................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#15">Figure&#160;3-7&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#15">Data&#160;Streaming&#160;.........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#16">Figure&#160;3-8&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#16">Sorting&#160;struct&#160;elements&#160;.............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#17">Figure&#160;3-9&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#17">Data&#160;type&#160;minimization&#160;.............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">Resources&#160;in&#160;optimization variants&#160;...........................................................&#160;22&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_ComStackLibs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#20">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#20">Generated&#160;files&#160;.........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#21">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#21">IMPLEMENTATION-CONFIG-VARIATIONS&#160;.............................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">Optimization Levels&#160;..................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#23">Table&#160;4-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#23">Optimization Decision&#160;Table&#160;......................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#24">Table&#160;4-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#24">MD_CSL_3199&#160;.........................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#25">Table&#160;4-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#25">MD_CSL_750_759&#160;...................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#26">Table&#160;4-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#26">MD_CSL_0779&#160;.........................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#27">Table&#160;4-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#27">MD_CSL_2018&#160;.........................................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#28">Table&#160;4-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#28">MD_CSL_3355_3356_3358_3359_3325&#160;..................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#29">Table&#160;4-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#29">MD_CSL_3453&#160;.........................................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#30">Table&#160;4-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#30">MD_CSL_0310&#160;.........................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#31">Table&#160;4-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#31">/MICROSAR/EcuC/EcucGeneral/BitFieldDataType&#160;..................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#33">Container&#160;..................................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#38">7Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#38">Attributes of&#160;ComStackLib based&#160;BSW&#160;generators&#160;...................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#39">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#39">Glossary&#160;...................................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#40">Table&#160;6-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#40">Abbreviations&#160;............................................................................................&#160;40&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+Support&#160;of&#160;embedded&#160;data&#160;generation&#160;in&#160;the&#160;<br/>IMPLEMENTATION-CONFIG-VARIANT&#160;VARIANT-PRE-COMPILE&#160;<br/>
+2.00.00&#160;<br/>
+Support&#160;of&#160;the&#160;<br/>IMPLEMENTATION-CONFIG-VARIANT&#160;VARIANT-POST-BUILD-<br/>LOADABLE&#160;<br/>
+3.00.00&#160;<br/>
+Revision&#160;of&#160;existing&#160;techniques&#160;<br/>
+4.00.00&#160;<br/>
+Revision&#160;of&#160;existing&#160;techniques&#160;<br/>
+5.00.00&#160;<br/>
+AR4-698:&#160;Post-Build Selectable (Identity&#160;Manager)&#160;<br/>
+6.00.00&#160;<br/>
+Support&#160;VTT&#160;<br/>
+7.00.00&#160;<br/>
+Support&#160;Techniques&#160;to&#160;ensure Freedom&#160;of&#160;Interference&#160;<br/>
+8.00.00&#160;<br/>
+Java 8&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;document&#160;describes the&#160;configuration&#160;of&#160;ComStackLib&#160;based&#160;BSW&#160;generators.&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_ComStackLibs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+PRE-COMPILE&#160;[SELECTABLE]&#160;<br/>POST-BUILD-LOADABLE&#160;[SELECTABLE]&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>The&#160;ComStackLib&#160;is&#160;an&#160;embedded&#160;data&#160;generation&#160;engine&#160;designed&#160;for&#160;AUTOSAR&#160;based&#160;<br/>BSW&#160;&#160;software.&#160;&#160;Generating&#160;&#160;embedded&#160;&#160;software&#160;&#160;is&#160;&#160;situated&#160;&#160;in&#160;&#160;the&#160;&#160;context&#160;&#160;of&#160;&#160;different&#160;<br/>aspects.&#160;<br/>
+&#160;<br/>
+Developer<br/>
+Customer&#160;A<br/>
+Customer&#160;B<br/>
+Size&#160;of&#160;ROM<br/>
+Development&#160;costs<br/>
+Size&#160;of&#160;RAM<br/>
+Complexity&#160;of&#160;different<br/>
+Size&#160;of&#160;code<br/>
+configuration&#160;variants<br/>
+Complexity&#160;of&#160;Features<br/>
+Runtime&#160;of&#160;code<br/>
+Compiler&#160;implementations<br/>
+Readability&#160;of&#160;code<br/>
+and&#160;configurations<br/>
+Readability&#160;of&#160;generated<br/>
+Hardware<br/>
+data<br/>
+Maintainability&#160;of&#160;the&#160;BSW<br/>
+MISRA conformance<br/>
+and&#160;code&#160;generators<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;Embedded&#160;Code&#160;Aspects&#160;<br/>
+The&#160;&#160;number&#160;&#160;of&#160;&#160;aspects&#160;&#160;for&#160;&#160;embedded&#160;&#160;software&#160;&#160;is&#160;&#160;quite&#160;&#160;high&#160;&#160;and&#160;&#160;they&#160;&#160;have&#160;&#160;a&#160;&#160;various&#160;<br/>importance&#160;from&#160;the&#160;view&#160;of&#160;different&#160;stakeholders.&#160;Some&#160;aspects&#160;contradict&#160;to&#160;each&#160;other&#160;<br/>and&#160;&#160;other&#160;&#160;aspects&#160;&#160;cannot&#160;&#160;be&#160;&#160;changed&#160;&#160;at&#160;&#160;the&#160;&#160;time&#160;&#160;of&#160;&#160;the&#160;&#160;project.&#160;&#160;Due&#160;&#160;to&#160;&#160;this&#160;&#160;the&#160;<br/>ComStackLib&#160;&#160;has&#160;&#160;been&#160;&#160;introduced&#160;&#160;as&#160;&#160;scalable&#160;&#160;embedded&#160;&#160;data&#160;&#160;generation&#160;&#160;engine&#160;<br/>designed&#160;for&#160;AUTOSAR.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;figure&#160;&#160;shows&#160;&#160;where&#160;&#160;the&#160;&#160;ComStackLib&#160;&#160;is&#160;&#160;used&#160;&#160;in&#160;&#160;the&#160;&#160;MICROSAR&#160;<br/>architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;AUTOSAR&#160;4.2&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;tailoring&#160;of&#160;the&#160;MICROSAR&#160;ComStackLib&#160;<br/>based&#160;software&#160;into&#160;your environment.<a href="TechnicalReference_ComStackLibs.html#9">&#160;Figure&#160;3-1&#160;&#160;Resources&#160;&#160;in&#160;&#160;compiler&#160;&#160;optimization&#160;<br/>variants&#160;&#160;</a>shows&#160;&#160;the&#160;&#160;resource&#160;&#160;consumption&#160;&#160;of&#160;&#160;two&#160;&#160;different&#160;&#160;ECUs&#160;&#160;combined&#160;&#160;with&#160;&#160;different&#160;<br/>compiler&#160;optimization&#160;levels.&#160;The&#160;compiler&#160;is&#160;not&#160;able&#160;to&#160;influence&#160;the&#160;size&#160;of&#160;CONST&#160;and&#160;<br/>VAR&#160;data.&#160;The&#160;embedded&#160;software&#160;developer&#160;is&#160;in&#160;charge&#160;to&#160;reduce&#160;the&#160;CONST&#160;and&#160;VAR&#160;<br/>data&#160;consumption.&#160;<br/>
+25000<br/>
+20000<br/>
+CanLin&#160;CONST<br/>
+15000<br/>
+CanLin&#160;VAR<br/>
+CanLin&#160;CODE<br/>
+10000<br/>
+FrLin&#160;CONST<br/>
+FrLin&#160;VAR<br/>
+FrLin&#160;CODE<br/>
+5000<br/>
+0<br/>
+/Od&#160;(Disable<br/>
+/O1&#160;(Minimize Size)<br/>
+/O2&#160;(Maximize<br/>
+/Ox&#160;(Full<br/>
+(Debug))<br/>
+Speed)<br/>
+Optimization)<br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;Resources&#160;in&#160;compiler&#160;optimization&#160;variants&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.1&#160;</b><br/>
+<b>CONFIG-CLASS&#160;of Data&#160;</b><br/>
+The&#160;code&#160;generator&#160;has an&#160;internal knowledge&#160;of&#160;the&#160;required&#160;CONFIG-CLASS.&#160;Due&#160;to&#160;<br/>this data&#160;can&#160;be&#160;moved&#160;dependent&#160;on&#160;the&#160;IMPLEMENTATION-CONFIG-VARIANT.&#160;See&#160;<br/>chapter<a href="TechnicalReference_ComStackLibs.html#21">&#160;4.2&#160;IMPLEMENTATION-CONFIG-VARIANT&#160;dependent&#160;Data.</a>&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>CONFIG-CLASS&#160;PRE-COMPILE&#160;Optimizations&#160;</b><br/>
+<b>3.2.1&#160;</b><br/>
+<b>Optimize&#160;Const&#160;Data&#160;to&#160;Defines&#160;</b><br/>
+Set&#160;<br/>
+the&#160;<br/>
+configuration&#160;<br/>
+parameters&#160;<br/>
+&lt;MSN&gt;OptimizeConstVars2Define&#160;<br/>
+and&#160;<br/>
+&lt;MSN&gt;OptimizeConstArrays2Define&#160;&#160;to&#160;&#160;TRUE&#160;&#160;to&#160;&#160;optimize&#160;&#160;automatically&#160;&#160;CONST&#160;&#160;data&#160;&#160;in&#160;<br/>the&#160;&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;to&#160;a&#160;define.&#160;<br/>
+25000<br/>
+12,00%<br/>
+10,00%<br/>
+20000<br/>
+8,00%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+FrLin&#160;%<br/>
+6,00%<br/>
+CanLin&#160;Off<br/>
+CanLin&#160;On<br/>
+10000<br/>
+FrLin&#160;Off<br/>
+4,00%<br/>
+FrLin&#160;On<br/>
+5000<br/>
+2,00%<br/>
+0<br/>
+0,00%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;&#160;<br/>
+Figure&#160;3-2&#160;&#160;Using&#160;defines&#160;for&#160;CONST&#160;data&#160;<br/>
+The&#160;&#160;optimization&#160;&#160;effect&#160;&#160;depends&#160;on&#160;&#160;the&#160;&#160;available&#160;&#160;configuration&#160;&#160;data.&#160;&#160;CONST&#160;and&#160;&#160;CODE&#160;<br/>size&#160;in&#160;the&#160;ECU&#160;can&#160;be&#160;reduced.&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.2.2&#160;</b><br/>
+<b>Optimize&#160;Bool Data&#160;in Structs&#160;</b><br/>
+Boolean&#160;&#160;data&#160;&#160;can&#160;&#160;be&#160;&#160;represented&#160;&#160;differently&#160;&#160;in&#160;&#160;C&#160;&#160;structs.&#160;&#160;Due&#160;&#160;to&#160;&#160;this,&#160;&#160;the&#160;&#160;generation&#160;&#160;of&#160;<br/>boolean&#160;&#160;data&#160;&#160;can&#160;&#160;be&#160;&#160;configured&#160;&#160;with&#160;&#160;&lt;MSN&gt;StructBoolDataUsage&#160;&#160;as&#160;&#160;BOOLEAN,&#160;<br/>BITFIELD&#160;and&#160;BITMASKING.&#160;There&#160;is&#160;nearly&#160;no&#160;difference&#160;between&#160;the&#160;usage&#160;of&#160;different&#160;<br/>bit data&#160;types.&#160;<br/>
+25000<br/>
+20000<br/>
+15000<br/>
+CanLin&#160;CONST<br/>
+10000<br/>
+CanLin&#160;VAR<br/>
+CanLin&#160;CODE<br/>
+5000<br/>
+FrLin&#160;CONST<br/>
+0<br/>
+FrLin&#160;VAR<br/>
+FrLin&#160;CODE<br/>
+&#160;<br/>
+Figure&#160;3-3&#160;&#160;Boolean&#160;struct&#160;data&#160;variants&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+25000<br/>
+25,00%<br/>
+20000<br/>
+20,00%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+15,00%<br/>
+FrLin&#160;%<br/>
+CanLin&#160;Off<br/>
+CanLin&#160;On<br/>
+10000<br/>
+10,00%<br/>
+FrLin&#160;Off<br/>
+FrLin&#160;On<br/>
+5000<br/>
+5,00%<br/>
+0<br/>
+0,00%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;&#160;<br/>
+Figure&#160;3-4&#160;&#160;Boolean&#160;struct&#160;data&#160;versus&#160;Bitmasking&#160;<br/>
+The&#160;usage&#160;of&#160;BITMASKING&#160;reduces&#160;the&#160;CONST&#160;&#160;size.&#160;The&#160;increase&#160;of&#160;the&#160;CODE&#160;size&#160;is&#160;<br/>so&#160;tiny,&#160;that&#160;it can&#160;be&#160;omitted.&#160;<br/>
+<b>3.2.3&#160;</b><br/>
+<b>Data&#160;Deduplication and Reduction&#160;</b><br/>
+Data&#160;&#160;deduplication&#160;&#160;and&#160;&#160;reduction&#160;&#160;is&#160;&#160;a&#160;&#160;typical&#160;&#160;way&#160;&#160;to&#160;&#160;reduce&#160;&#160;the&#160;&#160;amount&#160;&#160;of&#160;&#160;data.&#160;&#160;The&#160;<br/>ComStackLib&#160;&#160;provides&#160;&#160;generic&#160;&#160;algorithms&#160;&#160;which&#160;&#160;implement&#160;&#160;typical&#160;&#160;data&#160;&#160;deduplication&#160;<br/>mechanisms.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.2.3.1&#160;</b><br/>
+<b>Equal&#160;Data&#160;</b><br/>
+Identical&#160;data&#160;can&#160;be&#160;deduplicated&#160;by&#160;redirection&#160;of&#160;the&#160;data&#160;access&#160;to&#160;other&#160;data.&#160;There&#160;is&#160;<br/>no&#160;influence&#160;to&#160;the&#160;runtime&#160;of&#160;the&#160;embedded&#160;software.&#160;<br/>
+25000<br/>
+14%<br/>
+12%<br/>
+20000<br/>
+10%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+8%<br/>
+FrLin&#160;%<br/>
+CanLin&#160;Off<br/>
+6%<br/>
+CanLin&#160;On<br/>
+10000<br/>
+FrLin&#160;Off<br/>
+4%<br/>
+FrLin&#160;On<br/>
+5000<br/>
+2%<br/>
+0<br/>
+0%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;<br/>
+Figure&#160;3-5&#160;&#160;Data&#160;deduplication&#160;without&#160;operations&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.2.3.2&#160;</b><br/>
+<b>Unary&#160;and Binary&#160;Operations&#160;</b><br/>
+Data&#160;can&#160;be&#160;reduced&#160;by&#160;using&#160;unary&#160;operations&#160;or&#160;operations&#160;on&#160;constants&#160;or&#160;operations&#160;<br/>on&#160;other&#160;data&#160;elements.&#160;The&#160;operations&#160;are&#160;located&#160;in&#160;the&#160;data&#160;access&#160;layer.&#160;Due&#160;to&#160;this,&#160;<br/>the&#160;code&#160;itself&#160;remains&#160;as&#160;implemented.&#160;This&#160;reduction&#160;has&#160;influence&#160;to&#160;the&#160;runtime&#160;of&#160;the&#160;<br/>embedded&#160;software.&#160;<br/>
+25000<br/>
+35%<br/>
+30%<br/>
+20000<br/>
+25%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+20%<br/>
+FrLin&#160;%<br/>
+CanLin&#160;Off<br/>
+15%<br/>
+CanLin&#160;On<br/>
+10000<br/>
+FrLin&#160;Off<br/>
+10%<br/>
+FrLin&#160;On<br/>
+5000<br/>
+5%<br/>
+0<br/>
+0%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;<br/>
+Figure&#160;3-6&#160;&#160;Data&#160;deduplication&#160;with&#160;operations&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.2.4&#160;</b><br/>
+<b>Data&#160;Streaming&#160;</b><br/>
+Data&#160;can&#160;be&#160;packed&#160;into&#160;multiple&#160;streams&#160;of&#160;basic&#160;data&#160;types&#160;and&#160;identical&#160;parts&#160;can&#160;be&#160;<br/>overlapped&#160;with&#160;and&#160;without&#160;data&#160;offsets.&#160;The&#160;data&#160;access&#160;layer&#160;redirects&#160;to&#160;the&#160;dependent&#160;<br/>data&#160;index.&#160;There&#160;is&#160;no&#160;influence&#160;to&#160;the&#160;runtime&#160;of&#160;&#160;the&#160;embedded&#160;software,&#160;&#160;but&#160;the&#160;data&#160;<br/>compression&#160;rate&#160;is&#160;quite&#160;high&#160;in&#160;large&#160;configurations and&#160;complex&#160;modules&#160;containing&#160;lots&#160;<br/>of&#160;data.&#160;<br/>
+25000<br/>
+40,00%<br/>
+35,00%<br/>
+20000<br/>
+30,00%<br/>
+25,00%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+FrLin&#160;%<br/>
+20,00%<br/>
+CanLin&#160;Off<br/>
+CanLin&#160;On<br/>
+10000<br/>
+15,00%<br/>
+FrLin&#160;Off<br/>
+FrLin&#160;On<br/>
+10,00%<br/>
+5000<br/>
+5,00%<br/>
+0<br/>
+0,00%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;&#160;<br/>
+Figure&#160;3-7&#160;&#160;Data&#160;Streaming&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>CONFIG-CLASS&#160;Independent Optimizations&#160;</b><br/>
+<b>3.3.1&#160;</b><br/>
+<b>Sort Struct Elements&#160;</b><br/>
+C&#160;&#160;structs&#160;&#160;are&#160;&#160;always&#160;&#160;sorted&#160;&#160;depending&#160;&#160;on&#160;&#160;the&#160;&#160;size&#160;&#160;of&#160;&#160;an&#160;&#160;element&#160;&#160;data&#160;&#160;type.&#160;&#160;Sorting&#160;<br/>structure&#160;&#160;elements&#160;&#160;reduces&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;&#160;padding&#160;bytes&#160;&#160;added&#160;&#160;by&#160;&#160;the&#160;&#160;compiler&#160;to&#160;align&#160;<br/>the&#160;data.&#160;<br/>
+25000<br/>
+7,00%<br/>
+6,00%<br/>
+20000<br/>
+5,00%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+4,00%<br/>
+FrLin&#160;%<br/>
+CanLin&#160;Off<br/>
+3,00%<br/>
+CanLin&#160;On<br/>
+10000<br/>
+FrLin&#160;Off<br/>
+FrLin&#160;On<br/>
+2,00%<br/>
+5000<br/>
+1,00%<br/>
+0<br/>
+0,00%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;<br/>
+Figure&#160;3-8&#160;&#160;Sorting&#160;struct&#160;elements&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.3.2&#160;</b><br/>
+<b>Optimize&#160;Data&#160;Types&#160;</b><br/>
+Every&#160;generated&#160;data&#160;element&#160;generated&#160;with&#160;the&#160;ComStackLib&#160;has&#160;an&#160;own&#160;C&#160;data&#160;type.&#160;<br/>Due&#160;to&#160;this,&#160;the&#160;data&#160;type&#160;itself&#160;can&#160;be&#160;calculated&#160;automatically&#160;as&#160;small&#160;as&#160;possible&#160;based&#160;<br/>on&#160;the&#160;used&#160;values.&#160;<br/>
+25000<br/>
+50,00%<br/>
+40,00%<br/>
+20000<br/>
+30,00%<br/>
+CanLin&#160;%<br/>
+15000<br/>
+FrLin&#160;%<br/>
+20,00%<br/>
+CanLin&#160;Off<br/>
+CanLin&#160;On<br/>
+10000<br/>
+FrLin&#160;Off<br/>
+10,00%<br/>
+FrLin&#160;On<br/>
+5000<br/>
+0,00%<br/>
+0<br/>
+-10,00%<br/>
+CONST<br/>
+VAR<br/>
+CODE<br/>
+&#160;&#160;<br/>
+Figure&#160;3-9&#160;&#160;Data&#160;type&#160;minimization&#160;<br/>
+The&#160;usage&#160;of&#160;data&#160;type&#160;minimization&#160;saves CONST,&#160;VAR and&#160;CODE&#160;size.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-18_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>SELECTABLE Optimizations&#160;</b><br/>
+If&#160;&#160;the&#160;&#160;configuration&#160;&#160;variant&#160;&#160;is&#160;&#160;SELECTABLE&#160;&#160;based&#160;&#160;the&#160;&#160;following&#160;&#160;optimizations&#160;&#160;are&#160;<br/>automatically&#160;performed.&#160;<br/>
+<b>3.4.1&#160;</b><br/>
+<b>Merge&#160;of&#160;VAR&#160;and CONST&#160;Based Data&#160;</b><br/>
+All&#160;VAR based&#160;generated&#160;data&#160;is&#160;merged&#160;between&#160;different&#160;predefined&#160;variants.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Example&#160;<br/></b>&#160;<br/>
+&#160;&#160;A&#160;predefined&#160;variant&#160;LEFT_ECU&#160;needs&#160;a VAR&#160;based&#160;array&#160;of&#160;the&#160;type&#160;uint8 with 10&#160;<br/>
+elements&#160;and&#160;predefined&#160;variant&#160;RIGHT_ECU&#160;needs&#160;a VAR&#160;based&#160;array&#160;of&#160;the&#160;type&#160;<br/>uint8&#160;with 6&#160;elements&#160;in&#160;the&#160;same&#160;context.&#160;The&#160;result&#160;is&#160;a&#160;variant&#160;independent&#160;<br/>generated&#160;VAR&#160;based&#160;array&#160;of&#160;the&#160;type&#160;uint8&#160;with&#160;10&#160;elements.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+Due&#160;to&#160;this,&#160;if&#160;the&#160;BSW&#160;configuration&#160;data&#160;is&#160;identical&#160;in&#160;different&#160;predefined&#160;variants,&#160;the&#160;<br/>module&#160;configuration&#160;is completely&#160;merged.&#160;<br/>
+&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Freedom from&#160;Interference&#160;</b><br/>
+The&#160;generated&#160;data&#160;elements&#160;are&#160;&#160;wrapped&#160;by&#160;the&#160;generated&#160;data&#160;access.&#160;Writing&#160;out&#160;of&#160;<br/>bounds&#160;in&#160;VAR arrays&#160;is a&#160;typically&#160;trap&#160;in&#160;software&#160;programming.&#160;To&#160;avoid&#160;overriding&#160;other&#160;<br/>variables,&#160;&#160;there&#160;&#160;are&#160;&#160;two&#160;&#160;safety&#160;&#160;strategies&#160;&#160;implemented.&#160;&#160;The&#160;&#160;strategy&#160;&#160;can&#160;&#160;be&#160;&#160;conﬁgured&#160;<br/>with&#160;&#160;&lt;MSN&gt;OutOfBoundsWriteProtectionStrategy&#160;&#160;globally&#160;&#160;for&#160;&#160;the&#160;&#160;data&#160;&#160;access&#160;&#160;macros.&#160;<br/>The&#160;component&#160;developer&#160;can&#160;deactivate&#160;the&#160;strategy&#160;for&#160;a&#160;single&#160;VAR&#160;array&#160;individually&#160;if&#160;<br/>interference&#160;freeness does not&#160;rely&#160;on&#160;an&#160;out&#160;of&#160;bounds protection&#160;strategy.&#160;<br/>
+<b>&gt;&#160;&#160;Index&#160;checking:</b>&#160;the&#160;data&#160;access checks the&#160;used&#160;index&#160;against&#160;the&#160;generator known&#160;<br/>
+size&#160;and&#160;values are&#160;not&#160;manipulated&#160;if&#160;the&#160;index&#160;value&#160;is out&#160;of&#160;bounds problem.&#160;<br/>
+<b>&gt;&#160;&#160;Index&#160;saturation:</b>&#160;VAR arrays are blown&#160;up&#160;to&#160;the&#160;next&#160;2&#160;n&#160;size&#160;and&#160;the&#160;used&#160;index&#160;is&#160;<br/>
+saturated&#160;by&#160;a&#160;mask&#160;value.&#160;Due&#160;to&#160;this, there&#160;is no&#160;out&#160;of&#160;bounds&#160;problem,&#160;but&#160;values&#160;<br/>in&#160;other indexes can&#160;be&#160;manipulated.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;gives&#160;&#160;necessary&#160;&#160;information&#160;&#160;for&#160;&#160;the&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;MICROSAR&#160;<br/>ComStackLib&#160;based&#160;software&#160;into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files&#160;are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;&#160;CFG5&#160;for&#160;ComStackLib&#160;&#160;based&#160;<br/>BSW&#160;software.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+&lt;MSN&gt;_Cfg.h&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;<br/>of&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;data.&#160;<br/>
+&lt;MSN&gt;_Cfg.c&#160;<br/>
+This&#160;file is&#160;generated&#160;dependent&#160;on&#160;the&#160;used&#160;code&#160;generator&#160;for&#160;<br/>compatibility&#160;reasons&#160;and contains&#160;if&#160;generated:&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;<br/>of&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;data.&#160;&#160;<br/>
+&lt;MSN&gt;_Lcfg.h&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;<br/>of&#160;CONFIG-CLASS&#160;LINK&#160;data.&#160;<br/>
+&lt;MSN&gt;_Lcfg.c&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;<br/>of&#160;CONFIG-CLASS&#160;LINK&#160;and&#160;PRE-COMPILE&#160;data if&#160;the&#160;&lt;MSN&gt;_Cfg.c&#160;is&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;<br/></b>not&#160;generated.&#160;<br/>
+&lt;MSN&gt;_PBcfg.h&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;<br/>of&#160;CONFIG-CLASS&#160;POST-BUILD&#160;data.&#160;<br/>
+&lt;MSN&gt;_PBcfg.c&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;<br/>of&#160;CONFIG-CLASS&#160;POST-BUILD&#160;data.&#160;<br/>
+&lt;MSN&gt;_XMI21.xml&#160;<br/>
+This&#160;file is a&#160;XMI&#160;file&#160;to&#160;visualize data relations e.g.&#160;in Enterprise&#160;Architect.&#160;&#160;<br/>The&#160;file is used&#160;for&#160;development&#160;purposes&#160;at&#160;Vector&#160;and&#160;informational&#160;for&#160;<br/>the&#160;customer.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-21_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-21_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>IMPLEMENTATION-CONFIG-VARIANT&#160;dependent Data&#160;</b><br/>
+The&#160;&#160;CONFIG-CLASS&#160;of&#160;&#160;generated&#160;&#160;data&#160;depends&#160;on&#160;&#160;the&#160;&#160;configured&#160;&#160;IMPLEMENTATION-<br/>CONFIG-VARIANT&#160;&#160;and&#160;&#160;the&#160;&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;&#160;described&#160;&#160;in&#160;&#160;the&#160;<br/>&lt;MSN&gt;_bswmd.arxml.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Expert&#160;Knowledge&#160;<br/></b>If&#160;the&#160;generated&#160;data&#160;is&#160;in a&#160;C&#160;struct&#160;and&#160;the&#160;struct&#160;contains pre-compile and&#160;postbuild&#160;<br/>
+&#160;&#160;changeable data,&#160;the&#160;data nature is postbuild.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>IMPLEMENTATION-</b><br/>
+<b>Description&#160;</b><br/>
+<b>CONFIG-VARIANT&#160;<br/></b>VARIANT-PRE-<br/>
+<b>&gt;&#160;&#160;</b>All&#160;generated&#160;data is&#160;of&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;and&#160;generated&#160;<br/>
+COMPILE&#160;<br/>
+into&#160;&lt;MSN&gt;_Cfg.c&#160;or&#160;&lt;MSN&gt;_Lcfg.c&#160;(if&#160;&lt;MSN&gt;_Cfg.c&#160;does not&#160;exist).&#160;&#160;<br/>
+[SELECTABLE]&#160;<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;LINK&#160;and&#160;POST-BUILD&#160;data does not&#160;exist.&#160;<br/>
+VARIANT-LINK-TIME&#160;<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;PRE-COMPILE&#160;data&#160;and&#160;is&#160;generated&#160;into&#160;<br/>
+&lt;MSN&gt;_Cfg.c&#160;or&#160;&lt;MSN&gt;_Lcfg.c(if&#160;&lt;MSN&gt;_Cfg.c&#160;does not&#160;exist).&#160;<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;LINK&#160;data&#160;and&#160;is&#160;generated&#160;into&#160;&lt;MSN&gt;_Lcfg.c.&#160;<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;POST-BUILD&#160;data&#160;changeable&#160;data does&#160;not&#160;exist.&#160;<br/>
+VARIANT-POST-<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;PRE-COMPILE&#160;data and&#160;is&#160;generated&#160;into&#160;<br/>
+BUILD-LOADABLE&#160;<br/>
+&lt;MSN&gt;_Cfg.c&#160;or&#160;&lt;MSN&gt;_Lcfg.c(if&#160;&lt;MSN&gt;_Cfg.c&#160;does not&#160;exist).&#160;<br/>
+[SELECTABLE]&#160;<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;LINK&#160;data&#160;and&#160;is&#160;generated&#160;into&#160;&lt;MSN&gt;_Lcfg.c.&#160;<br/>
+<b>&gt;&#160;&#160;</b>CONFIG-CLASS&#160;POST-BUILD&#160;data&#160;and is&#160;generated&#160;into&#160;<br/>
+&lt;MSN&gt;_PBcfg.c.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;IMPLEMENTATION-CONFIG-VARIATIONS&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Optimization Levels&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;describes&#160;&#160;optimization&#160;&#160;levels&#160;&#160;and&#160;&#160;their&#160;&#160;configuration.&#160;&#160;Use&#160;&#160;<a href="TechnicalReference_ComStackLibs.html#22">Table&#160;&#160;4-3&#160;<br/>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#22">Optimization&#160;Levels&#160;</a>and<a href="TechnicalReference_ComStackLibs.html#23">&#160;Table&#160;4-4&#160;&#160;&#160;Optimization&#160;&#160;Decision&#160;&#160;Table&#160;&#160;</a>to&#160;&#160;tailor&#160;&#160;your&#160;<br/>
+configuration.&#160;<br/>
+<b>Optimization&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Small&#160;(Default)&#160;<br/>
+The&#160;data&#160;is&#160;reduced by&#160;operations and&#160;not&#160;packed into a&#160;data&#160;stream.&#160;<br/>
+Fast&#160;<br/>
+The&#160;data&#160;is&#160;not&#160;reduced&#160;by&#160;operations&#160;and&#160;not&#160;packed&#160;into&#160;a data stream.&#160;<br/>
+Tiny&#160;<br/>
+The&#160;data&#160;is&#160;not&#160;reduced&#160;by&#160;operations&#160;and&#160;packed into a&#160;data&#160;stream.&#160;<br/>
+Teeny-weeny&#160;<br/>
+The&#160;data&#160;is&#160;reduced by&#160;operations and&#160;packed&#160;into a&#160;data stream.&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Optimization&#160;Levels&#160;<br/>
+25000<br/>
+20000<br/>
+CanLin&#160;CONST<br/>
+15000<br/>
+CanLin&#160;VAR<br/>
+CanLin&#160;CODE<br/>
+FrLin&#160;CONST<br/>
+10000<br/>
+FrLin&#160;VAR<br/>
+FrLin&#160;CODE<br/>
+5000<br/>
+0<br/>
+Off<br/>
+Default<br/>
+Fast<br/>
+Tiny<br/>
+Teeny&#160;Weeny<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Resources&#160;in&#160;optimization&#160;variants&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+&#160;<br/>
+<b>Optimization&#160;Level&#160;</b><br/>
+t)&#160;<br/>
+&#160;<br/>
+ul<br/>
+y&#160;<br/>
+&#160;<br/>
+Defa<br/>
+ween<br/>
+&#160;<br/>
+&#160;(l<br/>
+-<br/>
+t&#160;<br/>
+&#160;<br/>
+ny<br/>
+<b>Parameter&#160;</b><br/>
+ma<br/>
+as<br/>
+nyi<br/>
+S<br/>
+F<br/>
+T<br/>
+eeT<br/>
+DEDUPLICATE_&#160;DEDUPLICATE_&#160;DEDUPLICATE_&#160;DEDUPLICATE_<br/>
+&lt;MSN&gt;ConstDataDeduplication&#160;<br/>
+CONST_DATA_<br/>
+CONST_DATA_<br/>
+CONST_DATA_<br/>
+CONST_DATA_<br/>
+WITH_CAST&#160;<br/>
+WITH_CAST&#160;<br/>
+WITH_CAST&#160;<br/>
+WITH_CAST&#160;<br/>
+&lt;MSN&gt;OptimizeConstArrays2Defi<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+ne&#160;<br/>
+&lt;MSN&gt;OptimizeConstVars2Define&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+&lt;MSN&gt;StructBoolDataUsage&#160;<br/>
+BITMASKING&#160;<br/>
+BOOLEAN&#160;<br/>
+BOOLEAN&#160;<br/>
+BITMASKING&#160;<br/>
+&lt;MSN&gt;DeduplicateZero2NIndirect<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+edData&#160;<br/>
+&lt;MSN&gt;ReduceBoolDataByNegati<br/>
+2&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+2&#160;<br/>
+onThreshold&#160;<br/>
+&lt;MSN&gt;ReduceNumericalDataByO<br/>
+2&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+2&#160;<br/>
+ffsetThreshold&#160;<br/>
+&lt;MSN&gt;ReduceBoolDataByNumeri<br/>
+2&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+2&#160;<br/>
+calComparisonThreshold&#160;<br/>
+&lt;MSN&gt;ReduceNumericalDataByA<br/>
+2&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+2&#160;<br/>
+rraySubtractionThreshold&#160;<br/>
+&lt;MSN&gt;DeduplicateBoolDataByNu<br/>
+2&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+2&#160;<br/>
+mericalComparision&#160;<br/>
+&lt;MSN&gt;UseSignedDataTypesInInd<br/>
+FALSE&#160;<br/>
+FALSE&#160;<br/>
+FALSE&#160;<br/>
+FALSE&#160;<br/>
+exArrays&#160;<br/>
+&lt;MSN&gt;ReduceDataByStreaming&#160;<br/>
+FALSE&#160;<br/>
+FALSE&#160;<br/>
+TRUE&#160;<br/>
+TRUE&#160;<br/>
+Table&#160;4-4&#160;&#160;&#160;Optimization&#160;Decision&#160;Table&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-24_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-24_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>MISRA,&#160;PRQA&#160;and&#160;Compiler&#160;Warnings&#160;</b><br/>
+The&#160;&#160;MICROSAR&#160;&#160;code&#160;&#160;is&#160;&#160;in&#160;&#160;the&#160;&#160;most&#160;&#160;cases&#160;&#160;a&#160;&#160;piece&#160;&#160;of&#160;&#160;hand&#160;&#160;written&#160;&#160;static&#160;&#160;code&#160;&#160;and&#160;<br/>generated&#160;&#160;data&#160;&#160;and&#160;&#160;code&#160;&#160;for&#160;&#160;different&#160;&#160;compilers.&#160;&#160;This&#160;&#160;combination&#160;&#160;of&#160;&#160;hand&#160;&#160;written&#160;&#160;and&#160;<br/>generated&#160;&#160;code&#160;&#160;can&#160;&#160;produce&#160;&#160;MISRA&#160;&#160;deviations&#160;&#160;or&#160;&#160;compiler&#160;&#160;warnings.&#160;&#160;This&#160;&#160;chapter&#160;<br/>extends [1].&#160;&#160;<br/>
+<b>4.4.1&#160;</b><br/>
+<b>General&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;ComStackLib switch&#160;&lt;MSN&gt;OptimizeConstArrays2Define&#160;may&#160;produce compiler&#160;<br/>
+&#160;&#160;warnings.&#160;If&#160;you&#160;don’t&#160;trust&#160;your&#160;compiler&#160;or&#160;your&#160;project&#160;settings&#160;do&#160;not&#160;allow&#160;the&#160;usage&#160;<br/>
+of&#160;compiler&#160;warnings,&#160;configure&#160;&lt;MSN&gt;OptimizeConstArrays2Define&#160;to&#160;false.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_3199&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+PRQA&#160;Redundancy&#160;3199 (The&#160;value&#160;of&#160;'%s'&#160;is&#160;never&#160;used&#160;following&#160;this&#160;<br/>assignment.)&#160;<br/>
+Reason&#160;<br/>
+The&#160;parameter&#160;/MICROSAR/EcuC/EcucGeneral/DummyStatement&#160;is&#160;<br/>configured&#160;to&#160;TRUE&#160;to&#160;avoid the&#160;compiler&#160;warning&#160;about&#160;unused&#160;function&#160;<br/>parameters.&#160;<br/>If&#160;the&#160;function&#160;is&#160;an&#160;interface&#160;to&#160;other&#160;modules and the&#160;prototype&#160;is&#160;specified&#160;by&#160;<br/>a standard,&#160;the&#160;prototype&#160;cannot&#160;be&#160;changed.&#160;<br/>If&#160;the&#160;function&#160;is&#160;not&#160;defined&#160;by&#160;a standard,&#160;the&#160;parameter&#160;could&#160;be&#160;removed&#160;in&#160;<br/>the&#160;implementation.&#160;The&#160;disadvantage is&#160;that&#160;the&#160;code itself&#160;is&#160;stuffed&#160;with&#160;<br/>preprocessor&#160;statements&#160;and&#160;the&#160;number&#160;variations&#160;of&#160;the&#160;software&#160;are&#160;<br/>exploding.&#160;Due&#160;to&#160;this,&#160;the code&#160;will&#160;not&#160;be&#160;changed.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;function&#160;contains&#160;unused&#160;code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;Configure&#160;the&#160;parameter&#160;/MICROSAR/EcuC/EcucGeneral/DummyStatement&#160;to&#160;<br/>
+FALSE&#160;and accept&#160;the&#160;compiler&#160;warning&#160;about&#160;unused&#160;function&#160;parameters.&#160;<br/>OR&#160;<br/>The&#160;code inspection&#160;is&#160;in&#160;charge&#160;to&#160;detect&#160;unused&#160;code.&#160;&#160;<br/>
+Examples&#160;<br/>
+#define&#160;MSN_PROCESS_DATA &#160;&#160;&#160; &#160; &#160; &#160;STD_OFF&#160;&#160;<br/>#define&#160;MSN_USE_DUMMY_STATEMENT &#160; STD_ON&#160;<br/>&#160;<br/>void&#160;Msn_foo(uint8&#160;a)&#160;<br/>{&#160;<br/>#if&#160;(MSN_PROCESS_DATA == STD_ON)&#160;<br/>&#160;&#160;/* some code which uses the parameter a */&#160;<br/>#endif&#160;<br/>#if&#160;(MSN_USE_DUMMY_STATEMENT == STD_ON)&#160;<br/>#&#160;if&#160;(MSN_PROCESS_DATA == STD_OFF)&#160;<br/>&#160;&#160;a=a;&#160;<br/># endif&#160;<br/>#endif&#160;<br/>}&#160;<br/>
+Table&#160;4-5&#160;&#160;&#160;MD_CSL_3199&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_750_759&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+Rule&#160;18.4&#160;(Unions&#160;shall&#160;not&#160;be&#160;used.)&#160;<br/>
+Reason&#160;<br/>
+Generated&#160;data uses array&#160;and symbol&#160;based&#160;data access.&#160;The&#160;embedded&#160;<br/>code itself&#160;uses&#160;only&#160;one access&#160;type.&#160;Due&#160;to&#160;this&#160;critical&#160;runtime effects&#160;do not&#160;<br/>occur.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;A2L&#160;data&#160;may&#160;not&#160;match&#160;to&#160;the&#160;real&#160;data.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;Each&#160;delivery&#160;is&#160;integrated&#160;and&#160;tested&#160;on&#160;the&#160;real&#160;target&#160;system.&#160;<br/>Examples&#160;<br/>
+/*&#160;symbolic data access for A2L */&#160;<br/>typedef struct&#160;sMsn_FooDataStructType&#160;<br/>{&#160;<br/>&#160;&#160;boolean&#160;indexA;&#160;<br/>&#160;&#160;boolean&#160;indexB;&#160;<br/>}&#160;Msn_FooDataStructType;&#160;<br/>&#160;<br/>/*&#160;union data type to have array and symbolic data&#160;<br/>access */&#160;<br/>typedef&#160;union&#160;uMsn_FooDataType&#160;<br/>{&#160;<br/>&#160;&#160;boolean&#160;raw[2];&#160;/**&lt;&#160;this element is used for array&#160;<br/>based data access from the embedded code */&#160;<br/>&#160;&#160;Msn_FooDataStructType str;&#160;/**&lt;&#160;this element is&#160;<br/>used for symbolic based data access from A2L */&#160;<br/>} Msn_FooDataUType;&#160;<br/>&#160;<br/>/*&#160;this variable array uses the union data type */&#160;<br/>Msn_FooDataUType&#160;msn_FooData;&#160;&#160;<br/>
+Table&#160;4-6&#160;&#160;&#160;MD_CSL_750_759&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_0779&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+Rule 5.1&#160;(Identifiers&#160;(internal&#160;and external)&#160;shall&#160;not&#160;rely&#160;on&#160;the&#160;significance of&#160;<br/>more&#160;than&#160;31&#160;characters.)&#160;<br/>
+Reason&#160;<br/>
+Generated&#160;symbols&#160;may&#160;exceed the&#160;31&#160;character&#160;limitation,&#160;because&#160;the&#160;code&#160;<br/>generator&#160;concatenates&#160;strings&#160;based&#160;on&#160;fixed&#160;rules.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;linker&#160;or&#160;compiler&#160;may&#160;mismatch&#160;symbols.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;Modern&#160;compilers&#160;for&#160;AUTOSAR&#160;platforms&#160;do&#160;not&#160;have this&#160;limitation&#160;any&#160;<br/>
+more.&#160;<br/>
+Examples&#160;<br/>
+#if&#160;(MSN_DEFRXSIGGRPINFOENDIDXOFDEFRXPDUINFO == STD_ON)&#160;<br/>{&#160;<br/>&#160;&#160;Msn_DefRxSigGrpInfoEndIdxOfDefRxPduInfoType idxRxSigGrpInfo =&#160;<br/>&#160;&#160;Msn_GetDefRxSigGrpInfoStartIdxOfDefRxPduInfo(idxRxPduInfo);&#160;<br/>&#160;&#160;/* some code */&#160;<br/>
+#endif&#160;<br/>
+Table&#160;4-7&#160;&#160;&#160;MD_CSL_0779&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_2018&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+Rule 14.1&#160;(This&#160;switch default&#160;label&#160;is&#160;unreachable.)&#160;<br/>
+Reason&#160;<br/>
+The&#160;parameter&#160;&lt;MSN&gt;OptimizeConstArrays2Define&#160;is&#160;configured&#160;to&#160;TRUE.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;default&#160;case&#160;of&#160;the&#160;switch&#160;statement&#160;contains&#160;possibly&#160;dead&#160;code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;The&#160;code inspection&#160;is&#160;in&#160;charge&#160;to&#160;detect&#160;useless&#160;conditions&#160;with possibly&#160;<br/>
+dead&#160;code.&#160;<br/>
+Examples&#160;<br/>
+#define&#160;MSN_PROCESS_DATA &#160; &#160; &#160; &#160; &#160;STD_ON&#160;&#160;<br/>#define&#160;MSN_CASE_SMALL &#160; &#160; &#160; &#160; &#160; &#160;5&#160;<br/>#define&#160;MSN_CASE_MEDIUM &#160; &#160; &#160; &#160; &#160; 8&#160;<br/>#define&#160;MSN_CASE_LARGE&#160; &#160; &#160; &#160; &#160; &#160;&#160;12&#160;<br/>#define&#160;MSN_CASE_SMALL_USED &#160; &#160; &#160;&#160;FALSE&#160;<br/>#define&#160;MSN_CASE_MEDIUM_USED &#160; &#160; &#160;TRUE&#160;<br/>#define&#160;MSN_CASE_LARGE &#160; &#160; &#160; &#160; &#160; &#160;FALSE&#160;<br/>&#160;<br/>/* this array is reduced to a&#160;constant&#160;define&#160;<br/>const&#160;uint8&#160;msn_FooData&#160;[2] =&#160;<br/>{&#160;<br/>&#160;&#160;MSN_CASE_MEDIUM,&#160;<br/>&#160;&#160;MSN_CASE_MEDIUM&#160;<br/>};&#160;<br/>*/&#160;<br/>#define&#160;Msn_GetFooData (Index) &#160; &#160; &#160;MSN_CASE_MEDIUM&#160;<br/>&#160;<br/>void&#160;Msn_foo(uint8&#160;a)&#160;<br/>{&#160;<br/>#if&#160;(MSN_PROCESS_DATA == STD_ON)&#160;<br/>&#160;&#160;switch(Msn_GetFooData(a))&#160;<br/>&#160;&#160;{&#160;<br/>#if&#160;(MSN_CASE_SMALL_USED == STD_ON)&#160;<br/>&#160; &#160;&#160;case MSN_CASE_SMALL:&#160;<br/>&#160; &#160; &#160;&#160;/* some MSN_CASE_SMALL code */&#160;<br/>&#160; &#160; &#160;&#160;break;&#160;<br/>#endif&#160;<br/>#if&#160;(MSN_CASE_MEDIUM_USED == STD_ON)&#160;<br/>&#160; &#160;&#160;case MSN_CASE_MEDIUM:&#160;<br/>&#160; &#160; &#160;&#160;/* some&#160;MSN_CASE_MEDIUM code */&#160;<br/>&#160; &#160; &#160;&#160;break;&#160;<br/>#endif&#160;<br/>#if&#160;(MSN_CASE_LARGE_USED == STD_ON)&#160;<br/>&#160; &#160;&#160;case MSN_CASE_LARGE:&#160;<br/>&#160; &#160; &#160;&#160;/* some MSN_CASE_LARGE code */&#160;<br/>&#160; &#160; &#160;&#160;break;&#160;<br/>#endif&#160;<br/>&#160; &#160;&#160;default:&#160;<br/>&#160; &#160;&#160;&#160;&#160;/* some&#160;default handling like calling Det&#160;*/&#160;<br/>&#160;&#160;}&#160;<br/>#endif&#160;<br/>}&#160;<br/>
+Table&#160;4-8&#160;&#160;&#160;MD_CSL_2018&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_3355_3356_3358_3359_3325&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+Rule 13.7&#160;(The&#160;result&#160;of&#160;this&#160;logical&#160;operation&#160;or&#160;control&#160;expression&#160;is&#160;always&#160;<br/>'false'&#160;or&#160;‘true’)&#160;<br/>
+Reason&#160;<br/>
+The&#160;parameter&#160;&lt;MSN&gt;OptimizeConstArrays2Define&#160;is&#160;configured&#160;to&#160;TRUE.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;function&#160;contains useless conditions&#160;with possibly&#160;dead&#160;code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;The&#160;code inspection&#160;is&#160;in&#160;charge&#160;to&#160;detect&#160;useless&#160;conditions&#160;with possibly&#160;<br/>
+dead&#160;code.&#160;<br/>
+Examples&#160;<br/>
+#define&#160;MSN_PROCESS_DATA &#160;&#160;&#160; &#160; &#160; &#160;STD_ON&#160;&#160;<br/>&#160;<br/>/*&#160;this array is reduced to a define&#160;<br/>const boolean msn_FooData [2] =&#160;<br/>{&#160;<br/>&#160;&#160;TRUE,&#160;<br/>&#160;&#160;TRUE&#160;<br/>};&#160;<br/>*/&#160;<br/>#define&#160;Msn_IsFooData (Index) &#160; &#160; &#160;TRUE&#160;<br/>&#160;<br/>void&#160;Msn_foo(uint8&#160;a)&#160;<br/>{&#160;<br/>#if&#160;(MSN_PROCESS_DATA == STD_ON)&#160;<br/>&#160;&#160;if(Msn_IsFooData(a))&#160;<br/>&#160;&#160;{&#160;<br/>&#160;&#160;&#160;&#160;/* some code */&#160;<br/>&#160;&#160;}&#160;<br/>#endif&#160;<br/>}&#160;<br/>
+Table&#160;4-9&#160;&#160;&#160;MD_CSL_3355_3356_3358_3359_3325&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_3453&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+Rule&#160;19.7&#160;(A&#160;function&#160;should be&#160;used&#160;in preference to&#160;a&#160;function-like macro.)&#160;<br/>
+Reason&#160;<br/>
+ComStackLib based&#160;modules use&#160;macros&#160;to access&#160;generated&#160;RAM&#160;and ROM&#160;<br/>data.&#160;The&#160;implementation&#160;of&#160;data&#160;access&#160;functions&#160;would cause much&#160;code&#160;<br/>and runtime.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Resulting&#160;code is difficult&#160;to&#160;understand or&#160;may&#160;not&#160;work&#160;as&#160;expected.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;Code inspection&#160;and&#160;test&#160;of&#160;the&#160;different&#160;variants&#160;in the&#160;component&#160;test.&#160;<br/>Examples&#160;<br/>
+#define&#160;MSN_PROCESS_DATA &#160;&#160;&#160; &#160; &#160; &#160;STD_ON&#160;&#160;<br/>&#160;<br/>/*&#160;this array is&#160;accessed by a&#160;generated data access&#160;<br/>macro */&#160;<br/>const&#160;boolean&#160;msn_FooData [2] =&#160;<br/>{&#160;<br/>&#160;&#160;TRUE,&#160;<br/>&#160;&#160;TRUE&#160;<br/>};&#160;<br/>&#160;<br/>#define&#160;Msn_IsFooData&#160;(Index) &#160;&#160;msn_FooData[Index]&#160;<br/>&#160;<br/>void&#160;Msn_foo(uint8&#160;a)&#160;<br/>{&#160;<br/>#if&#160;(MSN_PROCESS_DATA == STD_ON)&#160;<br/>&#160;&#160;if(Msn_IsFooData(a))&#160;<br/>&#160;&#160;{&#160;<br/>&#160;&#160;&#160;&#160;/* some code */&#160;<br/>&#160;&#160;}&#160;<br/>#endif&#160;<br/>}&#160;<br/>
+Table&#160;4-10&#160;&#160;&#160;MD_CSL_3453&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-30_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_CSL_310&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+Rule 11.4 (A&#160;cast&#160;should&#160;not&#160;be&#160;performed&#160;between a&#160;pointer&#160;to object&#160;type&#160;<br/>and a&#160;different&#160;pointer&#160;to&#160;object&#160;type.)&#160;<br/>
+Reason&#160;<br/>
+The&#160;&#160;parameter&#160;&#160;&lt;MSN&gt;OptimizeConstArrays2Define&#160;&#160;is&#160;&#160;configured&#160;&#160;to&#160;&#160;TRUE&#160;<br/>AND&#160;&#160;the&#160;&#160;module&#160;&#160;configuration&#160;&#160;variant&#160;&#160;is&#160;&#160;PRE-COMPILE&#160;&#160;or&#160;&#160;POST-BUILD-<br/>LOADABLE&#160;SELECTABLE.&#160;&#160;<br/>The&#160;values&#160;behind&#160;a symbol&#160;are&#160;reduced&#160;to&#160;a constant&#160;define,&#160;but&#160;a&#160;non&#160;<br/>NULL_PTR&#160;is&#160;needed&#160;to&#160;identify&#160;the&#160;usage&#160;of&#160;the&#160;values&#160;in the&#160;source code.&#160;<br/>Due&#160;to&#160;this&#160;the&#160;module&#160;root&#160;symbol&#160;is&#160;used.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;compiler&#160;and MISRA&#160;warns&#160;about&#160;the&#160;cast&#160;of&#160;different&#160;pointer&#160;types.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;&#160;The&#160;code uses&#160;the&#160;generated&#160;macros&#160;to access data&#160;values&#160;and does&#160;not&#160;<br/>
+touch&#160;the&#160;pointers.&#160;<br/>
+Examples&#160;<br/>
+#define&#160;Msn_GetFoo(Index) &#160; &#160; 1U&#160;<br/>#define&#160;Msn_HasFoo&#160;() &#160; &#160; &#160;&#160;&#160;&#160;(Msn_ConfigDataPtr-&gt;FooPtrOfPCConfig != NULL_PTR)&#160;<br/>#define&#160;Msn_Foo&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;((Msn_FooPtrType)(&amp;(Msn_PCConfig)))&#160;<br/>&#160;<br/>CONST(Msn_PCConfigsType,&#160;MSN_CONST)&#160;Msn_PCConfig = {&#160;<br/>&#160;&#160;{&#160;/* Index: 0 Keys:&#160;[Config_LeftFront] */&#160;<br/>&#160; &#160; &#160;&#160;Msn_Foo&#160;&#160;/**&lt; the pointer to Msn_Foo */ &#160;/* PRQA S 0310 */ &#160;/* MD_CSL_310&#160;<br/>*/&#160;<br/>&#160; &#160;&#160;, 5U &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;/**&lt; the number of elements in Msn_Foo */&#160;<br/>&#160;&#160;},&#160;<br/>&#160;&#160;{&#160;/* Index: 1 Keys: [Config_RightFront] */&#160;<br/>&#160; &#160; &#160;&#160;NULL_PTR &#160; &#160; &#160; &#160; &#160; &#160;/**&lt; the pointer to Msn_Foo */&#160;<br/>&#160; &#160;&#160;, 0U &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;/**&lt; the number of elements in Msn_Foo */&#160;<br/>&#160;&#160;}&#160;<br/>};&#160;<br/>
+Table&#160;4-11&#160;&#160;&#160;MD_CSL_0310&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>4.4.2&#160;</b><br/>
+<b>Bitfields&#160;</b><br/>
+The&#160;&#160;data&#160;&#160;type&#160;&#160;of&#160;&#160;bit&#160;&#160;fields&#160;&#160;is&#160;&#160;configurable&#160;&#160;in&#160;&#160;the&#160;&#160;EcuC&#160;&#160;module&#160;&#160;and&#160;&#160;important&#160;&#160;if&#160;<br/>&lt;MSN&gt;StructBoolDataUsage&#160;&#160;is&#160;&#160;configured&#160;&#160;to&#160;&#160;BITFIELD.&#160;&#160;According&#160;&#160;to&#160;&#160;<a href="TechnicalReference_ComStackLibs.html#31">Table&#160;&#160;4-12&#160;<br/>&#160;</a><br/>
+<a href="TechnicalReference_ComStackLibs.html#31">/MICROSAR/EcuC/EcucGeneral/BitFieldDataType&#160;</a>the&#160;usage&#160;of&#160;UNSIGNED_INT&#160;is&#160;the&#160;<br/>
+best&#160;choice,&#160;but&#160;for&#160;some&#160;compilers&#160;the&#160;usage&#160;of&#160;UNSIGNED_CHAR&#160;is&#160;for&#160;some&#160;reasons&#160;<br/>required&#160;and&#160;you&#160;want&#160;to&#160;live&#160;with&#160;the&#160;MISRA&#160;violations.&#160;<br/>
+<b>BitFieldDataType&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Literal&#160;</b><br/>
+INT&#160;<br/>
+&#160;&#160;does&#160;typically&#160;not&#160;produce&#160;a compiler&#160;warning&#160;<br/>&#160;&#160;violates&#160;<br/>
+MISRA&#160;Rule 6.4&#160;Bit fields&#160;shall&#160;only&#160;be defined&#160;to&#160;be of&#160;type unsigned&#160;int&#160;or&#160;<br/>signed int.&#160;<br/>MISRA&#160;Rule&#160;6.5&#160;&#160;&#160;Bit fields&#160;of&#160;type&#160;signed&#160;int&#160;shall&#160;be&#160;at&#160;least&#160;2 bits&#160;long.&#160;<br/>MISRA&#160;Rule&#160;10.1&#160;&#160;The&#160;value&#160;of&#160;an expression&#160;of&#160;integer&#160;type&#160;shall&#160;not&#160;be&#160;<br/>implicitly&#160;converted&#160;to a&#160;different underlying type&#160;if: a)&#160;it is&#160;not a&#160;conversion&#160;to a&#160;<br/>wider&#160;integer type of&#160;the&#160;same signedness, or&#160;b)&#160;the&#160;expression&#160;is&#160;complex, or&#160;<br/>c)&#160;the expression is&#160;not&#160;constant and&#160;is&#160;a&#160;function argument, or&#160;d) the&#160;<br/>expression&#160;is&#160;not&#160;constant&#160;and&#160;is&#160;a&#160;return expression&#160;(if&#160;TRUE&#160;is&#160;assigned&#160;to&#160;<br/>the&#160;value&#160;as&#160;initializer)&#160;<br/>
+UNSIGNED_INT&#160;<br/>
+&#160;&#160;does&#160;typically&#160;not&#160;produce&#160;a compiler&#160;warning&#160;<br/>&#160;&#160;violates&#160;no&#160;MISRA&#160;Rule&#160;<br/>
+UNSIGNED_CHAR&#160;<br/>
+&#160;&#160;does&#160;typically&#160;produce a&#160;compiler warning&#160;like&#160;warning&#160;C4214:&#160;nonstandard&#160;<br/>
+extension used :&#160;bit field types&#160;other than&#160;int&#160;<br/>
+&#160;&#160;violates&#160;MISRA&#160;Rule 6.4&#160;Bit&#160;fields&#160;shall&#160;only&#160;be&#160;defined&#160;to&#160;be of&#160;type unsigned&#160;<br/>
+int&#160;or signed&#160;int.&#160;<br/>
+UNSIGNED_SHORT&#160;&#160;&#160;&#160;does&#160;typically&#160;produce a&#160;compiler warning&#160;like&#160;warning&#160;C4214:&#160;nonstandard&#160;<br/>
+extension used :&#160;bit field types&#160;other than&#160;int&#160;<br/>
+&#160;&#160;violates&#160;MISRA&#160;Rule 6.4&#160;Bit&#160;fields&#160;shall&#160;only&#160;be&#160;defined&#160;to&#160;be of&#160;type unsigned&#160;<br/>
+int&#160;or signed&#160;int.&#160;<br/>
+Table&#160;4-12&#160;&#160;&#160;/MICROSAR/EcuC/EcucGeneral/BitFieldDataType&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-32_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-32_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>4.4.3&#160;</b><br/>
+<b>&lt;MSN&gt;_Has&#160;Macros&#160;in the&#160;SELECTABLE Use&#160;Case&#160;</b><br/>
+The&#160;&#160;usage&#160;&#160;of&#160;&#160;&lt;MSN&gt;_Has*&#160;&#160;macros&#160;&#160;produces&#160;&#160;in&#160;&#160;the&#160;&#160;SELECTABLE&#160;&#160;use&#160;&#160;case&#160;&#160;compiler&#160;<br/>warnings&#160;like&#160;“The&#160;result&#160;of&#160;this&#160;logical&#160;operation&#160;is&#160;always&#160;'false'&#160;or&#160;‘true’”.&#160;This&#160;compiler&#160;<br/>warning&#160;&#160;is&#160;&#160;up&#160;&#160;to&#160;&#160;now&#160;&#160;acceptable&#160;&#160;because&#160;&#160;the&#160;&#160;compiler&#160;&#160;detects&#160;&#160;automatically&#160;&#160;the&#160;&#160;case&#160;<br/>where&#160;the&#160;“if”&#160;condition&#160;is&#160;not&#160;needed&#160;and&#160;removes&#160;automatically&#160;the&#160;runtime&#160;consuming&#160;if&#160;<br/>condition.&#160;A&#160;typical use&#160;case&#160;is&#160;described&#160;in&#160;the&#160;following&#160;example&#160;code.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Example&#160;<br/></b>The&#160;generated&#160;CONST&#160;or&#160;VAR&#160;data&#160;element&#160;accesses by&#160;Msn_GetFooData()&#160;is&#160;<br/>
+&#160;&#160;needed&#160;in all&#160;predefined&#160;variants.&#160;Due&#160;to&#160;this,&#160;the&#160;generated&#160;Msn_HasFooData()&#160;<br/>
+macro&#160;is&#160;always&#160;true&#160;and&#160;the&#160;compiler&#160;warning&#160;occurs.&#160;<br/>&#160;<br/>#define&#160;MSN_USE_INIT_POINTER&#160; &#160;&#160; &#160; &#160; &#160;STD_ON&#160;&#160;<br/>&#160;<br/>#define&#160;Msn_HasFooData() &#160; &#160; &#160; &#160; &#160; &#160; &#160;TRUE&#160;<br/>&#160;<br/>void&#160;Msn_foo(uint8&#160;a)&#160;<br/>{&#160;<br/>#if&#160;(MSN_USE_INIT_POINTER&#160;== STD_ON)&#160;<br/>&#160;&#160;if(Msn_HasFooData())&#160;<br/>#endif&#160;<br/>&#160;&#160;{&#160;<br/>&#160;&#160;&#160;&#160;/* some code&#160;and process&#160;Msn_GetFooData()&#160;*/&#160;<br/>&#160;&#160;}&#160;<br/>
+}&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-33_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-33_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>5&#160;&#160;Configuration&#160;</b><br/>
+ComStackLib&#160;&#160;based&#160;&#160;BSW&#160;&#160;generators&#160;&#160;can&#160;&#160;be&#160;&#160;configured&#160;&#160;according&#160;&#160;with&#160;&#160;CFG5.&#160;&#160;For&#160;&#160;a&#160;<br/>detailed&#160;description&#160;see<a href="TechnicalReference_ComStackLibs.html#33">&#160;5.2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;&#160;configuration&#160;&#160;classes&#160;&#160;of&#160;&#160;ComStackLib&#160;&#160;based&#160;&#160;BSW&#160;&#160;generators&#160;&#160;depend&#160;&#160;on&#160;&#160;the&#160;<br/>supported&#160;&#160;configuration&#160;&#160;variants.&#160;&#160;For&#160;&#160;their&#160;&#160;definitions&#160;&#160;please&#160;&#160;see&#160;&#160;the&#160;&#160;BSW&#160;&#160;specific&#160;<br/>&lt;MSN&gt;_bswmd.arxml&#160;file.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Configuration&#160;with a&#160;GCE&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;configuration&#160;parameters,&#160;their&#160;multiplicity&#160;and default&#160;values&#160;depend&#160;on&#160;the&#160;BSW&#160;<br/>
+&#160;&#160;module.&#160;For&#160;their&#160;definitions&#160;please see&#160;the&#160;BSW&#160;specific&#160;&lt;MSN&gt;_bswmd.arxml&#160;file.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Container&#160;Name&#160;</b><br/>
+&lt;MSN&gt;General&#160;<br/>
+<b>Path&#160;</b><br/>
+\MICROSAR\&lt;MSN&gt;\&lt;MSN&gt;General&#160;<br/>
+<b>Multiplicity&#160;</b><br/>
+1..1&#160;<br/>
+<b>Description&#160;</b><br/>
+The&#160;general&#160;configuration&#160;container&#160;of&#160;the ComStackLib based BSW&#160;<br/>configuration&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Container&#160;&#160;<br/>
+&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Type&#160;</b><br/>
+&lt;MSN&gt;OutOfBound&#160;ENUM&#160;<br/>
+This&#160;parameter&#160;is&#160;used&#160;to&#160;configure&#160;a strategy&#160;to&#160;protect the code to&#160;<br/>
+sWriteProtectionStra<br/>
+write&#160;out&#160;of&#160;bounds.&#160;<br/>
+tegy&#160;<br/>
+&#160;<br/>NONE: no protection&#160;strategy&#160;is&#160;generated&#160;in the&#160;data&#160;access.&#160;<br/>INDEX_SATURATION: arrays&#160;are blown up and&#160;the&#160;data&#160;access&#160;index&#160;<br/>is&#160;saturated by&#160;an appropriate&#160;mask.&#160;The&#160;advantage&#160;is&#160;the speed&#160;of&#160;the&#160;<br/>data&#160;access, but&#160;own data&#160;elements&#160;at&#160;other&#160;indexes&#160;of&#160;the same&#160;<br/>variable can&#160;be&#160;overridden.&#160;<br/>INDEX_CHECKING: the&#160;data&#160;access&#160;index&#160;is&#160;validated&#160;by&#160;a runtime&#160;<br/>check.&#160;The&#160;advantage is&#160;that&#160;values&#160;are&#160;never&#160;written&#160;to&#160;incorrect&#160;<br/>indexes&#160;of&#160;the data&#160;access.&#160;<br/>
+&lt;MSN&gt;OutOfBound&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the&#160;generation&#160;of&#160;runtime checks&#160;<br/>
+sWriteSanitizer&#160;<br/>
+which call&#160;a DET&#160;error notification&#160;function&#160;to&#160;find easily&#160;out&#160;of&#160;bounds&#160;<br/>write&#160;problems.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-34_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Type&#160;</b><br/>
+This&#160;debugging&#160;feature must not&#160;be used in production code!&#160;<br/>FALSE: &#160;no checks&#160;are generated&#160;in&#160;the&#160;data access.&#160;<br/>TRUE:&#160;the&#160;data&#160;access&#160;is&#160;enriched&#160;with DET&#160;checks&#160;to&#160;validate&#160;<br/>indexes.&#160;<br/>
+&lt;MSN&gt;OutOfBound&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the&#160;generation&#160;of&#160;runtime checks&#160;<br/>
+sReadSanitizer&#160;<br/>
+which call&#160;a DET&#160;error notification&#160;function&#160;to&#160;find easily&#160;out&#160;of&#160;bounds&#160;<br/>read problems.&#160;<br/>The&#160;debugging&#160;feature&#160;must not&#160;be&#160;used&#160;in production&#160;code!&#160;<br/>FALSE: &#160;no checks&#160;are generated&#160;in&#160;the&#160;data access.&#160;<br/>TRUE:&#160;the&#160;data&#160;access&#160;is&#160;enriched&#160;with DET&#160;checks&#160;to&#160;validate&#160;<br/>indexes.&#160;<br/>
+&lt;MSN&gt;ConstDataD&#160;ENUM&#160;<br/>
+This&#160;parameter&#160;is&#160;used&#160;to&#160;deduplicate&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;&#160;<br/>
+eduplication&#160;<br/>
+ROM data.&#160;<br/>
+&#160;<br/>NONE:&#160;The&#160;generated data&#160;is&#160;not&#160;deduplicated.&#160;<br/>
+&#160;<br/>DEDUPLICATE_CONST_DATA_WITHOUT_CAST:&#160;The data is&#160;<br/>deduplicated&#160;without&#160;using&#160;casts.&#160;<br/>Code:&#160;no&#160;change expected.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size can&#160;be&#160;minimized.&#160;<br/>Runtime:&#160;no&#160;change&#160;expected.&#160;<br/>
+&#160;<br/>DEDUPLICATE_CONST_DATA_WITH_CAST:&#160;The&#160;data is&#160;deduplicated&#160;<br/>using&#160;casts.&#160;<br/>Code:&#160;no&#160;change expected.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size can&#160;be&#160;minimized&#160;more than in&#160;<br/>DEDUPLICATE_CONST_DATA_WITHOUT_CAST.&#160;<br/>Runtime:&#160;no&#160;change&#160;expected.&#160;<br/>
+&lt;MSN&gt;OptimizeCon&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;generate&#160;<br/>
+stArrays2Define&#160;<br/>
+CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM arrays&#160;as&#160;constant define.&#160;<br/>
+&#160;<br/>TRUE:&#160;ROM arrays&#160;are generated as&#160;constant&#160;define&#160;if&#160;all&#160;values&#160;are&#160;<br/>identical.&#160;<br/>Code:&#160;the&#160;code size is&#160;smaller.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased.&#160;<br/>
+&#160;<br/>FALSE: ROM&#160;arrays&#160;are&#160;generated as&#160;data&#160;even&#160;if&#160;all&#160;values&#160;are&#160;<br/>identical.&#160;<br/>
+&lt;MSN&gt;OptimizeCon&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;generate&#160;<br/>
+stVars2Define&#160;<br/>
+CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM constants&#160;as&#160;constant&#160;define.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-35_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Type&#160;</b><br/>
+&#160;<br/>TRUE:&#160;ROM constants&#160;are&#160;generated&#160;as&#160;constant&#160;define.&#160;<br/>Code:&#160;the&#160;code size is&#160;smaller.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased.&#160;<br/>
+&#160;<br/>FALSE: ROM constants&#160;are always&#160;generated as&#160;data.&#160;<br/>
+&lt;MSN&gt;StructBoolD<br/>
+ENUM&#160;<br/>
+This&#160;parameter&#160;is&#160;used&#160;to&#160;tailor the&#160;usage of&#160;boolean&#160;data&#160;in structures&#160;<br/>
+ataUsage&#160;<br/>
+in all&#160;CONFIG-CLASSES. The&#160;difference between&#160;BITFIELD&#160;and&#160;<br/>BITMASKING&#160;depends&#160;on&#160;your compiler&#160;options&#160;and&#160;memory&#160;mapping.&#160;<br/>
+&#160;<br/>BOOLEAN:&#160;The&#160;datatype&#160;of&#160;boolean&#160;data&#160;is&#160;native&#160;boolean.&#160;<br/>Code:&#160;the&#160;code size is&#160;small.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;large.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;fast.&#160;<br/>
+&#160;<br/>BITFIELD:&#160;The&#160;bitfield&#160;type&#160;is&#160;used&#160;and&#160;the&#160;compiler extracts&#160;the&#160;<br/>boolean data&#160;from&#160;structures.&#160;<br/>Code:&#160;the&#160;code size is&#160;larger than&#160;using&#160;BOOLEAN.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;smaller&#160;than&#160;using&#160;BOOLEAN.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;larger than&#160;using&#160;BOOLEAN.&#160;<br/>
+&#160;<br/>BITMASKING: Generated&#160;Masks&#160;are used&#160;to&#160;extract the&#160;boolean&#160;data&#160;<br/>from&#160;structures.&#160;<br/>Code:&#160;the&#160;code size is&#160;larger than&#160;using&#160;BOOLEAN.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;smaller than&#160;using&#160;BOOLEAN.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;larger than&#160;using&#160;BOOLEAN.&#160;<br/>
+&lt;MSN&gt;Deduplicate<br/>
+BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;compress&#160;0:N&#160;<br/>
+Zero2NIndirectedDa<br/>
+relational&#160;ROM data&#160;in&#160;all&#160;CONFIG-CLASSES&#160;without&#160;increasing&#160;the&#160;<br/>
+ta&#160;<br/>
+runtime.&#160;<br/>This&#160;option can&#160;be&#160;used&#160;in&#160;lib builds&#160;and&#160;in postbuild configurations.&#160;<br/>
+&#160;<br/>TRUE:&#160;0:N relational&#160;ROM&#160;data&#160;is&#160;compressed&#160;without&#160;decreasing&#160;the&#160;<br/>runtime.&#160;<br/>Code:&#160;no&#160;change expected.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;no&#160;change&#160;expected.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+35&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-36_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Type&#160;</b><br/>
+FALSE: 0:N&#160;relational&#160;ROM&#160;data&#160;is&#160;not&#160;compressed.&#160;<br/>
+&lt;MSN&gt;ReduceBool&#160;INT&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;compress&#160;<br/>
+DataByNegationThr<br/>
+boolean&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM data&#160;by&#160;using&#160;the&#160;<br/>
+eshold&#160;<br/>
+negation operator.&#160;<br/>0:&#160;The&#160;optimization is&#160;not&#160;performed.&#160;<br/>&gt;0:&#160;This&#160;is&#160;the threshold to&#160;activate&#160;the&#160;data optimization.&#160;<br/>
+&#160;<br/>Code:&#160;the&#160;code size is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the negation&#160;<br/>operator in&#160;the&#160;data access.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the negation&#160;<br/>operator in&#160;the&#160;data access.&#160;<br/>
+&lt;MSN&gt;ReduceNum&#160;INT&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;compress&#160;<br/>
+ericalDataByOffsetT<br/>
+numerical&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM data&#160;by&#160;using&#160;a&#160;<br/>
+hreshold&#160;<br/>
+constant&#160;offset.&#160;<br/>0:&#160;The&#160;optimization is&#160;not&#160;performed.&#160;<br/>&gt;0:&#160;This&#160;is&#160;the threshold to&#160;activate&#160;the&#160;data optimization.&#160;<br/>
+&#160;<br/>Code:&#160;the&#160;code size is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the constant&#160;offset&#160;<br/>operation in the data&#160;access.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the constant&#160;<br/>offset&#160;operation&#160;in the&#160;data&#160;access.&#160;<br/>
+&lt;MSN&gt;ReduceBool&#160;INT&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;compress&#160;<br/>
+DataByNumericalCo<br/>
+boolean&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM data&#160;by&#160;using&#160;<br/>
+mparisonThreshold&#160;<br/>
+comparison&#160;with&#160;other&#160;ROM data.&#160;<br/>0:&#160;The&#160;optimization is&#160;not&#160;performed.&#160;&#160;<br/>&gt;0:&#160;This&#160;is&#160;the threshold to&#160;activate&#160;the&#160;data optimization.&#160;<br/>
+&#160;<br/>Code:&#160;the&#160;code size is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the operation&#160;in&#160;<br/>the&#160;data&#160;access.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the operation&#160;in&#160;<br/>the&#160;data&#160;access.&#160;<br/>
+&lt;MSN&gt;ReduceBool&#160;INT&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;compress&#160;<br/>
+DataByNumericalRe<br/>
+boolean&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM data&#160;by&#160;using&#160;relational&#160;<br/>
+lationThreshold&#160;<br/>
+comparison&#160;with&#160;other&#160;ROM data.&#160;<br/>0:&#160;The&#160;optimization is&#160;not&#160;performed.&#160;<br/>&gt;0:&#160;This&#160;is&#160;the threshold to&#160;activate&#160;the&#160;data optimization.&#160;<br/>
+&#160;<br/>Code:&#160;the&#160;code size is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the operation&#160;in&#160;<br/>the&#160;data&#160;access.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+36&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-37_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Type&#160;</b><br/>
+RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the operation&#160;in&#160;<br/>the&#160;data&#160;access.&#160;<br/>
+&lt;MSN&gt;ReduceNum&#160;INT&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;compress&#160;<br/>
+ericalDataByArrayS<br/>
+numerical&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM data&#160;by&#160;using&#160;a&#160;<br/>
+ubtractionThreshold&#160;<br/>
+subtraction&#160;with&#160;other ROM&#160;data.&#160;<br/>0:&#160;The&#160;optimization is&#160;not&#160;performed.&#160;&#160;<br/>&gt;0:&#160;This&#160;is&#160;the threshold to&#160;activate&#160;the&#160;data optimization.&#160;<br/>
+&#160;<br/>Code:&#160;the&#160;code size is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the operation&#160;in&#160;<br/>the&#160;data&#160;access.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;minimized.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;increased&#160;due&#160;to&#160;the&#160;usage&#160;of&#160;the operation&#160;in&#160;<br/>the&#160;data&#160;access.&#160;<br/>
+&lt;MSN&gt;Deduplicate<br/>
+ENUM&#160;<br/>
+This&#160;parameter&#160;is&#160;used&#160;to&#160;tailor the&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;<br/>
+BoolDataByNumeric<br/>
+ROM data deduplication&#160;mechanisms.&#160;A&#160;comparison&#160;with&#160;0 is&#160;very&#160;<br/>
+alComparision&#160;<br/>
+efficient, but&#160;a&#160;numerical&#160;comparison&#160;with&#160;a value&#160;not&#160;0&#160;can&#160;be&#160;used&#160;to&#160;<br/>increase the&#160;ROM data&#160;compression&#160;rate.&#160;<br/>
+&#160;<br/>NONE: ROM data&#160;deduplications&#160;are switched&#160;off.&#160;<br/>Code:&#160;the&#160;code size is&#160;small.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;large.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;fast.&#160;<br/>
+&#160;<br/>DEDUPLICATE_DATA_WITH_ZERO: ROM data&#160;deduplications&#160;can&#160;be&#160;<br/>applied&#160;with&#160;the&#160;value 0.&#160;<br/>Code:&#160;the&#160;code size is&#160;larger than&#160;using NONE&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;smaller than&#160;using&#160;NONE.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;larger than&#160;using NONE.&#160;<br/>
+&#160;<br/>DEDUPLICATE_DATA_WITH_ANY_VALUE:&#160;ROM&#160;data deduplications&#160;<br/>can&#160;be&#160;applied&#160;with any&#160;numerical&#160;value.&#160;<br/>Code:&#160;the&#160;code size is&#160;larger than&#160;using NONE&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;the ROM size is&#160;smaller than&#160;using&#160;<br/>DEDUPLICATE_DATA_WITH_ZERO.&#160;<br/>Runtime:&#160;the&#160;runtime is&#160;larger than&#160;using NONE.&#160;<br/>
+&lt;MSN&gt;ReduceData&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;pack&#160;generated&#160;<br/>
+ByStreaming&#160;<br/>
+CONFIG-CLASS&#160;PRE-COMPILE&#160;ROM&#160;data&#160;into a&#160;data type&#160;dependent&#160;<br/>stream.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+37&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=38></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-38_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Type&#160;</b><br/>
+&#160;<br/>TRUE:&#160;generated const data is&#160;packed&#160;into&#160;a data&#160;type&#160;dependent&#160;<br/>stream.&#160;<br/>Code:&#160;no&#160;change expected.&#160;<br/>RAM:&#160;no&#160;change expected.&#160;<br/>ROM:&#160;configuration&#160;dependent smaller than&#160;with&#160;FALSE.&#160;<br/>Runtime:&#160;no&#160;change&#160;expected.&#160;<br/>
+&#160;<br/>FALSE: generated&#160;const data&#160;is&#160;not&#160;packed&#160;into&#160;a data&#160;type dependent&#160;<br/>stream.&#160;<br/>
+&lt;MSN&gt;ShortSymbol&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;generate&#160;<br/>
+s&#160;<br/>
+shortened symbol&#160;names.&#160;<br/>
+&#160;<br/>FALSE: symbol&#160;names&#160;are generated&#160;in&#160;a&#160;human&#160;readable style&#160;based&#160;<br/>on&#160;the MIP,&#160;tags&#160;and&#160;variant names.&#160;<br/>TRUE:&#160;symbol&#160;names&#160;are generated&#160;based on&#160;the&#160;MIP&#160;and&#160;a CRC32.&#160;<br/>
+&lt;MSN&gt;InterfacesFo&#160;BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;generate&#160;bsw&#160;<br/>
+rDeactivatedData&#160;<br/>
+data&#160;interfaces&#160;for deactivated&#160;data&#160;elements.&#160;This&#160;is&#160;an advantage for&#160;<br/>the&#160;BSW&#160;developer to reduce the&#160;time to market&#160;with&#160;a&#160;development&#160;<br/>environment using&#160;auto&#160;completition and&#160;to investigate potential&#160;<br/>interfaces.&#160;<br/>
+&#160;<br/>FALSE: data&#160;interfaces&#160;are&#160;not generated&#160;if&#160;the&#160;data element&#160;is&#160;<br/>deactivated.&#160;<br/>TRUE:&#160;data&#160;interfaces&#160;are&#160;generated&#160;as&#160;e.g.&#160;empty&#160;macros.&#160;<br/>
+&lt;MSN&gt;ReferringKe<br/>
+BOOL&#160;<br/>
+This&#160;parameter&#160;activates/deactivates&#160;the capability&#160;to&#160;generate&#160;referring&#160;<br/>
+ysInComments&#160;<br/>
+keys&#160;in&#160;comments.&#160;This&#160;is&#160;an&#160;advantage for the&#160;developer&#160;to&#160;investigate&#160;<br/>indirections, but&#160;this&#160;feature&#160;reduces&#160;the overall&#160;readability&#160;of&#160;the&#160;<br/>generated&#160;data.&#160;<br/>
+&#160;<br/>FALSE: referring&#160;keys&#160;are&#160;not generated&#160;in&#160;comments.&#160;<br/>TRUE:&#160;referring&#160;keys&#160;are generated&#160;in comments.&#160;<br/>
+7Table&#160;5-2&#160;&#160;&#160;Attributes&#160;of&#160;ComStackLib&#160;based&#160;BSW&#160;generators&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+38&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=39></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-39_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>6&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+BSWMD&#160;<br/>
+The&#160;BSWMD&#160;is&#160;a&#160;formal&#160;notation of&#160;all&#160;information belonging&#160;to&#160;a certain&#160;<br/>BSW&#160;artifact&#160;(BSW&#160;module or&#160;BSW&#160;cluster)&#160;in addition&#160;to&#160;the&#160;<br/>implementation&#160;of&#160;that&#160;artifact.&#160;<br/>
+CFG5&#160;<br/>
+Generation&#160;tool&#160;for&#160;MICROSAR&#160;components.&#160;<br/>
+Electronic&#160;Control&#160;<br/>
+Also known as&#160;ECU.&#160;Small&#160;embedded&#160;computer&#160;system&#160;consisting&#160;of&#160;at&#160;<br/>
+Unit&#160;<br/>
+least&#160;one CPU&#160;and&#160;corresponding&#160;periphery&#160;which is placed in&#160;one&#160;<br/>housing.&#160;<br/>
+Post-build&#160;<br/>
+This&#160;type&#160;of&#160;configuration is possible after&#160;building&#160;the&#160;software&#160;module&#160;or&#160;<br/>the&#160;ECU&#160;software.&#160;The&#160;software&#160;may&#160;either&#160;receive parameters&#160;of&#160;its&#160;<br/>configuration&#160;during&#160;the&#160;download of&#160;the&#160;complete ECU&#160;software&#160;resulting&#160;<br/>from&#160;the&#160;linkage of&#160;the&#160;code,&#160;or&#160;it&#160;may&#160;receive its&#160;configuration&#160;file that&#160;<br/>can&#160;be&#160;downloaded to&#160;the ECU&#160;separately,&#160;avoiding&#160;a&#160;re-compilation and&#160;<br/>re-build of&#160;the&#160;ECU&#160;software&#160;modules.&#160;In&#160;order&#160;to&#160;make&#160;the&#160;post-build&#160;<br/>time&#160;reconfiguration possible,&#160;the&#160;reconfigurable&#160;parameters&#160;shall&#160;be&#160;<br/>stored&#160;at&#160;a&#160;known memory&#160;location&#160;of&#160;ECU&#160;storage&#160;area.&#160;<br/>
+Use case&#160;<br/>
+A&#160;model&#160;of&#160;the&#160;usage by&#160;the&#160;user&#160;of&#160;a&#160;system&#160;in order&#160;to&#160;realize a&#160;single&#160;<br/>functional&#160;feature of&#160;the&#160;system.&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+39&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=40></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-40_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+CPU&#160;<br/>
+Central&#160;Processing&#160;Unit&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+GCE&#160;<br/>
+Generic&#160;Configuration&#160;Editor&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+MIP&#160;<br/>
+Module Implementation&#160;Prefix&#160;<br/>
+MISRA&#160;<br/>
+Motor&#160;Industry&#160;Software&#160;Reliability&#160;Association&#160;<br/>
+RAM&#160;<br/>
+Random&#160;Access&#160;Memory&#160;<br/>
+ROM&#160;<br/>
+Read-Only&#160;Memory&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+XMI&#160;<br/>
+The&#160;XML&#160;Metadata&#160;Interchange&#160;(XMI)&#160;is&#160;an&#160;Object&#160;Management&#160;Group&#160;<br/>(OMG)&#160;standard&#160;for&#160;exchanging&#160;metadata&#160;information&#160;via Extensible&#160;<br/>Markup&#160;Language&#160;(XML).&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+40&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name=41></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_ComStackLib-41_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+<b>7&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.01.00&#160;<br/>
+41&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.5.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#8">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#10">3.1 CONFIG-CLASS of Data</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#10">3.2 CONFIG-CLASS PRE-COMPILE Optimizations</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#10">3.2.1 Optimize Const Data to Defines</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#11">3.2.2 Optimize Bool Data in Structs</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#12">3.2.3 Data Deduplication and Reduction</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#13">3.2.3.1 Equal Data</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#14">3.2.3.2 Unary and Binary Operations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#15">3.2.4 Data Streaming</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#16">3.3 CONFIG-CLASS Independent Optimizations</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#16">3.3.1 Sort Struct Elements</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#17">3.3.2 Optimize Data Types</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#18">3.4 SELECTABLE Optimizations</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#18">3.4.1 Merge of VAR and CONST Based Data</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#18">3.5 Freedom from Interference</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#19">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#19">4.1 Dynamic Files</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#21">4.2 IMPLEMENTATION-CONFIG-VARIANT dependent Data</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#22">4.3 Optimization Levels</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#24">4.4 MISRA, PRQA and Compiler Warnings</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#24">4.4.1 General</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#31">4.4.2 Bitfields</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#32">4.4.3 &lt;MSN&gt;_Has Macros in the SELECTABLE Use Case</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#33">5 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#33">5.1 Configuration Variants</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#33">5.2 Configuration with a GCE</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#39">6 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_ComStackLibs.html#39">6.1 Glossary</a></li>
+<li><a href="TechnicalReference_ComStackLibs.html#40">6.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_ComStackLibs.html#41">7 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

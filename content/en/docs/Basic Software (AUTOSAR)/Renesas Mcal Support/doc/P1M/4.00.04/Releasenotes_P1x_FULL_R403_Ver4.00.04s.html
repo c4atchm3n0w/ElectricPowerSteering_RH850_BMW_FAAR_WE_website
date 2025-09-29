@@ -1,0 +1,2653 @@
+---
+title: Releasenotes_P1x_FULL_R403_Ver4.00.04s
+linkTitle: Releasenotes_P1x_FULL_R403_Ver4.00.04s
+weight: 61
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Release Notes&#160;for&#160;RENESAS&#160;RH850/P1x:&#160;<br/>
+RENESAS_SW-AUTOSAR-P1x: MCAL&#160;Ver4.00.04&#160;<br/>
+QM Beta Quality&#160;<br/>
+1.1&#160;&#160;Purpose:&#160;<br/>
+To&#160;deliver&#160;AUTOSAR&#160;R4.0.3&#160;MCAL&#160;software&#160;for&#160;P1x&#160;V4.00.04&#160;release&#160;using&#160;the&#160;following&#160;inputs.&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Device&#160;Manual:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;r01uh0436ej0070_rh850p1x.pdf&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Device&#160;File:&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DF-RH850P1M-EE_V100.zip&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Operating&#160;Precautions:&#160;&#160;&#160;&#160;R01TU0069ED0200_RH850.pdf&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Flash&#160;Libraries:&#160;&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RENESAS_FCL_RH850_T01E_V2.00.exe&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RENESAS_FDL_RH850_T01E_V2.00.exe&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Modules supported:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ADC, CAN, DIO,&#160;FLS, FLSTST,&#160;FR, GPT,&#160;ICU, MCU, PORT, PWM,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RAMTST, SPI, WDG.&#160;<br/>
+Page&#160;1&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=2></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+1.2&#160;&#160;Package information&#160;<br/>
+<b>Product&#160;&#160;&#160;</b><br/>
+RH850/P1x&#160;<br/>
+<b>Variant&#160;</b><br/>
+P1M&#160;<br/>
+<b>Product&#160;Release&#160;Version&#160;</b><br/>
+Ver4.00.04&#160;<br/>
+<b>AUTOSAR&#160;Specification Version&#160;</b><br/>
+4.0.3&#160;<br/>
+<b>Device&#160;tested on&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;&#160;&#160;<br/>
+<b>Devices supported&#160;</b><br/>
+R7F701304&#160;&#160;&#160;<br/>
+R7F701305&#160;<br/>
+R7F701310&#160;<br/>
+R7F701311&#160;<br/>
+R7F701312&#160;&#160;&#160;<br/>
+R7F701313&#160;&#160;&#160;<br/>
+R7F701314&#160;&#160;&#160;<br/>
+R7F701315&#160;&#160;&#160;<br/>
+R7F701318&#160;<br/>
+R7F701319&#160;&#160;&#160;<br/>
+R7F701320&#160;&#160;&#160;<br/>
+R7F701321&#160;&#160;&#160;<br/>
+R7F701322&#160;&#160;&#160;<br/>
+R7F701323&#160;&#160;&#160;<br/>
+<b>Release&#160;Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;2&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=3></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+1.3&#160;&#160;Tools&#160;&#160;&#160;<br/>
+1.3.1&#160;&#160;GHS&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+GreenHills&#160;<br/>
+Green&#160;Hills&#160;Multi&#160;<br/>
+-Ospace&#160;-g&#160;-cpu=rh850g3k&#160;-gsize&#160;&#160;&#160;<br/>
+Multi IDE&#160;–&#160;<br/>
+V6.1.4&#160;Compiler&#160;<br/>
+-prepare_dispose&#160;-sda=all&#160;-passsource&#160;&#160;&#160;<br/>
+compiler&#160;<br/>
+Version&#160;2013.5.5&#160;<br/>
+-Wundef&#160;-no_callt&#160;-reserve_r2&#160;&#160;&#160;<br/>
++&#160;<br/>
+--short_enum&#160;-fsoft&#160;--prototype_errors&#160;&#160;&#160;<br/>
+Patches :&#160;<br/>
+--diag_error&#160;193&#160;-dual_debug&#160;-large_sda&#160;&#160;&#160;<br/>
+P2,&#160;P9,&#160;P12,&#160;P13,&#160;<br/>
+--no_commons&#160;-shorten_loads&#160;&#160;&#160;<br/>
+P14&#160;<br/>
+-shorten_moves&#160;-Wshadow&#160;-nofloatio&#160;&#160;&#160;<br/>
+-ignore_callt_state_in_interrupts&#160;-delete&#160;&#160;&#160;<br/>
+-inline_prologue&#160;<br/>
+1.3.2&#160;&#160;Configuration code&#160;generator&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+ECU&#160;Spectrum&#160;<br/>
+4.0.14&#160;<br/>
+-&#160;<br/>
+1.3.3&#160;&#160;Additional software&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+NA&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;3&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=4></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+1.4&#160;&#160;Generic Information&#160;<br/>
+1.4.1&#160;&#160;Release&#160;Target&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+Generic&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+1.4.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+P1x_translation.h&#160;&#160;<b>&#160;</b><br/>
+1.0.6&#160;<br/>
+File&#160;updated&#160;for&#160;FLS and&#160;CAN&#160;macros.&#160;<br/>
+ComStack_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Std_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+rh850_Types.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+Platform_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Compiler.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Compiler_Cfg.h&#160;&#160;<b>&#160;</b><br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;<br/>
+MemMap.h&#160;&#160;&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;<br/>
+NvM_Types.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Os.h&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Os.c&#160;&#160;&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+GettingStarted_MCAL_Drivers_X1x.<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;<br/>
+pdf&#160;<br/>
+AUTOSAR_Modules_Overview.pdf&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;change&#160;<br/>
+1.4.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;4&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=5></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+1.5&#160;&#160;Module Index&#160;<br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#6">ADC&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#9">CAN&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#12">DIO&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#14">FLS&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#17">FLSTST&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#20">FR&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#23">GPT&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#25">ICU&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#27">MCU&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#30">PORT&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#34">PWM&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#36">RAMTST&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#38">SPI&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#41">WDG&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;5&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=6></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+2&#160;&#160;ADC&#160;<br/>
+2.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+ADC&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+2.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_ADC_P1M_04_05_12_13_20<br/>
+1.0.5&#160;<br/>
+As part of&#160;Px4&#160;V4.00.04&#160;Release,&#160;following&#160;changes&#160;<br/>
+_21.arxml&#160;<br/>
+are&#160;made&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#24237,&#160;Parameter&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+AdcUseHwContiScanMode&#160;is&#160;added&#160;in&#160;AdcGroup&#160;container.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;PDF name&#160;is&#160;modified.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_ADC_P1M_10_11_14_15_18<br/>
+1.0.6&#160;<br/>
+As part of&#160;Px4&#160;V4.00.04&#160;Release,&#160;following&#160;changes&#160;<br/>
+_19_22_23.arxml&#160;<br/>
+are&#160;made&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#24237,&#160;Parameter&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+AdcUseHwContiScanMode&#160;is&#160;added&#160;in&#160;AdcGroup&#160;container.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;PDF name&#160;is&#160;modified.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>BSWMDT</b><i>&#160;</i><br/>
+R403_ADC_P1x_BSWMDT.arxml<i>&#160;</i><br/>
+1.0.4&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;Software&#160;version&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#26305,&#160;critical section&#160;name&#160;&#160;&#160;<br/>
+'RAMDATA_PROTECTION'&#160;is&#160;changed&#160;to&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+'ADC_RAMDATA_PROTECTION'.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+Adc.c&#160;<br/>
+1.7.7&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.&#160;NULL&#160;check&#160;is&#160;added&#160;for&#160;'PtrToSamplePtr'&#160;in&#160;<br/>
+Adc_GetStreamLastPointer()&#160;API.&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#26305,&#160;critical section&#160;name&#160;<br/>
+'RAMDATA_PROTECTION'&#160;is&#160;changed&#160;to&#160;<br/>
+'ADC_RAMDATA_PROTECTION'.&#160;<br/>
+3.&#160;MISRA&#160;violation&#160;is&#160;updated.&#160;<br/>
+Adc_Irq.c&#160;<br/>
+1.3.4&#160;<br/>
+No&#160;change&#160;<br/>
+Page&#160;6&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=7></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Adc_Private_ADCD_ADCB.c&#160;<br/>
+1.0.7&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;following&#160;changes are&#160;made:&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#24936&#160;Redundant compilation&#160;switches are&#160;<br/>
+corrected&#160;in&#160;Adc_GroupCompleteMode()&#160;API.&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#25801,&#160;'Track&#160;and&#160;Hold'&#160;&#160;&#160;&#160;implementation&#160;is&#160;<br/>
+corrected&#160;to&#160;match&#160;with&#160;the&#160;flow&#160;diagram&#160;in&#160;the&#160;HW&#160;User&#160;<br/>
+manual.&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#26305,&#160;critical section&#160;name&#160;&#160;&#160;&#160;&#160;<br/>
+'RAMDATA_PROTECTION'&#160;is&#160;changed&#160;to&#160;<br/>
+'ADC_RAMDATA_PROTECTION'.&#160;<br/>
+4.&#160;As&#160;per&#160;mantis&#160;#25842,&#160;position&#160;of&#160;critical&#160;section&#160;exit is&#160;<br/>
+corrected&#160;in&#160;Adc_GroupCompleteMode&#160;API.&#160;<br/>
+5.&#160;As&#160;per&#160;mantis&#160;#24237,&#160;software&#160;re-triggering&#160;is&#160;implemented&#160;<br/>
+for&#160;continuous&#160;conversion&#160;for&#160;software&#160;triggered&#160;groups.&#160;<br/>
+6.&#160;As&#160;per&#160;mantis&#160;#27488,&#160;HW&#160;triggered&#160;One-shot&#160;conversion&#160;is&#160;<br/>
+corrected&#160;to&#160;avoid&#160;conversion&#160;of&#160;more&#160;than&#160;one&#160;stream&#160;in&#160;one&#160;<br/>
+HW&#160;trigger.&#160;<br/>
+7.&#160;As&#160;per&#160;mantis&#160;#26324,&#160;volatile&#160;declaration&#160;&#160;&#160;&#160;is&#160;added&#160;for&#160;<br/>
+variables storing&#160;register&#160;values.&#160;<br/>
+8.&#160;MISRA&#160;violation&#160;is&#160;updated.&#160;<br/>
+9.&#160;As&#160;per&#160;mantis&#160;#27334,&#160;redundant&#160;variables&#160;and&#160;double&#160;<br/>
+assignments&#160;are&#160;removed.&#160;<br/>
+10.&#160;As&#160;per&#160;mantis&#160;#27186,&#160;index&#160;calculation&#160;of&#160;the&#160;array&#160;<br/>
+'Adc_GpRunTimeData'&#160;is&#160;corrected&#160;to&#160;avoid&#160;out of&#160;bound&#160;<br/>
+access.&#160;<br/>
+Adc_Ram.c&#160;<br/>
+1.5.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Adc_Version.c&#160;<br/>
+1.1.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Adc.h&#160;<br/>
+1.5.5&#160;<br/>
+No&#160;change&#160;<br/>
+&#160;<br/>
+Adc_Debug.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Adc_Irq.h&#160;<br/>
+1.0.9&#160;<br/>
+No&#160;change&#160;<br/>
+Adc_PBTypes_ADCD_ADCB.h&#160;<br/>
+1.0.5&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#25801,&#160;'Track&#160;and&#160;Hold'&#160;implementation&#160;is&#160;<br/>
+corrected&#160;to&#160;match&#160;with&#160;the&#160;flow&#160;diagram&#160;in&#160;the&#160;HW&#160;Usermanual.&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#26331,&#160;element names&#160;are&#160;corrected&#160;in&#160;union&#160;<br/>
+'UInt'.&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#26324,&#160;volatile&#160;declaration&#160;is&#160;added&#160;for&#160;<br/>
+variables storing&#160;register&#160;values.&#160;<br/>
+Adc_Private.h&#160;<br/>
+1.4.6&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;<br/>
+1.&#160;Compiler&#160;switches are&#160;corrected&#160;for&#160;the&#160;API&#160;<br/>
+Adc_SearchnDelete().&#160;<br/>
+Page&#160;7&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=8></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Adc_Ram.h&#160;<br/>
+1.5.3&#160;<br/>
+No&#160;change&#160;<br/>
+Adc_Types.h&#160;<br/>
+1.7.4&#160;<br/>
+No&#160;change&#160;<br/>
+Adc_Version.h&#160;<br/>
+1.1.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool Executable</b><i>&#160;</i><br/>
+Adc_ADCD_ADCB.exe&#160;<br/>
+1.3.2&#160;<br/>
+Tool exe&#160;updated&#160;for&#160;tool code&#160;changes.&#160;<br/>
+Adc_ADCD_ADCB.cfgxml&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application&#160;Source&#160;file</b><i>&#160;</i><br/>
+App_ADC_Common_Sample.c&#160;<br/>
+1.1.9&#160;<br/>
+No&#160;change&#160;for&#160;P1x&#160;V4.00.04&#160;release.&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application&#160;Header&#160;file</b><i>&#160;</i><br/>
+App_ADC_Common_Sample.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;for&#160;P1x&#160;V4.00.04&#160;release.&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b><i>&#160;</i><br/>
+App_ADC_P1M_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;P1x&#160;V4.00.04&#160;release.&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Header&#160;file</b><i>&#160;</i><br/>
+App_ADC_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;P1x&#160;V4.00.04&#160;release.&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_ADC_Component_Use<br/>
+1.0.4&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;done.&#160;&#160;&#160;<br/>
+rManual.pdf&#160;<br/>
+1.&#160;Chapter&#160;2&#160;is&#160;updated&#160;for&#160;reference&#160;document.&#160;&#160;&#160;<br/>
+2.&#160;Section&#160;3.1&#160;is&#160;updated&#160;for&#160;folder&#160;section.&#160;&#160;&#160;<br/>
+3.&#160;Section&#160;4.1&#160;is&#160;updated&#160;for&#160;usage&#160;guidelines.&#160;&#160;&#160;<br/>
+4.&#160;In&#160;chapter&#160;13,&#160;P1M&#160;supported&#160;devices are&#160;added.&#160;&#160;&#160;<br/>
+5.&#160;Section&#160;13.1&#160;is&#160;updated&#160;for&#160;translation&#160;header&#160;file&#160;and&#160;<br/>
+parameter&#160;definition&#160;files.&#160;&#160;&#160;<br/>
+6.&#160;Section&#160;13.2&#160;is&#160;updated&#160;for&#160;sample&#160;application&#160;structure&#160;and&#160;<br/>
+building&#160;sample&#160;application.&#160;&#160;&#160;<br/>
+7.&#160;Section&#160;13.3&#160;is&#160;updated&#160;for&#160;memory&#160;and&#160;throughput details.&#160;&#160;&#160;<br/>
+8.&#160;Chapter&#160;14&#160;is&#160;updated&#160;for&#160;version&#160;of&#160;ADC Driver&#160;component.&#160;<br/>
+9.&#160;Range&#160;of&#160;ChannelId&#160;is&#160;corrected&#160;in&#160;sections&#160;10.3.1&#160;and&#160;10.3.2.&#160;&#160;&#160;<br/>
+10.&#160;Channel&#160;Mapping&#160;is&#160;corrected&#160;in&#160;section&#160;10.3.3.&#160;<br/>
+11.&#160;Table&#160;13-2&#160;is&#160;updated&#160;for&#160;CAT-2&#160;ERROR&#160;ISR.&#160;&#160;&#160;<br/>
+AUTOSAR_ADC_Tool_UserManu<br/>
+1.0.4&#160;<br/>
+1.&#160;Error&#160;message&#160;ERR123140&#160;is&#160;added.&#160;<br/>
+al.pdf&#160;<br/>
+2.&#160;Section&#160;2.1&#160;Reference&#160;Documents&#160;are&#160;updated&#160;to&#160;add&#160;PDF&#160;<br/>
+reference.&#160;<br/>
+3.&#160;List of&#160;mandatory&#160;parameters&#160;is&#160;updated&#160;in&#160;section&#160;8.1.&#160;<br/>
+2.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;8&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=9></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+3&#160;&#160;CAN&#160;<br/>
+3.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;&#160;&#160;<br/>
+<b>Module&#160;</b><br/>
+CAN&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+3.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_CAN_P1M_04_05_10_to_15.arxml&#160;<br/>
+1.0.4&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;following&#160;changes are&#160;<br/>
+&#160;<br/>
+made.&#160;<br/>
+&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;renamed&#160;file.&#160;<br/>
+&#160;<br/>
+2.&#160;Updated&#160;File&#160;version&#160;and&#160;copyright information.&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#24428,&#160;added&#160;a&#160;parameter&#160;<br/>
+'CanWakeupFunctionalityAPI'&#160;under&#160;CanGeneral&#160;<br/>
+container.&#160;<br/>
+R403_CAN_P1M_18_to_23.arxml&#160;<br/>
+1.0.2&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;following&#160;changes are&#160;<br/>
+&#160;<br/>
+made.&#160;<br/>
+&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;renamed&#160;file.&#160;<br/>
+&#160;<br/>
+2.&#160;Updated&#160;File&#160;version&#160;and&#160;copyright information.&#160;<br/>
+&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#24428,&#160;added&#160;a&#160;parameter&#160;<br/>
+'CanWakeupFunctionalityAPI'&#160;under&#160;CanGeneral&#160;<br/>
+container.&#160;<br/>
+<b>BSWMDT</b>&#160;<br/>
+R403_CAN_P1x_BSWMDT.arxml&#160;<br/>
+1.0.4&#160;<br/>
+As part of&#160;V4.00.04&#160;P1x&#160;release,&#160;following&#160;changes are&#160;<br/>
+made&#160;<br/>
+1.&#160;Device&#160;Support&#160;Added&#160;for&#160;R7F701304,&#160;R7F701305,&#160;<br/>
+R7F701313,&#160;R7F701318,&#160;R7F701319,&#160;R7F701320,&#160;<br/>
+R7F701321,&#160;R7F701322,&#160;and&#160;R7F701323.&#160;<br/>
+2.&#160;Software&#160;version&#160;information&#160;is&#160;updated.&#160;<br/>
+3.&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Can.c&#160;<br/>
+&#160;&#160;1.2.12&#160;<br/>
+As&#160;part of&#160;P1x&#160;V4.00.04&#160;release,&#160;following&#160;changes are&#160;<br/>
+made,&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27644,&#160;<br/>
+RH850_SV_MODE_IMR_WRITE_ONLY&#160;(16,&#160;<br/>
+LpWupIntMaskReg,&#160;(LpPCController-&gt;usWupIntMask));&#160;<br/>
+is&#160;changed&#160;to&#160;RH850_SV_MODE_IMR_AND&#160;(16,&#160;<br/>
+Page&#160;9&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=10></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+LpWupIntMaskReg,&#160;(LpPCController-&gt;usWupIntMask));&#160;<br/>
+for&#160;the&#160;proper&#160;masking&#160;of&#160;IMR register.&#160;<br/>
+Can_Int.c&#160;<br/>
+&#160;&#160;1.1.6&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Irq.c&#160;<br/>
+&#160;&#160;1.1.8&#160;<br/>
+No&#160;change&#160;<br/>
+Can_MainServ.c&#160;<br/>
+&#160;&#160;1.2.8&#160;<br/>
+No&#160;change&#160;<br/>
+Can_ModeCntrl.c&#160;<br/>
+&#160;&#160;1.2.9&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Ram.c&#160;<br/>
+1.1.2&#160;<br/>
+No&#160;change&#160;<br/>
+Can_RamTest.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Version.c&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Wakeup.c&#160;<br/>
+1.0.14&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;Following&#160;change&#160;is&#160;<br/>
+made&#160;<br/>
+1.&#160;Access&#160;to&#160;Can_CheckWakeup()&#160;API&#160;is&#160;made&#160;under&#160;the&#160;<br/>
+compiler&#160;switch&#160;condition&#160;<br/>
+#if(CAN_CHECKWAKEUP_API&#160;==&#160;STD_ON).&#160;<br/>
+Can_Write.c&#160;<br/>
+1.0.17&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Wakeup_Int.c&#160;<br/>
+1.0.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;following&#160;changes are&#160;<br/>
+made,&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27642,&#160;removed&#160;unused&#160;parameter&#160;<br/>
+'LucController'&#160;from&#160;'CanEnableWakeUp'&#160;function&#160;<br/>
+definition.&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#27641,&#160;'DNFA2EN'&#160;register&#160;handling&#160;<br/>
+modified.&#160;<br/>
+Can.h&#160;<br/>
+1.0.11&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Debug.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Init.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Int.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Irq.h&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;change&#160;<br/>
+Can_MainServ.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Can_ModeCntrl.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;<br/>
+Can_PBTypes.h&#160;<br/>
+1.0.9&#160;<br/>
+No&#160;change&#160;<br/>
+Can_PCTypes.h&#160;<br/>
+1.0.11&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Ram.h&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;<br/>
+Can_RamTest.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Can_RegStruct.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Tgt.h&#160;<br/>
+1.0.12&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Types.h&#160;<br/>
+1.0.9&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Version.h&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;change&#160;<br/>
+Can_Wakeup.h&#160;<br/>
+1.0.5&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;Following&#160;change&#160;is&#160;<br/>
+made&#160;<br/>
+Page&#160;10&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=11></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+1.&#160;Can_CheckWakeup()&#160;API&#160;is&#160;made&#160;under&#160;the&#160;compiler&#160;<br/>
+switch&#160;condition&#160;#if(CAN_CHECKWAKEUP_API&#160;==&#160;<br/>
+STD_ON).&#160;<br/>
+Can_Write.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Can_X1x.exe&#160;<br/>
+1.2.11&#160;<br/>
+As per&#160;mantis&#160;#24579&#160;and&#160;#24428&#160;BswConfigValidate.pm,&#160;<br/>
+BswIm.pm,&#160;BswHdr.pm,&#160;BswConfig.pm&#160;are&#160;updated.&#160;<br/>
+Can_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;Change&#160;<br/>
+<b>X1x&#160;Sample Application&#160;Source&#160;file</b>&#160;<br/>
+App_CAN_Common_Sample.c&#160;<br/>
+1.0.11&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;Following&#160;change&#160;<br/>
+is&#160;made&#160;<br/>
+1.&#160;Can_CheckWakeup()&#160;call is&#160;made&#160;under&#160;pre&#160;compiler&#160;<br/>
+switch&#160;#if(CAN_CHECKWAKEUP_API&#160;==&#160;STD_ON).&#160;<br/>
+<b>X1x&#160;Sample&#160;Application&#160;header&#160;file</b>&#160;<br/>
+App_CAN_Common_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_CAN_P1M_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_CAN_Device_Sample.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_CAN_Component_UserMa<br/>
+1.0.3&#160;<br/>
+Following&#160;changes are&#160;made.&#160;<br/>
+nual.pdf&#160;<br/>
+1.&#160;Updated&#160;‘Chapter&#160;2&#160;Reference&#160;Documents’.&#160;<br/>
+2.&#160;Added&#160;a&#160;‘Note’&#160;in&#160;Chapter&#160;4&#160;,&#160;Forethoughts.&#160;<br/>
+3.&#160;Chapter&#160;13&#160;is&#160;updated&#160;for&#160;adding&#160;new&#160;devices&#160;support.&#160;<br/>
+4.&#160;Chapter&#160;14&#160;is&#160;updated&#160;for&#160;Release&#160;Details.&#160;<br/>
+5.&#160;Section&#160;13.3&#160;is&#160;updated&#160;with&#160;Memory,&#160;Stack&#160;Usage&#160;and&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+Throughput details for&#160;144&#160;pin&#160;device&#160;701310.&#160;<br/>
+6.&#160;Added&#160;ISR&#160;Throughput details&#160;in&#160;section&#160;13.3.&#160;<br/>
+7.&#160;Chapter&#160;13,&#160;section&#160;13.2&#160;compiler,&#160;linker,&#160;and&#160;assembler&#160;<br/>
+options&#160;removed.&#160;<br/>
+AUTOSAR_CAN_Tool_UserManual.pdf&#160;&#160;&#160;<br/>
+1.0.2&#160;<br/>
+Following&#160;change&#160;is&#160;made&#160;&#160;&#160;<br/>
+&#160;<br/>
+1.&#160;Updated&#160;‘Section&#160;2.1&#160;Reference&#160;documents’.&#160;&#160;&#160;<br/>
+2.&#160;In&#160;Section&#160;8.1,&#160;ERR080075&#160;to&#160;ERR080080&#160;are&#160;added.&#160;&#160;&#160;<br/>
+3.&#160;In&#160;Section&#160;8.3,&#160;INF080007&#160;to&#160;INF080010&#160;are&#160;added.&#160;&#160;&#160;<br/>
+3.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;11&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=12></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+4&#160;&#160;DIO&#160;<br/>
+4.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+DIO&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+4.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_DIO_P1M_04_05_12_13_20_<br/>
+1.0.3&#160;<br/>
+Following&#160;changes are&#160;made&#160;:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+21.arxml&#160;<br/>
+1.&#160;File&#160;renamed&#160;from&#160;R403_DIO_P1M_701304_701305_&#160;&#160;&#160;<br/>
+701312_701313_701320_701321.arxml to&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_DIO_P1M_04_05_12_13_20_21.arxml&#160;&#160;&#160;&#160;as&#160;&#160;&#160;&#160;per&#160;mantis&#160;<br/>
+#27411.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Parameter&#160;DioPortName&#160;is&#160;updated&#160;with&#160;portgroups&#160;&#160;&#160;<br/>
+pin&#160;information&#160;<br/>
+R403_DIO_P1M_10_11_14_15_18_<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+19_22_23.arxml&#160;<br/>
+1.&#160;File&#160;is&#160;renamed&#160;from&#160;R403_DIO_P1M_701310_701311_&#160;&#160;&#160;<br/>
+701314_701315_701318_701319_701322_701323.arxml to&#160;<br/>
+R403_DIO_P1M_10_11_14_15_18_19_22_23.arxml&#160;as per&#160;<br/>
+mantis&#160;#27411.&#160;<br/>
+<b>BSWMDT</b>&#160;<br/>
+R403_DIO_P1x_BSWMDT.arxml&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;Environment&#160;section&#160;is&#160;updated&#160;for&#160;new&#160;devices.&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Dio.c&#160;<br/>
+1.0.21&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_Ram.c&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_Version.c&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;<br/>
+Dio.h&#160;<br/>
+1.0.11&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_Debug.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_LTTypes.h&#160;<br/>
+1.0.14&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_PBTypes.h&#160;<br/>
+1.0.12&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_Ram.h&#160;<br/>
+1.0.10&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_Version.h&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Dio_X1x.exe&#160;<br/>
+1.0.16&#160;<br/>
+No&#160;change&#160;<br/>
+Dio_X1x.cfgxml&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Page&#160;12&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=13></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+<b>P1x&#160;Sample Application&#160;P1M&#160;Source&#160;file</b>&#160;<br/>
+App_DIO_P1M_Sample.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application&#160;P1M&#160;header&#160;file</b>&#160;<br/>
+App_DIO_Device_Sample.h&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+1.&#160;Updated&#160;to&#160;support&#160;new&#160;devices 701318,&#160;701319,&#160;701320,&#160;<br/>
+701321,&#160;701322,&#160;701323&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_DIO_Component_User<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+Manual.pdf&#160;<br/>
+1.&#160;Chapter&#160;2&#160;reference&#160;documents&#160;section&#160;is&#160;updated.&#160;<br/>
+2.&#160;Chapter&#160;3&#160;section&#160;3.1.1&#160;is&#160;updated&#160;for&#160;new&#160;devices.&#160;<br/>
+3.&#160;Chapter&#160;4&#160;section&#160;4.1&#160;General&#160;is&#160;updated&#160;and&#160;a&#160;note&#160;is&#160;added&#160;<br/>
+regarding&#160;interrupt&#160;vector&#160;(.c)&#160;file&#160;<br/>
+4.&#160;Chapter&#160;13&#160;&#160;&#160;<br/>
+13.1.1&#160;Translation&#160;header&#160;files&#160;section&#160;is&#160;updated&#160;as per&#160;new&#160;<br/>
+devices.&#160;<br/>
+13.1.2&#160;PDF section&#160;is&#160;updated&#160;as&#160;per&#160;new&#160;devices.&#160;<br/>
+13.3.1&#160;Sample&#160;application&#160;structure&#160;is&#160;updated&#160;for&#160;new&#160;devices&#160;<br/>
+13.3.2&#160;Building&#160;sample&#160;application&#160;section&#160;is&#160;updated&#160;<br/>
+13.4&#160;Memory&#160;and&#160;throughput&#160;details are&#160;updated&#160;for&#160;144&#160;pin&#160;<br/>
+devices.&#160;<br/>
+AUTOSAR_DIO_Tool_UserManual<br/>
+1.0.2&#160;<br/>
+Section&#160;2.1&#160;Reference&#160;documents&#160;section&#160;is&#160;updated&#160;with&#160;the&#160;<br/>
+.pdf&#160;<br/>
+parameter&#160;definition&#160;file&#160;names.&#160;<br/>
+4.3&#160;&#160;Known&#160;Issues&#160;<br/>
+&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;13&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=14></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+5&#160;&#160;FLS&#160;<br/>
+5.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+FLS&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+5.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_FLS_P1M_04_05.arxml&#160;<br/>
+1.1.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#24538,&#160;parameter&#160;'FlsCancelTime'&#160;&#160;&#160;<br/>
+is&#160;added&#160;in&#160;FlsPublishedInformation&#160;container.&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#24538,&#160;parameter&#160;'FlsCFCancelTime'&#160;is&#160;added&#160;<br/>
+in&#160;FlsCodeFlash&#160;container.&#160;&#160;&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#23970,&#160;description&#160;of&#160;parameters&#160;<br/>
+'FlsEraseTime',&#160;'FlsWriteTime',&#160;'FlsBlankCheckTime'&#160;and&#160;<br/>
+'FlsReadTime'&#160;are&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+4.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;filename&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+5.&#160;Updated&#160;file&#160;version&#160;and&#160;copyright information.&#160;<br/>
+R403_FLS_P1M_10_to_15.arxml&#160;<br/>
+1.1.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#24538,&#160;parameter&#160;'FlsCancelTime'&#160;is&#160;added&#160;in&#160;<br/>
+FlsPublishedInformation&#160;container.&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#24538,&#160;parameter&#160;'FlsCFCancelTime'&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+is&#160;added&#160;in&#160;FlsCodeFlash&#160;container.&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#23970,&#160;description&#160;of&#160;parameters&#160;&#160;&#160;<br/>
+'FlsEraseTime',&#160;'FlsWriteTime',&#160;'FlsBlankCheckTime'&#160;and&#160;<br/>
+'FlsReadTime'&#160;are&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+4.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;filename&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+5.&#160;Updated&#160;file&#160;version&#160;and&#160;copyright information.&#160;<br/>
+R403_FLS_P1M_18_to_23.arxml&#160;<br/>
+1.0.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release,&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#24538,&#160;parameter&#160;'FlsCancelTime'&#160;is&#160;added&#160;in&#160;<br/>
+FlsPublishedInformation&#160;container.&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#24538,&#160;parameter&#160;'FlsCFCancelTime'&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+is&#160;added&#160;in&#160;FlsCodeFlash&#160;container.&#160;<br/>
+3.&#160;As&#160;per&#160;mantis&#160;#23970,&#160;description&#160;of&#160;parameters&#160;<br/>
+'FlsEraseTime',&#160;'FlsWriteTime',&#160;'FlsBlankCheckTime'&#160;and&#160;<br/>
+'FlsReadTime'&#160;are&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+Page&#160;14&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=15></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+4.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;filename&#160;is&#160;updated.&#160;<br/>
+5.&#160;Updated&#160;file&#160;version&#160;and&#160;copyright information.&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_FLS_P1x_BSWMDT.arxml&#160;<br/>
+1.0.4&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;Updated&#160;software&#160;version.&#160;&#160;&#160;<br/>
+2.&#160;Updated&#160;file&#160;version&#160;and&#160;copyright information.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Fls.c&#160;<br/>
+1.3.9&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;release,&#160;following&#160;changes are&#160;made:&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#28186,&#160;section&#160;<br/>
+DRIVERSTATE_DATA_PROTECTION&#160;is&#160;renamed&#160;to&#160;<br/>
+FLS_DRIVERSTATE_DATA_PROTECTION.&#160;<br/>
+2.&#160;Updated&#160;file&#160;version.&#160;<br/>
+Fls_Irq.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Fls_Internal.c&#160;<br/>
+1.3.6&#160;<br/>
+No&#160;change&#160;<br/>
+Fls_Ram.c&#160;<br/>
+1.2.5&#160;<br/>
+No&#160;change&#160;<br/>
+Fls_Version.c&#160;<br/>
+1.1.0&#160;<br/>
+No&#160;change&#160;<br/>
+Fls.h&#160;<br/>
+1.3.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Fls_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Fls_Internal.h&#160;<br/>
+1.3.2&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Fls_Irq.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Fls_PBTypes.h&#160;<br/>
+1.5.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Fls_Ram.h&#160;<br/>
+1.2.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Fls_Types.h&#160;<br/>
+1.3.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Fls_Version.h&#160;<br/>
+1.1.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool&#160;Executable</b>&#160;<br/>
+Fls_X1x.exe&#160;<br/>
+1.3.6&#160;<br/>
+No&#160;change&#160;<br/>
+Fls_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Sample Application source&#160;file</b>&#160;<br/>
+App_FLS_Common_Sample.c&#160;<br/>
+1.1.9&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Sample Application header&#160;file</b>&#160;<br/>
+App_FLS_Common_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_FLS_P1M_Sample.c&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_FLS_Device_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_FLS_Component_User<br/>
+&#160;1.0.5&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;<br/>
+Manual.pdf&#160;<br/>
+1.&#160;Chapter&#160;2: Reference&#160;document&#160;is&#160;updated&#160;&#160;&#160;<br/>
+Page&#160;15&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=16></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+2.&#160;As&#160;part of&#160;device&#160;support activity&#160;for&#160;R7F701304,&#160;<br/>
+R7F701305,&#160;R7F701313,&#160;R7F701315,&#160;R7F701318&#160;to&#160;<br/>
+R7F701323&#160;updated&#160;sections&#160;3.1.1,&#160;13.1.1,&#160;13.1.2,&#160;13.3.1.&#160;&#160;&#160;<br/>
+3.&#160;Updated&#160;version&#160;number&#160;and&#160;copyright&#160;year.&#160;&#160;&#160;<br/>
+4.&#160;Updated&#160;section&#160;13.4&#160;for&#160;memory&#160;and&#160;throughput.&#160;&#160;&#160;<br/>
+5.&#160;Removed&#160;section&#160;Compiler,&#160;Linker&#160;and&#160;Assembler&#160;in&#160;<br/>
+Chapter13.&#160;&#160;&#160;<br/>
+6.&#160;Removed&#160;Test_Application_P1x.trxml path&#160;from&#160;Section&#160;<br/>
+3.1.1.&#160;&#160;&#160;<br/>
+7.&#160;Section&#160;4.1&#160;is&#160;updated&#160;for&#160;adding&#160;note&#160;in&#160;Forethoughts.&#160;&#160;&#160;<br/>
+8.&#160;Chapter&#160;12&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+9.&#160;Section&#160;4.2.&#160;Preconditions&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+10.&#160;Updated&#160;Tables 4-2&#160;and&#160;4-3&#160;in&#160;Section&#160;4.5.&#160;&#160;&#160;<br/>
+11.&#160;Chapter&#160;14: Release&#160;Detail&#160;is&#160;updated&#160;for&#160;FLS Driver&#160;<br/>
+Version&#160;&#160;&#160;<br/>
+AUTOSAR_FLS_Tool_UserManual<br/>
+&#160;1.0.3&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;<br/>
+.pdf&#160;<br/>
+•&#160;Pdf&#160;name&#160;and&#160;version&#160;are&#160;updated&#160;in&#160;Section&#160;2.1&#160;&#160;&#160;<br/>
+•&#160;Added&#160;parameters&#160;FlsCancelTime&#160;and&#160;FlsCFCancelTime&#160;in&#160;the&#160;<br/>
+list of&#160;mandatory&#160;parameters&#160;in&#160;Section&#160;8.1.&#160;&#160;&#160;<br/>
+•&#160;The&#160;description&#160;of&#160;error&#160;ERR092029&#160;is&#160;updated&#160;in&#160;Section&#160;8.1.&#160;&#160;&#160;<br/>
+•&#160;Updated&#160;version&#160;number&#160;and&#160;copyright&#160;year.&#160;&#160;&#160;<br/>
+5.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+Page&#160;16&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=17></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+6&#160;&#160;FLSTST&#160;<br/>
+6.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+FLSTST&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+6.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_FLSTST_P1M_04_05.arxml&#160;<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity&#160;the&#160;following&#160;<br/>
+changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;file&#160;name&#160;changed&#160;to&#160;<br/>
+R403_FLSTST_P1M_04_05.arxml&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;ADMIN-DATA&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_FLSTST_P1M_10_to_15.arx<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity&#160;the&#160;following&#160;<br/>
+ml&#160;<br/>
+changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;file&#160;name&#160;changed&#160;to&#160;<br/>
+R403_FLSTST_P1M_10_to_15.arxml&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;ADMIN-DATA&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_FLSTST_P1M_18_to_23.arx<br/>
+1.0.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity&#160;the&#160;&#160;&#160;<br/>
+ml&#160;<br/>
+following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;file&#160;name&#160;changed&#160;to&#160;&#160;&#160;&#160;&#160;<br/>
+R403_FLSTST_P1M_18_to_23.arxml&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;ADMIN-DATA&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_FLSTST_P1x_BSWMDT.arx<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity&#160;the&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+ml&#160;<br/>
+following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;Environment&#160;section&#160;updated&#160;to&#160;add&#160;device&#160;<br/>
+support&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+FlsTst.c&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_Ram.c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_Version.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Page&#160;17&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=18></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+FlsTst.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_Debug.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_PBTypes.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_Ram.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_Types.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_Version.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+FlsTst_X1x.exe&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+FlsTst_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Sample Application source&#160;file</b><i>&#160;</i><br/>
+App_FLSTST_Common_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file&#160;</b><br/>
+App_FLSTST_Common_Sample.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;</b><br/>
+App_FLSTST_P1M_Sample.c&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file&#160;</b><br/>
+App_FLSTST_Device_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b><i>&#160;</i><br/>
+AUTOSAR_FLSTST_Component_<br/>
+1.0.5&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;following&#160;changes are&#160;<br/>
+UserManual.pdf&#160;<br/>
+made:&#160;&#160;&#160;<br/>
+1.&#160;Section&#160;4.1&#160;is&#160;updated&#160;by&#160;adding&#160;forethought&#160;<br/>
+2.&#160;Section&#160;13.2&#160;for&#160;compiler,&#160;linker&#160;and&#160;assembler&#160;<br/>
+options&#160;is&#160;removed&#160;<br/>
+3.&#160;Sections&#160;13.3.1,&#160;Section&#160;13.3.2,&#160;Section&#160;13.3.3&#160;are&#160;<br/>
+updated&#160;with&#160;RAM/ROM&#160;details and&#160;throughput&#160;<br/>
+details&#160;<br/>
+4.&#160;Section&#160;13&#160;and&#160;Section&#160;13.1.1&#160;are&#160;updated&#160;by&#160;<br/>
+adding&#160;the&#160;new&#160;devices&#160;supported&#160;by&#160;the&#160;translation&#160;<br/>
+header&#160;<br/>
+5.&#160;Section&#160;13.1.2&#160;is&#160;updated&#160;with&#160;the&#160;renamed&#160;pdf&#160;<br/>
+files&#160;used&#160;<br/>
+6.&#160;Section&#160;13.2.1&#160;is&#160;updated&#160;by&#160;adding&#160;the&#160;sample&#160;<br/>
+applications&#160;added&#160;for&#160;the&#160;new&#160;devices&#160;<br/>
+7.&#160;Section&#160;13.2.2&#160;is&#160;updated&#160;by&#160;adding&#160;the&#160;new&#160;<br/>
+devices supported.&#160;<br/>
+AUTOSAR_FLSTST_SA_Test_Pro<br/>
+1.0.1&#160;<br/>
+No&#160;change.&#160;<br/>
+cedure.pdf<b>&#160;</b><br/>
+AUTOSAR_FLSTST_Tool_UserMa<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;4.00.04&#160;the&#160;following&#160;changes&#160;are&#160;<br/>
+nual.pdf&#160;<br/>
+made:&#160;<br/>
+Page&#160;18&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=19></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Reference&#160;documents&#160;section&#160;is&#160;updated.&#160;<br/>
+6.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+Page&#160;19&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=20></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+7&#160;&#160;FR&#160;<br/>
+7.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;&#160;&#160;<br/>
+<b>Module&#160;</b><br/>
+FR&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+7.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_FR_P1M_04_05_10_to_15_1<br/>
+1.0.4&#160;<br/>
+As per&#160;the&#160;PRD,&#160;<br/>
+8_to_23.arxml&#160;<br/>
+1.&#160;Devices R7F701318,&#160;R7F701319,&#160;R7F701320,&#160;R7F701321,&#160;<br/>
+R7F701322&#160;and&#160;R7F701323&#160;are&#160;added&#160;in&#160;'FrDeviceName'&#160;<br/>
+parameter&#160;and&#160;in&#160;environment&#160;section&#160;and&#160;devices&#160;which&#160;are&#160;not&#160;in&#160;<br/>
+scope&#160;is&#160;removed.&#160;<br/>
+2.&#160;As&#160;per&#160;Mantis&#160;#27411,&#160;The&#160;file&#160;name&#160;has been&#160;changed&#160;to&#160;<br/>
+R403_FR_P1M_04_05_10_to_15_18_to_23&#160;from&#160;<br/>
+R403_FR_P1M_701300_701301_701304_701305_701308_to_7<br/>
+01323&#160;<br/>
+3.&#160;As&#160;per&#160;Mantis&#160;#27728,&#160;Max,&#160;Min&#160;and&#160;default&#160;value&#160;of&#160;following&#160;<br/>
+parameters&#160;FrOutputPtrTableAddress,&#160;FrFifoPtrTableAddress&#160;<br/>
+and&#160;FrInputPtrTableAddress&#160;are&#160;modified.&#160;<br/>
+<b>BSWMDT&#160;&#160;</b>&#160;<br/>
+R403_Fr_P1x_BSWMDT.arxml&#160;<br/>
+1.0.2&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Maintenance&#160;activity,&#160;<br/>
+1.&#160;Software&#160;version&#160;information&#160;is&#160;updated.&#160;<br/>
+2.&#160;Module&#160;ID&#160;is&#160;Changed&#160;to&#160;81&#160;<br/>
+3.&#160;Environment&#160;Section&#160;is&#160;updated&#160;to&#160;add&#160;all&#160;<br/>
+Supported&#160;devices of&#160;P1M.&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Fr_59.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Internal.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Version.c&#160;&#160;&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Ram.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_GeneralTypes.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Internal.h&#160;<br/>
+1.0.3&#160;<br/>
+As&#160;&#160;part&#160;&#160;of&#160;&#160;P1x_V4.00.04&#160;&#160;maintenance&#160;&#160;activity,&#160;&#160;As&#160;&#160;per&#160;&#160;mantis&#160;<br/>
+#27460,&#160;following&#160;API's are&#160;declared&#160;as extern.&#160;<br/>
+1.&#160;&#160;Fr_Input_Queue_Halt(),&#160;&#160;Fr_User_Request_Input_Transfer(),&#160;<br/>
+Fr_User_Request_Output_Transfer.&#160;<br/>
+Page&#160;20&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=21></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Fr_59_PBTypes.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Ram.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Types.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59_Version.h&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_59.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Fr_X1x.exe&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+Fr_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+Initial&#160;Version.&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file&#160;for&#160;node1</b>&#160;<br/>
+App_FR_Common_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file&#160;for&#160;node2</b>&#160;<br/>
+App_FR_Common_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file&#160;for&#160;node1</b>&#160;<br/>
+App_FR_Common_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file&#160;for&#160;node2</b>&#160;<br/>
+App_FR_Common_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;for&#160;node1</b>&#160;<br/>
+App_FR_P1M_Sample.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;for&#160;node2</b>&#160;<br/>
+App_FR_P1M_Sample.c&#160;&#160;&#160;&#160;&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;header&#160;file&#160;for&#160;node1&#160;</b><br/>
+App_FR_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file&#160;for&#160;node2</b>&#160;<br/>
+App_FR_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_FR_Component_User<br/>
+1.0.3&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+Manual.pdf&#160;<br/>
+1.&#160;&#160;Chapter&#160;2&#160;Reference&#160;Documents&#160;updated.&#160;<br/>
+2.&#160;&#160;Chapter&#160;1,&#160;8,&#160;12&#160;and&#160;Sections&#160;3.1.1,&#160;4.2,&#160;4.5,&#160;10.3,&#160;13.2.1,&#160;<br/>
+13.3.3&#160;Updated&#160;the&#160;file&#160;names&#160;by&#160;adding&#160;vender&#160;id.&#160;<br/>
+3.&#160;&#160;Section&#160;13.2.1.&#160;&#160;&#160;&#160;Sample&#160;Application&#160;Structure&#160;updated&#160;by&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+adding&#160;the&#160;sample&#160;application&#160;configuration&#160;for&#160;supported&#160;<br/>
+devices.&#160;<br/>
+4.&#160;&#160;Memory&#160;and&#160;Throughput details&#160;updated&#160;in&#160;section&#160;13.2.&#160;<br/>
+5.&#160;&#160;Chapter&#160;14&#160;Release&#160;Details&#160;updated.&#160;<br/>
+6.&#160;&#160;Copyright information&#160;updated.&#160;<br/>
+7.&#160;&#160;Removed&#160;Compiler&#160;and&#160;Linker&#160;options.&#160;<br/>
+AUTOSAR_FR_Tool_UserManual.<br/>
+&#160;1.0.4&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+pdf&#160;<br/>
+1.&#160;File&#160;names&#160;of&#160;Fr_PBcfg.c&#160;and&#160;Fr_Cfg.h&#160;renamed&#160;to&#160;<br/>
+Fr_59_PBcfg.c&#160;and&#160;Fr_59_Cfg.h.&#160;&#160;&#160;<br/>
+Page&#160;21&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=22></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+2.&#160;Copyright information&#160;updated&#160;&#160;&#160;<br/>
+7.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+Page&#160;22&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=23></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+8&#160;&#160;GPT&#160;<br/>
+8.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+GPT&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+8.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_GPT_P1M_04_05_12_13_20_21.arx<br/>
+1.0.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity&#160;the&#160;<br/>
+ml&#160;<br/>
+following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;file&#160;name&#160;changed&#160;<br/>
+to&#160;<br/>
+R403_GPT_P1M_04_05_12_13_20_21.ar<br/>
+xml&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;ADMIN-DATA&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_GPT_P1M_10_11_14_15_18_19_22_<br/>
+1.0.6&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development&#160;<br/>
+23.arxml&#160;<br/>
+activity&#160;the&#160;<br/>
+following&#160;changes are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;file&#160;name&#160;changed&#160;<br/>
+to&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_GPT_P1M_10_11_14_15_18_19_2<br/>
+2_23.arxml&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;ADMIN-DATA&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>BSWMDT</b>&#160;<br/>
+R403_GPT_P1x_BSWMDT.arxml&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Gpt.c&#160;<br/>
+1.0.17&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Irq.c&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_LLDriver.c&#160;<br/>
+1.0.19&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Ram.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Version.c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Debug.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Irq.h&#160;<br/>
+1.0.7&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_LLDriver.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Page&#160;23&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=24></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Gpt_PBTypes.h&#160;<br/>
+1.0.14&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Ram.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_RegReadBack.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Types.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_Version.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Gpt_X1x.exe&#160;<br/>
+1.1.6&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Gpt_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file&#160;</b><br/>
+App_GPT_Common_Sample.c&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file&#160;</b><br/>
+App_GPT_Common_Sample.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;</b><br/>
+App_GPT_P1M_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file&#160;</b><br/>
+App_GPT_Device_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual&#160;</b><br/>
+AUTOSAR_GPT_Component_UserManua<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+l.pdf&#160;<br/>
+1.&#160;Added&#160;note&#160;in&#160;chapter4&#160;Forethoughts.&#160;&#160;&#160;<br/>
+2.&#160;Removed&#160;Compiler&#160;Assembler&#160;and&#160;linker&#160;option.&#160;&#160;&#160;<br/>
+3.&#160;Updated&#160;copyright information.&#160;&#160;&#160;<br/>
+4.&#160;Updated&#160;chapter&#160;13&#160;to&#160;add&#160;additional&#160;device&#160;support.&#160;&#160;&#160;<br/>
+5.&#160;Updated&#160;throughput and&#160;memory&#160;details.&#160;<br/>
+AUTOSAR_GPT_Tool_UserManual.pdf&#160;<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+•&#160;Updated&#160;copyright information.&#160;&#160;&#160;<br/>
+•&#160;Updated&#160;reference&#160;section&#160;with&#160;new&#160;PDF&#160;name.&#160;&#160;&#160;<br/>
+8.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;24&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=25></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+9&#160;&#160;ICU&#160;<br/>
+9.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+ICU&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+9.2&#160;&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_ICU_P1M_04_05_12_13_20<br/>
+1.0.1&#160;<br/>
+&#160;As per&#160;&#160;&#160;&#160;mantis&#160;issue&#160;#27411,&#160;following&#160;changes&#160;has been&#160;<br/>
+_21.arxml&#160;<br/>
+made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;PDF renamed&#160;as&#160;<br/>
+R403_ICU_P1M_04_05_12_13_20_21.arxml&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+R403_ICU_P1M_10_11_14_15_18<br/>
+1.1.2&#160;<br/>
+&#160;As per&#160;&#160;&#160;&#160;mantis&#160;issue&#160;#27411,&#160;following&#160;changes&#160;has been&#160;<br/>
+_19_22_23.arxml&#160;<br/>
+made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;PDF renamed&#160;as&#160;<br/>
+R403_ICU_P1M_04_05_12_13_20_21.arxml&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+<b>BSWMDT&#160;File</b>&#160;<br/>
+R403_ICU_P1x_BSWMDT.arxml&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Icu.c&#160;<br/>
+1.5.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Irq.c&#160;<br/>
+1.2.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_LLDriver.c&#160;<br/>
+1.6.6&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Ram.c&#160;<br/>
+1.1.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Version.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu.h&#160;<br/>
+1.4.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Irq.h&#160;<br/>
+1.1.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_LLDriver.h&#160;<br/>
+1.3.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_PBTypes.h&#160;<br/>
+1.5.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Ram.h&#160;<br/>
+1.1.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Types.h&#160;<br/>
+1.1.2&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Icu_Version.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Icu_X1x.exe&#160;<br/>
+1.4.6&#160;<br/>
+No&#160;change&#160;<br/>
+Page&#160;25&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=26></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Icu_P1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file</b>&#160;<br/>
+App_ICU_Common_Sample.c&#160;<br/>
+1.3.4&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;&#160;&#160;&#160;Sample Application&#160;Source&#160;file&#160;</b><br/>
+App_ICU_P1M_Sample.c&#160;<br/>
+1.0.4&#160;<br/>
+As a&#160;part of&#160;P1x&#160;V4.00.04&#160;release&#160;corrected&#160;<br/>
+Port_Init()&#160;for&#160;Device&#160;701310.&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Header&#160;file&#160;</b><br/>
+App_ICU_Common_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application&#160;Header&#160;file&#160;</b><br/>
+App_ICU_Device_Sample.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual&#160;</b><br/>
+AUTOSAR_ICU_Component_User<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+Manual.pdf&#160;<br/>
+&#160;&#160;1.&#160;&#160;Chapter&#160;&#160;2&#160;&#160;Reference&#160;&#160;documents&#160;&#160;are&#160;&#160;updated&#160;&#160;for&#160;&#160;version&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+change.&#160;<br/>
+2.&#160;&#160;Chapter&#160;&#160;4&#160;&#160;is&#160;&#160;updated&#160;&#160;for&#160;&#160;information&#160;&#160;regarding&#160;&#160;Interrupt&#160;<br/>
+vector&#160;table.&#160;<br/>
+3.&#160;Section&#160;13.1.1&#160;is&#160;updated&#160;for&#160;adding&#160;new&#160;devices.&#160;&#160;&#160;<br/>
+4.&#160;Section&#160;13.1.1&#160;is&#160;updated&#160;for&#160;names of&#160;PDF.&#160;&#160;&#160;<br/>
+5.&#160;&#160;Section&#160;&#160;13.2&#160;&#160;Compiler,&#160;&#160;Linker&#160;&#160;and&#160;&#160;Assembler&#160;&#160;section&#160;&#160;is&#160;<br/>
+removed.&#160;&#160;&#160;<br/>
+6.&#160;&#160;Section&#160;&#160;13.2&#160;&#160;is&#160;&#160;updated&#160;&#160;for&#160;&#160;parameter&#160;&#160;definition&#160;&#160;file&#160;&#160;and&#160;<br/>
+sample&#160;application&#160;configuration&#160;files&#160;of&#160;all&#160;P1M&#160;devices.&#160;&#160;&#160;<br/>
+7.&#160;Section&#160;13.3&#160;Memory&#160;and&#160;Throughput details are&#160;updated&#160;<br/>
+AUTOSAR_ICU_Tool_UserManual<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+.pdf&#160;<br/>
+Parameter&#160;&#160;definition&#160;&#160;file&#160;&#160;names&#160;&#160;and&#160;&#160;versions&#160;&#160;are&#160;&#160;updated&#160;&#160;in&#160;<br/>
+section&#160;2.1.&#160;<br/>
+9.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;26&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=27></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+10&#160;&#160;MCU&#160;<br/>
+10.1&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+MCU&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+10.2&#160;Release Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_MCU_P1M_04_05.arxml&#160;<br/>
+1.1.4&#160;<br/>
+1.&#160;As&#160;per&#160;Mantis&#160;#26418,&#160;Description&#160;of&#160;&#34;McuResetReason&#34;&#160;<br/>
+parameter&#160;is&#160;to&#160;&#160;&#160;<br/>
+&#34;The&#160;parameter&#160;represents&#160;the&#160;different&#160;type&#160;of&#160;reset&#160;that&#160;a&#160;Micro&#160;<br/>
+supports.&#160;This&#160;parameter&#160;is&#160;referenced&#160;by&#160;the&#160;parameter&#160;<br/>
+EcuMResetReason&#160;in&#160;the&#160;ECU&#160;State&#160;manager&#160;module,&#160;<br/>
+MCU_SW_RESET.&#34;&#160;&#160;&#160;<br/>
+2.&#160;As&#160;per&#160;Mantis&#160;#27411,&#160;The&#160;file&#160;name&#160;has been&#160;changed&#160;to&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_MCU_P1M_04_05&#160;from&#160;<br/>
+R403_MCU_P1M_701304_701305&#160;<br/>
+3.&#160;Local RAM&#160;range&#160;corrected&#160;to&#160;4273864704&#160;to&#160;4273995775&#160;&#160;&#160;&#160;&#160;<br/>
+R403_MCU_P1M_10_to_15_18_to_<br/>
+1.0.1&#160;<br/>
+1.&#160;As&#160;per&#160;Mantis&#160;#26418,&#160;Description&#160;of&#160;&#34;McuResetReason&#34;&#160;<br/>
+23.arxml&#160;<br/>
+parameter&#160;is&#160;to&#160;&#160;&#160;<br/>
+&#34;The&#160;parameter&#160;represents&#160;the&#160;different type&#160;of&#160;&#160;&#160;&#160;reset that&#160;a&#160;<br/>
+Micro&#160;supports.&#160;This&#160;parameter&#160;is&#160;referenced&#160;by&#160;the&#160;parameter&#160;<br/>
+EcuMResetReason&#160;in&#160;the&#160;ECU&#160;State&#160;manager&#160;module,&#160;<br/>
+MCU_SW_RESET.&#34;&#160;<br/>
+2.&#160;As&#160;per&#160;Mantis&#160;#27411,&#160;&#160;&#160;&#160;The&#160;file&#160;name&#160;has been&#160;changed&#160;to&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_MCU_P1M_10_to_15_18_to_23&#160;from&#160;&#160;&#160;<br/>
+R403_MCU_P1M_701310_to_701315_7013018_to_7013023.&#160;<br/>
+<b>BSWMDT</b>&#160;<br/>
+R403_MCU_P1x_BSWMDT.arxml&#160;<br/>
+1.0.5&#160;<br/>
+Updated&#160;SW-VERSION&#160;for&#160;changes in&#160;Source&#160;code&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Mcu.c&#160;<br/>
+1.0.6&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#26418&#160;,following&#160;change&#160;is&#160;made:&#160;<br/>
+MCU_SW_RST&#160;is&#160;corrected&#160;with&#160;name&#160;MCU_SW_RESET&#160;,&#160;<br/>
+MCU_WDT_RST&#160;is&#160;corrected&#160;with&#160;name&#160;<br/>
+MCU_WATCHDOG_RESET,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+MCU_POWER_ON_CLEAR_RST&#160;is&#160;corrected&#160;with&#160;name&#160;<br/>
+MCU_POWER_ON_RESET&#160;<br/>
+2.&#160;Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+Page&#160;27&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=28></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+#27515&#160;<br/>
+3.&#160;Justifications&#160;for&#160;QAC&#160;warnings&#160;Msg(4:0857),&#160;Msg(4:2983),&#160;<br/>
+Msg(4:4499),&#160;Msg(4:2991),&#160;Msg(4:2982),&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+Msg(4:2992),&#160;Msg(4:2996),&#160;Msg(4:0400).&#160;<br/>
+Mcu_Irq.c&#160;<br/>
+1.0.6&#160;<br/>
+1.&#160;Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+#27515&#160;<br/>
+2.&#160;Added&#160;justification&#160;for&#160;MISRA&#160;warning&#160;Msg(4:3138)&#160;<br/>
+3.&#160;Added&#160;compiler&#160;switch,&#160;#ifndef&#160;<br/>
+Os_MCU_FEINT_CAT2_ISR&#160;and&#160;#ifndef&#160;<br/>
+MCU_FEINT_CAT2_ISR&#160;for&#160;MCU_FENMI_ENTRY&#160;and&#160;<br/>
+MCU_FENMI_LEAVE&#160;as per&#160;mantis&#160;#27723&#160;<br/>
+Mcu_Ram.c&#160;<br/>
+1.0.4&#160;<br/>
+Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;#27515&#160;<br/>
+Mcu_Version.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;changes&#160;<br/>
+Mcu.h&#160;<br/>
+1.0.3&#160;<br/>
+1.&#160;Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;#27515&#160;<br/>
+2.&#160;Added&#160;Justification&#160;for&#160;MISRA&#160;Violation:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+START&#160;Msg(4:3412)&#160;<br/>
+Mcu_Debug.h&#160;<br/>
+1.0.2&#160;<br/>
+Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+#27515&#160;<br/>
+Mcu_Irq.h&#160;<br/>
+1.0.2&#160;<br/>
+1.Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;#27515&#160;<br/>
+2.Removed&#160;_Interrupt_&#160;from&#160;MCU_FEINT_ISR&#160;<br/>
+Mcu_PBTypes.h&#160;<br/>
+1.0.4&#160;<br/>
+Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;#27515&#160;<br/>
+Mcu_Ram.h&#160;<br/>
+1.0.4&#160;<br/>
+Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;#27515&#160;<br/>
+Mcu_Types.h&#160;<br/>
+1.0.4&#160;<br/>
+1.As&#160;per&#160;mantis&#160;#26418&#160;,following&#160;change&#160;is&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+MCU_SW_RST&#160;is&#160;corrected&#160;with&#160;name&#160;MCU_SW_RESET&#160;,&#160;<br/>
+MCU_WDT_RST&#160;is&#160;corrected&#160;with&#160;name&#160;<br/>
+MCU_WATCHDOG_RESET&#160;,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+MCU_POWER_ON_CLEAR_RST&#160;is&#160;corrected&#160;with&#160;name&#160;<br/>
+MCU_POWER_ON_RESET&#160;<br/>
+2.&#160;Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;#27515&#160;<br/>
+Mcu_Version.h&#160;<br/>
+1.0.1&#160;<br/>
+Added&#160;code&#160;comments&#160;as per&#160;MO&#160;Review&#160;in&#160;Mantis&#160;&#160;&#160;&#160;#27515&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Mcu_P1x.exe&#160;<br/>
+1.1.1&#160;<br/>
+Updated&#160;for&#160;Ver4.0004&#160;release&#160;<br/>
+Mcu_P1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_MCU_P1M_Sample.c&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;mantis&#160;#27723,&#160;the&#160;following&#160;change&#160;is&#160;made,&#160;<br/>
+1.&#160;Removed&#160;#pragma&#160;intvect&#160;MCU_FEINT_ISR&#160;0x000000E0.&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_MCU_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+Page&#160;28&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=29></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_MCU_Component_Use<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+rManual.pdf&#160;<br/>
+1.&#160;New&#160;section,&#160;“4.7&#160;Callout API”&#160;added&#160;to&#160;chapter&#160;4.&#160;&#160;&#160;<br/>
+2.&#160;Information&#160;regarding&#160;Interrupt vector&#160;table&#160;is&#160;added&#160;to&#160;<br/>
+“Section&#160;4.1&#160;General”.&#160;&#160;&#160;<br/>
+3.&#160;As&#160;part&#160;of&#160;device&#160;support&#160;activity&#160;for&#160;R7F701304,&#160;R7F701305,&#160;<br/>
+R7F701313,&#160;R7F701315,&#160;R7F701318&#160;to&#160;R7F701323&#160;updated&#160;<br/>
+sections&#160;3.1.1,&#160;13.1,&#160;13.2.&#160;&#160;&#160;<br/>
+4.&#160;Removed&#160;section&#160;Compiler,Linker&#160;and&#160;Assembler&#160;in&#160;<br/>
+Chapter13.&#160;&#160;&#160;<br/>
+5.&#160;Updated&#160;section&#160;13.3&#160;for&#160;memory&#160;and&#160;throughput&#160;&#160;&#160;<br/>
+6.&#160;Copyright information&#160;has&#160;been&#160;changed&#160;to&#160;2015&#160;&#160;&#160;<br/>
+AUTOSAR_MCU_Tool_UserManu<br/>
+1.0.3&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;<br/>
+al.pdf&#160;<br/>
+•&#160;Pdf&#160;name&#160;and&#160;version&#160;are&#160;updated&#160;in&#160;Section&#160;2.1&#160;&#160;&#160;<br/>
+•&#160;Updated&#160;version&#160;and&#160;copyright&#160;year.&#160;&#160;&#160;<br/>
+10.3&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;29&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=30></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+11&#160;&#160;PORT&#160;<br/>
+11.1&#160;&#160;Target Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+PORT&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+11.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_PORT_P1M_04_05.arxml&#160;<br/>
+1.0.1&#160;<br/>
+As per&#160;mantis&#160;27411,27777,26630&#160;following&#160;changes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+are&#160;made&#160;&#160;&#160;<br/>
+1.&#160;File&#160;name&#160;changed&#160;to&#160;R403_PORT_P1M_04_05.arxml&#160;<br/>
+from&#160;R403_PORT_P1M_701304_701305.arxml&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Parameter&#160;'PortIpControl'&#160;is&#160;removed&#160;from&#160;<br/>
+PortGroup0,PortGroup2&#160;PortPin4,PortGroup3&#160;<br/>
+PortPin11,14,PortGroup4&#160;PortPin2-4&#160;and&#160;&#160;&#160;&#160;PortGroup5&#160;<br/>
+PortPin5-14&#160;&#160;&#160;<br/>
+4.&#160;Parameters&#160;'PortInputSelection',&#160;'PortUnlimitedCurrentControl',&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+'PortDriveStrengthControl'&#160;and&#160;<br/>
+'PortOpenDrainControl_Expansion'&#160;are&#160;removed&#160;from&#160;PortPin4&#160;of&#160;<br/>
+PortGroupJtag0.&#160;<br/>
+R403_PORT_P1M_10_11_14_15.ar<br/>
+1.0.4&#160;<br/>
+As per&#160;mantis&#160;27411,27777,26630&#160;following&#160;changes&#160;&#160;&#160;&#160;are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+xml&#160;<br/>
+1.&#160;File&#160;name&#160;changed&#160;from&#160;&#160;&#160;<br/>
+R403_PORT_P1M_701310_701311_701314_701315.arxml&#160;<br/>
+to&#160;R403_PORT_P1M_10_11_14_15.arxml.&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+3.&#160;Parameter&#160;'PortInputSelection'&#160;is&#160;removed&#160;from&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+PortPin0&#160;of&#160;PortGroup0&#160;and&#160;PortPin4&#160;of&#160;PortGroupJtag0.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+4.&#160;Parameters&#160;'PortInputSelection',&#160;'PortUnlimitedCurrentControl',&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+'PortDriveStrengthControl'&#160;and&#160;<br/>
+'PortOpenDrainControl_Expansion'&#160;are&#160;removed&#160;from&#160;PortPin4&#160;of&#160;<br/>
+PortGroupJtag0&#160;<br/>
+5.&#160;Parameter&#160;'PortIpControl'&#160;is&#160;removed&#160;from&#160;&#160;&#160;<br/>
+PortGroup0,PortGroup3&#160;PortPin11,14,&#160;PortGroup4&#160;PortPin2-4&#160;<br/>
+and&#160;&#160;&#160;&#160;PortGroup5&#160;PortPin5-15.&#160;<br/>
+R403_PORT_P1M_12_13.arxml&#160;<br/>
+1.0.2&#160;<br/>
+As per&#160;mantis&#160;27411,27777,26630&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;File&#160;name&#160;changed&#160;from&#160;<br/>
+Page&#160;30&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=31></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+R403_PORT_P1M_701312_701313.arxml to&#160;<br/>
+R403_PORT_P1M_12_13.arxml&#160;<br/>
+2.&#160;Copyright&#160;information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Parameter&#160;'PortIpControl'&#160;is&#160;removed&#160;from&#160;<br/>
+PortGroup0,PortGroup1&#160;PortPin1,PortGroup3&#160;<br/>
+PortPin11,14,PortGroup4&#160;PortPin2-4&#160;and&#160;PortGroup5&#160;<br/>
+PortPin0,5-14.&#160;<br/>
+4.&#160;Parameter&#160;'PortInputSelection'&#160;is&#160;removed&#160;from&#160;<br/>
+PortGroup2&#160;PortPin3,6,8,PortGroup3&#160;PortPin3&#160;<br/>
+5.&#160;Parameters&#160;'PortInputSelection',&#160;'PortUnlimitedCurrentControl',&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+'PortDriveStrengthControl'&#160;and&#160;<br/>
+'PortOpenDrainControl_Expansion'&#160;are&#160;removed&#160;from&#160;<br/>
+PortPin4&#160;of&#160;PortGroupJtag0.&#160;<br/>
+R403_PORT_P1M_18_19_22_23.ar<br/>
+1.0.1&#160;<br/>
+As per&#160;mantis&#160;27411,27777,26630&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+xml&#160;<br/>
+1.&#160;File&#160;name&#160;changed&#160;from&#160;<br/>
+R403_PORT_P1M_701318_701319_701322_701323.arxml&#160;&#160;&#160;&#160;to&#160;&#160;&#160;<br/>
+R403_PORT_P1M_18_19_22_23.arxml.&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Parameters&#160;'PortInputSelection',&#160;&#160;&#160;<br/>
+'PortUnlimitedCurrentControl',&#160;&#160;&#160;&#160;'PortDriveStrengthControl'&#160;and&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+'PortOpenDrainControl_Expansion'&#160;are&#160;removed&#160;from&#160;PortPin4&#160;of&#160;<br/>
+PortGroupJtag0&#160;&#160;&#160;<br/>
+4.&#160;Parameter&#160;'PortIpControl'&#160;is&#160;removed&#160;from&#160;<br/>
+PortGroup0,PortGroup3&#160;PortPin5,11,14,&#160;PortGroup4&#160;PortPin2-4&#160;<br/>
+and&#160;&#160;&#160;&#160;PortGroup5&#160;PortPin5-14&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_PORT_P1M_20_21.arxml&#160;<br/>
+1.0.1&#160;<br/>
+As per&#160;mantis&#160;27411,27777,26630&#160;following&#160;changes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;File&#160;name&#160;changed&#160;from&#160;&#160;&#160;<br/>
+R403_PORT_P1M_701320_701321.arxml to&#160;<br/>
+R403_PORT_P1M_20_21.arxml.&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;<br/>
+3.&#160;Parameter&#160;'PortIpControl'&#160;is&#160;removed&#160;from&#160;<br/>
+PortGroup0,PortGroup2&#160;PortPin0,PortGroup3&#160;<br/>
+PortPin11,14,PortGroup4&#160;PortPin2-4&#160;and&#160;PortGroup5&#160;PortPin5-14&#160;&#160;&#160;<br/>
+4.&#160;Parameter&#160;'PortInputSelection'&#160;is&#160;removed&#160;from&#160;PortGroup0&#160;<br/>
+PortPin10,PortGroup3&#160;PortPin13.&#160;<br/>
+5.&#160;Parameters&#160;'PortInputSelection',&#160;'PortUnlimitedCurrentControl',&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+'PortDriveStrengthControl'&#160;and&#160;<br/>
+'PortOpenDrainControl_Expansion'&#160;are&#160;removed&#160;from&#160;<br/>
+PortPin4&#160;of&#160;PortGroupJtag0.&#160;<br/>
+Page&#160;31&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=32></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+<b>BSWMDT</b>&#160;<br/>
+R403_PORT_P1x_BSWMDT.arxml&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;mantis&#160;#27419&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.&#160;Environment&#160;section&#160;is&#160;updated&#160;to&#160;add&#160;P1x&#160;devices&#160;&#160;&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b>&#160;<br/>
+Port.c&#160;<br/>
+1.5.9&#160;<br/>
+No&#160;change&#160;<br/>
+Port_Ram.c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Port_Version.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;<br/>
+&#160;<br/>
+Port.h&#160;<br/>
+1.5.3&#160;<br/>
+No&#160;change&#160;<br/>
+Port_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Port_Types.h&#160;<br/>
+1.3.1&#160;<br/>
+No&#160;change&#160;<br/>
+&#160;<br/>
+Port_PBTypes.h&#160;<br/>
+1.4.7&#160;<br/>
+No&#160;change&#160;<br/>
+Port_Ram.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Port_Version.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Tool Executable</b>&#160;<br/>
+Port_X1x.exe&#160;<br/>
+1.3.12&#160;<br/>
+Tool updated&#160;for&#160;P1x&#160;Ver4.00.04&#160;release.&#160;<br/>
+Port_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file</b>&#160;<br/>
+App_PORT_P1M_Sample.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file</b>&#160;<br/>
+App_PORT_Device_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_PORT_Component_Us<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+erManual.pdf&#160;<br/>
+1.&#160;Section&#160;1.1&#160;Document Overview&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+2.&#160;Chapter&#160;2&#160;Reference&#160;documents&#160;are&#160;updated&#160;for&#160;version&#160;change.&#160;&#160;&#160;<br/>
+3.&#160;Chapter&#160;4&#160;is&#160;updated&#160;for&#160;information&#160;regarding&#160;Interrupt vector&#160;<br/>
+table.&#160;&#160;&#160;<br/>
+4.&#160;Chapter&#160;6&#160;Port_SetPinMode&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+5.&#160;Section&#160;10.2.4&#160;Port_PinModeType&#160;is&#160;updated.&#160;&#160;&#160;<br/>
+6.&#160;Section&#160;13.1.1&#160;is&#160;updated&#160;for&#160;adding&#160;new&#160;devices.&#160;&#160;&#160;<br/>
+7.&#160;Section&#160;13.2&#160;Compiler,&#160;Linker&#160;and&#160;Assembler&#160;section&#160;is&#160;<br/>
+removed.&#160;&#160;&#160;<br/>
+8.&#160;Section&#160;13.2&#160;is&#160;updated&#160;for&#160;parameter&#160;definition&#160;file&#160;and&#160;sample&#160;<br/>
+application&#160;configuration&#160;files&#160;of&#160;all&#160;P1M&#160;devices.&#160;&#160;&#160;<br/>
+9.&#160;Section&#160;13.3&#160;Memory&#160;and&#160;Throughput details are&#160;updated.&#160;&#160;&#160;<br/>
+AUTOSAR_PORT_Tool_UserManu<br/>
+1.0.5&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+al.pdf&#160;<br/>
+1.&#160;&#160;Parameter&#160;&#160;Definition&#160;&#160;file&#160;&#160;names&#160;&#160;and&#160;&#160;versions&#160;&#160;are&#160;&#160;updated&#160;&#160;in&#160;<br/>
+section&#160;2.1.&#160;<br/>
+Page&#160;32&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=33></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+2.&#160;Error&#160;message&#160;ERR124018&#160;is&#160;added&#160;in&#160;section&#160;8.1.&#160;&#160;&#160;<br/>
+11.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;33&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=34></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+12&#160;&#160;PWM&#160;<br/>
+12.1&#160;&#160;Target Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+PWM&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+12.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x&#160;Parameter&#160;Definition file</b><i>&#160;</i><br/>
+R403_PWM_P1M_04_05_12_13_2<br/>
+1.0.1&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Maintenance&#160;Activity,&#160;the&#160;following&#160;<br/>
+0_21.arxml&#160;<br/>
+changes are&#160;done.&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;the&#160;file&#160;names are&#160;changed&#160;and&#160;file&#160;<br/>
+version&#160;is&#160;updated.&#160;<br/>
+2.&#160;Copyright&#160;information&#160;is&#160;updated.&#160;<br/>
+3.&#160;Admin&#160;Data&#160;is&#160;updated.&#160;<br/>
+R403_PWM_P1M_10_11_14_15_1<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Maintenance&#160;Activity,the&#160;following&#160;<br/>
+8_19_22_23.arxml&#160;<br/>
+changes are&#160;done.&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;the&#160;file&#160;names are&#160;changed&#160;and&#160;file&#160;<br/>
+version&#160;is&#160;updated.&#160;<br/>
+2.&#160;Copyright information&#160;is&#160;updated.&#160;<br/>
+3.&#160;Admin&#160;Data&#160;is&#160;updated.&#160;<br/>
+<b>BSWMDT&#160;File</b><i>&#160;</i><br/>
+R403_PWM_P1x_BSWMDT.arxml&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+Pwm.c&#160;<br/>
+1.6.7&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Irq.c&#160;<br/>
+1.2.1&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_LLDriver.c&#160;<br/>
+1.6.9&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Ram.c&#160;<br/>
+1.3.8&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Version.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm.h&#160;<br/>
+1.4.6&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Irq.h&#160;<br/>
+1.2.0&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_LLDriver.h&#160;<br/>
+1.4.4&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_PBTypes.h&#160;<br/>
+1.4.9&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Ram.h&#160;<br/>
+1.3.8&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Types.h&#160;<br/>
+1.5.5&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_Version.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;<br/>
+Page&#160;34&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=35></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+<b>Tool Executable</b><i>&#160;</i><br/>
+PWM_X1x.exe&#160;<br/>
+1.6.5&#160;<br/>
+No&#160;change&#160;<br/>
+Pwm_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Sample&#160;Application Source&#160;file&#160;</b><br/>
+App_PWM_Common_Sample.c&#160;<br/>
+1.4.4&#160;<br/>
+No&#160;change&#160;<br/>
+<b>X1x&#160;Sample&#160;Application header&#160;file&#160;</b><br/>
+App_PWM_Common_Sample.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;</b><br/>
+App_PWM_P1M_Sample.c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Header&#160;file&#160;</b><br/>
+App_PWM_Device_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;<br/>
+<b>P1x&#160;User&#160;Manual&#160;</b><br/>
+AUTOSAR_PWM_Component_Us<br/>
+1.0.3&#160;<br/>
+As&#160;part&#160;of&#160;V4.00.04&#160;P1x&#160;Maintenance&#160;Activity,Following&#160;changes&#160;<br/>
+erManual.pdf&#160;<br/>
+are&#160;made.&#160;&#160;&#160;<br/>
+1.&#160;Chapter&#160;2&#160;is&#160;updated&#160;for&#160;referenced&#160;documents&#160;version.&#160;<br/>
+2.&#160;Updated&#160;Section&#160;3.1.1&#160;and&#160;section&#160;13.1.1&#160;for&#160;adding&#160;the&#160;device&#160;<br/>
+names.&#160;<br/>
+3.&#160;Section&#160;13.3.1&#160;is&#160;updated&#160;for&#160;name&#160;of&#160;the&#160;parameter&#160;&#160;&#160;&#160;definition&#160;<br/>
+file&#160;and&#160;additional&#160;devices.&#160;<br/>
+4.&#160;Section&#160;13.4&#160;is&#160;updated&#160;for&#160;ROM/RAM&#160;usage,&#160;Stack&#160;Depth&#160;and&#160;<br/>
+Throughput details.&#160;<br/>
+5.&#160;Section&#160;4.1&#160;is&#160;updated&#160;to&#160;add&#160;notes for&#160;the&#160;file&#160;<br/>
+“Interrupt_VectorTable.c”&#160;and&#160;the&#160;API&#160;<br/>
+“Pwm_SetChannelOutput”.&#160;<br/>
+6.&#160;In&#160;Section&#160;13,&#160;The&#160;Compiler,Linker&#160;and&#160;Assembler&#160;options&#160;&#160;&#160;&#160;are&#160;&#160;&#160;<br/>
+removed.&#160;<br/>
+7.&#160;Section&#160;4.6,&#160;Table&#160;4-2,&#160;Remarks&#160;is&#160;updated&#160;for&#160;the&#160;<br/>
+Set_TriggerDealy&#160;API.&#160;&#160;&#160;<br/>
+8.&#160;In&#160;Section&#160;4.1,&#160;a&#160;note&#160;is&#160;updated&#160;for&#160;the&#160;‘The&#160;counter&#160;of&#160;&#160;&#160;&#160;master&#160;<br/>
+channel’.&#160;<br/>
+AUTOSAR_PWM_Tool_UserManu<br/>
+1.0.3&#160;<br/>
+As part of&#160;V4.00.04&#160;P1x&#160;Maintenance&#160;Activity,&#160;<br/>
+al.pdf&#160;<br/>
+following&#160;changes are&#160;made:&#160;<br/>
+1.&#160;Chapter&#160;2&#160;‘Reference’&#160;is&#160;updated&#160;for&#160;the&#160;name&#160;and&#160;version&#160;of&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+the&#160;parameter&#160;definition&#160;files.&#160;<br/>
+2.&#160;Error&#160;message&#160;ERR000019&#160;is&#160;added&#160;in&#160;section&#160;8.1&#160;&#160;&#160;<br/>
+12.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;35&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=36></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+13&#160;&#160;RAMTST&#160;<br/>
+13.1&#160;&#160;Target Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+RAMTST&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+13.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x&#160;Parameter&#160;Definition file&#160;</b><br/>
+R403_RAMTST_P1M_04_05.arxml&#160;<br/>
+1.0.1&#160;<br/>
+As per&#160;mantis&#160;25915&#160;following&#160;changes&#160;are&#160;made:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+1.&#160;File&#160;name&#160;changed&#160;to&#160;R403_RAMTST_P1M_04_05.arxml&#160;<br/>
+from&#160;R403_RAMTST_P1M_701304_701305.arxml.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;LOWER-MULTIPLICITY&#160;of&#160;&#160;&#160;<br/>
+RamTstDemEventParameterRefs&#160;container&#160;and&#160;<br/>
+RAMTST_E_RAM_FAILURE&#160;parameter&#160;&#160;&#160;&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_RAMTST_P1M_10_to_15_1<br/>
+1.0.3&#160;<br/>
+As per&#160;mantis&#160;25915&#160;,&#160;following&#160;changes&#160;are&#160;made&#160;:&#160;&#160;&#160;<br/>
+8_to_23.arxml&#160;<br/>
+1.&#160;LOWER-MULTIPLICITY&#160;of&#160;&#160;&#160;<br/>
+RamTstDemEventParameterRefs&#160;container&#160;and&#160;<br/>
+RAMTST_E_RAM_FAILURE&#160;parameter&#160;&#160;&#160;&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;File&#160;name&#160;changed&#160;from&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_RAMTST_P1M_701310_to_701315_701318&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+_to_701323.arxml to&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_RAMTST_P1M_10_to_15_18_to_23.arxml&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>BSWMDT</b><i>&#160;</i><br/>
+R403_RAMTST_P1x_BSWMDT.ar<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+xml&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+RamTst.c&#160;<br/>
+1.1.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+RamTst.h&#160;<br/>
+1.1.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+RamTst_RegReadBack.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+RamTst_Types.h&#160;<br/>
+1.1.2&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Tool Executable</b><i>&#160;</i><br/>
+RamTst_X1x.exe&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+&#160;&#160;RamTst_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>X1x&#160;Sample Application source&#160;file</b><i>&#160;</i><br/>
+App_RAMTST_Common_Sample.c&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>X1x&#160;Sample Application header&#160;file</b><i>&#160;</i><br/>
+App_RAMTST_Common_Sample.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Page&#160;36&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=37></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;Source&#160;file<i>&#160;</i></b><br/>
+App_RAMTST_P1M_Sample.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file<i>&#160;</i></b><br/>
+App_RAMTST_Device_Sample.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b><i>&#160;</i><br/>
+AUTOSAR_RAMTST_Component<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;activity&#160;following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+_UserManual.pdf&#160;<br/>
+1.&#160;In&#160;chapter&#160;2,&#160;Reference&#160;documents&#160;updated.&#160;&#160;&#160;<br/>
+2.&#160;Chapter&#160;3,&#160;section&#160;3.3.1&#160;Folder&#160;structure&#160;updated.&#160;&#160;&#160;<br/>
+3.&#160;Chapter&#160;13&#160;supporting&#160;device&#160;name&#160;updated,&#160;also&#160;section&#160;&#160;&#160;<br/>
+13.1.1&#160;updated.&#160;&#160;&#160;<br/>
+4.&#160;Chapter&#160;13,&#160;section&#160;13.2&#160;compiler,&#160;linker,&#160;and&#160;assembler&#160;&#160;&#160;<br/>
+options&#160;removed.&#160;&#160;&#160;<br/>
+5.&#160;Chapter&#160;13,&#160;section&#160;13.2&#160;Sample&#160;Application&#160;updated.&#160;&#160;&#160;<br/>
+6.&#160;Chapter&#160;13,&#160;section&#160;13.3&#160;Memory&#160;And&#160;Throughput Details&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+updated.&#160;&#160;&#160;<br/>
+AUTOSAR_RAMTST_Tool_User<br/>
+1.0.3&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+Manual.pdf&#160;<br/>
+1.Updated&#160;chapter&#160;2&#160;by&#160;adding&#160;new&#160;PDF reference.&#160;<br/>
+13.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+Page&#160;37&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=38></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+14&#160;&#160;SPI&#160;<br/>
+14.1&#160;&#160;Target Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+SPI&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+14.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x&#160;Parameter&#160;Definition file&#160;</b><br/>
+R403_SPI_P1M_04_05_12_13_20_<br/>
+1.0.5&#160;<br/>
+As per&#160;mantis&#160;#27411,following&#160;changes&#160;are&#160;made&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+21.arxml&#160;<br/>
+1.&#160;File&#160;has been&#160;renamed&#160;to&#160;reduce&#160;file&#160;name&#160;length.&#160;<br/>
+2.&#160;Updated&#160;Copyright information.&#160;<br/>
+R403_SPI_P1M_10_11_14_15_18_<br/>
+1.0.5&#160;<br/>
+As per&#160;mantis&#160;#27411,following&#160;changes&#160;are&#160;made&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+19_22_23.arxml&#160;<br/>
+1.&#160;File&#160;has been&#160;renamed&#160;to&#160;reduce&#160;file&#160;name&#160;length.&#160;<br/>
+2.&#160;Updated&#160;Copyright information.&#160;<br/>
+<b>BSWMDT&#160;File</b><i>&#160;</i><br/>
+R403_SPI_P1x_BSWMDT.arxml&#160;<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+1.&#160;Software&#160;version&#160;information&#160;is&#160;updated.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+2.&#160;Updated&#160;copyright information.&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+Spi.c&#160;<br/>
+1.5.6&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Driver.c&#160;<br/>
+1.4.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27771,&#160;Spi_ReceiveISR&#160;API&#160;is&#160;updated&#160;to&#160;<br/>
+remove&#160;compilation&#160;warning.&#160;<br/>
+2.&#160;As&#160;per&#160;mantis&#160;#27772,&#160;Spi_HwInit&#160;API&#160;is&#160;updated&#160;for&#160;32&#160;bit&#160;<br/>
+DMA&#160;settings.&#160;<br/>
+Spi_Irq.c&#160;<br/>
+1.2.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Ram.c&#160;<br/>
+1.2.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Scheduler.c&#160;<br/>
+1.2.12&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Version.c&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi.h&#160;<br/>
+1.1.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Driver.h&#160;<br/>
+1.2.9&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Irq.h&#160;<br/>
+1.2.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_LTTypes.h&#160;<br/>
+1.2.11&#160;<br/>
+As per&#160;mantis&#160;#27772,&#160;definition&#160;for&#160;<br/>
+SPI_DMA_32BIT_RX_SETTINGS&#160;and&#160;<br/>
+SPI_DMA_32BIT_TX_SETTINGS&#160;are&#160;added.&#160;<br/>
+Spi_PBTypes.h&#160;<br/>
+1.2.11&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Ram.h&#160;<br/>
+1.2.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Page&#160;38&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=39></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+Spi_Scheduler.h&#160;<br/>
+1.2.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Types.h&#160;<br/>
+1.2.7&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_Version.h&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Tool Executable</b><i>&#160;</i><br/>
+Spi_X1x.exe&#160;<br/>
+1.2.12&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Spi_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application&#160;Source&#160;file</b><i>&#160;</i><br/>
+App_SPI_Common_Sample.c&#160;<br/>
+1.0.7&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release&#160;activity,&#160;<br/>
+1.&#160;Removed&#160;all&#160;device&#160;specific&#160;macros.&#160;<br/>
+2.&#160;Test&#160;Application&#160;is&#160;updated&#160;to&#160;make&#160;it&#160;common&#160;across&#160;all&#160;family&#160;&#160;&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file</b><i>&#160;</i><br/>
+App_SPI_Common_Sample.h&#160;<br/>
+1.0.5&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;Release&#160;activity,&#160;<br/>
+1.&#160;Removed&#160;all&#160;device&#160;specific&#160;macros.&#160;<br/>
+2.&#160;Test&#160;Application&#160;is&#160;updated&#160;to&#160;make&#160;it&#160;common&#160;across&#160;all&#160;family&#160;&#160;&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;</b><br/>
+App_SPI_P1M_Sample.c&#160;<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity,&#160;following&#160;changes&#160;<br/>
+are&#160;made:&#160;<br/>
+1.&#160;Corrected&#160;port settings&#160;and&#160;chip&#160;select settings&#160;for&#160;master&#160;for&#160;<br/>
+701310&#160;external&#160;loopback&#160;testing.&#160;<br/>
+2.&#160;Updated&#160;slave&#160;register&#160;settings.&#160;<br/>
+3.&#160;Updated&#160;Copyright information.&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;header&#160;file</b><i>&#160;</i><br/>
+App_SPI_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity,&#160;following&#160;&#160;&#160;<br/>
+changes are&#160;made:&#160;<br/>
+1.&#160;Modified&#160;for&#160;701310&#160;external&#160;loopback&#160;testing.&#160;<br/>
+2.&#160;Updated&#160;slave&#160;register&#160;settings.&#160;<br/>
+3.&#160;Updated&#160;Copyright information&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b>&#160;<br/>
+AUTOSAR_SPI_Component_User<br/>
+1.0.6&#160;<br/>
+Following&#160;changes are&#160;made&#160;:&#160;<br/>
+Manual.pdf&#160;<br/>
+1.&#160;Updated&#160;Chapter&#160;2&#160;‘Reference&#160;Documents’&#160;to&#160;correct the&#160;name&#160;<br/>
+and&#160;version&#160;of&#160;device&#160;manual.&#160;<br/>
+2.&#160;Information&#160;regarding&#160;Interrupt vector&#160;table&#160;has been&#160;provided&#160;<br/>
+in&#160;section&#160;4.1&#160;‘General’.&#160;<br/>
+3.&#160;In&#160;Chapter&#160;13,&#160;’P1M&#160;Specific&#160;Information’&#160;P1M&#160;4.0.3&#160;supported&#160;<br/>
+devices are&#160;updated.&#160;<br/>
+4.&#160;Table&#160;13-1&#160;PDF information&#160;updated&#160;for&#160;P1M&#160;4.0.3&#160;supported&#160;<br/>
+devices.&#160;&#160;&#160;<br/>
+5.&#160;Section&#160;13.1.1&#160;has been&#160;updated&#160;to&#160;include&#160;the&#160;translation&#160;<br/>
+header&#160;file&#160;for&#160;all&#160;P1M&#160;4.0.3&#160;supporting&#160;devices.&#160;<br/>
+Page&#160;39&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=40></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+6.&#160;Updated&#160;section&#160;13.3.1&#160;‘Sample&#160;Application&#160;Structure’&#160;to&#160;add&#160;<br/>
+all&#160;the&#160;supported&#160;devices for&#160;P1M&#160;4.0.3.&#160;<br/>
+7.&#160;Updated&#160;section&#160;13.3.2&#160;‘Building&#160;the&#160;Sample&#160;Application’&#160;to&#160;<br/>
+add&#160;configuration&#160;details&#160;for&#160;the&#160;device&#160;701310.&#160;<br/>
+8.&#160;Updated&#160;section&#160;13.4&#160;‘Memory&#160;and&#160;Throughput’&#160;for&#160;the&#160;device&#160;<br/>
+R7F701310.&#160;<br/>
+9.&#160;Updated&#160;chapter&#160;14&#160;‘Release&#160;Details’&#160;to&#160;correct the&#160;SPI&#160;driver&#160;<br/>
+version.&#160;<br/>
+10.&#160;Removed&#160;section&#160;‘Compiler,&#160;Linker&#160;and&#160;Assembler’&#160;from&#160;<br/>
+chapter&#160;13.&#160;<br/>
+11.&#160;&#160;Added&#160;&#160;macros&#160;&#160;SPI_DMA_32BIT_TX_SETTINGS&#160;&#160;and&#160;&#160;&#160;&#160;&#160;<br/>
+SPI_DMA_32BIT_RX_SETTINGS&#160;&#160;in&#160;&#160;Chapter&#160;&#160;6&#160;&#160;‘Registers&#160;<br/>
+Details’.&#160;<br/>
+AUTOSAR_SPI_Tool_UserManual.<br/>
+1.0.7&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+pdf&#160;<br/>
+1.&#160;Updated&#160;section&#160;2.1&#160;‘Reference&#160;Documents’&#160;to&#160;correct&#160;the&#160;name&#160;<br/>
+and&#160;version&#160;of&#160;Parameter&#160;Definition&#160;Files.&#160;&#160;&#160;<br/>
+2.&#160;Section&#160;8.1&#160;and&#160;Section&#160;8.2&#160;is&#160;modified&#160;for&#160;removing&#160;warning&#160;<br/>
+and&#160;adding&#160;error&#160;message&#160;(WRN083001&#160;to&#160;ERR083122).&#160;<br/>
+14.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;40&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=41></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+15&#160;&#160;WDG&#160;<br/>
+15.1&#160;&#160;Target Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+P1M&#160;-&#160;R7F701310&#160;<br/>
+<b>Module&#160;</b><br/>
+WDG&#160;<br/>
+<b>Date&#160;</b><br/>
+08-June-2015&#160;<br/>
+15.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>P1x&#160;-&#160;Parameter&#160;Definition files</b><i>&#160;</i><br/>
+R403_WDG_P1M_04_05_10_to_15<br/>
+1.0.3&#160;<br/>
+As part of&#160;P1x&#160;V4.00.04&#160;development activity&#160;the&#160;<br/>
+_18_to_23.arxml&#160;<br/>
+following&#160;changes are&#160;made:&#160;<br/>
+1.&#160;As&#160;per&#160;mantis&#160;#27411,&#160;file&#160;name&#160;changed&#160;to&#160;<br/>
+R403_WDG_P1M_04_05_10_to_15_18_to_23.arxml&#160;<br/>
+2.&#160;Copyright information&#160;updated.&#160;<br/>
+3.&#160;ADMIN-DATA&#160;updated.&#160;<br/>
+<b>BSWMDT</b><i>&#160;</i><br/>
+R403_WDG_P1x_BSWMDT.arxml&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Source&#160;Code</b><i>&#160;</i><br/>
+Wdg_59_DriverA.c&#160;<br/>
+1.0.12&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Irq.c&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Private.c&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Ram.c&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Version.c&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA.h&#160;<br/>
+1.0.6&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Irq.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_PBTypes.h&#160;<br/>
+1.0.8&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Private.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Ram.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_RegReadBack.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Types.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_59_DriverA_Version.h&#160;<br/>
+1.0.5&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>Tool Executable</b><i>&#160;</i><br/>
+Wdg_X1x.exe&#160;<br/>
+1.0.17&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Wdg_X1x.cfgxml&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application Source&#160;file</b><i>&#160;</i><br/>
+App_WDG_Common_Sample.c&#160;<br/>
+1.0.10&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+Page&#160;41&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name=42></a>Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+Release&#160;Date:&#160;08/06/2015&#160;<br/>
+&#160;<br/>
+<b>X1x&#160;Common Sample&#160;Application header&#160;file&#160;</b><br/>
+App_WDG_Common_Sample.h&#160;<br/>
+1.0.4&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>P1x&#160;Sample&#160;Application P1M&#160;Source&#160;file&#160;</b><br/>
+App_WDG_P1M_Sample.c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>P1x&#160;Sample Application P1M&#160;header&#160;file&#160;</b><br/>
+App_WDG_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;&#160;&#160;<br/>
+<b>P1x&#160;User&#160;Manual</b><i>&#160;</i><br/>
+AUTOSAR_WDG_Component_Us<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made:&#160;<br/>
+erManual.pdf&#160;<br/>
+1.&#160;Updated&#160;Chapter&#160;4.1&#160;to&#160;add&#160;notes.&#160;<br/>
+2.&#160;Updated&#160;Chapter&#160;13&#160;to&#160;add&#160;new&#160;device&#160;support.&#160;<br/>
+3.&#160;Removed&#160;sections&#160;for&#160;Compiler,&#160;Linker&#160;and&#160;Assembler.&#160;<br/>
+4.&#160;Updated&#160;Chapter&#160;13.3&#160;with&#160;memory&#160;and&#160;throughput details.&#160;<br/>
+5.&#160;Updated&#160;copyright information.&#160;<br/>
+AUTOSAR_WDG_Tool_UserManu<br/>
+1.0.2&#160;<br/>
+Following&#160;changes are&#160;made:&#160;&#160;&#160;<br/>
+al.pdf&#160;<br/>
+1.&#160;Updated&#160;Chapter&#160;2&#160;to&#160;add&#160;PDF reference.&#160;<br/>
+2.&#160;Updated&#160;copyright information.&#160;<br/>
+15.3&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+1.&#160;<br/>
+Please&#160;refer&#160;KnownIssues_P1x_R403_2015_CW23.pdf&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Page&#160;42&#160;of&#160;42&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#1">Release Notes for RENESAS RH850/P1x:</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#1">1.1 Purpose:</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#2">1.2 Package information</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#3">1.3 Tools</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#3">1.3.1 GHS</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#3">1.3.2 Configuration code generator</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#3">1.3.3 Additional software</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#4">1.4 Generic Information</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#4">1.4.1 Release Target</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#4">1.4.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#4">1.4.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#5">1.5 Module Index</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#6">2 ADC</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#6">2.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#6">2.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#8">2.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#9">3 CAN</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#9">3.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#9">3.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#11">3.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#12">4 DIO</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#12">4.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#12">4.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#13">4.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#14">5 FLS</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#14">5.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#14">5.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#16">5.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#17">6 FLSTST</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#17">6.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#17">6.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#19">6.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#20">7 FR</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#20">7.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#20">7.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#22">7.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#23">8 GPT</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#23">8.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#23">8.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#24">8.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#25">9 ICU</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#25">9.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#25">9.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#26">9.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#27">10 MCU</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#27">10.1 Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#27">10.2 Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#29">10.3 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#30">11 PORT</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#30">11.1 &#160;Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#30">11.2 &#160;Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#33">11.3 &#160;Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#34">12 PWM</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#34">12.1 &#160;Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#34">12.2 &#160;Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#35">12.3 &#160;Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#36">13 RAMTST</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#36">13.1 &#160;Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#36">13.2 &#160;Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#37">13.3 &#160;Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#38">14 SPI</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#38">14.1 &#160;Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#38">14.2 &#160;Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#40">14.3 &#160;Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#41">15 WDG</a>
+<ul>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#41">15.1 &#160;Target Info</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#41">15.2 &#160;Release Items</a></li>
+<li><a href="Releasenotes_P1x_FULL_R403_Ver4.00.04s.html#42">15.3 &#160;Known Issues</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

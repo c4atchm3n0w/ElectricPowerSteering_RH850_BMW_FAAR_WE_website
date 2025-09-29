@@ -1,0 +1,1943 @@
+---
+title: TechnicalReference_Crypto_30_CryWrappers
+linkTitle: TechnicalReference_Crypto_30_CryWrappers
+weight: 188
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR CRYPTO&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>CRYPTO&#160;CRYWRAPPER&#160;<br/>Version&#160;2.1.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Tobias&#160;Finke&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-2_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Tobias&#160;Finke&#160;<br/>
+2016-12-21&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;creation&#160;<br/>
+Tobias&#160;Finke&#160;<br/>
+2017-10-06&#160;<br/>
+2.01.00&#160;<br/>
+Release of&#160;component&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_CryptoDriver.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DET.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[4]&#160;&#160;&#160;HIS&#160;<br/>
+2009-04-01&#160;SHE&#160;Functional&#160;Specification&#160;v1.1&#160;(rev439)&#160;<br/>
+1.1&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#7">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;9</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Features&#160;............................................................................................................&#160;9&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Deviations&#160;..........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Additions/&#160;Extensions&#160;.........................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Limitations&#160;........................................................................................&#160;10&#160;<br/>3.1.3.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Cryptographic&#160;Algorithms&#160;and Modes&#160;............................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Certificate&#160;Handling........................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Key&#160;Generation&#160;..............................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.4&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">AEAD&#160;Det&#160;Checks&#160;.........................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.5&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Asynchronous&#160;CRY&#160;........................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Initialization&#160;......................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Main Functions&#160;................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.4&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">SHE&#160;Key&#160;Update&#160;Protocol&#160;................................................................................&#160;10&#160;<br/>3.4.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#10">Preconditions&#160;...................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#11">3.5&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#11">Error&#160;Handling&#160;..................................................................................................&#160;11&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#11">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#12">3.6&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#12">Key&#160;Management&#160;.............................................................................................&#160;12&#160;<br/>3.6.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#12">Custom&#160;Key&#160;Elements&#160;......................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#13">3.6.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#13">Import&#160;Keys&#160;......................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">3.6.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">Export&#160;Keys&#160;.....................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">3.7&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">Algorithm&#160;Parameter&#160;Overview&#160;........................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">3.8&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">Crypto&#160;Driver&#160;Configuration&#160;..............................................................................&#160;15&#160;<br/>3.8.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">General&#160;Configuration&#160;......................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">3.8.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">Configuration of&#160;Keys&#160;.......................................................................&#160;15&#160;<br/>3.8.2.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">Key&#160;Elements.................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">3.8.2.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">Key&#160;Types&#160;......................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">3.8.2.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">Keys&#160;..............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">3.8.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">Wrapping&#160;of&#160;CRY&#160;.............................................................................&#160;17&#160;<br/>3.8.3.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">Configuration of&#160;the&#160;underlying&#160;CRY&#160;..............................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">3.8.3.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">Algorithms&#160;......................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#19">3.8.3.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#19">Key&#160;Functions&#160;................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20"><b>Integration&#160;...................................................................................................................&#160;20</b>&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">4.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Scope of&#160;Delivery&#160;.............................................................................................&#160;20&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Static Files&#160;.......................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Dynamic&#160;Files&#160;..................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#21">4.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#21">Critical&#160;Sections&#160;...............................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22"><b>API&#160;Description&#160;...........................................................................................................&#160;22</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">Services provided by&#160;CRYPTO&#160;........................................................................&#160;22&#160;<br/>5.1.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">Crypto_30_CryWrapper_Init&#160;.............................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">5.1.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">Crypto_30_CryWrapper_InitMemory&#160;................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">5.1.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">Crypto_30_CryWrapper_GetVersionInfo&#160;..........................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">5.1.4&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">Crypto_30_CryWrapper_ProcessJob&#160;...............................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#24">5.1.5&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#24">Crypto_30_CryWrapper_CancelJob&#160;.................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">5.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Key&#160;Management&#160;Functions&#160;............................................................................&#160;25&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Crypto_30_CryWrapper_KeyCopy&#160;...................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Crypto_30_CryWrapper_KeyElementCopy&#160;......................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#26">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#26">Crypto_30_CryWrapper_KeyElementIdsGet&#160;....................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#27">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#27">Crypto_30_CryWrapper_KeyElementSet&#160;.........................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">Crypto_30_CryWrapper_KeyValidSet&#160;..............................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">Crypto_30_CryWrapper_KeyElementGet&#160;.........................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#29">5.2.7&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#29">Crypto_30_CryWrapper_RandomSeed&#160;............................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#30">5.2.8&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#30">Crypto_30_CryWrapper_KeyGenerate&#160;.............................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#31">5.2.9&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#31">Crypto_30_CryWrapper_KeyDerive&#160;.................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#31">5.2.10&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#31">Crypto_30_CryWrapper_KeyExchangeCalcPubVal&#160;.........................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#32">5.2.11&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#32">Crypto_30_CryWrapper_KeyExchangeCalcSecret&#160;..........................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#33">5.2.12&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#33">Crypto_30_CryWrapper_CertificateParse&#160;........................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">5.2.13&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Crypto_30_CryWrapper_CertificateVerify&#160;.........................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">5.3&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Services used by&#160;CRYPTO&#160;..............................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#36"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#36"><b>Configuration&#160;..............................................................................................................&#160;36</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#36">Configuration Variants&#160;......................................................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;37</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">Glossary&#160;..........................................................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">7.2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">Abbreviations&#160;...................................................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#38"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#38"><b>Contact&#160;........................................................................................................................&#160;38</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+Illustrations&#160;<br/><a href="TechnicalReference_Crypto_30_CryWrappers.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#7">AUTOSAR&#160;4.2&#160;Architecture&#160;Overview&#160;.........................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#8">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#8">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;CRYPTO&#160;..........................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#18">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#18">Example SymKeyExtract&#160;Configuration&#160;for&#160;Vector&#160;CRY&#160;............................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#19">Figure&#160;3-2&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#19">Example SymKeyExtract&#160;configuration&#160;for&#160;third&#160;party&#160;CRY&#160;.......................&#160;19&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Crypto_30_CryWrappers.html#6">Table 1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Table 3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.......................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Table 3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Table 3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;....................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#11">Table 3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#11">Service IDs&#160;...............................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#12">Table 3-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#12">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#13">Table 3-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#13">Supported&#160;data&#160;format&#160;for&#160;key&#160;import&#160;........................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">Table 3-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">Supported&#160;data&#160;format&#160;for&#160;key&#160;export&#160;........................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">Table 3-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">Overview&#160;of&#160;the&#160;required&#160;algorithm&#160;parameter&#160;..........................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">Table 3-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">Description&#160;of&#160;preconfigured&#160;key&#160;elements&#160;...............................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">Table 3-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#16">Description&#160;of&#160;preconfigured&#160;key&#160;types&#160;.....................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">Table 3-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#17">Description&#160;of&#160;pre-configured&#160;keys&#160;............................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Static&#160;files&#160;.................................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Table 4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">Generated&#160;files&#160;.........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">Table 5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">Crypto_30_CryWrapper_Init&#160;.....................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">Table 5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">Crypto_30_CryWrapper_InitMemory&#160;.........................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">Table 5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#23">Crypto_30_CryWrapper_GetVersionInfo&#160;...................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#24">Table 5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#24">Crypto_30_CryWrapper_ProcessJob&#160;........................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Table 5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Crypto_30_CryWrapper_CancelJob&#160;.........................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Table 5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#25">Crypto_30_CryWrapper_KeyCopy&#160;............................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#26">Table 5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#26">Crypto_30_CryWrapper_KeyElementCopy&#160;...............................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#27">Table 5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#27">Crypto_30_CryWrapper_KeyElementIdsGet&#160;.............................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">Table 5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">Crypto_30_CryWrapper_KeyElementSet&#160;..................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">Table 5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">Crypto_30_CryWrapper_KeyValidSet&#160;.......................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#29">Table 5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#29">Crypto_30_CryWrapper_KeyElementGet&#160;.................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#30">Table 5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#30">Crypto_30_CryWrapper_RandomSeed&#160;....................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#30">Table 5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#30">Crypto_30_CryWrapper_KeyGenerate&#160;.....................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#31">Table 5-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#31">Crypto_30_CryWrapper_KeyDerive&#160;..........................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#32">Table 5-15&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#32">Crypto_30_CryWrapper_KeyExchangeCalcPubVal&#160;..................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#33">Table 5-16&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#33">Crypto_30_CryWrapper_KeyExchangeCalcSecret&#160;...................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Table 5-17&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Crypto_30_CryWrapper_CertificateParse&#160;.................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Table 5-18&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Crypto_30_CryWrapper_CertificateVerify&#160;.................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Table 5-19&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#34">Services used by&#160;the&#160;CRYPTO&#160;.................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">Table 7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">Glossary&#160;...................................................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">Table 7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Crypto_30_CryWrappers.html#37">Abbreviations&#160;............................................................................................&#160;37&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+Initial&#160;beta&#160;release&#160;<br/>
+2.00.00&#160;<br/>
+Redesign of&#160;component&#160;<br/>
+2.01.00&#160;<br/>
+Safe&#160;Bsw&#160;Release of&#160;Component&#160;<br/>Added&#160;several&#160;configurations&#160;options&#160;to&#160;support&#160;Cry&#160;implementations&#160;of&#160;<br/>different&#160;vendors&#160;&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-7_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;CRYPTO&#160;as specified&#160;in<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;[1].&#160;</a>&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_Crypto_30_CryWrappers.html#7">elease*:</a></b><b>&#160;</b><br/>
+4.3&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+CRYPTO_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+CRYPTO_MODULE_ID &#160;&#160;<br/>
+114&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[3])&#160;<br/>
+*&#160;For the detailed functional&#160;specification please also refer to the corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>The&#160;Crypto&#160;Driver&#160;(CRYPTO)&#160;is&#160;called&#160;by&#160;the&#160;Crypto&#160;Interface&#160;(CRYIF)&#160;and&#160;performs&#160;the&#160;<br/>specific&#160;&#160;cryptographic&#160;&#160;functionality.&#160;&#160;The&#160;&#160;CRYPTO&#160;&#160;specification&#160;&#160;<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">[1]&#160;&#160;</a>offers&#160;&#160;a&#160;&#160;superset&#160;&#160;of&#160;<br/>algorithms&#160;&#160;which&#160;&#160;can&#160;&#160;be&#160;&#160;extended&#160;&#160;by&#160;&#160;‘custom&#160;&#160;algorithms’.&#160;&#160;This&#160;&#160;software-based&#160;&#160;Crypto&#160;<br/>Driver offers a&#160;subset&#160;of&#160;algorithms&#160;and&#160;features&#160;which&#160;is described&#160;<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">in&#160;3.1.</a>&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;CRYPTO&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.2&#160;Architecture&#160;Overview&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+The&#160;&#160;next&#160;&#160;figure&#160;&#160;shows&#160;&#160;the&#160;&#160;interfaces&#160;&#160;to&#160;&#160;adjacent&#160;&#160;modules&#160;&#160;of&#160;&#160;the&#160;&#160;CRYPTO.&#160;&#160;These&#160;<br/>interfaces&#160;are&#160;described&#160;in&#160;chapte<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;cmp&#160;Architecture</b><br/>
+<b>CryIf</b><br/>
+Crypto_&lt;KeyManagement&gt;<br/>
+CryIf_CallbackNotification<br/>
+Crypto_CancelJob<br/>
+Crypto_ProcessJob<br/>
+«optional»<br/>
+Det_ReportError<br/>
+Crypto_MainFunction<br/>
+<b>RTE</b><br/>
+<b>Crypto</b><br/>
+<b>Det</b><br/>
+«optional»<br/>
+Crypto_Init<br/>
+<b>Bsw&#160;M</b><br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;CRYPTO&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>CRYPTO.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;&#160;[1],</a>&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+Vector&#160;Informatik&#160;provides&#160;further&#160;CRYPTO&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR&#160;standard.&#160;<br/>The&#160;corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">in&#160;[1]&#160;</a>are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Encrypt/Decrypt:&#160;AES-128 ECB/CBC&#160;<br/>MAC:&#160;AES&#160;CMAC&#160;<br/>RNG:&#160;TRNG&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;&#160;</b><br/>
+The&#160;following&#160;features&#160;specified&#160;in<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;[1]&#160;</a>are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Certificate&#160;handling&#160;<br/>All&#160;algorithms&#160;not&#160;stated&#160;i<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">n&#160;Table&#160;3-1&#160;<br/></a>The&#160;Read/Write&#160;Access&#160;for&#160;Key&#160;Elements&#160;are&#160;not&#160;checked&#160;when they&#160;are&#160;not&#160;located&#160;inside&#160;the&#160;<br/>SHE.&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>Storage of&#160;Keys&#160;into&#160;the&#160;SHE&#160;with the&#160;SymKeyExtract-API&#160;provided&#160;by&#160;the&#160;underlying&#160;CRY&#160;by&#160;<br/>using&#160;the&#160;‘SHE&#160;Key&#160;Update&#160;Protocol’<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;[4]&#160;<br/></a>Export&#160;of&#160;Keys&#160;from&#160;the&#160;SHE&#160;with the&#160;SymKeyWrapSym-API&#160;provided by&#160;the&#160;underlying&#160;CRY&#160;by&#160;<br/>using&#160;the&#160;‘SHE&#160;Key&#160;Update&#160;Protocol’<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;[4]&#160;<br/></a>Forwarding&#160;and&#160;converting&#160;service&#160;requests&#160;to&#160;the&#160;ASR4.2&#160;CRY&#160;APIs.&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+&#160;<br/>
+<b>3.1.3&#160;</b><br/>
+<b>Limitations&#160;</b><br/>
+<b>3.1.3.1&#160;</b><br/>
+<b>Cryptographic&#160;Algorithms&#160;and&#160;Modes&#160;</b><br/>
+Only&#160;a&#160;subset&#160;of&#160;the&#160;stated&#160;algorithms&#160;and&#160;modes&#160;in&#160;the&#160;AUTOSAR&#160;SWS<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;[1]&#160;</a>are&#160;currently&#160;<br/>supported.&#160;The&#160;list&#160;of&#160;algorithms is described&#160;in<a href="TechnicalReference_Crypto_30_CryWrappers.html#9">&#160;Table&#160;3-1.</a>&#160;<br/>
+<b>3.1.3.2&#160;</b><br/>
+<b>Certificate Handling&#160;</b><br/>
+Currently&#160;&#160;there&#160;&#160;is&#160;no&#160;&#160;implementation&#160;to&#160;parse&#160;&#160;and&#160;&#160;verify&#160;&#160;certificates.&#160;&#160;However&#160;&#160;the&#160;API&#160;&#160;is&#160;<br/>still&#160;available&#160;for compatibility&#160;reasons.&#160;<br/>
+<b>3.1.3.3&#160;</b><br/>
+<b>Key&#160;Generation&#160;</b><br/>
+Currently&#160;there is&#160;no&#160;implementation&#160;to&#160;generate&#160;keys.&#160;However the&#160;API&#160;is still&#160;available&#160;for&#160;<br/>compatibility&#160;reasons.&#160;<br/>
+<b>3.1.3.4&#160;</b><br/>
+<b>AEAD&#160;Det Checks&#160;</b><br/>
+The&#160;Det&#160;checks&#160;for&#160;AEAD&#160;differ&#160;from&#160;the&#160;table&#160;<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">in&#160;[1].&#160;</a>There&#160;is&#160;a&#160;different&#160;handling&#160;required&#160;<br/>for the&#160;AEAD&#160;implementation.&#160;The&#160;parameter&#160;check is&#160;described&#160;in<a href="TechnicalReference_Crypto_30_CryWrappers.html#15">&#160;Table&#160;3-8.</a>&#160;<br/>
+<b>3.1.3.5&#160;</b><br/>
+<b>Asynchronous&#160;CRY&#160;</b><br/>
+Handling&#160;of&#160;a&#160;CRY&#160;which&#160;is configured&#160;asynchronous&#160;is not&#160;supported.&#160;<br/>
+&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+Before&#160;&#160;any&#160;&#160;other&#160;&#160;functionality&#160;&#160;of&#160;&#160;the&#160;&#160;CRYPTO&#160;&#160;module&#160;&#160;can&#160;&#160;be&#160;&#160;called&#160;&#160;the&#160;&#160;initialization&#160;<br/>function&#160;Crypto_30_CryWrapper_Init()&#160;has to&#160;be&#160;called&#160;by&#160;the&#160;BSWM.&#160;<br/>
+For&#160;&#160;manual&#160;&#160;null&#160;&#160;initialization&#160;&#160;of&#160;&#160;RAM&#160;&#160;variables&#160;&#160;the&#160;&#160;CRYPTO&#160;&#160;offers&#160;&#160;the&#160;&#160;function&#160;<br/>Crypto_30_CryWrapper_InitMemory()&#160;<br/>
+which&#160;&#160;can&#160;&#160;be&#160;&#160;called&#160;&#160;before&#160;&#160;the&#160;<br/>
+Crypto_30_CryWrapper_Init().&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+The&#160;&#160;CRYPTO&#160;&#160;module&#160;&#160;implementation&#160;&#160;provides&#160;&#160;one&#160;&#160;main&#160;&#160;function.&#160;&#160;When&#160;&#160;the&#160;&#160;usage&#160;&#160;of&#160;<br/>asynchronous&#160;job&#160;processing&#160;is&#160;enabled,&#160;this&#160;main&#160;function&#160;has&#160;to&#160;be&#160;called&#160;cyclically&#160;on&#160;<br/>task level.&#160;The&#160;main&#160;function&#160;is responsible&#160;to&#160;start processing&#160;of&#160;the&#160;job.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>SHE&#160;Key&#160;Update&#160;Protocol&#160;</b><br/>
+The&#160;MICROSAR&#160;CRYPTO&#160;has&#160;the&#160;ability&#160;to&#160;update&#160;a&#160;key&#160;in&#160;the&#160;SHE&#160;hardware&#160;by&#160;using&#160;<br/>the&#160;SHE&#160;Key&#160;Update&#160;Protoco<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">l&#160;[4].</a>&#160;<br/>
+&#160;<br/>
+<b>3.4.1&#160;</b><br/>
+<b>Preconditions&#160;</b><br/>
+When&#160;a&#160;key&#160;shall&#160;be&#160;updated&#160;using&#160;the&#160;SHE&#160;Key&#160;Update&#160;Protocol the&#160;&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Write&#160;Access&#160;has to&#160;be&#160;Encrypted&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Key&#160;material must&#160;be&#160;a&#160;64&#160;byte&#160;long&#160;concatenated&#160;M1|M2|M3&#160;message&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;M4&#160;and&#160;M5&#160;are&#160;needed&#160;the&#160;“proof” key&#160;element&#160;must&#160;be&#160;available&#160;and&#160;has to&#160;be&#160;of&#160;<br/>
+size&#160;48&#160;bytes&#160;&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;CRYPTO_DEV_ERROR_REPORT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;CRYPTO&#160;ID is&#160;114.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_Crypto_30_CryWrappers.html#22">5.1.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x00&#160;<br/>
+Crypto_30_CryWrapper_Init()&#160;&#160;<br/>
+0x01&#160;<br/>
+Crypto_30_CryWrapper_GetVersionInfo()&#160;&#160;<br/>
+0x03&#160;<br/>
+Crypto_30_CryWrapper_ProcessJob()&#160;&#160;<br/>
+0x0E&#160;<br/>
+Crypto_30_CryWrapper_CancelJob()&#160;&#160;<br/>
+0x04&#160;<br/>
+Crypto_30_CryWrapper_KeyElementSet()&#160;&#160;<br/>
+0x05&#160;<br/>
+Crypto_30_CryWrapper_KeyValidSet()&#160;&#160;<br/>
+0x06&#160;<br/>
+Crypto_30_CryWrapper_KeyElementGet()&#160;&#160;<br/>
+0x0F&#160;<br/>
+Crypto_30_CryWrapper_KeyElementCopy()&#160;&#160;<br/>
+0x10&#160;<br/>
+Crypto_30_CryWrapper_KeyCopy()&#160;&#160;<br/>
+0x11&#160;<br/>
+Crypto_30_CryWrapper_KeyElementIdsGet()&#160;&#160;<br/>
+0x0D&#160;<br/>
+Crypto_30_CryWrapper_RandomSeed()&#160;&#160;<br/>
+0x07&#160;<br/>
+Crypto_30_CryWrapper_KeyGenerate()&#160;&#160;<br/>
+0x08&#160;<br/>
+Crypto_30_CryWrapper_KeyDerive()&#160;&#160;<br/>
+0x09&#160;<br/>
+Crypto_30_CryWrapper_KeyExchangeCalcPubVal()&#160;&#160;<br/>
+0x0A&#160;<br/>
+Crypto_30_CryWrapper_KeyExchangeCalcSecret()&#160;&#160;<br/>
+0x0B&#160;<br/>
+Crypto_30_CryWrapper_CertificateParse()&#160;&#160;<br/>
+0x12&#160;<br/>
+Crypto_30_CryWrapper_CertificateVerify()&#160;&#160;<br/>
+0x0C&#160;<br/>
+Crypto_30_CryWrapper_MainFunction()&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x00&#160;<br/>
+CRYPTO_E_UNINIT&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+0x01&#160;<br/>
+CRYPTO_E_INIT_FAILED&#160;&#160;&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x02&#160;<br/>
+CRYPTO_E_PARAM_POINTER&#160;&#160;<br/>
+0x04&#160;<br/>
+CRYPTO_E_PARAM_HANDLE&#160;&#160;<br/>
+0x05&#160;<br/>
+CRYPTO_E_PARAM_VALUE&#160;&#160;&#160;<br/>
+Table&#160;3-5&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+&#160;<br/>
+<b>3.6&#160;</b><br/>
+<b>Key&#160;Management&#160;</b><br/>
+This&#160;&#160;hardware&#160;&#160;driver&#160;&#160;has&#160;&#160;some&#160;&#160;special&#160;&#160;features&#160;&#160;regarding&#160;&#160;the&#160;&#160;key&#160;&#160;management&#160;<br/>functionalities.&#160;These&#160;features&#160;are&#160;described&#160;in&#160;the&#160;following.&#160;<br/>
+<b>3.6.1&#160;</b><br/>
+<b>Custom Key&#160;Elements&#160;</b><br/>
+The&#160;crypto&#160;driver&#160;does&#160;not&#160;use&#160;any&#160;custom&#160;key&#160;elements.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>3.6.2&#160;</b><br/>
+<b>Import&#160;Keys&#160;</b><br/>
+For&#160;&#160;storing&#160;&#160;keys&#160;&#160;inside&#160;&#160;the&#160;&#160;SHE,&#160;&#160;the&#160;&#160;API&#160;&#160;<a href="TechnicalReference_Crypto_30_CryWrappers.html#27">Crypto_30_CryWrapper_KeyElementSet()</a>&#160;&#160;is&#160;<br/>used.<a href="TechnicalReference_Crypto_30_CryWrappers.html#13">&#160;Table&#160;3-6&#160;</a>shows&#160;which&#160;input&#160;length&#160;and&#160;key&#160;group&#160;mapping&#160;is&#160;necessary&#160;to&#160;import&#160;a&#160;<br/>specific type&#160;of&#160;key.&#160;&#160;<br/>
+Input&#160;<br/>
+Length&#160;&#160;Key&#160;Ids&#160;<br/>
+<b>Plaintext&#160;Key&#160;</b><br/>
+16&#160;<br/>
+Key_Ram&#160;(0x0E)&#160;<br/>
+The&#160;key&#160;data&#160;consists&#160;of&#160;the&#160;plaintext&#160;key&#160;(16&#160;bytes).&#160;<br/>
+or&#160;any&#160;other&#160;user&#160;created&#160;key&#160;<br/>
+&#160;<br/>
+with 16&#160;bytes of&#160;length&#160;and&#160;<br/>the&#160;correct&#160;flags&#160;(e.g.&#160;<br/>WA_ALLOWED).&#160;<br/>
+&#160;<br/>
+<b>SHE&#160;Key&#160;as&#160;M1-M3&#160;</b><br/>
+64&#160;<br/>
+All&#160;preconfigured&#160;keys&#160;(e.g.&#160;<br/>
+The&#160;key&#160;data&#160;consists&#160;of&#160;the&#160;concatenation&#160;of&#160;<br/>
+Key_1)&#160;with the&#160;correct&#160;flags&#160;<br/>
+M1|M2|M3.&#160;<br/>
+(e.g.&#160;WA_ENCRYPTED).&#160;<br/>
+Table&#160;3-6&#160;&#160;&#160;Supported&#160;data&#160;format&#160;for&#160;key&#160;import&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>3.6.3&#160;</b><br/>
+<b>Export&#160;Keys&#160;</b><br/>
+For&#160;&#160;exporting&#160;&#160;keys&#160;&#160;from&#160;&#160;the&#160;&#160;HSM,&#160;&#160;the&#160;&#160;AP<a href="TechnicalReference_Crypto_30_CryWrappers.html#28">I&#160;&#160;Crypto_30_CryWrapper_KeyElementGet()</a>&#160;&#160;is&#160;<br/>used<a href="TechnicalReference_Crypto_30_CryWrappers.html#14">.&#160;&#160;Table&#160;&#160;3-7&#160;&#160;</a>shows&#160;&#160;which&#160;&#160;length&#160;&#160;and&#160;&#160;key&#160;&#160;group&#160;&#160;mapping&#160;&#160;is&#160;&#160;necessary&#160;&#160;to&#160;&#160;export&#160;&#160;a&#160;<br/>specific type&#160;of&#160;key.&#160;&#160;<br/>
+&#160;<br/>
+Output&#160;<br/>
+Length&#160;&#160;Key&#160;Id&#160;<br/>
+<b>SHE&#160;RAM&#160;Key&#160;as&#160;M1-M5&#160;</b><br/>
+112&#160;<br/>
+Key_Ram&#160;(0x0E)&#160;<br/>
+The&#160;key&#160;data&#160;consists&#160;of&#160;the&#160;concatenation&#160;of&#160;<br/>
+&#160;<br/>
+M1|M2|M3|M4|M5.<b>&#160;</b><br/>
+Table&#160;3-7&#160;&#160;&#160;Supported&#160;data&#160;format&#160;for&#160;key&#160;export&#160;<br/>
+&#160;<br/>
+<b>3.7&#160;</b><br/>
+<b>Algorithm Parameter&#160;Overview&#160;</b><br/>
+The&#160;&#160;required&#160;&#160;algorithm&#160;&#160;parameters&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;the&#160;&#160;following&#160;&#160;table.&#160;&#160;The&#160;&#160;required&#160;<br/>parameter differs&#160;from&#160;the&#160;table&#160;in<a href="TechnicalReference_Crypto_30_CryWrappers.html#2">&#160;[1].</a>&#160;<br/>
+&#160;<br/>
+<b>Member&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+tr<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+thP<br/>
+th<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+tr<br/>
+eng<br/>
+tr<br/>
+eng<br/>
+th<br/>
+P<br/>
+L<br/>
+&#160;<br/>
+&#160;<br/>
+t<br/>
+t<br/>
+<b>&#160;</b><br/>
+tP<br/>
+tL<br/>
+tr<br/>
+u<br/>
+u<br/>
+u<br/>
+u<br/>
+tr<br/>
+eng<br/>
+&#160;<br/>
+&#160;<br/>
+p<br/>
+p<br/>
+tP<br/>
+tL<br/>
+thP<br/>
+&#160;<br/>
+th<br/>
+In<br/>
+u<br/>
+u<br/>
+tr<br/>
+y<br/>
+Iny<br/>
+p<br/>
+p<br/>
+&#160;<br/>
+Outpy<br/>
+Outpy<br/>
+P<br/>
+&#160;<br/>
+&#160;<br/>
+tr<br/>
+eng<br/>
+&#160;<br/>
+4<br/>
+tr<br/>
+eng<br/>
+ar<br/>
+ar<br/>
+Iny<br/>
+Iny<br/>
+tP<br/>
+tL<br/>
+ar<br/>
+ar<br/>
+tr<br/>
+t6<br/>
+&#160;<br/>
+d<br/>
+d<br/>
+d<br/>
+d<br/>
+tP<br/>
+tL<br/>
+n<br/>
+n<br/>
+n<br/>
+n<br/>
+Py<br/>
+e&#160;<br/>
+u<br/>
+u<br/>
+o<br/>
+o<br/>
+tpu<br/>
+tpu<br/>
+o<br/>
+o<br/>
+tpu<br/>
+d<br/>
+<b>Service&#160;</b><br/>
+p<br/>
+p<br/>
+rtiar<br/>
+rtiar<br/>
+u<br/>
+u<br/>
+u<br/>
+o<br/>
+in<br/>
+in<br/>
+sec<br/>
+sec<br/>
+te<br/>
+te<br/>
+o<br/>
+o<br/>
+sec<br/>
+sec<br/>
+erifv<br/>
+o<br/>
+m<br/>
+HASH&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+MACGENERATE&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+MACVERIFY&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+ENCRYPT&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+UF&#160;<br/>
+UF&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+DECRYPT&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+UF&#160;<br/>
+UF&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+AEADENCRYPT&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+V&#160;<br/>
+U~&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+UF&#160;<br/>
+UF&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+AEADDECRYPT&#160;<br/>
+U&#160;<br/>
+U&#160;<br/>
+V&#160;<br/>
+U~&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+UF&#160;<br/>
+UF&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+SIGNATUREGENERATE&#160;<br/>
+UF&#160;&#160;U&#160;F~&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+SIGNATUREVERIFY&#160;<br/>
+UF&#160;&#160;U&#160;F~&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+SUF&#160;<br/>
+SECCOUNTERINCREMENT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+SECCOUNTERREAD&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+RANDOMGENERATE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+F&#160;<br/>
+F&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+S:&#160;member&#160;required&#160;in Start&#160;mode.&#160;&#160;<br/>U:&#160;member&#160;required&#160;in Update&#160;mode.&#160;&#160;<br/>V:&#160;member&#160;optional in&#160;Update&#160;mode.&#160;&#160;<br/>F:&#160;member&#160;required&#160;in Finish&#160;mode.&#160;&#160;<br/>~:&#160;no&#160;Det&#160;check&#160;required&#160;/&#160;0&#160;is&#160;a&#160;valid&#160;value.&#160;<br/>
+Table&#160;3-8&#160;&#160;&#160;Overview&#160;of&#160;the&#160;required&#160;algorithm&#160;parameter&#160;<br/>
+<b>3.8&#160;</b><br/>
+<b>Crypto Driver Configuration&#160;</b><br/>
+The&#160;Crypto&#160;Driver&#160;comes&#160;with&#160;pre-configured&#160;and&#160;recommended&#160;settings&#160;which&#160;define&#160;the&#160;<br/>supported&#160;algorithm&#160;primitives and&#160;its&#160;key&#160;with&#160;the&#160;associated&#160;key&#160;elements.&#160;<br/>
+<b>3.8.1&#160;</b><br/>
+<b>General&#160;Configuration&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;CryptoWrapperGeneral&#160;&#160;configuration&#160;&#160;section,&#160;&#160;the&#160;&#160;specifics&#160;&#160;of&#160;&#160;the&#160;&#160;underlying&#160;&#160;CRY&#160;<br/>can&#160;&#160;be&#160;&#160;defined.&#160;&#160;Refer&#160;&#160;to&#160;&#160;the&#160;&#160;description&#160;&#160;in&#160;&#160;the&#160;&#160;online&#160;&#160;help&#160;&#160;of&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;CFG5&#160;&#160;for&#160;&#160;the&#160;<br/>parameter&#160;<br/>
+descriptions&#160;<br/>
+and&#160;<br/>
+their&#160;<br/>
+values&#160;<br/>
+for&#160;<br/>
+different&#160;<br/>
+driver&#160;<br/>
+vendors.<br/>
+&#160;<br/>
+<b>3.8.2&#160;</b><br/>
+<b>Configuration of&#160;Keys&#160;</b><br/>
+The&#160;&#160;main&#160;&#160;configuration&#160;&#160;part&#160;&#160;for&#160;&#160;the&#160;&#160;keys&#160;&#160;is&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;&#160;pre-configuration&#160;&#160;and&#160;&#160;is&#160;&#160;not&#160;<br/>editable&#160;by&#160;the&#160;user.&#160;<br/>
+<b>3.8.2.1&#160;</b><br/>
+<b>Key&#160;Elements&#160;</b><br/>
+There&#160;five&#160;basic key&#160;elements&#160;which&#160;are&#160;needed&#160;regarding&#160;the&#160;HW&#160;CRYs.&#160;<br/>
+&#160;<br/>
+<b>Key&#160;Element&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Crypto_30_CryWrapper_AesIV&#160;<br/>
+This&#160;Key&#160;element&#160;is used&#160;to&#160;store&#160;the&#160;init&#160;<br/>vector of&#160;an&#160;AES&#160;operation.&#160;The&#160;IV&#160;is only&#160;<br/>needed&#160;if&#160;the&#160;block&#160;mode&#160;of&#160;AES&#160;is CBC.&#160;<br/>It&#160;is 16&#160;Bytes long&#160;and&#160;can&#160;be&#160;modified&#160;with&#160;<br/>the&#160;Csm_KeyElementSet()&#160;and&#160;<br/>Csm_KeyElementGet().&#160;<br/>&#160;<br/>
+Crypto_30_CryWrapper_SheNvmKey&#160;<br/>
+This&#160;key&#160;element&#160;is&#160;used&#160;as&#160;placeholder&#160;for&#160;<br/>
+&#160;<br/>
+a&#160;nonvolatile&#160;key&#160;slot&#160;in&#160;the&#160;SHE.&#160;<br/>It&#160;has&#160;a&#160;size&#160;of&#160;64&#160;Bytes&#160;which&#160;will&#160;be&#160;used&#160;<br/>for the&#160;concatenation&#160;of&#160;M1,&#160;M2&#160;and&#160;M3.&#160;<br/>It&#160;&#160;can&#160;&#160;only&#160;&#160;be&#160;&#160;written&#160;&#160;with&#160;&#160;the&#160;&#160;function&#160;<br/>Csm_KeyElementSet().&#160;<br/>
+Crypto_30_CryWrapper_SheProof&#160;<br/>
+This&#160;key&#160;element&#160;is&#160;used&#160;to&#160;store&#160;the&#160;Proof&#160;<br/>
+&#160;<br/>
+(M4|M5)&#160;&#160;after&#160;&#160;a&#160;&#160;successful&#160;&#160;Key&#160;&#160;Update&#160;<br/>protocol&#160;of&#160;the&#160;SHE.&#160;<br/>It&#160;has&#160;a&#160;size&#160;of&#160;48&#160;Bytes&#160;which&#160;will&#160;be&#160;used&#160;<br/>for the&#160;concatenation&#160;of&#160;M4&#160;and&#160;M5.&#160;<br/>It&#160;can&#160;be&#160;read&#160;with&#160;Csm_KeyElementGet().&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+Crypto_30_CryWrapper_SheRamKey&#160;<br/>
+This&#160;key&#160;element&#160;is&#160;used&#160;as&#160;placeholder&#160;for&#160;<br/>
+&#160;<br/>
+the&#160;RAM&#160;key&#160;slot&#160;of&#160;the&#160;SHE.&#160;It&#160;can&#160;be&#160;set&#160;<br/>with&#160;Csm_KeyElementSet().&#160;<br/>
+Crypto_30_CryWrapper_CryptoKey&#160;<br/>
+This key&#160;element&#160;is&#160;used&#160;to&#160;store&#160;a&#160;key&#160;in&#160;<br/>the&#160;key&#160;storage&#160;of&#160;the&#160;crypto&#160;driver.&#160;When&#160;<br/>an&#160;algorithm&#160;uses this&#160;key&#160;element,&#160;the&#160;key&#160;<br/>material is automatically&#160;stored&#160;to&#160;the&#160;RAM&#160;<br/>key&#160;slot&#160;of&#160;the&#160;SHE.&#160;It&#160;is 16&#160;Bytes long&#160;and&#160;<br/>can&#160;be&#160;modified&#160;(even&#160;partially)&#160;with&#160;<br/>Csm_KeyElementSet()&#160;and&#160;<br/>Csm_KeyElementGet().&#160;<br/>&#160;<br/>
+Table&#160;3-9&#160;&#160;&#160;Description&#160;of&#160;preconfigured&#160;key&#160;elements&#160;<br/>
+<b>3.8.2.2&#160;</b><br/>
+<b>Key&#160;Types&#160;</b><br/>
+&#160;<br/>
+<b>Key&#160;Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+SheNvmKey&#160;<br/>
+A&#160;key&#160;of&#160;this&#160;type&#160;represents&#160;a&#160;nonvolatile SHE&#160;<br/>keyslot&#160;(e.g.&#160;KEY_1)&#160;without&#160;the&#160;ability&#160;to&#160;<br/>compute&#160;AES&#160;CBC&#160;or&#160;store&#160;the&#160;result&#160;of&#160;the&#160;key&#160;<br/>update protocol.&#160;<br/>
+SheRamKey&#160;<br/>
+A&#160;key&#160;of&#160;this&#160;type&#160;represents&#160;a&#160;SHE&#160;RAM&#160;<br/>keyslot&#160;(KEY_RAM)&#160;without&#160;the&#160;ability&#160;to&#160;<br/>compute&#160;AES&#160;CBC&#160;or&#160;store&#160;the&#160;result&#160;of&#160;the&#160;key&#160;<br/>update protocol.&#160;<br/>
+&lt;…&gt;IV&#160;<br/>
+The&#160;key&#160;of&#160;this&#160;type&#160;has&#160;the&#160;ability&#160;to store&#160;the&#160;<br/>IV&#160;which is needed&#160;for&#160;AES&#160;in CBC&#160;mode.&#160;<br/>
+&lt;…&gt;Proof&lt;…&gt;&#160;<br/>
+The&#160;key&#160;of&#160;this&#160;type&#160;has&#160;the&#160;ability&#160;to store&#160;the&#160;<br/>M4 and&#160;M5 which&#160;is&#160;generated&#160;when a&#160;key&#160;is&#160;<br/>successfully&#160;updated.&#160;M4 and M5 can&#160;be&#160;used&#160;<br/>to verify&#160;the&#160;key&#160;update&#160;process.&#160;<br/>
+CryptoKey&#160;<br/>
+A&#160;key&#160;of&#160;this&#160;key&#160;type&#160;is&#160;stored&#160;in the&#160;key&#160;<br/>storage&#160;of&#160;the&#160;CRYPTO&#160;and loaded&#160;into&#160;the&#160;<br/>SHE&#160;RAM-Keyslot&#160;when it&#160;is&#160;needed.&#160;<br/>
+Table&#160;3-10&#160;&#160;&#160;Description&#160;of&#160;preconfigured&#160;key&#160;types&#160;<br/>
+&#160;<br/>
+<b>3.8.2.3&#160;</b><br/>
+<b>Keys&#160;</b><br/>
+The&#160;following&#160;keys represent&#160;the&#160;keys which&#160;are available&#160;in&#160;a&#160;SHE.&#160;<br/>They&#160;only&#160;have&#160;recommended&#160;types.&#160;This&#160;way,&#160;the&#160;user&#160;can&#160;define&#160;if&#160;for&#160;example&#160;the&#160;key&#160;<br/>has to&#160;hold&#160;an&#160;IV.&#160;In&#160;this case,&#160;reference&#160;a&#160;key&#160;type&#160;which&#160;includes&#160;the&#160;IV&#160;key&#160;element.&#160;<br/>The&#160;Ids&#160;of&#160;the&#160;keys match&#160;the&#160;keyId&#160;of&#160;the&#160;SHE&#160;specification.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Key&#160;</b><br/>
+<b>Description&#160;</b><br/>
+SecretKey&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;is&#160;only&#160;used&#160;when exporting&#160;the&#160;<br/>Key_Ram&#160;as&#160;AuthId.&#160;<br/>
+MasterEcuKey&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;by&#160;using&#160;the&#160;SHE&#160;key&#160;<br/>update protocol.&#160;<br/>
+BootMac&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;by&#160;using&#160;the&#160;SHE&#160;key&#160;<br/>update protocol.&#160;<br/>
+BootMacKey&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;by&#160;using&#160;the&#160;SHE&#160;key&#160;<br/>update protocol.&#160;<br/>
+Key_1&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;by&#160;using&#160;the&#160;SHE&#160;key&#160;<br/>update protocol.&#160;<br/>
+Key_&lt;…&gt;&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;by&#160;using&#160;the&#160;SHE&#160;key&#160;<br/>update protocol.&#160;<br/>
+Key_20&#160;<br/>
+NVM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;by&#160;using&#160;the&#160;SHE&#160;key&#160;<br/>update protocol.&#160;<br/>
+Key_Ram&#160;<br/>
+RAM&#160;key&#160;which is stored&#160;inside&#160;the&#160;SHE&#160;<br/>hardware.&#160;It&#160;can&#160;be&#160;set&#160;as&#160;plaintext&#160;key&#160;and can&#160;<br/>be&#160;exported&#160;as&#160;M1M2M3M4M5&#160;<br/>
+CryptoKey&#160;<br/>
+Key&#160;located&#160;in the&#160;unsecure&#160;key&#160;storage&#160;on&#160;the&#160;<br/>application core&#160;(RAM).&#160;When&#160;the&#160;key&#160;is&#160;used&#160;<br/>by&#160;a job,&#160;it&#160;will&#160;be&#160;loaded automatically&#160;into&#160;<br/>Key_Ram.&#160;<br/>
+Table&#160;3-11&#160;&#160;&#160;Description&#160;of&#160;pre-configured&#160;keys&#160;<br/>
+&#160;<br/>
+<b>3.8.3&#160;</b><br/>
+<b>Wrapping of&#160;CRY&#160;</b><br/>
+<b>3.8.3.1&#160;</b><br/>
+<b>Configuration of&#160;the&#160;underlying CRY&#160;</b><br/>
+-&#160;&#160;All&#160;services&#160;of&#160;the&#160;underlying&#160;CRY&#160;have&#160;to&#160;match&#160;the&#160;mapping&#160;which&#160;is&#160;configured&#160;<br/>
+in&#160;the&#160;general configuration&#160;of&#160;the&#160;CRYPTO.&#160;<br/>
+-&#160;&#160;The&#160;underlying&#160;CRY&#160;has to&#160;be&#160;configured&#160;synchronous&#160;<br/>
+<b>3.8.3.2&#160;</b><br/>
+<b>Algorithms&#160;</b><br/>
+CRY&#160;services&#160;which&#160;are seen&#160;as&#160;algorithms&#160;are:&#160;<br/>
+-&#160;&#160;MacGenerate&#160;<br/>
+-&#160;&#160;MacVerify&#160;<br/>
+-&#160;&#160;SymEncrypt&#160;<br/>
+-&#160;&#160;SymDecrypt&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-18_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-18_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+-&#160;&#160;RandomGenerate&#160;<br/>
+&#160;<br/>
+To&#160;add&#160;a&#160;CRY&#160;service&#160;to&#160;the&#160;wrapper&#160;there&#160;are&#160;two&#160;possibilities.&#160;Either&#160;by&#160;manually&#160;adding&#160;<br/>the&#160;&#160;include&#160;&#160;file,&#160;&#160;primitive&#160;&#160;name&#160;&#160;and&#160;&#160;init&#160;&#160;configuration&#160;&#160;structure,&#160;&#160;or&#160;&#160;by&#160;&#160;referencing&#160;&#160;a&#160;&#160;CRY&#160;<br/>service&#160;&#160;which&#160;is&#160;present&#160;in&#160;the&#160;current&#160;configuration.&#160;The&#160;referencing&#160;functionality&#160;is&#160;only&#160;<br/>available&#160;for CRYs which&#160;can&#160;be&#160;configured&#160;in&#160;CFG5.&#160;<br/>In<a href="TechnicalReference_Crypto_30_CryWrappers.html#18">&#160;Figure&#160;3-1&#160;</a>it&#160;can&#160;be&#160;seen,&#160;how&#160;the&#160;necessary&#160;options&#160;are&#160;automatically&#160;filled&#160;out,&#160;when&#160;<br/>a&#160;CRY&#160;service&#160;is referenced.&#160;<br/>Additionally,&#160;the&#160;CSM&#160;Jobs&#160;have&#160;to&#160;be&#160;referenced,&#160;which&#160;shall&#160;be&#160;used&#160;in&#160;conjunction&#160;with&#160;<br/>this CRY&#160;service.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Pay&#160;special&#160;attention&#160;to&#160;the&#160;fact,&#160;that&#160;the&#160;job&#160;primitive configured&#160;in&#160;the&#160;CSM&#160;has&#160;to&#160;<br/>
+<b>&#160;&#160;</b>match&#160;the&#160;connected&#160;CRY&#160;service.&#160;There is&#160;currently&#160;no&#160;validation&#160;available,&#160;if&#160;the&#160;<br/>
+settings&#160;are&#160;matching&#160;together&#160;(e.g.&#160;if&#160;AES&#160;mode&#160;is&#160;set&#160;to CBC&#160;in both&#160;the&#160;CSM-Job&#160;<br/>and the&#160;CRY&#160;service)&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;Example&#160;SymKeyExtract&#160;Configuration&#160;for&#160;Vector&#160;CRY&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-19_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-19_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>3.8.3.3&#160;</b><br/>
+<b>Key&#160;Functions&#160;</b><br/>
+To&#160;store&#160;and&#160;export&#160;keys&#160;and&#160;feed&#160;the&#160;random&#160;number&#160;generator&#160;with&#160;a&#160;seed,&#160;different&#160;Cry&#160;<br/>interfaces&#160;are&#160;used.&#160;<br/>For&#160;the&#160;RAM&#160;key&#160;export&#160;and&#160;the&#160;random&#160;seed&#160;functionalities,&#160;the&#160;depending&#160;CRY&#160;services&#160;<br/>have&#160;to&#160;be&#160;selected.&#160;<br/>Only&#160;the&#160;interface&#160;for storing&#160;keys into&#160;the&#160;SHE&#160;differs slightly&#160;between&#160;vendors.&#160;<br/>In&#160;&#160;case&#160;&#160;of&#160;&#160;a&#160;&#160;Vector&#160;&#160;CRY,&#160;&#160;just&#160;&#160;reference&#160;&#160;a&#160;&#160;CRY&#160;&#160;SymKeyExtract&#160;&#160;Service&#160;&#160;and&#160;&#160;select&#160;<br/>CRYPTO_ALL_KEYS.&#160;<br/>If&#160;you&#160;have&#160;a&#160;CRY&#160;from&#160;a&#160;third&#160;party&#160;vendor,&#160;e.g.&#160;SHE+&#160;for&#160;AURIX,&#160;see<a href="TechnicalReference_Crypto_30_CryWrappers.html#19">&#160;Figure&#160;3-2&#160;</a>for&#160;an&#160;<br/>example.&#160;<br/>
+&#160;<br/>
+Figure&#160;3-2&#160;&#160;Example&#160;SymKeyExtract&#160;configuration&#160;for&#160;third&#160;party&#160;CRY&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;&#160;CRYPTO&#160;<br/>into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;CRYPTO&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Crypto_30_CryWrappers.html#20">rs&#160;4.1.1&#160;<br/>and&#160;4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Crypto_30_CryWrapper.c&#160;<br/>
+This&#160;is&#160;the&#160;main&#160;source&#160;file of&#160;the&#160;CRYPTO&#160;<br/>
+Crypto_30_CryWrapper.h&#160;<br/>
+This&#160;is&#160;the&#160;source&#160;file of&#160;the&#160;CRYPTO&#160;<br/>
+Crypto_30_CryWrapper_Cipher.c&#160;<br/>
+This&#160;source&#160;file&#160;contains&#160;cipher&#160;algorithms&#160;<br/>
+Crypto_30_CryWrapper_KeyManagement.c&#160;&#160;This&#160;source&#160;file&#160;contains&#160;the&#160;CRYPTO´s&#160;key&#160;<br/>
+management&#160;functions&#160;<br/>
+Crypto_30_CryWrapper_KeyManagement.h&#160;&#160;This&#160;header&#160;file&#160;contains&#160;the&#160;CRYPTO´s&#160;key&#160;<br/>
+management&#160;functions&#160;<br/>
+Crypto_30_CryWrapper_Mac.c&#160;<br/>
+This&#160;source&#160;file&#160;contains&#160;MAC&#160;algorithms&#160;<br/>
+Crypto_30_CryWrapper_Random.c&#160;<br/>
+This&#160;source&#160;file&#160;contains&#160;PRNG&#160;algorithms&#160;<br/>
+Crypto_30_CryWrapper_Services.h&#160;<br/>
+This&#160;header&#160;file is used&#160;for&#160;the&#160;internal&#160;dispatcher&#160;<br/>
+Crypto_30_CryWrapper_Hw.c&#160;<br/>
+This&#160;source&#160;file contains&#160;the&#160;hardware&#160;dependent&#160;<br/>parts&#160;of&#160;the&#160;driver.&#160;<br/>
+Crypto_30_CryWrapper_Hw.h&#160;<br/>
+This&#160;header&#160;file contains&#160;the&#160;hardware&#160;dependent&#160;<br/>parts&#160;of&#160;the&#160;driver.&#160;<br/>
+Crypto_30_CryWrapper_Generated_Types.h&#160;&#160;This&#160;header&#160;file contains&#160;necessary&#160;definitions&#160;and&#160;<br/>
+types&#160;which&#160;must&#160;be&#160;present&#160;in&#160;the&#160;CSM.&#160;This&#160;file&#160;<br/>can&#160;be&#160;added&#160;to&#160;the&#160;CSM&#160;as an&#160;additional&#160;include.&#160;<br/>
+Crypto_30_CryWrapper_Custom.h&#160;<br/>
+This&#160;header&#160;file contains&#160;definitions&#160;for&#160;custom&#160;key&#160;<br/>elements.&#160;This&#160;file&#160;can&#160;be&#160;added&#160;to&#160;the&#160;CSM&#160;as an&#160;<br/>additional&#160;include.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool DaVinci Configurator 5&#160;Pro.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Crypto_30_CryWrapper_Cfg&#160;This&#160;is&#160;configuration source&#160;file.&#160;<br/>.c&#160;<br/>Crypto_30_CryWrapper_Cfg&#160;This&#160;is&#160;configuration header&#160;file.&#160;<br/>.h&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+&#160;Crypto&#160;uses the&#160;following&#160;critical sections:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRYPTO_30_CRYWRAPPER_EXCLUSIVE_AREA_0&#160;<br/>
+This critical section&#160;protects&#160;workspace&#160;locking&#160;resources&#160;and&#160;so&#160;this&#160;section&#160;should&#160;<br/>never be&#160;interrupted&#160;by&#160;any&#160;other&#160;API&#160;of&#160;the&#160;Crypto&#160;module.&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRYPTO_30_CRYWRAPPER_EXCLUSIVE_AREA_1&#160;<br/>
+This critical section&#160;protects&#160;32&#160;Bit&#160;accesses and&#160;is only&#160;necessary&#160;in&#160;case&#160;of&#160;HW&#160;<br/>doesn't&#160;offer an&#160;atomic&#160;access.&#160;<br/>
+<b>&gt;&#160;&#160;</b>CRYPTO_30_CRYWRAPPER_EXCLUSIVE_AREA_2&#160;<br/>
+This critical section&#160;protects&#160;the&#160;reading&#160;key&#160;access against&#160;a&#160;parallel key&#160;<br/>manipulation.&#160;The&#160;critical section&#160;should&#160;never be&#160;interrupted&#160;by&#160;any&#160;key&#160;manipulation&#160;<br/>method.&#160;So,&#160;most&#160;of&#160;the&#160;time,&#160;it is sufficient&#160;to&#160;prevent&#160;the&#160;current&#160;task to&#160;be&#160;<br/>interrupted&#160;by&#160;another&#160;task which&#160;could&#160;execute&#160;a&#160;Key&#160;Setting&#160;Method.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_Crypto_30_CryWrappers.html#8">&#160;Figure&#160;2-2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Services&#160;provided by&#160;CRYPTO&#160;</b><br/>
+&#160;<br/>
+<b>5.1.1&#160;</b><br/>
+<b>Crypto_30_CryWrapper_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Crypto_30_CryWrapper_Init&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the Crypto&#160;Driver.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Specification of&#160;module initialization&#160;<br/>
+&gt;&#160;&#160;Interrupts&#160;are disabled.&#160;Module&#160;is&#160;uninitialized.&#160;<br/>This&#160;function&#160;initializes&#160;the&#160;module&#160;Crypto_30_CryWrapper.&#160;It&#160;initializes&#160;all&#160;variables&#160;and sets&#160;the module&#160;<br/>state to&#160;initialized.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Crypto_30_CryWrapper_Init&#160;<br/>
+&#160;<br/>
+<b>5.1.2&#160;</b><br/>
+<b>Crypto_30_CryWrapper_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Crypto_30_CryWrapper_InitMemory&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;initializes&#160;variables,&#160;which cannot&#160;be&#160;initialized&#160;with&#160;the&#160;startup&#160;code.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Module&#160;is&#160;uninitialized.&#160;<br/>Initialize component variables&#160;at&#160;power up.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;Crypto_30_CryWrapper_InitMemory&#160;<br/>
+&#160;<br/>
+<b>5.1.3&#160;</b><br/>
+<b>Crypto_30_CryWrapper_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Crypto_30_CryWrapper_GetVersionInfo&#160;</b>(Std_VersionInfoType *versioninfo)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo [out]&#160;<br/>
+Pointer&#160;to&#160;where to store the version&#160;information.&#160;Parameter&#160;must not&#160;be&#160;<br/>NULL.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Returns&#160;the&#160;version information.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Crypto_30_CryWrapper_GetVersionInfo()&#160;returns&#160;version&#160;information,&#160;vendor&#160;ID&#160;and&#160;AUTOSAR module&#160;ID&#160;<br/>of&#160;the component.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK|ISR&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;Crypto_30_CryWrapper_GetVersionInfo&#160;<br/>
+&#160;<br/>
+<b>5.1.4&#160;</b><br/>
+<b>Crypto_30_CryWrapper_ProcessJob&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_ProcessJob&#160;</b>(uint32 objectId, Crypto_JobType&#160;<br/>*job)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+objectId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the Crypto&#160;Driver Object.&#160;<br/>
+job&#160;[in,out]&#160;<br/>
+Pointer&#160;to the configuration&#160;of&#160;the job. Contains&#160;structures&#160;with&#160;job&#160;and&#160;<br/>primitive relevant&#160;information&#160;but&#160;also&#160;pointer to result&#160;buffers.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_NOT_VALID&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;valid.&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Process&#160;the received&#160;job.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Performs&#160;the crypto&#160;primitive that&#160;is&#160;configured&#160;in&#160;the&#160;job parameter.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;Crypto_30_CryWrapper_ProcessJob&#160;<br/>
+&#160;<br/>
+<b>5.1.5&#160;</b><br/>
+<b>Crypto_30_CryWrapper_CancelJob&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_CancelJob&#160;</b>(uint32 objectId, Crypto_JobType&#160;<br/>*job)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+objectId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the Crypto&#160;Driver Object.&#160;<br/>
+job&#160;[in,out]&#160;<br/>
+Pointer&#160;to the configuration&#160;of&#160;the job. Contains&#160;structures&#160;with&#160;user and&#160;<br/>primitive relevant&#160;information.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful, job&#160;has&#160;been removed.&#160;<br/>
+Std_ReturnType&#160;<br/>
+E_NOT_OK&#160;Request failed, job&#160;could not&#160;be removed.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Cancels&#160;the&#160;received&#160;job.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;interface removes&#160;the&#160;provided job&#160;from&#160;the queue and cancels&#160;the&#160;processing&#160;of&#160;the&#160;job&#160;if&#160;possible.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;Crypto_30_CryWrapper_CancelJob&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Key&#160;Management&#160;Functions&#160;</b><br/>
+&#160;<br/>
+<b>5.2.1&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyCopy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyCopy&#160;</b>(uint32 cryptoKeyId, uint32&#160;<br/>targetCryptoKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;source&#160;element.&#160;<br/>
+targetCryptoKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;destination&#160;<br/>element.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed,&#160;read&#160;access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed,&#160;write access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed,&#160;the&#160;key&#160;element sizes&#160;<br/>are not&#160;compatible.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copy&#160;the key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Copies&#160;a&#160;key&#160;with&#160;all&#160;its&#160;elements&#160;to&#160;another key&#160;in&#160;the&#160;same crypto&#160;driver.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;Crypto_30_CryWrapper_KeyCopy&#160;<br/>
+&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyElementCopy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyElementCopy&#160;</b>(uint32 cryptoKeyId, uint32&#160;<br/>keyElementId, uint32 targetCryptoKeyId, uint32 targetKeyElementId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;source&#160;element.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;the&#160;source for the&#160;copy&#160;<br/>operation.&#160;<br/>
+targetCryptoKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;destination&#160;<br/>element.&#160;<br/>
+targetKeyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;the&#160;destination&#160;for the&#160;<br/>copy&#160;operation.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed,&#160;read&#160;access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed,&#160;write access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_EXTRACT_DENIED&#160;Request failed,&#160;not allowed&#160;to&#160;extract&#160;<br/>key&#160;material.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request&#160;failed,&#160;the&#160;key&#160;element sizes&#160;<br/>are not&#160;compatible.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copy&#160;key&#160;element.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Copies&#160;a&#160;key&#160;element to&#160;another key&#160;element in&#160;the&#160;same crypto&#160;driver.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;Crypto_30_CryWrapper_KeyElementCopy&#160;<br/>
+&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyElementIdsGet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyElementIdsGet&#160;</b>(uint32 cryptoKeyId,&#160;<br/>uint32 *keyElementIdsPtr, uint32 *keyElementIdsLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose&#160;available&#160;element ids&#160;shall&#160;be&#160;exported.&#160;<br/>
+keyElementIdsLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;number&#160;of&#160;key&#160;element in&#160;<br/>
+[in]&#160;<br/>
+the&#160;given&#160;key&#160;is&#160;stored.&#160;On&#160;calling&#160;this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain&#160;<br/>the&#160;size&#160;of&#160;the buffer provided&#160;by&#160;keyElementIdsPtr.&#160;When the&#160;request&#160;has&#160;<br/>finished,&#160;the&#160;actual&#160;number&#160;of&#160;key&#160;elements&#160;is&#160;stored.&#160;<br/>
+keyElementIdsPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;array&#160;where the&#160;ids&#160;of&#160;the&#160;key&#160;elements&#160;shall&#160;be&#160;<br/>stored.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Used&#160;to&#160;retrieve&#160;information&#160;which key&#160;elements&#160;are available in a&#160;given key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;Crypto_30_CryWrapper_KeyElementIdsGet&#160;<br/>
+&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyElementSet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyElementSet&#160;</b>(uint32 cryptoKeyId, uint32&#160;<br/>keyElementId, const uint8 *keyPtr, uint32 keyLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;set.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;set.&#160;<br/>
+keyPtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to&#160;the key&#160;data&#160;which shall&#160;be&#160;set&#160;as&#160;key&#160;element.&#160;<br/>
+keyLength [in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the key&#160;element in bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed,&#160;write access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed,&#160;the&#160;key&#160;element size&#160;<br/>does&#160;not&#160;match size&#160;of&#160;provided data.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;a&#160;key&#160;element.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Sets&#160;the given&#160;key&#160;element&#160;bytes&#160;to&#160;the&#160;key&#160;identified&#160;by&#160;cryptoKeyId.&#160;.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;Crypto_30_CryWrapper_KeyElementSet&#160;<br/>
+&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyValidSet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyValidSet&#160;</b>(uint32 cryptoKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;elements&#160;shall&#160;be&#160;set to&#160;valid.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;the key&#160;to&#160;valid.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Sets&#160;the key&#160;state&#160;of&#160;the key&#160;identified&#160;by&#160;cryptoKeyId to valid.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Crypto_30_CryWrapper_KeyValidSet&#160;<br/>
+&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyElementGet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyElementGet&#160;</b>(uint32 cryptoKeyId, uint32&#160;<br/>keyElementId, uint8 *resultPtr, uint32 *resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;set.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;set.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+resultPtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the key&#160;data&#160;which shall&#160;be&#160;set&#160;as&#160;key&#160;element.&#160;<br/>
+resultLengthPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the key&#160;element in bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed,&#160;read&#160;access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed,&#160;the&#160;provided buffer is&#160;too&#160;<br/>small&#160;to&#160;store the result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface shall&#160;be used&#160;to&#160;get&#160;a key&#160;element of&#160;the&#160;key&#160;identified by&#160;the cryptoKeyId&#160;and store the key&#160;<br/>element in the memory&#160;location pointed&#160;by&#160;the&#160;result&#160;pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;Crypto_30_CryWrapper_KeyElementGet&#160;<br/>
+&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>Crypto_30_CryWrapper_RandomSeed&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_RandomSeed&#160;</b>(uint32 cryptoKeyId, const uint8&#160;<br/>*entropyPtr, uint32 entropyLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;for&#160;which a&#160;new&#160;seed&#160;shall&#160;be&#160;generated.&#160;<br/>
+entropyPtr&#160;[in]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;contains&#160;the&#160;data&#160;to&#160;feed&#160;the&#160;<br/>entropy.&#160;<br/>
+entropyLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the entropy&#160;in bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-30_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-30_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialize the&#160;seed.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;generates&#160;the&#160;internal&#160;seed&#160;state&#160;using the provided&#160;entropy&#160;source.&#160;Furthermore, this&#160;<br/>function&#160;can&#160;be&#160;used&#160;to update&#160;the&#160;seed&#160;state&#160;with&#160;new&#160;entropy.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;Crypto_30_CryWrapper_RandomSeed&#160;<br/>
+&#160;<br/>
+<b>5.2.8&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyGenerate&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyGenerate&#160;</b>(uint32 cryptoKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;to&#160;be&#160;updated&#160;with&#160;the&#160;generated&#160;value.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Generates&#160;a key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;<br/></b>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;API&#160;does&#160;not&#160;offer&#160;any&#160;functionality&#160;and is only&#160;available&#160;for&#160;compatibility&#160;<br/>
+&#160;&#160;reasons.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;Crypto_30_CryWrapper_KeyGenerate&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-31_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-31_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>5.2.9&#160;</b><br/>
+<b>Crypto_30_CryWrapper_KeyDerive&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyDerive&#160;</b>(uint32 cryptoKeyId, uint32&#160;<br/>targetCryptoKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;used&#160;for key&#160;derivation.&#160;<br/>
+targetCryptoKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;used&#160;to&#160;store the derived key.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Derives&#160;a&#160;key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;API&#160;does&#160;not&#160;offer&#160;any&#160;functionality&#160;and is only&#160;available&#160;for&#160;compatibility&#160;<br/>
+&#160;&#160;reasons.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;Crypto_30_CryWrapper_KeyDerive&#160;<br/>
+&#160;<br/>
+<b>5.2.10&#160;&#160;Crypto_30_CryWrapper_KeyExchangeCalcPubVal&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyExchangeCalcPubVal&#160;</b>(uint32 cryptoKeyId,&#160;<br/>uint8 *publicValuePtr, uint32 *publicValueLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which shall&#160;be used for the&#160;key&#160;exchange&#160;<br/>protocol.&#160;<br/>
+publicValuePtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;public&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+publicValueLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;public&#160;value&#160;length&#160;<br/>
+[in,out]&#160;<br/>
+information&#160;is&#160;stored. On calling&#160;this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;<br/>size&#160;of&#160;the buffer provided&#160;by&#160;publicValuePtr.&#160;When the&#160;request has&#160;finished,&#160;<br/>the&#160;actual&#160;length of&#160;the returned&#160;value&#160;shall&#160;be stored.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-32_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-32_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calculation&#160;of&#160;the public&#160;value.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;API&#160;does&#160;not&#160;offer&#160;any&#160;functionality&#160;and is only&#160;available&#160;for&#160;compatibility&#160;<br/>
+&#160;&#160;reasons.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;Crypto_30_CryWrapper_KeyExchangeCalcPubVal&#160;<br/>
+&#160;<br/>
+<b>5.2.11&#160;&#160;Crypto_30_CryWrapper_KeyExchangeCalcSecret&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_KeyExchangeCalcSecret&#160;</b>(uint32 cryptoKeyId,&#160;<br/>const uint8 *partnerPublicValuePtr, uint32 partnerPublicValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which shall&#160;be used for the&#160;key&#160;exchange&#160;<br/>protocol.&#160;<br/>
+partnerPublicValuePtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the memory&#160;location&#160;which contains&#160;the&#160;partners&#160;public&#160;<br/>value.&#160;<br/>
+partnerPublicValueLength&#160;&#160;Contains&#160;the&#160;length&#160;of&#160;the partners&#160;public&#160;value in bytes.&#160;<br/>[in]&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-33_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-33_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-33_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calculation&#160;of&#160;the secret.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;API&#160;does&#160;not&#160;offer&#160;any&#160;functionality&#160;and is only&#160;available&#160;for&#160;compatibility&#160;<br/>
+&#160;&#160;reasons.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-16&#160;&#160;&#160;Crypto_30_CryWrapper_KeyExchangeCalcSecret&#160;<br/>
+&#160;<br/>
+<b>5.2.12&#160;&#160;Crypto_30_CryWrapper_CertificateParse&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_CertificateParse&#160;</b>(uint32 cryptoKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;slot&#160;in&#160;which the&#160;certificate&#160;has&#160;been stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request&#160;successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Parse stored&#160;certificate.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>&#160;<br/>Note&#160;<br/></b>This&#160;API&#160;does&#160;not&#160;offer&#160;any&#160;functionality&#160;and is only&#160;available&#160;for&#160;compatibility&#160;<br/>
+&#160;&#160;reasons.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-34_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-34_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-17&#160;&#160;&#160;Crypto_30_CryWrapper_CertificateParse&#160;<br/>
+&#160;<br/>
+<b>5.2.13&#160;&#160;Crypto_30_CryWrapper_CertificateVerify&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Crypto_30_CryWrapper_CertificateVerify&#160;</b>(uint32 cryptoKeyId,&#160;<br/>uint32 verifyCryptoKeyId, Crypto_VerifyResultType *verifyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryptoKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which shall&#160;be used to&#160;validate the certificate.&#160;<br/>
+verifyCryptoKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;containing&#160;the&#160;certificate, which&#160;shall&#160;be&#160;verified.&#160;<br/>
+verifyPtr&#160;[out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;contain&#160;the&#160;result&#160;of&#160;the&#160;<br/>certificate&#160;verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Certificate&#160;verification.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;API&#160;does&#160;not&#160;offer&#160;any&#160;functionality&#160;and is only&#160;available&#160;for&#160;compatibility&#160;<br/>
+&#160;&#160;reasons.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-18&#160;&#160;&#160;Crypto_30_CryWrapper_CertificateVerify&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;CRYPTO&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>CRYPTO&#160;&#160;are&#160;&#160;listed.&#160;&#160;For&#160;&#160;details&#160;&#160;about&#160;&#160;prototype&#160;&#160;and&#160;&#160;functionality&#160;&#160;refer&#160;&#160;to&#160;&#160;the&#160;<br/>documentation&#160;of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError&#160;<br/>
+Table&#160;5-19&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;CRYPTO&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-35_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+35&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-36_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;CRYPTO&#160;the&#160;attributes&#160;can&#160;be&#160;configured&#160;according&#160;to/&#160;with&#160;the&#160;following&#160;methods/&#160;<br/>tools:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator 5&#160;Pro&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;CRYPTO&#160;supports the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;&#160;configuration&#160;&#160;classes&#160;&#160;of&#160;&#160;the&#160;&#160;CRYPTO&#160;&#160;parameters&#160;&#160;depend&#160;&#160;on&#160;&#160;the&#160;&#160;supported&#160;<br/>configuration&#160;<br/>
+variants.&#160;<br/>
+For&#160;<br/>
+their&#160;<br/>
+definitions&#160;<br/>
+please&#160;<br/>
+see&#160;<br/>
+the&#160;<br/>
+Crypto_30_CryWrapper_bswmd.arxml file.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+36&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-37_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+CSM&#160;<br/>
+Crypto&#160;Service Manager&#160;<br/>
+CRYIF&#160;<br/>
+Crypto&#160;Interface&#160;<br/>
+CRYPTO&#160;<br/>
+Crypto&#160;Driver&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+SHE&#160;<br/>
+Secure Hardware&#160;Extension&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+37&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=38></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Crypto_30_CryWrapper-38_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CRYPTO&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.1.0&#160;<br/>
+38&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#7">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">3.1.1 Deviations</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#9">3.1.2 Additions/ Extensions</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3 Limitations</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.1 Cryptographic Algorithms and Modes</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.2 Certificate Handling</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.3 Key Generation</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.4 AEAD Det Checks</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.1.3.5 Asynchronous CRY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.3 Main Functions</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.4 SHE Key Update Protocol</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#10">3.4.1 Preconditions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#11">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#11">3.5.1 Development Error Reporting</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#12">3.6 Key Management</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#12">3.6.1 Custom Key Elements</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#13">3.6.2 Import Keys</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#14">3.6.3 Export Keys</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#14">3.7 Algorithm Parameter Overview</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#15">3.8 Crypto Driver Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#15">3.8.1 General Configuration</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#15">3.8.2 Configuration of Keys</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#15">3.8.2.1 Key Elements</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#16">3.8.2.2 Key Types</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#16">3.8.2.3 Keys</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#17">3.8.3 Wrapping of CRY</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#17">3.8.3.1 Configuration of the underlying CRY</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#17">3.8.3.2 Algorithms</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#19">3.8.3.3 Key Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#20">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#20">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#20">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#20">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#21">4.2 Critical Sections</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#22">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#22">5.1 Services provided by CRYPTO</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#22">5.1.1 Crypto_30_CryWrapper_Init</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#22">5.1.2 Crypto_30_CryWrapper_InitMemory</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#23">5.1.3 Crypto_30_CryWrapper_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#23">5.1.4 Crypto_30_CryWrapper_ProcessJob</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#24">5.1.5 Crypto_30_CryWrapper_CancelJob</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#25">5.2 Key Management Functions</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#25">5.2.1 Crypto_30_CryWrapper_KeyCopy</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#25">5.2.2 Crypto_30_CryWrapper_KeyElementCopy</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#26">5.2.3 Crypto_30_CryWrapper_KeyElementIdsGet</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#27">5.2.4 Crypto_30_CryWrapper_KeyElementSet</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#28">5.2.5 Crypto_30_CryWrapper_KeyValidSet</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#28">5.2.6 Crypto_30_CryWrapper_KeyElementGet</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#29">5.2.7 Crypto_30_CryWrapper_RandomSeed</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#30">5.2.8 Crypto_30_CryWrapper_KeyGenerate</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#31">5.2.9 Crypto_30_CryWrapper_KeyDerive</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#31">5.2.10 Crypto_30_CryWrapper_KeyExchangeCalcPubVal</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#32">5.2.11 Crypto_30_CryWrapper_KeyExchangeCalcSecret</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#33">5.2.12 Crypto_30_CryWrapper_CertificateParse</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#34">5.2.13 Crypto_30_CryWrapper_CertificateVerify</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#34">5.3 Services used by CRYPTO</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#36">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#36">6.1 Configuration Variants</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#37">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#37">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#37">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Crypto_30_CryWrappers.html#38">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

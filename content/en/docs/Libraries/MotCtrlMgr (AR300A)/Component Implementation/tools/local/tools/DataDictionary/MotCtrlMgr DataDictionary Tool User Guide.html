@@ -1,0 +1,79 @@
+---
+title: MotCtrlMgr DataDictionary Tool User Guide
+linkTitle: MotCtrlMgr DataDictionary Tool User Guide
+weight: 5
+---
+
+<h1 id="purpose">Purpose</h1>
+<p>This document provides details on using the DataDictionary.exe tool for generating and testing the MotCtrlMgr component.</p>
+<h1 id="overview">Overview</h1>
+<p>The MotCtrlMgr component is a project specific, highly configurable component. The majority of the configuration parameters of the component, however, can be derived from analysis of the collection of data dictionaries that exist within any given project. A tool was created (DataDictionary.exe) to create a file which contains the bulk of the MotCtrlMgr configuration which can subsequently be imported into the AUTOSAR Configuration Tools (Davinci Configurator). While this tool can primarily be used at a project configuration level, it also is used at a component level in the MotCtrlMgr component. The usage at a component level serves two primary purposes:</p>
+<ol type="1">
+<li><p>Generation of the majority of the MotCtrlMgr “test” configuration.</p></li>
+</ol>
+<blockquote>
+<p>MotCtrlMgr component defines a “test” configuration. This test configuration is used for several purposes:</p>
+</blockquote>
+<ul>
+<li><p>To exercise the .bswmd file containing the configuration parameters of MotCtrlMgr (for property correctness and Davinci Configuration compatibility)</p></li>
+<li><p>To test for the proper/successful generation of the MotCtrlMgr component’s generated configuration files</p></li>
+<li><p>To generate test files of all generated files of this component used to run static analysis checks on the generated file output, provide the possibility for unit testing of the generated files, and test compilation of the generated files.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p>Test of the DataDictionary.exe tool output.</p></li>
+</ol>
+<blockquote>
+<p>Since the DataDictionary.exe tool is used at a project level with files that will change from project to project as needed, it is useful to have a fixed, known set of test files as inputs to the tool to test that the tool is providing the correct output with a known set of inputs. These input files can also be tailored to test different combinations of input scenarios to try to provide a robust set of test inputs to the tool.</p>
+</blockquote>
+<h1 id="usage-steps-for-motctrlmgr-component-development">Usage Steps for MotCtrlMgr Component Development</h1>
+<ol type="1">
+<li><p>Unzip TestDataManagement.zip file into AR300A_MotCtrlMgr_Impl\tools\local\tools\DataDictionary directory</p></li>
+</ol>
+<blockquote>
+<p>This is needed since Telelogic synergy can’t currently recognize some of the folder names that are in this directory.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Update Data Dictionary input files in AR300A_MotCtrlMgr_Impl\tools\local\tools\DataDictionary directory</p></li>
+</ol>
+<blockquote>
+<p>This step is required if there are new or changed configurations that need to be tested. This step would be manually changing the .m files to add or change the configuration or this could also be done with the aid of matlab data dictionary tools.</p>
+<p><strong>Note:</strong> if new configurations include new/changed enumerations, these enumerations will need to be manually added into the “TestDataManagement” folder that was unzipped in step 1. And this update will need to be re-zipped for check-in to Synergy.</p>
+<p><strong>Note:</strong> if the new configurations include new signal mappings, the Mappings.xml file will need to be manually updated in the AR300A_MotCtrlMgr_Impl\tools\local\tools\DataDictionary directory.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Rerun tool: TL117A_DataDict\toolsDataDictionary.exe to create new configuration file needed for the next step</p>
+<ol type="a">
+<li><p>Select “Cals” option from initial Data Dictionary tool options:</p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:4.01667in;height:3.05833in" /></p>
+</blockquote>
+<ol start="2" type="a">
+<li><p>Select proper tools settings for generation of MotCtrlMgr configuration file. (note file paths may not be exactly the same as listed below):</p></li>
+</ol>
+<blockquote>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:4.51667in;height:3.89167in" /></p>
+</blockquote>
+<ol start="3" type="a">
+<li><p>Select “Generate” option in tool to create MotCtrlMgr.arxml configuration file.</p></li>
+</ol>
+<ol start="4" type="1">
+<li><p>Import MotCtrlMgr.arxml into MotCtrlMgr component Davinci Configurator project.</p></li>
+</ol>
+<blockquote>
+<p><strong>Notes:</strong> It is suggested to remove all configuration containers manually from the old configuration before importing the updated configuration. This allows easier import to ensure that older configuration is fully removed. Otherwise, much more care needs to be taken during the merge process to fully replace older configuration with newer configuration. Additionally, the configuration file does not contain runnable sequence number or header file include needs. These parameters will have to manually be filled out after the import process is complete (or the old configuration settings for these parameters can be kept).</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>Generate MotCtrlMgr component in Davinci Configurator.</p></li>
+<li><p>Update Davinci Developer component for any updates needed from configuration changes.</p></li>
+</ol>
+<blockquote>
+<p>The Davinci Developer component is manually maintained for MotCtrlMgr even though the source code for this component is generated. This component needs to be setup properly for any signals that flow between the MotCtrl Interrupt and RTE tasks. Any changes to Data Dictionary input files (new or changed signals) need to be updated in the Davinci Developer component. As a tip, the component needs to be properly configured to align with the content in AR300A_MotCtrlMgr_Impl\tools\local\generate\CDD_MotCtrlMgr.c file.</p>
+</blockquote>
+<ol start="7" type="1">
+<li><p>Regenerate RTE contract headers for Davinci Developer component.</p></li>
+</ol>
+<blockquote>
+<p>This step is done through the Davinci Configurator custom workflow steps that are configured in Davinci Configurator.</p>
+</blockquote>

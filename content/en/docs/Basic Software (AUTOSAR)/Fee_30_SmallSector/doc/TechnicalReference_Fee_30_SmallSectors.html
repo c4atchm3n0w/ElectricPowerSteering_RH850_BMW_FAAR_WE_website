@@ -1,0 +1,1992 @@
+---
+title: TechnicalReference_Fee_30_SmallSectors
+linkTitle: TechnicalReference_Fee_30_SmallSectors
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Fee&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Small&#160;Sector&#160;<br/>Version&#160;1.1.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+virgmi&#160;<br/>
+2016-06-22&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;version&#160;<br/>
+virgmi&#160;<br/>
+2016-08-23&#160;<br/>
+1.01.00&#160;<br/>
+Chapter&#160;‘Requirements&#160;and&#160;<br/>
+&#160;<br/>
+Recommendations’&#160;was&#160;added.&#160;<br/>
+2016-09-21&#160;<br/>
+Reference&#160;to&#160;ProductInformation&#160;of&#160;<br/>SmallSectorFee was added.&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_FlashEEPROMEmulation.pdf&#160;<br/>
+V2.0.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DevelopmentErrorTracer.pdf&#160;<br/>
+V3.2.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_BasicSoftwareModules.pdf&#160;<br/>
+V1.0.0&#160;<br/>
+[4]&#160;&#160;&#160;Vector&#160;<br/>
+ProductInformation_8_MICROSARSmallSectorFee.pdf&#160;<br/>
+V1.0.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/></a><a href="TechnicalReference_Fee_30_SmallSectors.html#8">2.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#8">Architecture&#160;Overview&#160;........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#11"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#11"><b>Functional&#160;Description&#160;...............................................................................................&#160;11</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#11">Features&#160;..........................................................................................................&#160;11&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#11">Deviations from&#160;AUTOSAR&#160;R4.0.3&#160;...................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">Additions/&#160;Extensions&#160;.......................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">3.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">Recommendations&#160;...........................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">Initialization&#160;......................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.4&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">States&#160;..............................................................................................................&#160;13&#160;<br/>3.4.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">Module States&#160;..................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.4.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">Job&#160;States&#160;........................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">3.5&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">Main Functions&#160;................................................................................................&#160;14&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">Processing&#160;of&#160;a&#160;Read Job&#160;................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">3.5.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">Processing&#160;of&#160;a&#160;Write&#160;Job&#160;................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.5.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">Processing&#160;of&#160;an&#160;InvalidateBlock Job&#160;...............................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.5.4&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">Processing&#160;of&#160;an&#160;EraseImmediateBlock&#160;Job&#160;....................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.6&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">Error&#160;Handling&#160;..................................................................................................&#160;15&#160;<br/>3.6.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#15">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#16">3.6.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#16">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#17">3.7&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#17">Partitions&#160;..........................................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#17">3.8&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#17">Service for&#160;handling&#160;under-voltage situations&#160;...................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#18">3.9&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#18">MainFunction&#160;Triggering&#160;...................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#19"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#19"><b>Integration&#160;...................................................................................................................&#160;19</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#19">Scope of&#160;Delivery&#160;.............................................................................................&#160;19&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#19">Static Files&#160;.......................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">Dynamic&#160;Files&#160;..................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">4.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">Migration&#160;from&#160;FEE&#160;to&#160;SmallSectorFEE&#160;...........................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23"><b>API&#160;Description&#160;...........................................................................................................&#160;23</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">Type&#160;Definitions&#160;...............................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">Services provided by&#160;FEE&#160;................................................................................&#160;23&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">Fee_30_SmallSector_Init&#160;.................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">Fee_30_SmallSector_SetMode&#160;.......................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#24">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#24">Fee_30_SmallSector_Read&#160;.............................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#25">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#25">Fee_30_SmallSector_Write&#160;.............................................................&#160;25&#160;</a><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#26">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#26">Fee_30_SmallSector_Cancel&#160;...........................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#26">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#26">Fee_30_SmallSector_GetStatus&#160;......................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#27">5.2.7&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#27">Fee_30_SmallSector_GetJobResult&#160;................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#28">5.2.8&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#28">Fee_30_SmallSector_InvalidateBlock&#160;..............................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#29">5.2.9&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#29">Fee_30_SmallSector_GetVersionInfo&#160;..............................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#29">5.2.10&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#29">Fee_30_SmallSector_EraseImmediateBlock&#160;...................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#30">5.2.11&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#30">Fee_30_SmallSector_MainFunction&#160;................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#31">5.2.12&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#31">Fee_30_SmallSector_SuspendWrites&#160;..............................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#31">5.2.13&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#31">Fee_30_SmallSector_ResumeWrites&#160;...............................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">5.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">Services used by&#160;FEE&#160;......................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">5.4&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">Callback&#160;Functions&#160;...........................................................................................&#160;32&#160;<br/>5.4.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">Fee_30_SmallSector_JobEndNotification&#160;........................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#33">5.4.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#33">Fee_30_SmallSector_JobErrorNotification&#160;.......................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#34">5.5&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#34">Configurable Interfaces&#160;....................................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#35"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#35"><b>Configuration&#160;..............................................................................................................&#160;35</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#35">Configuration Variants&#160;......................................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#35">6.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#35">Configuration with DaVinci&#160;Configurator&#160;...........................................................&#160;35&#160;<br/>6.2.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#35">Configuring Flash&#160;API&#160;Services&#160;........................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">6.2.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Partition&#160;Configuration&#160;......................................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">6.2.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Block&#160;Configuration&#160;..........................................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#37">6.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#37">Overhead&#160;Calculation&#160;......................................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39"><b>Requirements and&#160;Recommendations&#160;......................................................................&#160;39</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">Requirements&#160;for&#160;the&#160;User&#160;System&#160;..................................................................&#160;39&#160;<br/>7.1.1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">General&#160;Requirements&#160;.....................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">Write-Related&#160;...................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">Read/Compare-Related&#160;...................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.4&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">Erase-Related&#160;..................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.5&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">BlankCheck-Related&#160;........................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#39">Recommendations&#160;...........................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#41"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#41"><b>Abbreviations&#160;..............................................................................................................&#160;41</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#42"><b>9</b>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#42"><b>Contact&#160;........................................................................................................................&#160;42</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#8">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#8">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#9">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#9">AUTOSAR&#160;3.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#10">Figure&#160;2-3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#10">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;FEE&#160;...............................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Update&#160;references of&#160;BSWMD&#160;file&#160;............................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Figure&#160;4-2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Example PartitionConfiguration after&#160;updating&#160;BSWMD&#160;references&#160;..........&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#22">Figure&#160;4-3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#22">DaVinci&#160;Configurator&#160;signals&#160;incorrect&#160;definition&#160;of&#160;configuration&#160;<br/>elements&#160;...................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#22">Figure&#160;4-4&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#22">Choose&#160;solving&#160;action&#160;to&#160;delete&#160;all&#160;erroneous&#160;definitions&#160;..........................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Figure&#160;6-1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Configuring FeeFlsApi&#160;container&#160;...............................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Figure&#160;6-2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">SmallSectorFee Partition&#160;Configuration&#160;example (RH850)........................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#37">Figure&#160;6-3&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#37">Block&#160;Configuration...................................................................................&#160;37&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Fee_30_SmallSectors.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#11">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#11">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#12">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#13">Module States&#160;...........................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">Table&#160;3-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#14">Job&#160;States&#160;................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#16">Table&#160;3-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#16">Service IDs&#160;...............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#16">Table&#160;3-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#16">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">Static&#160;files&#160;.................................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#20">Generated&#160;files&#160;.........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#23">Fee_30_SmallSector_Init..........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#24">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#24">Fee_30_SmallSector_SetMode&#160;................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#32">Services used by&#160;the&#160;FEE.........................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#33">Table&#160;5-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#33">Fee_30_SmallSector_JobEndNotification&#160;.................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#41">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#41">Abbreviations&#160;............................................................................................&#160;41&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+Initial&#160;version of&#160;SmallSectorFee&#160;&#160;<br/>
+1.01.00&#160;<br/>
+Chapter&#160;‘Requirements&#160;and&#160;Recommendations’&#160;was added&#160;<br/>Reference&#160;to&#160;SmallSectorFee’s&#160;ProductInformation was added&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;FEE&#160;as&#160;specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_Fee_30_SmallSectors.html#7">elease*:</a></b><b>&#160;</b><br/>
+3,&#160;4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+FEE_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+FEE_MODULE_ID &#160;&#160;<br/>
+21&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[3])&#160;<br/>
+*&#160;For the detailed functional&#160;specification please also refer to the corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>The&#160;FEE&#160;enables&#160;&#160;you&#160;to&#160;access&#160;a&#160;dedicated&#160;flash&#160;area&#160;for&#160;storing&#160;data&#160;persistently.&#160;&#160;It&#160;&#160;is&#160;<br/>intended&#160;to&#160;be&#160;used&#160;exclusively&#160;either&#160;by&#160;the&#160;NVRAM&#160;Manager&#160;or&#160;on&#160;SW&#160;instance&#160;within&#160;a&#160;<br/>Flash-Boot-Loader.&#160;<br/>This&#160;&#160;module&#160;&#160;is&#160;&#160;especially&#160;&#160;designed&#160;&#160;for&#160;&#160;Flash&#160;&#160;devices&#160;&#160;with&#160;&#160;small&#160;&#160;sector&#160;&#160;and&#160;&#160;page&#160;&#160;sizes,&#160;<br/>e.g.&#160;&#160;RH850’s&#160;&#160;internal&#160;&#160;data&#160;&#160;flash&#160;&#160;RV40F&#160;&#160;with&#160;&#160;64&#160;&#160;Byte&#160;&#160;sectors&#160;&#160;and&#160;&#160;4&#160;&#160;Byte&#160;&#160;pages.&#160;&#160;Due&#160;&#160;to&#160;<br/>these&#160;&#160;hardware&#160;&#160;properties&#160;&#160;a&#160;&#160;static&#160;&#160;addressing&#160;&#160;scheme&#160;&#160;can&#160;&#160;be&#160;&#160;applied&#160;&#160;with&#160;&#160;reasonable&#160;<br/>small&#160;overhead.&#160;Consequently,&#160;the&#160;main&#160;advantage&#160;is&#160;a&#160;significantly&#160;easier&#160;handling&#160;of&#160;all&#160;<br/>jobs&#160;&#160;due&#160;&#160;to&#160;&#160;the&#160;&#160;static&#160;&#160;addressing&#160;&#160;scheme&#160;&#160;compared&#160;&#160;to&#160;&#160;the&#160;&#160;dynamic&#160;&#160;block&#160;&#160;addressing&#160;&#160;of&#160;<br/>‘standard’&#160;FEE.&#160;<br/>Further&#160;on,&#160;the&#160;module&#160;depends&#160;on&#160;&#160;some&#160;other&#160;modules&#160;like&#160;DET&#160;for&#160;error&#160;handling,&#160;the&#160;<br/>underlying&#160;Flash&#160;driver&#160;for hardware access and&#160;the&#160;MEMIF&#160;for consistent&#160;types.&#160;<br/>For&#160;further&#160;information&#160;about&#160;basic&#160;SmallSectorFee&#160;mechanisms&#160;and&#160;functionality&#160;refer&#160;to&#160;<br/><a href="TechnicalReference_Fee_30_SmallSectors.html#2">[4].&#160;&#160;</a>This&#160;&#160;product&#160;&#160;information&#160;&#160;gives&#160;&#160;a&#160;&#160;brief&#160;&#160;overview&#160;&#160;of&#160;&#160;relevant&#160;&#160;aspects&#160;&#160;concerning&#160;&#160;flash&#160;<br/>memory&#160;and&#160;informs about&#160;SmallSectorFee&#160;implementation.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where&#160;the&#160;FEE&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-9_2.jpg"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;AUTOSAR&#160;3.x&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;FEE.&#160;These&#160;interfaces&#160;are&#160;<br/>described&#160;in&#160;chapte<a href="TechnicalReference_Fee_30_SmallSectors.html#23">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;cmp&#160;Architecture&#160;ov&#160;erv&#160;iew</b><br/>
+NvM_JobErrorNotification<br/>
+<b>Nv&#160;M</b><br/>
+NvM_JobEndNotification<br/>
+«use»<br/>
+<b>MemIf</b><br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+e<br/>
+e<br/>
+e<br/>
+F<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+_<br/>
+_<br/>
+_<br/>
+e<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+3<br/>
+3<br/>
+3<br/>
+_<br/>
+3<br/>
+3<br/>
+3<br/>
+3<br/>
+0<br/>
+0<br/>
+0<br/>
+3<br/>
+0<br/>
+0<br/>
+0<br/>
+0<br/>
+_<br/>
+_<br/>
+_<br/>
+0<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+S<br/>
+S<br/>
+S<br/>
+_<br/>
+S<br/>
+S<br/>
+S<br/>
+S<br/>
+m<br/>
+m<br/>
+m<br/>
+S<br/>
+m<br/>
+m<br/>
+m<br/>
+m<br/>
+a<br/>
+m<br/>
+a<br/>
+a<br/>
+<b>FeeSmallSector&#160;</b>a<br/>
+a<br/>
+a<br/>
+a<br/>
+ll<br/>
+l<br/>
+ll<br/>
+a<br/>
+ll<br/>
+ll<br/>
+ll<br/>
+ll<br/>
+<b>DET</b><br/>
+S<br/>
+lS<br/>
+S<br/>
+ll<br/>
+S<br/>
+S<br/>
+S<br/>
+S<br/>
+e<br/>
+e<br/>
+e<br/>
+S<br/>
+e<br/>
+e<br/>
+e<br/>
+e<br/>
+c<br/>
+c<br/>
+e<br/>
+c<br/>
+c<br/>
+c<br/>
+c<br/>
+Det_ReportError<br/>
+t<br/>
+c<br/>
+o<br/>
+t<br/>
+c<br/>
+t<br/>
+o<br/>
+to<br/>
+t<br/>
+to<br/>
+to<br/>
+o<br/>
+to<br/>
+r<br/>
+o<br/>
+_<br/>
+r<br/>
+r<br/>
+_<br/>
+r_<br/>
+r<br/>
+r_<br/>
+r_<br/>
+_<br/>
+r_<br/>
+R<br/>
+W<br/>
+I<br/>
+_<br/>
+C<br/>
+G<br/>
+G<br/>
+S<br/>
+e<br/>
+n<br/>
+E<br/>
+a<br/>
+e<br/>
+e<br/>
+e<br/>
+a<br/>
+ri<br/>
+v<br/>a<br/>
+ra<br/>
+n<br/>
+t<br/>
+F<br/>
+t<br/>
+F<br/>
+t<br/>
+d<br/>
+te<br/>
+l<br/>
+S<br/>
+J<br/>
+e<br/>
+M<br/>
+i<br/>
+c<br/>
+e<br/>
+d<br/>
+s<br/>e<br/>
+e<br/>
+t<br/>
+o<br/>
+e<br/>
+e<br/>
+o<br/>
+a<br/>
+I<br/>
+l<br/>
+a<br/>
+b<br/>
+_<br/>
+_<br/>
+d<br/>
+t<br/>
+m<br/>
+tu<br/>
+R<br/>
+3<br/>
+3<br/>
+e<br/>
+<b>AUTOSAR&#160;OS</b><br/>
+e<br/>
+e<br/>
+0<br/>
+Fee_30_SmallSector_MainFunction<br/>
+B<br/>
+m<br/>
+s<br/>
+0<br/>
+s<br/>
+_<br/>
+l<br/>
+_<br/>
+o<br/>
+e<br/>
+u<br/>
+d<br/>
+S<br/>
+S<br/>
+l<br/>
+Fee_30_SmallSector_GetVersionInfo<br/>
+c<br/>
+t<br/>
+m<br/>
+k<br/>
+ia<br/>
+m<br/>
+t<br/>
+a<br/>
+e<br/>
+a<br/>
+l<br/>
+B<br/>
+ll<br/>
+l<br/>
+S<br/>
+S<br/>
+lo<br/>
+e<br/>
+e<br/>
+c<br/>
+c<br/>
+c<br/>
+k<br/>
+t<br/>
+to<br/>
+<b>EcuM</b><br/>
+Fee_30_SmallSector_Init<br/>
+o<br/>r<br/>
+r<br/>
+_<br/>
+_<br/>
+J<br/>
+J<br/>
+o<br/>
+o<br/>
+b<br/>
+b<br/>E<br/>
+Fee_30_SmallSector_ResumeWrites<br/>
+E<br/>n<br/>
+rr<br/>
+d<br/>
+o<br/>
+N<br/>
+rN<br/>
+Fee_30_SmallSector_SuspendWrites<br/>
+o<br/>
+o<br/>
+ti<br/>
+t<br/>
+f<br/>
+i<br/>
+i<br/>
+f<br/>
+c<br/>
+ic<br/>
+a<br/>
+a<br/>
+ti<br/>
+t<br/>
+o<br/>
+io<br/>
+n<br/>
+n<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+ls<br/>
+ls<br/>
+ls<br/>
+ls<br/>
+ls<br/>
+ls<br/>
+ls<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+R<br/>
+W<br/>
+E<br/>
+C<br/>
+B<br/>
+G<br/>
+G<br/>
+e<br/>
+r<br/>
+o<br/>
+la<br/>
+e<br/>
+e<br/>
+a<br/>
+rit<br/>
+a<br/>
+m<br/>
+n<br/>
+t<br/>
+t<br/>
+d<br/>
+e<br/>
+s<br/>
+S<br/>
+J<br/>
+e<br/>
+p<br/>
+k<br/>
+o<br/>
+a<br/>
+C<br/>
+ta<br/>
+b<br/>
+r<br/>
+h<br/>
+<b>Fls</b><br/>
+e<br/>
+t<br/>
+R<br/>
+e<br/>
+u<br/>
+c<br/>
+s<br/>
+e<br/>
+k<br/>
+s<br/>u<br/>lt<br/>
+&#160;<br/>
+Figure&#160;2-3&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;FEE&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>FEE.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Fee_30_SmallSectors.html#11">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Fee_30_SmallSectors.html#12">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+Vector&#160;Informatik&#160;provides&#160;further&#160;FEE&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR&#160;standard.&#160;The&#160;<br/>corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Fee_30_SmallSectors.html#12">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>FEE&#160;provides&#160;a service&#160;for&#160;reading&#160;blocks&#160;from&#160;Flash&#160;<br/>FEE&#160;provides&#160;a service&#160;for&#160;writing&#160;blocks&#160;to&#160;Flash&#160;<br/>FEE&#160;provides&#160;a service&#160;for&#160;invalidating&#160;blocks&#160;in&#160;Flash&#160;<br/>FEE&#160;provides&#160;a service&#160;for&#160;erasing&#160;blocks&#160;which contain immediate&#160;data&#160;<br/>FEE&#160;provides&#160;a service to initialize the&#160;module&#160;<br/>FEE&#160;provides&#160;a service to cancel&#160;pending&#160;jobs&#160;<br/>FEE&#160;provides&#160;a service&#160;to&#160;query&#160;the&#160;module status&#160;and&#160;job&#160;result&#160;<br/>FEE&#160;provides&#160;a service to&#160;query&#160;its&#160;version information.&#160;<br/>FEE&#160;provides&#160;a mechanism&#160;to&#160;spread&#160;the&#160;erase/write accesses&#160;such&#160;that&#160;the&#160;physical&#160;device is&#160;<br/>not&#160;overstressed,&#160;if&#160;the&#160;underlying&#160;Flash&#160;device does not&#160;provide&#160;at&#160;least&#160;the&#160;configured&#160;number&#160;<br/>of&#160;erase/write cycles per&#160;physical&#160;memory&#160;cell.&#160;<br/>FEE&#160;provides&#160;a mechanism&#160;to&#160;manage&#160;each block’s&#160;information,&#160;whether&#160;this&#160;block is&#160;“correct”&#160;<br/>from&#160;the&#160;point&#160;of&#160;view&#160;of&#160;the&#160;FEE.&#160;<br/>FEE&#160;provides&#160;development&#160;error&#160;detection&#160;to&#160;check&#160;API&#160;parameters.&#160;<br/>The&#160;Flash&#160;driver&#160;can&#160;either&#160;be&#160;polled&#160;by&#160;the&#160;FEE&#160;for&#160;its&#160;current&#160;state&#160;or&#160;the&#160;Flash&#160;driver&#160;can&#160;<br/>provide&#160;its&#160;state&#160;to&#160;the&#160;FEE&#160;module via a&#160;callback&#160;mechanism.&#160;<br/>The&#160;FEE&#160;can&#160;be&#160;polled&#160;by&#160;the&#160;NVM&#160;or&#160;the&#160;FEE&#160;provides&#160;the&#160;result&#160;of&#160;a&#160;job&#160;to&#160;the&#160;upper&#160;layer&#160;via&#160;<br/>a callback&#160;mechanism.&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;from&#160;AUTOSAR R4.0.3&#160;</b><br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Alignment&#160;of&#160;logical&#160;blocks&#160;via FeeVirtualPageSize is not&#160;supported.&#160;Instead,&#160;alignment&#160;of&#160;logical&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>blocks&#160;is&#160;provided via partition&#160;specific&#160;alignments.&#160;Therefore&#160;see<a href="TechnicalReference_Fee_30_SmallSectors.html#12">&#160;Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;<br/>beyond the&#160;AUTOSAR&#160;standard.</a>&#160;<br/>FEE&#160;does not&#160;provide&#160;debugging&#160;support.&#160;<br/>FEE&#160;does not&#160;report&#160;any&#160;errors&#160;to DEM.&#160;<br/>FEE&#160;does not&#160;support&#160;the usage of&#160;FeeBlockOverhead&#160;parameter,&#160;because the&#160;amount&#160;of&#160;<br/>management&#160;overhead&#160;is&#160;an&#160;internal&#160;detail,&#160;which shall&#160;not&#160;be&#160;configurable.&#160;<br/>FEE&#160;does not&#160;support&#160;the usage of&#160;FeeMaximumBlockingTime&#160;parameter&#160;because FEE&#160;does&#160;not&#160;<br/>have any&#160;time base.&#160;<br/>FEE&#160;does not&#160;support&#160;to&#160;set&#160;the&#160;mode&#160;of&#160;the&#160;underlying&#160;Flash&#160;driver,&#160;because handling&#160;of&#160;set&#160;<br/>mode&#160;API&#160;is&#160;not&#160;clearly&#160;specified.&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>FEE&#160;supports&#160;the&#160;usage&#160;of&#160;multiple Flash&#160;devices.&#160;<br/>FEE&#160;supports&#160;the&#160;usage&#160;of&#160;Fls_BlankCheck&#160;API.&#160;<br/>FEE&#160;provides&#160;the&#160;configuration of&#160;partitions,&#160;in&#160;order&#160;to separate&#160;independent&#160;contents/devices&#160;<br/>from&#160;each&#160;other.&#160;<br/>FEE&#160;provides&#160;partition&#160;specific&#160;address&#160;alignments&#160;to which all&#160;logical&#160;blocks&#160;of&#160;a&#160;partition&#160;are&#160;<br/>aligned.&#160;Address&#160;alignment&#160;is&#160;configurable&#160;separately&#160;for&#160;each partition.&#160;Address alignment&#160;<br/>usually&#160;corresponds&#160;to&#160;the Flash&#160;device’s&#160;sector&#160;size.&#160;<br/>FEE&#160;provides&#160;partition&#160;specific&#160;write alignments&#160;which usually&#160;correspond to&#160;the&#160;Flash&#160;device’s&#160;<br/>page&#160;size.&#160;<br/>FEE&#160;provides&#160;verification&#160;of&#160;data&#160;which has&#160;been&#160;written&#160;recently&#160;to&#160;the&#160;Flash.&#160;This&#160;feature&#160;can&#160;<br/>be&#160;configured&#160;block&#160;specifically.&#160;<br/>FEE&#160;provides&#160;detection&#160;and correction&#160;of&#160;single&#160;bit&#160;flips in&#160;a&#160;block’s&#160;management&#160;information.&#160;<br/>FEE&#160;supports&#160;two main&#160;function&#160;triggering&#160;modes.&#160;Main function&#160;of&#160;FEE&#160;can&#160;either&#160;be&#160;called&#160;<br/>cyclically&#160;with a&#160;fixed&#160;cycle time&#160;or&#160;in a&#160;background task.&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Recommendations&#160;</b><br/>
+It’s&#160;recommended&#160;to&#160;use&#160;this&#160;FEE&#160;module&#160;only&#160;with&#160;Flash&#160;devices&#160;with&#160;reasonable&#160;small&#160;<br/>sector&#160;&#160;and&#160;&#160;page&#160;&#160;sizes.&#160;&#160;This&#160;&#160;means&#160;&#160;that&#160;&#160;the&#160;&#160;size&#160;&#160;of&#160;&#160;one&#160;&#160;user&#160;&#160;block&#160;&#160;should&#160;&#160;not&#160;&#160;be&#160;<br/>significantly&#160;&#160;smaller&#160;&#160;than&#160;&#160;one&#160;&#160;physical&#160;&#160;Flash&#160;&#160;sector.&#160;&#160;Due&#160;&#160;to&#160;&#160;the&#160;&#160;fact&#160;&#160;that&#160;&#160;for&#160;&#160;every&#160;&#160;user&#160;<br/>block&#160;&#160;at&#160;&#160;least&#160;&#160;one&#160;&#160;physical&#160;&#160;Flash&#160;&#160;sector&#160;&#160;is&#160;&#160;reserved,&#160;&#160;the&#160;&#160;overhead&#160;&#160;of&#160;&#160;unused&#160;&#160;Flash&#160;<br/>memory&#160;&#160;strongly&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;&#160;relation&#160;&#160;between&#160;&#160;block&#160;&#160;size&#160;&#160;and&#160;&#160;Flash&#160;&#160;sector&#160;&#160;size.&#160;<br/>Another&#160;aspect&#160;concerns&#160;the&#160;page&#160;size&#160;of&#160;a&#160;Flash&#160;device:&#160;In&#160;order&#160;to&#160;keep&#160;the&#160;overhead&#160;<br/>small,&#160;the&#160;Flash&#160;device’s page&#160;size&#160;should&#160;be&#160;small&#160;as well.&#160;<br/>For&#160;instance&#160;it’s&#160;recommended&#160;to&#160;use&#160;this&#160;FEE&#160;module&#160;with&#160;internal&#160;data&#160;flash&#160;RV40F&#160;of&#160;<br/>Renesas’&#160;RH850&#160;microcontroller&#160;platform.&#160;This&#160;Flash&#160;device&#160;features&#160;physical&#160;sectors&#160;with&#160;<br/>64&#160;Byte&#160;and&#160;physical pages&#160;with&#160;4&#160;Byte.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-13_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+The&#160;<br/>
+FEE&#160;<br/>
+is&#160;<br/>
+initialized&#160;<br/>
+and&#160;<br/>
+operational&#160;<br/>
+after&#160;<br/>
+the&#160;<br/>
+API&#160;<br/>
+service&#160;<br/>
+Fee_30_SmallSector_Init()&#160;was called.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>The&#160;FEE&#160;is&#160;driven&#160;asynchronously,&#160;if&#160;a&#160;job&#160;has&#160;been&#160;requested&#160;to it.&#160;I.e.&#160;the jobs&#160;are&#160;<br/>
+<b>&#160;&#160;</b>finally&#160;processed&#160;by&#160;calls&#160;of&#160;FEE’s&#160;main&#160;function.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>States&#160;</b><br/>
+FEE&#160;can&#160;change&#160;to&#160;different&#160;states&#160;during&#160;runtime&#160;which&#160;are&#160;described&#160;in&#160;the&#160;tables&#160;below.&#160;<br/>
+<b>3.4.1&#160;</b><br/>
+<b>Module&#160;States&#160;</b><br/>
+&#160;<br/>
+<b>Module&#160;States&#160;</b><br/>
+<b>Point&#160;in Time&#160;</b><br/>
+MEMIF_UNINIT&#160;<br/>
+The&#160;API&#160;service&#160;Fee_30_SmallSector_Init()&#160;has&#160;not&#160;been&#160;called&#160;yet.&#160;<br/>The&#160;service&#160;Fee_30_SmallSector_GetStatus()&#160;returns&#160;the&#160;value&#160;<br/>MEMIF_UNINIT.&#160;<br/>
+MEMIF_IDLE&#160;<br/>
+The&#160;API&#160;service&#160;Fee_30_SmallSector_Init()&#160;has&#160;been&#160;called&#160;and&#160;<br/>finished&#160;successfully.&#160;No&#160;job&#160;has&#160;currently&#160;been&#160;requested&#160;to&#160;the&#160;FEE.&#160;The&#160;<br/>service&#160;Fee_30_SmallSector_GetStatus()&#160;returns&#160;the&#160;value&#160;<br/>MEMIF_IDLE.&#160;<br/>
+MEMIF_BUSY&#160;<br/>
+The&#160;API&#160;services&#160;<br/>Fee_30_SmallSector_Read(),Fee_30_SmallSector_Write(),Fee_30<br/>_SmallSector_InvalidateBlock()&#160;or&#160;<br/>Fee_30_SmallSector_EraseImmediateBlock()&#160;have&#160;been&#160;called&#160;<br/>previously&#160;and the&#160;job&#160;is&#160;not&#160;yet&#160;finished.&#160;The&#160;service&#160;<br/>Fee_30_SmallSector_GetStatus()&#160;returns&#160;the&#160;value&#160;MEMIF_BUSY.&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Module&#160;States&#160;<br/>
+<b>3.4.2&#160;</b><br/>
+<b>Job States&#160;</b><br/>
+<b>Job State&#160;</b><br/>
+<b>Correlating&#160;</b><br/>
+<b>Point&#160;in Time&#160;</b><br/>
+<b>Module&#160;State&#160;</b><br/>
+MEMIF_JOB_OK&#160;<br/>
+MEMIF_IDLE&#160;<br/>
+After&#160;successfully&#160;finished job&#160;<br/>
+MEMIF_JOB_PENDING&#160;<br/>
+MEMIF_BUSY&#160;<br/>
+After&#160;a&#160;job&#160;has&#160;been&#160;started&#160;<br/>
+MEMIF_JOB_CANCELLED&#160;<br/>
+MEMIF_IDLE&#160;<br/>
+After&#160;Fee_30_SmallSector_Cancel(),&#160;if&#160;<br/>previous&#160;state&#160;was&#160;MEMIF_JOB_PENDING&#160;<br/>
+MEMIF_BLOCK_INVALID&#160;<br/>
+MEMIF_IDLE&#160;<br/>
+After&#160;a&#160;read&#160;job&#160;has&#160;been&#160;finished and&#160;an&#160;<br/>invalidated&#160;block was&#160;found&#160;or&#160;if&#160;block&#160;was&#160;<br/>erased.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-14_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+MEMIF_BLOCK_INCONSISTENT&#160;&#160;MEMIF_IDLE&#160;<br/>
+After&#160;reading a&#160;block,&#160;which&#160;wasn’t&#160;finished&#160;<br/>successfully.&#160;<br/>
+MEMIF_JOB_FAILED&#160;<br/>
+MEMIF_IDLE&#160;<br/>
+After&#160;a&#160;job&#160;wasn’t&#160;finished successfully.&#160;<br/>
+Table&#160;3-5&#160;&#160;&#160;Job&#160;States&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+All&#160;&#160;jobs&#160;&#160;(Read,&#160;&#160;Write,&#160;&#160;InvalidateBlock&#160;&#160;or&#160;&#160;EraseImmediateBlock)&#160;&#160;will&#160;&#160;be&#160;&#160;executed&#160;<br/>asynchronously&#160;&#160;and&#160;&#160;are&#160;&#160;processed&#160;&#160;by&#160;&#160;a&#160;&#160;job&#160;&#160;state&#160;&#160;machine.&#160;&#160;This&#160;&#160;means&#160;&#160;that&#160;&#160;after&#160;&#160;an&#160;<br/>asynchronous&#160;&#160;API&#160;&#160;call&#160;&#160;(e.g.&#160;&#160;Fee_30_SmallSector_Write())&#160;&#160;the&#160;&#160;job&#160;&#160;and&#160;&#160;its&#160;<br/>parameters are&#160;internally&#160;stored&#160;and&#160;will be&#160;processed&#160;by&#160;the&#160;main&#160;function&#160;later&#160;on.&#160;<br/>
+The&#160;&#160;function&#160;&#160;Fee_30_SmallSector_MainFunction()&#160;&#160;can&#160;&#160;either&#160;&#160;be&#160;&#160;called&#160;&#160;cyclically&#160;<br/>with&#160;&#160;a&#160;&#160;fixed&#160;&#160;cycle&#160;&#160;time&#160;&#160;by&#160;&#160;the&#160;&#160;OS&#160;&#160;or&#160;&#160;in&#160;&#160;a&#160;&#160;background&#160;&#160;task.&#160;&#160;The&#160;&#160;mode&#160;&#160;of&#160;&#160;main&#160;&#160;function&#160;<br/>triggering&#160;is pre-compile&#160;configurable&#160;via&#160;FeeMainFunctionTriggering&#160;parameter.&#160;<br/>
+Only&#160;one&#160;asynchronous&#160;job&#160;(Read,&#160;Write,&#160;InvalidateBlock&#160;or&#160;EraseImmediateBlock)&#160;can&#160;be&#160;<br/>processed&#160;at&#160;a&#160;time.&#160;FEE&#160;does&#160;not&#160;provide&#160;a&#160;queue&#160;for&#160;any&#160;jobs&#160;that&#160;are&#160;requested&#160;while&#160;<br/>the&#160;module&#160;is&#160;busy&#160;processing&#160;a&#160;job.&#160;The&#160;module&#160;state&#160;needs&#160;to&#160;be&#160;MEMIF_IDLE&#160;before&#160;a&#160;<br/>new&#160;job&#160;can&#160;be&#160;requested.&#160;The&#160;current&#160;module&#160;state&#160;can&#160;be&#160;queried&#160;by&#160;calling&#160;the&#160;service&#160;<br/>Fee_30_SmallSector_GetStatus().&#160;&#160;Usually,&#160;&#160;the&#160;&#160;upper&#160;&#160;layer&#160;&#160;module&#160;&#160;(i.e.&#160;&#160;NVM)&#160;&#160;is&#160;<br/>responsible&#160;for&#160;synchronizing&#160;and&#160;queueing&#160;the&#160;pending&#160;jobs&#160;and&#160;assigning&#160;it&#160;to&#160;the&#160;FEE&#160;<br/>consecutively,&#160;&#160;whereas&#160;&#160;in&#160;&#160;the&#160;&#160;Flash&#160;&#160;Boot&#160;&#160;Loader&#160;&#160;use-case&#160;&#160;the&#160;&#160;Flash&#160;&#160;Boot&#160;&#160;Loader&#160;<br/>application&#160;is responsible&#160;for&#160;doing&#160;this.&#160;<br/>
+<b>3.5.1&#160;</b><br/>
+<b>Processing of a&#160;Read&#160;Job&#160;</b><br/>
+FEE&#160;&#160;provides&#160;&#160;the&#160;&#160;service&#160;&#160;Fee_30_SmallSector_Read()&#160;&#160;for&#160;&#160;reading&#160;&#160;a&#160;&#160;block.&#160;&#160;This&#160;<br/>service&#160;reads the&#160;latest&#160;data&#160;of&#160;the&#160;block specified&#160;by&#160;a&#160;block&#160;number.&#160;<br/>
+This&#160;asynchronous&#160;job&#160;is&#160;initiated&#160;with&#160;the&#160;API&#160;function&#160;&#160;Fee_30_SmallSector_Read()&#160;<br/>and&#160;is&#160;processed&#160;by&#160;subsequent&#160;calls&#160;of&#160;Fee_30_SmallSector_MainFunction()&#160;until&#160;<br/>the&#160;FEE&#160;returns&#160;back to&#160;idle&#160;state,&#160;which&#160;means that&#160;the&#160;job&#160;was&#160;finished.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>The&#160;FEE&#160;will&#160;always&#160;read the&#160;block,&#160;which was&#160;written&#160;last.&#160;Consequently,&#160;if&#160;writing&#160;a&#160;<br/>
+<b>&#160;&#160;</b>block&#160;fails&#160;(e.g.&#160;due&#160;to&#160;reset)&#160;a subsequent&#160;read&#160;job&#160;for&#160;this&#160;block&#160;will&#160;lead to&#160;the&#160;result&#160;<br/>
+MEMIF_BLOCK_INCONSISTENT.&#160;The&#160;FEE&#160;does&#160;not&#160;look&#160;for&#160;the&#160;most&#160;recent&#160;valid&#160;<br/>instance of&#160;this&#160;block,&#160;because it&#160;can’t&#160;be assured&#160;that&#160;there&#160;is&#160;any.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>3.5.2&#160;</b><br/>
+<b>Processing of a&#160;Write&#160;Job&#160;</b><br/>
+FEE&#160;provides&#160;the&#160;service&#160;Fee_30_SmallSector_Write()&#160;for&#160;writing&#160;a&#160;block&#160;specified&#160;<br/>by&#160;&#160;a&#160;&#160;block&#160;&#160;number.&#160;&#160;The&#160;&#160;FEE&#160;&#160;searches&#160;&#160;for&#160;&#160;the&#160;&#160;next&#160;&#160;free&#160;&#160;position&#160;&#160;in&#160;&#160;the&#160;&#160;specified&#160;&#160;block’s&#160;<br/>memory&#160;area&#160;and&#160;requests&#160;a&#160;job&#160;to&#160;the&#160;underlying&#160;Flash&#160;driver&#160;to&#160;write&#160;a&#160;new&#160;instance&#160;of&#160;<br/>the&#160;block.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+This&#160;asynchronous&#160;job&#160;is&#160;initiated&#160;with&#160;the&#160;API&#160;function&#160;Fee_30_SmallSector_Write()&#160;<br/>and&#160;is&#160;processed&#160;by&#160;subsequent&#160;calls&#160;of&#160;Fee_30_SmallSector_MainFunction()&#160;until&#160;<br/>the&#160;FEE&#160;returns&#160;back to&#160;idle&#160;state,&#160;which&#160;means that&#160;the&#160;job&#160;was&#160;finished.&#160;<br/>
+<b>3.5.3&#160;</b><br/>
+<b>Processing of an&#160;InvalidateBlock&#160;Job&#160;</b><br/>
+FEE&#160;provides&#160;the&#160;service&#160;Fee_30_SmallSector_InvalidateBlock()&#160;for&#160;invalidating&#160;<br/>block&#160;&#160;content&#160;&#160;specified&#160;&#160;by&#160;&#160;a&#160;&#160;block&#160;&#160;number.&#160;&#160;The&#160;&#160;FEE&#160;&#160;module&#160;&#160;marks&#160;&#160;the&#160;&#160;block&#160;&#160;as&#160;&#160;invalid&#160;<br/>and&#160;reports&#160;the&#160;job&#160;result&#160;&#160;MEMIF_BLOCK_INVALID&#160;&#160;if&#160;such&#160;a&#160;block&#160;will&#160;be&#160;read&#160;after&#160;the&#160;<br/>invalidation&#160;process.&#160;<br/>This&#160;<br/>
+asynchronous&#160;<br/>
+job&#160;<br/>
+is&#160;<br/>
+initiated&#160;<br/>
+with&#160;<br/>
+the&#160;<br/>
+API&#160;<br/>
+function&#160;<br/>
+Fee_30_SmallSector_InvalidateBlock()&#160;and&#160;is&#160;processed&#160;by&#160;subsequent&#160;calls&#160;of&#160;<br/>Fee_30_SmallSector_MainFunction()&#160;until&#160;the&#160;FEE&#160;returns&#160;back&#160;to&#160;idle&#160;state,&#160;which&#160;<br/>means that&#160;the&#160;job&#160;was finished.&#160;<br/>
+<b>3.5.4&#160;</b><br/>
+<b>Processing of&#160;an&#160;EraseImmediateBlock&#160;Job&#160;</b><br/>
+FEE&#160;provides&#160;the&#160;service&#160;Fee_30_SmallSector_EraseImmediateBlock()&#160;to&#160;erase&#160;a&#160;<br/>block&#160;&#160;containing&#160;&#160;immediate&#160;&#160;data.&#160;&#160;Hereupon&#160;&#160;an&#160;&#160;invalidation&#160;&#160;of&#160;&#160;the&#160;&#160;specified&#160;&#160;block&#160;&#160;is&#160;<br/>performed,&#160;&#160;because&#160;&#160;erasing&#160;&#160;the&#160;&#160;block’s&#160;&#160;memory&#160;&#160;area&#160;&#160;will&#160;&#160;not&#160;&#160;accomplish&#160;&#160;the&#160;&#160;intended&#160;<br/>goal,&#160;that&#160;writing&#160;of&#160;immediate&#160;data&#160;is speeded-up&#160;by&#160;a&#160;preceding&#160;erase&#160;operation.&#160;&#160;<br/>This&#160;<br/>
+asynchronous&#160;<br/>
+job&#160;<br/>
+is&#160;<br/>
+initiated&#160;<br/>
+with&#160;<br/>
+the&#160;<br/>
+API&#160;<br/>
+function&#160;<br/>
+Fee_30_SmallSector_EraseImmediateBlock()&#160;&#160;and&#160;&#160;is&#160;&#160;processed&#160;&#160;by&#160;&#160;subsequent&#160;<br/>calls&#160;&#160;of&#160;&#160;Fee_30_SmallSector_MainFunction()&#160;&#160;until&#160;&#160;the&#160;&#160;FEE&#160;&#160;returns&#160;&#160;back&#160;&#160;to&#160;&#160;idle&#160;<br/>state,&#160;which&#160;means that&#160;the&#160;job&#160;was&#160;finished.&#160;<br/>
+&#160;<br/>
+<b>3.6&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.6.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;FEE_DEV_ERROR_DETECT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;FEE&#160;ID is&#160;21.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.2.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x00&#160;<br/>
+Fee_30_SmallSector_Init&#160;<br/>
+0x01&#160;<br/>
+Fee_30_SmallSector_SetMode&#160;<br/>
+0x02&#160;<br/>
+Fee_30_SmallSector_Read&#160;<br/>
+0x03&#160;<br/>
+Fee_30_SmallSector_Write&#160;<br/>
+0x04&#160;<br/>
+Fee_30_SmallSector_Cancel&#160;<br/>
+0x05&#160;<br/>
+Fee_30_SmallSector_GetStatus&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x06&#160;<br/>
+Fee_30_SmallSector_GetJobResult&#160;<br/>
+0x07&#160;<br/>
+Fee_30_SmallSector_InvalidateBlock&#160;<br/>
+0x08&#160;<br/>
+Fee_30_SmallSector_GetVersionInfo&#160;<br/>
+0x09&#160;<br/>
+Fee_30_SmallSector_EraseImmediateBlock&#160;<br/>
+0x10&#160;<br/>
+Fee_30_SmallSector_JobEndNotification&#160;<br/>
+0x11&#160;<br/>
+Fee_30_SmallSector_JobErrorNotification&#160;<br/>
+0x12&#160;<br/>
+Fee_30_SmallSector_MainFunction&#160;<br/>
+Table&#160;3-6&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FEE_30_SMALL_SECTOR_E_&#160;API&#160;service (except&#160;for&#160;<br/>UNINIT&#160;<br/>
+Fee_30_SmallSector_GetStatus(),Fee_30_SmallSect<br/>or_GetVersionInfo()&#160;and&#160;<br/>Fee_30_SmallSector_Init())&#160;called&#160;although&#160;the&#160;FEE&#160;is&#160;<br/>not&#160;yet&#160;initialized&#160;<br/>
+FEE_30_SMALL_SECTOR_E_&#160;API&#160;service called&#160;with invalid block number&#160;<br/>INVALID_BLOCK_NO&#160;<br/>FEE_30_SMALL_SECTOR_E_&#160;API&#160;service&#160;Fee_30_SmallSector_Read()&#160;called&#160;with&#160;<br/>
+INVALID_BLOCK_OFS&#160;<br/>
+invalid block&#160;offset.&#160;<br/>
+FEE_30_SMALL_SECTOR_E_&#160;API&#160;service (Fee_30_SmallSector_Read()&#160;or&#160;<br/>
+INVALID_DATA_POINTER&#160;<br/>
+Fee_30_SmallSector_Write())&#160;called&#160;with null&#160;pointer&#160;as&#160;<br/>pointer&#160;to data buffer.&#160;API&#160;service&#160;<br/>Fee_30_SmallSector_GetVersionInfo()&#160;called&#160;with null&#160;<br/>pointer.&#160;<br/>
+FEE_30_SMALL_SECTOR_E_&#160;API&#160;service&#160;Fee_30_SmallSector_Read()&#160;called&#160;with&#160;<br/>
+INVALID_BLOCK_LEN&#160;<br/>
+invalid block&#160;length.&#160;<br/>
+FEE_30_SMALL_SECTOR_E_&#160;API&#160;service is called&#160;while currently&#160;a&#160;job&#160;is&#160;being&#160;processed.&#160;<br/>BUSY&#160;<br/>FEE_30_SMALL_SECTOR_E_&#160;Not&#160;used.&#160;<br/>BUSY_INTERNAL&#160;<br/>FEE_30_SMALL_SECTOR_E_&#160;API&#160;service&#160;Fee_30_SmallSector_Cancel()&#160;is&#160;called&#160;while&#160;<br/>
+INVALID_CANCEL&#160;<br/>
+module is not&#160;busy.&#160;<br/>
+Table&#160;3-7&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+&#160;<br/>
+<b>3.6.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+FEE&#160;does&#160;not&#160;&#160;report&#160;any&#160;production&#160;errors&#160;to&#160;DEM&#160;because&#160;the&#160;AUTOSAR&#160;specification&#160;<br/>does&#160;not&#160;specify&#160;any&#160;error&#160;which&#160;shall&#160;be&#160;reported&#160;in&#160;production&#160;mode.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-17_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>3.7&#160;</b><br/>
+<b>Partitions&#160;</b><br/>
+FEE&#160;employs&#160;a&#160;concept&#160;of&#160;partitions.&#160;A&#160;partition&#160;can&#160;be&#160;thought&#160;of&#160;an&#160;emulation&#160;space&#160;that&#160;<br/>is managed&#160;separately&#160;from&#160;other ones:&#160;<br/>
+&#160;&#160;Multiple&#160;Flash&#160;devices&#160;/&#160;Flash&#160;drivers&#160;are&#160;supported&#160;by&#160;using&#160;separate&#160;partitions&#160;in&#160;<br/>
+FEE&#160;module&#160;<br/>
+&#160;&#160;Alignments,&#160;such&#160;as&#160;write,&#160;read&#160;and&#160;address&#160;alignment,&#160;can&#160;be&#160;configured&#160;for&#160;each&#160;<br/>
+partition&#160;specifically&#160;<br/>
+&#160;&#160;Errors in&#160;one&#160;partition&#160;do&#160;not&#160;affect&#160;data&#160;in&#160;other ones&#160;<br/>&#160;&#160;Each&#160;&#160;partition&#160;&#160;has&#160;&#160;its&#160;own&#160;&#160;start&#160;address&#160;&#160;and&#160;&#160;size.&#160;&#160;Next&#160;&#160;partition&#160;&#160;does&#160;&#160;not&#160;&#160;have&#160;&#160;to&#160;<br/>
+start at&#160;the&#160;end&#160;of&#160;the&#160;previous partition.&#160;There&#160;can&#160;be&#160;gaps between&#160;the&#160;partitions.&#160;<br/>
+&#160;&#160;Partitions&#160;do&#160;not&#160;overlap&#160;each&#160;other&#160;<br/>&#160;&#160;Block&#160;&#160;with&#160;&#160;smallest&#160;&#160;Block&#160;&#160;ID&#160;&#160;has&#160;&#160;the&#160;&#160;smallest&#160;&#160;address&#160;&#160;in&#160;&#160;the&#160;partition.&#160;&#160;Each&#160;block&#160;<br/>
+has to&#160;be&#160;assigned&#160;to&#160;a&#160;partition&#160;<br/>
+&#160;&#160;A&#160;&#160;partition’s&#160;&#160;address&#160;&#160;alignment&#160;&#160;must&#160;&#160;be&#160;&#160;identical&#160;&#160;or&#160;&#160;an&#160;&#160;integer&#160;&#160;multiple&#160;&#160;of&#160;&#160;its&#160;<br/>
+referenced&#160;Flash’s sector size&#160;<br/>
+&#160;&#160;A&#160;partition’s&#160;write&#160;alignment&#160;must&#160;be&#160;identical&#160;or&#160;an&#160;integer&#160;multiple&#160;of&#160;its&#160;referenced&#160;<br/>
+Flash’s page&#160;size&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>FEE&#160;configurations&#160;for&#160;FBL&#160;and&#160;Application&#160;do&#160;not&#160;need&#160;to&#160;share&#160;all&#160;partitions.&#160;E.g.&#160;a&#160;<br/>
+&#160;&#160;partition&#160;containing&#160;only&#160;application data&#160;may&#160;remain unknown to&#160;the&#160;FBL.&#160;However,&#160;<br/>
+shared&#160;partitions&#160;must&#160;refer&#160;to&#160;identical&#160;Fls&#160;configurations&#160;(FlsConfigSet&#160;container),&#160;and&#160;<br/>they&#160;must&#160;match&#160;in address and&#160;size,&#160;as well&#160;as in&#160;alignment&#160;settings.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>3.8&#160;</b><br/>
+<b>Service&#160;for handling&#160;under-voltage&#160;situations&#160;</b><br/>
+The&#160;FEE&#160;provides a&#160;set&#160;of&#160;functions to&#160;handle&#160;under-voltage&#160;situations properly.&#160;<br/>
+Fee_30_SmallSector_SuspendWrites()&#160;is&#160;intended&#160;to&#160;react&#160;on&#160;actual&#160;under-voltage&#160;<br/>situation&#160;detected&#160;via&#160;dedicated&#160;monitoring&#160;circuitry.&#160;Usually&#160;there&#160;is&#160;some&#160;amount&#160;of&#160;time&#160;<br/>(few&#160;&#160;milliseconds)&#160;&#160;to&#160;&#160;react&#160;&#160;on&#160;&#160;such&#160;&#160;conditions&#160;&#160;until&#160;&#160;a&#160;&#160;low&#160;&#160;voltage&#160;&#160;reset&#160;&#160;occurs.&#160;&#160;Its&#160;<br/>counterpart,&#160;&#160;Fee_30_SmallSector_ResumeWrites()&#160;&#160;was&#160;&#160;introduced&#160;&#160;in&#160;&#160;order&#160;&#160;to&#160;<br/>prevent&#160;from&#160;stalling,&#160;if&#160;voltage&#160;reaches&#160;normal range,&#160;without&#160;any&#160;reset.&#160;<br/>As&#160;&#160;long&#160;&#160;as&#160;&#160;writes&#160;&#160;are&#160;&#160;suspended&#160;&#160;the&#160;&#160;FEE&#160;&#160;no&#160;&#160;longer&#160;&#160;requests&#160;&#160;any&#160;&#160;write-class&#160;&#160;job&#160;&#160;from&#160;<br/>underlying&#160;&#160;Flash&#160;&#160;driver&#160;&#160;(e.g.&#160;&#160;Fls_Write,&#160;&#160;Fls_Erase)&#160;&#160;due&#160;&#160;to&#160;&#160;high&#160;&#160;risk&#160;&#160;of&#160;&#160;a&#160;&#160;reset.&#160;&#160;A&#160;<br/>currently&#160;pending&#160;write&#160;job&#160;of&#160;FEE&#160;will&#160;be&#160;paused&#160;until&#160;writes&#160;are&#160;resumed&#160;again.&#160;If&#160;FEE&#160;is&#160;<br/>currently&#160;&#160;idle&#160;&#160;when&#160;&#160;writes&#160;&#160;are&#160;&#160;suspended,&#160;&#160;FEE&#160;&#160;write&#160;&#160;jobs&#160;&#160;are&#160;&#160;accepted&#160;&#160;but&#160;&#160;will&#160;&#160;not&#160;&#160;be&#160;<br/>processed&#160;until writes are resumed&#160;again.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-18_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-18_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>3.9&#160;</b><br/>
+<b>MainFunction Triggering&#160;</b><br/>
+In&#160;&#160;AUTOSAR&#160;&#160;release&#160;&#160;4.x&#160;&#160;an&#160;&#160;additional&#160;&#160;option&#160;&#160;is&#160;&#160;introduced&#160;&#160;to&#160;&#160;be&#160;&#160;able&#160;&#160;to&#160;&#160;call&#160;&#160;the&#160;<br/>Fee_30_SmallSector_MainFunction&#160;in&#160;a&#160;cyclic task or in&#160;a&#160;background&#160;task.&#160;<br/>
+The&#160;&#160;cyclic&#160;&#160;task&#160;&#160;(default&#160;&#160;configuration)&#160;&#160;is&#160;&#160;used&#160;&#160;when&#160;&#160;the&#160;&#160;main&#160;&#160;function&#160;&#160;shall&#160;&#160;be&#160;&#160;triggered&#160;<br/>periodically.&#160;Typically&#160;the&#160;cycle&#160;time&#160;needs&#160;to&#160;be&#160;defined,&#160;for example&#160;10ms.&#160;<br/>
+If&#160;the&#160;Fee_30_SmallSector_MainFunction&#160;shall&#160;be&#160;accessed&#160;quicker&#160;without&#160;periodic&#160;<br/>time&#160;base,&#160;the&#160;function&#160;can&#160;also&#160;be&#160;called&#160;in&#160;a&#160;background&#160;task.&#160;The&#160;background&#160;task&#160;runs&#160;<br/>when&#160;the&#160;system&#160;has&#160;nothing&#160;else&#160;to&#160;do.&#160;The&#160;Fee_30_SmallSector_MainFunction&#160;is&#160;<br/>called&#160;as&#160;often&#160;as the&#160;available&#160;CPU load&#160;allows.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>If&#160;the&#160;system&#160;is&#160;overloaded,&#160;it&#160;may&#160;happen&#160;that&#160;the background&#160;task&#160;is&#160;no&#160;longer&#160;called.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;Fee_30_SmallSector_MainFunction&#160;should not&#160;be&#160;triggered&#160;faster&#160;than&#160;<br/>
+&#160;&#160;Fls_MainFunction&#160;because the&#160;FEE&#160;must&#160;wait&#160;for&#160;the&#160;FLS.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;&#160;the&#160;MICROSAR&#160;&#160;FEE&#160;&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;&#160;FEE&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Fee_30_SmallSectors.html#19">rs&#160;&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Fee_30_SmallSectors.html#20">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Fee_30_SmallSector.c&#160;<br/>
+Contains the&#160;implementation&#160;of&#160;the&#160;FEE&#160;interfaces.&#160;<br/>
+Fee_30_SmallSector.h&#160;<br/>
+Declares&#160;the&#160;interfaces&#160;of&#160;the&#160;FEE.&#160;<br/>
+Fee_30_SmallSector_Cbk.h&#160;<br/>
+Declares&#160;the&#160;callback&#160;functions of&#160;the&#160;FEE.&#160;<br/>
+Fee_30_SmallSector_PartitionHandler.c&#160;<br/>
+Responsible&#160;for&#160;partition&#160;relevant&#160;data.&#160;<br/>
+Fee_30_SmallSector_PartitionHandler.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;PartitionHandler.&#160;<br/>
+Fee_30_SmallSector_BlockHandler.c&#160;<br/>
+Responsible&#160;for&#160;block&#160;relevant&#160;data.&#160;<br/>
+Fee_30_SmallSector_BlockHandler.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;BlockHandler.&#160;<br/>
+Fee_30_SmallSector_DatasetHandler.c&#160;<br/>
+Responsible&#160;for&#160;dataset&#160;relevant&#160;data.&#160;<br/>
+Fee_30_SmallSector_DatasetHandler.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;DatasetHandler.&#160;<br/>
+Fee_30_SmallSector_InstanceHandler.c&#160;<br/>
+Responsible&#160;for&#160;instance&#160;relevant&#160;data.&#160;<br/>
+Fee_30_SmallSector_InstanceHandler.h&#160;&#160;Declares&#160;the&#160;interface&#160;of&#160;InstanceHandler.&#160;<br/>Fee_30_SmallSector_TaskManager.c&#160;<br/>
+Responsible&#160;for&#160;coordinating&#160;internal&#160;sub-<br/>components.&#160;<br/>
+Fee_30_SmallSector_TaskManager.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;TaskManager.&#160;<br/>
+Fee_30_SmallSector_FlsCoordinator.c&#160;<br/>
+Provides&#160;access&#160;to Flash&#160;driver’s&#160;services.&#160;<br/>
+Fee_30_SmallSector_FlsCoordinator.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;FlsCoordinator.&#160;<br/>
+Fee_30_SmallSector_Layer1_Read.c&#160;<br/>
+Internal&#160;layer&#160;1 sub-component&#160;for&#160;read&#160;jobs.&#160;<br/>
+Fee_30_SmallSector_Layer1_Read.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;layer&#160;1 read&#160;sub-<br/>component.&#160;<br/>
+Fee_30_SmallSector_Layer1_Write.c&#160;<br/>
+Internal&#160;layer&#160;1 sub-component&#160;for&#160;write,&#160;invalidate&#160;<br/>and erase&#160;jobs.&#160;<br/>
+Fee_30_SmallSector_Layer1_Write.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;layer&#160;1 write sub-<br/>component.&#160;<br/>
+Fee_30_SmallSector_Layer2_WriteInstan&#160;Internal&#160;layer&#160;2 sub-component&#160;for&#160;writing&#160;instances.&#160;<br/>ce.c&#160;<br/>Fee_30_SmallSector_Layer2_WriteInstan&#160;Declares&#160;the&#160;interface&#160;of&#160;layer&#160;2 write instance&#160;sub-<br/>ce.h&#160;<br/>
+component.&#160;<br/>
+Fee_30_SmallSector_Layer2_InstanceFin&#160;Internal&#160;layer&#160;2 sub-component&#160;for&#160;finding&#160;instances.&#160;<br/>der.c&#160;<br/>Fee_30_SmallSector_Layer2_InstanceFin&#160;Declares&#160;the&#160;interface&#160;of&#160;layer&#160;2 instance&#160;finder&#160;sub-<br/>der.h&#160;<br/>
+component.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Fee_30_SmallSector_Layer2_DatasetEra&#160;Internal&#160;layer&#160;2 sub-component&#160;for&#160;erasing datasets.&#160;<br/>ser.c&#160;<br/>Fee_30_SmallSector_Layer2_DatasetEra&#160;Declares&#160;the&#160;interface&#160;of&#160;layer&#160;2 dataset&#160;eraser&#160;sub-<br/>ser.h&#160;<br/>
+component.&#160;<br/>
+Fee_30_SmallSector_Layer3_ReadMana&#160;Internal&#160;layer&#160;3 sub-component&#160;for&#160;reading&#160;<br/>gementBytes.c&#160;<br/>
+management&#160;information&#160;of&#160;instances.&#160;<br/>
+Fee_30_SmallSector_Layer3_ReadMana&#160;Declares&#160;the&#160;interface&#160;of&#160;layer&#160;3 read&#160;management&#160;<br/>gementBytes.h&#160;<br/>
+bytes sub-component.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Fee_30_SmallSector_Cfg.c&#160;&#160;Contains definitions&#160;of&#160;the configuration,&#160;e.g.&#160;partition&#160;<br/>
+configuration&#160;and block&#160;configuration&#160;<br/>
+Fee_30_SmallSector_Cfg.h&#160;&#160;Contains declarations&#160;of&#160;the&#160;configuration&#160;and&#160;macro definitions.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Migration from&#160;FEE&#160;to SmallSectorFEE&#160;</b><br/>
+When&#160;&#160;it&#160;&#160;comes&#160;&#160;to&#160;&#160;an&#160;&#160;update&#160;&#160;of&#160;&#160;a&#160;&#160;project,&#160;&#160;where&#160;&#160;MICROSAR&#160;&#160;FEE&#160;&#160;(“Standard”&#160;&#160;FEE)&#160;&#160;is&#160;<br/>replaced&#160;&#160;by&#160;&#160;MICROSAR&#160;&#160;SmallSectorFEE,&#160;&#160;this&#160;&#160;section&#160;&#160;shows&#160;&#160;how&#160;&#160;to&#160;&#160;migrate&#160;&#160;the&#160;<br/>consisting&#160;FEE&#160;configuration&#160;to&#160;SmallSectorFEE&#160;configuration.&#160;<br/>
+<b>1.&#160;&#160;Update SIP&#160;with&#160;SmallSectorFEE&#160;description and generator&#160;</b><br/>
+The&#160;SIP&#160;of&#160;the&#160;updated&#160;project&#160;should&#160;only&#160;contain&#160;SmallSectorFEE&#160;parts.&#160;Description&#160;and&#160;<br/>Generator of&#160;“Standard” FEE&#160;shall&#160;be&#160;removed&#160;from&#160;the&#160;project.&#160;<br/>
+<b>2.&#160;&#160;Update&#160;BSWMD&#160;references&#160;</b><br/>
+Upon&#160;next&#160;start&#160;of&#160;Configurator&#160;it&#160;will&#160;be&#160;detected&#160;that&#160;the&#160;BSWMD&#160;file&#160;of&#160;“Standard”&#160;FEE&#160;<br/>is&#160;&#160;missing&#160;&#160;and&#160;&#160;SmallSectorFEE’s&#160;&#160;BSWMD&#160;&#160;is&#160;&#160;found&#160;&#160;instead,&#160;&#160;according&#160;&#160;to&#160;&#160;<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Figure&#160;&#160;4-1<br/>&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Update&#160;references&#160;of&#160;BSWMD&#160;file.&#160;</a>&#160;<br/>
+Select&#160;<br/>
+OK&#160;<br/>
+in&#160;<br/>
+order&#160;<br/>
+to&#160;<br/>
+choose&#160;<br/>
+the&#160;<br/>
+alternative&#160;<br/>
+module&#160;<br/>
+definition&#160;<br/>
+/MICROSAR/Fee_30_SmallSector/Fee_Impl&#160;for the&#160;current&#160;definition&#160;/MICROSAR/Fee.&#160;<br/>The&#160;DaVinci&#160;Configurator&#160;5&#160;then&#160;takes&#160;care&#160;of&#160;replacing&#160;the&#160;references&#160;within&#160;the&#160;project,&#160;<br/>so&#160;that&#160;as&#160;much&#160;information&#160;as&#160;possible&#160;is&#160;retained.&#160;Parameters&#160;which&#160;are&#160;identical&#160;in&#160;both&#160;<br/>the&#160;&#160;previous&#160;&#160;and&#160;&#160;the&#160;&#160;new&#160;&#160;definition&#160;&#160;are&#160;&#160;matched&#160;&#160;easily,&#160;&#160;which&#160;&#160;is&#160;&#160;applicable&#160;&#160;to&#160;&#160;all&#160;<br/>AUTOSAR&#160;parameters.&#160;Due&#160;to&#160;the&#160;fact&#160;that&#160;even&#160;most&#160;of&#160;the&#160;vendor&#160;specific&#160;parameters,&#160;<br/>e.g.&#160;&#160;FeePartitionConfiguration&#160;&#160;parameters,&#160;&#160;haven’t&#160;&#160;changed&#160;&#160;significantly&#160;&#160;there’s&#160;&#160;no&#160;&#160;real&#160;<br/>data&#160;loss.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-21_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-21_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-21_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Update&#160;references&#160;of&#160;BSWMD&#160;file&#160;<br/>
+<b>3.&#160;&#160;Remove&#160;incorrect definitions&#160;</b><br/>
+After&#160;&#160;updating&#160;&#160;the&#160;&#160;BSWMD&#160;&#160;file&#160;&#160;and&#160;&#160;after&#160;&#160;starting&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;Configurator&#160;&#160;all&#160;&#160;the&#160;<br/>parameters&#160;&#160;are&#160;&#160;marked&#160;&#160;with&#160;&#160;a&#160;&#160;small&#160;&#160;info&#160;&#160;icon&#160;&#160;which&#160;&#160;could&#160;&#160;not&#160;&#160;be&#160;&#160;assigned&#160;&#160;to&#160;&#160;the&#160;&#160;new&#160;<br/>definition.&#160;&#160;<br/>
+&#160;<br/>
+Figure&#160;4-2&#160;&#160;Example&#160;PartitionConfiguration&#160;after&#160;updating&#160;BSWMD&#160;references&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-22_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-22_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-22_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Figure&#160;4-2&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#21">Example&#160;&#160;PartitionConfiguration&#160;&#160;after&#160;&#160;updating&#160;&#160;BSWMD&#160;&#160;references&#160;&#160;</a>depicts&#160;<br/>
+an&#160;example&#160;PartitionConfiguration&#160;with&#160;some&#160;parameters&#160;greyed&#160;out,&#160;which&#160;are&#160;no&#160;longer&#160;<br/>available&#160;&#160;after&#160;&#160;updating&#160;&#160;the&#160;&#160;FEE&#160;&#160;module&#160;&#160;definition.&#160;&#160;The&#160;&#160;DaVinci&#160;&#160;Configurator&#160;&#160;5&#160;&#160;shows&#160;<br/>appropriate&#160;information&#160;in&#160;the&#160;Validation&#160;view,&#160;as depicted&#160;in<a href="TechnicalReference_Fee_30_SmallSectors.html#22">&#160;Figure&#160;4-3&#160;&#160;DaVinci&#160;<br/>Configurator signals incorrect&#160;definition&#160;of&#160;configuration&#160;elements.</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;4-3&#160;&#160;DaVinci&#160;Configurator&#160;signals&#160;incorrect&#160;definition&#160;of&#160;configuration&#160;elements&#160;<br/>
+To&#160;&#160;remove&#160;&#160;all&#160;&#160;incorrect&#160;&#160;definitions&#160;&#160;a&#160;&#160;solving&#160;&#160;action&#160;&#160;can&#160;&#160;be&#160;&#160;processed&#160;&#160;from&#160;&#160;the&#160;&#160;context&#160;<br/>menu&#160;of&#160;the&#160;top&#160;element&#160;as shown&#160;in<a href="TechnicalReference_Fee_30_SmallSectors.html#22">&#160;Figure&#160;4-4&#160;Choose&#160;&#160;solving&#160;&#160;action&#160;&#160;to&#160;&#160;delete&#160;&#160;all&#160;<br/>erroneous definitions.</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;4-4&#160;&#160;Choose&#160;solving&#160;action&#160;to&#160;delete&#160;all&#160;erroneous&#160;definitions&#160;<br/>
+<b>4.&#160;&#160;Solve&#160;appearing&#160;errors&#160;</b><br/>
+After&#160;the&#160;erroneous&#160;definitions&#160;were&#160;removed,&#160;still&#160;some&#160;errors&#160;may&#160;be&#160;present&#160;because&#160;of&#160;<br/>incorrect&#160;parameter&#160;configuration.&#160;In&#160;order&#160;to&#160;solve&#160;these&#160;configuration&#160;issues&#160;please&#160;refer&#160;<br/>to&#160;&#160;error&#160;&#160;descriptions&#160;&#160;in&#160;&#160;Validation&#160;&#160;view&#160;&#160;of&#160;&#160;DaVinci&#160;&#160;Configurator&#160;&#160;and&#160;&#160;to&#160;&#160;section&#160;&#160;<a href="TechnicalReference_Fee_30_SmallSectors.html#35">6.2&#160;<br/></a>Configuration&#160;with&#160;DaVinci Configurator in&#160;order to&#160;get&#160;some&#160;hints&#160;for configuration.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_Fee_30_SmallSectors.html#10">&#160;Figure&#160;2-3.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;FEE&#160;does not&#160;specify&#160;any&#160;API&#160;data&#160;types.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;FEE&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>Fee_30_SmallSector_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_Init</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service initializes&#160;the&#160;FEE&#160;module and&#160;all&#160;necessary&#160;internal&#160;variables.&#160;<br/>The&#160;FEE&#160;module&#160;doesn’t support&#160;any&#160;runtime configuration.&#160;Hence,&#160;a pointer&#160;to&#160;the&#160;configuration&#160;structure&#160;<br/>is&#160;not&#160;needed&#160;by&#160;this&#160;service.&#160;<br/>The&#160;FEE&#160;does&#160;not&#160;initialize&#160;the&#160;underlying Flash driver.&#160;This&#160;shall&#160;be&#160;done&#160;separately,&#160;e.g.&#160;by&#160;the&#160;ECUM&#160;<br/>module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;service shall&#160;not&#160;be&#160;called&#160;during&#160;a pending job.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Fee_30_SmallSector_Init&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>Fee_30_SmallSector_SetMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_SetMode</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Mode&#160;<br/>
+Parameter&#160;is&#160;not&#160;used.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-24_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-24_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service&#160;will&#160;not&#160;be&#160;supported&#160;by&#160;current&#160;implementation&#160;of&#160;FEE&#160;module&#160;because SetMode&#160;handling&#160;is&#160;<br/>not clearly&#160;specified&#160;by&#160;AUTOSAR.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;service has&#160;no&#160;effect&#160;at&#160;all&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;Fee_30_SmallSector_SetMode&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>Fee_30_SmallSector_Read&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Fee_30_SmallSector_Read</b>&#160;(&#160;<br/>uint16 BlockNumber, uint16 BlockOffset, uint8* DataBufferPtr, uint16 Length)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+BlockNumber&#160;<br/>
+Handle&#160;of&#160;a&#160;logical&#160;block&#160;(depending&#160;on block&#160;configuration)&#160;<br/>
+BlockOffset&#160;<br/>
+Read&#160;address&#160;offset&#160;inside&#160;the&#160;block&#160;<br/>
+DataBufferPtr&#160;<br/>
+Pointer&#160;to data&#160;buffer&#160;<br/>
+Length&#160;<br/>
+Number&#160;of&#160;bytes&#160;to&#160;read&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK&#160;<br/>
+Read&#160;job has&#160;been accepted&#160;<br/>
+E_NOT_OK&#160;<br/>
+Read&#160;job has&#160;been&#160;rejected&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service invokes&#160;the read&#160;processing&#160;of&#160;the specified&#160;block.&#160;After the&#160;job&#160;has&#160;been&#160;processed&#160;by&#160;the&#160;<br/>Fee_30_SmallSector_MainFunction&#160;the&#160;requested&#160;data&#160;has&#160;been&#160;read&#160;and&#160;passed&#160;to&#160;the&#160;caller.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;job&#160;processing&#160;is&#160;asynchronous.&#160;Hence,&#160;it&#160;is&#160;necessary&#160;to&#160;poll&#160;the&#160;FEE&#160;about&#160;its&#160;<br/>
+&#160;&#160;current&#160;status&#160;by&#160;calling&#160;the&#160;function&#160;Fee_30_SmallSector_GetStatus()&#160;to&#160;check&#160;<br/>
+if&#160;the&#160;job&#160;was completed.&#160;Finally,&#160;the&#160;result&#160;of&#160;the&#160;finished job&#160;can&#160;be&#160;queried by&#160;calling&#160;<br/>the&#160;function&#160;Fee_30_SmallSector_GetJobResult().&#160;Accordingly,&#160;it&#160;is&#160;possible to&#160;<br/>notify&#160;the&#160;upper&#160;layer&#160;(usually&#160;the&#160;NVM)&#160;via the&#160;callback&#160;mechanism.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+Additionally,&#160;if development&#160;mode&#160;is configured,&#160;parameter checks&#160;are performed&#160;and&#160;in&#160;<br/>case&#160;of&#160;failure&#160;they&#160;are reported&#160;to&#160;the&#160;DET&#160;with&#160;according&#160;service&#160;ID and&#160;the&#160;reason&#160;of&#160;<br/>occurrence&#160;(refer to<a href="TechnicalReference_Fee_30_SmallSectors.html#15">&#160;3.6.1).</a>&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-25_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-25_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;asynchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;Fee_30_SmallSector_Read&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>Fee_30_SmallSector_Write&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Fee_30_SmallSector_Write</b>&#160;(&#160;<br/>uint16 BlockNumber, uint8* DataBufferPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+BlockNumber&#160;<br/>
+Handle&#160;of&#160;a&#160;logical&#160;block&#160;(depending&#160;on block&#160;configuration)&#160;<br/>
+DataBufferPtr&#160;<br/>
+Pointer&#160;to data&#160;buffer&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK&#160;<br/>
+Write&#160;job&#160;has&#160;been&#160;accepted&#160;<br/>
+E_NOT_OK&#160;<br/>
+Write&#160;job&#160;has&#160;been&#160;rejected&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service invokes&#160;the&#160;write&#160;processing of&#160;the&#160;specified&#160;block.&#160;After the&#160;job&#160;has&#160;been&#160;processed&#160;by&#160;the&#160;<br/>Fee_30_SmallSector_MainFunction&#160;the&#160;requested&#160;data&#160;has&#160;been&#160;written to&#160;the&#160;non-volatile&#160;memory.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;job&#160;processing&#160;is&#160;asynchronous.&#160;Hence,&#160;it&#160;is&#160;necessary&#160;to&#160;poll&#160;the&#160;FEE&#160;about&#160;its&#160;<br/>
+&#160;&#160;current&#160;status&#160;by&#160;calling&#160;the&#160;function&#160;Fee_30_SmallSector_GetStatus()&#160;to&#160;check&#160;<br/>
+if&#160;the&#160;job&#160;was completed.&#160;Finally,&#160;the&#160;result&#160;of&#160;the&#160;finished job&#160;can&#160;be&#160;queried by&#160;calling&#160;<br/>the&#160;function&#160;Fee_30_SmallSector_GetJobResult().&#160;Accordingly,&#160;it&#160;is&#160;possible to&#160;<br/>notify&#160;the&#160;upper&#160;layer&#160;(usually&#160;the&#160;NVM)&#160;via the&#160;callback&#160;mechanism.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+Additionally,&#160;if development&#160;mode&#160;is configured,&#160;parameter checks&#160;are performed&#160;and&#160;in&#160;<br/>case&#160;of&#160;failure&#160;they&#160;are reported&#160;to&#160;the&#160;DET&#160;with&#160;according&#160;service&#160;ID and&#160;the&#160;reason&#160;of&#160;<br/>occurrence&#160;(refer to<a href="TechnicalReference_Fee_30_SmallSectors.html#15">&#160;3.6.1).</a>&#160;<br/>&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;asynchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-26_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-26_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;Fee_30_SmallSector_Write&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>Fee_30_SmallSector_Cancel&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_Cancel</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service cancels&#160;a&#160;currently&#160;pending job.&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;service is a&#160;synchronous&#160;call&#160;and does&#160;not&#160;have to be&#160;triggered&#160;by&#160;the&#160;<br/>
+&#160;&#160;Fee_30_SmallSector_MainFunction().&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;status&#160;of&#160;the&#160;FEE&#160;will&#160;be&#160;set&#160;to&#160;MEMIF_IDLE&#160;and&#160;the&#160;job&#160;result&#160;will&#160;be&#160;set&#160;to&#160;<br/>MEMIF_JOB_CANCELLED,&#160;if a&#160;job&#160;was currently&#160;pending.&#160;<br/>&#160;<br/>If the&#160;FEE&#160;is currently&#160;MEMIF_IDLE,&#160;calling&#160;this service&#160;is without&#160;any&#160;effect.&#160;A&#160;<br/>development&#160;error will&#160;be&#160;reported&#160;to&#160;the&#160;DET&#160;module&#160;in&#160;this case,&#160;if&#160;development&#160;error&#160;<br/>detection&#160;is&#160;enabled.&#160;<br/><b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;Fee_30_SmallSector_Cancel&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>Fee_30_SmallSector_GetStatus&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+MemIf_StatusType&#160;<b>Fee_30_SmallSector_GetStatus</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+MEMIF_UNINIT&#160;<br/>
+The&#160;FEE&#160;is&#160;currently&#160;not&#160;initialized.&#160;Fee_30_SmallSector_Init()&#160;must be&#160;<br/>called to&#160;use the&#160;functionality&#160;of&#160;FEE.&#160;<br/>
+MEMIF_IDLE&#160;<br/>
+The&#160;FEE&#160;is&#160;currently&#160;idle.&#160;No asynchronous&#160;job&#160;is&#160;pending.&#160;<br/>
+MEMIF_BUSY&#160;<br/>
+The&#160;FEE&#160;is&#160;currently&#160;busy.&#160;An asynchronous&#160;job&#160;is&#160;currently&#160;being&#160;processed&#160;<br/>by&#160;the&#160;FEE.&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>This&#160;service&#160;returns&#160;synchronously&#160;the&#160;current&#160;module&#160;state&#160;of&#160;the&#160;FEE.&#160;<br/><b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;Fee_30_SmallSector_GetStatus&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>Fee_30_SmallSector_GetJobResult&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+MemIf_JobResultType&#160;<b>Fee_30_SmallSector_GetJobResult</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+MEMIF_JOB_OK&#160;<br/>
+The&#160;last job&#160;has&#160;been&#160;finished&#160;successfully.&#160;<br/>
+MEMIF_JOB_PENDING&#160;<br/>
+The&#160;last requested&#160;job is&#160;waiting&#160;for&#160;execution or&#160;is&#160;currently&#160;being&#160;<br/>executed.&#160;<br/>
+MEMIF_JOB_CANCELLED&#160;<br/>
+The&#160;last job&#160;has&#160;been&#160;canceled via&#160;the&#160;<br/>Fee_30_SmallSector_Cancel()&#160;service.&#160;<br/>
+MEMIF_JOB_FAILED&#160;<br/>
+The&#160;Flash driver reported an error or&#160;the FEE&#160;could&#160;not achieve the&#160;<br/>requested job&#160;due&#160;to&#160;hardware errors&#160;(e.g. memory&#160;cells&#160;defect)&#160;<br/>
+MEMIF_BLOCK_INCONSISTENT&#160;&#160;The&#160;requested&#160;block’s&#160;management information&#160;is&#160;inconsistent;&#160;hence it&#160;<br/>
+may&#160;contain corrupt data.&#160;This&#160;result&#160;happens&#160;if&#160;a&#160;write&#160;job&#160;has&#160;not&#160;<br/>been&#160;completed (e.g.&#160;due&#160;to voltage&#160;drop)&#160;or&#160;if&#160;bit flips&#160;in the&#160;<br/>management information&#160;occurred&#160;and can’t&#160;be&#160;corrected. Furthermore,&#160;<br/>if&#160;write-verify&#160;for a specific&#160;block&#160;is&#160;enabled and&#160;the&#160;verification&#160;of&#160;the&#160;<br/>written&#160;data fails, the job result is&#160;set&#160;to&#160;INCONSISTENT.&#160;<br/>
+MEMIF_BLOCK_INVALID&#160;<br/>
+The&#160;requested&#160;block&#160;has&#160;been&#160;invalidated previously&#160;via the service&#160;<br/>Fee_30_SmallSector_InvalidateBlock()&#160;or it&#160;is&#160;erased&#160;(e.g. by&#160;<br/>calling&#160;Fee_30_SmallSector_EraseImmediateBlock()).&#160;&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>This service&#160;returns&#160;the&#160;job&#160;result of&#160;the&#160;last&#160;job&#160;which&#160;was executed.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-28_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-28_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;Fee_30_SmallSector_GetJobResult&#160;<br/>
+<b>5.2.8&#160;</b><br/>
+<b>Fee_30_SmallSector_InvalidateBlock&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Fee_30_SmallSector_InvalidateBlock</b>(&#160;uint16 BlockNumber&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+BlockNumber&#160;<br/>
+Handle&#160;of&#160;a&#160;logical&#160;block&#160;(depending&#160;on block&#160;configuration)&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK&#160;<br/>
+Invalidate job&#160;has&#160;been&#160;accepted&#160;<br/>
+E_NOT_OK&#160;<br/>
+Invalidate job&#160;has&#160;been rejected&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service invokes&#160;the invalidate processing of&#160;the&#160;specified&#160;block.&#160;After the&#160;job has&#160;been processed&#160;by&#160;<br/>the&#160;Fee_30_SmallSector_MainFunction&#160;the&#160;requested&#160;block&#160;is&#160;marked&#160;as&#160;INVALID.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;job&#160;processing&#160;is&#160;asynchronous.&#160;Hence,&#160;it&#160;is&#160;necessary&#160;to&#160;poll&#160;the&#160;FEE&#160;about&#160;its&#160;<br/>
+&#160;&#160;current&#160;status&#160;by&#160;calling&#160;the&#160;function&#160;Fee_30_SmallSector_GetStatus()&#160;to&#160;check&#160;<br/>
+if&#160;the&#160;job&#160;was completed.&#160;Finally,&#160;the&#160;result&#160;of&#160;the&#160;finished job&#160;can&#160;be&#160;queried by&#160;calling&#160;<br/>the&#160;function&#160;Fee_30_SmallSector_GetJobResult().&#160;Accordingly,&#160;it&#160;is&#160;possible to&#160;<br/>notify&#160;the&#160;upper&#160;layer&#160;(usually&#160;the&#160;NVM)&#160;via the&#160;callback&#160;mechanism.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+Additionally,&#160;if development&#160;mode&#160;is configured,&#160;parameter checks&#160;are performed&#160;and&#160;in&#160;<br/>case&#160;of&#160;failure&#160;they&#160;are reported&#160;to&#160;the&#160;DET&#160;with&#160;according&#160;service&#160;ID and&#160;the&#160;reason&#160;of&#160;<br/>occurrence&#160;(refer to<a href="TechnicalReference_Fee_30_SmallSectors.html#15">&#160;3.6.1).</a>&#160;<br/>&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;asynchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;Fee_30_SmallSector_InvalidateBlock&#160;<br/>
+<b>5.2.9&#160;</b><br/>
+<b>Fee_30_SmallSector_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_GetVersionInfo</b>&#160;(&#160;Std_VersionInfoType *VersionInfoPtr&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+VersionInfoPtr&#160;<br/>
+Pointer&#160;to&#160;where to store the version&#160;information&#160;of&#160;this&#160;module.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>This service&#160;returns&#160;the&#160;version&#160;information&#160;of&#160;this&#160;module.&#160;The&#160;version&#160;information&#160;<br/>includes:&#160;<br/><b>&gt;&#160;&#160;</b>Module&#160;ID&#160;<br/><b>&gt;&#160;&#160;</b>Vendor ID&#160;<br/><b>&gt;&#160;&#160;</b>Vendor specific version&#160;numbers&#160;<br/>Additionally,&#160;if development&#160;mode&#160;is configured,&#160;parameter checks&#160;are performed&#160;and&#160;in&#160;<br/>case&#160;of&#160;failure&#160;they&#160;are reported&#160;to&#160;the&#160;DET&#160;with&#160;according&#160;service&#160;ID and&#160;the&#160;reason&#160;of&#160;<br/>occurrence&#160;(refer to<a href="TechnicalReference_Fee_30_SmallSectors.html#15">&#160;3.6.1).</a>&#160;<br/><b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;service is can&#160;be&#160;en-/disabled&#160;via configuration&#160;parameter&#160;FeeVersionInfoApi&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;Fee_30_SmallSector_GetVersionInfo&#160;<br/>
+<b>5.2.10&#160;&#160;Fee_30_SmallSector_EraseImmediateBlock&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Fee_30_SmallSector_EraseImmediateBlock</b>(&#160;uint16 BlockNumber&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+BlockNumber&#160;<br/>
+Handle&#160;of&#160;a&#160;logical&#160;block&#160;(depending&#160;on block&#160;configuration)&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK&#160;<br/>
+Erase job&#160;has&#160;been&#160;accepted&#160;<br/>
+E_NOT_OK&#160;<br/>
+Erase job&#160;has&#160;been&#160;rejected&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-30_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-30_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;doesn’t&#160;erase&#160;flash memory.&#160;<br/>The&#160;addressed&#160;block&#160;is&#160;marked&#160;as&#160;invalid,&#160;thus&#160;a&#160;subsequent&#160;read&#160;request on the&#160;invalidated block&#160;<br/>completes&#160;with&#160;MEMIF_BLOCK_INVALID.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;job&#160;processing&#160;is&#160;asynchronous.&#160;Hence,&#160;it&#160;is&#160;necessary&#160;to&#160;poll&#160;the&#160;FEE&#160;about&#160;its&#160;<br/>
+&#160;&#160;current&#160;status&#160;by&#160;calling&#160;the&#160;function&#160;Fee_30_SmallSector_GetStatus()&#160;to&#160;check&#160;<br/>
+if&#160;the&#160;job&#160;was completed.&#160;Finally,&#160;the&#160;result&#160;of&#160;the&#160;finished job&#160;can&#160;be&#160;queried by&#160;calling&#160;<br/>the&#160;function&#160;Fee_30_SmallSector_GetJobResult().&#160;Accordingly,&#160;it&#160;is&#160;possible to&#160;<br/>notify&#160;the&#160;upper&#160;layer&#160;(usually&#160;the&#160;NVM)&#160;via the&#160;callback&#160;mechanism.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+Additionally,&#160;if development&#160;mode&#160;is configured,&#160;parameter checks&#160;are performed&#160;and&#160;in&#160;<br/>case&#160;of&#160;failure&#160;they&#160;are reported&#160;to&#160;the&#160;DET&#160;with&#160;according&#160;service&#160;ID and&#160;the&#160;reason&#160;of&#160;<br/>occurrence&#160;(refer to<a href="TechnicalReference_Fee_30_SmallSectors.html#15">&#160;3.6.1).</a>&#160;<br/><b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;asynchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Fee_30_SmallSector_EraseImmediateBlock&#160;<br/>
+<b>5.2.11&#160;&#160;Fee_30_SmallSector_MainFunction&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_MainFunction</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>This service&#160;triggers the&#160;processing&#160;of&#160;internal state&#160;machine&#160;and&#160;handles&#160;the&#160;<br/>asynchronous&#160;job&#160;and&#160;management&#160;operations.&#160;<br/>The&#160;complete&#160;handling&#160;of&#160;the&#160;job&#160;and&#160;the&#160;detection&#160;of&#160;invalidated&#160;or inconsistent&#160;blocks&#160;<br/>will&#160;be&#160;done&#160;in&#160;the&#160;internal job&#160;state&#160;machine.&#160;<br/>Additionally,&#160;if development&#160;mode&#160;is configured,&#160;parameter checks&#160;are performed&#160;and&#160;in&#160;<br/>case&#160;of&#160;failure&#160;they&#160;are reported&#160;to&#160;the&#160;DET&#160;with&#160;according&#160;service&#160;ID and&#160;the&#160;reason&#160;of&#160;<br/>occurrence&#160;(refer to<a href="TechnicalReference_Fee_30_SmallSectors.html#15">&#160;3.6.1).</a>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;at&#160;interrupt&#160;level&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;Fee_30_SmallSector_MainFunction&#160;<br/>
+<b>5.2.12&#160;&#160;Fee_30_SmallSector_SuspendWrites&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_SuspendWrites</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>This service&#160;instructs FEE&#160;to&#160;block&#160;all&#160;write&#160;class jobs (writing,&#160;invalidating&#160;and&#160;erasing).&#160;&#160;<br/>Pending&#160;jobs will be&#160;paused,&#160;i.e.&#160;they&#160;won’t be&#160;finished.&#160;FEE&#160;will enter a&#160;safe&#160;state&#160;(by&#160;<br/>means of&#160;Flash&#160;content). Once&#160;such&#160;state&#160;was reached,&#160;FEE&#160;does&#160;not&#160;issue&#160;new&#160;write&#160;<br/>requests&#160;to&#160;FLS.&#160;<br/>Multiple&#160;subsequent&#160;calls of&#160;this service&#160;don’t&#160;have&#160;additional&#160;effects,&#160;i.e.&#160;to&#160;re-enable&#160;<br/>write&#160;accesses&#160;only&#160;one&#160;call&#160;of&#160;Fee_30_SmallSector_ResumeWrites&#160;is necessary.&#160;<br/><b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context.&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;Fee_30_SmallSector_SuspendWrites&#160;<br/>
+<b>5.2.13&#160;&#160;Fee_30_SmallSector_ResumeWrites&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_ResumeWrites</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-32_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>This service&#160;instructs FEE&#160;to&#160;allow&#160;all&#160;write&#160;class jobs (writing,&#160;invalidating&#160;and&#160;erasing),&#160;<br/>after being&#160;suspended&#160;by&#160;Fee_30_SmallSector_SuspendWrites.&#160;<br/>Multiple&#160;calls of&#160;this service&#160;don’t&#160;have&#160;any&#160;additional effects,&#160;i.e.&#160;to&#160;disable&#160;write&#160;class&#160;<br/>jobs only&#160;Fee_30_SmallSector_SuspendWrites&#160;needs to&#160;be&#160;called&#160;only&#160;once.&#160;<br/>&#160;<br/><b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;at&#160;interrupt&#160;level&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;Fee_30_SmallSector_ResumeWrites&#160;<br/>
+&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;FEE&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other&#160;components,&#160;which&#160;are&#160;used&#160;by&#160;the&#160;FEE&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError&#160;<br/>
+FLS&#160;<br/>
+Fls_Read&#160;<br/>Fls_Write&#160;<br/>Fls_Compare&#160;<br/>Fls_Erase&#160;<br/>Fls_BlankCheck&#160;(if&#160;configured)&#160;<br/>Fls_GetJobResult&#160;<br/>Fls_GetStatus&#160;<br/>
+NVM&#160;<br/>
+NvM_JobEndNotification&#160;(if&#160;configured)&#160;<br/>NvM_JobErrorNotification (if&#160;configured)&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;FEE&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;FEE&#160;and&#160;can&#160;be&#160;<br/>invoked&#160;&#160;by&#160;&#160;other&#160;&#160;modules.&#160;&#160;The&#160;&#160;prototypes&#160;&#160;of&#160;&#160;the&#160;&#160;callback&#160;&#160;functions&#160;&#160;are&#160;&#160;provided&#160;&#160;in&#160;&#160;the&#160;<br/>header&#160;file&#160;Fee_30_SmallSector_Cbk.h&#160;by&#160;the&#160;FEE.&#160;<br/>
+<b>5.4.1&#160;</b><br/>
+<b>Fee_30_SmallSector_JobEndNotification&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_JobEndNotification</b>(&#160;void&#160;)&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-33_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-33_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-33_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;routine&#160;shall&#160;be called&#160;by&#160;the&#160;underlying flash driver to report the successful&#160;end&#160;of&#160;an&#160;asynchronous&#160;<br/>operation.&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;function&#160;is&#160;configurable at&#160;pre-compile time using&#160;the&#160;parameter&#160;<br/>
+&#160;&#160;FeePollingMode.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;routine&#160;might&#160;be&#160;called&#160;on&#160;interrupt&#160;level,&#160;depending&#160;on&#160;the&#160;calling&#160;function&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;Fee_30_SmallSector_JobEndNotification&#160;<br/>
+<b>5.4.2&#160;</b><br/>
+<b>Fee_30_SmallSector_JobErrorNotification&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Fee_30_SmallSector_JobErrorNotification</b>(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;routine&#160;shall&#160;be called&#160;by&#160;the&#160;underlying flash driver to report the failure of&#160;an&#160;asynchronous&#160;operation.&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;function&#160;is&#160;configurable at&#160;pre-compile time using&#160;the&#160;parameter&#160;<br/>
+&#160;&#160;FeePollingMode.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-34_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Fee_30_SmallSectors.html#16">e 'Service IDs'</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;routine&#160;might&#160;be&#160;called&#160;on&#160;interrupt&#160;level,&#160;depending&#160;on&#160;the&#160;calling&#160;function&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;Fee_30_SmallSector_JobErrorNotification&#160;<br/>
+&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>API&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Function&#160;<br/>
+This&#160;function&#160;can&#160;be&#160;enabled/disabled&#160;by&#160;the&#160;<br/>
+Fee_30_SmallSector_GetVersionInfo&#160;<br/>
+configuration&#160;switch ‘Version Information&#160;API’&#160;<br/>
+Table&#160;5-16&#160;&#160;&#160;Configurable&#160;Interfaces&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-35_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-35_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;FEE&#160;the&#160;attributes can&#160;be&#160;configured&#160;according&#160;with&#160;the&#160;following&#160;methods:&#160;<br/>
+<b>&gt;&#160;&#160;</b>DaVinci&#160;Configurator&#160;5,&#160;domain&#160;“Memory” (AUTOSAR&#160;4&#160;packages&#160;only). Parameters&#160;<br/>
+are explained&#160;within&#160;the&#160;tool. Parameters described&#160;in&#160;this chapter might&#160;not&#160;directly&#160;<br/>correspond&#160;to&#160;parameters visible&#160;in&#160;Configurator 5’s GUI.&#160;<br/>
+<b>&gt;&#160;&#160;</b>DaVinci Configurator&#160;4&#160;(AUTOSAR 3&#160;packages only;&#160;for a&#160;detailed&#160;description&#160;see&#160;<br/>
+this chapter)&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;FEE&#160;supports the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;configuration&#160;classes&#160;of&#160;the&#160;FEE&#160;parameters&#160;depend&#160;on&#160;the&#160;supported&#160;configuration&#160;<br/>variants.&#160;For their&#160;definitions please&#160;see&#160;the&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Fee_30_SmallSector_bswmd_Asr3.2.1.arxml (AUTOSAR 3&#160;use-case)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Fee_30_SmallSector_bswmd_Asr4.0.3.arxml (AUTOSAR 4&#160;use-case)&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Configuration&#160;with DaVinci&#160;Configurator&#160;</b><br/>
+Configuration&#160;parameters&#160;are&#160;well&#160;described&#160;within&#160;the&#160;tool,&#160;thus&#160;this&#160;section&#160;should&#160;point&#160;<br/>out&#160;the&#160;key&#160;elements&#160;of&#160;configuration.&#160;<br/>
+<b>6.2.1&#160;</b><br/>
+<b>Configuring Flash&#160;API&#160;Services&#160;</b><br/>
+By&#160;&#160;default&#160;&#160;SmallSectorFee&#160;&#160;assumes&#160;&#160;the&#160;&#160;Flash’s&#160;&#160;API&#160;&#160;services&#160;&#160;declared&#160;&#160;like&#160;<br/>Fls_&lt;Operation&gt;&#160;(i.e.&#160;Fls_Read,&#160;Fls_Write,&#160;Fls_Erase,&#160;etc.).&#160;<br/>If&#160;declaration&#160;of&#160;Flash’s&#160;API&#160;services&#160;differs&#160;from&#160;this&#160;default,&#160;e.g.&#160;Fls_&lt;VendorInfix&gt;_Read&#160;<br/>an&#160;according&#160;FeeGeneral/FeeFlsApi&#160;container&#160;shall&#160;be&#160;instantiated&#160;and&#160;the&#160;service&#160;names&#160;<br/>shall&#160;be&#160;entered&#160;manually&#160;as shown&#160;in<a href="TechnicalReference_Fee_30_SmallSectors.html#36">&#160;Figure&#160;6-1&#160;&#160;Configuring&#160;FeeFlsApi&#160;container.</a>&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+35&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-36_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-36_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+Figure&#160;6-1&#160;&#160;Configuring&#160;FeeFlsApi&#160;container&#160;<br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Figure&#160;6-1&#160;</a><br/>
+<a href="TechnicalReference_Fee_30_SmallSectors.html#36">Configuring&#160;FeeFlsApi&#160;containerd</a>epicts&#160;an&#160;example&#160;with&#160;Flash&#160;API&#160;services&#160;<br/>
+(here:&#160;Fls_Spi_&lt;operation&gt;)&#160;differing&#160;from&#160;default.&#160;The&#160;parameter&#160;‘Device&#160;Index’&#160;shall&#160;be&#160;<br/>set&#160;to&#160;FlsGeneral container of&#160;the&#160;corresponding&#160;FLS&#160;module&#160;in&#160;configuration.&#160;&#160;<br/>If&#160;&#160;the&#160;&#160;FLS&#160;&#160;driver&#160;&#160;does&#160;&#160;not&#160;&#160;provide&#160;&#160;a&#160;&#160;BlankCheck-API,&#160;&#160;the&#160;&#160;content&#160;&#160;of&#160;&#160;this&#160;&#160;configuration&#160;<br/>parameter is not&#160;relevant&#160;and&#160;will be&#160;ignored.&#160;Nevertheless&#160;it shouldn’t be&#160;left&#160;empty.&#160;<br/>
+<b>6.2.2&#160;</b><br/>
+<b>Partition Configuration&#160;</b><br/>
+For&#160;each&#160;partition&#160;three&#160;different&#160;alignment&#160;parameters&#160;can&#160;be&#160;configured.&#160;This&#160;is&#160;due&#160;to&#160;<br/>the&#160;&#160;fact&#160;&#160;that&#160;&#160;theoretically&#160;&#160;each&#160;&#160;partition&#160;&#160;could&#160;&#160;reference&#160;&#160;a&#160;&#160;separate&#160;&#160;FLS&#160;&#160;module&#160;&#160;with&#160;<br/>different&#160;hardware&#160;properties.&#160;<br/>
+<b>&gt;&#160;&#160;</b>AddressAlignment&#160;shall&#160;be&#160;configured&#160;to&#160;the&#160;same&#160;size&#160;of&#160;referenced&#160;FLS&#160;module’s&#160;<br/>
+physical sector&#160;<br/>
+<b>&gt;&#160;&#160;</b>WriteAlignment&#160;&#160;shall&#160;&#160;be&#160;&#160;configured&#160;&#160;to&#160;&#160;the&#160;&#160;same&#160;&#160;size&#160;&#160;of&#160;&#160;referenced&#160;&#160;FLS&#160;&#160;module’s&#160;<br/>
+physical page&#160;<br/>
+<b>&gt;&#160;&#160;</b>ReadAlignment&#160;&#160;shall&#160;&#160;be&#160;&#160;configured&#160;&#160;as&#160;&#160;small&#160;&#160;as&#160;&#160;possible&#160;&#160;in&#160;&#160;order&#160;&#160;to&#160;&#160;avoid&#160;&#160;reading&#160;<br/>
+overhead.&#160;For example&#160;RH850’s RV40F data&#160;flash&#160;allows 1&#160;byte&#160;read&#160;accesses.&#160;<br/>
+&#160;<br/>
+Figure&#160;6-2&#160;&#160;SmallSectorFee&#160;Partition&#160;Configuration&#160;example&#160;(RH850)&#160;<br/>
+The&#160;&#160;connection&#160;&#160;between&#160;&#160;a&#160;&#160;FeePartition&#160;&#160;and&#160;&#160;a&#160;&#160;FLS&#160;&#160;module&#160;&#160;shall&#160;&#160;be&#160;&#160;established&#160;&#160;via&#160;<br/>‘Partition&#160;Device’&#160;parameter,&#160;which&#160;holds&#160;the&#160;reference&#160;to&#160;FLS’&#160;FlsConfigSet&#160;container.&#160;<br/>Both&#160;&#160;‘Partition&#160;&#160;Start&#160;&#160;Address’&#160;&#160;and&#160;&#160;‘Partition&#160;&#160;Size’&#160;&#160;needs&#160;&#160;to&#160;&#160;be&#160;&#160;aligned&#160;&#160;to&#160;&#160;the&#160;&#160;partition’s&#160;<br/>AddressAlignment.&#160;<br/>In&#160;&#160;case&#160;&#160;the&#160;&#160;referenced&#160;&#160;FLS&#160;&#160;driver&#160;&#160;provides&#160;&#160;a&#160;&#160;Fls_BlankCheck&#160;API,&#160;&#160;it’s&#160;&#160;recommended&#160;&#160;to&#160;<br/>enable&#160;the&#160;configuration&#160;parameter&#160;&#160;‘Fls&#160;Blank&#160;Check&#160;API’,&#160;&#160;so&#160;that&#160;FEE&#160;can&#160;make&#160;use&#160;of&#160;<br/>this API&#160;service.&#160;Especially&#160;if&#160;Renesas&#160;RH850&#160;is&#160;used&#160;with&#160;internal&#160;data&#160;flash&#160;RV40F,&#160;this&#160;<br/>parameter&#160;shall&#160;be&#160;enabled.&#160;<br/>
+<b>6.2.3&#160;</b><br/>
+<b>Block&#160;Configuration&#160;</b><br/>
+In&#160;BlockConfiguration&#160;the&#160;number&#160;of&#160;instances&#160;is&#160;mentionable.&#160;It’s&#160;calculated&#160;automatically&#160;<br/>using&#160;&#160;the&#160;&#160;parameters&#160;&#160;‘Number&#160;&#160;Of&#160;&#160;Write&#160;&#160;Cycles’&#160;&#160;and&#160;&#160;FlsSpecifiedEraseCycles&#160;&#160;in&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+36&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-37_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-37_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+FlsPublishedInformation.&#160;FEE&#160;uses&#160;a&#160;walking&#160;block&#160;mechanism&#160;to&#160;spread&#160;write&#160;jobs&#160;over&#160;<br/>several instances&#160;in&#160;order to&#160;prevent&#160;the&#160;Flash&#160;cells&#160;from&#160;getting&#160;overstressed.&#160;&#160;<br/>
+&#160;<br/>
+Figure&#160;6-3&#160;&#160;Block&#160;Configuration&#160;<br/>
+The&#160;&#160;‘Number&#160;&#160;Of&#160;&#160;Instances’&#160;&#160;is&#160;&#160;equal&#160;&#160;to&#160;&#160;‘Number&#160;&#160;Of&#160;&#160;Write&#160;&#160;Cycles’&#160;&#160;divided&#160;&#160;by&#160;<br/>FlsSpecifiedEraseCycles&#160;rounded&#160;up&#160;to&#160;the&#160;next&#160;integer value.&#160;<br/>
+<b>6.3&#160;</b><br/>
+<b>Overhead Calculation&#160;</b><br/>
+Since&#160;addressing&#160;scheme&#160;of&#160;SmallSectorFEE&#160;is&#160;statically,&#160;the&#160;overhead&#160;for&#160;each&#160;block&#160;in&#160;<br/>configuration&#160;can&#160;be&#160;calculated.&#160;Overhead&#160;can&#160;therefore be&#160;split&#160;into&#160;two&#160;groups:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Fixed&#160;overhead&#160;due&#160;to&#160;management&#160;information&#160;of&#160;a&#160;block&#160;<br/>
+<b>&gt;&#160;&#160;</b>Overhead&#160;due&#160;to&#160;page&#160;and&#160;physical sector&#160;alignments&#160;<br/>
+The&#160;&#160;user&#160;&#160;of&#160;&#160;SmallSectorFEE&#160;&#160;can&#160;&#160;only&#160;&#160;influence&#160;&#160;alignment-related&#160;&#160;overhead,&#160;&#160;because&#160;<br/>overhead&#160;for management&#160;information&#160;is&#160;unavoidable.&#160;<br/>A&#160;FEE&#160;block&#160;consists&#160;of&#160;at&#160;least&#160;one&#160;FEE&#160;dataset.&#160;A&#160;FEE&#160;dataset&#160;consists&#160;of&#160;at&#160;least&#160;one&#160;<br/>FEE&#160;instance.&#160;In&#160;the&#160;following&#160;the&#160;algorithms&#160;are&#160;introduced&#160;to&#160;calculate&#160;the&#160;size&#160;of&#160;these&#160;<br/>entities&#160;depending&#160;on&#160;configured&#160;data&#160;length&#160;and&#160;expected&#160;number&#160;of&#160;writes.&#160;<br/><b>Explanation of terms:&#160;</b><br/>
+<b>Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FeeMgmtSize&#160;<br/>
+1 Byte&#160;(Fixed&#160;value&#160;in implementation)&#160;<br/>
+FeeInstanceSize&#160;<br/>
+Size of&#160;one&#160;instance&#160;for&#160;a configured&#160;FEE&#160;block&#160;<br/>
+FeeNrInstances&#160;<br/>
+Configured&#160;number&#160;of&#160;instances&#160;for&#160;FEE&#160;block.&#160;Depends on&#160;expected&#160;<br/>number&#160;of&#160;writes of&#160;FEE&#160;block and&#160;flash&#160;device’s&#160;specified&#160;erase&#160;<br/>cycles&#160;<br/>
+FeeNrDatasets&#160;<br/>
+Configured&#160;number&#160;of&#160;datasets&#160;for&#160;FEE&#160;block.&#160;<br/>
+DataLength&#160;<br/>
+Configured&#160;size of&#160;user&#160;data&#160;for&#160;FEE&#160;block&#160;<br/>
+FlsPageSize&#160;<br/>
+Size of&#160;smallest&#160;writeable unit&#160;of&#160;flash&#160;device.&#160;Should be&#160;identical&#160;to&#160;<br/>FEE’s&#160;write alignment.&#160;<br/>
+FlsSectorSize&#160;<br/>
+Size of&#160;smallest&#160;erasable&#160;unit&#160;of&#160;flash&#160;device&#160;Should be&#160;identical&#160;to&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+37&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=38></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-38_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+FEE’s&#160;address&#160;alignment.&#160;<br/>
+<i>align</i>(value,&#160;alignment)&#160;<br/>
+If&#160;&#160;‘value’&#160;&#160;is&#160;&#160;already&#160;&#160;aligned&#160;&#160;to&#160;&#160;‘alignment’,&#160;&#160;‘value’&#160;&#160;is&#160;&#160;returned.&#160;<br/>Otherwise&#160;&#160;the&#160;&#160;next&#160;&#160;greater&#160;&#160;value&#160;&#160;aligned&#160;&#160;to&#160;&#160;‘alignment’&#160;&#160;is&#160;<br/>returned.&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;Explanation&#160;of&#160;terms&#160;used&#160;in&#160;algorithms&#160;<br/>
+1.&#160;&#160;Calculation&#160;of&#160;size&#160;for&#160;one&#160;instance&#160;of&#160;FEE&#160;block:&#160;<br/>
+FeeInstanceSize&#160;=&#160;<i>align</i>(&#160;2&#160;*&#160;FlsPageSize&#160;+ FeeMgmtSize&#160;+ DataLength,&#160;FlsPageSize)&#160;<br/>
+&#160;<br/>
+2.&#160;&#160;Calculation&#160;of&#160;size&#160;for&#160;one&#160;dataset&#160;of&#160;FEE&#160;block:&#160;<br/>
+FeeDatasetSize&#160;=&#160;<i>align</i>(FlsPageSize&#160;+ FeeInstanceSize&#160;*&#160;FeeNrInstances,&#160;FlsSectorSize)&#160;<br/>
+&#160;<br/>
+3.&#160;&#160;Calculation&#160;of&#160;size&#160;for&#160;one&#160;FEE&#160;block:&#160;<br/>
+FeeBlockSize&#160;=&#160;FeeDatasetSize&#160;*&#160;FeeNrDatasets&#160;<br/>
+&#160;<br/>
+It&#160;&#160;becomes&#160;&#160;clear&#160;&#160;that&#160;&#160;overhead&#160;&#160;due&#160;&#160;to&#160;&#160;alignment&#160;&#160;appears&#160;&#160;two&#160;&#160;times.&#160;&#160;FEE&#160;&#160;instances&#160;&#160;are&#160;<br/>aligned&#160;to&#160;flash&#160;device’s&#160;page&#160;boundaries&#160;and&#160;FEE&#160;datasets&#160;are&#160;aligned&#160;to&#160;flash&#160;device’s&#160;<br/>sector&#160;&#160;boundaries.&#160;&#160;By&#160;&#160;adjusting&#160;&#160;the&#160;&#160;parameters&#160;&#160;DataLength&#160;&#160;and&#160;&#160;FeeNrInstances&#160;&#160;it&#160;&#160;is&#160;<br/>possible&#160;&#160;to&#160;&#160;reduce&#160;&#160;alignment-related&#160;&#160;overhead.&#160;&#160;Both&#160;&#160;parameters&#160;&#160;should&#160;&#160;be&#160;&#160;chosen&#160;&#160;in&#160;&#160;a&#160;<br/>way&#160;&#160;that&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;&#160;padding&#160;&#160;bytes&#160;&#160;is&#160;&#160;minimalized&#160;&#160;to&#160;&#160;fill&#160;&#160;the&#160;&#160;entity&#160;&#160;up&#160;&#160;to&#160;&#160;the&#160;&#160;next&#160;<br/>alignment&#160;boundary.&#160;It&#160;should&#160;be&#160;considered&#160;to&#160;reduce&#160;the&#160;size&#160;of&#160;DataLength&#160;in&#160;order&#160;to&#160;<br/>decrease&#160;the&#160;total size&#160;of&#160;FeeDataSize.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+38&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=39></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-39_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>7&#160;&#160;Requirements&#160;and&#160;Recommendations&#160;</b><br/>
+This&#160;&#160;section&#160;&#160;shall&#160;&#160;point&#160;&#160;out&#160;&#160;requirements&#160;&#160;the&#160;&#160;user&#160;&#160;system&#160;&#160;needs&#160;&#160;to&#160;&#160;comply&#160;&#160;with&#160;&#160;when&#160;<br/>using&#160;&#160;this&#160;&#160;FEE&#160;&#160;module.&#160;&#160;Additionally,&#160;&#160;recommendations&#160;&#160;are&#160;&#160;made&#160;&#160;for&#160;&#160;use-case&#160;&#160;of&#160;&#160;this&#160;<br/>module&#160;and&#160;its&#160;configuration&#160;with&#160;regard to&#160;limitations of&#160;FEE.&#160;<br/>
+<b>7.1&#160;</b><br/>
+<b>Requirements&#160;for the&#160;User System&#160;</b><br/>
+The&#160;following&#160;requirements&#160;are&#160;focused&#160;on&#160;FEE’s underlying&#160;layers:&#160;Flash&#160;driver and&#160;Flash&#160;<br/>memory&#160;hardware.&#160;<br/>
+<b>7.1.1&#160;</b><br/>
+<b>General&#160;Requirements&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Only&#160;addressed&#160;flash&#160;pages and&#160;sectors shall&#160;be&#160;affected&#160;during&#160;a&#160;job&#160;<br/>
+<b>7.1.2&#160;</b><br/>
+<b>Write-Related&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Only&#160;&#160;if&#160;&#160;intended&#160;&#160;data&#160;&#160;was&#160;&#160;written&#160;&#160;successfully&#160;&#160;and&#160;&#160;persistently&#160;&#160;to&#160;&#160;flash&#160;&#160;memory,&#160;&#160;FLS&#160;<br/>
+driver shall&#160;return with&#160;MEMIF_JOB_OK&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only&#160;erased&#160;flash&#160;cells&#160;shall&#160;be&#160;writeable&#160;<br/>
+<b>&gt;&#160;&#160;</b>Successfully&#160;written&#160;flash&#160;cells shall&#160;not&#160;alter their&#160;values over time&#160;<br/>
+<b>&gt;&#160;&#160;</b>Write&#160;aborts&#160;(e.g.&#160;due&#160;to&#160;reset)&#160;shall&#160;only&#160;affect&#160;the&#160;flash&#160;page&#160;which&#160;is&#160;currently&#160;being&#160;<br/>
+written&#160;<br/>
+<b>7.1.3&#160;</b><br/>
+<b>Read/Compare-Related&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Only&#160;&#160;if&#160;&#160;intended&#160;&#160;data&#160;was&#160;&#160;read/compared&#160;&#160;successfully&#160;&#160;from&#160;flash&#160;memory,&#160;&#160;FLS&#160;&#160;driver&#160;<br/>
+shall&#160;return with&#160;MEMIF_JOB_OK&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;FLS&#160;driver&#160;does&#160;not&#160;support&#160;a&#160;BlankCheck&#160;API,&#160;erased&#160;flash&#160;cells&#160;shall&#160;contain&#160;FLS’&#160;<br/>
+erased&#160;value&#160;<br/>
+<b>7.1.4&#160;</b><br/>
+<b>Erase-Related&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Only&#160;&#160;if&#160;&#160;intended&#160;&#160;flash&#160;&#160;area&#160;&#160;was&#160;&#160;erased&#160;&#160;successfully&#160;&#160;and&#160;&#160;persistently,&#160;&#160;FLS&#160;&#160;driver&#160;&#160;shall&#160;<br/>
+return with&#160;MEMIF_JOB_OK&#160;<br/>
+<b>&gt;&#160;&#160;</b>Erased&#160;flash&#160;cells shall&#160;remain&#160;erased&#160;over time&#160;until a&#160;write&#160;job&#160;is performed&#160;<br/>
+<b>&gt;&#160;&#160;</b>Erase&#160;&#160;aborts&#160;&#160;(e.g.&#160;&#160;due&#160;&#160;to&#160;&#160;reset)&#160;&#160;shall&#160;&#160;only&#160;&#160;affect&#160;&#160;the&#160;&#160;flash&#160;&#160;sector&#160;&#160;which&#160;&#160;is&#160;&#160;currently&#160;<br/>
+being&#160;erased&#160;<br/>
+<b>7.1.5&#160;</b><br/>
+<b>BlankCheck-Related&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Only&#160;&#160;if&#160;&#160;all&#160;&#160;flash&#160;&#160;cells&#160;&#160;in&#160;&#160;intended&#160;&#160;flash&#160;&#160;area&#160;&#160;are&#160;&#160;erased,&#160;&#160;FLS&#160;&#160;driver&#160;&#160;shall&#160;&#160;return&#160;&#160;with&#160;<br/>
+MEMIF_JOB_OK&#160;<br/>
+&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Recommendations&#160;</b><br/>
+The&#160;following&#160;items shall&#160;serve&#160;as basis for general considerations regarding&#160;use-case&#160;and&#160;<br/>FEE&#160;configuration.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;SmallSectorFEE&#160;shall&#160;be&#160;used&#160;with&#160;flash&#160;devices&#160;with&#160;reasonable&#160;small&#160;physical&#160;<br/>
+sectors.&#160;This&#160;means that&#160;sector size&#160;shall&#160;not&#160;exceed&#160;the&#160;size&#160;of&#160;single&#160;configured&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+39&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=40></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-40_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+blocks&#160;by&#160;far.&#160;SmallSectorFEE&#160;assigns&#160;every configured&#160;block&#160;to&#160;separate&#160;flash&#160;<br/>sectors, thus&#160;overhead&#160;is kept&#160;small&#160;if&#160;block&#160;size&#160;is about&#160;the&#160;size&#160;of&#160;a&#160;flash&#160;sector or a&#160;<br/>multiple&#160;of&#160;it.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>It’s recommended&#160;to&#160;use&#160;this FEE&#160;module&#160;with&#160;internal&#160;data&#160;flash&#160;RV40F&#160;of&#160;Renesas’&#160;<br/>
+RH850&#160;platform&#160;because&#160;of&#160;its&#160;64&#160;byte&#160;physical&#160;flash&#160;sectors.&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;erase&#160;state&#160;of&#160;flash&#160;cells can’t&#160;be&#160;determined&#160;via&#160;Read&#160;service&#160;but&#160;BlankCheck&#160;<br/>
+service,&#160;using&#160;the&#160;FLS’&#160;BlankCheck service&#160;shall&#160;be&#160;enabled&#160;in&#160;<br/>FeePartitionConfiguration.&#160;<br/>
+<b>&gt;&#160;&#160;</b>‘AddressAlignment’&#160;parameter in&#160;FeePartitionConfiguration&#160;shall&#160;be&#160;identical to&#160;<br/>
+referenced&#160;FlsSector’s&#160;sector size.&#160;<br/>
+<b>&gt;&#160;&#160;</b>‘WriteAlignment’&#160;parameter in&#160;FeePartitionConfiguration&#160;shall&#160;be&#160;identical to&#160;referenced&#160;<br/>
+FlsSector’s page&#160;size.&#160;<br/>
+<b>&gt;&#160;&#160;</b>‘ReadAlignment’&#160;parameter in&#160;FeePartitionConfiguration&#160;shall&#160;be&#160;configured&#160;as small&#160;<br/>
+as FLS&#160;driver&#160;and&#160;flash&#160;hardware allows in&#160;order to&#160;keep&#160;reading&#160;overhead&#160;small.&#160;<br/>
+<b>&gt;&#160;&#160;</b>In&#160;FeeBlockConfiguration&#160;the&#160;number&#160;of&#160;instances&#160;for a&#160;block is calculated&#160;by&#160;‘Number&#160;<br/>
+Of&#160;Write&#160;Cycles’&#160;and&#160;FLS&#160;module’s ‘Specified&#160;Erase&#160;Cycles’.&#160;If&#160;the&#160;expected&#160;‘Number&#160;<br/>Of&#160;Write&#160;Cycles’&#160;for a&#160;block&#160;is nearly&#160;as large&#160;as a&#160;multiple&#160;of&#160;FLS&#160;module’s ‘Specified&#160;<br/>Erase&#160;Cycles’&#160;it&#160;should&#160;be&#160;considered&#160;to&#160;increase&#160;the&#160;expected&#160;‘Number Of&#160;Write&#160;<br/>Cycles’&#160;so&#160;that&#160;one&#160;additional instance&#160;is allocated&#160;for this block.&#160;This way&#160;enough&#160;<br/>reserve&#160;is established&#160;to&#160;prevent&#160;the&#160;flash&#160;area&#160;for this block&#160;from&#160;getting&#160;overstressed.&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+40&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=41></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-41_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>8&#160;&#160;Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+EEPROM&#160;<br/>
+Electrically&#160;Erasable Programmable Read-Only&#160;Memory&#160;<br/>
+FEE&#160;<br/>
+Flash&#160;EEPROM&#160;Emulation&#160;<br/>
+FLS&#160;<br/>
+Flash&#160;module&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+NVM&#160;<br/>
+Non-Volatile RAM&#160;Manager&#160;<br/>
+RAM&#160;<br/>
+Random&#160;Access&#160;Memory&#160;<br/>
+SIP&#160;<br/>
+Software&#160;Integration&#160;Package&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;8-1&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+41&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=42></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fee_30_SmallSector/doc/TechnicalReference_Fee_30_SmallSector-42_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR Fee&#160;<br/>
+<b>9&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.1.0&#160;<br/>
+42&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#8">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#11">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#11">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#11">3.1.1 Deviations from AUTOSAR R4.0.3</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#12">3.1.2 Additions/ Extensions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#12">3.2 Recommendations</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.3 Initialization</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.4 States</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.4.1 Module States</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#13">3.4.2 Job States</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#14">3.5 Main Functions</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#14">3.5.1 Processing of a Read Job</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#14">3.5.2 Processing of a Write Job</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.5.3 Processing of an InvalidateBlock Job</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.5.4 Processing of an EraseImmediateBlock Job</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.6 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#15">3.6.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#16">3.6.2 Production Code Error Reporting</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#17">3.7 Partitions</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#17">3.8 Service for handling under-voltage situations</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#18">3.9 MainFunction Triggering</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#19">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#19">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#19">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#20">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#20">4.2 Migration from FEE to SmallSectorFEE</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#23">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.2 Services provided by FEE</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.2.1 Fee_30_SmallSector_Init</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#23">5.2.2 Fee_30_SmallSector_SetMode</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#24">5.2.3 Fee_30_SmallSector_Read</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#25">5.2.4 Fee_30_SmallSector_Write</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#26">5.2.5 Fee_30_SmallSector_Cancel</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#26">5.2.6 Fee_30_SmallSector_GetStatus</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#27">5.2.7 Fee_30_SmallSector_GetJobResult</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#28">5.2.8 Fee_30_SmallSector_InvalidateBlock</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#29">5.2.9 Fee_30_SmallSector_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#29">5.2.10 Fee_30_SmallSector_EraseImmediateBlock</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#30">5.2.11 Fee_30_SmallSector_MainFunction</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#31">5.2.12 Fee_30_SmallSector_SuspendWrites</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#31">5.2.13 Fee_30_SmallSector_ResumeWrites</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#32">5.3 Services used by FEE</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#32">5.4 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#32">5.4.1 Fee_30_SmallSector_JobEndNotification</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#33">5.4.2 Fee_30_SmallSector_JobErrorNotification</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#34">5.5 Configurable Interfaces</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#35">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#35">6.1 Configuration Variants</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#35">6.2 Configuration with DaVinci Configurator</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#35">6.2.1 Configuring Flash API Services</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#36">6.2.2 Partition Configuration</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#36">6.2.3 Block Configuration</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#37">6.3 Overhead Calculation</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7 Requirements and Recommendations</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1 Requirements for the User System</a>
+<ul>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.1 General Requirements</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.2 Write-Related</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.3 Read/Compare-Related</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.4 Erase-Related</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.1.5 BlankCheck-Related</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#39">7.2 Recommendations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#41">8 Abbreviations</a></li>
+<li><a href="TechnicalReference_Fee_30_SmallSectors.html#42">9 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

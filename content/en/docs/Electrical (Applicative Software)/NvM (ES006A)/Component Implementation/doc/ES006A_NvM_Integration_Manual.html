@@ -1,0 +1,440 @@
+---
+title: ES006A_NvM_Integration_Manual
+linkTitle: ES006A_NvM_Integration_Manual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>ES006A NvM</strong></p>
+<p><strong>VERSION:</strong> <strong>4</strong></p>
+<p><strong>DATE:</strong> <strong>07-Jul-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Kevin Smith</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 34%" />
+<col style="width: 15%" />
+<col style="width: 9%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+<td><strong>Approved By</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>K. Smith</td>
+<td>1.0</td>
+<td>28-Jan-16</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updates for fast ignition cycles</td>
+<td>O. Tosh</td>
+<td>2</td>
+<td>27-Jun-16</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updates for Naming Convections</td>
+<td>K. Smith</td>
+<td>3</td>
+<td>28-Sep-16</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Update to the appendix for required NvM block name</td>
+<td>K. Smith</td>
+<td>4</td>
+<td>07-Jul-17</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 4</a></p>
+<p><a href="#references">2 References 5</a></p>
+<p><a href="#dependencies">3 Dependencies 6</a></p>
+<p><a href="#swcs">3.1 SWCs 6</a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project 6</a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS 7</a></p>
+<p><a href="#build-time-config">4.1 Build Time Config 7</a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project 7</a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes 7</a></p>
+<p><a href="#__RefHeading___Toc437335986">4.4 DaVinci Interrupt Configuration Changes 7</a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes 7</a></p>
+<p><a href="#exclusive-area-changes">4.6 Exclusive Area Changes 7</a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS 8</a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs 8</a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs 8</a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present 8</a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling 9</a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS 10</a></p>
+<p><a href="#mapping">7.1 Mapping 10</a></p>
+<p><a href="#usage">7.2 Usage 10</a></p>
+<p><a href="#nvm-blocks">7.3 NvM Blocks 10</a></p>
+<p><a href="#compiler-settings">8 Compiler Settings 11</a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO 11</a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings 11</a></p>
+<p><a href="#appendix">9 Appendix 12</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Abbreviation</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sr. No.</strong></td>
+<td><strong>Title</strong></td>
+<td><strong>Version</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>MDD Guidelines</td>
+<td>Process 04.02.00</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>Process 04.02.00</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Coding standards</td>
+<td>Process 04.02.00</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>ES006A_NvM_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Module</strong></td>
+<td><strong>Required Feature</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p>NvMProxy_Init0()</p>
+<p>NvMProxy_MainFunction()</p>
+<p>NvMProxy_ClsChkWr_Oper()</p>
+<p>NvMProxy_MultiBlkCallBack()</p>
+<p>NvM Proxy API Functions</p>
+<p>NvMProxy_EraseNvBlock()</p>
+<p>NvMProxy_GetDataIndex()</p>
+<p>NvMProxy_GetErrorStatus()</p>
+<p>NvMProxy_InvalidateNvBlock()</p>
+<p>NvMProxy_ReadBlock()</p>
+<p>NvMProxy_RestoreBlockDefaults()</p>
+<p>NvMProxy_SetBlockProtection()</p>
+<p>NvMProxy_SetDataIndex()</p>
+<p>NvMProxy_SetRamBlockStatus()</p>
+<p>NvMProxy_WriteBlock()</p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Modules</strong></td>
+<td><strong>Notes</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<ol type="1">
+<li><p>CDD_NvM_Cfg_private.h</p></li>
+<li><p>CDD_NvMProxy_Cfg.h</p></li>
+<li><p>CDD_NvMProxy_Cfg.c</p></li>
+<li><p>CDD_NvMProxy_Cbk.h</p></li>
+<li><p>CDD_NvMProxy_Cbk.c</p></li>
+<li><p>CDD_NvMProxyDftDataGroup.h</p></li>
+<li><p>NvMProxy_swc_arxml (service component to be imported into Developer)</p></li>
+</ol>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 55%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Parameter</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td>/Nexteer/EcucDefs_SyncCrc/NvMProxy/NvMProxyCommon/NvMOsApplicationRef</td>
+<td>This shall point to the application that the NvM component is integrated. Typically this is an ASIL D application.</td>
+<td>NvMProxy</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/EcucDefs_SyncCrc/NvMProxy/NvMProxyCommon/NvmProxyIncludes</td>
+<td>Additional includes for callback functions if required.</td>
+<td>NvMProxy</td>
+</tr>
+<tr class="even">
+<td>//Nexteer/EcucDefs_NvMProxy/NvMProxy/NvMProxyBlkSet/NvMBlkRef</td>
+<td>Reference to the NvM block that NvMProxy will check</td>
+<td>NvMProxy</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/EcucDefs_NvMProxy/NvMProxy/NvMProxyBlkSet/NvMBlkFlt</td>
+<td>This shall be set to the NTC that a failed NvMProxy check is required to set (NTC 6,7,8 or A)</td>
+<td>NvMProxy</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/EcucDefs_NvMProxy/NvMProxy/NvMProxyBlkSet/NvMProxyApplCallCbk</td>
+<td>If a NvM block requires a callback function, this field shall be populated with the function name. The function prototype can be included by a header file defined in the NvMProxyIncludes section.</td>
+<td>NvMProxy</td>
+</tr>
+<tr class="odd">
+<td>/ActiveEcuC/NvM/NvMCommon/NvMMultiBlockCallback</td>
+<td>Shall be set to NvMProxy_MultiBlkCallBack.</td>
+<td>NvM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 38%" />
+<col style="width: 34%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>ISR Name</strong></td>
+<td><strong>VIM #</strong></td>
+<td><strong>Priority Dependency</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Constant</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exclusive-area-changes">Exclusive Area Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Name</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>Yes</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Init</strong></td>
+<td><strong>Scheduling Requirements</strong></td>
+<td><strong>Trigger</strong></td>
+</tr>
+<tr class="even">
+<td><strong>NvMProxyInit1</strong></td>
+<td>Shall be called after DiagcMgr has been initazlied</td>
+<td>RTE Init</td>
+</tr>
+<tr class="odd">
+<td><strong>NvMProxyCrcInit0</strong></td>
+<td>Shall be scheduled outside of the RTE after NvM_ReadAll()</td>
+<td>Non-RTE Init</td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Runnable</strong></td>
+<td><strong>Scheduling Requirements</strong></td>
+<td><strong>Trigger</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td>None</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p><strong>.</strong></p>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Memory Section</strong></td>
+<td><strong>Contents</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Feature</strong></td>
+<td><strong>RAM</strong></td>
+<td><strong>ROM</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: ARM Cortex R4 Memory Usage</p>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p>*See DataDict.m</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p>None</p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p>None</p>
+<h1 id="appendix">Appendix</h1>
+<h2 id="quick-ignition-cycles">Quick Ignition Cycles</h2>
+<p>To ensure proper handling for quick ignition cycles, the integration team must call NvMProxy_MultiBlkCallBack manually prior to calling NvM_WriteAll(). Ideally this should be placed within the same BswM call as the NvM_WriteAll().</p>
+<p>The call should implemented similary as shown below:</p>
+<p>NvMProxy_MultiBlkCallBack(NVM_WRITE_ALL, NVM_REQ_PENDING);</p>
+<p>NvM_WriteAll()</p>
+<p>This will record all the NvM block status into the PIM. Once the WriteAll has completed or has been canceled by the NvM_CancelWriteAll() or NvM_KillWriteAll(), the NvM shall call the callback function and restore the RAM statuses back to their values prior to the NvM_WriteAll() call.</p>
+<h2 id="nvm-block-name">NvM Block Name</h2>
+<p>The NvM block for the close check block need (ShtdwnClsChkBlk) shall be “Rte_NvmBlock_CDD_NvMProxy_ShtdwnClsChk”. This is so the generator will genearate the name that is used in the source code to call the block write outside of the RTE.</p>

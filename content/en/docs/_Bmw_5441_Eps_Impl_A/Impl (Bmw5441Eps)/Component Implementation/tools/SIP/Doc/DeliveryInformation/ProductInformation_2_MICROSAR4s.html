@@ -1,0 +1,981 @@
+---
+title: ProductInformation_2_MICROSAR4s
+linkTitle: ProductInformation_2_MICROSAR4s
+weight: 104
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>MICROSAR 4&#160;<br/></b>Product Information&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.02.12&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Authors&#160;<br/>
+Hannes&#160;Haas&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-2_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#4"><b>1</b>&#160;&#160;<b>Introduction&#160;....................................................................................................................&#160;4</b>&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#5"><b>2</b>&#160;&#160;<b>General&#160;Information&#160;.......................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#5">2.1&#160;&#160;Compiler&#160;Warnings&#160;...................................................................................................&#160;5&#160;<br/>2.2&#160;&#160;64-bit&#160;Microcontroller&#160;Support&#160;..................................................................................&#160;5&#160;<br/>2.3&#160;&#160;Delivery&#160;of&#160;Beta Modules/Features&#160;...........................................................................&#160;5&#160;<br/>2.4&#160;&#160;Delivery&#160;of&#160;Stub&#160;Modules..........................................................................................&#160;5&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#6">2.5&#160;&#160;Delivery&#160;of&#160;Code&#160;Templates&#160;......................................................................................&#160;6&#160;<br/>2.6&#160;&#160;Delivery&#160;of&#160;Example Code&#160;........................................................................................&#160;6&#160;<br/>2.7&#160;&#160;Usage&#160;of&#160;Features&#160;that&#160;are not&#160;Licensed&#160;..................................................................&#160;6&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#7">2.8&#160;&#160;Test&#160;Report&#160;...............................................................................................................&#160;7&#160;<br/>2.9&#160;&#160;MISRA&#160;......................................................................................................................&#160;7&#160;<br/>2.10&#160;&#160;Test&#160;of&#160;External&#160;Hardware&#160;........................................................................................&#160;7&#160;<br/>2.11&#160;&#160;Test&#160;of&#160;3rd&#160;Party&#160;Modules&#160;..........................................................................................&#160;7&#160;<br/>2.12&#160;&#160;Issue&#160;Handling&#160;.........................................................................................................&#160;7&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#8">2.12.1&#160;&#160;Issue&#160;Reporting&#160;for&#160;3rd&#160;Party&#160;Software&#160;.............................................................&#160;8&#160;<br/>2.12.2&#160;&#160;Issue&#160;Reporting&#160;for&#160;DaVinci&#160;Tools&#160;....................................................................&#160;8&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#8">2.13&#160;&#160;Warranty&#160;...................................................................................................................&#160;8&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#8">2.13.1&#160;&#160;3rd&#160;Party&#160;Modules&#160;............................................................................................&#160;8&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#9"><b>3</b>&#160;&#160;<b>Modules&#160;and&#160;Options&#160;.....................................................................................................&#160;9</b>&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#9">3.1&#160;&#160;vDBG&#160;(XCP-based)&#160;..................................................................................................&#160;9&#160;<br/>3.2&#160;&#160;DLT&#160;(XCP-based)&#160;.....................................................................................................&#160;9&#160;<br/>3.3&#160;&#160;DLT&#160;(AUTOSAR)&#160;......................................................................................................&#160;9&#160;<br/>3.4&#160;&#160;Drivers&#160;(CAN,&#160;LIN,&#160;FR,&#160;ETH,&#160;MCAL)&#160;........................................................................&#160;9&#160;<br/>3.5&#160;&#160;vETM........................................................................................................................&#160;9&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#10">3.6&#160;&#160;FEE&#160;........................................................................................................................&#160;10&#160;<br/>3.7&#160;&#160;Generic&#160;Modules&#160;....................................................................................................&#160;10&#160;<br/>3.8&#160;&#160;IDM&#160;-&#160;Variant&#160;Handling&#160;/&#160;Post-Build Selectable&#160;.......................................................&#160;10&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#11">3.9&#160;&#160;MCAL&#160;Integration&#160;Package&#160;.....................................................................................&#160;11&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#12">3.10&#160;&#160;OS&#160;Option:&#160;Schedule&#160;Table Synchronization&#160;..........................................................&#160;12&#160;<br/>3.11&#160;&#160;PBL&#160;-&#160;Post-Build Loadable&#160;.....................................................................................&#160;12&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#13">3.12&#160;&#160;RTE&#160;........................................................................................................................&#160;13&#160;<br/>3.13&#160;&#160;vRTM&#160;.....................................................................................................................&#160;13&#160;<br/>3.14&#160;&#160;WDGM&#160;...................................................................................................................&#160;13&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#14"><b>4</b>&#160;&#160;<b>Services&#160;........................................................................................................................&#160;14</b>&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#14">4.1&#160;&#160;MICROSAR&#160;Getting&#160;Started&#160;V2G&#160;...........................................................................&#160;14&#160;</a><br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-3_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<a href="ProductInformation_2_MICROSAR4s.html#15"><b>5</b>&#160;&#160;<b>SIP&#160;Extensions&#160;.............................................................................................................&#160;15</b>&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#15">5.1&#160;&#160;Customer&#160;Hardware&#160;...............................................................................................&#160;15&#160;<br/>5.2&#160;&#160;Start&#160;Application&#160;.....................................................................................................&#160;15&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#16">5.3&#160;&#160;vVIRTUALtarget&#160;(VTT)&#160;...........................................................................................&#160;16&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#16">5.3.1&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#16">Components&#160;..................................................................................................&#160;16&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#17">5.3.2&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#17">Limitations&#160;.....................................................................................................&#160;17&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#18">5.3.3&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#18">Required&#160;Software&#160;........................................................................................&#160;18&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#19"><b>6</b>&#160;&#160;<b>Definition&#160;of&#160;SLP/HLP/SIP,&#160;Maintenance&#160;and&#160;Release&#160;Types&#160;....................................&#160;19</b>&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#19">6.1&#160;&#160;Software&#160;License Package&#160;(SLP)&#160;...........................................................................&#160;19&#160;<br/>6.2&#160;&#160;Hardware&#160;License Package&#160;(HLP)&#160;.........................................................................&#160;19&#160;<br/></a><a href="ProductInformation_2_MICROSAR4s.html#20">6.3&#160;&#160;Software&#160;Integration&#160;Package&#160;(SIP)&#160;.......................................................................&#160;20&#160;<br/>6.4&#160;&#160;Mini&#160;SIP&#160;..................................................................................................................&#160;20&#160;<br/>6.5&#160;&#160;SIP&#160;Types&#160;...............................................................................................................&#160;20&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">6.5.1&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">Beta&#160;..............................................................................................................&#160;20&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">6.5.2&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">Production&#160;.....................................................................................................&#160;20&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">6.5.3&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">Update&#160;..........................................................................................................&#160;20&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">6.5.4&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#20">Prototype&#160;.......................................................................................................&#160;20&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#21">6.5.5&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#21">Overview&#160;SIP&#160;Types&#160;......................................................................................&#160;21&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#21">6.5.6&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#21">Usage&#160;of&#160;Non-Production Deliveries&#160;..............................................................&#160;21&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">6.6&#160;&#160;Maintenance...........................................................................................................&#160;22&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">6.6.1&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">SLP&#160;Maintenance&#160;..........................................................................................&#160;22&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">6.6.2&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">HLP&#160;Maintenance&#160;..........................................................................................&#160;22&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">6.6.3&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#22">SIP&#160;Maintenance&#160;...........................................................................................&#160;22&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#23">6.6.4&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#23">Differentiation&#160;of&#160;warranty&#160;versus&#160;maintenance&#160;.............................................&#160;23&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#23">6.7&#160;&#160;Release&#160;Types&#160;.......................................................................................................&#160;23&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#23">6.7.1&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#23">QuickFix&#160;........................................................................................................&#160;23&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">6.7.2&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">Development&#160;.................................................................................................&#160;24&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">6.7.3&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">Pre Production&#160;..............................................................................................&#160;24&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">6.7.4&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">Production&#160;.....................................................................................................&#160;24&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">6.7.5&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">Production&#160;(Safety-ready)&#160;.............................................................................&#160;24&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">6.7.6&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#24">Production&#160;(Safe)&#160;..........................................................................................&#160;24&#160;</a><br/>
+<a href="ProductInformation_2_MICROSAR4s.html#25"><b>7</b>&#160;&#160;<b>Contact..........................................................................................................................&#160;25</b>&#160;<br/></a><b>&#160;</b><br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-4_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>1&#160;&#160;Introduction&#160;</b><br/>
+All&#160;modules&#160;and&#160;options&#160;are&#160;described&#160;in&#160;the<a href="http://vector.com/vi_microsar_en.html">&#160;general&#160;Product&#160;Information&#160;</a>(please&#160;refer&#160;to&#160;<br/>the&#160;link&#160;“Product&#160;Descriptions”).&#160;<br/>In&#160;addition&#160;to&#160;the&#160;general&#160;Product&#160;Information,&#160;this&#160;document&#160;provides&#160;additional&#160;details&#160;to&#160;<br/>the&#160;offered&#160;items.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-5_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>2&#160;&#160;General&#160;Information&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;chapter&#160;provides&#160;important&#160;information&#160;that&#160;applies&#160;for&#160;using&#160;MICROSAR&#160;basic&#160;<br/>
+&#160;&#160;software.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>2.1&#160;</b><br/>
+<b>Compiler Warnings&#160;</b><br/>
+Due&#160;&#160;to&#160;&#160;the&#160;&#160;use&#160;&#160;of&#160;&#160;standard&#160;&#160;software&#160;&#160;modules&#160;&#160;for&#160;&#160;a&#160;&#160;huge&#160;&#160;number&#160;&#160;of&#160;&#160;different&#160;&#160;hardware&#160;<br/>platforms&#160;and&#160;different&#160;compilers&#160;it&#160;is&#160;not&#160;possible&#160;to&#160;avoid&#160;compiler&#160;warnings&#160;completely.&#160;<br/>Vector&#160;tries&#160;to&#160;keep&#160;its&#160;software&#160;free&#160;of&#160;warnings,&#160;but&#160;in&#160;some&#160;cases&#160;it&#160;is&#160;not&#160;possible&#160;or&#160;it&#160;<br/>may&#160;decrease&#160;performance.&#160;<br/>Vector provides a&#160;list&#160;of&#160;known&#160;compiler warnings with&#160;each&#160;delivery&#160;of&#160;a&#160;Production&#160;SIP.&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>64-bit Microcontroller&#160;Support&#160;</b><br/>
+Due&#160;&#160;to&#160;&#160;limitations&#160;&#160;given&#160;&#160;by&#160;&#160;underlying&#160;&#160;specifications&#160;&#160;(ASAM,&#160;&#160;ISO,&#160;&#160;AUTOSAR…)&#160;&#160;not&#160;&#160;all&#160;<br/>address&#160;&#160;based&#160;&#160;services&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;on&#160;&#160;64-bit&#160;&#160;controllers&#160;&#160;without&#160;&#160;limitations.&#160;&#160;A&#160;&#160;typical&#160;<br/>limitation&#160;can&#160;be&#160;that&#160;only&#160;the&#160;lower half&#160;of&#160;the&#160;64-bit&#160;address&#160;range&#160;can&#160;be&#160;accessed.&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>Delivery&#160;of Beta&#160;Modules/Features&#160;</b><br/>
+Deliveries&#160;&#160;may&#160;&#160;contain&#160;&#160;Beta&#160;&#160;Modules&#160;&#160;and/or&#160;&#160;Beta&#160;&#160;Features.&#160;&#160;Beta&#160;&#160;Modules&#160;&#160;and&#160;&#160;Beta&#160;<br/>Features&#160;are&#160;basically&#160;operable,&#160;but&#160;not&#160;sufficiently&#160;tested,&#160;verified&#160;and/or&#160;qualified&#160;for&#160;use&#160;<br/>in&#160;&#160;series&#160;&#160;production&#160;&#160;and/or&#160;&#160;in&#160;&#160;vehicles&#160;&#160;operating&#160;&#160;on&#160;&#160;public&#160;&#160;or&#160;&#160;non-public&#160;&#160;roads.&#160;&#160;In&#160;<br/>particular,&#160;&#160;without&#160;&#160;limitation,&#160;&#160;the&#160;&#160;Beta&#160;&#160;Modules&#160;&#160;and&#160;&#160;Beta&#160;&#160;Features&#160;&#160;may&#160;&#160;cause&#160;<br/>unpredictable&#160;&#160;ECU&#160;&#160;behavior,&#160;&#160;may&#160;&#160;not&#160;&#160;provide&#160;&#160;all&#160;&#160;functions&#160;&#160;necessary&#160;&#160;for&#160;&#160;use&#160;&#160;in&#160;&#160;series&#160;<br/>production&#160;&#160;and/or&#160;&#160;may&#160;&#160;not&#160;&#160;comply&#160;&#160;with&#160;&#160;quality&#160;&#160;requirements&#160;&#160;which&#160;&#160;are&#160;&#160;necessary&#160;<br/>according&#160;&#160;to&#160;&#160;the&#160;&#160;state&#160;&#160;of&#160;&#160;the&#160;&#160;art.&#160;&#160;Beta&#160;&#160;Modules&#160;&#160;and&#160;&#160;Beta&#160;&#160;Features&#160;&#160;must&#160;&#160;not&#160;&#160;be&#160;&#160;used&#160;&#160;in&#160;<br/>series production.&#160;<br/>Beta&#160;&#160;Modules&#160;&#160;and&#160;&#160;Beta&#160;&#160;Features&#160;&#160;are&#160;&#160;listed&#160;&#160;in&#160;&#160;chapter&#160;&#160;2.4&#160;&#160;of&#160;&#160;the&#160;&#160;issue&#160;&#160;report&#160;&#160;which&#160;&#160;is&#160;<br/>provided&#160;&#160;with&#160;&#160;the&#160;&#160;delivery.&#160;&#160;Moreover,&#160;&#160;the&#160;&#160;issue&#160;&#160;report&#160;&#160;contains&#160;&#160;information&#160;&#160;on&#160;&#160;how&#160;&#160;to&#160;<br/>deactivate&#160;the&#160;Beta&#160;Feature&#160;for series&#160;production&#160;projects.&#160;<br/>
+<b>2.4&#160;</b><br/>
+<b>Delivery&#160;of Stub&#160;Modules&#160;&#160;</b><br/>
+The&#160;delivery&#160;(SIP)&#160;may&#160;include&#160;implementations&#160;for&#160;BSW&#160;modules&#160;which&#160;are&#160;only&#160;sample&#160;<br/>code&#160;&#160;intended&#160;for&#160;&#160;illustrating&#160;&#160;an&#160;example&#160;&#160;of&#160;&#160;a&#160;&#160;possible&#160;&#160;BSW&#160;&#160;implementation&#160;&#160;(hereinafter&#160;<br/>“Stub&#160;Modules”).&#160;Stub&#160;Modules&#160;are&#160;not&#160;part&#160;of&#160;the&#160;ordered&#160;BSW&#160;modules&#160;and&#160;have&#160;been&#160;<br/>added&#160;by&#160;Vector&#160;voluntarily&#160;and&#160;free&#160;of&#160;charge&#160;solely&#160;to&#160;enable&#160;the&#160;customer&#160;to&#160;perform&#160;a&#160;<br/>preliminary&#160;assembly&#160;and&#160;test&#160;of&#160;the&#160;BSW&#160;modules.&#160;<br/>The&#160;Stub&#160;Modules&#160;have&#160;not&#160;passed&#160;any&#160;quality&#160;control&#160;measures&#160;and&#160;may&#160;be&#160;incomplete.&#160;<br/>The&#160;Stub&#160;Modules&#160;are&#160;neither&#160;intended&#160;nor&#160;qualified&#160;for&#160;use&#160;in&#160;series&#160;&#160;production&#160;without&#160;<br/>applying&#160;suitable&#160;quality&#160;measures.&#160;The&#160;Stub&#160;Modules&#160;as&#160;well&#160;as&#160;any&#160;of&#160;their&#160;modifications&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-6_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+and/or&#160;implementations&#160;must&#160;be&#160;tested&#160;with&#160;diligent&#160;care&#160;and&#160;must&#160;comply&#160;with&#160;all&#160;quality&#160;<br/>requirements&#160;which&#160;are necessary&#160;according&#160;to&#160;the&#160;state&#160;of&#160;the&#160;art&#160;before&#160;their&#160;use.&#160;<br/>Stub&#160;&#160;Modules&#160;&#160;can&#160;&#160;be&#160;&#160;identified&#160;&#160;by&#160;&#160;the&#160;&#160;comment&#160;&#160;section&#160;&#160;“SAMPLE&#160;&#160;CODE&#160;&#160;ONLY”&#160;&#160;in&#160;&#160;the&#160;<br/>implementation&#160;&#160;files.&#160;&#160;The&#160;&#160;implementation&#160;&#160;of&#160;&#160;Stub&#160;&#160;Modules&#160;&#160;can&#160;&#160;be&#160;&#160;found&#160;&#160;in&#160;<br/>BSW\&lt;Msn&gt;_Stub.&#160;Generated&#160;files&#160;are&#160;located&#160;in&#160;the&#160;generator&#160;“Source”&#160;folder&#160;using&#160;the&#160;<br/>naming&#160;convention&#160;&lt;Msn&gt;_Stub.c/h.&#160;<br/>
+<b>2.5&#160;</b><br/>
+<b>Delivery&#160;of Code&#160;Templates&#160;</b><br/>
+The&#160;delivery&#160;may&#160;contain&#160;files&#160;that&#160;must&#160;be&#160;adapted&#160;during&#160;BSW&#160;integration.&#160;The&#160;Technical&#160;<br/>References&#160;&#160;of&#160;&#160;BSW&#160;&#160;modules&#160;&#160;lists&#160;&#160;the&#160;&#160;files&#160;&#160;that&#160;&#160;require&#160;&#160;to&#160;&#160;be&#160;&#160;adapted.&#160;&#160;This&#160;&#160;can&#160;&#160;be&#160;<br/>dedicated&#160;&#160;Template&#160;&#160;Areas&#160;&#160;or&#160;&#160;Complete&#160;&#160;Template&#160;&#160;Files&#160;&#160;(hereinafter&#160;&#160;collectively&#160;&#160;&#34;Code&#160;<br/>Template&#34;).&#160;<br/>Code&#160;Templates&#160;are&#160;incomplete&#160;and&#160;only&#160;intended&#160;for&#160;providing&#160;a&#160;signature&#160;and&#160;an&#160;empty&#160;<br/>implementation.&#160;&#160;Code&#160;&#160;Templates&#160;&#160;are&#160;&#160;neither&#160;&#160;intended&#160;&#160;nor&#160;&#160;qualified&#160;&#160;for&#160;&#160;use&#160;&#160;in&#160;&#160;series&#160;<br/>production&#160;without&#160;applying&#160;suitable&#160;quality&#160;measures.&#160;&#160;<br/>Each&#160;Code&#160;Template&#160;must&#160;be&#160;completed&#160;as&#160;described&#160;in&#160;the&#160;Technical Reference&#160;and/or in&#160;<br/>the&#160;&#160;respective&#160;&#160;Code&#160;&#160;Template&#160;&#160;file.&#160;&#160;The&#160;&#160;completed&#160;&#160;implementation&#160;&#160;must&#160;&#160;be&#160;&#160;tested&#160;&#160;with&#160;<br/>diligent&#160;care&#160;and&#160;must&#160;comply&#160;with&#160;all&#160;quality&#160;requirements&#160;which&#160;are&#160;necessary&#160;according&#160;<br/>to&#160;the&#160;state&#160;of&#160;the&#160;art before its&#160;use.&#160;<br/>
+<b>2.6&#160;</b><br/>
+<b>Delivery&#160;of Example&#160;Code&#160;</b><br/>
+The&#160;delivery&#160;(SIP)&#160;may&#160;include&#160;a&#160;Start&#160;Application&#160;and/or&#160;a&#160;Demo&#160;(hereinafter&#160;collectively&#160;<br/>“Example&#160;&#160;Code”).&#160;&#160;The&#160;&#160;Example&#160;&#160;Code&#160;&#160;is&#160;&#160;only&#160;&#160;intended&#160;&#160;for&#160;&#160;illustrating&#160;&#160;an&#160;&#160;example&#160;&#160;of&#160;&#160;a&#160;<br/>possible&#160;BSW&#160;integration&#160;and&#160;BSW&#160;configuration.&#160;&#160;<br/>The&#160;Example&#160;Code&#160;has&#160;not&#160;passed&#160;any&#160;quality&#160;control&#160;measures&#160;and&#160;may&#160;be&#160;incomplete.&#160;<br/>The&#160;Example&#160;Code&#160;is&#160;neither intended&#160;nor qualified&#160;for use&#160;in&#160;series production.&#160;<br/>The&#160;&#160;Example&#160;&#160;Code&#160;&#160;as&#160;&#160;well&#160;&#160;as&#160;&#160;any&#160;&#160;of&#160;&#160;its&#160;&#160;modifications&#160;&#160;and/or&#160;&#160;implementations&#160;&#160;must&#160;&#160;be&#160;<br/>tested&#160;&#160;with&#160;&#160;diligent&#160;&#160;care&#160;&#160;and&#160;&#160;must&#160;&#160;comply&#160;&#160;with&#160;&#160;all&#160;&#160;quality&#160;&#160;requirements&#160;&#160;which&#160;&#160;are&#160;<br/>necessary&#160;according&#160;to&#160;the&#160;state&#160;of&#160;the&#160;art before their&#160;use.&#160;<br/>The&#160;Start&#160;Application&#160;is&#160;located&#160;in&#160;the&#160;folder .\StartApplication&#160;of&#160;the&#160;SIP.&#160;<br/>The&#160;Demo&#160;is located&#160;in&#160;the&#160;folder .\Demo&#160;of&#160;the&#160;SIP.&#160;<br/>
+<b>2.7&#160;</b><br/>
+<b>Usage&#160;of Features&#160;that are&#160;not Licensed&#160;</b><br/>
+BSW&#160;features&#160;that&#160;are&#160;not&#160;explicitly&#160;listed&#160;in&#160;the&#160;order&#160;confirmation&#160;are&#160;not&#160;licensed.&#160;If&#160;the&#160;<br/>BSW&#160;configuration&#160;enables&#160;a&#160;feature&#160;that&#160;has&#160;not&#160;been&#160;licensed&#160;a&#160;warning&#160;message&#160;will&#160;<br/>be&#160;shown&#160;or&#160;the&#160;build&#160;or&#160;generation&#160;process&#160;will&#160;abort&#160;with&#160;an&#160;error.&#160;(e.g.&#160;issued&#160;at&#160;code&#160;<br/>generation&#160;time).&#160;<br/>In&#160;case&#160;of&#160;a&#160;warning&#160;message&#160;the&#160;feature&#160;remains&#160;fully&#160;functional.&#160;The&#160;license&#160;violation&#160;will&#160;<br/>be&#160;&#160;communicated&#160;&#160;in&#160;&#160;the&#160;&#160;format&#160;&#160;“License&#160;&#160;Violation”&#160;&#160;and&#160;&#160;an&#160;&#160;additional&#160;&#160;description&#160;&#160;that&#160;<br/>describes the&#160;kind&#160;of&#160;violation.&#160;<br/>If&#160;the&#160;build&#160;or generation&#160;process&#160;yields such&#160;a&#160;“License&#160;Violation” the&#160;feature&#160;may&#160;be&#160;<br/>used&#160;for evaluation&#160;purposes&#160;but&#160;must&#160;not&#160;be&#160;used&#160;for serial production&#160;as:&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-7_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>the&#160;feature is&#160;not&#160;licensed&#160;for serial production&#160;purposes&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>the&#160;feature&#160;may&#160;include&#160;code&#160;that&#160;is incomplete&#160;and/or only&#160;partly&#160;tested&#160;<br/>
+<b>&gt;&#160;&#160;</b>there will be&#160;no&#160;issue&#160;tracking,&#160;no&#160;remedy&#160;of&#160;defects&#160;and&#160;no&#160;liability&#160;for the&#160;feature&#160;&#160;<br/>
+To&#160;avoid&#160;the&#160;“License&#160;Violation”&#160;for serial production&#160;either:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Contact&#160;Vector&#160;and&#160;request&#160;an&#160;update&#160;which&#160;includes&#160;the&#160;license&#160;for&#160;the&#160;feature.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Modify&#160;the&#160;configuration&#160;in&#160;such&#160;a&#160;way&#160;that&#160;does not&#160;violate&#160;the&#160;license.&#160;<br/>
+<b>2.8&#160;</b><br/>
+<b>Test Report&#160;</b><br/>
+Each&#160;delivery&#160;of&#160;a&#160;Production&#160;SIP&#160;includes a&#160;report about&#160;executed&#160;tests&#160;and&#160;their&#160;results.&#160;<br/>Test&#160;&#160;specifications&#160;&#160;are&#160;&#160;not&#160;&#160;part&#160;&#160;of&#160;&#160;a&#160;&#160;delivery,&#160;&#160;but&#160;&#160;they&#160;&#160;can&#160;&#160;be&#160;&#160;reviewed&#160;&#160;at&#160;&#160;Vector&#160;&#160;upon&#160;<br/>request.&#160;<br/>
+<b>2.9&#160;</b><br/>
+<b>MISRA&#160;</b><br/>
+The&#160;offered&#160;basic&#160;software&#160;modules&#160;will&#160;be&#160;checked&#160;for&#160;compliance&#160;with&#160;the&#160;MISRA&#160;rules&#160;<br/>(MISRA-C:2004,&#160;QAC&#160;7.0)&#160;based&#160;on&#160;typical&#160;configurations.&#160;&#160;On&#160;request&#160;&#160;we&#160;will&#160;send&#160;you&#160;<br/>the&#160;list&#160;of&#160;exceptions.&#160;<br/>A&#160;test&#160;report based&#160;on&#160;the&#160;customer’s configuration&#160;has to&#160;be&#160;ordered&#160;explicitly.&#160;<br/>
+<b>2.10&#160;&#160;Test of&#160;External&#160;Hardware&#160;</b><br/>
+Delivery&#160;&#160;tests&#160;&#160;are&#160;&#160;able&#160;&#160;to&#160;&#160;incorporate&#160;&#160;testing&#160;&#160;of&#160;&#160;external&#160;&#160;hardware&#160;&#160;such&#160;&#160;as&#160;&#160;EEPROM,&#160;<br/>watchdog&#160;or&#160;transceiver&#160;devices,&#160;which&#160;are&#160;connected&#160;to&#160;the&#160;micro&#160;controller&#160;e.g.&#160;through&#160;<br/>SPI&#160;or DIO&#160;pins.&#160;<br/>As&#160;DIO&#160;driver&#160;and&#160;SPI&#160;driver&#160;controlling&#160;the&#160;external&#160;devices&#160;are&#160;part&#160;of&#160;the&#160;MCAL,&#160;it&#160;is&#160;a&#160;<br/>prerequisite&#160;to&#160;order&#160;the&#160;SIP&#160;position&#160;“MCAL&#160;Integration”&#160;when&#160;external&#160;devices&#160;&#160;shall&#160;be&#160;<br/>tested&#160;during&#160;delivery&#160;tests.&#160;<br/>
+<b>2.11&#160;&#160;Test of&#160;3rd&#160;Party&#160;Modules&#160;</b><br/>
+As&#160;part&#160;of&#160;&#160;the&#160;&#160;integration&#160;3rd&#160;&#160;party&#160;modules&#160;are&#160;&#160;configured,&#160;compiled&#160;and&#160;linked&#160;with&#160;the&#160;<br/>test&#160;and/or&#160;demo&#160;setup.&#160;&#160;Runtime&#160;integration&#160;tests&#160;focus&#160;on&#160;Vector’s&#160;modules.&#160;Therefore,&#160;<br/>the&#160;&#160;functionality&#160;&#160;of&#160;&#160;the&#160;&#160;3rd&#160;&#160;party&#160;&#160;modules&#160;&#160;is&#160;&#160;only&#160;&#160;tested&#160;&#160;implicitly,&#160;&#160;as&#160;&#160;far&#160;&#160;as&#160;&#160;needed&#160;&#160;for&#160;<br/>Vector’s modules to&#160;run&#160;properly.&#160;<br/>
+<b>2.12&#160;&#160;Issue&#160;Handling&#160;</b><br/>
+Issue&#160;&#160;tracking&#160;&#160;and&#160;&#160;remedy&#160;&#160;of&#160;&#160;defects&#160;&#160;will&#160;&#160;be&#160;&#160;granted&#160;&#160;only&#160;&#160;for&#160;&#160;the&#160;&#160;last&#160;&#160;delivered&#160;&#160;version.&#160;<br/>Therefore,&#160;all&#160;earlier&#160;delivered&#160;software&#160;packages&#160;and&#160;versions&#160;will&#160;not&#160;be&#160;traced&#160;for&#160;issue&#160;<br/>tracking.&#160;Additional&#160;issue&#160;tracking&#160;for&#160;already&#160;delivered&#160;software&#160;packages&#160;can&#160;be&#160;offered&#160;<br/>as a&#160;separate&#160;line&#160;item.&#160;<br/>As&#160;long&#160;as&#160;the&#160;SIP&#160;is&#160;under&#160;maintenance,&#160;Vector&#160;provides&#160;an&#160;active&#160;issue&#160;reporting&#160;for&#160;the&#160;<br/>delivered&#160;&#160;BSW&#160;&#160;modules&#160;&#160;and&#160;&#160;the&#160;&#160;RTE&#160;&#160;including&#160;&#160;their&#160;&#160;code&#160;&#160;generators.&#160;&#160;The&#160;&#160;issue&#160;&#160;report&#160;<br/>contains all&#160;open&#160;issues and&#160;is sent&#160;periodically&#160;to&#160;the&#160;provided&#160;email contacts.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-8_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>2.12.1&#160;&#160;Issue&#160;Reporting for 3rd&#160;Party&#160;Software&#160;<br/></b>Issues&#160;of&#160;3rd&#160;party&#160;software&#160;integrated&#160;by&#160;Vector&#160;are&#160;not&#160;part&#160;of&#160;the&#160;issue&#160;reports&#160;send&#160;by&#160;<br/>Vector.&#160;<br/>Vector is not&#160;able&#160;to&#160;report 3rd&#160;party&#160;issues&#160;due&#160;to&#160;several reasons&#160;such&#160;as:&#160;<br/>
+<b>&gt;&#160;&#160;</b>NDAs between&#160;Vector&#160;and&#160;the&#160;3rd&#160;party&#160;software vendor&#160;<br/>
+<b>&gt;&#160;&#160;</b>Differing&#160;release&#160;and&#160;update&#160;cycles&#160;of&#160;the&#160;3rd&#160;party&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>3rd party&#160;software can&#160;be&#160;updated&#160;by&#160;the&#160;customer without&#160;involving&#160;Vector&#160;<br/>
+If&#160;3rd&#160;party&#160;software&#160;is&#160;included&#160;in&#160;the&#160;SIP,&#160;a&#160;documentation&#160;of&#160;the&#160;issue&#160;reporting&#160;process&#160;<br/>of&#160;<br/>
+the&#160;<br/>
+3rd&#160;<br/>
+party&#160;<br/>
+software&#160;<br/>
+is&#160;<br/>
+included&#160;<br/>
+in&#160;<br/>
+the&#160;<br/>
+SIP&#160;<br/>
+folder&#160;<br/>
+.\Doc\DeliveryInformation\IssueHandling_&lt;Name&gt;.pdf.&#160;<br/>
+<b>2.12.2&#160;&#160;Issue&#160;Reporting for&#160;DaVinci&#160;Tools&#160;<br/></b>Issues&#160;of&#160;the&#160;DaVinci&#160;tools&#160;are&#160;not&#160;part&#160;of&#160;the&#160;active&#160;issue&#160;reporting.&#160;The&#160;issue&#160;lists&#160;can&#160;be&#160;<br/>downloaded&#160;from&#160;our internet&#160;portal:&#160;&#160;<br/><a href="https://portal.vector.com/web/davinci/shared-folder?t=c2b431ff-5dae-4a72-83ec-b9c8ca17561c">DaVinci Developer Link&#160;<br/></a><a href="https://portal.vector.com/web/davinci/shared-folder?t=15d156f3-65d3-4b6e-8107-ec44051aebff">DaVinci Configurator&#160;Link&#160;</a><br/>
+<b>2.13&#160;&#160;Warranty&#160;</b><br/>
+Vector&#160;grants&#160;warranty&#160;for&#160;all&#160;modules,&#160;which&#160;have&#160;been&#160;licensed&#160;by&#160;Vector.&#160;These&#160;are&#160;the&#160;<br/>modules&#160;&#160;developed&#160;&#160;by&#160;&#160;Vector.&#160;&#160;For&#160;&#160;modules&#160;&#160;developed&#160;&#160;by&#160;&#160;3rd&#160;&#160;party&#160;&#160;vendors&#160;&#160;reduced&#160;<br/>warranty&#160;is&#160;granted.&#160;Please&#160;see&#160;below&#160;for details.&#160;<br/>
+<b>2.13.1&#160;&#160;3rd&#160;Party&#160;Modules&#160;<br/></b>Vector&#160;&#160;does&#160;&#160;not&#160;&#160;provide&#160;&#160;any&#160;&#160;warranty,&#160;&#160;liability&#160;&#160;or&#160;&#160;issue&#160;&#160;tracking&#160;&#160;for&#160;&#160;3rd&#160;&#160;party&#160;&#160;modules.&#160;<br/>These&#160;topics&#160;have&#160;to&#160;be&#160;stipulated&#160;with&#160;the&#160;3rd&#160;party&#160;supplier&#160;directly.&#160;<br/>If&#160;&#160;the&#160;&#160;3rd&#160;&#160;party&#160;&#160;modules&#160;&#160;are&#160;&#160;configured&#160;&#160;using&#160;&#160;DaVinci&#160;&#160;Configurator,&#160;&#160;warranty&#160;&#160;and&#160;&#160;issue&#160;<br/>tracking&#160;will&#160;be&#160;given&#160;only&#160;for&#160;the&#160;correct&#160;integration&#160;into&#160;the&#160;tool,&#160;i.e.&#160;correct&#160;mapping&#160;of&#160;<br/>GUI&#160;item&#160;to&#160;ECUC item&#160;and&#160;correct&#160;control of&#160;the&#160;generation&#160;process.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-9_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>3&#160;&#160;Modules&#160;and&#160;Options&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;chapter&#160;defines&#160;important&#160;constraints&#160;and&#160;limitations&#160;of&#160;MICROSAR&#160;BSW&#160;modules&#160;<br/>
+&#160;&#160;and options&#160;that&#160;may&#160;have been&#160;offered&#160;or&#160;delivered.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>vDBG&#160;(XCP-based)&#160;</b><br/>
+MICROSAR&#160;&#160;vDBG&#160;&#160;(XCP-based)&#160;&#160;provides&#160;&#160;access&#160;&#160;to&#160;&#160;selected&#160;&#160;internal&#160;&#160;state&#160;&#160;variables&#160;&#160;of&#160;<br/>BSW&#160;modules.&#160;As&#160;communication&#160;protocol&#160;XCP&#160;is&#160;used&#160;(unlike&#160;specified&#160;by&#160;AUTOSAR).&#160;<br/>This&#160;allows usage&#160;of&#160;existing&#160;XCP&#160;standard tools such&#160;as CANoe.AMD or CANape.&#160;&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>DLT (XCP-based)&#160;</b><br/>
+MICROSAR&#160;DLT&#160;(XCP-based)&#160;uses&#160;XCP&#160;as&#160;communication&#160;protocol&#160;(unlike&#160;specified&#160;by&#160;<br/>AUTOSAR).&#160;This&#160;results&#160;in&#160;&#160;a&#160;more&#160;&#160;efficient&#160;&#160;implementation&#160;and&#160;allows&#160;usage&#160;of&#160;existing&#160;<br/>XCP&#160;standard&#160;tools&#160;such&#160;as&#160;CANoe.AMD&#160;or CANape.&#160;MICROSAR DLT&#160;(XCP-based)&#160;does&#160;<br/>not&#160;&#160;support&#160;&#160;the&#160;&#160;DLT&#160;&#160;protocol,&#160;&#160;in&#160;&#160;particular&#160;&#160;the&#160;&#160;module&#160;&#160;is&#160;&#160;subject&#160;&#160;to&#160;&#160;the&#160;&#160;following&#160;<br/>restrictions:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only&#160;the&#160;payload&#160;of&#160;DLT&#160;messages (without&#160;DLT&#160;header)&#160;is accessible&#160;through&#160;XCP.&#160;<br/>
+<b>&gt;&#160;&#160;</b>DLT&#160;control messages&#160;are not&#160;supported.&#160;<br/>
+If&#160;these&#160;DLT&#160;features&#160;are required,&#160;MICROSAR DLT&#160;(AUTOSAR)&#160;has to&#160;be&#160;used.&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>DLT (AUTOSAR)&#160;</b><br/>
+MICROSAR&#160;&#160;DLT&#160;&#160;(AUTOSAR)&#160;&#160;implements&#160;&#160;the&#160;&#160;AUTOSAR&#160;&#160;DLT&#160;&#160;protocol.&#160;&#160;The&#160;&#160;DLT&#160;<br/>communication&#160;&#160;interface&#160;&#160;supports&#160;&#160;PDU&#160;&#160;transmission&#160;&#160;and&#160;&#160;reception&#160;&#160;through&#160;&#160;SOAD&#160;&#160;only.&#160;<br/>Please&#160;note&#160;that&#160;a&#160;test&#160;client&#160;is needed&#160;which&#160;supports the&#160;AUTOSAR DLT&#160;protocol.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Drivers&#160;(CAN, LIN, FR, ETH,&#160;MCAL)&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Support of&#160;Different&#160;Modes&#160;<br/>
+On&#160;those&#160;microcontrollers, which&#160;support different&#160;modes like&#160;user&#160;mode&#160;and&#160;<br/>privileged&#160;mode&#160;or supervisor mode,&#160;the&#160;driver’s implementation&#160;is designed&#160;to&#160;run&#160;in&#160;<br/>privileged&#160;or supervisor mode.&#160;Rationale:&#160;Full&#160;access to&#160;all&#160;registers&#160;assigned&#160;to&#160;the&#160;<br/>corresponding&#160;hardware unit&#160;controller is required.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support of&#160;FR&#160;Controllers&#160;<br/>
+Some&#160;platform&#160;derivatives include&#160;2&#160;FlexRay&#160;controllers. MICROSAR will&#160;explicitly&#160;<br/>support only&#160;one&#160;of&#160;the&#160;available&#160;FlexRay&#160;controllers, with&#160;up&#160;to&#160;2&#160;FlexRay&#160;channels.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>vETM&#160;</b><br/>
+vETM&#160;&#160;is&#160;&#160;intended&#160;&#160;for&#160;&#160;ECU&#160;&#160;test&#160;&#160;purposes&#160;&#160;and&#160;&#160;is&#160;&#160;therefore&#160;&#160;basically&#160;&#160;operable,&#160;&#160;but&#160;&#160;not&#160;<br/>sufficiently&#160;tested,&#160;verified&#160;and/or&#160;qualified&#160;for&#160;use&#160;in&#160;&#160;series&#160;production&#160;and/or&#160;in&#160;vehicles&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-10_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+operating&#160;on&#160;public&#160;or&#160;non-public&#160;roads.&#160;In&#160;particular,&#160;without&#160;limitation,&#160;the&#160;usage&#160;of&#160;vETM&#160;<br/>may&#160;cause&#160;unpredictable&#160;ECU&#160;behavior&#160;and/or&#160;may&#160;not&#160;comply&#160;with&#160;quality&#160;requirements&#160;<br/>which&#160;are necessary&#160;according&#160;to&#160;the&#160;state&#160;of&#160;the&#160;art. For serial production,&#160;the&#160;vETM&#160;must&#160;<br/>either&#160;&#160;be&#160;&#160;removed&#160;&#160;from&#160;&#160;the&#160;&#160;ECU&#160;&#160;or&#160;&#160;be&#160;&#160;deactivated&#160;&#160;as&#160;&#160;described&#160;&#160;in&#160;<br/>TechnicalReference_Etm.pdf&#160;by&#160;using&#160;the&#160;provided&#160;vETM&#160;APIs.&#160;<br/>
+<b>3.6&#160;</b><br/>
+<b>FEE&#160;</b><br/>
+Caused&#160;&#160;by&#160;&#160;physical&#160;&#160;restrictions&#160;&#160;of&#160;&#160;flash&#160;&#160;memory&#160;&#160;devices,&#160;&#160;MICROSAR&#160;&#160;FEE&#160;&#160;offers&#160;&#160;two&#160;<br/>alternative&#160;&#160;implementation&#160;&#160;concepts.&#160;&#160;Each&#160;&#160;has&#160;&#160;distinct&#160;&#160;advantages&#160;&#160;and&#160;&#160;drawbacks.&#160;&#160;At&#160;<br/>configuration&#160;time&#160;one&#160;has to&#160;be&#160;chosen&#160;per&#160;memory&#160;block:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Single Sector&#160;Usage&#160;<br/>
+This concept&#160;ensures&#160;robustness&#160;against&#160;a&#160;high&#160;number of&#160;reset&#160;events&#160;but&#160;requires&#160;a&#160;<br/>higher number&#160;of&#160;erase&#160;and&#160;write&#160;cycles&#160;on&#160;the&#160;flash&#160;memory&#160;device&#160;shortening&#160;its&#160;life&#160;<br/>time.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Parallel&#160;Sector&#160;Usage&#160;<br/>
+This concept&#160;reduces&#160;the&#160;number of&#160;erase&#160;and&#160;write&#160;cycles&#160;but&#160;leaves a&#160;low&#160;risk of&#160;<br/>data&#160;loss.&#160;<br/>
+<b>3.7&#160;</b><br/>
+<b>Generic&#160;Modules&#160;</b><br/>
+The&#160;modules&#160;are&#160;delivered&#160;as&#160;Code&#160;Templates and&#160;must&#160;be&#160;completed&#160;by&#160;the&#160;customer.&#160;<br/>The&#160;&#160;Code&#160;&#160;Template&#160;&#160;is&#160;&#160;incomplete&#160;&#160;and&#160;&#160;only&#160;&#160;intended&#160;&#160;for&#160;&#160;providing&#160;&#160;an&#160;&#160;example&#160;&#160;of&#160;&#160;a&#160;<br/>signature&#160;and&#160;of&#160;an&#160;empty&#160;implementation.&#160;The&#160;Code&#160;Template&#160;has&#160;not&#160;passed&#160;any&#160;quality&#160;<br/>control&#160;measures&#160;and&#160;is neither intended&#160;nor&#160;qualified&#160;for&#160;use&#160;in&#160;series production.&#160;&#160;<br/>The&#160;&#160;Code&#160;&#160;Template&#160;&#160;must&#160;&#160;be&#160;&#160;completed&#160;&#160;as&#160;&#160;described&#160;&#160;in&#160;&#160;the&#160;&#160;Technical&#160;&#160;Reference.&#160;&#160;The&#160;<br/>completed&#160;&#160;Code&#160;&#160;Template&#160;&#160;must&#160;&#160;be&#160;&#160;tested&#160;&#160;with&#160;&#160;diligent&#160;&#160;care&#160;&#160;and&#160;&#160;must&#160;&#160;comply&#160;&#160;with&#160;&#160;all&#160;<br/>quality&#160;requirements&#160;which&#160;are&#160;necessary&#160;according&#160;to&#160;the&#160;state&#160;of&#160;the&#160;art before&#160;its&#160;use.&#160;<br/>
+<b>3.8&#160;</b><br/>
+<b>IDM&#160;-&#160;Variant&#160;Handling /&#160;Post-Build Selectable&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;MICROSAR&#160;&#160;supports&#160;&#160;the&#160;&#160;configuration&#160;&#160;variant&#160;&#160;Pre-Compile&#160;&#160;without&#160;&#160;variant&#160;<br/>handling.&#160;The&#160;option&#160;MICROSAR&#160;Identity&#160;Manager&#160;(IDM)&#160;implements&#160;post-build&#160;selectable&#160;<br/>which&#160;&#160;allows&#160;&#160;choosing&#160;&#160;between&#160;&#160;several&#160;&#160;ECU&#160;&#160;behaviors&#160;&#160;at&#160;&#160;startup&#160;&#160;time.&#160;&#160;Variants&#160;&#160;are&#160;<br/>defined&#160;pre-compile&#160;time.&#160;<br/>If&#160;&#160;variant&#160;&#160;handling&#160;&#160;is&#160;&#160;requested&#160;&#160;the&#160;&#160;option&#160;&#160;IDM&#160;&#160;lists&#160;&#160;the&#160;&#160;clusters&#160;&#160;that&#160;&#160;will&#160;&#160;support&#160;&#160;variant&#160;<br/>handling.&#160;&#160;If&#160;&#160;not&#160;&#160;defined&#160;&#160;otherwise,&#160;&#160;variant&#160;&#160;handling&#160;&#160;is&#160;&#160;available&#160;&#160;for&#160;&#160;modules&#160;&#160;that&#160;&#160;support&#160;<br/>variant&#160;handling&#160;(POST-BUILD)&#160;according&#160;to&#160;AUTOSAR.&#160;<br/>Please&#160;note&#160;the&#160;following&#160;constraints&#160;when&#160;using&#160;the&#160;option&#160;(IDM):&#160;<br/>
+<b>&gt;&#160;&#160;</b>IDM&#160;(COM,&#160;DIAG):&#160;Transformers are&#160;excluded&#160;<br/>
+<b>&gt;&#160;&#160;</b>IDM&#160;(DIAG): DCM&#160;supports the&#160;communication&#160;side&#160;only.&#160;Variance&#160;of&#160;diagnostic&#160;<br/>
+services&#160;is modelled&#160;as a&#160;superset&#160;in&#160;the&#160;input&#160;files.&#160;Using&#160;DCM&#160;APIs&#160;it is possible&#160;to&#160;<br/>enabled/disable&#160;services at&#160;runtime.&#160;<br/>
+<b>&gt;&#160;&#160;</b>IDM&#160;(DIAG):&#160;Features&#160;are limited&#160;to&#160;selected&#160;features:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variant&#160;specific enabling&#160;of&#160;DTCs&#160;and&#160;definition&#160;of&#160;OBD relevance&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-11_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variance&#160;of&#160;selected&#160;DTC properties with&#160;respect&#160;to&#160;Priority,&#160;Aging,&#160;Healing&#160;and&#160;<br/>
+Confirmation&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variance&#160;of&#160;Events&#160;and&#160;selected&#160;pre-debouncing&#160;properties&#160;using&#160;the&#160;same&#160;type&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variance&#160;of&#160;enable-&#160;and&#160;storage&#160;conditions&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variance&#160;of&#160;DID IDs and&#160;snapshot&#160;assignment&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variant&#160;specific existence&#160;of&#160;DCM&#160;diagnostic&#160;services,&#160;sub-services,&#160;DIDs,&#160;RIDs,&#160;<br/>
+PIDs,&#160;MIDs,&#160;TIDs,&#160;VIDs and&#160;memory-ranges&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variant&#160;specific in&#160;ECU&#160;composition&#160;of&#160;OBD “supported&#160;DIDs,&#160;RIDs,&#160;PIDs,&#160;MIDs,&#160;<br/>
+TIDs and&#160;VIDs” response&#160;bit&#160;mask value&#160;<br/>
+<b>&gt;&#160;&#160;</b>Variance&#160;in&#160;the&#160;DCM&#160;communication&#160;interface&#160;<br/>
+<b>&gt;&#160;&#160;</b>IDM&#160;(CAN, FR,&#160;SYS): &lt;Bus&gt;TSyn&#160;modules and&#160;STBM&#160;are excluded&#160;<br/>
+<b>&gt;&#160;&#160;</b>IDM&#160;(RTE): Limited&#160;to&#160;data&#160;mapping&#160;variance&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is assumed&#160;that&#160;all&#160;BSW&#160;modules&#160;are used&#160;in&#160;all&#160;variants.&#160;It&#160;is&#160;not&#160;possible&#160;to&#160;not&#160;<br/>
+use&#160;a&#160;module&#160;in&#160;one&#160;or&#160;more&#160;variants.&#160;<br/>
+To&#160;&#160;ensure&#160;&#160;that&#160;&#160;the&#160;&#160;required&#160;&#160;use-cases&#160;&#160;are&#160;&#160;supported,&#160;&#160;please&#160;&#160;provide&#160;&#160;your&#160;&#160;use-cases&#160;&#160;to&#160;<br/>Vector.&#160;<br/>
+<b>3.9&#160;</b><br/>
+<b>MCAL Integration Package&#160;&#160;</b><br/>
+An&#160;MCAL&#160;integration&#160;is&#160;only&#160;possible&#160;if&#160;<br/>
+<b>&gt;&#160;&#160;</b>the&#160;MCAL&#160;version&#160;is communicated&#160;to&#160;Vector&#160;as part of&#160;the&#160;answer to&#160;the&#160;<br/>
+Questionnaire&#160;Step&#160;II&#160;at&#160;the&#160;latest&#160;6&#160;weeks&#160;before the&#160;planned&#160;delivery&#160;date.&#160;<br/>
+<b>&gt;&#160;&#160;</b>the&#160;specified&#160;MCAL&#160;is&#160;available&#160;in&#160;general.&#160;<br/>
+On&#160;most&#160;HW&#160;platforms&#160;the&#160;MCAL&#160;integration&#160;will&#160;result&#160;in&#160;the&#160;delivery&#160;of&#160;two&#160;artefacts&#160;as&#160;<br/>part of&#160;the&#160;SIP:&#160;<br/>
+<b>&gt;&#160;&#160;</b>MCAL&#160;Integration&#160;Helper&#160;Tool:&#160;This tool&#160;allows placing&#160;a&#160;3rd&#160;party&#160;MCAL&#160;into&#160;the&#160;SIP&#160;<br/>
+as self-service&#160;as well&#160;as MCAL&#160;specific&#160;maintenance&#160;activities&#160;such&#160;as derivative&#160;<br/>selection&#160;and&#160;supports&#160;the&#160;user in&#160;up-grading&#160;or down-grading&#160;the&#160;MCAL&#160;version.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Included&#160;3rd&#160;party&#160;MCAL:&#160;The&#160;Questionnaire&#160;Step&#160;II&#160;will contain&#160;an&#160;upload&#160;link&#160;where&#160;<br/>
+the&#160;customer can&#160;send&#160;MCAL&#160;files to&#160;Vector to&#160;proof&#160;ownership.&#160;If&#160;the&#160;customer sends&#160;<br/>the&#160;MCAL&#160;(which&#160;has&#160;to&#160;match&#160;the&#160;specified&#160;MCAL&#160;version&#160;from&#160;Questionnaire&#160;Step&#160;II&#160;<br/>and&#160;which&#160;must&#160;encompass all&#160;artefacts&#160;including&#160;implementation,&#160;tooling&#160;and&#160;license&#160;<br/>files) not&#160;later than&#160;6&#160;weeks before&#160;the&#160;planned&#160;delivery&#160;date,&#160;Vector&#160;will&#160;use&#160;these&#160;<br/>files&#160;during&#160;testing&#160;and&#160;also&#160;include&#160;them&#160;in&#160;the&#160;delivery.&#160;If&#160;the&#160;MCAL&#160;is not&#160;sent&#160;in&#160;<br/>time,&#160;the&#160;SIP&#160;will not&#160;contain&#160;an&#160;MCAL&#160;and&#160;the&#160;customer will have&#160;to&#160;include&#160;the&#160;MCAL&#160;<br/>using&#160;the&#160;MCAL&#160;Integration&#160;Helper&#160;Tool.&#160;&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-12_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>3.10&#160;&#160;OS&#160;Option:&#160;Schedule&#160;Table&#160;Synchronization&#160;</b><br/>
+Schedule&#160;table&#160;synchronization&#160;will&#160;be&#160;done&#160;with&#160;the&#160;accuracy&#160;of&#160;the&#160;system&#160;counter.&#160;If&#160;a&#160;<br/>better&#160;&#160;precision&#160;&#160;of&#160;&#160;the&#160;&#160;synchronization&#160;&#160;is&#160;&#160;required&#160;&#160;the&#160;&#160;operating&#160;&#160;system&#160;&#160;add-on&#160;&#160;“High&#160;<br/>Resolution&#160;Timer &amp;&#160;Synchronization” has to&#160;be&#160;ordered.&#160;<br/>
+<b>3.11&#160;&#160;PBL&#160;-&#160;Post-Build Loadable&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;MICROSAR&#160;&#160;supports&#160;&#160;the&#160;&#160;configuration&#160;&#160;variant&#160;&#160;Pre-Compile,&#160;&#160;without&#160;&#160;the&#160;<br/>possibility&#160;&#160;to&#160;&#160;update&#160;&#160;the&#160;&#160;ECU&#160;&#160;configuration&#160;&#160;at&#160;&#160;post-build&#160;&#160;time.&#160;&#160;The&#160;&#160;option&#160;&#160;Post-Build&#160;<br/>Loadable&#160;(PBL)&#160;provides support&#160;for a&#160;post-build&#160;time&#160;update.&#160;<br/>If&#160;post-build&#160;loadable&#160;is&#160;requested&#160;the&#160;option&#160;PBL&#160;lists the&#160;clusters that&#160;support a&#160;post-build&#160;<br/>time&#160;update&#160;of&#160;the&#160;configuration.&#160;Post-build&#160;loadable&#160;allows&#160;changing&#160;aspects&#160;of&#160;the&#160;ECU’s&#160;<br/>communication&#160;matrix&#160;after&#160;the&#160;software&#160;has&#160;been&#160;downloaded&#160;to&#160;the&#160;ECU.&#160;The&#160;post-build&#160;<br/>time&#160;&#160;update&#160;&#160;process&#160;&#160;does&#160;&#160;not&#160;&#160;require&#160;&#160;the&#160;&#160;usage&#160;&#160;of&#160;&#160;a&#160;&#160;compiler.&#160;&#160;Only&#160;&#160;post-build&#160;<br/>configuration&#160;data&#160;(e.g.&#160;a&#160;dedicated&#160;flash&#160;page) are downloaded&#160;to&#160;the&#160;ECU.&#160;<br/>Deliveries&#160;&#160;supporting&#160;&#160;post-build&#160;&#160;loadable&#160;&#160;include&#160;&#160;a&#160;&#160;special&#160;&#160;license&#160;&#160;for&#160;&#160;the&#160;&#160;DaVinci&#160;<br/>Configurator&#160;&#160;that&#160;&#160;will&#160;&#160;allow&#160;&#160;the&#160;&#160;OEM&#160;&#160;to&#160;perform&#160;&#160;an&#160;&#160;update&#160;&#160;at&#160;&#160;post-build&#160;&#160;time&#160;&#160;without&#160;&#160;the&#160;<br/>need&#160;of&#160;own&#160;tool licenses.&#160;<br/>If&#160;&#160;post-build&#160;&#160;loadable&#160;&#160;is&#160;&#160;requested&#160;&#160;the&#160;&#160;option&#160;&#160;PBL&#160;&#160;lists&#160;&#160;the&#160;&#160;supported&#160;&#160;clusters.&#160;&#160;If&#160;&#160;not&#160;<br/>defined&#160;&#160;otherwise,&#160;&#160;post-build&#160;&#160;loadable&#160;&#160;is&#160;&#160;available&#160;&#160;for&#160;&#160;modules&#160;&#160;that&#160;&#160;POST-BUILD&#160;<br/>according&#160;to&#160;AUTOSAR.&#160;<br/>Please&#160;note&#160;the&#160;following&#160;constraints&#160;when&#160;using&#160;the&#160;option&#160;PBL:&#160;<br/>
+<b>&gt;&#160;&#160;</b>A&#160;check if&#160;the&#160;chosen&#160;compiler&#160;and&#160;compiler options&#160;are supported&#160;by&#160;the&#160;post-build&#160;<br/>
+time&#160;update&#160;process&#160;is performed&#160;as&#160;part of&#160;the&#160;Software Integration&#160;Package&#160;(SIP)&#160;<br/>
+<b>&gt;&#160;&#160;</b>PBL&#160;(COM,&#160;DIAG):&#160;Transformers are&#160;excluded&#160;<br/>
+<b>&gt;&#160;&#160;</b>PBL&#160;(COM):&#160;Deleting&#160;signals at&#160;post-build&#160;time&#160;is only&#160;possible&#160;for signals that&#160;have&#160;<br/>
+been&#160;added&#160;during&#160;post-build&#160;phase.&#160;<br/>
+<b>&gt;&#160;&#160;</b>PBL&#160;(ETH):&#160;Only&#160;selected&#160;features&#160;of&#160;SD&#160;and&#160;SOAD support PBL&#160;<br/>
+<b>&gt;&#160;&#160;</b>PBL&#160;(DIAG):&#160;Features&#160;are limited&#160;to&#160;selected&#160;features&#160;such&#160;as:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Disabling&#160;of&#160;DTCs&#160;as&#160;well&#160;as removing&#160;the&#160;OBD relevance&#160;at&#160;post-build&#160;time&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adding&#160;new&#160;DTCs for&#160;existing&#160;events&#160;<br/>
+<b>&gt;&#160;&#160;</b>Modification&#160;of&#160;selected&#160;DTC&#160;properties with&#160;respect&#160;to&#160;Priority,&#160;Aging,&#160;Healing&#160;and&#160;<br/>
+Confirmation&#160;<br/>
+<b>&gt;&#160;&#160;</b>Disable&#160;existing&#160;events&#160;<br/>
+<b>&gt;&#160;&#160;</b>Modification&#160;of&#160;selected&#160;event&#160;properties&#160;such&#160;as&#160;pre-debouncing&#160;properties&#160;using&#160;<br/>
+the&#160;same&#160;debouncing&#160;type&#160;<br/>
+<b>&gt;&#160;&#160;</b>Modification&#160;of&#160;the&#160;event&#160;enable-&#160;and&#160;storage&#160;conditions using&#160;existing&#160;conditions&#160;<br/>
+<b>&gt;&#160;&#160;</b>Modification&#160;of&#160;DID&#160;IDs and&#160;snapshot&#160;assignment&#160;<br/>
+<b>&gt;&#160;&#160;</b>Modification&#160;of&#160;the&#160;DCM&#160;communication&#160;interface&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-13_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>PBL&#160;(CAN, FR,&#160;SYS):&#160;&lt;Bus&gt;TSyn&#160;modules and&#160;STBM&#160;are excluded&#160;<br/>
+<b>&gt;&#160;&#160;</b>PBL&#160;(SYS):&#160;WDG&#160;stack is excluded&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;post-build&#160;loadable&#160;update&#160;of&#160;an&#160;ECU&#160;is&#160;typically&#160;performed&#160;by&#160;the&#160;OEM.&#160;As a&#160;<br/>
+prerequisite,&#160;the&#160;Tier1&#160;needs to&#160;forward the&#160;MICROSAR SIP&#160;and&#160;his&#160;DaVinci ECU&#160;<br/>configuration&#160;project&#160;to&#160;the&#160;OEM.&#160;The&#160;forwarded&#160;SIP&#160;must&#160;not&#160;include&#160;any&#160;c-files&#160;which&#160;<br/>have&#160;to&#160;be&#160;deleted&#160;by&#160;the&#160;Tier1 in&#160;advance.&#160;<br/>
+<b>&gt;&#160;&#160;</b>With&#160;respect&#160;to&#160;the&#160;System&#160;Description&#160;the&#160;following&#160;limitations apply:&#160;<br/>
+<b>&gt;&#160;&#160;</b>ComIPdu&#160;<br/>
+<b>&gt;&#160;&#160;</b>Pdu.shortName&#160;has&#160;to&#160;unique&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;Pdu&#160;is referenced&#160;by&#160;only&#160;one&#160;PduToFrameMapping&#160;in&#160;a&#160;frame&#160;with&#160;only&#160;one&#160;<br/>
+triggering&#160;for each&#160;direction&#160;<br/>
+<b>&gt;&#160;&#160;</b>ComSignal, ComSignalGroup,&#160;ComGroupSignal:&#160;<br/>
+<b>&gt;&#160;&#160;</b>ISignalToIPduMapping.shortName&#160;has&#160;to&#160;be&#160;unique&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only&#160;one&#160;triggering&#160;for&#160;each&#160;direction&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Usage&#160;of&#160;PBL&#160;in&#160;Safety&#160;related&#160;projects&#160;is not&#160;recommended.&#160;Details are given&#160;in&#160;<br/>
+ProductInformation_2_MSR4-MICROSARSafe.pdf&#160;chapter 2.5.2&#160;“Process”.&#160;<br/>
+To&#160;&#160;ensure&#160;&#160;that&#160;&#160;the&#160;&#160;required&#160;&#160;use-cases&#160;&#160;are&#160;&#160;supported,&#160;&#160;please&#160;&#160;provide&#160;&#160;your&#160;&#160;use-cases&#160;&#160;to&#160;<br/>Vector.&#160;<br/>
+<b>3.12&#160;&#160;RTE&#160;</b><br/>
+The&#160;&#160;MICROSAR&#160;&#160;RTE&#160;&#160;uses&#160;&#160;the&#160;&#160;AUTOSAR&#160;&#160;4.3&#160;&#160;APIs&#160;&#160;Interrupt&#160;&#160;Source&#160;&#160;and&#160;&#160;Hardware&#160;<br/>Peripheral&#160;&#160;Access&#160;&#160;to&#160;&#160;allow&#160;&#160;hardware&#160;&#160;specific&#160;&#160;components&#160;&#160;to&#160;&#160;safely&#160;&#160;access&#160;&#160;peripherals.&#160;<br/>The&#160;MICROSAR&#160;OS&#160;provides&#160;this&#160;APIs.&#160;If&#160;a&#160;non&#160;MICROSAR&#160;OS&#160;is&#160;used,&#160;these&#160;APIs&#160;need&#160;<br/>to&#160;be&#160;provided&#160;either by&#160;the&#160;OS&#160;or by&#160;integrator code.&#160;<br/>
+<b>3.13&#160;&#160;vRTM&#160;</b><br/>
+To&#160;make&#160;use&#160;of&#160;this module,&#160;CANoe.AMD is&#160;required&#160;with&#160;version&#160;8.1&#160;or later.&#160;<br/>
+<b>3.14&#160;&#160;WDGM&#160;</b><br/>
+The&#160;&#160;default&#160;&#160;implementation&#160;&#160;of&#160;&#160;the&#160;&#160;WDGM&#160;&#160;supports&#160;&#160;only&#160;&#160;“Alive&#160;&#160;Supervision”.&#160;&#160;In&#160;&#160;case&#160;<br/>“Deadline&#160;&#160;Supervision”&#160;&#160;or&#160;&#160;“Logical&#160;&#160;Supervision”&#160;&#160;(control&#160;&#160;flow&#160;&#160;monitoring)&#160;&#160;functionality&#160;&#160;is&#160;<br/>required&#160;&#160;(e.g.&#160;&#160;in&#160;&#160;safety&#160;&#160;projects&#160;&#160;due&#160;&#160;to&#160;&#160;IEC&#160;&#160;61508&#160;&#160;or&#160;&#160;ISO26262),&#160;&#160;it&#160;&#160;is&#160;&#160;supported&#160;&#160;by&#160;&#160;the&#160;<br/>SafeWatchdog&#160;module.&#160;<br/>
+&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-14_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>4&#160;&#160;Services&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;chapter&#160;defines&#160;requirements&#160;of&#160;MICROSAR&#160;services that&#160;may&#160;have been&#160;offered&#160;<br/>
+&#160;&#160;or&#160;ordered.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>4.1&#160;</b><br/>
+<b>MICROSAR Getting Started V2G&#160;</b><br/>
+The&#160;following&#160;requirements&#160;must&#160;be&#160;prepared&#160;and&#160;provided&#160;by&#160;the&#160;customer&#160;for&#160;the&#160;getting&#160;<br/>started&#160;&#160;session.&#160;&#160;Missing&#160;&#160;artefacts&#160;&#160;can&#160;&#160;result&#160;&#160;in&#160;&#160;missing&#160;&#160;the&#160;&#160;getting&#160;&#160;started&#160;&#160;objectives&#160;&#160;or&#160;<br/>can&#160;be&#160;the&#160;root&#160;cause&#160;for additional costs.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Hardware (e.g.&#160;evaluation&#160;board) with&#160;integrated&#160;and&#160;working&#160;BSW&#160;stack.&#160;Including:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Working&#160;BSW&#160;integration&#160;with&#160;at&#160;least&#160;the&#160;following&#160;modules&#160;<br/>
+<b>&gt;&#160;&#160;</b>SPI,&#160;NVM&#160;stack,&#160;ETH&#160;stack incl.&#160;bus communication&#160;<br/>
+<b>&gt;&#160;&#160;</b>OS:&#160;Providing&#160;an&#160;initialization&#160;task as&#160;well&#160;as a&#160;5ms cyclic preemptive&#160;task&#160;<br/>
+<b>&gt;&#160;&#160;</b>QCA7000\7005&#160;being&#160;integrated&#160;and&#160;fully&#160;functional&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Recommended:&#160;QCA&#160;interrupt&#160;handling&#160;via&#160;ICU&#160;<br/>
+<b>&gt;&#160;&#160;</b>At&#160;least&#160;one&#160;PC&#160;that&#160;can&#160;be&#160;used&#160;during&#160;the&#160;workshop&#160;<br/>
+<b>&gt;&#160;&#160;</b>Two&#160;free&#160;Ethernet&#160;ports.&#160;For PnC:&#160;three&#160;ports plus&#160;one&#160;switch/hub&#160;<br/>
+<b>&gt;&#160;&#160;</b>MS&#160;Windows.&#160;Version&#160;must&#160;be&#160;compatible&#160;with&#160;the&#160;used&#160;tools&#160;<br/>
+<b>&gt;&#160;&#160;</b>IPv6&#160;must&#160;be&#160;enabled&#160;and&#160;the&#160;firewall&#160;must&#160;be&#160;deactivated&#160;or configurable&#160;<br/>
+<b>&gt;&#160;&#160;</b>Working&#160;and&#160;mastered&#160;development&#160;environment&#160;for&#160;the&#160;chosen&#160;hardware&#160;<br/>
+<b>&gt;&#160;&#160;</b>E.g.&#160;Compiler,&#160;debugger,&#160;build&#160;environment,&#160;licenses&#160;<br/>
+<b>&gt;&#160;&#160;</b>CANoe.Ethernet&#160;8.2&#160;or later and&#160;Smart Charging&#160;Package&#160;1.5.5&#160;or later&#160;<br/>
+<b>&gt;&#160;&#160;</b>DaVinci Configurator&#160;Pro 5&#160;installed&#160;and&#160;license&#160;available&#160;<br/>
+&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-15_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>5&#160;&#160;SIP&#160;Extensions&#160;</b><br/>
+The&#160;following&#160;extensions are&#160;available&#160;as&#160;product&#160;services,&#160;carried&#160;out&#160;by&#160;Vector.&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Customer Hardware&#160;</b><br/>
+Integration&#160;&#160;and&#160;&#160;test&#160;&#160;of&#160;&#160;the&#160;&#160;Software&#160;&#160;Integration&#160;&#160;Package&#160;&#160;(SIP)&#160;&#160;is&#160;&#160;done&#160;&#160;on&#160;&#160;the&#160;&#160;customer&#160;<br/>specific&#160;&#160;hardware&#160;&#160;instead&#160;&#160;of&#160;&#160;an&#160;&#160;evaluation&#160;&#160;board.&#160;&#160;Prerequisite&#160;&#160;is&#160;&#160;the&#160;&#160;provision&#160;&#160;of&#160;&#160;the&#160;<br/>complete&#160;development&#160;environment:&#160;<br/>
+<b>&gt;&#160;&#160;</b>ECU&#160;or&#160;customer&#160;hardware&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Additionally,&#160;required&#160;hardware,&#160;e.g.&#160;wiring&#160;harness,&#160;etc.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>IDE/compiler,&#160;linker and&#160;workbench&#160;incl.&#160;license&#160;(if&#160;not&#160;available&#160;at&#160;Vector)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Debugger (incl.&#160;license) &amp;&#160;connector (if&#160;not&#160;available&#160;at&#160;Vector)&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;applicable:&#160;POSIX&#160;operating&#160;system&#160;including&#160;the&#160;hardware specific boards&#160;support&#160;<br/>
+package&#160;<br/>
+It&#160;is&#160;the&#160;customer's&#160;responsibility&#160;to&#160;ensure&#160;that&#160;the&#160;hardware&#160;is&#160;running.&#160;This&#160;may&#160;require&#160;<br/>that&#160;necessary&#160;software&#160;has&#160;to&#160;be&#160;handed&#160;over&#160;to&#160;Vector.&#160;All&#160;required&#160;drivers&#160;to&#160;setup&#160;the&#160;<br/>hardware&#160;must&#160;be&#160;available&#160;for&#160;integration.&#160;In&#160;case&#160;the&#160;SIP&#160;includes&#160;generic&#160;drivers&#160;(e.g.&#160;<br/>Transceiver,&#160;&#160;SBC,&#160;&#160;etc.)&#160;&#160;it&#160;&#160;is&#160;&#160;the&#160;&#160;responsibility&#160;&#160;of&#160;&#160;the&#160;&#160;customer&#160;&#160;to&#160;&#160;provide&#160;&#160;the&#160;&#160;concrete&#160;<br/>software&#160;implementation&#160;for&#160;such&#160;hardware.&#160;In&#160;case&#160;the&#160;software&#160;drivers&#160;are&#160;not&#160;available&#160;<br/>in&#160;time&#160;or&#160;do&#160;not&#160;work&#160;properly,&#160;Vector&#160;will&#160;not&#160;be&#160;able&#160;to&#160;setup&#160;the&#160;system&#160;and&#160;will&#160;not&#160;be&#160;<br/>able&#160;to&#160;perform&#160;the&#160;required&#160;tests.&#160;<br/>At&#160;project&#160;start,&#160;the&#160;detailed&#160;requirements&#160;will be&#160;clarified&#160;with&#160;the&#160;customer.&#160;<br/>After&#160;initial&#160;operation&#160;of&#160;the&#160;hardware&#160;has&#160;been&#160;achieved,&#160;the&#160;different&#160;software&#160;modules&#160;<br/>are integrated&#160;and&#160;the&#160;integration&#160;tests&#160;are performed.&#160;<br/>Please&#160;be&#160;aware that&#160;the&#160;SIP&#160;lead&#160;time&#160;is&#160;based&#160;on&#160;the&#160;following&#160;milestones:&#160;<br/>
+<b>&gt;&#160;&#160;</b>to&#160;provide&#160;the&#160;development&#160;environment&#160;within&#160;2&#160;weeks after purchase&#160;order&#160;<br/>
+<b>&gt;&#160;&#160;</b>to&#160;get&#160;the&#160;development&#160;environment&#160;running&#160;within&#160;1&#160;week.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Start&#160;Application&#160;</b><br/>
+The&#160;&#160;initial&#160;&#160;delivery&#160;&#160;of&#160;&#160;a&#160;&#160;project&#160;&#160;includes&#160;&#160;a&#160;&#160;free&#160;&#160;of&#160;&#160;charge&#160;&#160;Start&#160;Application&#160;&#160;(including&#160;&#160;the&#160;<br/>complete&#160;build&#160;environment).&#160;The&#160;Start&#160;Application&#160;is&#160;based&#160;on&#160;the&#160;ECU&#160;specific&#160;input&#160;data&#160;<br/>for&#160;communication&#160;(e.g.&#160;ECU&#160;Extract)&#160;and&#160;diagnostics&#160;(e.g.&#160;ECUC).&#160;It&#160;demonstrates&#160;basic&#160;<br/>SIP&#160;functionality&#160;based&#160;on&#160;the&#160;ordered&#160;modules.&#160;Some&#160;examples&#160;are&#160;listed&#160;below.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Communication:&#160;The&#160;SWCs&#160;included&#160;in&#160;the&#160;Start&#160;Application&#160;demonstrate&#160;the&#160;<br/>
+reception&#160;and&#160;transmission&#160;of&#160;one&#160;signal on&#160;runnable&#160;level.&#160;The&#160;BSW&#160;is configured&#160;in&#160;<br/>a&#160;way&#160;that&#160;the&#160;system&#160;gets&#160;initialized&#160;and&#160;communicates on&#160;all&#160;communication&#160;busses&#160;<br/>defined&#160;in&#160;the&#160;input&#160;data.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-16_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>Diagnostics:&#160;The&#160;SWCs included&#160;in&#160;the&#160;Start&#160;Application&#160;will be&#160;extended&#160;by&#160;a&#160;sample&#160;<br/>
+implementation&#160;of&#160;an&#160;RDBI/WDBI&#160;service&#160;on&#160;runnable&#160;level. Moreover it&#160;offers&#160;the&#160;<br/>possibility&#160;to&#160;trigger a&#160;DTC.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Memory:&#160;The&#160;SWCs included&#160;in&#160;the&#160;Start&#160;Application&#160;will be&#160;extended&#160;by&#160;a&#160;sample&#160;<br/>
+implementation&#160;to&#160;store&#160;data&#160;in&#160;a&#160;NV-Block.&#160;<br/>
+<b>Preconditions&#160;<br/></b>A&#160;Start&#160;Application&#160;can&#160;be&#160;provided&#160;by&#160;Vector&#160;if&#160;the&#160;following&#160;preconditions are&#160;met:&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;order&#160;contains&#160;a&#160;complete&#160;MICROSAR Basic Software stack (incl. 3rd&#160;party&#160;MCAL&#160;<br/>
+&amp;&#160;MICROSAR RTE)&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;customer provides&#160;the&#160;databases&#160;for communication&#160;&amp;&#160;diagnostics prior to&#160;the&#160;<br/>
+project&#160;start.&#160;<br/>
+<b>Deliverables&#160;<br/>&gt;&#160;&#160;</b>SIP&#160;Modules&#160;<br/>
+<b>&gt;&#160;&#160;</b>Start&#160;Application&#160;&#160;<br/>
+<b>Test reports&#160;<br/>&gt;&#160;&#160;</b>Vector test&#160;reports&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;delivered&#160;configuration&#160;and source&#160;code is&#160;for&#160;demonstration&#160;purpose&#160;only.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>5.3&#160;</b><br/>
+<b>vVIRTUALtarget (VTT)&#160;</b><br/>
+vVIRTUALtarget&#160;(VTT)&#160;is&#160;a&#160;virtual&#160;integration&#160;platform&#160;to&#160;run&#160;and&#160;test&#160;a&#160;MICROSAR&#160;stack&#160;<br/>on&#160;&#160;the&#160;&#160;PC.&#160;&#160;MICROSAR&#160;&#160;VTT&#160;&#160;realizes&#160;&#160;the&#160;&#160;embedded&#160;&#160;aspect&#160;&#160;of&#160;&#160;vVIRTUALtarget&#160;&#160;by&#160;<br/>providing&#160;&#160;VTT&#160;&#160;modules&#160;&#160;for&#160;&#160;MCAL&#160;&#160;and&#160;&#160;OS&#160;&#160;that&#160;&#160;are&#160;&#160;designed&#160;&#160;to&#160;&#160;run&#160;&#160;in&#160;&#160;the&#160;&#160;virtual&#160;<br/>environment.&#160;<br/>
+<b>5.3.1&#160;</b><br/>
+<b>Components&#160;</b><br/>
+MICROSAR VTT&#160;provides the&#160;following&#160;BSW&#160;modules:&#160;<br/>
+<b>&gt;&#160;&#160;</b>VTT&#160;OS&#160;<br/>
+<b>&gt;&#160;&#160;</b>VTT&#160;communication&#160;drivers for&#160;<br/>
+<b>&gt;&#160;&#160;</b>CAN&#160;<br/>
+<b>&gt;&#160;&#160;</b>LIN&#160;<br/>
+<b>&gt;&#160;&#160;</b>FlexRay&#160;<br/>
+<b>&gt;&#160;&#160;</b>Ethernet&#160;<br/>
+<b>&gt;&#160;&#160;</b>SPI&#160;<br/>
+<b>&gt;&#160;&#160;</b>VTT&#160;I/O&#160;drivers for&#160;<br/>
+<b>&gt;&#160;&#160;</b>ICU&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-17_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>PWM&#160;<br/>
+<b>&gt;&#160;&#160;</b>ADC&#160;<br/>
+<b>&gt;&#160;&#160;</b>DIO&#160;<br/>
+<b>&gt;&#160;&#160;</b>PORT&#160;<br/>
+<b>&gt;&#160;&#160;</b>VTT&#160;memory&#160;drivers for&#160;<br/>
+<b>&gt;&#160;&#160;</b>EEPROM&#160;<br/>
+<b>&gt;&#160;&#160;</b>Flash&#160;<br/>
+<b>&gt;&#160;&#160;</b>VTT&#160;microcontroller drivers for&#160;<br/>
+<b>&gt;&#160;&#160;</b>MCU&#160;<br/>
+<b>&gt;&#160;&#160;</b>Watchdog&#160;<br/>
+<b>&gt;&#160;&#160;</b>GPT&#160;<br/>
+The&#160;&#160;set&#160;&#160;of&#160;&#160;VTT&#160;&#160;modules&#160;&#160;that&#160;&#160;are&#160;&#160;actually&#160;&#160;delivered&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;<br/>customer's&#160;&#160;Software&#160;&#160;Integration&#160;&#160;Package&#160;&#160;(SIP),&#160;&#160;e.g.,&#160;&#160;if&#160;&#160;MICROSAR&#160;&#160;FR&#160;&#160;is&#160;&#160;part&#160;&#160;of&#160;&#160;your&#160;<br/>delivery,&#160;then&#160;the&#160;VTT&#160;FlexRay&#160;driver&#160;will be&#160;delivered.&#160;<br/>The&#160;scalability&#160;class&#160;and&#160;the&#160;support&#160;for&#160;multi-core&#160;configurations&#160;in&#160;the&#160;VTT&#160;OS&#160;depend&#160;<br/>on&#160;the&#160;customer’s SIP&#160;and&#160;the&#160;OS&#160;that&#160;is delivered&#160;for the&#160;hardware.&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>Limitations&#160;</b><br/>
+Due&#160;&#160;to&#160;&#160;the&#160;fact&#160;&#160;that&#160;&#160;a&#160;&#160;virtual&#160;&#160;ECU&#160;&#160;in&#160;&#160;vVIRTUALtarget&#160;&#160;is&#160;executed&#160;&#160;on&#160;&#160;the&#160;&#160;PC&#160;&#160;it&#160;does&#160;&#160;not&#160;<br/>provide&#160;an&#160;accurate&#160;simulation&#160;of&#160;a&#160;microcontroller.&#160;&#160;In&#160;particular,&#160;&#160;the&#160;runtime&#160;behavior&#160;of&#160;<br/>the&#160;virtual ECU&#160;may&#160;deviate&#160;from the&#160;behavior on&#160;the&#160;target&#160;hardware.&#160;<br/>Please&#160;note&#160;the&#160;following&#160;main&#160;limitations when&#160;using&#160;vVIRTUALtarget:&#160;<br/>
+<b>&gt;&#160;&#160;Memory&#160;Protection (SC3)</b>&#160;<br/>
+The&#160;protection&#160;mechanism&#160;is not&#160;executed,&#160;even&#160;if&#160;memory&#160;protection&#160;(SC3) can&#160;be&#160;<br/>configured&#160;in&#160;the&#160;OS&#160;(depends&#160;on&#160;your SIP).&#160;<br/>
+<b>&gt;&#160;&#160;Post-Build Loadable</b>&#160;<br/>
+Post-build&#160;loadable&#160;can&#160;be&#160;selected&#160;as implementation&#160;variant&#160;in&#160;VTT&#160;modules,&#160;<br/>however,&#160;the&#160;post-build&#160;time&#160;flash&#160;process is&#160;not&#160;supported&#160;and&#160;will&#160;have&#160;to&#160;be&#160;tested&#160;<br/>on&#160;the&#160;hardware.&#160;<br/>
+<b>&gt;&#160;&#160;Precision Time&#160;Protocol</b>&#160;<br/>
+As&#160;VTT&#160;does not&#160;provide&#160;an&#160;accurate&#160;timing&#160;simulation,&#160;time&#160;synchronization&#160;protocols&#160;<br/>are not&#160;supported.&#160;<br/>
+<b>&gt;&#160;&#160;Ethernet Hardware&#160;Time&#160;Stamping</b>&#160;<br/>
+Ethernet&#160;hardware time&#160;stamping&#160;is not&#160;supported&#160;in&#160;VTT.&#160;<br/>
+<b>&gt;&#160;&#160;Ethernet Driver Features</b>&#160;<br/>
+The&#160;Ethernet&#160;features&#160;Quality&#160;of&#160;Service&#160;(QoS) and&#160;Forwarding&#160;and&#160;Queuing&#160;for&#160;Time-<br/>Sensitive&#160;Streams (FQTSS) are not&#160;supported&#160;in&#160;VTT.&#160;&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-18_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;Limited Transceiver Functionality</b>&#160;<br/>
+Transceiver drivers have&#160;limited&#160;functionality;&#160;in&#160;particular,&#160;VTT&#160;does not&#160;support&#160;<br/>simulation&#160;of&#160;partial networking&#160;for selective&#160;wake-up&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>&gt;&#160;&#160;SPI&#160;Communication&#160;</b><br/>
+VTT&#160;does&#160;not&#160;support&#160;SPI&#160;transmission&#160;functionality,&#160;i.e.,&#160;the&#160;VTT&#160;SPI&#160;driver only&#160;<br/>serves as a&#160;stub.&#160;<br/>
+<b>&gt;&#160;&#160;Multiple&#160;Instances&#160;of&#160;Modules</b>&#160;<br/>
+VTT&#160;modules&#160;cannot&#160;be&#160;instantiated&#160;multiple&#160;times in&#160;a&#160;single&#160;configuration&#160;project.&#160;<br/>
+<b>&gt;&#160;&#160;CRY&#160;Hardware&#160;Support&#160;</b><br/>
+VTT&#160;does&#160;not&#160;support&#160;hardware CRY.&#160;<br/>
+<b>&gt;&#160;&#160;SoAd BSD Socket</b>&#160;<br/>
+VTT&#160;does&#160;not&#160;support&#160;BSD Socket.&#160;<br/>
+<b>5.3.3&#160;</b><br/>
+<b>Required Software&#160;</b><br/>
+To&#160;run&#160;VTT&#160;on&#160;a&#160;PC the&#160;following&#160;software&#160;must&#160;be&#160;installed:&#160;<br/>
+<b>&gt;&#160;&#160;</b>CANoe&#160;8.5&#160;or later&#160;is used&#160;as&#160;runtime&#160;environment.&#160;A&#160;license&#160;of&#160;all&#160;used&#160;bus systems&#160;<br/>
+is mandated.&#160;<br/>
+<b>&gt;&#160;&#160;</b>DaVinci Configurator&#160;Pro 5&#160;is needed&#160;to&#160;enable&#160;the&#160;configuration&#160;of&#160;VTT&#160;modules.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Licensed&#160;vVIRTUALtarget&#160;basic&#160;is an&#160;editor&#160;for VTT&#160;projects.&#160;Basic&#160;features&#160;are:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;of&#160;source&#160;code&#160;files,&#160;including&#160;paths&#160;and&#160;static libraries&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;of&#160;simulation&#160;parameters&#160;<br/>
+<b>&gt;&#160;&#160;</b>Generation&#160;of&#160;configuration&#160;codes&#160;for the&#160;virtual ECU&#160;<br/>
+<b>&gt;&#160;&#160;</b>Generation&#160;of&#160;a&#160;Microsoft&#160;Visual Studio&#160;solution&#160;<br/>
+<b>&gt;&#160;&#160;</b>Microsoft&#160;Visual&#160;Studio&#160;(2013,&#160;free&#160;Express&#160;edition&#160;is sufficient)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Microsoft&#160;Windows 7&#160;(64-bit)&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-19_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>6&#160;&#160;Definition&#160;of&#160;SLP/HLP/SIP,&#160;Maintenance&#160;and&#160;Release&#160;Types&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Software&#160;License&#160;Package&#160;(SLP)&#160;</b><br/>
+The&#160;SLP&#160;includes&#160;the&#160;license&#160;and&#160;usage&#160;rights&#160;(see&#160;quotation) for a&#160;hardware-independent&#160;<br/>module&#160;(e.g.&#160;a&#160;COM layer)&#160;based&#160;on&#160;a&#160;defined&#160;specification.&#160;<br/>Depending&#160;&#160;on&#160;&#160;the&#160;&#160;type&#160;&#160;of&#160;&#160;module,&#160;&#160;the&#160;&#160;software&#160;&#160;will&#160;&#160;be&#160;&#160;based&#160;&#160;on&#160;&#160;the&#160;&#160;following&#160;&#160;technical&#160;<br/>specifications:&#160;<br/>
+<b>&gt;&#160;&#160;</b>AUTOSAR,&#160;ASAM,&#160;OSEK/VDX,&#160;ISO,&#160;HIS,&#160;etc.&#160;<br/>
+<b>&gt;&#160;&#160;</b>OEM&#160;requirements&#160;(for&#160;OEM-specific deliveries)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Customer-specific requirements&#160;(optional)&#160;<br/>
+The&#160;following&#160;work&#160;products&#160;are licensed&#160;by&#160;purchase&#160;of&#160;an&#160;SLP:&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;module&#160;as&#160;source&#160;code&#160;<br/>
+<b>&gt;&#160;&#160;</b>Detailed&#160;technical documentation&#160;<br/>
+<b>&gt;&#160;&#160;</b>Generator plug-in&#160;to&#160;generate&#160;ANSI&#160;C code&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;files&#160;for convenient&#160;configuration&#160;with&#160;Vector configuration&#160;tools&#160;<br/>
+The&#160;module&#160;will&#160;be&#160;tested&#160;using&#160;a&#160;component&#160;test&#160;suite&#160;on&#160;a&#160;standard&#160;hardware&#160;platform&#160;<br/>(CANoe&#160;&#160;Emulation).&#160;&#160;Integration&#160;&#160;testing&#160;&#160;on&#160;&#160;the&#160;&#160;specific&#160;&#160;µController&#160;&#160;and&#160;&#160;delivery&#160;&#160;will&#160;&#160;be&#160;<br/>performed&#160;when&#160;a&#160;SIP&#160;is purchased&#160;(see&#160;section<a href="ProductInformation_2_MICROSAR4s.html#20">&#160;6.3).</a>&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Hardware&#160;License&#160;Package&#160;(HLP)&#160;</b><br/>
+The&#160;HLP&#160;includes&#160;the&#160;license&#160;and&#160;usage&#160;rights&#160;(see&#160;quotation)&#160;for&#160;a&#160;hardware-dependent&#160;<br/>module&#160;(e.g.&#160;CAN&#160;Driver)&#160;and&#160;is&#160;valid&#160;for&#160;a&#160;combination&#160;of&#160;compiler&#160;(version&#160;independent),&#160;<br/>microcontroller&#160;family&#160;and&#160;relevant&#160;hardware (e.g.&#160;CAN cell).&#160;<br/>
+&#160;<br/>
+Depending&#160;&#160;on&#160;&#160;the&#160;&#160;type&#160;&#160;of&#160;&#160;module,&#160;&#160;the&#160;&#160;software&#160;&#160;will&#160;&#160;be&#160;&#160;based&#160;&#160;on&#160;&#160;the&#160;&#160;following&#160;&#160;technical&#160;<br/>specifications:&#160;<br/>
+<b>&gt;&#160;&#160;</b>AUTOSAR,&#160;ASAM,&#160;OSEK,&#160;ISO,&#160;HIS,&#160;etc.&#160;<br/>
+<b>&gt;&#160;&#160;</b>OEM&#160;requirements&#160;(for&#160;OEM-specific deliveries)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Customer-specific requirements&#160;(optional)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Specification&#160;of&#160;microcontroller and&#160;compiler&#160;<br/>
+The&#160;following&#160;work products&#160;are licensed&#160;by&#160;purchase&#160;of&#160;an&#160;HLP:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;module&#160;as&#160;source&#160;code&#160;<br/>
+<b>&gt;&#160;&#160;</b>Detailed&#160;technical documentation&#160;<br/>
+<b>&gt;&#160;&#160;</b>Generator plug-in&#160;to&#160;generate&#160;ANSI&#160;C code&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;files&#160;for convenient&#160;configuration&#160;with&#160;Vector configuration&#160;tools.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-20_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+The&#160;&#160;module&#160;&#160;will&#160;&#160;be&#160;&#160;tested&#160;&#160;using&#160;&#160;a&#160;&#160;component&#160;&#160;test&#160;&#160;suite&#160;&#160;on&#160;&#160;a&#160;&#160;derivative&#160;&#160;of&#160;&#160;the&#160;<br/>microcontroller&#160;&#160;family&#160;&#160;which&#160;&#160;is&#160;&#160;defined&#160;&#160;by&#160;&#160;Vector.&#160;&#160;Integration&#160;&#160;testing&#160;&#160;on&#160;&#160;the&#160;&#160;specific&#160;<br/>µController and&#160;delivery&#160;will&#160;be&#160;performed&#160;when&#160;a&#160;SIP&#160;is&#160;purchased&#160;(see&#160;section<a href="ProductInformation_2_MICROSAR4s.html#20">&#160;6.3).</a>&#160;<br/>
+<b>6.3&#160;</b><br/>
+<b>Software&#160;Integration&#160;Package&#160;(SIP)&#160;</b><br/>
+The&#160;SIP&#160;includes&#160;integration,&#160;test,&#160;release&#160;and&#160;delivery&#160;of&#160;the&#160;modules&#160;that&#160;are&#160;licensed&#160;by&#160;<br/>an&#160;SLP&#160;and/or an&#160;HLP.&#160;&#160;<br/>To&#160;&#160;perform&#160;&#160;integration&#160;&#160;and&#160;&#160;closely&#160;&#160;test&#160;&#160;the&#160;&#160;customer's&#160;&#160;use&#160;&#160;case,&#160;&#160;the&#160;&#160;following&#160;&#160;must&#160;&#160;be&#160;<br/>defined&#160;in&#160;accordance&#160;with&#160;the&#160;customer:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Microcontroller derivative&#160;<br/>
+<b>&gt;&#160;&#160;</b>Compiler,&#160;compiler version,&#160;and&#160;compiler options&#160;<br/>
+<b>&gt;&#160;&#160;</b>Use&#160;case&#160;(e.g.&#160;number of&#160;CAN channels)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Car manufacturer (regarding&#160;communication&#160;description,&#160;pre-configuration…)&#160;<br/>
+For&#160;&#160;each&#160;&#160;SIP,&#160;&#160;all&#160;&#160;delivered&#160;&#160;work&#160;&#160;products&#160;&#160;will&#160;&#160;be&#160;&#160;added&#160;&#160;to&#160;&#160;a&#160;&#160;configuration&#160;&#160;management&#160;<br/>system,&#160;thus allowing&#160;redeliveries for a&#160;minimum&#160;of&#160;10&#160;years (excluding&#160;the&#160;Beta&#160;SIPs).&#160;<br/>
+<b>6.4&#160;</b><br/>
+<b>Mini&#160;SIP&#160;</b><br/>
+The&#160;Mini&#160;SIP&#160;includes&#160;the&#160;delivery&#160;of&#160;individual&#160;modules.&#160;The&#160;software&#160;is&#160;tested&#160;on&#160;module&#160;<br/>level.&#160;The&#160;delivery&#160;is&#160;not&#160;tested&#160;on&#160;the&#160;target&#160;hardware&#160;and&#160;compiler.&#160;But&#160;Vector&#160;provides&#160;<br/>remedy&#160;of&#160;defects&#160;if&#160;they&#160;are&#160;based&#160;on&#160;defined&#160;processor&#160;and&#160;compiler&#160;mentioned&#160;in&#160;the&#160;<br/>quote.&#160;<br/>
+<b>6.5&#160;</b><br/>
+<b>SIP&#160;Types&#160;</b><br/>
+<b>6.5.1&#160;</b><br/>
+<b>Beta&#160;</b><br/>
+A&#160;Beta&#160;SIP&#160;can&#160;only&#160;be&#160;ordered&#160;in&#160;combination&#160;with&#160;a&#160;Production&#160;SIP.&#160;Depending&#160;on&#160;the&#160;<br/>agreement&#160;&#160;with&#160;&#160;the&#160;&#160;customer,&#160;&#160;the&#160;&#160;software&#160;&#160;may&#160;&#160;include&#160;&#160;the&#160;&#160;complete&#160;&#160;or&#160;&#160;reduced&#160;<br/>functionality.&#160;The&#160;software&#160;is&#160;only&#160;preliminary&#160;integrated&#160;and&#160;tested.&#160;The&#160;usage&#160;of&#160;a&#160;Beta&#160;<br/>SIP&#160;for&#160;&#160;serial&#160;&#160;production&#160;&#160;is&#160;&#160;prohibited.&#160;The&#160;Beta&#160;&#160;SIP&#160;&#160;software&#160;&#160;may&#160;&#160;only&#160;&#160;be&#160;&#160;used&#160;for&#160;&#160;test&#160;<br/>purposes.&#160;&#160;Vector&#160;&#160;grants&#160;&#160;no&#160;&#160;warranty&#160;&#160;and/or&#160;&#160;liability&#160;&#160;to&#160;&#160;the&#160;&#160;extent&#160;&#160;permitted&#160;&#160;by&#160;&#160;law&#160;&#160;or&#160;<br/>statute.&#160;<br/>
+<b>6.5.2&#160;</b><br/>
+<b>Production&#160;</b><br/>
+A&#160;Production&#160;SIP&#160;is a&#160;package&#160;which&#160;includes&#160;the&#160;release&#160;for serial&#160;production.&#160;<br/>
+<b>6.5.3&#160;</b><br/>
+<b>Update&#160;&#160;</b><br/>
+An&#160;Update&#160;SIP&#160;is&#160;a&#160;package&#160;which&#160;replaces&#160;a&#160;previous&#160;Production&#160;SIP.&#160;An&#160;Update&#160;SIP&#160;is&#160;<br/>necessary&#160;if&#160;an&#160;additional&#160;delivery&#160;is&#160;needed&#160;because&#160;of&#160;modified&#160;requirements&#160;(compiler&#160;<br/>version,&#160;&#160;options,&#160;&#160;functionality,&#160;&#160;etc.).&#160;&#160;The&#160;&#160;delivery&#160;&#160;will&#160;&#160;be&#160;&#160;performed&#160;&#160;according&#160;&#160;to&#160;&#160;the&#160;<br/>existing&#160;contractual&#160;agreement&#160;and&#160;must&#160;be&#160;scheduled&#160;with&#160;Vector.&#160;<br/>
+<b>6.5.4&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+A&#160;Prototype&#160;SIP&#160;is&#160;a&#160;special&#160;package&#160;which&#160;may&#160;only&#160;be&#160;purchased&#160;by&#160;a&#160;Tier&#160;1.&#160;The&#160;use&#160;is&#160;<br/>limited&#160;&#160;to&#160;&#160;a&#160;&#160;defined&#160;&#160;application&#160;&#160;area,&#160;&#160;e.g.&#160;&#160;prototyping.&#160;&#160;The&#160;&#160;software&#160;&#160;is&#160;&#160;only&#160;&#160;preliminary&#160;<br/>integrated&#160;and&#160;tested.&#160;The&#160;SIP&#160;is&#160;only&#160;available&#160;for&#160;platforms&#160;which&#160;are&#160;already&#160;supported&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-21_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+by&#160;Vector.&#160;&#160;License&#160;packages&#160;(HLP,&#160;&#160;SLP)&#160;are&#160;&#160;not&#160;necessary.&#160;An&#160;upgrade&#160;to&#160;a&#160;Production&#160;<br/>SIP&#160;&#160;is&#160;&#160;only&#160;&#160;possible&#160;&#160;if&#160;&#160;identical&#160;&#160;technical&#160;features&#160;&#160;are&#160;&#160;used&#160;and&#160;&#160;the&#160;&#160;Prototype&#160;&#160;SIP&#160;&#160;is&#160;&#160;not&#160;<br/>older&#160;&#160;than&#160;one&#160;&#160;year.&#160;&#160;Vector&#160;&#160;grants&#160;&#160;no&#160;&#160;warranty&#160;&#160;and/or&#160;&#160;liability&#160;&#160;to&#160;&#160;the&#160;&#160;extent&#160;&#160;permitted&#160;&#160;by&#160;<br/>law&#160;or statute.&#160;<br/>
+<b>6.5.5&#160;</b><br/>
+<b>Overview&#160;SIP&#160;Types&#160;</b><br/>
+The&#160;following&#160;table&#160;lists&#160;the&#160;scope&#160;of&#160;services,&#160;deliverables&#160;and&#160;release&#160;types&#160;for&#160;each&#160;SIP&#160;<br/>Type&#160;<br/>
+<b>SIP&#160;Type&#160;/&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+on<br/>
+e&#160;<br/>
+<b>Mini&#160;SIP&#160;</b><br/>
+i<br/>
+<b>&#160;</b><br/>
+t<br/>
+e&#160;<br/>
+p<br/>
+&#160;<br/>
+uc<br/>
+t<br/>
+ty<br/>
+eta<br/>
+odr<br/>
+otor<br/>
+B<br/>
+P<br/>
+Upda<br/>
+P<br/>
+&#160;<br/>
+Integration and&#160;test of&#160;selected&#160;<br/>
+of&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+e&#160;<br/>
+esc&#160;modules&#160;<br/>
+i<br/>
+opc&#160;erv&#160;Delivery&#160;<br/>
+&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+S<br/>
+S&#160;Remedy&#160;of&#160;defects&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Software (Source or&#160;object&#160;code&#160;<br/>
+&#160;<br/>es<br/>
+dependent&#160;on the contractual&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+l<br/>
+agreement&#160;-&#160;NDA)&#160;<br/>
+erabvi<br/>
+Documentation&#160;<br/>
+&#160; &#160;&#160;1&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;&#160;1&#160;<br/>
+Del<br/>
+Test report&#160;<br/>
+&#160;<br/>
+&#160;&#160;4&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Demo application&#160;<br/>
+&#160;&#160;2&#160;<br/>
+&#160; &#160;2,4&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Quickfix5&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+e&#160;<br/>
+&#160;<br/>
+Development5&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+3<br/>
+as<br/>
+s&#160;Pre Production5<br/>
+e<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+pey&#160;Production&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Rel<br/>
+T&#160;Production&#160;(Safety-ready)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Production&#160;(Safe)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+1&#160;The&#160;documentation&#160;is&#160;not&#160;necessarily&#160;complete&#160;&#160;<br/>
+2&#160;&#160;Depends&#160;on&#160;the&#160;OEM&#160;package&#160;&#160;<br/>
+3&#160;&#160;Release&#160;Types&#160;are&#160;described&#160;in&#160;detail&#160;on&#160;page&#160;6&#160;&#160;<br/>
+4&#160;&#160;Not&#160;part&#160;of&#160;the&#160;Mini&#160;SIP&#160;<br/>
+5&#160;&#160;Non-production&#160;delivery,&#160;please&#160;refer&#160;t<a href="ProductInformation_2_MICROSAR4s.html#21">o&#160;6.5.6&#160;</a><br/>
+Table&#160;6-1&#160;&#160;&#160;Overview&#160;SIP&#160;Types&#160;<br/>
+<b>6.5.6&#160;</b><br/>
+<b>Usage&#160;of&#160;Non-Production Deliveries&#160;</b><br/>
+Non-Production&#160;Deliveries&#160;are&#160;basically&#160;operable,&#160;but&#160;not&#160;sufficiently&#160;tested,&#160;verified&#160;and/or&#160;<br/>qualified&#160;for&#160;use&#160;in&#160;series&#160;production&#160;and/or&#160;in&#160;vehicles&#160;operating&#160;on&#160;public&#160;or&#160;non-public&#160;<br/>roads.&#160;&#160;In&#160;&#160;particular,&#160;&#160;without&#160;&#160;limitation,&#160;&#160;the&#160;&#160;Non-Production&#160;&#160;Deliveries&#160;&#160;may&#160;&#160;cause&#160;<br/>unpredictable&#160;&#160;ECU&#160;&#160;behavior,&#160;&#160;may&#160;&#160;not&#160;&#160;provide&#160;&#160;all&#160;&#160;functions&#160;&#160;necessary&#160;&#160;for&#160;&#160;use&#160;&#160;in&#160;&#160;series&#160;<br/>production&#160;&#160;and/or&#160;&#160;may&#160;&#160;not&#160;&#160;comply&#160;&#160;with&#160;&#160;quality&#160;&#160;requirements&#160;&#160;which&#160;&#160;are&#160;&#160;necessary&#160;<br/>according&#160;&#160;to&#160;&#160;the&#160;&#160;state&#160;&#160;of&#160;&#160;the&#160;&#160;art.&#160;&#160;Non-Production&#160;&#160;Deliveries&#160;&#160;must&#160;&#160;not&#160;&#160;be&#160;&#160;used&#160;&#160;in&#160;&#160;series&#160;<br/>production.&#160;<br/>The&#160;&#160;Release&#160;&#160;Type&#160;&#160;of&#160;&#160;a&#160;&#160;delivery&#160;&#160;is&#160;&#160;defined&#160;&#160;in&#160;&#160;the&#160;&#160;Delivery&#160;&#160;Description&#160;&#160;that&#160;&#160;is&#160;&#160;part&#160;&#160;of&#160;&#160;the&#160;<br/>delivery.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-22_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-22_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>6.6&#160;</b><br/>
+<b>Maintenance&#160;</b><br/>
+Maintenance&#160;&#160;of&#160;&#160;Vector&#160;&#160;embedded&#160;&#160;software&#160;&#160;is&#160;&#160;available&#160;&#160;for&#160;&#160;the&#160;&#160;SLP,&#160;&#160;HLP&#160;&#160;and&#160;&#160;SIP.&#160;<br/>Maintenance&#160;generally&#160;includes&#160;bug-fixing.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Only&#160;the&#160;latest&#160;delivered&#160;version will&#160;be&#160;maintained.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>6.6.1&#160;</b><br/>
+<b>SLP&#160;Maintenance&#160;</b><br/>
+The&#160;maintenance&#160;of&#160;the&#160;SLP&#160;includes&#160;the&#160;adaptation&#160;of&#160;the&#160;appropriate&#160;working&#160;&#160;products&#160;<br/>(components,&#160;documentation,&#160;generators …).&#160;The&#160;SLP&#160;Maintenance&#160;includes:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adaptations caused&#160;by&#160;“minor“&#160;or “patch“-version&#160;modifications&#160;of&#160;the&#160;related&#160;<br/>
+AUTOSAR specification.&#160;In&#160;case&#160;of&#160;new&#160;functions,&#160;the&#160;extension&#160;of&#160;the&#160;licensed&#160;<br/>functionality&#160;has&#160;to&#160;be&#160;discussed&#160;with&#160;Vector.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adaptations caused&#160;by&#160;comparable&#160;changes&#160;of&#160;other specifications&#160;based&#160;on&#160;Vector’s&#160;<br/>
+assessment.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Registered&#160;RfCs&#160;for the&#160;AUTOSAR Specification&#160;are included&#160;as&#160;far&#160;as they&#160;are&#160;<br/>
+required&#160;by&#160;the&#160;OEM.&#160;<br/>
+Deliveries are not&#160;included&#160;as&#160;part of&#160;SLP&#160;maintenance;&#160;they&#160;are part of&#160;SIP&#160;maintenance.&#160;<br/>The&#160;SLP&#160;maintenance&#160;period&#160;begins&#160;with&#160;the&#160;first&#160;delivery.&#160;<br/>
+<b>6.6.2&#160;</b><br/>
+<b>HLP&#160;Maintenance&#160;</b><br/>
+The&#160;&#160;maintenance&#160;&#160;of&#160;&#160;the&#160;&#160;HLP&#160;&#160;includes&#160;&#160;the&#160;&#160;adaptation&#160;&#160;of&#160;&#160;the&#160;&#160;appropriate&#160;&#160;work&#160;&#160;products&#160;<br/>(components,&#160;documentation,&#160;generators&#160;…).&#160;The&#160;HLP&#160;maintenance&#160;includes:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adaptations caused&#160;by&#160;“minor“&#160;or “patch“-version&#160;modifications&#160;of&#160;the&#160;related&#160;<br/>
+AUTOSAR specification.&#160;In&#160;case&#160;of&#160;new&#160;functions,&#160;the&#160;extension&#160;of&#160;the&#160;licensed&#160;<br/>functionality&#160;has to&#160;be&#160;discussed&#160;with&#160;Vector.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adaptation&#160;caused&#160;by&#160;comparable&#160;changes of&#160;other specifications&#160;based&#160;on&#160;Vector’s&#160;<br/>
+assessment.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adaptation&#160;caused&#160;by&#160;minor&#160;hardware changes based&#160;on&#160;Vector’s assessment.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;implementation&#160;of&#160;simple&#160;workarounds&#160;for hardware issues.&#160;<br/>
+Deliveries&#160;&#160;are&#160;&#160;not&#160;&#160;included&#160;&#160;as&#160;&#160;part&#160;&#160;of&#160;&#160;HLP&#160;&#160;maintenance;&#160;&#160;they&#160;&#160;are&#160;&#160;part&#160;&#160;of&#160;&#160;the&#160;&#160;SIP&#160;<br/>maintenance.&#160;<br/>The&#160;HLP&#160;maintenance&#160;period&#160;begins&#160;with&#160;the&#160;first&#160;delivery.&#160;<br/>
+<b>6.6.3&#160;</b><br/>
+<b>SIP&#160;Maintenance&#160;</b><br/>
+The&#160;SIP&#160;Standard Maintenance&#160;includes:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Reporting&#160;about&#160;known&#160;issues (“Active&#160;Issue&#160;Reporting“).&#160;<br/>
+<b>&gt;&#160;&#160;</b>One&#160;delivery&#160;per&#160;year (Update&#160;SIP&#160;or&#160;update&#160;of&#160;a&#160;Beta&#160;SIP)&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-23_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-23_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;update&#160;will&#160;be&#160;delivered&#160;on&#160;customer&#160;request.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;a&#160;bug-fix&#160;delivery&#160;is needed&#160;on&#160;short notice&#160;such&#160;a&#160;delivery&#160;will be&#160;performed&#160;without&#160;<br/>
+comprehensive&#160;tests.&#160;In&#160;this case&#160;the&#160;status of&#160;the&#160;delivery&#160;will be&#160;a&#160;Beta&#160;or Pre&#160;<br/>Production&#160;(see&#160;Release&#160;Types in&#160;chapte<a href="ProductInformation_2_MICROSAR4s.html#23">r&#160;6.7).</a>&#160;<br/>A&#160;Production&#160;Release&#160;has to&#160;be&#160;scheduled&#160;with&#160;Vector separately.&#160;<br/>
+The&#160;&#160;SIP&#160;&#160;maintenance&#160;&#160;period&#160;&#160;starts&#160;&#160;with&#160;&#160;the&#160;&#160;first&#160;&#160;delivery&#160;&#160;of&#160;&#160;the&#160;&#160;product&#160;&#160;(Beta&#160;&#160;SIP&#160;&#160;or&#160;<br/>Production&#160;SIP).&#160;<br/>In&#160;addition&#160;to&#160;the&#160;SIP&#160;Standard&#160;Maintenance,&#160;Vector&#160;offers&#160;SIP&#160;Extended&#160;Maintenance&#160;and&#160;<br/>SIP&#160;Production&#160;Maintenance.&#160;<br/>SIP&#160;Extended&#160;Maintenance&#160;contains&#160;the&#160;same&#160;features&#160;as&#160;SIP&#160;Standard&#160;Maintenance.&#160;It&#160;<br/>includes&#160;one&#160;further delivery&#160;per year (Update&#160;SIP&#160;or&#160;Beta&#160;SIP).&#160;<br/>SIP&#160;&#160;Production&#160;&#160;Maintenance&#160;&#160;only&#160;&#160;includes&#160;&#160;reporting&#160;&#160;about&#160;&#160;known&#160;&#160;issues&#160;&#160;(“Active&#160;&#160;Issue&#160;<br/>Reporting“).&#160;But&#160;Vector&#160;provides&#160;remedy&#160;of&#160;defects&#160;in&#160;case&#160;of&#160;high&#160;or&#160;critical&#160;issues.&#160;&#160;SIP&#160;<br/>Production&#160;&#160;Maintenance&#160;&#160;requires&#160;&#160;Standard&#160;&#160;or&#160;&#160;Extended&#160;&#160;Maintenance&#160;&#160;for&#160;&#160;more&#160;&#160;than&#160;&#160;2&#160;<br/>years.&#160;<br/>
+<b>6.6.4&#160;</b><br/>
+<b>Differentiation of&#160;warranty&#160;versus&#160;maintenance&#160;</b><br/>
+The&#160;&#160;table&#160;&#160;shows&#160;&#160;the&#160;&#160;scope&#160;&#160;of&#160;&#160;services&#160;&#160;depending&#160;&#160;on&#160;&#160;validity&#160;&#160;of&#160;&#160;warranty&#160;&#160;and/or&#160;<br/>maintenance:&#160;&#160;<br/>
+<b>SIP&#160;Maintenance</b><br/>
+<b>SIP&#160;Maintenance&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>running&#160;</b><br/>
+<b>expired&#160;</b><br/>
+Bugfixing&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;✓&#160;<br/>
+Bugfixing&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;✓&#160;<br/>
+<b>Warranty&#160;period&#160;running&#160;</b><br/>
+Issue&#160;reporting&#160;&#160;&#160;✓&#160;<br/>
+Issue&#160;reporting&#160;&#160;&#160;✓&#160;<br/>
+Bugfixing&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;✓&#160;<br/>
+Bugfixing&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>Warranty&#160;period&#160;expired&#160;</b><br/>
+Issue&#160;reporting&#160;&#160;&#160;✓&#160;<br/>
+Issue&#160;reporting&#160;&#160;&#160;&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;Scope&#160;of&#160;services&#160;&#160;<br/>
+<b>6.7&#160;</b><br/>
+<b>Release&#160;Types&#160;</b><br/>
+The&#160;release&#160;type&#160;gives&#160;information&#160;about&#160;the&#160;scope&#160;of&#160;function,&#160;quality&#160;and&#160;application&#160;field&#160;<br/>restrictions&#160;of&#160;the&#160;delivered&#160;software.&#160;The&#160;release&#160;type&#160;depends&#160;on&#160;the&#160;delivered&#160;Software&#160;<br/>Integration&#160;Package&#160;and&#160;is defined&#160;in&#160;the&#160;delivery&#160;description.&#160;<br/>
+<b>6.7.1&#160;</b><br/>
+<b>QuickFix&#160;</b><br/>
+A&#160;&#160;QuickFix&#160;&#160;delivery&#160;&#160;is&#160;&#160;an&#160;&#160;immediate&#160;&#160;reaction&#160;&#160;on&#160;&#160;customer&#160;&#160;requests.&#160;&#160;The&#160;&#160;content&#160;&#160;of&#160;&#160;a&#160;<br/>QuickFix&#160;delivery&#160;is&#160;individually&#160;agreed&#160;with&#160;the&#160;customer.&#160;Only&#160;available&#160;as&#160;supplement&#160;to&#160;<br/>a&#160;development&#160;release.&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-24_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-24_2.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>6.7.2&#160;</b><br/>
+<b>Development&#160;</b><br/>
+The&#160;software&#160;includes&#160;operational&#160;standard&#160;functions.&#160;Feature&#160;extensions&#160;of&#160;the&#160;software&#160;<br/>are&#160;not&#160;verified&#160;finally&#160;and&#160;the&#160;development&#160;process&#160;is&#160;not&#160;fully&#160;implemented.&#160;The&#160;usage&#160;of&#160;<br/>the&#160;software is&#160;intended&#160;for&#160;development&#160;phase&#160;or prototyping.&#160;<br/>
+<b>6.7.3&#160;</b><br/>
+<b>Pre&#160;Production&#160;</b><br/>
+The&#160;&#160;software&#160;&#160;is&#160;&#160;operational&#160;&#160;but&#160;&#160;verification&#160;&#160;measures&#160;&#160;have&#160;&#160;not&#160;&#160;been&#160;&#160;completed.&#160;&#160;The&#160;<br/>usage&#160;of&#160;the&#160;software is&#160;intended&#160;for&#160;development&#160;and&#160;preproduction&#160;phase.&#160;&#160;<br/>
+<b>6.7.4&#160;</b><br/>
+<b>Production&#160;</b><br/>
+For&#160;&#160;all&#160;&#160;features&#160;&#160;included&#160;&#160;in&#160;&#160;the&#160;&#160;software&#160;&#160;planned&#160;&#160;verification&#160;&#160;measures&#160;&#160;have&#160;&#160;been&#160;<br/>completed&#160;&#160;and&#160;&#160;all&#160;&#160;known&#160;&#160;issues&#160;&#160;are&#160;&#160;documented.&#160;&#160;The&#160;&#160;software&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;for&#160;&#160;series&#160;<br/>production&#160;as QM&#160;software if&#160;the&#160;documented&#160;issues&#160;are considered.&#160;<br/>
+<b>6.7.5&#160;</b><br/>
+<b>Production (Safety-ready)&#160;</b><br/>
+For&#160;&#160;all&#160;&#160;features&#160;&#160;included&#160;&#160;in&#160;&#160;the&#160;&#160;software&#160;&#160;planned&#160;&#160;verification&#160;&#160;measures&#160;&#160;have&#160;&#160;been&#160;<br/>completed&#160;and&#160;all&#160;known&#160;issues are documented.&#160;&#160;<br/>Safety&#160;&#160;activities&#160;&#160;for&#160;&#160;components&#160;&#160;required&#160;&#160;as&#160;&#160;ASIL&#160;&#160;have&#160;&#160;been&#160;&#160;completed.&#160;&#160;The&#160;&#160;delivery&#160;<br/>includes&#160;&#160;the&#160;&#160;Safety&#160;&#160;Manual&#160;&#160;as&#160;&#160;well&#160;&#160;as&#160;&#160;all&#160;&#160;required&#160;&#160;tools&#160;&#160;(e.g.&#160;&#160;MICROSAR&#160;&#160;Safe&#160;&#160;Silence&#160;<br/>Verifier and&#160;RTE&#160;Analyzer)&#160;in&#160;a&#160;released&#160;version.&#160;<br/>The&#160;software&#160;can&#160;be&#160;used&#160;for&#160;series&#160;production&#160;as&#160;QM&#160;software&#160;if&#160;the&#160;documented&#160;issues&#160;<br/>are considered.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;Safety&#160;Case&#160;has&#160;to&#160;be&#160;ordered&#160;separately&#160;in&#160;order&#160;to&#160;receive a&#160;delivery&#160;with&#160;<br/>
+&#160;&#160;Release&#160;Type&#160;Production&#160;(Safe).&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>6.7.6&#160;</b><br/>
+<b>Production (Safe)&#160;</b><br/>
+This&#160;&#160;delivery&#160;&#160;comprises&#160;&#160;the&#160;&#160;Safety&#160;&#160;Case&#160;&#160;documentation.&#160;&#160;The&#160;&#160;Safety&#160;&#160;Case&#160;&#160;is&#160;&#160;created&#160;<br/>based&#160;on&#160;the&#160;delivery&#160;with&#160;release&#160;type&#160;Production&#160;(Safety-ready).&#160;<br/>The&#160;&#160;components&#160;&#160;listed&#160;&#160;in&#160;&#160;the&#160;&#160;Safety&#160;&#160;Case&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;as&#160;&#160;ASIL&#160;&#160;software&#160;&#160;in&#160;&#160;series&#160;<br/>production&#160;if&#160;the&#160;documented&#160;issues&#160;and&#160;the&#160;Safety&#160;Manual&#160;are considered.&#160;<br/>
+&#160;<br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/DeliveryInformation/ProductInformation_2_MICROSAR4-25_1.png"/><br/>
+Product&#160;Information&#160;MICROSAR&#160;4&#160;<br/>
+<b>7&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>
+<b>www.vector.com&#160;</b><br/>
+©&#160;2018&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.12&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#4">1 Introduction</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#5">2 General Information</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#5">2.1 Compiler Warnings</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#5">2.2 64-bit Microcontroller Support</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#5">2.3 Delivery of Beta Modules/Features</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#5">2.4 Delivery of Stub Modules</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#6">2.5 Delivery of Code Templates</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#6">2.6 Delivery of Example Code</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#6">2.7 Usage of Features that are not Licensed</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#7">2.8 Test Report</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#7">2.9 MISRA</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#7">2.10 Test of External Hardware</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#7">2.11 Test of 3rd Party Modules</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#7">2.12 Issue Handling</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#8">2.12.1 Issue Reporting for 3rd Party Software</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#8">2.12.2 Issue Reporting for DaVinci Tools</a></li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#8">2.13 Warranty</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#8">2.13.1 3rd Party Modules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#9">3 Modules and Options</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#9">3.1 vDBG (XCP-based)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#9">3.2 DLT (XCP-based)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#9">3.3 DLT (AUTOSAR)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#9">3.4 Drivers (CAN, LIN, FR, ETH, MCAL)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#9">3.5 vETM</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#10">3.6 FEE</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#10">3.7 Generic Modules</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#10">3.8 IDM - Variant Handling / Post-Build Selectable</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#11">3.9 MCAL Integration Package</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#12">3.10 OS Option: Schedule Table Synchronization</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#12">3.11 PBL - Post-Build Loadable</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#13">3.12 RTE</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#13">3.13 vRTM</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#13">3.14 WDGM</a></li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#14">4 Services</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#14">4.1 MICROSAR Getting Started V2G</a></li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#15">5 SIP Extensions</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#15">5.1 Customer Hardware</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#15">5.2 Start Application</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#16">5.3 vVIRTUALtarget (VTT)</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#16">5.3.1 Components</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#17">5.3.2 Limitations</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#18">5.3.3 Required Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#19">6 Definition of SLP/HLP/SIP, Maintenance and Release Types</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#19">6.1 Software License Package (SLP)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#19">6.2 Hardware License Package (HLP)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.3 Software Integration Package (SIP)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.4 Mini SIP</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.5 SIP Types</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.5.1 Beta</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.5.2 Production</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.5.3 Update</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#20">6.5.4 Prototype</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#21">6.5.5 Overview SIP Types</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#21">6.5.6 Usage of Non-Production Deliveries</a></li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#22">6.6 Maintenance</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#22">6.6.1 SLP Maintenance</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#22">6.6.2 HLP Maintenance</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#22">6.6.3 SIP Maintenance</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#23">6.6.4 Differentiation of warranty versus maintenance</a></li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#23">6.7 Release Types</a>
+<ul>
+<li><a href="ProductInformation_2_MICROSAR4s.html#23">6.7.1 QuickFix</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#24">6.7.2 Development</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#24">6.7.3 Pre Production</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#24">6.7.4 Production</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#24">6.7.5 Production (Safety-ready)</a></li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#24">6.7.6 Production (Safe)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="ProductInformation_2_MICROSAR4s.html#25">7 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

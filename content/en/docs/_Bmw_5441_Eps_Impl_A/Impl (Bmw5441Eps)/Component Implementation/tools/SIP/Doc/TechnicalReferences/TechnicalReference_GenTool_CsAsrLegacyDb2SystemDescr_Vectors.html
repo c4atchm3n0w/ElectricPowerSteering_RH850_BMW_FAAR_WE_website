@@ -1,0 +1,1216 @@
+---
+title: TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors
+linkTitle: TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors
+weight: 248
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>Vector Legacy&#160;Converter&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Technical&#160;Documentation&#160;<br/>Version&#160;1.4.2&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Authors&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vector-2_1.png"/><br/>
+Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2011-04-07&#160;<br/>
+1.0&#160;<br/>
+Created&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2011-04-07&#160;<br/>
+1.0&#160;<br/>
+Released&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2011-12-20&#160;<br/>
+1.1&#160;<br/>
+Legacy&#160;Converter&#160;V1.3.0&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2012-01-20&#160;<br/>
+1.1&#160;<br/>
+Released&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2012-03-22&#160;<br/>
+1.2&#160;<br/>
+Released&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2012-11-21&#160;<br/>
+1.3&#160;<br/>
+Released&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2014-04-01&#160;<br/>
+1.4.1&#160;<br/>
+Released&#160;<br/>
+Thorsten&#160;Fröhlinghaus&#160;<br/>
+2014-07-28&#160;<br/>
+1.4.2&#160;<br/>
+Released&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;&#160;Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;<br/>
+Autosar&#160;&#160;Specification&#160;of&#160;the&#160;System&#160;Template,&#160;R3.1&#160;Rev&#160;4&#160;<br/>
+V3.2.0&#160;<br/>
+[2]&#160;&#160;&#160;<br/>
+Autosar&#160;&#160;Specification&#160;of&#160;the&#160;System&#160;Template,&#160;R3.2&#160;Rev&#160;1&#160;<br/>
+V3.4.0&#160;<br/>
+[3]&#160;&#160;&#160;<br/>
+Autosar&#160;&#160;System&#160;Template,&#160;R4.0&#160;Rev&#160;3&#160;<br/>
+V4.2.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+2&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=3></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#5"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#5"><b>Introduction...................................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#6"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#6"><b>Functional&#160;Description&#160;.................................................................................................&#160;6</b>&#160;<br/></a><a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#8">2.1&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#8">DBC&#160;Transformation&#160;..........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#12">2.2&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#12">LDF&#160;Transformation&#160;.........................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#15">2.3&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#15">Fibex&#160;Transformation&#160;.......................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#21">2.4&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#21">Extension&#160;File&#160;..................................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#25"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#25"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;25</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#25">Glossary&#160;..........................................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#25">3.2&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#25">Abbreviations&#160;...................................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#26"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#26"><b>Contact&#160;........................................................................................................................&#160;26</b>&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+3&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#6">Table&#160;2-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#6">Vector&#160;Legacy&#160;Converter&#160;help text.&#160;.............................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#9">Table&#160;2-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#9">Transformation of&#160;CAN&#160;network&#160;objects.&#160;.....................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#11">Table&#160;2-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#11">Transformation of&#160;user-defined attributes.&#160;.................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#14">Table&#160;2-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#14">Transformation of&#160;LIN network&#160;objects.&#160;.....................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">Table&#160;2-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">Transformation of&#160;Fibex&#160;2.0.1&#160;elements.&#160;...................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#20">Table&#160;2-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#20">Transformation of&#160;Fibex&#160;3.0.0/3.1.0 elements.&#160;..........................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#24">Table&#160;2-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#24">Vector&#160;System&#160;Description&#160;Extension&#160;file elements...................................&#160;24&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+4&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>1&#160;&#160;Introduction&#160;</b><br/>
+The&#160;Vector&#160;Legacy&#160;Converter&#160;(VLC)&#160;supports&#160;the&#160;migration&#160;of&#160;legacy&#160;embedded&#160;software&#160;<br/>to&#160;the&#160;AUTOSAR&#160;software&#160;architecture.&#160;The&#160;VLC&#160;is&#160;a&#160;console&#160;application&#160;which&#160;transforms&#160;<br/>one&#160;&#160;or&#160;&#160;more&#160;&#160;DBC-,&#160;&#160;LDF-&#160;&#160;and&#160;&#160;Fibex&#160;&#160;files&#160;&#160;into&#160;&#160;an&#160;AUTOSAR&#160;&#160;System&#160;&#160;Description&#160;&#160;and&#160;&#160;its&#160;<br/>ECU Extracts.&#160;The&#160;VLC&#160;is typically&#160;called&#160;by&#160;the&#160;DaVinci&#160;Project&#160;Assistant&#160;(DPA), but&#160;it&#160;can&#160;<br/>also&#160;be&#160;used&#160;as&#160;a&#160;stand-alone&#160;tool.&#160;The&#160;resulting&#160;ECU&#160;Extracts&#160;will&#160;serve&#160;as&#160;input&#160;for&#160;the&#160;<br/>Initial&#160;EcuC&#160;Generator.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+5&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=6></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>2&#160;&#160;Functional&#160;Description&#160;</b><br/>
+The&#160;VLC analyses legacy&#160;communication&#160;databases,&#160;and&#160;it&#160;maps their&#160;communication&#160;ele-<br/>ments&#160;to&#160;AUTOSAR&#160;System&#160;Description&#160;elements.&#160;There&#160;are&#160;no&#160;standards&#160;or&#160;established&#160;<br/>rules&#160;which&#160;define&#160;such&#160;a&#160;mapping&#160;between&#160;legacy&#160;communication&#160;databases and&#160;System&#160;<br/>Descriptions.&#160;For this reason,&#160;the&#160;VLC&#160;defines&#160;its own&#160;AUTOSAR mapping&#160;rules which&#160;aim&#160;<br/>at&#160;preserving&#160;the&#160;semantics&#160;of&#160;the&#160;original&#160;communication&#160;databases.&#160;These&#160;generic&#160;rules&#160;<br/>may&#160;be&#160;supplemented&#160;with&#160;OEM-specific rules.&#160;<br/>The&#160;AUTOSAR&#160;System&#160;Description&#160;allows&#160;various&#160;modeling&#160;variants&#160;w.r.t.&#160;to,&#160;e.g.,&#160;naming&#160;<br/>conventions&#160;and&#160;package&#160;structures.&#160;The&#160;VLC&#160;imposes&#160;fixed&#160;modeling&#160;rules&#160;which&#160;define&#160;<br/>a&#160;&#160;common&#160;&#160;namespace&#160;&#160;for&#160;&#160;DBC-,&#160;&#160;LDF-&#160;&#160;and&#160;&#160;Fibex&#160;&#160;transformations.&#160;&#160;The&#160;&#160;VLC&#160;&#160;modeling&#160;<br/>rules&#160;&#160;are&#160;&#160;not&#160;&#160;coordinated&#160;&#160;with&#160;&#160;the&#160;&#160;AUTOSAR&#160;&#160;transformations&#160;&#160;of&#160;&#160;other&#160;&#160;tools&#160;&#160;from&#160;&#160;other&#160;<br/>vendors.&#160;&#160;The&#160;&#160;transformation&#160;&#160;results&#160;&#160;of&#160;&#160;the&#160;&#160;VLC&#160;&#160;and&#160;&#160;other&#160;&#160;tools&#160;&#160;may&#160;&#160;appear&#160;&#160;rather&#160;<br/>different.&#160;<br/>The&#160;VLC supports&#160;no&#160;user interaction,&#160;and&#160;thus the&#160;transformation&#160;between&#160;legacy&#160;formats&#160;<br/>and&#160;AUTOSAR&#160;System&#160;Descriptions&#160;is&#160;always&#160;the&#160;same.&#160;However,&#160;the&#160;VLC&#160;still&#160;identifies&#160;<br/>the&#160;manufacturer&#160;of&#160;a&#160;communication&#160;database,&#160;and&#160;it&#160;applies&#160;OEM-specific&#160;rules.&#160;These&#160;<br/>OEM-specific rules&#160;must&#160;be&#160;implemented&#160;in&#160;advance.&#160;<br/>The&#160;calling&#160;conventions and&#160;options&#160;of&#160;the&#160;VLC are specified&#160;with&#160;the&#160;following&#160;help&#160;text:&#160;<br/>
+&#160;<br/>Usage: LegacyDb2SystemDescrConverter [options] &lt;file|dir&gt; [&lt;file|dir&gt; ...]&#160;<br/>[extfile]&#160;<br/>&#160;<br/>Create an AUTOSAR System Description out of one or more DBC, LDF or Fibex&#160;<br/>communication databases.&#160;<br/>&#160;<br/>Options:&#160;<br/>&#160;&#160;-h,&#160;--help &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; Show this help&#160;<br/>&#160;&#160;-a,&#160;--adoptname &#160; &#160; &#160; &#160; &#160; &#160;Adopt DBC filename as cluster name&#160;<br/>&#160;&#160;-e,&#160;--extract &#160; &#160; &#160; &#160; &#160; &#160; &#160;Create ECU extracts&#160;<br/>&#160;&#160;-r,&#160;--release &lt;31|32|40&gt;&#160;&#160;&#160;AUTOSAR release&#160;<br/>&#160;&#160;-o,&#160;--output &lt;file|dir&gt; &#160; &#160;Output file or directory&#160;<br/>&#160;&#160;&#160;<br/>Parameters:&#160;<br/>&#160;&#160;&lt;file|dir&gt; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; Input file (*.dbc, *.ldf, *.xml) or directory&#160;<br/>&#160;&#160;extfile &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;Extension file (*.vsde)&#160;<br/>&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Table&#160;2-1&#160;&#160;&#160;Vector&#160;Legacy&#160;Converter&#160;help&#160;text.&#160;<br/>
+The&#160;options&#160;may&#160;also&#160;be&#160;specified&#160;in&#160;a&#160;file&#160;called&#160;LegacyDb2SystemDescrConverter.config&#160;<br/>which&#160;resides&#160;in&#160;the&#160;same&#160;directory&#160;as&#160;the&#160;exe&#160;file&#160;LegacyDb2SystemDescrConverter.exe.&#160;<br/>In&#160;this&#160;way,&#160;options&#160;can&#160;be&#160;defined&#160;which&#160;are&#160;processed,&#160;e.g.,&#160;when&#160;calling&#160;the&#160;VLC&#160;from&#160;<br/>the&#160;DPA.&#160;<br/>With&#160;the&#160;option&#160;‘-r’&#160;or&#160;‘--release’&#160;the&#160;AUTOSAR&#160;schema&#160;version&#160;can&#160;be&#160;selected.&#160;Currently,&#160;<br/>AUTOSAR&#160;&#160;3.1.4,&#160;&#160;AUTOSAR&#160;&#160;3.2.1&#160;&#160;and&#160;AUTOSAR&#160;&#160;4.0.3&#160;&#160;are&#160;&#160;supported.&#160;&#160;The&#160;&#160;VLC&#160;&#160;imple-<br/>ments&#160;&#160;those&#160;&#160;schema&#160;versions&#160;&#160;which&#160;&#160;are&#160;&#160;required&#160;by&#160;the&#160;Vector&#160;tool&#160;chain,&#160;&#160;especially&#160;by&#160;<br/>the&#160;Initial&#160;EcuC&#160;Generator.&#160;The&#160;VLC&#160;does&#160;not&#160;aim&#160;at&#160;supporting&#160;arbitrary&#160;AUTOSAR&#160;sche-<br/>ma&#160;versions.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+6&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=7></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+Please&#160;note&#160;that&#160;the&#160;DBC-,&#160;LDF-&#160;and&#160;Fibex&#160;transformations&#160;are&#160;rather&#160;sophisticated,&#160;and&#160;<br/>thus&#160;we&#160;can&#160;only&#160;provide&#160;a&#160;general&#160;survey&#160;with&#160;this&#160;document.&#160;To&#160;identify&#160;the&#160;AUTOSAR&#160;<br/>mapping&#160;&#160;more&#160;&#160;in&#160;&#160;detail,&#160;&#160;the&#160;&#160;user&#160;&#160;may,&#160;&#160;e.g.,&#160;&#160;perform&#160;&#160;minor&#160;&#160;changes&#160;&#160;to&#160;&#160;a&#160;&#160;communication&#160;<br/>database,&#160;&#160;and&#160;&#160;then&#160;&#160;compare&#160;&#160;the&#160;&#160;transformation&#160;&#160;results&#160;&#160;before&#160;&#160;and&#160;&#160;after&#160;&#160;these&#160;&#160;changes.&#160;<br/>The&#160;VLC defines&#160;a&#160;fixed&#160;order&#160;for all&#160;AUTOSAR elements,&#160;so&#160;two&#160;System&#160;Descriptions can&#160;<br/>be&#160;easily&#160;diffed.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+7&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=8></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>DBC Transformation&#160;</b><br/>
+The&#160;DBC&#160;file&#160;format&#160;is&#160;based&#160;on&#160;a&#160;network-specific&#160;object&#160;model&#160;and&#160;on&#160;user-defined&#160;attri-<br/>butes.&#160;The&#160;former&#160;can&#160;be&#160;transformed&#160;in&#160;a&#160;generic&#160;way&#160;to&#160;AUTOSAR,&#160;while&#160;the&#160;latter&#160;often&#160;<br/>require&#160;an&#160;OEM-specific&#160;transformation.&#160;The&#160;table&#160;below&#160;shows&#160;how&#160;CAN&#160;network&#160;objects&#160;<br/>are mapped&#160;to&#160;AUTOSAR&#160;3.1.4&#160;or&#160;AUTOSAR&#160;3.2.1&#160;elements.&#160;<br/>
+<b>CAN&#160;network&#160;object&#160;</b><br/>
+<b>AUTOSAR&#160;element&#160;</b><br/>
+Signal&#160;<br/>
+SystemSignal&#160;<br/>
+&#160;<br/>
+&#160;&#160;ShortName = Signal.Name&#160;<br/>&#160;&#160;Length &#160; &#160;= Signal.Bitcount&#160;<br/>&#160;&#160;BooleanType|IntegerType|RealType&#160;<br/>&#160;&#160;&#160;&#160;ShortName&#160;&#160;= “DT_” + Signal.Name&#160;<br/>&#160;&#160;&#160;&#160;LowerLimit =&#160;(Signal.Min-Signal.Offset)/Signal.Factor&#160;<br/>&#160;&#160;&#160;&#160;UpperLimit =&#160;(Signal.Max-Signal.Offset)/Signal.Factor&#160;<br/>&#160;&#160;&#160;&#160;CompuMethod&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;ShortName =&#160;“CM_” + Signal.Name&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;Unit&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ShortName = “U_” + Signal.Unit&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;CompuInternalToPhys.CompuScale&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LowerLimit = Signal.TextualEncoding.LowerBound&#160;<br/>&#160;&#160;&#160; &#160;&#160;&#160;&#160;UpperLimit = Signal.TextualEncoding.UpperBound&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CompuConst = “Cx&lt;Limit&gt;_” +&#160;Signal.TextalEncoding.Text&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;CompuInternalToPhys.CompuScale.CompuRationalCoeffs&#160;<br/>&#160; &#160;&#160;&#160;&#160;&#160;&#160;CompuNumerator = Signal.Offset, Signal.Factor&#160;<br/>
+SignalGroup&#160;<br/>
+SystemSignalGroup&#160;<br/>
+&#160;<br/>
+&#160;&#160;ShortName&#160;= “SG_” + SignalGroup.Name&#160;<br/>
+CANBus&#160;<br/>
+CanCluster&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160;=&#160;CANBus.Attributes.DBName&#160;<br/>&#160;&#160;ProtocolName = “CAN”&#160;<br/>&#160;&#160;PhysicalChannel&#160;<br/>&#160; &#160;&#160;ShortName = “CHNL”&#160;<br/>
+CANBus&#160;<br/>
+Frame&#160;<br/>
+&#160;.CANFrame&#160;<br/>
+&#160;&#160;ShortName&#160;&#160;&#160;= CANFrame.Name + “__” +&#160;CanCluster.ShortName&#160;<br/>&#160;&#160;FrameLength = CANFrame.DLC&#160;<br/>SignalIPdu|MultiplexedIPdu|DcmIPdu|NmPdu|NPdu&#160;<br/>&#160;&#160;ShortName = CANFrame.Name + “__” +&#160;CanCluster.ShortName&#160;<br/>&#160;&#160;Length &#160; &#160;= 8*CANFrame.DLC&#160;<br/>Frame.PduToFrameMapping&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160;= CANFrame.Name&#160;<br/>&#160;&#160;PackingByteOrder = Intel&#160;<br/>&#160;&#160;StartPosition&#160; &#160;&#160;= 0&#160;<br/>PhysicalChannel.CanFrameTriggering&#160;<br/>&#160;&#160;ShortName&#160;&#160;= “FT_” +&#160;CANFrame.Name&#160;<br/>&#160;&#160;Identifier = CANFrame.ID&#160;<br/>PhysicalChannel.IPduTriggering&#160;<br/>&#160;&#160;ShortName &#160;= “PT_” +&#160;CANFrame.Name&#160;<br/>
+CANBus&#160;<br/>
+ISignal&#160;<br/>
+&#160;.CANFrame&#160;<br/>
+&#160;&#160;ShortName =&#160;Signal.Name + “__” + CANFrame.Name&#160;<br/>
+&#160;.MappedSignal&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__” +&#160;CanCluster.ShortName&#160;<br/>
+&#160;.Signal&#160;<br/>
+SignalIPdu.ISignalToIPduMapping&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160;=&#160;Signal.Name&#160;<br/>&#160;&#160;PackingByteOrder = MappedSignal.Intel|Motorola&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= MappedSignal.Startbit&#160;<br/>PhysicalChannel.SignalTriggering&#160;<br/>&#160;&#160;ShortName = “ST_” + Signal.Name + “__” + CANFrame.Name&#160;<br/>
+CANBus&#160;<br/>
+MultiplexedIPdu.SelectorField&#160;<br/>
+&#160;.CANFrame&#160;<br/>
+&#160;&#160;ByteOrder&#160;&#160; &#160;&#160;=&#160;MappedMultiplexorSignal.Intel|Motorola&#160;<br/>
+&#160;.MappedMultiplexorSignal&#160;<br/>
+&#160;&#160;Length&#160;&#160; &#160; &#160; &#160;=&#160;MultiplexorSignal.Bitcount&#160;<br/>
+&#160;.MultiplexorSignal&#160;<br/>
+&#160;&#160;StartPosition&#160;=&#160;MappedMultiplexorSignal.Startbit&#160;<br/>
+CANBus&#160;<br/>
+MultiplexedIPdu.DynamicPart.DynamicPartAlternative&#160;<br/>
+&#160;.CANFrame&#160;<br/>
+&#160;&#160;SelectorFieldCode =&#160;MappedMultiplexedSignal.MultiplexorValue&#160;<br/>
+&#160;.MappedMultiplexorSignal&#160;<br/>
+&#160;&#160;SignalIPdu&#160;<br/>
+&#160;.MappedMultiplexedSignal&#160;<br/>
+&#160; &#160;&#160;ShortName = CANFrame.Name + “_Mx&lt;Code&gt;__”&#160;+&#160;CanCluster.ShortName&#160;<br/>
+&#160;.MultiplexedSignal&#160;<br/>
+&#160; &#160;&#160;Length &#160; &#160;= 8*CANFrame.DLC&#160;<br/>&#160;&#160;PhysicalChannel.IPduTriggering&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+8&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=9></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&#160;&#160;&#160;&#160;ShortName &#160;= “PT_” +&#160;CANFrame.Name&#160;+ “_Mx&lt;Code&gt;”&#160;<br/>
+CANNode&#160;<br/>
+EcuInstance&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160; &#160;&#160;= CANNode.Name&#160;<br/>&#160;&#160;ComProcessingPeriod = 0.001&#160;<br/>EcuInstance.CanCommunicationController&#160;<br/>&#160;&#160;ShortName = “CT_” +&#160;CanCluster.ShortName&#160;<br/>EcuInstance.CommunicationConnector&#160;<br/>&#160;&#160;ShortName =&#160;“CN_” +&#160;CanCluster.ShortName&#160;<br/>EcuInstance.AssociatedIPduGroup(Rx)&#160;<br/>&#160;&#160;ShortName =&#160;CANNode.Name + “__” +&#160;CanCluster.ShortName&#160;+ “_Rx”&#160;<br/>EcuInstance.AssociatedIPduGroup(Tx)&#160;<br/>&#160;&#160;ShortName =&#160;CANNode.Name + “__” +&#160;CanCluster.ShortName&#160;+ “_Tx”&#160;<br/>
+CANNode&#160;<br/>
+CommunicationConnector.FramePort&#160;<br/>
+&#160;.RxCANFrame&#160;<br/>
+&#160;&#160;ShortName = “FP_” + RxCANFrame.Name + “_Rx”&#160;<br/>&#160;&#160;Direction = In&#160;<br/>CommunicationConnector.IPduPort&#160;<br/>&#160;&#160;ShortName = “PP_” + RxCANFrame.Name + “_Rx”&#160;<br/>&#160;&#160;Direction = In&#160;<br/>
+CANNode&#160;<br/>
+CommunicationConnector.SignalPort&#160;<br/>
+&#160;.RxCANFrame&#160;<br/>
+&#160;&#160;ShortName = “SP_” + Signal.Name + “__” + RxCANFrame.Name + “_Rx”&#160;<br/>
+&#160;.MappedSignal&#160;<br/>
+&#160;&#160;Direction =&#160;In&#160;<br/>
+&#160;.Signal&#160;<br/>
+&#160;<br/>
+CANNode&#160;<br/>
+CommunicationConnector.FramePort&#160;<br/>
+&#160;.TxCANFrame&#160;<br/>
+&#160;&#160;ShortName = “FP_”&#160;+ TxCANFrame.Name + “_Tx”&#160;<br/>&#160;&#160;Direction = Out&#160;<br/>CommunicationConnector.IPduPort&#160;<br/>&#160;&#160;ShortName = “PP_”&#160;+ TxCANFrame.Name + “_Tx”&#160;<br/>&#160;&#160;Direction = Out&#160;<br/>
+CANNode&#160;<br/>
+CommunicationConnector.SignalPort&#160;<br/>
+&#160;.TxCANFrame&#160;<br/>
+&#160;&#160;ShortName&#160;= “SP_” + Signal.Name + “__” +&#160;TxCANFrame.Name + “_Tx”&#160;<br/>
+&#160;.MappedSignal&#160;<br/>
+&#160;&#160;Direction = Out&#160;<br/>
+&#160;.Signal&#160;<br/>
+&#160;<br/>
+Table&#160;2-2&#160;&#160;&#160;Transformation&#160;of&#160;CAN&#160;network&#160;objects.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+9&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=10></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+The&#160;subsequent&#160;table&#160;shows&#160;how&#160;user-defined&#160;attributes&#160;are&#160;processed&#160;by&#160;the&#160;AUTOSAR&#160;<br/>transformation.&#160;<br/>
+<b>Attribute&#160;</b><br/>
+<b>Autosar&#160;element&#160;</b><br/>
+&#160;<br/>
+ConstantSpecification&#160;<br/>
+&#160;<br/>
+&#160;&#160;ShortName&#160;= “C_” + Signal.Name&#160;<br/>
+&#160;<br/>
+&#160;&#160;BooleanLiteral|IntegerLiteral|RealLiteral&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;ShortName&#160;=&#160;“C_” + Signal.Name&#160;<br/>
+Signal.GenSigStartValue&#160;<br/>
+&#160; &#160;&#160;Value &#160; &#160; =&#160;Signal.GenSigStartValue&#160;<br/>
+CANFrame.GenMsgILSupport&#160;<br/>
+SignalIPdu|MultiplexedIPdu&#160;<br/>
+CANFrame.DiagRequest&#160;<br/>
+DcmIPdu&#160;<br/>
+CANFrame.DiagResponse&#160;<br/>
+NPdu&#160;<br/>
+CANFrame.DiagUUDTResponse&#160;<br/>CANFrame.DiagState&#160;<br/>CANFrame.NmAsrMessage&#160;<br/>
+NmPdu&#160;<br/>
+CANFrame.GenMsgSendType&#160;<br/>
+SignalIPdu.IPduTimingSpecification&#160;<br/>
+&#160;<br/>
+SignalIPdu.IPduTimingSpecification.CyclicTiming&#160;<br/>
+CANFrame.GenMsgCycleTime&#160;<br/>
+&#160;&#160;RepeatingTime&#160;= CANFrame.GenMsgCycleTime|GenMsgCycleTimeFast&#160;<br/>
+CANFrame.GenMsgStartDelayTime&#160;<br/>
+&#160;&#160;StartingTime&#160;&#160;= CANFrame.GenMsgStartDelayTime&#160;<br/>
+&#160;<br/>
+SignalIPdu.IPduTimingSpecification.EventControlledTiming&#160;<br/>
+CANFrame.GenMsgNrOfRepetition&#160;<br/>
+&#160;&#160;NumberOfRepeats &#160;= CANFrame.GenMsgNrOfRepetition&#160;<br/>
+CANFrame.GenMsgCycleTimeFast&#160;<br/>
+&#160;&#160;RepetitionPeriod = CANFrame.GenMsgCycleTimeFast&#160;<br/>
+&#160;<br/>
+SignalIPdu.IPduTimingSpecification&#160;<br/>
+CANFrame.GenMsgDelayTime&#160;<br/>
+&#160;&#160;MinimumDelay = CANFrame.GenMsgDelayTime&#160;<br/>
+&#160;<br/>
+SignalIPdu.IPduTimingSpecification.TransmissionModeCondition&#160;<br/>
+Signal.GenSigInactiveValue&#160;<br/>
+&#160;&#160;MaskedNewDiffersX.X = Signal.GenSigInactiveValue&#160;<br/>
+&#160;<br/>
+SignalIPdu.ISignalToIPduMapping&#160;<br/>
+Signal.GenSigSendType&#160;<br/>
+&#160;&#160;TransferProperty =&#160;Pending|Triggered|TriggeredWithoutRepetition&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;|TriggeredOnChange|TriggeredOnChangeWithoutRepetition&#160;<br/>
+&#160;<br/>
+EcuInstance.CommunicationConnector.SignalPort&#160;<br/>
+Signal.GenSigTimeoutTime&#160;<br/>
+&#160;&#160;Timeout = Signal.GenSigTimeoutTime&#160;<br/>
+&#160;<br/>
+CanCluster.PhysicalChannel.CanTpConnectionChannel&#160;<br/>
+CANFrame.DiagConnection&#160;<br/>
+&#160;&#160;DataPdu.DiagConnection = FlowControlPdu.DiagConnection&#160;<br/>
+CANFrame.CanTpBs&#160;<br/>
+&#160;&#160;BlockSize &#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&#160;= CANFrame.CanTpBs&#160;<br/>
+CANFrame.CanTpSTmin&#160;<br/>
+&#160;&#160;MinimumSeparationTime&#160;&#160;= CANFrame.CanTpSTmin&#160;<br/>
+&#160;<br/>
+CanCluster&#160;<br/>
+CANBus.DBName&#160;<br/>
+&#160;&#160;ShortName = CANBus.DBName&#160;<br/>
+&#160;<br/>
+CanCluster&#160;<br/>
+CANBus.Baudrate&#160;<br/>
+&#160;&#160;Speed = CANBus.Baudrate&#160;<br/>
+&#160;<br/>
+EcuInstance.CanCommunicationController.ConfigurationRequirements&#160;<br/>
+CANBus.NBTMin&#160;<br/>
+&#160;&#160;MinNumberOfTimeQuantaPerBit = CANBus.NBTMin&#160;<br/>
+CANBus.SamplePointMin&#160;<br/>
+&#160;&#160;MinSamplePoint &#160; &#160; &#160; &#160; &#160; &#160; &#160;= CANBus.SamplePointMin&#160;<br/>
+CANBus.SyncJumpWidthMin&#160;<br/>
+&#160;&#160;MinSyncJumpWidth &#160; &#160; &#160; &#160; &#160; &#160;= CANBus.SyncJumpWidthMin&#160;<br/>
+CANBus.NBTMax&#160;<br/>
+&#160;&#160;MaxNumberOfTimeQuantaPerBit = CANBus.NBTMax&#160;<br/>
+CANBus.SamplePointMax&#160;<br/>
+&#160;&#160;MaxSamplePoint &#160; &#160; &#160; &#160; &#160; &#160; &#160;= CANBus.SamplePointMax&#160;<br/>
+CANBus.SyncJumpWidthMax&#160;<br/>
+&#160;&#160;MaxSyncJumpWidth &#160; &#160; &#160; &#160; &#160; &#160;= CANBus.SyncJumpWidthMax&#160;<br/>
+&#160;<br/>
+CanCluster&#160;<br/>
+&#160;<br/>
+&#160;&#160;NmLowerCanID = CANBus.NmAsrBaseAddress&#160;<br/>
+&#160;<br/>
+&#160;&#160;NmUpperCanID = CANBus.NmAsrBaseAddress&#160;<br/>
+&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;+&#160;CANBus.NmAsrMessageCount-1&#160;<br/>
+&#160;<br/>
+CanCluster.AdminData.CanNmConfiguration&#160;<br/>
+CANBus.NmAsrBaseAddress&#160;<br/>
+&#160;&#160;CanNmBaseAddress &#160;= CANBus.NmAsrBaseAddress&#160;<br/>
+CANBus.NmAsrMessageCount&#160;<br/>
+&#160;&#160;CanNmMessageCount = CANBus.NmAsrMessageCount&#160;<br/>
+CANBus.NmAsrCanMsgCycleTime&#160;<br/>
+&#160;&#160;CanNmMsgCycleTime =&#160;CANBus.NmAsrCanMsgCycleTime&#160;<br/>
+&#160;<br/>
+CanCluster&#160;<br/>
+CANBus.NmAsrRepeatMessageTime&#160;<br/>
+&#160;&#160;NmRepeatMessageStateTime = CANBus.NmAsrRepeatMessageTime&#160;<br/>
+CANBus.NmAsrTimeoutTime&#160;<br/>
+&#160;&#160;NmTimeoutTime&#160; &#160; &#160; &#160; &#160; &#160;&#160;=&#160;CANBus.NmAsrTimeoutTime&#160;<br/>
+CANBus.NmAsrWaitBusSleepTime&#160;<br/>
+&#160;&#160;NmWaitBusSleepTime&#160;&#160; &#160; &#160;&#160;= CANBus.NmAsrWaitBusSleepTime&#160;<br/>
+&#160;<br/>
+EcuInstance.CommunicationConnector&#160;<br/>
+CANNode.NmAsrNodeIdentifer&#160;<br/>
+&#160;&#160;NmAddress = CANNode.NmAsrNodeIdentifer&#160;<br/>
+&#160;<br/>
+EcuInstance.AdminData.CanNmConfiguration&#160;<br/>
+CANNode.NmAsrCanMsgCycleOffset&#160;&#160;&#160;&#160;CanNmMsgCycleOffset = CANNode.NmAsrCanMsgCycleOffset&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+10&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=11></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+CANNode.NmAsrCanMsgReducedTime&#160;&#160;&#160;&#160;CanNmMsgReducedTime = CANNode.NmAsrCanMsgReducedTime&#160;<br/>
+Table&#160;2-3&#160;&#160;&#160;Transformation&#160;of&#160;user-defined&#160;attributes.&#160;<br/>
+In&#160;&#160;addition&#160;&#160;to&#160;&#160;the&#160;&#160;transformation&#160;&#160;steps&#160;described&#160;&#160;in&#160;&#160;the&#160;&#160;tables&#160;&#160;above,&#160;&#160;the&#160;following&#160;&#160;rules&#160;<br/>hold&#160;for the&#160;DBC&#160;transformation.&#160;<br/>
+<b>&gt;&#160;&#160;</b>For&#160;SignalGroups&#160;the&#160;SignalIPdu.ISignalToIPduMapping.TransferProperty&#160;is&#160;always&#160;Pending.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;attribute&#160;CANBus.ILTxTimeout&#160;is&#160;not&#160;processed.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+11&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=12></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>LDF&#160;Transformation&#160;</b><br/>
+The&#160;LDF&#160;file&#160;format&#160;does&#160;not&#160;provide&#160;any&#160;user-defined&#160;attributes&#160;or&#160;other&#160;OEM&#160;extensions.&#160;<br/>The&#160;subsequent&#160;table&#160;shows&#160;how&#160;LIN&#160;network&#160;objects&#160;are&#160;transformed&#160;in&#160;a&#160;generic&#160;way&#160;to&#160;<br/>AUTOSAR 3.1.4&#160;or&#160;AUTOSAR 3.2.1&#160;elements.&#160;<br/>
+<b>LIN network object&#160;</b><br/>
+<b>AUTOSAR&#160;element&#160;</b><br/>
+Signal&#160;<br/>
+SystemSignal&#160;<br/>&#160;&#160;ShortName = Signal.Name&#160;<br/>&#160;&#160;Length &#160; &#160;= Signal.Bitcount&#160;<br/>&#160;&#160;BooleanType|IntegerType&#160;<br/>&#160; &#160;&#160;ShortName &#160;= “DT_” + Signal.Name&#160;<br/>&#160; &#160;&#160;LowerLimit = (Signal.Min-Signal.Offset)/Signal.Factor&#160;<br/>&#160; &#160;&#160;UpperLimit = (Signal.Max-Signal.Offset)/Signal.Factor&#160;<br/>&#160; &#160;&#160;CompuMethod&#160;<br/>&#160; &#160; &#160;&#160;ShortName = “CM_” + Signal.Name&#160;<br/>&#160; &#160; &#160;&#160;Unit&#160;<br/>&#160; &#160; &#160; &#160;&#160;ShortName = “U_” + Signal.Unit&#160;<br/>&#160; &#160; &#160;&#160;CompuInternalToPhys.CompuScale&#160;<br/>&#160; &#160; &#160; &#160;&#160;LowerLimit = Signal.TextualEncoding.LowerBound&#160;<br/>&#160;&#160;&#160; &#160; &#160;&#160;UpperLimit = Signal.TextualEncoding.UpperBound&#160;<br/>&#160; &#160; &#160; &#160;&#160;CompuConst = “Cx&lt;Limit&gt;_” + Signal.TextalEncoding.Text&#160;<br/>&#160; &#160; &#160;&#160;CompuInternalToPhys.CompuScale.CompuRationalCoeffs&#160;<br/>&#160; &#160; &#160; &#160;&#160;CompuNumerator = Signal.Offset, Signal.Factor&#160;<br/>&#160;&#160;ConstantSpecification&#160;<br/>&#160; &#160;&#160;ShortName&#160;= “C_” + Signal.Name&#160;<br/>&#160; &#160;&#160;BooleanLiteral|IntegerLiteral&#160;<br/>&#160;&#160;&#160; &#160;&#160;ShortName&#160;= “C_” + Signal.Name&#160;<br/>&#160; &#160; &#160;&#160;Value &#160; &#160; =&#160;Signal.LDFSignalSpecialValues&#160;<br/>
+LINBus&#160;<br/>
+LinCluster&#160;<br/>&#160;&#160;ShortName &#160;&#160;&#160; &#160;&#160;= LINBus.LINChannelPostfix&#160;<br/>&#160;&#160;ProtocolName&#160;&#160; &#160;= “LIN”&#160;<br/>&#160;&#160;ProtocolVersion = LINBus.ProtocolVersion&#160;<br/>&#160;&#160;Speed &#160; &#160; &#160; &#160; &#160; = LINBus.BaudRate&#160;<br/>&#160;&#160;PhysicalChannel&#160;<br/>&#160; &#160;&#160;ShortName = “CHNL”&#160;<br/>
+LINBus&#160;<br/>
+Frame&#160;<br/>
+&#160;.LINFrame(Unconditional)&#160;<br/>
+&#160;&#160;ShortName &#160;&#160;= LINFrame.Name + “__” +&#160;LinCluster.ShortName&#160;<br/>&#160;&#160;FrameLength = LINFrame.Size&#160;<br/>SignalIPdu|DcmIPdu|NPdu&#160;<br/>&#160;&#160;ShortName = LINFrame.Name + “__” +&#160;LinCluster.ShortName&#160;<br/>&#160;&#160;Length &#160; &#160;= 8*LINFrame.Size&#160;<br/>Frame.PduToFrameMapping&#160;<br/>&#160;&#160;ShortName &#160; &#160; &#160; &#160;= LINFrame.Name&#160;<br/>&#160;&#160;PackingByteOrder = LINBus.ByteOrder&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= 0(Intel)|7(Motorola)&#160;<br/>PhysicalChannel.LinFrameTriggering&#160;<br/>&#160;&#160;ShortName &#160;&#160;&#160;= “FT_” +&#160;LINFrame.Name&#160;<br/>&#160;&#160;ChecksumType = LINFrame.CSModel&#160;<br/>&#160;&#160;Identifier&#160;&#160;&#160;= LINFrame.ID&#160;<br/>PhysicalChannel.IPduTriggering&#160;<br/>&#160;&#160;ShortName &#160;= “PT_” +&#160;LINFrame.Name&#160;<br/>
+LINBus&#160;<br/>
+ISignal&#160;<br/>
+&#160;.LINFrame(Unconditional)&#160;<br/>
+&#160;&#160;ShortName =&#160;Signal.Name + “__” + LINFrame.Name&#160;<br/>
+&#160;.MappedSignal&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__” +&#160;LinCluster.ShortName&#160;<br/>
+&#160;.Signal&#160;<br/>
+SignalIPdu.ISignalToIPduMapping&#160;<br/>&#160;&#160;ShortName &#160; &#160; &#160; &#160;= Signal.Name&#160;<br/>&#160;&#160;PackingByteOrder = MappedSignal.Intel|Motorola&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= MappedSignal.Startbit&#160;<br/>PhysicalChannel.SignalTriggering&#160;<br/>&#160;&#160;ShortName =&#160;“ST_” + Signal.Name + “__” + LINFrame.Name&#160;<br/>
+LINBus&#160;<br/>
+SubstitutionFrame&#160;<br/>
+&#160;.LINFrame(Sporadic&#160;<br/>
+&#160;&#160;ShortName &#160;&#160;&#160; &#160; &#160;= LINFrame.Name + “__” +&#160;LinCluster.ShortName&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160;|EventTriggered)&#160;<br/>
+&#160;&#160;FrameLength&#160;&#160; &#160; &#160;= LINFrame.Size&#160;<br/>&#160;&#160;SubstitutionType = Sporadic|EventTriggered&#160;<br/>PhysicalChannel.LinFrameTriggering&#160;<br/>&#160;&#160;ShortName &#160;&#160;&#160;= “FT_” +&#160;LINFrame.Name&#160;<br/>&#160;&#160;ChecksumType = LINFrame.CSModel&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+12&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=13></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&#160;&#160;Identifier &#160; = LINFrame.ID&#160;<br/>
+LINNode(Master|Slave)&#160;<br/>
+EcuInstance&#160;<br/>&#160;&#160;ShortName =&#160;LINNode.Name&#160;<br/>EcuInstance.LinMaster&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160;= “CT_” +&#160;LinCluster.ShortName&#160;<br/>&#160;&#160;TimeBase &#160; &#160; &#160; =&#160;LINNode.Timebase&#160;<br/>&#160;&#160;TimeBaseJitter =&#160;LINNode.Jitter&#160;<br/>EcuInstance.LinSlave&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160;= “CT_” +&#160;LinCluster.ShortName&#160;<br/>&#160;&#160;ConfiguredNad &#160; &#160;=&#160;LINSlaveNode.ConfiguredNad&#160;<br/>&#160;&#160;LinErrorResponse =&#160;LINSlaveNode.ResponseErrorSignal&#160;<br/>&#160;&#160;ProtocolVersion &#160;=&#160;LINSlaveNode.ProtocolVersion&#160;<br/>EcuInstance.CommunicationConnector&#160;<br/>&#160;&#160;ShortName =&#160;“CN_” +&#160;LinCluster.ShortName&#160;<br/>EcuInstance.AssociatedIPduGroup(Rx)&#160;<br/>&#160;&#160;ShortName =&#160;LINNode.Name&#160;+ “__”&#160;+&#160;LinCluster.ShortName&#160;+ “_Rx”&#160;<br/>EcuInstance.AssociatedIPduGroup(Tx)&#160;<br/>&#160;&#160;ShortName =&#160;LINNode.Name&#160;+ “__”&#160;+&#160;LinCluster.ShortName&#160;+ “_Tx”&#160;<br/>
+LINNode&#160;<br/>
+CommunicationConnector.FramePort&#160;<br/>
+&#160;.RxLINFrame&#160;<br/>
+&#160;&#160;ShortName = “FP_” + RxLINFrame.Name + “_Rx”&#160;<br/>&#160;&#160;Direction = In&#160;<br/>CommunicationConnector.IPduPort&#160;<br/>&#160;&#160;ShortName = “PP_” + RxLINFrame.Name + “_Rx”&#160;<br/>&#160;&#160;Direction = In&#160;<br/>
+LINNode&#160;<br/>
+CommunicationConnector.SignalPort&#160;<br/>
+&#160;.RxLINFrame&#160;<br/>
+&#160;&#160;ShortName = “SP_” + Signal.Name + “__” + RxLINFrame.Name + “_Rx”&#160;<br/>
+&#160;.MappedSignal&#160;<br/>
+&#160;&#160;Direction = In&#160;<br/>
+&#160;.Signal&#160;<br/>
+&#160;<br/>
+LINNode&#160;<br/>
+CommunicationConnector.FramePort&#160;<br/>
+&#160;.TxLINFrame&#160;<br/>
+&#160;&#160;ShortName = “FP_” + TxLINFrame.Name + “_Tx”&#160;<br/>&#160;&#160;Direction = Out&#160;<br/>CommunicationConnector.IPduPort&#160;<br/>&#160;&#160;ShortName = “PP_” + TxLINFrame.Name&#160;+ “_Tx”&#160;<br/>&#160;&#160;Direction = Out&#160;<br/>
+LINNode&#160;<br/>
+CommunicationConnector.SignalPort&#160;<br/>
+&#160;.TxLINFrame&#160;<br/>
+&#160;&#160;ShortName = “SP_” + Signal.Name + “__” + TxLINFrame.Name + “_Tx”&#160;<br/>
+&#160;.MappedSignal&#160;<br/>
+&#160;&#160;Direction = Out&#160;<br/>
+&#160;.Signal&#160;<br/>
+&#160;<br/>
+LINBus&#160;<br/>
+LinCluster.LinScheduleTable&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;ShortName =&#160;LINScheduleTable.Name&#160;<br/>&#160;&#160;Priority &#160;= 255&#160;<br/>&#160;&#160;RunMode &#160; = RunContinuous&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.RelativelyScheduledTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; = UnconditionalFrameSlot.SlotDelay&#160;<br/>
+&#160;.UnconditionalFrameSlot&#160;<br/>
+&#160;&#160;PositionInTable = UnconditionalFrameSlot.ID&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.RelativelyScheduledTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; = DiagnosticFrameSlot.SlotDelay&#160;<br/>
+&#160;.DiagnosticFrameSlot&#160;<br/>
+&#160;&#160;PositionInTable = DiagnosticFrameSlot.ID&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.AssignFrameIdTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; =&#160;AssignFrameIdSlot.SlotDelay&#160;<br/>
+&#160;.AssignFrameIdSlot&#160;<br/>
+&#160;&#160;PositionInTable =&#160;AssignFrameIdSlot.ID&#160;<br/>&#160;&#160;AssignedFrameTriggering&#160;<br/>&#160; &#160;&#160;ShortName = “FT_” + AssignFrameIdSlot.FrameToAssign.Name&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.UnassignFrameIdTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; =&#160;UnassignFrameIdSlot.SlotDelay&#160;<br/>
+&#160;.UnassignFrameIdSlot&#160;<br/>
+&#160;&#160;PositionInTable =&#160;UnassignFrameIdSlot.ID&#160;<br/>&#160;&#160;UnassignedFrameTriggering&#160;<br/>&#160; &#160;&#160;ShortName = “FT_” + UnassignFrameIdSlot.FrameToUnassign.Name&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.AssignNADTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; = AssignNADSlot.SlotDelay&#160;<br/>
+&#160;.AssignNADSlot&#160;<br/>
+&#160;&#160;PositionInTable = AssignNADSlot.ID&#160;<br/>&#160;&#160;NewNAD &#160; &#160; &#160; &#160; &#160;= AssignNADSlot.NewNAD&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.DataTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160;=&#160;ConditionalChangeNADSlot.SlotDelay&#160;<br/>
+&#160;.ConditionalChangeNADSlot&#160;<br/>
+&#160;&#160;PositionInTable&#160;&#160; &#160; &#160;=&#160;ConditionalChangeNADSlot.ID&#160;<br/>&#160;&#160;FreeFormatByteValues =&#160;ConditionalChangeNADSlot.DataBytes&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+13&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=14></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.DataTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= FreeFormatSlot.SlotDelay&#160;<br/>
+&#160;.FreeFormatSlot&#160;<br/>
+&#160;&#160;PositionInTable &#160; &#160; &#160;= FreeFormatSlot.ID&#160;<br/>&#160;&#160;FreeFormatByteValues = FreeFormatSlot.DataBytes&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.RelativelyScheduledTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; = EventTriggeredFrameSlot.SlotDelay&#160;<br/>
+&#160;.EventTriggeredFrameSlot&#160;<br/>
+&#160;&#160;PositionInTable = EventTriggeredFrameSlot.ID&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.RelativelyScheduledTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160;&#160;= SporadicFrameSlot.SlotDelay&#160;<br/>
+&#160;.SporadicFrameSlot&#160;<br/>
+&#160;&#160;PositionInTable = SporadicFrameSlot.ID&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.DataTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= DataDumpSlot.SlotDelay&#160;<br/>
+&#160;.DataDumpSlot&#160;<br/>
+&#160;&#160;PositionInTable &#160; &#160; &#160;= DataDumpSlot.ID&#160;<br/>&#160;&#160;FreeFormatByteValues = DataDumpSlot.DataBytes&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.DataTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= AssignFrameIdRangeSlot.SlotDelay&#160;<br/>
+&#160;.AssignFrameIdRangeSlot&#160;<br/>
+&#160;&#160;PositionInTable &#160; &#160; &#160;= AssignFrameIdRangeSlot.ID&#160;<br/>&#160;&#160;FreeFormatByteValues = AssignFrameIdRangeSlot.DataBytes&#160;<br/>
+LINBus&#160;<br/>
+LinFrameTriggering.DataTiming&#160;<br/>
+&#160;.LINScheduleTable&#160;<br/>
+&#160;&#160;Delay &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= SaveConfigurationSlot.SlotDelay&#160;<br/>
+&#160;.SaveConfigurationSlot&#160;<br/>
+&#160;&#160;PositionInTable &#160; &#160; &#160;= SaveConfigurationSlot.ID&#160;<br/>&#160;&#160;FreeFormatByteValues = SaveConfigurationSlot.DataBytes&#160;<br/>
+Table&#160;2-4&#160;&#160;&#160;Transformation&#160;of&#160;LIN&#160;network&#160;objects.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+14&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=15></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>Fibex&#160;Transformation&#160;</b><br/>
+The&#160;VLC&#160;supports&#160;the&#160;transformation&#160;of&#160;Fibex&#160;2.0.1&#160;files&#160;and&#160;of&#160;Fibex&#160;3.0.0&#160;or&#160;3.1.0&#160;files.&#160;<br/>The&#160;main&#160;difference&#160;between&#160;these&#160;Fibex&#160;versions&#160;is&#160;the&#160;modeling&#160;of&#160;PDUs.&#160;In&#160;Fibex&#160;2.0.1&#160;<br/>PDUs&#160;are&#160;modeled&#160;with&#160;signal&#160;groups,&#160;while&#160;in&#160;Fibex&#160;3.0.0&#160;and&#160;3.1.0&#160;PDUs&#160;are&#160;an&#160;explicit&#160;<br/>part&#160;of&#160;the&#160;XML&#160;schema.&#160;The&#160;table&#160;below&#160;shows&#160;how&#160;Fibex&#160;2.0.1&#160;elements&#160;are&#160;mapped&#160;to&#160;<br/>AUTOSAR 3.1.4&#160;or&#160;AUTOSAR 3.2.1&#160;elements.&#160;<br/>
+<b>Fibex element&#160;</b><br/>
+<b>AUTOSAR&#160;element&#160;</b><br/>
+PhysicalDimension&#160;<br/>
+PhysicalDimesion&#160;<br/>&#160;&#160;ShortName &#160; &#160; &#160; &#160; &#160; &#160;= PhysicalDimension.ShortName&#160;<br/>&#160;&#160;LengthExp &#160; &#160; &#160; &#160; &#160; &#160;= PhysicalDimension.LengthExp&#160;<br/>&#160;&#160;MassExp &#160; &#160; &#160; &#160; &#160; &#160; &#160;= PhysicalDimension.MassExp&#160;<br/>&#160;&#160;TimeExp &#160; &#160; &#160; &#160; &#160; &#160; &#160;= PhysicalDimension.TimeExp&#160;<br/>&#160;&#160;CurrentExp &#160; &#160; &#160; &#160; &#160; = PhysicalDimension.CurrentExp&#160;<br/>&#160;&#160;TemperatureExp &#160; &#160; &#160; = PhysicalDimension.TemperatureExp&#160;<br/>&#160;&#160;MolarAmoutExp &#160; &#160; &#160; &#160;= PhysicalDimension.MolarAmoutExp&#160;<br/>&#160;&#160;LuminousIntensityExp = PhysicalDimension.LuminousIntensityExp&#160;<br/>
+Unit&#160;<br/>
+Unit&#160;<br/>&#160;&#160;ShortName &#160; &#160; &#160;= Unit.ShortName&#160;<br/>&#160;&#160;DisplayName &#160; &#160;= Unit.DisplayName&#160;<br/>&#160;&#160;FactorSiToUnit = Unit.FactorSiToUnit&#160;<br/>&#160;&#160;OffsetSiToUnit = Unit.OffsetSiToUnit&#160;<br/>
+Coding&#160;<br/>
+BooleanType|OpaqueType|IntegerType|RealType|CharType|StringType&#160;<br/>&#160;&#160;ShortName&#160;&#160;= Coding.ShortName&#160;<br/>&#160;&#160;LowerLimit&#160;=&#160;(Coding.CompuMethod.PhysConstr.LowerLimit&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;-&#160;Coding.CompuMethod.CompuRationalCoeffs[0])&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;/ Coding.CompuMethod.CompuRationalCoeffs[1]&#160;<br/>&#160;&#160;UpperLimit&#160;= (Coding.CompuMethod.PhysConstr.UpperLimit&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;-&#160;Coding.CompuMethod.CompuRationalCoeffs[0])&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;/ Coding.CompuMethod.CompuRationalCoeffs[1]&#160;<br/>&#160;&#160;InvalidValue.BooleanLiteral|OpaqueLiteral|IntegerLiteral&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;|RealLiteral|CharLiteral|StringLiteral&#160;<br/>&#160;&#160;&#160;&#160;ShortName&#160;=&#160;Coding.ShortName&#160;<br/>&#160; &#160;&#160;Value &#160; &#160; =&#160;Coding.CompuMethod.InternalConstr.LowerLimit&#160;<br/>
+Coding&#160;<br/>
+CompuMethod&#160;<br/>
+&#160;.CompuMethod&#160;<br/>
+&#160;&#160;ShortName = “CM_” + CompuMethod.ShortName&#160;<br/>&#160;&#160;CompuInternalToPhys.CompuScale&#160;<br/>&#160; &#160;&#160;LowerLimit =&#160;CompuMethod.CompuScale.LowerLimit&#160;<br/>&#160; &#160;&#160;UpperLimit&#160;= CompuMethod.CompuScale.UpperLimit&#160;<br/>&#160; &#160;&#160;CompuConst&#160;= “Cx&lt;Limit&gt;_” + CompuMethod.CompuScale.CompuConst&#160;<br/>&#160; &#160;&#160;CompuRationalCoeffs = CompuMethod.CompuScale.CompuRationalCoeffs&#160;<br/>
+Signal&#160;<br/>
+SystemSignal&#160;<br/>&#160;&#160;ShortName =&#160;Signal.ShortName&#160;<br/>&#160;&#160;Length&#160;&#160; &#160;= Signal.Coding.BitLength&#160;<br/>ConstantSpecification&#160;<br/>&#160;&#160;ShortName = “C_” + Signal.ShortName&#160;<br/>&#160;&#160;BooleanLiteral|OpaqueLiteral|IntegerLiteral|RealLiteral&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;|CharLiteral|StringLiteral&#160;<br/>&#160;&#160;&#160;&#160;ShortName&#160;= “C_” + Signal.ShortName&#160;<br/>&#160; &#160;&#160;Value &#160; &#160; =&#160;Signal.DefaultValue&#160;<br/>
+Frame&#160;<br/>
+Frame&#160;<br/>&#160;&#160;ShortName&#160;&#160;&#160;= Frame.ShortName&#160;<br/>&#160;&#160;FrameLength = Frame.ByteLength&#160;<br/>
+SignalGroup&#160;<br/>
+SignalIPdu|DcmIPdu|NmPdu|NPdu&#160;<br/>&#160;&#160;ShortName = SignalGroup.ShortName&#160;<br/>&#160;&#160;Length &#160; &#160;= SignalGroup.BitLength&#160;<br/>Frame.PduToFrameMapping&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160;= SignalGroup.ShortName&#160;<br/>&#160;&#160;PackingByteOrder =&#160;Intel&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= Frame.SignalInstance.BitPosition&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;-&#160;SignalGroup.OrderedSignal.BitPosition&#160;<br/>
+Frame&#160;<br/>
+ISignal&#160;<br/>
+&#160;.SignalInstance&#160;<br/>
+&#160;&#160;ShortName = Signal.ShortName + “__” + Frame.ShortName&#160;<br/>
+&#160;.Signal&#160;<br/>
+SignalIPdu.ISignalToIPduMapping&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+15&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=16></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160;= Signal.ShortName&#160;<br/>&#160;&#160;PackingByteOrder = SignalInstance.Intel|Motorola&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= SignalInstance.BitPosition&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;-&#160;Frame.PduToFrameMapping.StartPosition&#160;<br/>
+Frame&#160;<br/>
+MultiplexedIPdu&#160;<br/>
+&#160;.Multiplexer&#160;<br/>
+&#160;&#160;ShortName = Frame.ShortName&#160;<br/>
+&#160;.Switch&#160;<br/>
+&#160;&#160;Length &#160; &#160;= 8*Frame.ByteLength&#160;<br/>Frame.PduToFrameMapping&#160;<br/>&#160;&#160;ShortName &#160; &#160; &#160; &#160;= Frame.ShortName&#160;<br/>&#160;&#160;PackingByteOrder = Intel&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= 0&#160;<br/>MultiplexedIPdu.SelectorField&#160;<br/>&#160;&#160;ByteOrder &#160; &#160; =&#160;Switch.Intel|Motorola&#160;<br/>&#160;&#160;Length &#160; &#160; &#160; &#160;=&#160;Switch.BitLength&#160;<br/>&#160;&#160;StartPosition =&#160;Switch.BitPosition&#160;<br/>
+Frame&#160;<br/>
+MultiplexedIPdu.DynamicPart.DynamicPartAlternative&#160;<br/>
+&#160;.Multiplexer&#160;<br/>
+&#160;&#160;SelectorFieldCode =&#160;SubFrame.SwitchCode&#160;<br/>
+&#160;.Data&#160;<br/>
+&#160;&#160;SignalIPdu&#160;<br/>
+&#160;.SubFrame&#160;<br/>
+&#160; &#160;&#160;ShortName = SubFrame.ShortName&#160;+ “_Mx”&#160;+&#160;SubFrame.SwitchCode&#160;<br/>&#160; &#160;&#160;Length &#160; &#160;= 8*Frame.ByteLength&#160;<br/>
+Cluster(FlexRay)&#160;<br/>
+FlexrayCluster&#160;<br/>&#160;&#160;ShortName&#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;=&#160;Cluster.ShortName&#160;<br/>&#160;&#160;MaxFrameLength&#160;&#160;&#160; &#160; &#160; &#160;&#160;= Cluster.MaxFrameLength&#160;<br/>&#160;&#160;ProtocolName&#160;&#160; &#160;&#160; &#160; &#160;&#160; &#160;= Cluster.Protocol&#160;<br/>&#160;&#160;ProtocolVersion&#160; &#160; &#160; &#160; &#160;= Cluster.ProtocolVersion&#160;<br/>&#160;&#160;Speed &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;= Cluster.Speed&#160;<br/>&#160;&#160;ActionPointOffset&#160; &#160; &#160; &#160;=&#160;Cluster.ActionPointOffset&#160;<br/>&#160;&#160;Bit&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;=&#160;Cluster.Bit/1000000&#160;<br/>&#160;&#160;CasRxLowMin&#160; &#160; &#160; &#160; &#160; &#160; &#160;=&#160;Cluster.CasRxLowMin&#160;<br/>&#160;&#160;CasRxLowMax&#160; &#160; &#160; &#160; &#160; &#160; &#160;=&#160;Cluster.CasRxLowMax&#160;<br/>&#160;&#160;ColdStartAttempts&#160; &#160; &#160; &#160;=&#160;Cluster.ColdStartAttempts&#160;<br/>&#160;&#160;Cycle&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;=&#160;Cluster.Cycle/1000000&#160;<br/>&#160;&#160;DynamicSlotIdlePhase&#160; &#160;&#160;=&#160;Cluster.DynamicSlotIdlePhase&#160;<br/>&#160;&#160;ListenNoise&#160; &#160; &#160; &#160; &#160; &#160; &#160;=&#160;Cluster.ListenNoise&#160;<br/>&#160;&#160;MacroPerCycle&#160; &#160; &#160; &#160; &#160; &#160;=&#160;Cluster.MacroPerCycle&#160;<br/>&#160;&#160;MacrotickDuration&#160; &#160; &#160; &#160;=&#160;Cluster.Macrotick/1000000&#160;<br/>&#160;&#160;MaxInitialisationError&#160;&#160;=&#160;Cluster.MaxInitializationError/100000&#160;<br/>&#160;&#160;MaxWithoutClockCorrectionFatal&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;=&#160;Cluster.MaxWithoutClockCorrectionFatal&#160;<br/>&#160;&#160;MaxWithoutClockCorrectionPassive&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;=&#160;Cluster.MaxWithoutClockCorrectionPassive&#160;<br/>&#160;&#160;MinislotActionPointOffset&#160;=&#160;Cluster.MinislotActionPointOffset&#160;<br/>&#160;&#160;MinislotDuration&#160; &#160; &#160; &#160;&#160;=&#160;Cluster.Minislot&#160;<br/>&#160;&#160;NetworkIdleTime&#160; &#160; &#160; &#160; &#160;=&#160;Cluster.NIT&#160;<br/>&#160;&#160;NetworkManagementVectorLength&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160;=&#160;Cluster.NetworkManagementVectorLength&#160;<br/>&#160;&#160;NumberOfCycles &#160; &#160; &#160; &#160; &#160;= Cluster.NumberOfCycles&#160;<br/>&#160;&#160;NumberOfMinislots&#160; &#160; &#160; &#160;=&#160;Cluster.NumberOfMinislots&#160;<br/>&#160;&#160;NumberOfStaticSlots&#160; &#160; &#160;=&#160;Cluster.NumberOfStaticSlots&#160;<br/>&#160;&#160;OffsetCorrectionMax&#160; &#160; &#160;=&#160;Cluster.OffsetCorrectionMax/1000000&#160;<br/>&#160;&#160;OffsetCorrectionStart&#160; &#160;=&#160;Cluster.OffsetCorrectionStart&#160;<br/>&#160;&#160;PayloadLengthStatic&#160; &#160; &#160;=&#160;Cluster.PayloadLengthStatic&#160;<br/>&#160;&#160;SampleClockPeriod&#160; &#160; &#160; &#160;=&#160;Cluster.SampleClockPeriod/1000000&#160;<br/>&#160;&#160;StaticSlotDuration&#160; &#160; &#160;&#160;=&#160;Cluster.StaticSlot&#160;<br/>&#160;&#160;SymbolWindow&#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;=&#160;Cluster.SymbolWindow&#160;<br/>&#160;&#160;SyncFrameIdCountMax&#160; &#160; &#160;= Cluster.SyncNodeMax&#160;<br/>&#160;&#160;TransmissionStartSequenceDuration =&#160;Cluster.TSSTransmitter&#160;<br/>&#160;&#160;WakeupRxIdle&#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160;=&#160;Cluster.WakeUpSymbolRxIdle&#160;<br/>&#160;&#160;WakeupRxLow&#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;=&#160;Cluster.WakeUpSymbolRxLow&#160;<br/>&#160;&#160;WakeupRxWindow&#160; &#160;&#160; &#160; &#160;&#160;&#160;=&#160;Cluster.WakeUpSymbolRxWindow&#160;<br/>&#160;&#160;WakeupTxActive&#160; &#160; &#160; &#160; &#160;&#160;= Cluster.WakeUpSymbolTxLow&#160;<br/>&#160;&#160;WakeupTxIdle&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;=&#160;Cluster.WakeUpSymbolTxIdle&#160;<br/>
+Channel&#160;<br/>
+FlexrayCluster.FlexrayPhysicalChannel&#160;<br/>&#160;&#160;ShortName &#160; = Channel.ShortName&#160;<br/>&#160;&#160;ChannelName = Channel.FlexrayChannelName&#160;<br/>
+Channel&#160;<br/>
+FlexrayPhysicalChannel.FlexrayFrameTriggering&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;ShortName&#160;=&#160;“FT_” + FrameTriggering.AbsolutelyScheduledTiming&#160;<br/>
+Channel&#160;<br/>
+FlexrayFrameTriggering.AbsolutelyScheduledTiming&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;SlotID &#160; &#160; &#160; &#160; &#160;= AbsolutelyScheduledTiming.SlotID&#160;<br/>
+&#160;.AbsolutelyScheduledTiming&#160;&#160;&#160;&#160;BaseCycle &#160; &#160; &#160; = AbsolutelyScheduledTiming.BaseCycle&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+16&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=17></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&#160;&#160;CycleRepetition = AbsolutelyScheduledTiming.CycleRepetition&#160;<br/>
+Channel&#160;<br/>
+FlexrayPhysicalChannel.IPduTriggering&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;ShortName = “PT_”&#160;+ SignalGroup.ShortName&#160;<br/>
+&#160;.Frame&#160;<br/>&#160;.SignalGroup&#160;<br/>Channel&#160;<br/>
+FlexrayPhysicalChannel.SignalTriggering&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;ShortName = “ST_” + Signal.ShortName + “__”+&#160;SignalGroup.ShortName&#160;<br/>
+&#160;.Frame&#160;<br/>&#160;.SignalGroup&#160;<br/>&#160;.Signal&#160;<br/>Channel&#160;<br/>
+SignalIPdu.IPduTimingSpecification.CyclicTiming&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;RepeatingTime =&#160;CyclicTiming.RepeatingTimeRange&#160;<br/>
+&#160;.CyclicTiming&#160;<br/>Channel&#160;<br/>
+SignalIPdu.IPduTimingSpecification.EventControlledTiming&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;RepetitionPeriod&#160;=&#160;EventControlledTiming.DebounceTimeRange&#160;<br/>
+&#160;.EventControlledTiming&#160;<br/>Channel&#160;<br/>
+SignalIPdu.IPduTimingSpecification.RequestControlledTiming&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;ResponseTime = RequestControlledTiming.ResponseTimeRange&#160;<br/>
+&#160;.RequestControlledTiming&#160;<br/>Ecu&#160;<br/>
+EcuInstance&#160;<br/>&#160;&#160;ShortName = Ecu.ShortName&#160;<br/>
+Ecu&#160;<br/>
+EcuInstance.FlexrayCommunicationController&#160;<br/>
+&#160;.Controller&#160;<br/>
+&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;= Controller.ShortName&#160;<br/>&#160;&#160;AcceptedStartupRange&#160;&#160; &#160; &#160; &#160;=&#160;Controller.AcceptedStartupRange&#160;<br/>&#160;&#160;AllowHaltDueToClock&#160;&#160; &#160; &#160; &#160;&#160;= Controller.AllowHaltDueToClock&#160;<br/>&#160;&#160;AllowPassiveToActive&#160;&#160; &#160; &#160; &#160;= Controller.AllowPassiveToActive&#160;<br/>&#160;&#160;ClusterDriftDamping&#160;&#160; &#160; &#160; &#160;&#160;= Controller.ClusterDriftDamping&#160;<br/>&#160;&#160;DecodingCorrection&#160; &#160; &#160; &#160; &#160;&#160;= Controller.DecodingCorrection&#160;<br/>&#160;&#160;DelayCompensationA&#160;&#160; &#160; &#160; &#160; &#160;= Controller.DelayCompensationA&#160;<br/>&#160;&#160;DelayCompensationB&#160;&#160; &#160; &#160; &#160; &#160;= Controller.DelayCompensationB&#160;<br/>&#160;&#160;ExternOffsetCorrection&#160;&#160; &#160; &#160;= Controller.ExternOffsetCorrection&#160;<br/>&#160;&#160;ExternRateCorrection&#160;&#160; &#160; &#160; &#160;=&#160;Controller.ExternRateCorrection&#160;<br/>&#160;&#160;KeySlotId&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= Controller.KeySlotUsage.StartupSync&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;| Controller.KeySlotUsage.Sync&#160;<br/>&#160;&#160;KeySlotUsedForStartUp&#160;&#160;= Controller.KeySlotUsage.StartupSync!=null&#160;<br/>&#160;&#160;KeySlotUsedForSync&#160;&#160; &#160;&#160;=&#160;Controller.KeySlotUsage.StartupSync!=null&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160;|&#160;Controller.KeySlotUsage.Sync&#160; &#160; &#160; &#160;!=null&#160;<br/>&#160;&#160;LatestTx&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= Controller.LatestTx&#160;<br/>&#160;&#160;ListenTimeout&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;= Controller.ListenTimeout&#160;<br/>&#160;&#160;MacroInitialOffsetA&#160; &#160; &#160; &#160;&#160;&#160;= Controller.MacroInitialOffsetA&#160;<br/>&#160;&#160;MacroInitialOffsetB&#160;&#160; &#160; &#160; &#160;&#160;= Controller.MacroInitialOffsetB&#160;<br/>&#160;&#160;MaximumDynamicPayloadLength = Controller.MaxDynamicPayloadLength&#160;<br/>&#160;&#160;MicroInitialOffsetA&#160; &#160; &#160; &#160;&#160;&#160;= Controller.MicroInitialOffsetA&#160;<br/>&#160;&#160;MicroInitialOffsetB&#160;&#160; &#160; &#160; &#160;&#160;= Controller.MicroInitialOffsetB&#160;<br/>&#160;&#160;MicroPerCycle&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;= Controller.MicroPerCycle&#160;<br/>&#160;&#160;MicrotickDuration&#160; &#160; &#160; &#160; &#160;&#160;&#160;= Controller.Microtick/1000000&#160;<br/>&#160;&#160;OffsetCorrectionOut&#160; &#160; &#160; &#160;&#160;&#160;= Controller.OffsetCorrectionOut&#160;<br/>&#160;&#160;RateCorrectionOut&#160;&#160; &#160; &#160; &#160; &#160;&#160;= Controller.RateCorrectionOut&#160;<br/>&#160;&#160;SamplesPerMicrotick&#160;&#160; &#160; &#160; &#160;&#160;= Controller.SamplesPerMicrotick&#160;<br/>&#160;&#160;WakeUpPattern&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;= Controller.WakeUpPattern&#160;<br/>
+Ecu&#160;<br/>
+EcuInstance.FlexRayCommunicationConnector&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName&#160;&#160; &#160;&#160;= “CN_” +&#160;Cluster.ShortName&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160; &#160; &#160; &#160;+ “__”&#160;+&#160;Connector.Channel.ShortName&#160;<br/>&#160;&#160;TpAddress &#160; &#160; = Ecu.DiagnosticAddress[Physical]&#160;<br/>&#160;&#160;WakeUpChannel = Connector.WakeUpChannel&#160;<br/>EcuInstance.AssociatedIPduGroup(Rx)&#160;<br/>&#160;&#160;ShortName =&#160;Ecu.ShortName&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__”&#160;+ Connector.Channel.ShortName&#160;+ “_Rx”&#160;<br/>EcuInstance.AssociatedIPduGroup(Tx)&#160;<br/>&#160;&#160;ShortName =&#160;Ecu.ShortName&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__” + Connector.Channel.ShortName&#160;+ “_Tx”&#160;<br/>
+Ecu&#160;<br/>
+FlexRayCommunicationConnector.FramePort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “FP_”&#160;<br/>
+&#160;.InputPort&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+&#160;FrameTriggering.AbsolutelyScheduledTiming&#160;+ “_Rx”&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;Direction = In&#160;<br/>
+Ecu&#160;<br/>
+FlexRayCommunicationConnector.IPduPort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “PP_” +&#160;SignalGroup.ShortName + “_Rx”&#160;<br/>
+&#160;.InputPort&#160;<br/>
+&#160;&#160;Direction = In&#160;<br/>
+&#160;.SignalInstance&#160;<br/>
+FlexRayCommunicationConnector.SignalPort&#160;<br/>
+&#160;.Signal&#160;<br/>
+&#160;&#160;ShortName = “SP_” + Signal.ShortName&#160;<br/>
+&#160;.SignalGroup&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__” +&#160;SignalGroup.ShortName + “_Rx”&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+17&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=18></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&#160;&#160;Direction = In&#160;<br/>
+Ecu&#160;<br/>
+FlexRayCommunicationConnector.FramePort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “FP_”&#160;<br/>
+&#160;.OutputPort&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+&#160;FrameTriggering.AbsolutelyScheduledTiming&#160;+ “_Tx”&#160;<br/>
+&#160;.FrameTriggering&#160;<br/>
+&#160;&#160;Direction = Out&#160;<br/>
+Ecu&#160;<br/>
+FlexRayCommunicationConnector.IPduPort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “PP_” +&#160;SignalGroup.ShortName + “_Tx”&#160;<br/>
+&#160;.OutputPort&#160;<br/>
+&#160;&#160;Direction = Out&#160;<br/>
+&#160;.SignalInstance&#160;<br/>
+FlexRayCommunicationConnector.SignalPort&#160;<br/>
+&#160;.Signal&#160;<br/>
+&#160;&#160;ShortName = “SP_” + Signal.ShortName&#160;<br/>
+&#160;.SignalGroup&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__” +&#160;SignalGroup.ShortName + “_Tx”&#160;<br/>&#160;&#160;Direction = Out&#160;<br/>
+Table&#160;2-5&#160;&#160;&#160;Transformation&#160;of&#160;Fibex&#160;2.0.1&#160;elements.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+18&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=19></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+The&#160;subsequent&#160;table&#160;shows&#160;how&#160;Fibex&#160;3.0.0&#160;or&#160;3.1.0&#160;elements&#160;are&#160;mapped&#160;to&#160;AUTOSAR&#160;<br/>3.1.4&#160;or&#160;AUTOSAR&#160;3.2.1&#160;elements.&#160;<br/>
+<b>Fibex element&#160;</b><br/>
+<b>AUTOSAR&#160;Element&#160;</b><br/>
+PhysicalDimension&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Unit&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Coding&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Signal&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Frame&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Frame&#160;<br/>
+Frame.PduToFrameMapping&#160;<br/>
+&#160;.PduInstance&#160;<br/>
+&#160;&#160;ShortName&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;= PduInstance.Pdu.ShortName&#160;<br/>&#160;&#160;PackingByteOrder&#160;&#160; &#160; &#160; &#160; &#160; &#160;= PduInstance.Intel|Motorola&#160;<br/>&#160;&#160;StartPosition&#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160;&#160;= PduInstance.BitPosition&#160;<br/>&#160;&#160;UpdateIndicationBitPosition = PduInstance.PduUpdateBitPosition&#160;<br/>
+Pdu&#160;<br/>
+SignalIPdu|MultiplexedIPdu|DcmIPdu|NmPdu|NPdu&#160;<br/>&#160;&#160;ShortName = Pdu.ShortName&#160;<br/>&#160;&#160;Length &#160; &#160;= 8*Pdu.ByteLength&#160;<br/>
+Pdu&#160;<br/>
+ISignal&#160;<br/>
+&#160;.SignalInstance&#160;<br/>
+&#160;&#160;ShortName =&#160;Signal.ShortName + “__” + Pdu.ShortName&#160;<br/>
+&#160;.Signal&#160;<br/>
+SignalIPdu.ISignalToIPduMapping&#160;<br/>&#160;&#160;ShortName &#160; &#160; &#160; &#160;= Signal.ShortName&#160;<br/>&#160;&#160;PackingByteOrder = SignalInstance.Intel|Motorola&#160;<br/>&#160;&#160;StartPosition &#160; &#160;= SignalInstance.BitPosition&#160;<br/>
+Pdu&#160;<br/>
+MultiplexedIPdu.SelectorField&#160;<br/>
+&#160;.Multiplexer&#160;<br/>
+&#160;&#160;ByteOrder &#160; &#160; = Switch.Intel|Motorola&#160;<br/>
+&#160;.Switch&#160;<br/>
+&#160;&#160;Length &#160; &#160; &#160; &#160;= Switch.BitLength&#160;<br/>&#160;&#160;StartPosition = Switch.BitPosition&#160;<br/>
+Pdu&#160;<br/>
+MultiplexedIPdu.DynamicPart.DynamicPartAlternative&#160;<br/>
+&#160;.Multiplexer&#160;<br/>
+&#160;&#160;SelectorFieldCode =&#160;SwitchedPduInstance.SwitchCode&#160;<br/>
+&#160;.DynamicPart&#160;<br/>
+&#160;&#160;SignalIPdu&#160;<br/>
+&#160;.SwitchedPduInstance&#160;<br/>
+&#160; &#160;&#160;ShortName =&#160;SwitchedPduInstance.Pdu.ShortName&#160;<br/>&#160; &#160;&#160;Length &#160; &#160;= 8*SwitchedPduInstance.Pdu.ByteLength&#160;<br/>
+Cluster(FlexRay)&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Channel&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Channel&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+&#160;.FrameTriggering&#160;<br/>Channel&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+&#160;.FrameTriggering&#160;<br/>&#160;.AbsolutelyScheduledTiming&#160;<br/>Channel&#160;<br/>
+FlexrayPhysicalChannel.IPduTriggering&#160;<br/>
+&#160;.PduTriggering&#160;<br/>
+&#160;&#160;ShortName = “PT_” + PduTriggering.Pdu.ShortName&#160;<br/>
+Channel&#160;<br/>
+FlexrayPhysicalChannel.SignalTriggering&#160;<br/>
+&#160;.PduTriggering&#160;<br/>
+&#160;&#160;ShortName = “ST_” + Signal.ShortName&#160;<br/>
+&#160;.Pdu&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;+ “__” + PduTriggering.Pdu.ShortName&#160;<br/>
+&#160;.SignalInstance&#160;<br/>&#160;.Signal&#160;<br/>Channel&#160;<br/>
+SignalIPdu.IPduTimingSpecification.CyclicTiming&#160;<br/>
+&#160;.PduTriggering&#160;<br/>
+&#160;&#160;FinalRepetitions = CyclicTiming.FinalRepetitions&#160;<br/>
+&#160;.CyclicTiming&#160;<br/>
+&#160;&#160;RepeatingTime &#160; &#160;= CyclicTiming.RepeatingTimeRange&#160;<br/>&#160;&#160;StartingTime &#160; &#160; = CyclicTiming.StartingTimeRange&#160;<br/>
+Channel&#160;<br/>
+SignalIPdu.IPduTimingSpecification.EventControlledTiming&#160;<br/>
+&#160;.PduTriggering&#160;<br/>
+&#160;&#160;NumberOfRepeats &#160;=&#160;EventControlledTiming.FinalRepetitions&#160;<br/>
+&#160;.EventControlledTiming&#160;<br/>
+&#160;&#160;RepetitionPeriod = EventControlledTiming.DebounceTimeRange&#160;<br/>
+Channel&#160;<br/>
+SignalIPdu.IPduTimingSpecification.RequestControlledTiming&#160;<br/>
+&#160;.PduTriggering&#160;<br/>
+&#160;&#160;ResponseTime = RequestControlledTiming.ResponseTimeRange&#160;<br/>
+&#160;.RequestControlledTiming&#160;<br/>Ecu&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+Ecu&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+&#160;.Controller&#160;<br/>Ecu&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+&#160;.Connector&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+19&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=20></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+Ecu&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+&#160;.Connector&#160;<br/>&#160;.InputPort&#160;<br/>&#160;.FrameTriggering&#160;<br/>Ecu&#160;<br/>
+FlexRayCommunicationConnector.IPduPort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “PP_” +&#160;PduTriggering.Pdu.ShortName + “_Rx”&#160;<br/>
+&#160;.InputPort&#160;<br/>
+&#160;&#160;Direction = In&#160;<br/>
+&#160;.IncludedPdu&#160;<br/>&#160;.PduTriggering&#160;<br/>Ecu&#160;<br/>
+FlexRayCommunicationConnector.SignalPort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “SP_” + SignalInstance.Signal.ShortName + “__”&#160;<br/>
+&#160;.InputPort&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;+&#160;IncludedPdu.PduTriggering.Pdu.ShortName + “_Rx”&#160;<br/>
+&#160;.IncludedPdu&#160;<br/>
+&#160;&#160;Direction = In&#160;<br/>
+&#160;.IncludedSignal&#160;<br/>&#160;.SignalInstance&#160;<br/>Ecu&#160;<br/>
+<a href="TechnicalReference_GenTool_CsAsrLegacyDb2SystemDescr_Vectors.html#18">see&#160;Table&#160;2-5&#160;</a><br/>
+&#160;.Connector&#160;<br/>&#160;.OutputPort&#160;<br/>&#160;.FrameTriggering&#160;<br/>Ecu&#160;<br/>
+FlexRayCommunicationConnector.IPduPort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “PP_” +&#160;PduTriggering.Pdu.ShortName + “_Tx”&#160;<br/>
+&#160;.OutputPort&#160;<br/>
+&#160;&#160;Direction = Out&#160;<br/>
+&#160;.IncludedPdu&#160;<br/>&#160;.PduTriggering&#160;<br/>Ecu&#160;<br/>
+FlexRayCommunicationConnector.SignalPort&#160;<br/>
+&#160;.Connector&#160;<br/>
+&#160;&#160;ShortName = “SP_” + SignalInstance.Signal.ShortName + “__”&#160;<br/>
+&#160;.OutputPort&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;+&#160;IncludedPdu.PduTriggering.Pdu.ShortName + “_Tx”&#160;<br/>
+&#160;.IncludedPdu&#160;<br/>
+&#160;&#160;Direction = Out&#160;<br/>
+&#160;.IncludedSignal&#160;<br/>&#160;.SignalInstance&#160;<br/>TpConfig&#160;<br/>
+FlexrayPhysicalChannel.TpAddress&#160;<br/>
+&#160;.TpAddress&#160;<br/>
+&#160;&#160;ShortName = “TA_” + TpAddress&#160;<br/>&#160;&#160;TpAddress = TpAddress&#160;<br/>
+TpConfig&#160;<br/>
+FlexrayPhysicalChannel.FlexrayTpChannel&#160;<br/>
+&#160;.TpChannel&#160;<br/>
+&#160;&#160;AckType &#160; &#160; &#160; &#160; &#160; &#160; &#160; = TpChannel.AckType&#160;<br/>&#160;&#160;ExtendedAddressing &#160; &#160;= TpChannel.AddressingType == FrtpTb&#160;<br/>&#160;&#160;MaxBs &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; = TpChannel.MaxBlockSize&#160;<br/>&#160;&#160;MaxRetries &#160; &#160; &#160; &#160; &#160; &#160;= TpChannel.MaxRetries&#160;<br/>&#160;&#160;MaximumMessageLength &#160;= TpChannel.MaximumMessageLength&#160;<br/>&#160;&#160;MulticastSegmentation = TpChannel.GroupSegmentation&#160;<br/>&#160;&#160;TimeoutBs &#160; &#160; &#160; &#160; &#160; &#160; = TpChannel.TimeoutBs&#160;<br/>&#160;&#160;TimeoutCr &#160; &#160; &#160; &#160; &#160; &#160; = TpChannel.TimeoutCr&#160;<br/>&#160;&#160;TransmitCancellation &#160;= TpChannel.TransmitCancellation&#160;<br/>
+TpConfig&#160;<br/>
+FlexrayTpChannel.FlexRayTpConnection&#160;<br/>
+&#160;.TpChannel&#160;<br/>
+FlexrayTpChannel.FlexRayTpConnection.DirectTpSdu&#160;<br/>
+&#160;.TpConnection&#160;<br/>
+&#160;&#160;ShortName = TpConnection.ShortName + “_Rq”&#160;<br/>FlexrayTpChannel.FlexRayTpConnection.ReversedTpSdu&#160;<br/>&#160;&#160;ShortName = TpConnection.ShortName + “_Rs”&#160;<br/>
+TpConfig&#160;<br/>
+FlexrayPhysicalChannel.FlexrayTpNode&#160;<br/>
+&#160;.TpNode&#160;<br/>
+&#160;&#160;ShortName = TpNode.ShortName&#160;<br/>FlexrayPhysicalChannel.FlexrayTpChannel&#160;<br/>&#160;&#160;MaxAr&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= TpNode.MaxAr&#160;<br/>&#160;&#160;MaxAs&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= TpNode.MaxAs&#160;<br/>&#160;&#160;MaxBufferRequest&#160; &#160; &#160;&#160;= TpNode.BufferRequest&#160;<br/>&#160;&#160;MaxFrIf&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= TpNode.MaxFrif&#160;<br/>&#160;&#160;MinimumSeparationTime&#160;=&#160;TpNode.Stmin&#160;<br/>&#160;&#160;TimeBuffer&#160; &#160; &#160; &#160; &#160; &#160;&#160;= TpNode.TimeBuffer&#160;<br/>&#160;&#160;TimeFrIf&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;= TpNode.TimeFrif&#160;<br/>&#160;&#160;TimeoutAr&#160; &#160; &#160; &#160; &#160; &#160; &#160;= TpNode.TimeoutAr&#160;<br/>&#160;&#160;TimeoutAs&#160; &#160; &#160; &#160; &#160; &#160; &#160;= TpNode.TimeoutAs&#160;<br/>
+Table&#160;2-6&#160;&#160;&#160;Transformation&#160;of&#160;Fibex&#160;3.0.0/3.1.0&#160;elements.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+20&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=21></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>2.4&#160;</b><br/>
+<b>Extension File&#160;</b><br/>
+The&#160;Vector&#160;System&#160;Description&#160;Extension&#160;(VSDE)&#160;file&#160;is&#160;used&#160;to&#160;supplement&#160;the&#160;content&#160;of&#160;<br/>DBC-,&#160;LDF-&#160;or&#160;Fibex&#160;files.&#160;An&#160;extension&#160;file&#160;defines&#160;certain&#160;communication&#160;elements&#160;which&#160;<br/>might&#160;&#160;be&#160;&#160;missing&#160;&#160;in&#160;&#160;the&#160;&#160;original&#160;&#160;legacy&#160;&#160;communication&#160;&#160;databases,&#160;&#160;or&#160;&#160;which&#160;&#160;cannot&#160;&#160;be&#160;<br/>specified&#160;&#160;with&#160;&#160;these&#160;&#160;communication&#160;&#160;databases.&#160;&#160;The&#160;&#160;table&#160;&#160;below&#160;&#160;explains&#160;&#160;the&#160;&#160;extension&#160;<br/>elements&#160;which&#160;are&#160;supported&#160;so&#160;far.&#160;<br/>
+<b>VSDE&#160;element&#160;</b><br/>
+<b>Description&#160;</b><br/>
+&lt;FILTERING&gt;&#160;<br/>
+The&#160;dual&#160;channel&#160;FlexRayCluster FlexRay01&#160;is&#160;<br/>
+&#160;&#160;&lt;FLEXRAY-CLUSTER-REF CHANNEL=”A”&gt;FlexRay01&#160;<br/>
+filtered&#160;for&#160;its&#160;A&#160;channel.<br/>
+&#160; &#160;&#160;&lt;/FLEXRAY-CLUSTER-REF&gt;&#160;<br/>
+&#160;<br/>
+&lt;/FILTERING&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for&#160;Fibex&#160;databases.&#160;<br/>
+&lt;CAN-CLUSTER-NAME&gt;&#160;<br/>
+The&#160;CanCluster Can01&#160;obtains&#160;a&#160;new&#160;name&#160;<br/>
+&#160;&#160;&lt;CAN-CLUSTER-REF&gt;Can01&lt;/CAN-CLUSTER-REF&gt;&#160;<br/>
+Can01NewName.&#160;Similarly,&#160;LinClusters&#160;and&#160;<br/>
+&#160;&#160;&lt;SHORT-NAME&gt;Can01NewName&lt;/SHORT-NAME&gt;&#160;<br/>&lt;/CAN-CLUSTER-NAME&gt;&#160;<br/>
+FlexrayClusters&#160;can&#160;be&#160;renamed.&#160;<br/>This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>Fibex&#160;databases.&#160;<br/>
+&lt;ECU-INSTANCE-NAME&gt;&#160;<br/>
+The&#160;ECU&#160;Ecu01&#160;obtains&#160;a&#160;new&#160;name&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>
+Ecu01NewName.<br/>
+&#160;&#160;&lt;SHORT-NAME&gt;Ecu01NewName&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160;<br/>
+&lt;/ECU-INSTANCE-NAME&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>Fibex&#160;databases.&#160;<br/>
+&lt;SYSTEM-SIGNAL-NAME&gt;&#160;<br/>
+The&#160;signal&#160;Sig01&#160;within&#160;pdu&#160;Pdu01&#160;obtains&#160;a&#160;<br/>
+&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+new&#160;name&#160;Sig01NewName.&#160;Signal&#160;renaming<br/>
+&#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig01&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>
+&#160;<br/>
+&#160;&#160;&lt;SHORT-NAME&gt;Sig01NewName&lt;/SHORT-NAME&gt;&#160;<br/>
+is&#160;used,&#160;e.g.,&#160;to&#160;distinguish&#160;signals&#160;of&#160;the&#160;same&#160;<br/>
+&lt;/SYSTEM-SIGNAL-NAME&gt;&#160;<br/>
+name&#160;in&#160;different&#160;pdus.&#160;<br/>This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>Fibex&#160;databases.&#160;<br/>
+&lt;SYSTEM-SIGNAL-GROUP&gt;&#160;<br/>
+The&#160;signals&#160;Sig01&#160;and&#160;Sig02&#160;are&#160;aggregated&#160;to&#160;<br/>
+&#160;&#160;&lt;SHORT-NAME&gt;SG_SigGrp01&lt;/SHORT-NAME&gt;&#160;<br/>
+a&#160;new&#160;signal&#160;group&#160;SG_SigGrp01.&#160;The&#160;signals&#160;<br/>
+&#160;&#160;&lt;SYSTEM-SIGNAL-REFS&gt;&#160;<br/>&#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig01&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>
+must&#160;be&#160;defined&#160;in&#160;the&#160;same&#160;database. Each&#160;<br/>
+&#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig02&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>
+pdu&#160;must&#160;contain&#160;all&#160;or&#160;none&#160;of&#160;these&#160;signals.&#160;<br/>
+&#160;&#160;&lt;/SYSTEM-SIGNAL-REFS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>
+&lt;/SYSTEM-SIGNAL-GROUP&gt;&#160;<br/>
+Fibex&#160;databases.&#160;<br/>
+&lt;SAFETY-PDU&gt;&#160;<br/>
+All&#160;signals&#160;of&#160;pdu&#160;Pdu01&#160;are&#160;aggregated&#160;to&#160;a&#160;<br/>
+&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+new&#160;signal&#160;group&#160;SG_Pdu01.&#160;Optionally,&#160;the&#160;<br/>
+&#160;&#160;&lt;CREATE-PDU-GAP-SIGNALS&gt;true&lt;/CREATE-PDU-GAP-SIGNALS&gt;&#160;<br/>&lt;/SAFETY-PDU&gt;&#160;<br/>
+pdu&#160;gaps&#160;are&#160;filled&#160;with&#160;artificial&#160;gap&#160;signals,&#160;<br/>when&#160;then&#160;also&#160;become&#160;part&#160;of&#160;the&#160;new&#160;signal&#160;<br/>group.&#160;<br/>This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>Fibex&#160;databases.&#160;<br/>
+&lt;BIDIRECTIONAL-PDU&gt;&#160;<br/>
+The&#160;pdu&#160;Pdu01&#160;can&#160;be&#160;send&#160;and&#160;received&#160;by&#160;<br/>
+&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+the&#160;same&#160;ECU.<br/>
+&lt;/BIDIRECTIONAL-PDU&gt;&#160;<br/>
+&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC and&#160;Fibex&#160;<br/>databases.&#160;<br/>
+&lt;PDU-GROUP&gt;&#160;<br/>
+For each&#160;cluster&#160;and&#160;ECU which&#160;sends&#160;or&#160;<br/>
+&#160;&#160;&lt;SHORT-NAME&gt;PduGrp01&lt;/SHORT-NAME&gt;&#160;<br/>
+receives&#160;the&#160;pdus&#160;Pdu01&#160;or Pdu02&#160;a&#160;new&#160;Tx<br/>
+&#160;&#160;&lt;SIGNAL-I-PDU-REFS&gt;&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+or Rx&#160;pdu&#160;group&#160;is&#160;created.&#160;The&#160;pdus&#160;are&#160;not&#160;<br/>
+&#160;&#160;&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu02&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+assigned&#160;to&#160;the&#160;standard&#160;pdu&#160;groups&#160;created&#160;<br/>
+&#160;&#160;&lt;/SIGNAL-I-PDU-REFS&gt;&#160;<br/>
+by&#160;the&#160;VLC.&#160;<br/>
+&lt;/PDU-GROUP&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>Fibex&#160;databases.&#160;<br/>
+&lt;PDU-GROUP-DEFINITION&gt;&#160;<br/>
+The&#160;dual&#160;channel&#160;FlexRayCluster FlexRay01&#160;<br/>
+&#160;&#160;&lt;FLEXRAY-CLUSTER-REF&gt;FlexRay01&lt;/FLEXRAY-CLUSTER-REF&gt;&#160;<br/>
+obtains&#160;for its&#160;ECU Ecu01&#160;two&#160;standard&#160;Tx&#160;pdu&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>&#160;&#160;&lt;CHANNEL-SPECIFIC&gt;true&lt;/CHANNEL-SPECIFIC&gt;&#160;<br/>
+groups&#160;and&#160;two&#160;standard&#160;Rx&#160;pdu&#160;groups&#160;–&#160;one&#160;<br/>
+&lt;/PDU-GROUP-DEFINITION&gt;&#160;<br/>
+for each&#160;channel&#160;and&#160;direction,&#160;respectively.&#160;<br/>This&#160;feature&#160;is&#160;supported&#160;for Fibex&#160;databases.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+21&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=22></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&lt;SIGNAL-UPDATE-DEFINITION&gt;&#160;<br/>
+The&#160;signal&#160;SigUpd01_UB&#160;within&#160;pdu&#160;Pdu01&#160;<br/>
+&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+serves&#160;as&#160;update&#160;signal&#160;for the&#160;signal&#160;Sig01&#160;<br/>
+&#160;&#160;&lt;UPDATE-INDICATION-SIGNAL-REF&gt;&#160;<br/>&#160; &#160;&#160;SigUpd01_UB&lt;/UPDATE-INDICATION-SIGNAL-REF&gt;&#160;<br/>
+and&#160;the&#160;signal&#160;group&#160;SG_SigGrp01.&#160;The&#160;<br/>
+&#160;&#160;&lt;UPDATED-SIGNALS&gt;&#160;<br/>
+update&#160;signal&#160;can&#160;be&#160;used&#160;for&#160;one&#160;or&#160;more&#160;<br/>
+&#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig01&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>
+signals&#160;and&#160;signal&#160;groups&#160;within&#160;a&#160;pdu&#160;at&#160;the&#160;<br/>
+&#160;&#160;&lt;/UPDATED-SIGNALS&gt;&#160;<br/>
+same&#160;time.&#160;<br/>
+&#160;&#160;&lt;UPDATED-SIGNAL-GROUPS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC, LDF and&#160;<br/>
+&#160; &#160;&#160;&lt;SYSTEM-SIGNAL-GROUP-REF&gt;&#160;<br/>
+Fibex&#160;databases.<br/>
+&#160; &#160; &#160;&#160;SG_SigGrp01&lt;/SYSTEM-SIGNAL-GROUP-REF&gt;&#160;<br/>
+&#160;<br/>
+&#160;&#160;&lt;/UPDATED-SIGNAL-GROUPS&gt;&#160;<br/>&lt;/SIGNAL-UPDATE-DEFINITION&gt;&#160;<br/>
+&lt;I-PDU-TIMING&gt;&#160;<br/>
+The&#160;timing&#160;elements&#160;NumberOfRepetitions,&#160;<br/>
+&#160;&#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>
+RepetitionPeriod&#160;and&#160;MinimumDelay&#160;of&#160;pdu&#160;<br/>
+&#160;&#160;&lt;NUMBER-OF-REPETITIONS&gt;10&lt;/NUMBER-OF-REPETITIONS&gt;&#160;<br/>&#160;&#160;&lt;REPETITION-PERIOD&gt;0.001&lt;/REPETITION-PERIOD&gt;&#160;<br/>
+Pdu01&#160;override&#160;the&#160;corresponding&#160;database&#160;<br/>
+&#160;&#160;&lt;MINIMUM-DELAY&gt;0.01&lt;/MINIMUM-DELAY&gt;&#160;<br/>
+settings.&#160;Further,&#160;the&#160;SignalSendType&#160;timing&#160;<br/>
+&#160;&#160;&lt;SIGNAL-TIMINGS&gt;&#160;<br/>
+element&#160;of&#160;signal&#160;Sig01&#160;overrides&#160;the&#160;signal&#160;<br/>
+&#160; &#160;&#160;&lt;SIGNAL-TIMING&gt;&#160;<br/>
+specific&#160;timing&#160;settings.&#160;Finally,&#160;the&#160;element&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig01&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>
+AccessRights&#160;defines&#160;whether&#160;the&#160;timing&#160;data&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SIGNAL-SEND-TYPE&gt;ON-CHANGE&lt;/SIGNAL-SEND-TYPE&gt;&#160;<br/>
+later&#160;can&#160;be&#160;changed&#160;in&#160;the&#160;Vector tool&#160;chain.&#160;<br/>
+&#160;<br/>
+&lt;/SIGNAL-TIMING&gt;&#160;<br/>
+&#160;&#160;&lt;/SIGNAL-TIMINGS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC databases.&#160;<br/>
+&#160;&#160;&lt;ACCESS-RIGHTS&gt;READ-ONLY&lt;/ACCESS-RIGHTS&gt;&#160;<br/>
+The&#160;AccessRights&#160;element&#160;is&#160;also&#160;supported&#160;<br/>
+&lt;/I-PDU-TIMING&gt;&#160;<br/>
+for LDF and&#160;Fibex&#160;databases.&#160;<br/>&#160;<br/>
+&lt;CAN-TP-CONNECTION&gt;&#160;<br/>
+The&#160;directly&#160;opposed&#160;pdus&#160;Pdu01&#160;and&#160;Pdu02&#160;<br/>
+&#160;&#160;&lt;SHORT-NAME&gt;Can01_Pdu01_Pdu02&lt;/SHORT-NAME&gt;&#160;<br/>
+of&#160;CanCluster&#160;Can01&#160;are&#160;combined&#160;to&#160;a&#160;new&#160;<br/>
+&#160;&#160;&lt;CAN-CLUSTER-REF&gt;Can01&lt;/CAN-CLUSTER-REF&gt;&#160;<br/>&#160;&#160;&lt;DATA-PDU-REF&gt;Pdu01&lt;/DATA-PDU-REF&gt;&#160;<br/>
+CanTpConnection&#160;Can01_Pdu01_Pdu02.&#160;The&#160;<br/>
+&#160;&#160;&lt;FLOW-CONTROL-PDU-REF&gt;Pdu02&lt;/FLOW-CONTROL-PDU-REF&gt;&#160;<br/>
+VSDE&#160;internal&#160;CanTpConnection&#160;name&#160;can&#160;be&#160;<br/>
+&lt;/CAN-TP-CONNECTION&gt;&#160;<br/>
+referred&#160;by&#160;TpHighLevelRoutings.&#160;Similarly,&#160;<br/>pdus&#160;can&#160;be&#160;combined&#160;to&#160;a&#160;LinTpConnection.&#160;<br/>This&#160;feature&#160;is&#160;supported&#160;for DBC&#160;and&#160;LDF&#160;<br/>databases.&#160;<br/>
+&lt;PDUR-MESSAGE-ROUTING&gt;&#160;<br/>
+The&#160;pdu&#160;Pdu01&#160;of&#160;CanCluster&#160;Can01&#160;is&#160;routed&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>
+via&#160;the&#160;gateway&#160;ECU Ecu01&#160;to&#160;the&#160;pdu&#160;Pdu02&#160;<br/>
+&#160;&#160;&lt;SOURCE-CAN-CLUSTER-REF&gt;Can01&lt;/SOURCE-CAN-CLUSTER-REF&gt;&#160;<br/>&#160;&#160;&lt;TARGET-CAN-CLUSTER-REF&gt;Can02&lt;/TARGET-CAN-CLUSTER-REF&gt;&#160;&#160;of&#160;CanCluster&#160;Can02.&#160;The&#160;pdu&#160;Pdu01&#160;will&#160;be&#160;<br/>&#160;&#160;&lt;I-PDU-MAPPINGS&gt;&#160;<br/>
+routed&#160;by&#160;the&#160;PDUR&#160;module,&#160;and&#160;also&#160;its&#160;DLC&#160;<br/>
+&#160; &#160;&#160;&lt;I-PDU-MAPPING&gt;&#160;<br/>
+value&#160;will&#160;be&#160;routed.&#160;The&#160;signal&#160;Sig01&#160;of&#160;pdu&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;ROUTE-DLC&gt;true&lt;/ROUTE-DLC&gt;&#160;<br/>
+Pdu01&#160;is&#160;received&#160;by&#160;the&#160;gateway&#160;ECU Ecu01,&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-I-PDU-REF&gt;Pdu01&lt;/SOURCE-I-PDU-REF&gt;&#160;<br/>
+all&#160;other&#160;signals&#160;of&#160;pdu&#160;Pdu01&#160;are&#160;not&#160;received&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-SIGNALS&gt;&#160;<br/>
+by&#160;Ecu01.&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig01&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;/SOURCE-SIGNALS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC,&#160;LDF&#160;and&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;TARGET-I-PDU-REF&gt;Pdu02&lt;/TARGET-I-PDU-REF&gt;&#160;<br/>
+Fibex&#160;databases.&#160;<br/>
+&#160; &#160;&#160;&lt;/I-PDU-MAPPING&gt;&#160;<br/>&#160;&#160;&lt;/I-PDU-MAPPINGS&gt;&#160;<br/>&lt;/PDUR-MESSAGE-ROUTING&gt;&#160;<br/>
+&lt;COM-MESSAGE-ROUTING&gt;&#160;<br/>
+The&#160;pdu&#160;Pdu01&#160;of&#160;CanCluster&#160;Can01&#160;is&#160;routed&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>
+via&#160;the&#160;gateway&#160;ECU Ecu01&#160;to&#160;the&#160;pdu&#160;Pdu02&#160;<br/>
+&#160;&#160;&lt;SOURCE-CAN-CLUSTER-REF&gt;Can01&lt;/SOURCE-CAN-CLUSTER-REF&gt;&#160;<br/>&#160;&#160;&lt;TARGET-CAN-CLUSTER-REF&gt;Can02&lt;/TARGET-CAN-CLUSTER-REF&gt;&#160;&#160;of&#160;CanCluster&#160;Can02.&#160;The&#160;pdu&#160;Pdu01&#160;will&#160;be&#160;<br/>&#160;&#160;&lt;I-PDU-MAPPINGS&gt;&#160;<br/>
+routed&#160;immediately&#160;by&#160;the&#160;COM&#160;module,&#160;and&#160;<br/>
+&#160; &#160;&#160;&lt;I-PDU-MAPPING&gt;&#160;<br/>
+also&#160;its&#160;DLC value&#160;will&#160;be&#160;routed.&#160;The&#160;signal&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;PROCESSING&gt;IMMEDIATE&lt;/PROCESSING&gt;&#160;<br/>
+Sig01&#160;of&#160;pdu&#160;Pdu01&#160;is&#160;received&#160;by&#160;the&#160;gateway&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;ROUTE-DLC&gt;true&lt;/ROUTE-DLC&gt;&#160;<br/>
+ECU&#160;Ecu01,&#160;all&#160;other signals&#160;of&#160;pdu&#160;Pdu01&#160;are&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-I-PDU-REF&gt;Pdu01&lt;/SOURCE-I-PDU-REF&gt;&#160;<br/>
+not&#160;received&#160;by&#160;Ecu01.&#160;The&#160;signal&#160;Sig02&#160;of&#160;pdu&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-SIGNALS&gt;&#160;<br/>
+Pdu01&#160;is&#160;excluded&#160;from&#160;the&#160;routings&#160;merge&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig01&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;/SOURCE-SIGNALS&gt;&#160;<br/>
+algorithm&#160;for the&#160;COM&#160;module.&#160;This&#160;avoids&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-EXCLUDE-SIGNALS&gt;&#160;<br/>
+conflicts&#160;with&#160;an&#160;OnChange&#160;sending&#160;behavior&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig02&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>
+of&#160;COM&#160;routed&#160;signals.&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;/SOURCE-EXCLUDE-SIGNALS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC,&#160;LDF&#160;and&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;TARGET-I-PDU-REF&gt;Pdu02&lt;/TARGET-I-PDU-REF&gt;&#160;<br/>
+Fibex&#160;databases.&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;TARGET-EXCLUDE-SIGNALS&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&lt;SYSTEM-SIGNAL-REF&gt;Sig02&lt;/SYSTEM-SIGNAL-REF&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;/TARGET-EXCLUDE-SIGNALS&gt;&#160;<br/>&#160; &#160;&#160;&lt;/I-PDU-MAPPING&gt;&#160;<br/>&#160;&#160;&lt;/I-PDU-MAPPINGS&gt;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+22&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=23></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&lt;/COM-MESSAGE-ROUTING&gt;&#160;<br/>
+&lt;COM-SIGNAL-ROUTING&gt;&#160;<br/>
+The&#160;signal&#160;Sig01&#160;within&#160;pdu&#160;Pdu01&#160;of&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>
+CanCluster Can01&#160;is&#160;routed&#160;via&#160;the&#160;gateway&#160;<br/>
+&#160;&#160;&lt;SOURCE-CAN-CLUSTER-REF&gt;Can01&lt;/SOURCE-CAN-CLUSTER-REF&gt;&#160;<br/>&#160;&#160;&lt;TARGET-CAN-CLUSTER-REF&gt;Can02&lt;/TARGET-CAN-CLUSTER-REF&gt;&#160;&#160;ECU&#160;Ecu01&#160;to&#160;the&#160;signal&#160;Sig02&#160;within&#160;pdu&#160;<br/>&#160;&#160;&lt;SIGNAL-MAPPINGS&gt;&#160;<br/>
+Pdu02&#160;of&#160;CanCluster Can02.&#160;The&#160;signal&#160;Sig01&#160;<br/>
+&#160; &#160;&#160;&lt;SIGNAL-MAPPING&gt;&#160;<br/>
+will&#160;be&#160;routed&#160;deferred&#160;by&#160;the&#160;COM&#160;module.&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;PROCESSING&gt;DEFERED&lt;/PROCESSING&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC,&#160;LDF&#160;and&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-I-PDU-REF&gt;Pdu01&lt;/SOURCE-I-PDU-REF&gt;&#160;<br/>
+Fibex&#160;databases.&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SOURCE-SIGNAL-REF&gt;Sig01&lt;/SOURCE-SIGNAL-REF&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;TARGET-I-PDU-REF&gt;Pdu02&lt;/TARGET-I-PDU-REF&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;TARGET-SIGNAL-REF&gt;Sig02&lt;/TARGET-SIGNAL-REF&gt;&#160;<br/>&#160; &#160;&#160;&lt;/SIGNAL-MAPPING&gt;&#160;<br/>&#160;&#160;&lt;/SIGNAL-MAPPINGS&gt;&#160;<br/>&lt;/COM-SIGNAL-ROUTING&gt;&#160;<br/>
+&lt;TP-HIGH-LEVEL-ROUTING&gt;&#160;<br/>
+The&#160;CanTpConnection&#160;Can01_Pdu01_Pdu02&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>
+is&#160;routed&#160;via&#160;the&#160;gateway&#160;ECU&#160;Ecu01&#160;to&#160;the&#160;<br/>
+&#160;&#160;&lt;SOURCE-CAN-TP-CONNECTION-REF&gt;Can01_Pdu01_Pdu02&#160;<br/>&#160; &#160;&#160;&lt;/SOURCE-CAN-TP-CONNECTION-REF&gt;&#160;<br/>
+CanTpConnection&#160;Can02_Pdu03_Pdu04.&#160;<br/>
+&#160;&#160;&lt;TARGET-CAN-TP-CONNECTION-REF&gt;Can02_Pdu03_Pdu04&#160;<br/>
+CanTpConnections&#160;and&#160;LinTpConnections&#160;<br/>
+&#160; &#160;&#160;&lt;/TARGET-CAN-TP-CONNECTION-REF&gt;&#160;<br/>
+are&#160;defined&#160;by&#160;the&#160;VSDE file,&#160;while&#160;<br/>
+&lt;/TP-HIGH-LEVEL-ROUTING&gt;&#160;<br/>
+FlexrayTpConnections&#160;are&#160;provided&#160;by&#160;Fibex&#160;<br/>databases.&#160;<br/>This&#160;feature&#160;is&#160;supported&#160;for DBC,&#160;LDF&#160;and&#160;<br/>Fibex&#160;databases.&#160;<br/>
+&lt;TP-LOW-LEVEL-ROUTING&gt;&#160;<br/>
+The&#160;n-pdu&#160;Pdu01&#160;of&#160;CanCluster Can01&#160;is&#160;<br/>
+&#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>
+routed&#160;via&#160;the&#160;gateway&#160;ECU Ecu01&#160;to&#160;the<br/>
+&#160;&#160;&lt;SOURCE-CAN-CLUSTER-REF&gt;Can01&lt;/SOURCE-CAN-CLUSTER-REF&gt;&#160;<br/>
+&#160;<br/>
+&#160;&#160;&lt;TARGET-CAN-CLUSTER-REF&gt;Can02&lt;/TARGET-CAN-CLUSTER-REF&gt;&#160;&#160;n-pdu&#160;Pdu02&#160;of&#160;CanCluster Can02.&#160;<br/>&#160;&#160;&lt;N-PDU-MAPPINGS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC databases.&#160;<br/>
+&#160;&#160;&#160;&#160;&lt;N-PDU-MAPPING&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;SOURCE-N-PDU-REF&gt;Pdu01&lt;/SOURCE-N-PDU-REF&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;TARGET-N-PDU-REF&gt;Pdu02&lt;/TARGET-N-PDU-REF&gt;&#160;<br/>&#160; &#160;&#160;&lt;/N-PDU-MAPPING&gt;&#160;<br/>&#160;&#160;&lt;/N-PDU-MAPPINGS&gt;&#160;<br/>&lt;/TP-LOW-LEVEL-ROUTING&gt;&#160;<br/>
+&lt;PNC-CONFIGURATION&gt;&#160;<br/>
+The&#160;pdus&#160;Pdu01&#160;and&#160;Pdu02&#160;of&#160;CanCluster&#160;<br/>
+&#160;&#160;&lt;PNC-VECTOR-LENGTH&gt;3&lt;/PNC-VECTOR-LENGTH&gt;&#160;<br/>
+Can01&#160;are&#160;combined&#160;to&#160;a&#160;PNC&#160;group&#160;for ECU&#160;<br/>
+&#160;&#160;&lt;PNC-VECTOR-OFFSET&gt;5&lt;/PNC-VECTOR-OFFSET&gt;&#160;<br/>&#160;&#160;&lt;PNC-CLUSTERS&gt;&#160;<br/>
+Ecu01&#160;and&#160;the&#160;partial&#160;network&#160;with&#160;the&#160;ID 1.&#160;<br/>
+&#160; &#160;&#160;&lt;PNC-CLUSTER&gt;&#160;<br/>
+A&#160;partial&#160;network&#160;is&#160;defined&#160;by&#160;all&#160;PNC groups&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;CAN-CLUSTER-REF&gt;Can01&lt;/CAN-CLUSTER-REF&gt;&#160;<br/>
+which&#160;refer the&#160;same&#160;partial&#160;network&#160;ID.&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;PNC-ECUS&gt;&#160;<br/>
+This&#160;feature&#160;is&#160;supported&#160;for DBC and&#160;Fibex&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;PNC-ECU&gt;&#160;<br/>
+databases.&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160;&lt;ECU-INSTANCE-REF&gt;Ecu01&lt;/ECU-INSTANCE-REF&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&lt;PNC-GATEWAY-TYPE&gt;ACTIVE&lt;/PNC-GATEWAY-TYPE&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&lt;PNC-WAKEUP-CAN-ID&gt;452984832&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/PNC-WAKEUP-CAN-ID&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&lt;PNC-WAKEUP-CAN-ID-EXTENDED&gt;true&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;/PNC-WAKEUP-CAN-ID-EXTENDED&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;PNC-WAKEUP-CAN-ID-MASK&gt;127&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;/PNC-WAKEUP-CAN-ID-MASK&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;PNC-WAKEUP-DATA-MASK&gt;4611686018427387904&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;/PNC-WAKEUP-DATA-MASK&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;PNC-WAKEUP-DLC&gt;8&lt;/PNC-WAKEUP-DLC&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;PNC-GROUPS&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;PNC-GROUP&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160; &#160;&lt;PNC-IDENTIFIER&gt;1&lt;/PNC-IDENTIFIER&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&lt;COMMUNICATION-DIRECTION&gt;IN&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160; &#160; &#160;&lt;COMMUNICATION-DIRECTION&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;SIGNAL-I-PDU-REFS&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160; &#160;&lt;SIGNAL-I-PDU-REF&gt;Pdu01&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/SIGNAL-I-PDU-REF&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/SIGNAL-I-PDU-REFS&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;MULTIPLEXED-I-PDU-REFS&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160; &#160;&lt;MULTIPLEXED-I-PDU-REF&gt;Pdu02&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;&lt;/MULTIPLEXED-I-PDU-REF&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;/MULTIPLEXED-I-PDU-REFS&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&#160;&#160;&lt;/PNC-GROUP&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;&lt;/PNC-GROUPS&gt;&#160;<br/>&#160; &#160; &#160; &#160;&#160;&lt;/PNC-ECU&gt;&#160;<br/>&#160; &#160; &#160;&#160;&lt;/PNC-ECUS&gt;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+23&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=24></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+&#160; &#160;&#160;&lt;/PNC-CLUSTER&gt;&#160;<br/>&#160;&#160;&lt;/PNC-CLUSTERS&gt;&#160;<br/>&lt;/PNC-CONFIGURATION&gt;&#160;<br/>
+Table&#160;2-7&#160;&#160;&#160;Vector&#160;System&#160;Description&#160;Extension&#160;file&#160;elements.&#160;<br/>
+The&#160;extension&#160;file&#160;is&#160;provided&#160;as&#160;a&#160;file&#160;parameter&#160;to&#160;the&#160;VLC.&#160;Its&#160;XML&#160;schema&#160;is&#160;described&#160;<br/>with&#160;the&#160;ExtractExtension.xsd&#160;file.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+24&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=25></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>3&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+DPA&#160;<br/>
+DaVinci&#160;Project&#160;Assistant&#160;<br/>
+VLC&#160;<br/>
+Vector&#160;Legacy&#160;Converter&#160;<br/>
+VSDE&#160;<br/>
+Vector&#160;System&#160;Description&#160;Extension&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+25&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+<a name=26></a>Technical Reference&#160;Vector Legacy&#160;Converter&#160;<br/>
+<b>4&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>
+<b>www.vector.com&#160;</b><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.4.2&#160;<br/>
+26&#160;/&#160;26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.11.1&#160;<br/>
+<hr/>
+</body>
+</html>

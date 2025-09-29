@@ -1,0 +1,358 @@
+---
+title: ShtdwnMech_IntegrationManual
+linkTitle: ShtdwnMech_IntegrationManual
+weight: 3
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>ShtdwnMech</strong></p>
+<p><strong>VERSION: 1.0</strong></p>
+<p><strong>DATE: 21-Mar-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<caption><p>: ARM Cortex R4 Memory Usage</p></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 10%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>M. Bartocha</td>
+<td>1.0</td>
+<td>21-Mar-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+Table of Contents</u></strong></p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms <span>4</span></a></p>
+<p><a href="#references">2 References <span>5</span></a></p>
+<p><a href="#dependencies">3 Dependencies <span>6</span></a></p>
+<p><a href="#swcs">3.1 SWCs <span>6</span></a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project <span>6</span></a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS <span>7</span></a></p>
+<p><a href="#build-time-config">4.1 Build Time Config <span>7</span></a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project <span>7</span></a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes <span>7</span></a></p>
+<p><a href="#davinci-interrupt-configuration-changes">4.4 DaVinci Interrupt Configuration Changes <span>7</span></a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes <span>7</span></a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS <span>8</span></a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs <span>8</span></a></p>
+<p><a href="#_Toc389222329">5.2 Required Global Data Outputs <span>8</span></a></p>
+<p><a href="#_Toc357692829">5.3 Specific Include Path present <span>8</span></a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling <span>9</span></a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS <span>10</span></a></p>
+<p><a href="#mapping">7.1 Mapping <span>10</span></a></p>
+<p><a href="#usage">7.2 Usage <span>10</span></a></p>
+<p><a href="#nvm-blocks">7.3 Non RTE NvM Blocks <span>10</span></a></p>
+<p><a href="#_Toc389222336">7.4 RTE NvM Blocks <span>10</span></a></p>
+<p><a href="#_Toc357692835">8 Compiler Settings <span>11</span></a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO <span>11</span></a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings <span>11</span></a></p>
+<p><a href="#appendix">9 Appendix <span>12</span></a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Sr. No.</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>FDD – ES108A ShtdwnMech</td>
+<td>See Synergy subproject version</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>Process 04.02.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Coding Standards</td>
+<td>Process 04.02.01</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Module</strong></th>
+<th><strong>Required Feature</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>ES999A_ElecGlbPrm</strong></td>
+<td>StrtUpState Threshold defines</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p><em>None</em></p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Modules</strong></th>
+<th><strong>Notes</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<p><em>None</em></p>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Parameter</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 38%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ISR Name</strong></th>
+<th><strong>VIM #</strong></th>
+<th><strong>Priority Dependency</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Constant</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p><span id="_Toc389222329" class="anchor"></span>Refer DataDict.m file</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p><span id="_Toc357692829" class="anchor"></span>Refer DataDict.m file</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>NO</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Init</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>ShtdwnMechInit1</strong></td>
+<td>None</td>
+<td>RTE Init</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Runnable</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>ShtdwnMechPer1</strong></td>
+<td>None</td>
+<td>RTE(2ms)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Memory Section</strong></th>
+<th><strong>Contents</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>ShtdwnMech_START_SEC_CODE</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>RAM</strong></th>
+<th><strong>ROM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>&lt;Memmap usuage info&gt;</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p><span id="_Toc357692835" class="anchor"></span><em>None</em></p>
+<h1 id="compiler-settings"> Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p><em>None</em></p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p><em>None</em></p>
+<h1 id="appendix">Appendix</h1>
+<p><em>&lt;This section is for appendix&gt;</em></p>

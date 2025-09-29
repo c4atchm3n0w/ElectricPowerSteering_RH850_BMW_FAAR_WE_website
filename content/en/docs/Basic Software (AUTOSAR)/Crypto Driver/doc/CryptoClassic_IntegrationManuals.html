@@ -1,0 +1,198 @@
+---
+title: CryptoClassic_IntegrationManuals
+linkTitle: CryptoClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-1_1.png"/><br/>
+Crypto&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.2.0<br/>
+2017-12-14<br/>
+Version&#160;Update<br/>
+5.1.0<br/>
+2017-11-09<br/>
+Version&#160;Update<br/>
+5.0.0<br/>
+2017-10-12<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;7<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="CryptoClassic_IntegrationManuals.html#3"><b>1&#160;Introduction</b></a><br/>
+<b>3</b><br/>
+<a href="CryptoClassic_IntegrationManuals.html#3">1.1</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#3">Functional&#160;overview</a><br/>
+3<br/>
+<a href="CryptoClassic_IntegrationManuals.html#4"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>4</b><br/>
+<a href="CryptoClassic_IntegrationManuals.html#5"><b>3&#160;Limitations</b></a><br/>
+<b>5</b><br/>
+<a href="CryptoClassic_IntegrationManuals.html#6"><b>4&#160;Software&#160;Architecture</b></a><br/>
+<b>6</b><br/>
+<a href="CryptoClassic_IntegrationManuals.html#6">4.1</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#6">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+6<br/>
+<a href="CryptoClassic_IntegrationManuals.html#6">4.2</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#6">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+6<br/>
+<a href="CryptoClassic_IntegrationManuals.html#7"><b>5&#160;Integration</b></a><br/>
+<b>7</b><br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">5.1</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+7<br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">5.2</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">Configuration</a><br/>
+7<br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">5.3</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+7<br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">5.4</a><br/>
+<a href="CryptoClassic_IntegrationManuals.html#7">Key&#160;File</a><br/>
+7<br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;7<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality&#160;and&#160;the&#160;configuration&#160;and&#160;integration&#160;of&#160;the<br/>Crypto&#160;module.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Crypto&#160;functionality&#160;is&#160;to&#160;provide&#160;a&#160;hardware&#160;independant&#160;cryptography&#160;library<br/>which&#160;shall&#160;be&#160;usable&#160;by&#160;all&#160;BMW&#160;ECUs.<br/>
+The&#160;Crypto&#160;Module&#160;provides&#160;the&#160;following&#160;Crypto&#160;primitives&#160;:<br/>
+SHA-256<br/>SHA-384<br/>SHA-512<br/>ECDSA&#160;Signature&#160;verification&#160;(P-256/P-384/P-521)<br/>Certificate&#160;parsing&#160;and&#160;signature&#160;verification.<br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;7<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-4_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;7<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-5_1.png"/><br/>
+<b>3</b><br/>
+<b>Limitations</b><br/>
+No&#160;limitations&#160;are&#160;known.<br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;7<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-6_1.png"/><br/>
+<b>4</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Module&#160;Crypto&#160;does&#160;not&#160;depend&#160;on&#160;any&#160;BSW&#160;module.<br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+Crypto&#160;includes&#160;headers&#160;from&#160;the&#160;BMW&#160;BUtil&#160;module.<br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;7<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoClassic_IntegrationManual-7_1.png"/><br/>
+<b>5</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+No&#160;other&#160;module&#160;needs&#160;to&#160;be&#160;configured&#160;to&#160;perform&#160;integration&#160;of&#160;the&#160;Crypto&#160;library.<br/>
+<b>Configuration</b><br/>
+For&#160;a&#160;detailed&#160;description&#160;of&#160;the&#160;configuration&#160;parameters,&#160;please&#160;consult&#160;the&#160;description&#160;in&#160;the&#160;Crypto<br/>parameter&#160;definition&#160;file.<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE</b><br/>
+There&#160;are&#160;no&#160;special&#160;requirement&#160;for&#160;RTE&#160;configuration.<br/>
+<b>Key&#160;File</b><br/>
+The&#160;security&#160;key&#160;file&#160;is&#160;generated&#160;with&#160;BMW&#160;backend&#160;system&#160;SWL-SEC&#160;for&#160;every&#160;ECU.&#160;This&#160;key&#160;file<br/>named&#160;Crypto_Keys.h&#160;needs&#160;to&#160;be&#160;included&#160;directly.<br/>
+CryptoClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;7<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="CryptoClassic_IntegrationManuals.html#3">1 Introduction</a>
+<ul>
+<li><a href="CryptoClassic_IntegrationManuals.html#3">1.1 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="CryptoClassic_IntegrationManuals.html#4">2 Related documentation</a></li>
+<li><a href="CryptoClassic_IntegrationManuals.html#5">3 Limitations</a></li>
+<li><a href="CryptoClassic_IntegrationManuals.html#6">4 Software Architecture</a>
+<ul>
+<li><a href="CryptoClassic_IntegrationManuals.html#6">4.1 Dependencies on AUTOSAR modules</a></li>
+<li><a href="CryptoClassic_IntegrationManuals.html#6">4.2 Dependencies to other modules</a></li>
+</ul>
+</li>
+<li><a href="CryptoClassic_IntegrationManuals.html#7">5 Integration</a>
+<ul>
+<li><a href="CryptoClassic_IntegrationManuals.html#7">5.1 Configuration of other Modules</a></li>
+<li><a href="CryptoClassic_IntegrationManuals.html#7">5.2 Configuration</a></li>
+<li><a href="CryptoClassic_IntegrationManuals.html#7">5.3 Configuration of the RTE</a></li>
+<li><a href="CryptoClassic_IntegrationManuals.html#7">5.4 Key File</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

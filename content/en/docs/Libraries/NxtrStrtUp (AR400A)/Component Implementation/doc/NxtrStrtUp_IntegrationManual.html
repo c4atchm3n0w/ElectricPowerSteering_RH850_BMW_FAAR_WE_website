@@ -1,0 +1,409 @@
+---
+title: NxtrStrtUp_IntegrationManual
+linkTitle: NxtrStrtUp_IntegrationManual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>NxtrStrtUp</strong></p>
+<p><strong>VERSION: 1</strong></p>
+<p><strong>DATE: 06/01/17</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 10%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Jared Julien</td>
+<td>1</td>
+<td>06/01/17</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+Table of Contents</u></strong></p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms <span>4</span></a></p>
+<p><a href="#references">2 References <span>5</span></a></p>
+<p><a href="#dependencies">3 Dependencies <span>6</span></a></p>
+<p><a href="#swcs">3.1 SWCs <span>6</span></a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project <span>6</span></a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS <span>7</span></a></p>
+<p><a href="#build-time-config">4.1 Build Time Config <span>7</span></a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project <span>7</span></a></p>
+<p><a href="#davinci-parameter-configuration-changes">4.3 DaVinci Parameter Configuration Changes <span>7</span></a></p>
+<p><a href="#davinci-interrupt-configuration-changes">4.4 DaVinci Interrupt Configuration Changes <span>7</span></a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes <span>7</span></a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS <span>8</span></a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs <span>8</span></a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs <span>8</span></a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present <span>8</span></a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling <span>9</span></a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS <span>10</span></a></p>
+<p><a href="#mapping">7.1 Mapping <span>10</span></a></p>
+<p><a href="#usage">7.2 Usage <span>10</span></a></p>
+<p><a href="#nvm-blocks">7.3 NvM Blocks <span>10</span></a></p>
+<p><a href="#compiler-settings">8 Compiler Settings <span>11</span></a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO <span>11</span></a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings <span>11</span></a></p>
+<p><a href="#appendix">9 Appendix <span>12</span></a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&lt;ADD more to the table if applicable&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Sr. No.</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>MDD Guidelines</td>
+<td>Process 04.00.00</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>Process 04.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Coding Standards</td>
+<td>Process 04.00.00</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>AR400A_NxtrStrtUp_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Module</strong></th>
+<th><strong>Required Feature</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p>None</p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Modules</strong></th>
+<th><strong>Notes</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<p>None</p>
+<h2 id="davinci-parameter-configuration-changes">DaVinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 54%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Parameter</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 10%" />
+<col style="width: 23%" />
+<col style="width: 27%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ISR Name</strong></th>
+<th><strong>Interrupt Category (FE/EI)</strong></th>
+<th><strong>Interrupt Channel Number</strong></th>
+<th><strong>Priority Dependency</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p>None</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p>None</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>Yes</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Init</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Runnable</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>.</strong></p>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 26%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Memory Section</strong></th>
+<th><strong>Contents</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.appstrtvect</td>
+<td>Entry point to application</td>
+<td>Must be placed at the location that the bootloader is expected to jump to via linker command file.</td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>RAM</strong></th>
+<th><strong>ROM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p>None</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p>None</p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p>The following option must be specified in the main .gpj project file:</p>
+<p>-nostartfiles</p>
+<p>This change prevents the use of the Green Hills startup library which this component replaces.</p>
+<h1 id="appendix">Appendix</h1>
+<p>The following symbols need to be defined in the linker command file for the project surrounding RAM sections that are to be cleared at init.</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>clearedRamStart</td>
+<td>To be placed near the top of RAM, before any *bss or *sbss section have been included by the application or OS.</td>
+</tr>
+<tr class="even">
+<td>clearedRamEnd</td>
+<td>To be placed near the end of RAM but before the definition of any heap memory and after any and all *bss or *sbss sections.</td>
+</tr>
+</tbody>
+</table>
+<p>These symbols are used by the library to denote the beginning and end of RAM that will be cleared during application init. The intent is to keep the range as small as possible to optimize startup timing while including all RAM that is guaranteed to be cleared at init. Due to the way Nexteer structures their memory map the cleared section may contain initialized sections (*data and *sdata) as well. This will not cause any functional issues but will hinder performance slightly.</p>
+<p><strong>Caution</strong>: if a variable is outside of the range between these two symbols its value at init cannot be assured. It is recommended that the .map file be analyzed once the changes have been integrated and the project compiles to ensure that there are no variables that fall outside of this range.</p>

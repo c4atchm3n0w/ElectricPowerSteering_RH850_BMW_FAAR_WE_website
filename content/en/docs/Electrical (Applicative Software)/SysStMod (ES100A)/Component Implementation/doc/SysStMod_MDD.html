@@ -1,0 +1,293 @@
+---
+title: SysStMod_MDD
+linkTitle: SysStMod_MDD
+weight: 4
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>System States and Modes</strong></p>
+<p><strong>VERSION:</strong> <strong>2</strong></p>
+<p><strong>DATE:</strong> <strong>05-Apr-2016</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 55%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Version</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Owen Tosh</td>
+<td>25-Mar-2015</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updated for FDD ver 1.3.0</td>
+<td>Sankardu Varadapureddi</td>
+<td>05-Apr-2016</td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 4</a></p>
+<p><a href="#references">2 References 5</a></p>
+<p><a href="#sysstmod-high-level-description">3 SysStMod &amp; High-Level Description 6</a></p>
+<p><a href="#design-details-of-software-module">4 Design details of software module 7</a></p>
+<p><a href="#graphical-representation-of-sysstmod">4.1 Graphical representation of SysStMod 7</a></p>
+<p><a href="#variable-data-dictionary">5 Variable Data Dictionary 8</a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">5.1 User defined typedef definition/declaration 8</a></p>
+<p><a href="#variable-definition-for-enumerated-types">5.2 Variable definition for enumerated types 8</a></p>
+<p><a href="#constant-data-dictionary">6 Constant Data Dictionary 9</a></p>
+<p><a href="#programfixed-constants">6.1 Program(fixed) Constants 9</a></p>
+<p><a href="#embedded-constants">6.1.1 Embedded Constants 9</a></p>
+<p><a href="#local">6.1.1.1 Local 9</a></p>
+<p><a href="#global">6.1.1.2 Global 9</a></p>
+<p><a href="#module-specific-lookup-tables-constants">6.1.2 Module specific Lookup Tables Constants 10</a></p>
+<p><a href="#software-module-implementation">7 Software Module Implementation 11</a></p>
+<p><a href="#sub-module-functions">7.1 Sub-Module Functions 11</a></p>
+<p><a href="#initialization-functions">7.2 Initialization Functions 11</a></p>
+<p><a href="#init-sysstmodinit1">7.2.1 Init: SysStMd_Init1 11</a></p>
+<p><a href="#design-rationale">7.2.1.1 Design Rationale 11</a></p>
+<p><a href="#module-internal">7.2.1.2 Module Internal 11</a></p>
+<p><a href="#periodic-functions">7.3 PERIODIC FUNCTIONS 11</a></p>
+<p><a href="#per-sysstmdper1">7.3.1 Per: SysStMd_Per1 11</a></p>
+<p><a href="#design-rationale-1">7.3.1.1 Design Rationale 11</a></p>
+<p><a href="#processing-of-function">7.3.1.2 Processing of Function 11</a></p>
+<p><a href="#interrupt-functions">7.4 Interrupt Functions 11</a></p>
+<p><a href="#serial-communication-functions">7.5 Serial Communication Functions 11</a></p>
+<p><a href="#local-functionmacro-definitions">7.6 Local Function/Macro Definitions 11</a></p>
+<p><a href="#global-functionmacro-definitions">7.7 GLObAL Function/Macro Definitions 11</a></p>
+<p><a href="#known-limitations-with-design">8 Known Limitations With Design 12</a></p>
+<p><a href="#unit-test-consideration">9 UNIT TEST CONSIDERATION 13</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Abbreviation</td>
+<td>Description</td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Sr. No.</td>
+<td>Title</td>
+<td>Version</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>MDD Guidelines</td>
+<td>Process 03.05.00</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>Process 03.05.00</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Software Coding Standards</td>
+<td>Process 03.05.00</td>
+</tr>
+</tbody>
+</table>
+<h1 id="sysstmod-high-level-description">SysStMod &amp; High-Level Description</h1>
+<p>This module manages the overall system state based on ignition, startup test completion, and fault status. It arbitrates between the various demands on the system state and manages the transition decisions with a lookup table, dependent on the current state.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-sysstmod">Graphical representation of SysStMod</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:2.75833in;height:1.53333in" /></p>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Typedef Name</td>
+<td>Element Name</td>
+<td>User Defined Type</td>
+<td><p>Legal Range</p>
+<p>(min)</p></td>
+<td><p>Legal Range</p>
+<p>(max)</p></td>
+</tr>
+<tr class="even">
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 59%" />
+<col style="width: 13%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Enum Name</td>
+<td>Element Name</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>None</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="programfixed-constants">Program(fixed) Constants</h2>
+<h2 id="embedded-constants">Embedded Constants</h2>
+<h2 id="local">Local</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Units</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>SYSSTREQENBIT_CNT_U16</td>
+<td>1</td>
+<td>Count</td>
+<td>0x04</td>
+</tr>
+<tr class="odd">
+<td>PWRSPLYENREQBIT_CNT_U16</td>
+<td>1</td>
+<td>Count</td>
+<td>0x10</td>
+</tr>
+<tr class="even">
+<td>SYSSTFLTOUTPREQDIBIT_CNT_U16</td>
+<td>1</td>
+<td>Count</td>
+<td>0x08</td>
+</tr>
+<tr class="odd">
+<td>SYSSTREQDIBIT_CNT_U16</td>
+<td>1</td>
+<td>Count</td>
+<td>0x02</td>
+</tr>
+<tr class="even">
+<td>SYSSTWRMININCMPLBIT_CNT_U16</td>
+<td>1</td>
+<td>Count</td>
+<td>0x01</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global">Global</h2>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+</tr>
+<tr class="even">
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-specific-lookup-tables-constants"><br />
+Module specific Lookup Tables Constants</h2>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 10%" />
+<col style="width: 31%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Value</td>
+<td>Software Segment</td>
+</tr>
+<tr class="even">
+<td>See design M file for details</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-module-implementation">Software Module Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>None</p>
+<h2 id="initialization-functions">Initialization Functions</h2>
+<h2 id="init-sysstmodinit1">Init: SysStModInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p>None</p>
+<h2 id="module-internal">Module Internal</h2>
+<p>See design model for details.</p>
+<h2 id="periodic-functions">PERIODIC FUNCTIONS </h2>
+<h2 id="per-sysstmdper1">Per: SysStMdPer1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>The logic around building the transition vector does not match the design model exactly for efficiency and coding standard reasons. They are identical functionally, however.</p>
+<h2 id="processing-of-function">Processing of Function</h2>
+<p>See design model for details.</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="serial-communication-functions">Serial Communication Functions</h2>
+<p>None</p>
+<h2 id="local-functionmacro-definitions">Local Function/Macro Definitions</h2>
+<p>None</p>
+<h2 id="global-functionmacro-definitions">GLObAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations With Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>

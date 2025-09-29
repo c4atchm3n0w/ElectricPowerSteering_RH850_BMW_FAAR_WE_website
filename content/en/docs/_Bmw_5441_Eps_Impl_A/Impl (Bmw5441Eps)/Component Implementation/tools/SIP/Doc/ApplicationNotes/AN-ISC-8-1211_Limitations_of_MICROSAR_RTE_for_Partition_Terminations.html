@@ -1,0 +1,126 @@
+---
+title: AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations
+linkTitle: AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations
+weight: 75
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-1_1.png"/><br/>
+&#160;<br/>&#160;<br/>
+<b>Limitations&#160;of&#160;MICROSAR&#160;RTE&#160;for&#160;Partition&#160;Termination&#160;<br/></b>Version&#160;1.0.0&#160;<br/>2017-08-15&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1211&#160;<br/>
+<b>Author</b>&#160;<br/>
+Jonas&#160;Wolf&#160;<br/>
+<b>Restrictions</b>&#160;&#160;Customer Confidential&#160;–&#160;Vector decides&#160;<br/><b>Abstract</b>&#160;<br/>
+This&#160;application&#160;note&#160;describes&#160;the&#160;scenarios&#160;it&#160;is&#160;considered&#160;possible to terminate&#160;an&#160;<br/>OS&#160;application,&#160;in&#160;which&#160;the MICROSAR RTE&#160;is&#160;used,&#160;using&#160;the&#160;MICROSAR OS.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#2"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#2"><b>Overview&#160;........................................................................................................................................&#160;2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#2"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#2"><b>Limitations of&#160;MICROSAR&#160;RTE&#160;....................................................................................................&#160;2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#3"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#3"><b>Additional&#160;Resources&#160;...................................................................................................................&#160;3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#3"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#3"><b>Contacts&#160;.........................................................................................................................................&#160;3</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-2_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-2_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-2_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-2_5.png"/><br/>
+Limitations of&#160;MICROSAR&#160;RTE&#160;for&#160;Partition&#160;Termination&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+Terminating&#160;and restarting&#160;of&#160;partitions&#160;(i.e.&#160;OS&#160;applications)&#160;is&#160;an&#160;AUTOSAR&#160;feature supported&#160;by&#160;<br/>Vector’s&#160;Operating&#160;System&#160;(OS). Vector’s&#160;MICROSAR&#160;Runtime Environment (RTE), however,&#160;does&#160;<br/>not&#160;implement&#160;termination&#160;or restart of&#160;partitions.&#160;<br/>
+<b>2&#160;</b><br/>
+<b>Limitations&#160;of&#160;MICROSAR RTE&#160;</b><br/>
+Terminating&#160;or restarting OS&#160;applications&#160;is&#160;problematic,&#160;for example&#160;when the following&#160;<br/>dependencies&#160;between&#160;different OS&#160;applications&#160;exist:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Trusted&#160;function&#160;calls,&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Client/server communication,&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Queued sender/receiver communication,&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Mode&#160;management,&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Dependencies&#160;on states&#160;on&#160;application level&#160;<br/>
+These&#160;kinds&#160;of&#160;dependencies&#160;rely&#160;on&#160;either&#160;OS&#160;objects, like events, or&#160;RTE&#160;states, e.g.&#160;queue&#160;state.&#160;If&#160;<br/>one OS&#160;application&#160;is&#160;restarted,&#160;the other&#160;OS&#160;application(s)&#160;may&#160;have&#160;an&#160;inconsistent&#160;view&#160;on these&#160;<br/>objects&#160;or states.&#160;There may&#160;be also dependencies&#160;on&#160;the&#160;application&#160;level&#160;that&#160;are not&#160;obvious&#160;to&#160;<br/>identify,&#160;e.g.&#160;due to functional&#160;dependencies.&#160;<br/>
+For implementing&#160;termination&#160;or restarting of&#160;OS&#160;applications&#160;it must be considered&#160;that&#160;termination&#160;or&#160;<br/>restart may&#160;happen&#160;exactly&#160;at&#160;a&#160;point&#160;in time when&#160;one&#160;of&#160;the activities&#160;above is&#160;being&#160;executed,&#160;e.g.&#160;<br/>during a&#160;client/server call.&#160;<br/>
+The&#160;restarted&#160;OS&#160;applications&#160;need to&#160;establish&#160;their&#160;initialization&#160;state again.&#160;This&#160;requires&#160;initializing&#160;<br/>all&#160;variables,&#160;e.g.&#160;states&#160;and inter-runnable&#160;variables&#160;to their&#160;initial&#160;values. Due&#160;to&#160;a&#160;different system&#160;<br/>state in other&#160;partitions,&#160;this&#160;will&#160;most likely&#160;break&#160;functionality&#160;if&#160;no&#160;measures&#160;on&#160;the&#160;application&#160;level&#160;<br/>are taken.&#160;<br/>
+OS&#160;Application A&#160;<br/>
+OS&#160;Application B&#160;<br/>
+RTE&#160;<br/>
+The&#160;ECU can&#160;end&#160;up&#160;in&#160;an&#160;unknown state&#160;if&#160;OS&#160;Application A&#160;is&#160;terminated,&#160;and&#160;<br/>SWCs&#160;in OS Application B&#160;has&#160;dependencies&#160;listed&#160;above.&#160;<br/>
+&#160;<br/>
+The&#160;MICROSAR RTE&#160;currently&#160;does&#160;not implement functionality&#160;for terminating&#160;or restarting&#160;of&#160;OS&#160;<br/>applications.&#160;However,&#160;using the&#160;MICROSAR OS&#160;to&#160;terminate&#160;an&#160;OS&#160;application,&#160;in&#160;which the RTE&#160;is&#160;<br/>used,&#160;is&#160;considered&#160;possible&#160;only&#160;under&#160;the following&#160;conditions:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;OS&#160;application is&#160;only&#160;terminated&#160;and not&#160;restarted.&#160;Restarting&#160;the&#160;OS&#160;application&#160;<br/>requires&#160;a restart of&#160;the complete&#160;ECU.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;OS&#160;application,&#160;that&#160;is&#160;terminated,&#160;only&#160;has&#160;unqueued sender/receiver communication&#160;to&#160;<br/>other OS&#160;applications.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;OS&#160;application&#160;that&#160;is&#160;terminated, does&#160;not access&#160;other&#160;OS&#160;objects, like events, from&#160;<br/>other OS&#160;applications.&#160;<br/>
+Please note&#160;that&#160;the&#160;OS&#160;unlocks&#160;any&#160;locked&#160;spin-locks,&#160;if&#160;an&#160;OS&#160;application&#160;is&#160;terminated. This&#160;may&#160;<br/>leave&#160;the&#160;protected&#160;data&#160;in&#160;an&#160;inconsistent&#160;state.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination-3_1.png"/><br/>
+Limitations of&#160;MICROSAR&#160;RTE&#160;for&#160;Partition&#160;Termination&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Additional&#160;Resources&#160;</b><br/>
+VECTOR&#160;TECHNICAL REFERENCES&#160;<br/>
+Technical&#160;Reference&#160;RTE&#160;<br/>
+Technical&#160;Reference OS&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For a full&#160;list&#160;with all&#160;Vector&#160;locations&#160;and&#160;addresses&#160;worldwide, please&#160;visi<a href="http://vector.com/contact/">t&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#2">1 Overview</a></li>
+<li><a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#2">2 Limitations of MICROSAR RTE</a></li>
+<li><a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#3">3 Additional Resources</a></li>
+<li><a href="AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Terminations.html#3">4 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

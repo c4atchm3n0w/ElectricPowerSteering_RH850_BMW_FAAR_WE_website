@@ -1,0 +1,300 @@
+---
+title: IntegrationManual_Srvs
+linkTitle: IntegrationManual_Srvs
+weight: 5
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-1_1.png"/><br/>
+Integration&#160;Manual&#160;Srv<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;2<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2015-12-11<br/>
+Version<br/>
+3.1.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version&#160;Date</b><br/>
+<b>Changed&#160;by</b><br/>
+<b>Description</b><br/>
+3.1.0<br/>
+2015-12-<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+11<br/>
+Sachsenberg<br/>
+3.0.1<br/>
+2015-03-<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+13<br/>
+Sachsenberg<br/>
+3.0.0<br/>
+2014-10-<br/>
+Björn<br/>
+Initial&#160;version&#160;(taken&#160;over&#160;from&#160;BAC4&#160;1.2.x)<br/>
+29<br/>
+Sachsenberg<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;1&#160;of&#160;8<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="IntegrationManual_Srvs.html#3"><b>1&#160;Introduction</b></a><br/>
+<b>3</b><br/>
+<a href="IntegrationManual_Srvs.html#3">1.1</a><br/>
+<a href="IntegrationManual_Srvs.html#3">General</a><br/>
+3<br/>
+<a href="IntegrationManual_Srvs.html#3">1.2</a><br/>
+<a href="IntegrationManual_Srvs.html#3">Functional&#160;overview</a><br/>
+3<br/>
+<a href="IntegrationManual_Srvs.html#3"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>3</b><br/>
+<a href="IntegrationManual_Srvs.html#4"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>4</b><br/>
+<a href="IntegrationManual_Srvs.html#4">3.1</a><br/>
+<a href="IntegrationManual_Srvs.html#4">BMW&#160;Specifications</a><br/>
+4<br/>
+<a href="IntegrationManual_Srvs.html#4">3.2</a><br/>
+<a href="IntegrationManual_Srvs.html#4">AUTOSAR&#160;Specifications</a><br/>
+4<br/>
+<a href="IntegrationManual_Srvs.html#5"><b>4&#160;Limitations</b></a><br/>
+<b>5</b><br/>
+<a href="IntegrationManual_Srvs.html#6"><b>5&#160;Software&#160;Architecture</b></a><br/>
+<b>6</b><br/>
+<a href="IntegrationManual_Srvs.html#6">5.1</a><br/>
+<a href="IntegrationManual_Srvs.html#6">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+6<br/>
+<a href="IntegrationManual_Srvs.html#6">5.2</a><br/>
+<a href="IntegrationManual_Srvs.html#6">Dependencies&#160;on&#160;BMW&#160;modules</a><br/>
+6<br/>
+<a href="IntegrationManual_Srvs.html#7"><b>6&#160;Integration</b></a><br/>
+<b>7</b><br/>
+<a href="IntegrationManual_Srvs.html#7">6.1</a><br/>
+<a href="IntegrationManual_Srvs.html#7">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#7">6.2</a><br/>
+<a href="IntegrationManual_Srvs.html#7">Configuration</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#7">6.2.1</a><br/>
+<a href="IntegrationManual_Srvs.html#7">General</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#7">6.2.1.1</a><br/>
+<a href="IntegrationManual_Srvs.html#7">HandleEccRam</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#7">6.2.1.2</a><br/>
+<a href="IntegrationManual_Srvs.html#7">HandleEccRom</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#7">6.2.1.3</a><br/>
+<a href="IntegrationManual_Srvs.html#7">MultiCpuEnable</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#7">6.2.1.4</a><br/>
+<a href="IntegrationManual_Srvs.html#7">FeatureSet</a><br/>
+7<br/>
+<a href="IntegrationManual_Srvs.html#8">6.3</a><br/>
+<a href="IntegrationManual_Srvs.html#8">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+8<br/>
+<a href="IntegrationManual_Srvs.html#8">6.4</a><br/>
+<a href="IntegrationManual_Srvs.html#8">Software&#160;Integration</a><br/>
+8<br/>
+<a href="IntegrationManual_Srvs.html#8">6.4.1</a><br/>
+<a href="IntegrationManual_Srvs.html#8">Startup/Initialisation</a><br/>
+8<br/>
+<a href="IntegrationManual_Srvs.html#8">6.4.2</a><br/>
+<a href="IntegrationManual_Srvs.html#8">Normal&#160;Operation</a><br/>
+8<br/>
+<a href="IntegrationManual_Srvs.html#8">6.4.3</a><br/>
+<a href="IntegrationManual_Srvs.html#8">Shutdown/Deactivation</a><br/>
+8<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;2&#160;of&#160;8<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+<b>1.1&#160;General</b><br/>
+For&#160;a&#160;general&#160;introduction&#160;to&#160;the&#160;BAC4&#160;Platform&#160;Modules&#160;please&#160;refer&#160;to&#160;<a href="IntegrationManual_Srvs.html#4">[1].</a><br/>
+This&#160;document&#160;only&#160;describes&#160;topics&#160;related&#160;to&#160;the&#160;SWT&#160;BAC4&#160;Module.<br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;of&#160;the&#160;BMW<br/>system&#160;function&#160;Srv.<br/>
+<b>1.2&#160;Functional&#160;overview</b><br/>
+The&#160;Srv&#160;(Service)&#160;module&#160;contains&#160;some&#160;general&#160;purpose&#160;functions&#160;commonly&#160;used&#160;by&#160;other<br/>modules&#160;like&#160;Dlog,&#160;Prog&#160;and&#160;Bm.&#160;It&#160;is&#160;used&#160;in&#160;Application,&#160;Bootloader&#160;and&#160;Bootmanager.<br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+<b>Abbreviation/AcronymDescription<br/></b>AUTOSAR<br/>
+Automotive&#160;Open&#160;System&#160;Architecture<br/>
+BAC<br/>
+BMW&#160;AUTOSAR&#160;Core<br/>
+ECU<br/>
+Electronic&#160;Control&#160;Unit<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;3&#160;of&#160;8<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-4_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>3.1&#160;BMW&#160;Specifications</b><br/>
+[1]&#160;BAC4&#160;General&#160;Concept&#160;for&#160;the&#160;Module&#160;Integration<br/>
+BAC4_General_Concepts_for_the_Module_Integration.pdf<br/>
+<b>3.2&#160;AUTOSAR&#160;Specifications</b><br/>
+[2]&#160;Specification&#160;of&#160;Diagnostic&#160;Communication&#160;Manager<br/>
+AUTOSAR_SWS_DiagnosticCommunicationManager<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;4&#160;of&#160;8<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-5_1.png"/><br/>
+<b>4</b><br/>
+<b>Limitations</b><br/>
+No&#160;limitations&#160;known.<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;5&#160;of&#160;8<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-6_1.png"/><br/>
+<b>5</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>5.1&#160;Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+<b>Dcm</b><br/>
+The&#160;module&#160;Dcm&#160;<a href="IntegrationManual_Srvs.html#4">[2]&#160;</a>is&#160;needed&#160;for&#160;the&#160;type&#160;definition&#160;Dcm_ProgConditionsType.<br/>
+<b>5.2&#160;Dependencies&#160;on&#160;BMW&#160;modules</b><br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;6&#160;of&#160;8<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-7_1.png"/><br/>
+<b>6</b><br/>
+<b>Integration</b><br/>
+<b>6.1&#160;Configuration&#160;of&#160;other&#160;Modules</b><br/>
+Nothing&#160;to&#160;be&#160;done&#160;here.<br/>
+<b>6.2&#160;Configuration</b><br/>
+The&#160;Srv&#160;configuration&#160;contains&#160;the&#160;following&#160;containers:<br/>
+Srv&#160;General<br/>
+<b>6.2.1&#160;General</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;Srv&#160;module.&#160;Note&#160;that&#160;these<br/>configuration&#160;parameters&#160;also&#160;affect&#160;the&#160;configuration&#160;of&#160;other&#160;modules&#160;such&#160;as&#160;Dlog,&#160;Prog,&#160;etc.<br/>
+<b>6.2.1.1&#160;HandleEccRam</b><br/>
+This&#160;should&#160;be&#160;enabled&#160;if&#160;the&#160;hardware&#160;handles&#160;ECC&#160;errors&#160;in&#160;RAM.<br/>
+<b>6.2.1.2&#160;HandleEccRom</b><br/>
+This&#160;should&#160;be&#160;enabled&#160;if&#160;the&#160;hardware&#160;handles&#160;ECC&#160;errors&#160;in&#160;ROM.<br/>
+<b>6.2.1.3&#160;MultiCpuEnable</b><br/>
+This&#160;should&#160;be&#160;enabled&#160;if&#160;a&#160;multi&#160;CPU&#160;ECU&#160;is&#160;used.&#160;Note&#160;that&#160;communication&#160;to&#160;the&#160;slave&#160;CPUs<br/>is&#160;done&#160;via&#160;integrator/user&#160;defined&#160;functions.&#160;Please&#160;consult&#160;the&#160;corresponding&#160;modules'<br/>integration&#160;manuals&#160;for&#160;details&#160;about&#160;those&#160;functions.<br/>
+<b>6.2.1.4&#160;FeatureSet</b><br/>
+Defines&#160;the&#160;feature&#160;set&#160;that&#160;will&#160;be&#160;provided.&#160;For&#160;SRV_FS_BOOTMANAGER&#160;and&#160;SRV_FS_BLU<br/>it&#160;is&#160;reduced&#160;to&#160;save&#160;space&#160;in&#160;Bootmanager&#160;and&#160;Blu,&#160;respectively.&#160;Should&#160;be&#160;SRV_FS_FULL&#160;in<br/>Bootloader&#160;and&#160;Application.<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;7&#160;of&#160;8<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Srv/doc/IntegrationManual_Srv-8_1.png"/><br/>
+<b>6.3&#160;Configuration&#160;of&#160;the&#160;RTE</b><br/>
+No&#160;RTE&#160;needed.<br/>
+<b>6.4&#160;Software&#160;Integration</b><br/>
+<b>6.4.1&#160;Startup/Initialisation</b><br/>
+Nothing&#160;to&#160;be&#160;done&#160;here.<br/>
+<b>6.4.2&#160;Normal&#160;Operation</b><br/>
+Nothing&#160;to&#160;be&#160;done&#160;here.<br/>
+<b>6.4.3&#160;Shutdown/Deactivation</b><br/>
+Nothing&#160;to&#160;be&#160;done&#160;here.<br/>
+IntegrationManual_Srv,&#160;Version&#160;3.1.0,&#160;Platform&#160;Software<br/>
+Page&#160;8&#160;of&#160;8<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#3">1 Introduction</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#3">1.1 General</a></li>
+<li><a href="IntegrationManual_Srvs.html#3">1.2 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Srvs.html#3">2 Acronyms and Abbreviations</a></li>
+<li><a href="IntegrationManual_Srvs.html#4">3 Related documentation</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#4">3.1 BMW Specifications</a></li>
+<li><a href="IntegrationManual_Srvs.html#4">3.2 AUTOSAR Specifications</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Srvs.html#5">4 Limitations</a></li>
+<li><a href="IntegrationManual_Srvs.html#6">5 Software Architecture</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#6">5.1 Dependencies on AUTOSAR modules</a></li>
+<li><a href="IntegrationManual_Srvs.html#6">5.2 Dependencies on BMW modules</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Srvs.html#7">6 Integration</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#7">6.1 Configuration of other Modules</a></li>
+<li><a href="IntegrationManual_Srvs.html#7">6.2 Configuration</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#7">6.2.1 General</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#7">6.2.1.1 HandleEccRam</a></li>
+<li><a href="IntegrationManual_Srvs.html#7">6.2.1.2 HandleEccRom</a></li>
+<li><a href="IntegrationManual_Srvs.html#7">6.2.1.3 MultiCpuEnable</a></li>
+<li><a href="IntegrationManual_Srvs.html#7">6.2.1.4 FeatureSet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Srvs.html#8">6.3 Configuration of the RTE</a></li>
+<li><a href="IntegrationManual_Srvs.html#8">6.4 Software Integration</a>
+<ul>
+<li><a href="IntegrationManual_Srvs.html#8">6.4.1 Startup/Initialisation</a></li>
+<li><a href="IntegrationManual_Srvs.html#8">6.4.2 Normal Operation</a></li>
+<li><a href="IntegrationManual_Srvs.html#8">6.4.3 Shutdown/Deactivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

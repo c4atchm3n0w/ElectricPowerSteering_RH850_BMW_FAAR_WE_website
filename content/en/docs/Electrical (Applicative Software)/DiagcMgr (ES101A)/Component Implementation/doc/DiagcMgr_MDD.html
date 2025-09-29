@@ -1,0 +1,1610 @@
+---
+title: DiagcMgr_MDD
+linkTitle: DiagcMgr_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>Diagnostic Manager</strong></p>
+<p><strong>VERSION:</strong> <strong>11.0</strong></p>
+<p><strong>DATE:</strong> <strong>14-DEC-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shruthi Raghavan</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 65%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>SB</td>
+<td>1.0</td>
+<td>23-Apr-2015</td>
+</tr>
+<tr class="odd">
+<td>Added to Design Limitations section</td>
+<td>KMC</td>
+<td>2.0</td>
+<td>03-Jun-2015</td>
+</tr>
+<tr class="even">
+<td>ES101A_DiagcMgr_Design version 2 implementation</td>
+<td>SB</td>
+<td>3.0</td>
+<td>11-Mar-2016</td>
+</tr>
+<tr class="odd">
+<td>ES101A_DiagcMgr_Design version 3 implementation</td>
+<td>SB</td>
+<td>4.0</td>
+<td>19-Apr-2016</td>
+</tr>
+<tr class="even">
+<td>ES101A_DiagcMgr_Design version 4 implementation</td>
+<td>SB</td>
+<td>5.0</td>
+<td>22-Jun-2016</td>
+</tr>
+<tr class="odd">
+<td>Added DETs to “SetNtcStsCore_Oper” server runnables</td>
+<td>SB</td>
+<td>6.0</td>
+<td>26-Sep-2016</td>
+</tr>
+<tr class="even">
+<td>Updated to fix anomalies EA4#8118 and EA4#8115</td>
+<td>SB</td>
+<td>7.0</td>
+<td>02-Dec-2016</td>
+</tr>
+<tr class="odd">
+<td>Updated the graphical representation. Added server runnables CnvSnpshtData_*, noted design limitations and design rationales and added local functions</td>
+<td>SR</td>
+<td>8.0</td>
+<td>21-Apr-2017</td>
+</tr>
+<tr class="even">
+<td>Updated Unit Test considerations as per EA4#9649</td>
+<td>SR</td>
+<td>9.0</td>
+<td>29-Jun-2017</td>
+</tr>
+<tr class="odd">
+<td>Updated Unit Test considerations for new process to handle configuration parameters for PIL testing. Also updated design limitations per latest design baseline.</td>
+<td>SR</td>
+<td>10.0</td>
+<td>26-Sep-2017</td>
+</tr>
+<tr class="even">
+<td>Removed Static analysis explanation from DiagcMgr PwrDwn function’s rationale because it is no longer applicable. Also removed design limitation that was corrected in the current design version (5.3.0)</td>
+<td>SR</td>
+<td>11.0</td>
+<td>14-Dec-2017</td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 6</a></p>
+<p><a href="#references">2 References 7</a></p>
+<p><a href="#diagcmgr-high-level-description">3 DiagcMgr &amp; High-Level Description 8</a></p>
+<p><a href="#design-details-of-software-module">4 Design details of software module 9</a></p>
+<p><a href="#graphical-representation-of-diagcmgr">Graphical representation of Diagcmgr 9</a></p>
+<p><a href="#graphical-representation-of-diagcmgr">4.1 9</a></p>
+<p><a href="#data-flow-diagram">4.2 Data Flow Diagram 9</a></p>
+<p><a href="#module-level-dfd">4.2.1 Module level DFD 9</a></p>
+<p><a href="#sub-module-level-dfd">4.2.2 Sub-Module level DFD 9</a></p>
+<p><a href="#component-flow-diagram">4.3 COMPONENT FLOW DIAGRAM 9</a></p>
+<p><a href="#variable-data-dictionary">5 Variable Data Dictionary 10</a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">5.1 User defined typedef definition/declaration 10</a></p>
+<p><a href="#variable-definition-for-enumerated-types">5.2 Variable definition for enumerated types 10</a></p>
+<p><a href="#global-variable-definition">5.3 Global Variable definition 10</a></p>
+<p><a href="#constant-data-dictionary">6 Constant Data Dictionary 11</a></p>
+<p><a href="#programfixed-constants">6.1 Program(fixed) Constants 11</a></p>
+<p><a href="#embedded-constants">6.1.1 Embedded Constants 11</a></p>
+<p><a href="#local">6.1.1.1 Local 11</a></p>
+<p><a href="#global">6.1.1.2 Global 11</a></p>
+<p><a href="#module-specific-lookup-tables-constants">Module specific Lookup Tables Constants 11</a></p>
+<p><a href="#module-specific-lookup-tables-constants">6.1.2 11</a></p>
+<p><a href="#software-module-implementation">7 Software Module Implementation 12</a></p>
+<p><a href="#sub-module-functions">7.1 Sub-Module Functions 12</a></p>
+<p><a href="#initialization-functions">7.1.1 Initialization Functions 12</a></p>
+<p><a href="#periodic-functions">7.1.2 PERIODIC FUNCTIONS 12</a></p>
+<p><a href="#per-diagcmgrper1">7.1.2.1 Per: diagcmgrPer1 12</a></p>
+<p><a href="#design-rationale">7.1.2.1.1 Design Rationale 12</a></p>
+<p><a href="#per-diagcmgrper2">7.1.2.2 Per: diagcmgrPer2 12</a></p>
+<p><a href="#design-rationale-1">7.1.2.2.1 Design Rationale 12</a></p>
+<p><a href="#interrupt-functions">7.1.3 Interrupt Functions 12</a></p>
+<p><a href="#server-runnable-functions">Server Runnable Functions 13</a></p>
+<p><a href="#server-runnable-functions">7.1.4 13</a></p>
+<p><a href="#clralldiagc_oper">7.1.4.1 ClrAllDiagc_Oper 13</a></p>
+<p><a href="#clrsnpshtdata_oper">7.1.4.2 ClrSnpshtData_Oper 13</a></p>
+<p><a href="#design-rationale-2">7.1.4.2.1 Design Rationale 13</a></p>
+<p><a href="#diagcmgrinincore_oper">7.1.4.3 DiagcMgrIninCore_Oper 13</a></p>
+<p><a href="#diagcmgrpwrdwn">7.1.4.4 DiagcMgrPwrDwN 14</a></p>
+<p><a href="#design-rationale-3">7.1.4.4.1 Design Rationale 14</a></p>
+<p><a href="#upddtcenacdn">7.1.4.5 UpdDtcEnaCdn 14</a></p>
+<p><a href="#design-rationale-4">7.1.4.5.1 Design Rationale 15</a></p>
+<p><a href="#getntcactvcore_oper">7.1.4.6 GetNtcActvCORE_Oper 15</a></p>
+<p><a href="#getntcqlfrstscore_oper">7.1.4.7 GetNtcQlfrStsCORE_Oper 15</a></p>
+<p><a href="#getntcstscore_oper">7.1.4.8 GetNtcStsCORE_Oper 15</a></p>
+<p><a href="#readntcfltary_oper">7.1.4.9 ReadNtcFltAry_Oper 15</a></p>
+<p><a href="#design-rationale-5">7.1.4.9.1 Design Rationale 15</a></p>
+<p><a href="#readntcinfoanddebcntr_oper">7.1.4.10 ReadNtcInfoAndDebCntr_Oper 15</a></p>
+<p><a href="#design-rationale-6">7.1.4.10.1 Design Rationale 15</a></p>
+<p><a href="#readsnpshtdata_oper">7.1.4.11 ReadSnpshtData_Oper 15</a></p>
+<p><a href="#cnvsnpshtdata_f32_oper">7.1.4.12 CnvSnpshtData_f32_Oper 15</a></p>
+<p><a href="#cnvsnpshtdata_logl_oper">7.1.4.13 CnvSnpshtData_logl_Oper 15</a></p>
+<p><a href="#cnvsnpshtdata_s08_oper">7.1.4.14 CnvSnpshtData_s08_Oper 15</a></p>
+<p><a href="#cnvsnpshtdata_s16_oper">7.1.4.15 CnvSnpshtData_s16_Oper 15</a></p>
+<p><a href="#cnvsnpshtdata_s32_oper">7.1.4.16 CnvSnpshtData_s32_Oper 15</a></p>
+<p><a href="#cnvsnpshtdata_u08_oper">7.1.4.17 CnvSnpshtData_u08_Oper 16</a></p>
+<p><a href="#cnvsnpshtdata_u16_oper">7.1.4.18 CnvSnpshtData_u16_Oper 16</a></p>
+<p><a href="#setntcstscore_oper">7.1.4.19 SetNtcStsCore_Oper 16</a></p>
+<p><a href="#design-rationale-7">7.1.4.19.1 Design Rationale 16</a></p>
+<p><a href="#clrltchcntrdata_oper">7.1.4.20 ClrLtchCntrData_Oper 16</a></p>
+<p><a href="#readltchcntrdata_oper">7.1.4.21 ReadLtchCntrData_Oper 16</a></p>
+<p><a href="#restorediagcmgrltchcntrarydft">7.1.4.22 RestoreDiagcMgrLtchCntrAryDft 17</a></p>
+<p><a href="#restorentcfltarydft">7.1.4.23 RestoreNtcFltAryDft 17</a></p>
+<p><a href="#restoresnpshtarydft">7.1.4.24 RestoreSnpshtAryDft 17</a></p>
+<p><a href="#local-functionmacro-definitions">7.1.5 Local Function/Macro Definitions 17</a></p>
+<p><a href="#local-function-1">7.1.5.1 Local Function #1 17</a></p>
+<p><a href="#description">7.1.5.1.1 Description 17</a></p>
+<p><a href="#local-function-2">7.1.5.2 Local Function #2 17</a></p>
+<p><a href="#description-1">7.1.5.3 Description 17</a></p>
+<p><a href="#design-rationale-8">7.1.5.3.1 Design Rationale 18</a></p>
+<p><a href="#local-function-3">7.1.5.4 Local Function #3 18</a></p>
+<p><a href="#design-rationale-9">7.1.5.4.1 Design Rationale 18</a></p>
+<p><a href="#local-function-4">7.1.5.5 Local Function #4 18</a></p>
+<p><a href="#design-rationale-10">7.1.5.5.1 Design Rationale 18</a></p>
+<p><a href="#local-function-5">7.1.5.6 Local Function #5 18</a></p>
+<p><a href="#design-rationale-11">7.1.5.6.1 Design Rationale 18</a></p>
+<p><a href="#local-function-6">7.1.5.7 Local Function #6 18</a></p>
+<p><a href="#design-rationale-12">7.1.5.7.1 Design Rationale 19</a></p>
+<p><a href="#local-function-7">7.1.5.8 Local Function #7 19</a></p>
+<p><a href="#design-rationale-13">7.1.5.8.1 Design Rationale 19</a></p>
+<p><a href="#local-function-8">7.1.5.9 Local Function #8 19</a></p>
+<p><a href="#design-rationale-14">7.1.5.9.1 Design Rationale 19</a></p>
+<p><a href="#global-functionmacro-definitions">7.1.6 GLObAL Function/Macro Definitions 19</a></p>
+<p><a href="#global-function-1">7.1.6.1 GLObAL Function #1 19</a></p>
+<p><a href="#description-2">7.1.6.1.1 Description 20</a></p>
+<p><a href="#global-function-2">GLObAL Function #2 20</a></p>
+<p><a href="#global-function-2">7.1.6.2 20</a></p>
+<p><a href="#description-3">7.1.6.2.1 Description 20</a></p>
+<p><a href="#global-function-3">GLObAL Function #3 20</a></p>
+<p><a href="#global-function-3">7.1.6.3 20</a></p>
+<p><a href="#description-4">7.1.6.3.1 Description 20</a></p>
+<p><a href="#global-function-4">GLObAL Function #4 20</a></p>
+<p><a href="#global-function-4">7.1.6.4 20</a></p>
+<p><a href="#description-5">7.1.6.4.1 Description 20</a></p>
+<p><a href="#global-function-5">GLObAL Function #5 20</a></p>
+<p><a href="#global-function-5">7.1.6.5 20</a></p>
+<p><a href="#description-6">7.1.6.5.1 Description 20</a></p>
+<p><a href="#global-function-6">7.1.6.6 GLObAL Function #6 20</a></p>
+<p><a href="#description-7">7.1.6.6.1 Description 20</a></p>
+<p><a href="#transient-functions">7.1.7 TRANSIENT FUNCTIONS 21</a></p>
+<p><a href="#known-limitations-with-design">8 Known Limitations With Design 22</a></p>
+<p><a href="#__RefHeading___Toc481665925">9 UNIT TEST CONSIDERATION 23</a></p>
+<p><a href="#appendix">10 Appendix 24</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Abbreviation</td>
+<td>Description</td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&lt;ADD more to the table if applicable&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 43%" />
+<col style="width: 49%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>#</td>
+<td>Title</td>
+<td>Version</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><a href="https://nexteerautomotive.sharepoint.com/engineering/ASPICE/_layouts/15/DocIdRedir.aspx?ID=4FSMJ3P65F55-550837352-128">MDD Guideline EA4</a></td>
+<td>1.02</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><a href="https://nexteerautomotive.sharepoint.com/engineering/ASPICE/_layouts/15/DocIdRedir.aspx?ID=4FSMJ3P65F55-550837352-179&amp;e=a659b1a20e4143bf821960648887541f">EA4 Software Naming Conventions</a></td>
+<td>1.02</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><a href="https://nexteerautomotive.sharepoint.com/engineering/ASPICE/_layouts/15/DocIdRedir.aspx?ID=4FSMJ3P65F55-550837352-172&amp;e=bb4a4726c39843678b6aaab41fffc02a">Software Design and Coding standards</a></td>
+<td>2.01</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>ES101A_DiagcMgr_Design</td>
+<td>See Synergy Subproject version</td>
+</tr>
+</tbody>
+</table>
+<h1 id="diagcmgr-high-level-description">DiagcMgr &amp; High-Level Description</h1>
+<blockquote>
+<p>This function is responsible for handling all the NTCs that are used by different FDDs. The Diagnostic Manager sets the Ntc called by any component and requests the system to either ramp down to Disable or take no action. It also handles latched Ntcs &amp; owns the associated NTCNR_0x0A Ntc.</p>
+</blockquote>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-diagcmgr">Graphical representation of Diagcmgr</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:3.325in;height:6.03125in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h2 id="module-level-dfd">Module level DFD</h2>
+<p><em>N/A</em></p>
+<h2 id="sub-module-level-dfd">Sub-Module level DFD</h2>
+<p><em>N/A</em></p>
+<h2 id="component-flow-diagram">COMPONENT FLOW DIAGRAM</h2>
+<p><em>N/A</em></p>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<p><em>&lt;This section documents any user types uniquely used for the module.&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Typedef Name</td>
+<td>Element Name</td>
+<td>User Defined Type</td>
+<td><p>Legal Range</p>
+<p>(min)</p></td>
+<td><p>Legal Range</p>
+<p>(max)</p></td>
+</tr>
+<tr class="even">
+<td>NtcMapRec1</td>
+<td>ApplIdx</td>
+<td>Uint8</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NtcInfoIdx</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>DebCntrIdx</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td>NtcInfoRec4</td>
+<td>NtcStInfo</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Sts</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>AgiCntr</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td>Ary1D_NtcInfoRec4</td>
+<td></td>
+<td>NtcInfoRec4[]<sup>1</sup></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ary1D_NtcInfoRec4_DiagcMgrProxyApplX<sup>3</sup></td>
+<td></td>
+<td>NtcInfoRec4[]<sup>1</sup></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Ary1D_s16_DiagcMgrProxyApplX<sup>3</sup></td>
+<td></td>
+<td>Sint16[]<sup>2</sup></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>1 – Array of NtcInfoRec4</p>
+<p>2 – Array of sint16</p>
+<p>3 – One for each Application configured with NTCs<br />
+For example – Application 6 and 10 have NTCs then - Ary1D_NtcInfoRec4_DiagcMgrProxyAppl6, Ary1D_NtcInfoRec4_DiagcMgrProxyAppl10, Ary1D_s16_DiagcMgrProxyAppl6, Ary1D_s16_DiagcMgrProxyAppl10 would exist with configured sizes.</p>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Enum Name</td>
+<td>Element Name</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>See DataDict.m file</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="global-variable-definition">Global Variable definition</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 21%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Type</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SnpshtDataAry_M[8]<sup>1</sup></td>
+<td>SnpshtDataRec2</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 37%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Element Name</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td>SnpshtDataRec2</td>
+<td>SpclSnpshtData0</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SpclSnpshtData1</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SpclSnpshtData2</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MicroDiagcData</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>IgnCntr</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwTq</td>
+<td>sint16</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotTqCmdMrfScad</td>
+<td>sint16</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BrdgVltg</td>
+<td>uint16</td>
+<td>6</td>
+<td>26.5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>EcuTFild</td>
+<td>sint16</td>
+<td>-50</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NtcNr</td>
+<td>NtcNr1</td>
+<td>NTCNR_0X001</td>
+<td>NTCNR_0X1FF</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>NtcStInfo</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SysSt</td>
+<td>SysSt1</td>
+<td>SYSST_DI</td>
+<td>SYSST_WRMININ</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<p>1- This variable is mapped to MemMap – “GlobalShared_START_SEC_VAR_NOINIT_UNSPECIFIED”</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="programfixed-constants">Program(fixed) Constants</h2>
+<h2 id="embedded-constants">Embedded Constants</h2>
+<h2 id="local">Local</h2>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Units</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>See DataDict.m file</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td>IMDTSHTDWNFLT_CNT_U16</td>
+<td>1</td>
+<td>Counts</td>
+<td>5U</td>
+</tr>
+<tr class="even">
+<td>CTRLDSHTDWNFLT_CNT_U16</td>
+<td>1</td>
+<td>Counts</td>
+<td>6U</td>
+</tr>
+<tr class="odd">
+<td>INFOONLYFLT_CNT_U16</td>
+<td>1</td>
+<td>Counts</td>
+<td>7U</td>
+</tr>
+<tr class="even">
+<td>TOTNROFDTC_CNT_U08<sup>4</sup></td>
+<td>1</td>
+<td>Counts</td>
+<td>Configured</td>
+</tr>
+<tr class="odd">
+<td>PimSnpshtDataAry_rec</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>SnpshtDataAry_M</td>
+</tr>
+<tr class="even">
+<td>D_MAXNUMBEROFNTCS_CNT_U16</td>
+<td>1</td>
+<td>CNT</td>
+<td>512U</td>
+</tr>
+</tbody>
+</table>
+<p>4 - Number of DTCs for that program.</p>
+<h2 id="global">Global</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>See DataDict.m file</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-specific-lookup-tables-constants"><em>Module specific Lookup Tables Constants</em></h2>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Value</td>
+<td>Software Segment</td>
+</tr>
+<tr class="even">
+<td>DIAGCMGRNTCMAP_CNT_REC [512]</td>
+<td>NtcMapRec1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="odd">
+<td>NTCNRARYAPPLX_CNT_U16 [Configured]<sup>5</sup></td>
+<td>1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="even">
+<td>DTCENAMASK [Configured]<sup>6</sup></td>
+<td>1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="odd">
+<td>DEMDTCEVEIDMAP [Configured]<sup>6</sup></td>
+<td>1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="even">
+<td>FLTRESPRAMPTBL_ULS_F32 [5]</td>
+<td>Single Precision Float</td>
+<td>{0.1F,0.125F,0.2F,1.0F,10.0F}</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="odd">
+<td>DIAGCMGRNTCPPTYARY_CNT_U08[512]</td>
+<td>1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="even">
+<td>DIAGCMGRLISTOFLTCHGNTC_CNT_ENUM[20<sup>7</sup>]</td>
+<td>1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+<tr class="odd">
+<td>DIAGCMGRNTCLTCHCNTRTHD_CNT_U08[20<sup>7</sup>]</td>
+<td>1</td>
+<td>Configured</td>
+<td>DiagcMgr_START_SEC_CODE</td>
+</tr>
+</tbody>
+</table>
+<p>5 - One for each Application configured with NTCs.</p>
+<p>6 - Variable Length (TOTNROFDTC_CNT_U08 + 1) for each build/program depending on the Number of DTCs</p>
+<p>for that program.</p>
+<p>7 – The length of this array depends on MaximumNumberOfLatching Ntcs the software is designed to handle – currently it is 20.</p>
+<h1 id="software-module-implementation">Software Module Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>None</p>
+<h2 id="initialization-functions">Initialization Functions</h2>
+<p><em>None</em></p>
+<h2 id="periodic-functions">PERIODIC FUNCTIONS </h2>
+<h2 id="per-diagcmgrper1">Per: diagcmgrPer1</h2>
+<p>This function exists in “DiagcMgr.c” file. Refer Simulink model for details</p>
+<h2 id="design-rationale">Design Rationale</h2>
+<p>“Rte_Call_GetDiagcDataApplX_Oper” for each application(X) is called based on conditional compile using constants generated in DiagcMgr_Cfg.h</p>
+<h2 id="per-diagcmgrper2">Per: diagcmgrPer2</h2>
+<p>This function exists in “DiagcMgr.c” file. Refer Simulink model for details</p>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>“Rte_Call_GetDiagcDataApplX_Oper” for each application(X) is called based on conditional compile using constants generated in DiagcMgr_Cfg.h</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="server-runnable-functions">Server Runnable Functions</h2>
+<h2 id="clralldiagc_oper">ClrAllDiagc_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="clrsnpshtdata_oper">ClrSnpshtData_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p>“NvMConf_NvMBlockDescriptor_Rte_NvmBlock_DiagcMgr_SnpshtDataAry” is used instead of BlockID Number in “NvMProxy_SetRamBlockStatus” call so that the Integrator doesn’t have to configure the DiagcMgr to know about the Nvm block Ids.</p>
+<h2 id="diagcmgrinincore_oper">DiagcMgrIninCore_Oper</h2>
+<p>See DataDict.m file and modelThis function exists in “DiagcMgr.c” file.</p>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.wmf" /></p>
+<h2 id="diagcmgrpwrdwn">DiagcMgrPwrDwN</h2>
+<p>See DataDict.m file and model</p>
+<p>This function exists in “DiagcMgrNonRte.c” file.</p>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p>“GetNtcInfoApplX_Oper” for each application(X) is called based on conditional compile using constants generated in DiagcMgr_Cfg.h.</p>
+<p>“NvMConf_NvMBlockDescriptor_Rte_NvmBlock_DiagcMgr_DiagcMgrNtcFltAry” is used instead of BlockID Number in “NvMProxy_SetRamBlockStatus” call so that the Integrator doesn’t have to configure the DiagcMgr to know about the Nvm block Ids.</p>
+<h2 id="upddtcenacdn">UpdDtcEnaCdn</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgrNonRte.c” file.</p>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image3.wmf" /></p>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p>“GetNtcInfoApplX_Oper” for each application(X) is called based on conditional compile using constants generated in DiagcMgr_Cfg.h.</p>
+<h2 id="getntcactvcore_oper">GetNtcActvCORE_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="getntcqlfrstscore_oper">GetNtcQlfrStsCORE_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="getntcstscore_oper">GetNtcStsCORE_Oper</h2>
+<p>See DataDict.m file and model</p>
+<p>This function exists in “DiagcMgr.c” file.</p>
+<h2 id="readntcfltary_oper">ReadNtcFltAry_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p>“GetNtcInfoApplX_Oper” for each application(X) is called based on conditional compile using constants generated in DiagcMgr_Cfg.h<br />
+QAC flags MISRA Rule 9.1 for HistNtcFltAry_T_rec being used to write to PIM before initialization but it isn’t actually an issue because the logic only uses the elements of the array that have been written to.</p>
+<h2 id="readntcinfoanddebcntr_oper">ReadNtcInfoAndDebCntr_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p>“GetNtcDebCntrApplX” and “GetNtcInfoApplX_Oper” for each application(X) is called based on conditional compile using constants generated in DiagcMgr_Cfg.h</p>
+<h2 id="readsnpshtdata_oper">ReadSnpshtData_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_f32_oper">CnvSnpshtData_f32_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_logl_oper">CnvSnpshtData_logl_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_s08_oper">CnvSnpshtData_s08_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_s16_oper">CnvSnpshtData_s16_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_s32_oper">CnvSnpshtData_s32_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_u08_oper">CnvSnpshtData_u08_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="cnvsnpshtdata_u16_oper">CnvSnpshtData_u16_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="setntcstscore_oper">SetNtcStsCore_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image4.wmf" /></p>
+<h2 id="design-rationale-7"> Design Rationale</h2>
+<p>The array DTCENAMASK is indexed by DtctempIdx_Cnt_T_u08 which corresponds to the lower 8-bits of the FltRespTbl. So the index can range from [0,255].</p>
+<p>However the calibration PrmDiagcMgrFltResp_u16 is checked (using DET) at init functions of each ApplProxy such that the value of the lower 8-bits of each of its elements are in the range of [0,sizeof(DTCENAMASK)]. So there will never be an out-of-bounds array access scenario on the DTCENAMASK array.</p>
+<p>Note: Lower 8-bits corresponds to FLTRESPDTCIDX_CNT_U16 mask being 0xFF.</p>
+<h2 id="clrltchcntrdata_oper">ClrLtchCntrData_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="readltchcntrdata_oper">ReadLtchCntrData_Oper</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="restorediagcmgrltchcntrarydft">RestoreDiagcMgrLtchCntrAryDft</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgr.c” file.</p>
+<h2 id="restorentcfltarydft">RestoreNtcFltAryDft</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgrNonRte.c” file.</p>
+<h2 id="restoresnpshtarydft">RestoreSnpshtAryDft</h2>
+<p>See DataDict.m file and model. This function exists in “DiagcMgrNonRte.c” file.</p>
+<h2 id="local-functionmacro-definitions">Local Function/Macro Definitions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 39%" />
+<col style="width: 24%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcRampResp</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>NtcNr_Cnt_T_u16</td>
+<td>uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>DiagcData_T_rec</td>
+<td>DiagcDataRec2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>DiagcData_T_rec .DiagcSts</td>
+<td></td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>DiagcData_T_rec .ActvRampRate</td>
+<td></td>
+<td>0.1</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>DiagcData_T_rec ActvMotTqCmdSca</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ProxySetNtcData_T_rec</td>
+<td>DiagcDataRec2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ProxySetNtcData_T_rec .DiagcSts</td>
+<td></td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ProxySetNtcData_T_rec .ActvRampRate</td>
+<td></td>
+<td>0.1</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ProxySetNtcData_T_rec ActvMotTqCmdSca</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description">Description</h2>
+<p>Refer ‘ProcessRampResponse and DiagcSts’ block in Simulink model for DiagcMgr</p>
+<p>This function exists in “DiagcMgr.c” file.</p>
+<h2 id="local-function-2">Local Function #2</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>UpdSnpshtData</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>SpclSnpshtData0_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SpclSnpshtData1_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SpclSnpshtData2_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>McuDiagcSpplData_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>IgnCntr_Cnt_T_u32</td>
+<td>uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwTq_Cnt_T_s5p10</td>
+<td>sint16</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotTqCmdMrfScad_Cnt_T_s5p10</td>
+<td>sint16</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BrdgVltg_Cnt_T_u6p10</td>
+<td>uint16</td>
+<td>6</td>
+<td>26.5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>EcuTFild_Cnt_T_s8p7</td>
+<td>sint16</td>
+<td>-50</td>
+<td>150</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NtcNr_Cnt_T_u16</td>
+<td>NtcNr1</td>
+<td>NTCNR_0X001</td>
+<td>NTCNR_0X1FF</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>NtcStInfo_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SysSt_Cnt_T_enum</td>
+<td>SysSt1</td>
+<td>SYSST_DI</td>
+<td>SYSST_WRMININ</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-1">Description</h2>
+<p>Refer ‘UpdSnpshtData’ block in Simulink model for DiagcMgr. This function exists in “DiagcMgr.c” file</p>
+<h2 id="design-rationale-8">Design Rationale</h2>
+<p>“NvMConf_NvMBlockDescriptor_Rte_NvmBlock_DiagcMgr_SnpshtDataAry” is used instead of BlockID Number in “NvMProxy_SetRamBlockStatus” call so that the Integrator doesn’t have to configure the DiagcMgr to know about the Nvm block Ids.</p>
+<h2 id="local-function-3">Local Function #3</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GetNtcInfoApplX</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>ApplIdx_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NtcInfoIdx_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*NtcInfoPtr_Cnt_T_rec</td>
+<td>NtcInfoRec4</td>
+<td>See DT def</td>
+<td>See DT def</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ApplIDValid_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-9">Design Rationale</h2>
+<p>The function is a switch case that calls the GetNtcInfo of correct application to modify the value of NtcInfo at the address passed as an argument. It should be used in Non-RTE context only.</p>
+<h2 id="local-function-4">Local Function #4</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GetNtcInfoApplXRte</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>ApplIdx_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NtcInfoIdx_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*NtcInfoPtr_Cnt_T_rec</td>
+<td>NtcInfoRec4</td>
+<td>See DT def</td>
+<td>See DT def</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ApplIDValid_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-10">Design Rationale</h2>
+<p>The function is a switch case that calls the GetNtcInfo of correct application to modify the value of NtcInfo at the address passed as an argument. It should be used in RTE context only.</p>
+<h2 id="local-function-5">Local Function #5</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 39%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>UpdDtcSts</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>NtcMapIdx_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>NtcInfoRecSts_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>DtctempIdx_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>TOTNROFDTC_CNT_U08<sup>?</sup></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>* DtcIdxCurrSts_Cnt_T_u08</td>
+<td>Uint</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p><sup>?</sup> – This is a configurable constant.</p>
+<h2 id="design-rationale-11">Design Rationale</h2>
+<p>Implement "Update DTC Status" subblock from Per2 in the FDD. Note that it is called inside a while loop. Created for complexity metrics compliance with design and coding standards.</p>
+<h2 id="local-function-6">Local Function #6</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcNtcStsPassd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>NtcNr_Cnt_T_enum</td>
+<td>NtcNr1</td>
+<td>1</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*NtcInfo_Cnt_T_rec</td>
+<td>NtcInfoRec4</td>
+<td>See DT def</td>
+<td>See DT def</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*NtcInfoDebCntr_Cnt_T_s16</td>
+<td>Sint16</td>
+<td>-32768</td>
+<td>32767</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-12">Design Rationale</h2>
+<p>Implements 'NTCSTS_PASSD' inside SetNtcStsCore block of the DiagcMgr simulink model in the FDD. Created to reduce the cyclomatic complexity of SetNtcStsCore_Oper() server runnable.</p>
+<h2 id="local-function-7">Local Function #7</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcNtcStsPrePassd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>NtcNr_Cnt_T_enum</td>
+<td>NtcNr1</td>
+<td>1</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>DebStep_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*NtcInfo_Cnt_T_rec</td>
+<td>NtcInfoRec4</td>
+<td>See DT def</td>
+<td>See DT def</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*NtcInfoDebCntr_Cnt_T_s16</td>
+<td>Sint16</td>
+<td>-32768</td>
+<td>32767</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-13">Design Rationale</h2>
+<p>Implements 'NTCSTS_PREPASSD' inside SetNtcStsCore block of the DiagcMgr simulink model in the FDD. Created to reduce the cyclomatic complexity of SetNtcStsCore_Oper() server runnable.</p>
+<h2 id="local-function-8">Local Function #8</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 41%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ChkAgiCntr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>AgiCntr_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Sts_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>NtcMapIdx_Cnt_T_u16</td>
+<td>uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*NtcFltAryIdx_Cnt_T_u16</td>
+<td>uint16</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*HistFltAryIdx_Cnt_T_u16</td>
+<td>uint16</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HistNtcFltAry_T_rec</td>
+<td>NtcFltInfoRec2</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HistNtcFltAry_T_rec.NtcNr</td>
+<td>NtcNrWithResd1</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HistNtcFltAry_T_rec.AgiCntr</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HistNtcFltAry_T_rec.Sts</td>
+<td>uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-14">Design Rationale</h2>
+<p>Implements the 'Check Aging Counter' in DiagcMgrPwr block of DiagcMgr simulink model in FDD. Created to reduce the static path count of DiagMgrPwrDwn() server runnable.</p>
+<h2 id="global-functionmacro-definitions">GLObAL Function/Macro Definitions</h2>
+<p>All the global functions described below are declared in DiagcMgr_private.h and are intended to be used only by DiagcMgr and the DiagcMgrProxyApplX components. These functions exist in “DiagcMgr_private.c” file.</p>
+<h2 id="global-function-1">GLObAL Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 25%" />
+<col style="width: 5%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcProxyRampRespAndDiagcSts</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>NtcNr_Cnt_T_u16</td>
+<td>uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ProxyDiagcData_T_rec</td>
+<td>DiagcDataRec2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ProxyDiagcData_T_rec .DiagcSts</td>
+<td></td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ProxyDiagcData_T_rec .ActvRampRate</td>
+<td></td>
+<td>0.1</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ProxyDiagcData_T_rec ActvMotTqCmdSca</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-2">Description</h2>
+<p>Refer ‘ProcessRampResponse and DiagcSts’ block in Simulink path ” ES101A_DiagcMgrProxyX/DiagcMgrProxyApplX/DiagcMgrProxyApplXPer1/Update the DiagcSts/For Number of NTCs/Update DiagcSts and Ramp Response/Update Latest Values/ProcessRampResponse”</p>
+<h2 id="global-function-2">GLObAL Function #2</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 46%" />
+<col style="width: 13%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DiagcMgrSetBits_u16</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Data</td>
+<td>uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BitMask</td>
+<td>Uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>Data</td>
+<td>Uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-3">Description</h2>
+<p>This function will set bits based on the passed BitMask for a uint16 datatype.</p>
+<h2 id="global-function-3">GLObAL Function #3</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DiagcMgrSetBits_u08</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Data</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BitMask</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>Data</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-4">Description</h2>
+<p>This function will set bits based on the passed BitMask for a uint8 datatype</p>
+<h2 id="global-function-4">GLObAL Function #4</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DiagcMgrClrBits_u08</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Data</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BitMask</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>Data</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-5">Description</h2>
+<p>This function will clear bits based on the passed BitMask for a uint8 datatype</p>
+<h2 id="global-function-5">GLObAL Function #5</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DiagcMgrReadBit_u08</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Data</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BitMask</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>Data</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-6">Description</h2>
+<p>This function will return TRUE if any bits are set based on the passed BitMask for a uint8 datatype</p>
+<h2 id="global-function-6">GLObAL Function #6</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DiagcMgrReadBit_u16</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Data</td>
+<td>uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BitMask</td>
+<td>Uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>Data</td>
+<td>Uint16</td>
+<td>0</td>
+<td>511</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-7">Description</h2>
+<p>This function will return TRUE if any bits are set based on the passed BitMask for a uint16 datatype</p>
+<h2 id="transient-functions">TRANSIENT FUNCTIONS </h2>
+<p><em>None</em></p>
+<h1 id="known-limitations-with-design">Known Limitations With Design</h1>
+<ol type="1">
+<li><p>Per the FDD author, safety critical data is protected in an exclusive area but there is a possibility of corruption of non critical data.</p></li>
+<li><p>Refer to Design Rationale section on the top level of DiagcMgr Simulink model.</p></li>
+<li><p>GetErrorStatus() for NVM block isnt used in the FDD because</p>
+<ol type="a">
+<li><p>Default block is used that resets appln crc to zero, so the latch counter array will get reset as it will enter the condition swapplcrc!=nvmapplcrc</p></li>
+<li><p>Above point assumed that a valid swapplncrc will never be zero</p></li>
+<li><p>It is known and noted that if there is an nvm read problem while ntcs are set we clear the ntcs as well</p></li>
+</ol></li>
+<li><p>This design does not support having multiple Flash application CRC regions being allowed to set latching ntcs [Note: As of today, no programs have more than 1 Flash application crc region]</p></li>
+<li><p>DiagcMgr_Cfg.c and DiagcMgr_Cfg.h files define the NTC arrays as uint16 (base type of NtcNrwithResd1) arrays instead of the NtcNrResd1 type arrays because they do not have visibility to Rte types. [Not actually a design limitation : noted here for future reference]</p></li>
+<li><p>In v3.0.0 of the implementation it was found that the DiagcMgr_Cfg_Private.h file was being included in the integration project’s Rte_UserTypes.h file because of the need for visibility to the Ary Types that are defined as typedefs in there. At that point it was decided that it was better to rename it as DiagcMgr_Cfg.h file instead. [Not actually a design limitation : noted here for future reference]</p></li>
+<li></li>
+</ol>
+<ol type="1">
+<li><p><span id="__RefHeading___Toc481665925" class="anchor"></span>UNIT TEST CONSIDERATION</p></li>
+</ol>
+<ol type="1">
+<li></li>
+<li></li>
+<li><p>For SetNtcStsCore_Oper: The input value of the lower 8 bits of each element of PrmDiagcMgrFltResp_u16 calibration while unit testing this runnable should be such that its maximum is [sizeof(DTCENAMASK)-1] and minimum is 0. </p></li>
+</ol>
+<h1 id="appendix">Appendix</h1>
+<p><em>None</em></p>

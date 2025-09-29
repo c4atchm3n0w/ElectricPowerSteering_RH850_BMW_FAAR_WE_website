@@ -1,0 +1,572 @@
+---
+title: AN-ISC-8-1153_ThirdPartyModuless
+linkTitle: AN-ISC-8-1153_ThirdPartyModuless
+weight: 47
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-1_1.png"/><br/>
+<b>&#160;</b><br/>
+<b>Third Party&#160;Modules&#160;</b><br/>
+<b>Version&#160;1.0&#160;</b><br/>
+<b>2013-07-24&#160;</b><br/>
+<b>Application Note&#160;AN-ISC-8-1153&#160;</b><br/>
+&#160;<br/>&#160;<i>&#160;<br/></i>Author(s)&#160;<br/>
+Sven Hesselmann&#160;<br/>
+Restrictions&#160;<br/>
+Customer&#160;confidential&#160;-&#160;Vector&#160;decides&#160;<br/>
+Abstract&#160;<br/>
+Introduction&#160;how&#160;to&#160;integrate 3rd partly&#160;modules&#160;into the MICROSAR4 stack&#160;<br/>
+<i><b>&#160;<br/>Table&#160;of Contents&#160;</b></i><br/>
+<i><b>&#160;<br/></b></i><a href="AN-ISC-8-1153_ThirdPartyModuless.html#1">1.0&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#1">Overview&#160;..........................................................................................................................................................&#160;1&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">2.0&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">Integration in DaVinci&#160;Configurator&#160;5&#160;...............................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">2.1&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">Configuration With&#160;CFG5&#160;..............................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">2.1.1&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">Adding of&#160;BSWMD&#160;File&#160;...............................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#3">2.1.2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#3">Adding a&#160;Module&#160;to the&#160;Current&#160;Project&#160;.....................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#4">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#4">External&#160;Generation&#160;Step&#160;..............................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.2.1&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">Manual&#160;Set-Up&#160;............................................................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.2.2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">Automatic&#160;Set-Up&#160;........................................................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.3&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">Internal&#160;Behavior&#160;Description&#160;........................................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.3.1&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">Example for&#160;Internal&#160;Behavior&#160;Description&#160;.................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#6">2.3.2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#6">Templates&#160;for&#160;Internal&#160;Behavior&#160;Description&#160;..............................................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#7">2.4&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#7">RTE&#160;configuration&#160;..........................................................................................................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#7">2.5&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#7">CDD&#160;Configuration&#160;........................................................................................................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">3.0&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">Settings.xml&#160;.....................................................................................................................................................&#160;8&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">4.0&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">Integration Into the&#160;Build&#160;Project&#160;......................................................................................................................&#160;8&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#9">4.1&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#9">Compiler_Cfg.h&#160;.............................................................................................................................................&#160;9&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#9">4.2&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#9">MemMap.h&#160;....................................................................................................................................................&#160;9&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#10">5.0&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#10">Additional&#160;Resources&#160;.....................................................................................................................................&#160;10&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#10">6.0&#160;</a><br/>
+<a href="AN-ISC-8-1153_ThirdPartyModuless.html#10">Contacts&#160;.........................................................................................................................................................&#160;10&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>1.0&#160;&#160;Overview&#160;<br/></b>This&#160;application&#160;note&#160;describes&#160;integration of&#160;third party&#160;modules&#160;(i.e.&#160;MCAL)&#160;into&#160;DaVinci&#160;Configurator&#160;Pro&#160;5&#160;<br/>
+(CFG5 for&#160;short)&#160;and the MICROSAR&#160;stack&#160;for&#160;AUTOSAR&#160;Release&#160;4.x.&#160;<br/>This&#160;application&#160;note&#160;uses&#160;the MCU&#160;module as&#160;an example.&#160;<br/>&#160;<br/>
+<b>&#160;1&#160;&#160;</b><br/>
+<i>Copyright&#160;©&#160;2013&#160;-&#160;Vector&#160;Informatik&#160;GmbH&#160;</i><br/>
+<b>Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0&#160;</b><br/>
+<hr/>
+<a name=2></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-2_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;1&#160;–&#160;Overview&#160;of&#160;BSWMD&#160;file of&#160;MCU&#160;<br/>
+&#160;<br/>
+<b>2.0&#160;&#160;Integration in&#160;DaVinci&#160;Configurator&#160;5&#160;<br/></b>For&#160;integration&#160;of&#160;a module&#160;into&#160;a MICROSAR&#160;stack,&#160;different&#160;things&#160;have to&#160;be done.&#160;<br/>If&#160;the module&#160;fulfills&#160;one&#160;of&#160;the following&#160;list&#160;points,&#160;check&#160;this&#160;chapter&#160;for&#160;the description.&#160;<br/>The module:&#160;<br/>
+•&#160;&#160;has&#160;parts,&#160;generated&#160;based&#160;on the configuration (i.e.&#160;ECUC&#160;file)&#160;<br/>
+•&#160;&#160;requires&#160;the&#160;SCHM&#160;API&#160;for&#160;Exclusive Area handling&#160;<br/>
+•&#160;&#160;has&#160;cyclic&#160;MainFunction calls&#160;<br/>
+•&#160;&#160;needs&#160;access to&#160;communication PDUs&#160;<br/>
+&#160;<br/>
+<b>2.1&#160;&#160;Configuration&#160;With&#160;CFG5&#160;<br/></b>If&#160;the module shall&#160;be configured&#160;within&#160;the&#160;CFG5,&#160;the&#160;tool&#160;requires&#160;its&#160;modules&#160;description&#160;in&#160;a&#160;BSWMD&#160;file (basis&#160;<br/>
+software module&#160;description).&#160;Also the module&#160;has&#160;to&#160;be added&#160;to&#160;the configuration.&#160;<br/>
+<b>2.1.1&#160;&#160;Adding of&#160;BSWMD&#160;File&#160;<br/></b>Provide&#160;an&#160;additional&#160;search path for&#160;BSWMD&#160;files&#160;within&#160;your&#160;configuration.&#160;The&#160;BSWMD&#160;file must&#160;end with&#160;<br/>
+<b>.arxml</b>&#160;to&#160;be&#160;noticed by&#160;CFG5.&#160;<br/>Open&#160;<b>Project|Project Setting|Modules|Additional&#160;Definitions</b>&#160;and&#160;<b>Add</b>&#160;the path to the module’s&#160;BSWMD&#160;file&#160;as&#160;<br/>
+shown&#160;in the following&#160;screenshots.&#160;&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>2<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=3></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-3_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-3_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;2&#160;–&#160;Modules|Additional&#160;Definitions&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;3&#160;–&#160;BSWMD&#160;added&#160;<br/>
+&#160;<br/>Now the CFG5&#160;knows&#160;the&#160;module and it&#160;can be added&#160;to&#160;the configuration.&#160;But&#160;before the&#160;configuration has&#160;to be&#160;<br/>
+closed and&#160;opened&#160;again.&#160;<br/>
+<b>2.1.2&#160;&#160;Adding a&#160;Module&#160;to the&#160;Current&#160;Project&#160;<br/></b>For&#160;adding&#160;the&#160;module&#160;to&#160;the current&#160;configuration,&#160;open&#160;<b>Project|Project Settings|Modules</b>&#160;and&#160;<b>Add</b>&#160;it&#160;with the&#160;<br/>
+blue plus.&#160;If&#160;the&#160;path to&#160;the&#160;module is&#160;within the delivered SIP,&#160;you&#160;will&#160;find&#160;it&#160;in&#160;<b>Select&#160;from&#160;SIP</b>&#160;otherwise in&#160;<br/>
+<b>Select additional&#160;definition</b>&#160;(see screenshots&#160;below).&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>3<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=4></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-4_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-4_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;4&#160;–&#160;Module Assistant&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5&#160;–&#160;Module Definitions&#160;<br/>
+&#160;<br/>Now&#160;the module&#160;is&#160;within&#160;your&#160;project,&#160;configure&#160;it&#160;using the&#160;<b>Basic&#160;Editor</b>.&#160;&#160;<br/>
+<b>2.2&#160;&#160;External&#160;Generation Step&#160;<br/></b>If&#160;the module has&#160;parts&#160;generated&#160;based on&#160;the&#160;configuration&#160;of&#160;the&#160;ECUC&#160;file&#160;and the&#160;generation&#160;shall&#160;be&#160;started&#160;<br/>
+from&#160;the&#160;CFG5,&#160;the&#160;generation list&#160;has&#160;to&#160;be extended.&#160;The configuration of&#160;the generation steps&#160;for&#160;third-party&#160;<br/>
+modules&#160;can&#160;either&#160;be done&#160;manually&#160;or&#160;by&#160;a configuration file,&#160;making it&#160;easier&#160;to reuse&#160;your&#160;module&#160;for&#160;further&#160;<br/>
+projects.&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>4<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=5></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-5_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>2.2.1&#160;&#160;Manual&#160;Set-Up&#160;<br/></b>Open&#160;<b>Project|Project Settings|Code&#160;Generation|External&#160;Generation&#160;Steps</b>&#160;and&#160;<b>Add</b>&#160;the generation settings&#160;<br/>
+using the blue&#160;plus.&#160;<br/>
+&#160;<br/>
+Figure&#160;6&#160;–&#160;External&#160;Generation Steps&#160;<br/>
+&#160;<br/>Specify&#160;the module generator&#160;settings&#160;(i.e.&#160;parameters&#160;to be&#160;handed&#160;over).&#160;If&#160;the&#160;module generator&#160;also supports&#160;<br/>
+validation&#160;or&#160;requires&#160;a transformation of&#160;the input&#160;file,&#160;this&#160;can&#160;also&#160;be configured.&#160;For&#160;further&#160;information also see&#160;<br/>
+the Help&#160;Content&#160;of&#160;CFG5.&#160;<br/>
+<b>2.2.2&#160;&#160;Automatic Set-Up&#160;<br/></b>The settings&#160;described&#160;i<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">n&#160;2.2.1&#160;</a>can&#160;also&#160;be&#160;done&#160;automatically&#160;by&#160;a&#160;so-called&#160;<b>Settings.xml</b>.&#160;For&#160;configuration&#160;<br/>
+options&#160;of&#160;the&#160;Settings.xml&#160;please refer&#160;t<a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">o&#160;3.0&#160;Settings.xml.</a>&#160;<br/>
+<b>2.3&#160;&#160;Internal&#160;Behavior&#160;Description&#160;<br/></b>Most&#160;AUTOSAR&#160;modules&#160;require&#160;Exclusive&#160;Area&#160;and&#160;/&#160;or&#160;MainFunction handling&#160;by&#160;the RTE.&#160;The&#160;MICROSAR&#160;<br/>
+RTE&#160;reads&#160;this&#160;information&#160;from&#160;the so-called&#160;Internal&#160;Behavior&#160;description,&#160;which&#160;is&#160;a part&#160;of&#160;a&#160;BSWMD&#160;file.&#160;This&#160;<br/>
+file&#160;has&#160;to be provided&#160;to the CFG5&#160;by&#160;placing&#160;it&#160;into the folder&#160;for&#160;InternalBehavior&#160;files&#160;(default&#160;is&#160;<br/>
+./Config/InternalBehavior).&#160;<br/>The&#160;&lt;BSW-IMPLEMENTATION&gt;&#160;container&#160;within&#160;the BSWMD&#160;file&#160;must&#160;have a&#160;reference to the&#160;Internal&#160;Behavior&#160;<br/>
+(i.e.&#160;&lt;BEHAVIOR-REF DEST=&#34;BSW-INTERNAL-<br/>BEHAVIOR&#34;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu/McuBehavior&lt;/BEHAVIOR-REF&gt;,&#160;see also Figure&#160;1).&#160;<br/>
+The&#160;RTE&#160;reads&#160;the&#160;Internal&#160;Behavior&#160;of&#160;the module&#160;from&#160;this&#160;file and&#160;provides&#160;a solving action&#160;to create an&#160;<br/>
+RteBswModuleInstance&#160;with this&#160;information.&#160;<br/>
+<b>2.3.1&#160;&#160;Example&#160;for&#160;Internal&#160;Behavior&#160;Description&#160;<br/></b>The following&#160;example&#160;for&#160;an&#160;Internal&#160;Behavior&#160;description&#160;defines&#160;an exclusive area called&#160;MCU_EXCLUSIVE_AREA_0&#160;<br/>
+and&#160;a MainFunction called&#160;Mcu_MainFunction,&#160;which has&#160;to be called&#160;with&#160;a cycle time of&#160;0.01&#160;seconds.&#160;The&#160;file&#160;<br/>
+should be&#160;placed&#160;into the folder&#160;for&#160;InternalBehavior&#160;files&#160;(default&#160;is&#160;./Config/InternalBehavior)&#160;or&#160;the&#160;content&#160;can&#160;<br/>
+even be in the&#160;BSWMD&#160;file&#160;itself.&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>5<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=6></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-6_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;&#160;<br/>
+&lt;AUTOSAR xmlns=&#34;http://autosar.org/schema/r4.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&#160;<br/>
+xsi:schemaLocation=&#34;http://autosar.org/schema/r4.0 autosar_4-0-3.xsd&#34;&gt;&#160;<br/>
+&#160;&#160;&lt;AR-PACKAGES&gt;&#160;<br/>
+&#160; &#160;&#160;&lt;AR-PACKAGE&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;VendorX&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;AR-PACKAGES&gt;&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;AR-PACKAGE&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;Mcu_ib_bswmd&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160;&lt;AR-PACKAGES&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;AR-PACKAGE&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;BswModuleDescriptions&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;ELEMENTS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-MODULE-DESCRIPTION&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;Mcu&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;PROVIDED-ENTRYS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-MODULE-ENTRY-REF-CONDITIONAL&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-MODULE-ENTRY-REF DEST=&#34;BSW-MODULE-<br/>
+ENTRY&#34;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu_MainFunction&lt;/BSW-MODULE-ENTRY-REF&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/BSW-MODULE-ENTRY-REF-CONDITIONAL&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/PROVIDED-ENTRYS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;INTERNAL-BEHAVIORS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-INTERNAL-BEHAVIOR&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;McuBehavior&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&lt;EXCLUSIVE-AREAS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;EXCLUSIVE-AREA&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;MCU_EXCLUSIVE_AREA_0&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/EXCLUSIVE-AREA&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/EXCLUSIVE-AREAS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;ENTITYS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-SCHEDULABLE-ENTITY&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;Mcu_MainFunction&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;IMPLEMENTED-ENTRY-REF DEST=&#34;BSW-MODULE-<br/>
+ENTRY&#34;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu_MainFunction&lt;/IMPLEMENTED-ENTRY-REF&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/BSW-SCHEDULABLE-ENTITY&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/ENTITYS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;EVENTS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-TIMING-EVENT&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;Mcu_MainFunctionTimingEvent0&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;STARTS-ON-EVENT-REF DEST=&#34;BSW-SCHEDULABLE-<br/>
+ENTITY&#34;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu/McuBehavior/Mcu_MainFunction&lt;/STARTS-ON-EVENT-REF&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;PERIOD&gt;0.01&lt;/PERIOD&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160;&lt;/BSW-TIMING-EVENT&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/EVENTS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/BSW-INTERNAL-BEHAVIOR&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/INTERNAL-BEHAVIORS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/BSW-MODULE-DESCRIPTION&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;BSW-MODULE-ENTRY&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;SHORT-NAME&gt;Mcu_MainFunction&lt;/SHORT-NAME&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;CALL-TYPE&gt;SCHEDULED&lt;/CALL-TYPE&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;EXECUTION-CONTEXT&gt;TASK&lt;/EXECUTION-CONTEXT&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/BSW-MODULE-ENTRY&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/ELEMENTS&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160;&#160;&lt;/AR-PACKAGE&gt;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160;&lt;/AR-PACKAGES&gt;&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;/AR-PACKAGE&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;/AR-PACKAGES&gt;&#160;<br/>
+&#160; &#160;&#160;&lt;/AR-PACKAGE&gt;&#160;<br/>
+&#160;&#160;&lt;/AR-PACKAGES&gt;&#160;<br/>
+&lt;/AUTOSAR&gt;&#160;<br/>
+&#160;<br/>
+<b>2.3.2&#160;&#160;Templates for&#160;Internal&#160;Behavior&#160;Description&#160;<br/></b>Some modules&#160;provided&#160;by a&#160;MICROSAR&#160;delivery&#160;are not&#160;developed&#160;by&#160;Vector&#160;and&#160;do not&#160;have an&#160;automatic&#160;<br/>
+Internal&#160;Behavior&#160;creation (i.e.&#160;MCALs).&#160;For&#160;easier&#160;integration some of&#160;them&#160;provide templates&#160;for&#160;the Internal&#160;<br/>
+Behavior&#160;description.&#160;If&#160;these files&#160;are available&#160;within&#160;the current&#160;delivery&#160;they&#160;are positioned&#160;at&#160;<br/>
+.\Misc\InternalBehaviorTemplates.&#160;Please remove the&#160;starting&#160;‘_’&#160;marking the&#160;files&#160;as&#160;templates,&#160;copy&#160;them&#160;to the&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>6<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=7></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-7_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-7_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>InternalBehavior&#160;folder&#160;of&#160;your&#160;project&#160;and adapt&#160;them&#160;to&#160;your&#160;configuration (i.e.&#160;changing the cycle time of&#160;the&#160;<br/>
+MainFunction).&#160;<br/>
+<b>2.4&#160;&#160;RTE&#160;configuration&#160;<br/></b>If&#160;the&#160;Internal&#160;Behavior&#160;is&#160;configured as&#160;described&#160;i<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">n&#160;2.3&#160;</a>the RTE&#160;will&#160;provide a solving&#160;action to automatically&#160;<br/>
+create the required RTE&#160;configuration.&#160;If&#160;a MainFunction has&#160;to be called by&#160;the&#160;RTE,&#160;perform&#160;the according Task&#160;<br/>
+Mapping afterwards.&#160;The RTE&#160;will&#160;then generate the&#160;Exclusive&#160;Area and MainFunction calls&#160;as&#160;described in the&#160;<br/>
+Internal&#160;Behavior.&#160;<br/>
+<b>2.5&#160;&#160;CDD&#160;Configuration&#160;<br/></b>For&#160;your&#160;own modules&#160;that&#160;need&#160;access&#160;to any&#160;PDU&#160;within&#160;the&#160;communication stack,&#160;use the so-called CDD&#160;<br/>
+module&#160;(Complex&#160;Device Driver),&#160;which is&#160;part&#160;of&#160;the SIP.&#160;For&#160;adding&#160;the&#160;CDD&#160;to the current&#160;configuration,&#160;open&#160;<br/>
+<b>Project|Project Settings|Modules</b>&#160;and&#160;<b>Add</b>&#160;it&#160;via the&#160;blue plus.&#160;<br/>
+&#160;<br/>
+Figure&#160;7&#160;–&#160;Module&#160;Definitions&#160;CDD&#160;<br/>
+&#160;<br/>In the Basic&#160;Editor&#160;you&#160;can&#160;define,&#160;where&#160;the&#160;CDD&#160;shall&#160;be&#160;placed&#160;within&#160;the communication stack.&#160;<br/>
+&#160;<br/>
+Figure&#160;8&#160;–&#160;Configuring CDD&#160;<br/>
+&#160;<br/>For&#160;further&#160;information how&#160;to configure the CDD,&#160;please refer&#160;to its&#160;Technical&#160;Reference&#160;<br/>
+(TechnicalReference_Asr_CddCfg5.pdf).&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>7<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=8></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-8_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>3.0&#160;&#160;Settings.xml&#160;<br/></b>The&#160;<b>Settings.xml</b>&#160;is&#160;an&#160;open interface to the&#160;CFG5.&#160;With this&#160;file&#160;the following configuration can&#160;be done:&#160;<br/>
+•&#160;&#160;Settings&#160;for&#160;external&#160;validation and&#160;generation&#160;steps&#160;<br/>
+&#160;<br/>The file&#160;shall&#160;be&#160;placed&#160;to&#160;.\DaVinciConfigurator\Generators\&lt;Msn&gt;&#160;(i.e.&#160;<br/>C:\Vector\CBD1200333_D02_V85x\DaVinciConfigurator\Generators\Mcu\Settings_ExtGen_Mcu.xml)&#160;and is&#160;<br/>
+automatically&#160;known&#160;at&#160;start&#160;of&#160;the&#160;CFG5.&#160;<br/>
+The following&#160;example&#160;creates&#160;the same generator&#160;settings&#160;as&#160;the&#160;example i<a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">n&#160;2.2.1.</a>&#160;<br/>&#160;<br/>&lt;Settings&gt;&#160;<br/>
+&#160;&#160;&lt;!--&#160;external generator&#160;--&gt;&#160;<br/>
+&#160;&#160;&lt;Settings Name=&#34;com.vector.cfg.gui.core.generators.ExtGenSteps&#34;&gt;&#160;<br/>
+&#160; &#160;&#160;&lt;Settings Name=&#34;ExtGenSettings_DrvMcu&#34;&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;Active&#34; Value=&#34;true&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;CommandLine&#34; Value=&#34;C:\Vector\CBD1200333_D01_V85x_AddOn\Mcu\Mcu.exe&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;GenerationParameters&#34; Value=&#34;$(GenDataFolder) $(ProcessingEcuCFile)&#160;--generate&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;SupportsStandAloneValidation&#34; Value=&#34;true&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;ValidationParameters&#34; Value=&#34;$(GenDataFolder) $(ProcessingEcuCFile)&#160;--validate&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;TransformationRequired&#34; Value=&#34;false&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;TransformationXsltFile&#34; Value=&#34;&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;TransformationOutput&#34; Value=&#34;&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;WorkingDir&#34; Value=&#34;C:\Vector\CBD1200333_D01_V85x_AddOn\Mcu&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;SpecificAsVersionRequired&#34; Value=&#34;true&#34;/&gt;&#160;<br/>
+&#160; &#160; &#160;&#160;&lt;Setting Name=&#34;RequiredAsVersion&#34; Value=&#34;4.0.3&#34;/&gt;&#160;<br/>
+&#160; &#160;&#160;&lt;/Settings&gt;&#160;<br/>
+&#160;&#160;&lt;/Settings&gt; &#160;&#160;<br/>
+&lt;/Settings&gt;&#160;<br/>
+&#160;<br/>
+<b>4.0&#160;&#160;Integration&#160;Into the&#160;Build&#160;Project&#160;<br/></b>AUTOSAR&#160;has&#160;introduced&#160;a mechanism&#160;to integrate standardized code&#160;into different&#160;µC&#160;and&#160;Compilers.&#160;To adapt&#160;<br/>
+the modules&#160;into a&#160;project&#160;with specific&#160;compiler&#160;and&#160;linker&#160;settings&#160;the&#160;files&#160;MemMap.h and Compiler_Cfg.h&#160;have&#160;<br/>
+been&#160;introduced.&#160;If&#160;the&#160;module&#160;that&#160;shall&#160;be integrated into a&#160;build project&#160;that&#160;makes&#160;use&#160;of&#160;those mechanisms,&#160;<br/>
+these files&#160;have to&#160;be&#160;adapted.&#160;&#160;<br/>For&#160;further&#160;information on&#160;this&#160;topic&#160;please&#160;also&#160;refer&#160;to&#160;TechnicalReference_Asr_MemoryMapping.pdf&#160;within the&#160;<br/>
+SIP.&#160;<br/>&#160;<br/>Example code for&#160;the following&#160;chapters:&#160;<br/>#define MCU_START_SEC_VAR_INIT_8BIT&#160;<br/>
+#include &#34;MemMap.h&#34;&#160;<br/>
+&#160;<br/>VAR (uint8, MCU_INIT_DATA) Mcu_InitStatus =&#160;0;&#160;<br/>
+&#160;<br/>#define MCU_STOP_SEC_VAR_INIT_8BIT&#160;<br/>
+#include&#160;&#34;MemMap.h&#34;&#160;<br/>
+&#160;<br/>&#160;<br/>#define MCU_START_SEC_PUBLIC_CODE&#160;<br/>
+#include &#34;MemMap.h&#34;&#160;<br/>
+&#160;<br/>FUNC(void, MCU_PUBLIC_CODE) Mcu_Init (P2CONST(Mcu_ConfigType, AUTOMATIC, MCU_APPL_CONST) ConfigPtr)&#160;<br/>
+{&#160;<br/>
+…&#160;<br/>
+}&#160;<br/>
+&#160;<br/>#define MCU_STOP_SEC_PUBLIC_CODE&#160;<br/>
+#include &#34;MemMap.h&#34;&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>8<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=9></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-9_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>4.1&#160;&#160;Compiler_Cfg.h&#160;<br/></b>Add&#160;all&#160;used&#160;compiler&#160;abstraction&#160;defines&#160;from&#160;your&#160;module&#160;to this&#160;file,&#160;even&#160;if&#160;they&#160;are&#160;defined to nothing.&#160;&#160;<br/>Required&#160;Compiler_Cfg.h&#160;content&#160;for&#160;above&#160;given example:&#160;<br/>#define MCU_PUBLIC_CODE&#160;<br/>
+#define MCU_APPL_CONST&#160;<br/>
+#define MCU_INIT_DATA&#160;<br/>
+<b>4.2&#160;&#160;MemMap.h&#160;<br/></b>Add&#160;all&#160;used memory&#160;abstraction&#160;defines&#160;from&#160;your&#160;module to this&#160;file.&#160;<br/>Required&#160;MemMap.h content&#160;for&#160;above&#160;given example:&#160;<br/>#ifdef MCU_START_SEC_VAR_INIT_8BIT&#160;<br/>
+&#160;&#160;#undef MCU_START_SEC_VAR_INIT_8BIT&#160;<br/>
+&#160;&#160;#define START_SEC_VAR_INIT_8BIT&#160;<br/>
+#endif&#160;<br/>
+#ifdef MCU_STOP_SEC_VAR_INIT_8BIT&#160;<br/>
+&#160;&#160;#undef MCU_STOP_SEC_VAR_INIT_8BIT&#160;<br/>
+&#160;&#160;#define STOP_SEC_VAR&#160;<br/>
+#endif&#160;&#160;<br/>
+&#160;<br/>#ifdef MCU_START_SEC_PUBLIC_CODE&#160;<br/>
+&#160;&#160;#undef MCU_START_SEC_PUBLIC_CODE&#160;<br/>
+&#160;&#160;#define START_SEC_CODE&#160;<br/>
+#endif&#160;<br/>
+#ifdef MCU_STOP_SEC_PUBLIC_CODE&#160;<br/>
+&#160;&#160;#undef MCU_STOP_SEC_PUBLIC_CODE&#160;<br/>
+&#160;&#160;#define STOP_SEC_CODE&#160;<br/>
+#endif&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>9<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=10></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1153_ThirdPartyModules-10_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Third Party&#160;Modules&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>5.0&#160;&#160;Additional&#160;Resources&#160;<br/></b>VECTOR&#160;TECHNICAL&#160;REFERENCES&#160;<br/>
+TechnicalReference_Asr_MemoryMapping.pdf&#160;<br/>
+TechnicalReference_Asr_CddCfg5.pdf&#160;<br/>
+&#160;<br/>
+<b>6.0&#160;&#160;Contacts&#160;<br/></b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Germany&#160;&#160;</b><br/>
+<b>France,&#160;Belgium,&#160;Luxemburg:&#160;</b><br/>
+<b>Sweden,&#160;Denmark,&#160;Norway,&#160;&#160;</b><br/>
+<b>and all&#160;countries&#160;not&#160;named&#160;below:&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Finland,&#160;Iceland:&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Vector&#160;Informatik&#160;GmbH&#160;</b><br/>
+<b>Vector&#160;France&#160;S.A.S.&#160;</b><br/>
+<b>VecScan&#160;AB&#160;</b><br/>
+Ingersheimer&#160;Str.&#160;24&#160;<br/>
+168,&#160;Boulevard Camélinat&#160;<br/>
+Theres&#160;Svenssons&#160;Gata 9&#160;<br/>
+70499 Stuttgart&#160;<br/>
+92240 Malakoff&#160;&#160;<br/>
+41755 Göteborg&#160;&#160;<br/>
+GERMANY&#160;<br/>
+FRANCE&#160;<br/>
+SWEDEN&#160;<br/>
+Phone:&#160;+49 711-80670-0&#160;<br/>
+Phone:&#160;+33 1 42 31 40 00&#160;<br/>
+Phone:&#160;+46 31 764 76 00&#160;<br/>
+Fax:&#160;&#160;+49 711-80670-111&#160;<br/>
+Fax:&#160;&#160;+33 1 42 31 40&#160;09&#160;<br/>
+Fax:&#160;&#160;+46 31 764 76 19&#160;&#160;<br/>
+E-mail:&#160;&#160;info@de.vector.com&#160;<br/>
+E-mail:&#160;&#160;information@fr.vector.com&#160;<br/>
+E-mail:&#160;&#160;info@se.vector.com&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>United&#160;Kingdom,&#160;Ireland:&#160;</b><br/>
+<b>China:&#160;</b><br/>
+<b>India:&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Vector</b>&#160;<b>GB&#160;Ltd.&#160;</b><br/>
+<b>Vector&#160;Automotive&#160;Technology&#160;</b><br/>
+<b>Vector&#160;Informatik India Pvt.&#160;Ltd.&#160;</b><br/>
+Rhodium,&#160;Central&#160;Boulevard&#160;<br/>
+<b>(Shanghai)&#160;Co.,&#160;Ltd.</b>&#160;&#160;<br/>
+4/1/1/1, Sutar&#160;Icon,&#160;Sus&#160;Road,&#160;<br/>
+Blythe Valley&#160;Park&#160;<br/>
+Sunyoung Center&#160;<br/>
+Pashan,&#160;Pune&#160;-&#160;411 021&#160;<br/>
+Solihull,&#160;Birmingham&#160;<br/>
+Room&#160;1701,&#160;No.398 Jiangsu Road&#160;<br/>
+INDIA&#160;<br/>
+West&#160;Midlands&#160;B90 8AS&#160;<br/>
+Changning&#160;District&#160;<br/>
+&#160;<br/>
+UNITED KINGDOM&#160;<br/>
+Shanghai&#160;200050&#160;<br/>
+&#160;<br/>
+Phone:&#160;+44 121&#160;50681-50&#160;<br/>
+P.R.&#160;CHINA&#160;<br/>
+Phone:&#160;+91&#160;20 2587 2023&#160;<br/>
+Fax:&#160;&#160;+44 121&#160;50681-69&#160;<br/>
+Phone:&#160;+86 21&#160;6432 53530&#160;<br/>
+Fax:<b>&#160;&#160;&#160;</b>+91 20 2587&#160;2025&#160;<br/>
+&#160;<br/>
+Fax:&#160;&#160;&#160;+86 21 6432 5308&#160;<br/>
+&#160;<br/>
+E-mail:&#160;&#160;info@uk.vector.com&#160;<br/>
+E-mail:&#160;info@cn.vector.com&#160;<br/>
+E-mail:&#160;info@in.vector.com&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>USA,&#160;Canada,&#160;Mexico:&#160;</b><br/>
+<b>Japan:&#160;</b><br/>
+<b>Korea:&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Vector&#160;CANtech,&#160;Inc.&#160;</b><br/>
+<b>Vector&#160;Japan&#160;Co.&#160;Ltd.&#160;</b><br/>
+<b>Vector&#160;Korea&#160;IT&#160;Inc.&#160;</b><br/>
+39500 Orchard Hill&#160;Place,&#160;Suite 550&#160;<br/>
+Tennozu Yusen&#160;Bldg.&#160;16F&#160;<br/>
+5F,&#160;Gomoas&#160;bldg.&#160;<br/>
+Novi,&#160;MI&#160; 48375&#160;<br/>
+2-2-20 Higashi-shinagawa,&#160;<br/>
+12&#160;Hannam-daero 11-gil,&#160;Yongsan-gu&#160;<br/>
+USA&#160;<br/>
+Shinagawa-ku,&#160;<br/>
+Seoul,&#160;140-889&#160;<br/>
+&#160;<br/>
+Tokyo 140-0002&#160;<br/>
+REPUBLIC OF&#160;KOREA&#160;<br/>
+&#160;<br/>
+JAPAN&#160;<br/>
+&#160;<br/>
+Phone:&#160;+1 248 449 9290&#160;<br/>
+Phone:&#160;+81 3 5769 7800&#160;<br/>
+Phone:&#160;+82 2 807 0600&#160;<br/>
+Fax:&#160;&#160;+1 248 449 9704&#160;<br/>
+Fax:&#160;&#160;+81 3 5769 6975&#160;<br/>
+Fax:&#160;&#160;+82 2 807 0601&#160;<br/>
+E-mail:&#160;&#160;info@us.vector.com&#160;<br/>
+E-mail:&#160;&#160;info@jp.vector.com&#160;<br/>
+E-mail:&#160;&#160;info@kr.vector.com&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>10<i>&#160;</i></b><br/>
+<i>Application Note AN-ISC-8-1153<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#1">1.0 Overview</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">2.0 Integration in DaVinci Configurator 5</a>
+<ul>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">2.1 Configuration With CFG5</a>
+<ul>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#2">2.1.1 Adding of BSWMD File</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#3">2.1.2 Adding a Module to the Current Project</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#4">2.2 External Generation Step</a>
+<ul>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.2.1 Manual Set-Up</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.2.2 Automatic Set-Up</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.3 Internal Behavior Description</a>
+<ul>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#5">2.3.1 Example for Internal Behavior Description</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#6">2.3.2 Templates for Internal Behavior Description</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#7">2.4 RTE configuration</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#7">2.5 CDD Configuration</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">3.0 Settings.xml</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#8">4.0 Integration Into the Build Project</a>
+<ul>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#9">4.1 Compiler_Cfg.h</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#9">4.2 MemMap.h</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#10">5.0 Additional Resources</a></li>
+<li><a href="AN-ISC-8-1153_ThirdPartyModuless.html#10">6.0 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

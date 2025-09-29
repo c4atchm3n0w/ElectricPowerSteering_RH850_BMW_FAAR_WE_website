@@ -1,0 +1,1639 @@
+---
+title: BmwHwAgArbnAndEotPosn_MDD
+linkTitle: BmwHwAgArbnAndEotPosn_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>BmwHwAgArbnAndEotPosn</strong></p>
+<p><strong>12-Jul-2018</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 25%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Krzysztof Byrski</td>
+<td>1</td>
+<td>25-Oct-2017</td>
+</tr>
+<tr class="odd">
+<td>Updated Local Functions arguments</td>
+<td>Krzysztof Byrski</td>
+<td>2</td>
+<td>08-Nov-2017</td>
+</tr>
+<tr class="even">
+<td>Updated Diagram and Function Inputs</td>
+<td>Matthew Leser</td>
+<td>3</td>
+<td>16-Jan-2018</td>
+</tr>
+<tr class="odd">
+<td>Updated to Design version 3.0.0</td>
+<td>Krzysztof Byrski</td>
+<td>4</td>
+<td>15-Mar-2018</td>
+</tr>
+<tr class="even">
+<td>Updated to Design version 5.1.0</td>
+<td>Marek Brykczyński</td>
+<td>5</td>
+<td>29-Jun-2018</td>
+</tr>
+<tr class="odd">
+<td>Updated graphic to include 2 new inputs, modified and added functions</td>
+<td>Shawn Penning</td>
+<td>6</td>
+<td>12-Jul-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u></p>
+<p>T</p>
+<p>1 Introduction 5</p>
+<p>1.1 Purpose 5</p>
+<p>1.2 Scope 5</p>
+<p>2 BmwHwAgArbnAndEotPosn &amp; High-Level Description 6</p>
+<p>3 Design details of software module 7</p>
+<p>3.1 Graphical representation of BmwHwAgArbnAndEotPosn 7</p>
+<p>3.2 Data Flow Diagram 8</p>
+<p>3.2.1 Component level DFD 8</p>
+<p>3.2.2 Function level DFD 8</p>
+<p>4 Constant Data Dictionary 9</p>
+<p>4.1 Program (fixed) Constants 9</p>
+<p>4.1.1 Embedded Constants 9</p>
+<p>5 Software Component Implementation 10</p>
+<p>5.1 Sub-Module Functions 10</p>
+<p>5.1.1 Init: BmwHwAgArbnAndEotPosnInit1 10</p>
+<p>5.1.2 Per: BmwHwAgArbnAndEotPosnPer1 10</p>
+<p>5.2 Server Runables 11</p>
+<p>5.2.1 ClrBmwRackCentrToVehCentrOffs_Oper 11</p>
+<p>5.2.2 ClrVehCentrPosn_Oper 11</p>
+<p>5.2.3 SetVehCentrPosn_Oper 11</p>
+<p>5.3 Interrupt Functions 11</p>
+<p>5.4 Module Internal (Local) Functions 12</p>
+<p>5.4.1 HwAgSnsrNotTrimNTC 12</p>
+<p>5.4.2 HwPosnFltDetn 12</p>
+<p>5.4.3 PinionAgFltTmr 12</p>
+<p>5.4.4 OffsCorrnTmr 13</p>
+<p>5.4.5 InitTmr 13</p>
+<p>5.4.6 CalcBmwMotAgOffsSelnSt 13</p>
+<p>5.4.7 CalcBmwMotAgOffsSelnStOffsCmpd 14</p>
+<p>5.4.8 CalcBmwMotAgOffsSelnStSubVal 14</p>
+<p>5.4.9 CalcBmwMotAgOffsSelnStTmpCmpd 14</p>
+<p>5.4.10 CalcBmwMotAgOffsSelnStOffsCorrn 15</p>
+<p>5.4.11 CalcBmwMotAgOffsSelnStSigInvld 15</p>
+<p>5.4.12 CalcBmwMotAgOffsSelnStIni 15</p>
+<p>5.4.13 BmwMotAgOffsSelnStTranCase 16</p>
+<p>5.4.14 ChkNrcvrlFlt 16</p>
+<p>5.4.15 TurnCntrCorrlnStsTmr 16</p>
+<p>5.4.16 ChkTurnCntrCorrlnStsCdn 16</p>
+<p>5.4.17 ProcessBmwQuadRotorOffs1 16</p>
+<p>5.4.18 ProcessBmwQuadRotorOffs2 17</p>
+<p>5.4.20 ProcessBmwQuadOffsSts 17</p>
+<p>5.4.21 ActvtLpFil 17</p>
+<p>5.4.22 CalcBmwPinionAgOffs 17</p>
+<p>5.4.23 BmwMotAgSelnStOffsCmpd 18</p>
+<p>5.4.24 BmwMotAgSelnStSigInvld 19</p>
+<p>5.4.25 PinionAgCalc 19</p>
+<p>5.4.26 ClrNotCmplPinionAgFlg 19</p>
+<p>5.4.27 CalcEot 20</p>
+<p>5.4.28 SetBmwRackCentrToVehCentrOffs 20</p>
+<p>5.4.29 HndlgNTC 21</p>
+<p>5.5 GLOBAL Function/Macro Definitions 22</p>
+<p>6 Known Limitations with Design 23</p>
+<p>7 UNIT TEST CONSIDERATION 24</p>
+<p>Appendix A Abbreviations and Acronyms 25</p>
+<p>Appendix B Glossary 26</p>
+<p>Appendix C References 27</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module Design Document for CF071A_BmwHwAgArbnAndEotPosn_Impl.</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="bmwhwagarbnandeotposn-high-level-description">BmwHwAgArbnAndEotPosn &amp; High-Level Description</h1>
+<p>This function will be responsible for determining the hand wheel position using the motor position to provide an estimate of the hand wheel position.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-bmwhwagarbnandeotposn">Graphical representation of BmwHwAgArbnAndEotPosn</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:4.61741in;height:8.38768in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>N/A</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>N/A</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<p>None</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>The sub-module functions are grouped based on similar functionality that needs to be executed in a given “State” of the system (refer States and Modes). For a given module, the MDD will identify the type and number of sub-modules required. The sub-module types are described below.</p>
+<h3 id="init-init1">Init: Init1</h3>
+<h4 id="design-rationale">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="module-outputs">Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 id="per-per1">Per: Per1</h3>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h2 id="server-runables">Server Runables </h2>
+<h3 id="clrbmwrackcentrtovehcentroffs_oper">ClrBmwRackCentrToVehCentrOffs_Oper</h3>
+<h4 id="design-rationale-2">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-1"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="clrvehcentrposn_oper">ClrVehCentrPosn_Oper</h3>
+<h4 id="design-rationale-3">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-2"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="setvehcentrposn_oper">SetVehCentrPosn_Oper</h3>
+<h4 id="design-rationale-4">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-3"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h3 id="hwagsnsrnottrimntc">HwAgSnsrNotTrimNTC</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>HwAgSnsrNotTrimNTC</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>HwAgSnsrNotTrimFlt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-5">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="hwposnfltdetn">HwPosnFltDetn</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>HwPosnFltDetn</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotAgVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgSnsrNotTrimFlt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>PinionAgFltTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-6">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-1">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="pinionagflttmr">PinionAgFltTmr</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>PinionAgFltTmr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwAgSnsrNotTrimFlt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PinionAgFltTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-7">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-2">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="offscorrntmr">OffsCorrnTmr</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsCorrnTmr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>OffsCorrnTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-8">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-3">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="inittmr">InitTmr</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>InitTmr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>AllwExitFromInit_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-9">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-4">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnst">CalcBmwMotAgOffsSelnSt</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnSt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwQuadOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>PinionAgFltTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>OffsCorrnTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>AllwExitFromInit_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-10">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-5">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnstoffscmpd">CalcBmwMotAgOffsSelnStOffsCmpd</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnStOffsCmpd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwQuadOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-11">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-6">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnstsubval">CalcBmwMotAgOffsSelnStSubVal</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnStSubVal</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-12">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-7">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnsttmpcmpd">CalcBmwMotAgOffsSelnStTmpCmpd</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnStTmpCmpd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-13">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-8">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnstoffscorrn">CalcBmwMotAgOffsSelnStOffsCorrn</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnStOffsCorrn</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>OffsCorrnTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-14">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-9">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnstsiginvld">CalcBmwMotAgOffsSelnStSigInvld</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnStSigInvld</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PinionAgFltTmrElpd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-15">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-10">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcbmwmotagoffsselnstini">CalcBmwMotAgOffsSelnStIni</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwMotAgOffsSelnStIni</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgNotVldFltPrsnt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>AllwExitFromInit_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>AllwTran_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-16">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-11">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="bmwmotagoffsselnsttrancase">BmwMotAgOffsSelnStTranCase</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 38%" />
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>BmwMotAgOffsSelnStTranCase</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgSnsrNotTrimFlt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotAgTurnCntrDeg_MotDeg_T_f32</td>
+<td>float32</td>
+<td>-82944000</td>
+<td>83008800</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>TurnCntrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>PrevLoopBmwMotAgSelnSt_Cnt_T_enum</td>
+<td>enum</td>
+<td>2</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwQuadRotorOffs_MotRev_T_s08</td>
+<td>sint8</td>
+<td>-127</td>
+<td>127</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotAgCumvAlgnMrf_MotDeg_T_f32</td>
+<td>float32</td>
+<td>-262144</td>
+<td>262143.9998</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PinionAgTarConf_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotPosnDegArbd_MotDeg_T_f32</td>
+<td>float32</td>
+<td>- 83206144</td>
+<td>83270944&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chknrcvrlflt">ChkNrcvrlFlt</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ChkNrcvrlFlt</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Ntc8CSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Ntc8ESts_Cnt_T_enum</td>
+<td>enum</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="turncntrcorrlnststmr">TurnCntrCorrlnStsTmr</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>TurnCntrCorrlnStsTmr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrCorrlnSts_Cnt_T_u08</td>
+<td>enum</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chkturncntrcorrlnstscdn">ChkTurnCntrCorrlnStsCdn</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ChkTurnCntrCorrlnStsCdn</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrCorrlnSts_Cnt_T_u08</td>
+<td>enum</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="processbmwquadrotoroffs1">ProcessBmwQuadRotorOffs1</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessBmwQuadRotorOffs</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadOffsSts_Cnt_T_enum, ,</td>
+<td>Enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwQuadRotorOffs_MotRev_T_s08</td>
+<td>sint8</td>
+<td>-127</td>
+<td>127</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ChgdValDetd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="processbmwquadrotoroffs2">ProcessBmwQuadRotorOffs2</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessBmwQuadRotorOffs</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadOffsSts_Cnt_T_enum, ,</td>
+<td>Enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwQuadRotorOffs_MotRev_T_s08</td>
+<td>sint8</td>
+<td>-127</td>
+<td>127</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ChgdValDetd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="processbmwquadoffssts">ProcessBmwQuadOffsSts</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessBmwQuadOffsSts</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ChgdValDetd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="actvtlpfil">ActvtLpFil</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ActvtLpFil</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="calcbmwpinionagoffs">CalcBmwPinionAgOffs</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcBmwPinionAgOffs</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwPinionAgOffs_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-45</td>
+<td>45</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BmwPinionAgOffsSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>-BmwPinionAgOffsOutp_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+</tbody>
+</table>
+<h4 class="unnumbered" id="section-1"></h4>
+<h4 id="design-rationale-17">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-12">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="bmwmotagselnstoffscmpd">BmwMotAgSelnStOffsCmpd</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 50%" />
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>BmwMotAgSelnStOffsCmpd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>BmwQuadRotorOffs_MotRev_T_s08</td>
+<td>sint8</td>
+<td>-127</td>
+<td>127</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PinionAgTarConf_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-18">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-13">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="bmwmotagselnstsiginvld">BmwMotAgSelnStSigInvld</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>BmwMotAgSelnStSigInvld</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TurnCntrVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PrevLoopBmwMotAgSelnSt_Cnt_T_enum</td>
+<td>enum</td>
+<td>2</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgSnsrNotTrimFlt_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotAgTurnCntrDeg_MotDeg_T_f32</td>
+<td>float32</td>
+<td>-82944000</td>
+<td>83008800</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>PinionAgTarConf_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-19">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-14">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="pinionagcalc">PinionAgCalc</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>PinionAgCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>OffsCpmpdMotPosn_MotDeg_T_f32</td>
+<td>float32</td>
+<td>-82989720</td>
+<td>83054520</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CmplncErrMotToPinion_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-5</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>BmwPinionAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-20">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-15">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="clrnotcmplpinionagflg">ClrNotCmplPinionAgFlg</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ClrNotCmplPinionAgFlg</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>LongTermRackCentrCmpl_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-21">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-16">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calceot">CalcEot</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcEot</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>TotRackTrvl_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-2880</td>
+<td>2880</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>LongTermRackCentrCmpl_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>HwAgEotCw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>360</td>
+<td>900</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgEotCcw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-900</td>
+<td>-360</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgCwDetd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgCcwDetd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-22">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-17">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="setbmwrackcentrtovehcentroffs">SetBmwRackCentrToVehCentrOffs</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>SetBmwRackCentrToVehCentrOffs</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>LongTermRackCentrCmpl_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>RackCentrPinionAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-23">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-18">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="hndlgntc">HndlgNTC</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>HndlgNTC</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehSpdVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BmwVehSpdSts_Cnt_T_enum</td>
+<td>enum</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>DiKineIntegrityTest_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-24">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-19">Processing</h4>
+<p>Refer FDD</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<h1 id="abbreviations-and-acronyms">Abbreviations and Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document. (See references)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="glossary">Glossary</h1>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="https://www.autosar.org/fileadmin/files/standards/classic/4-0/software-architecture/implementation-integration/standard/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.4.0 R4.0 Rev 3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline EA4</td>
+<td>01.00.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>EA4 Software Naming Conventions</td>
+<td>01.01.00</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards</td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CF071A_BmwHwAgArbnAndEotPosn_Design</td>
+<td>See Synergy Sub Project Version</td>
+</tr>
+</tbody>
+</table>

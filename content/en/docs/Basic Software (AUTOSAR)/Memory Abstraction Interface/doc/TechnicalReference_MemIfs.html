@@ -1,0 +1,1321 @@
+---
+title: TechnicalReference_MemIfs
+linkTitle: TechnicalReference_MemIfs
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR MemIf&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;2.02.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Tobias&#160;Schmid,&#160;Manfred&#160;Duschinger,&#160;Michael&#160;Goß&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-2_2.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>1&#160;&#160;Document&#160;Information&#160;</b><br/>
+<b>1.1&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Tobias&#160;Schmid&#160;<br/>
+2008-04-14&#160;<br/>
+1.0&#160;<br/>
+Creation&#160;of&#160;document&#160;<br/>
+Manfred&#160;Duschinger&#160;<br/>
+2013-02-20&#160;<br/>
+1.01.00&#160;<br/>
+Ch.&#160;4.1.&#160;Update&#160;files&#160;<br/>according&#160;to new&#160;generator&#160;<br/>Ch.&#160;6&#160;Update Configuration&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2014-11-21&#160;<br/>
+2.01.01&#160;<br/>
+Typos&#160;were&#160;corrected&#160;and&#160;<br/>content&#160;was modified&#160;a&#160;little&#160;&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2015-04-23&#160;<br/>
+2.02.00&#160;<br/>
+Content&#160;was updated&#160;<br/>regarding&#160;SafeBSW&#160;MemIf&#160;<br/>
+Table&#160;1-1&#160;&#160;<br/>
+History&#160;of&#160;the&#160;document&#160;<br/>
+<b>1.2&#160;</b><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;<br/>
+AUTOSAR_SWS_Mem_AbstractionInterface.pdf&#160;<br/>
+V1.4.0&#160;<br/>
+[2]&#160;&#160;&#160;<br/>
+AUTOSAR_SWS_DET.pdf&#160;<br/>
+V2.2.0&#160;<br/>
+[3]&#160;&#160;&#160;<br/>
+AUTOSAR_BasicSoftwareModules.pdf&#160;<br/>
+V1.0.0&#160;<br/>
+[4]&#160;&#160;&#160;<br/>
+AUTOSAR_SWS_EEPROM_Abstraction.pdf&#160;<br/>
+V2.0.0&#160;<br/>
+[5]&#160;&#160;&#160;<br/>
+AUTOSAR_SWS_Flash_EEPROM_Emulation.pdf&#160;<br/>
+V2.0.0&#160;<br/>
+Table&#160;1-2&#160;&#160;<br/>
+Reference&#160;documents&#160;<br/>
+&#160;<br/>
+<b>1.3&#160;</b><br/>
+<b>Scope&#160;of&#160;the&#160;Document&#160;</b><br/>
+This&#160;technical&#160;reference&#160;describes&#160;the&#160;general&#160;use&#160;of&#160;module&#160;MemIf&#160;(AUTOSAR&#160;Memory&#160;<br/>Abstraction&#160;Interface).&#160;<br/>
+&#160;<br/>
+<b>Please&#160;note&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+&#160;&#160;questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have&#160;specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+2&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-3_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_MemIfs.html#2"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2"><b>Document&#160;Information&#160;.................................................................................................&#160;2</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">History&#160;...............................................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">1.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">Reference&#160;Documents&#160;.......................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">1.3&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">Scope of&#160;the&#160;Document......................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#6"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#6"><b>Introduction...................................................................................................................&#160;6</b>&#160;<br/></a><a href="TechnicalReference_MemIfs.html#7">2.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#7">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8"><b>Functional&#160;Description&#160;.................................................................................................&#160;8</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Features&#160;............................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">3.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Initialization&#160;........................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">3.3&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Main Functions&#160;..................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">3.4&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Error&#160;Handling&#160;....................................................................................................&#160;8&#160;<br/>3.4.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Development&#160;Error&#160;Reporting&#160;.............................................................&#160;8&#160;<br/></a><a href="TechnicalReference_MemIfs.html#9">3.4.1.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Parameter&#160;Checking&#160;........................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11"><b>Integration&#160;...................................................................................................................&#160;11</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Scope of&#160;Delivery&#160;.............................................................................................&#160;11&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Static Files&#160;.......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Dynamic&#160;Files&#160;..................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#12">4.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#12">Include Structure&#160;..............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#12">4.3&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#12">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.....................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14"><b>API&#160;Description&#160;...........................................................................................................&#160;14</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14">Interfaces&#160;Overview&#160;.........................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14">5.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14">Type&#160;Definitions&#160;...............................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#15">5.3&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#15">Services provided by&#160;MemIf&#160;.............................................................................&#160;15&#160;<br/>5.3.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#15">MemIf_GetVersionInfo&#160;.....................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">MemIf_SetMode&#160;...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">5.3.3&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">MemIf_Read&#160;....................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#17">5.3.4&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#17">MemIf_Write&#160;.....................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">5.3.5&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">MemIf_Cancel&#160;..................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">5.3.6&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">MemIf_GetStatus&#160;.............................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#19">5.3.7&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#19">MemIf_GetJobResult&#160;.......................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#20">5.3.8&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#20">MemIf_EraseImmediateBlock&#160;..........................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#20">5.3.9&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#20">MemIf_InvalidateBlock&#160;.....................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#21">5.4&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#21">Services used by&#160;MemIf&#160;...................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#22"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#22"><b>Configuration&#160;..............................................................................................................&#160;22</b>&#160;</a><br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+3&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-4_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<a href="TechnicalReference_MemIfs.html#23"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#23"><b>AUTOSAR&#160;Standard&#160;Compliance...............................................................................&#160;23</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#23">Deviations&#160;........................................................................................................&#160;23&#160;<br/>7.1.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#23">Extension&#160;of&#160;Error&#160;Codes&#160;.................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#23">7.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#23">Additions/&#160;Extensions&#160;.......................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;24</b>&#160;<br/>8.1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">Glossary&#160;..........................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">8.2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">Abbreviations&#160;...................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#25"><b>9</b>&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#25"><b>Contact&#160;........................................................................................................................&#160;25</b>&#160;</a><br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+4&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-5_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_MemIfs.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#7">AUTOSAR&#160;architecture&#160;...............................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#7">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#7">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;MemIf...............................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#12">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#12">Include structure&#160;.......................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14">Figure&#160;5-1&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#14">MemIf&#160;interactions&#160;with other&#160;BSW&#160;...........................................................&#160;14&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_MemIfs.html#2">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">History&#160;of&#160;the&#160;document&#160;..............................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">Table&#160;1-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#2">Reference&#160;documents&#160;.................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#8">Supported&#160;SWS&#160;features&#160;............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Mapping&#160;of&#160;service IDs&#160;to services&#160;.............................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Errors&#160;reported&#160;to DET&#160;...............................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#9">Development&#160;Error&#160;Reporting:&#160;Assignment&#160;of&#160;checks&#160;to services&#160;...............&#160;9&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Static&#160;files&#160;.................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#11">Generated&#160;files&#160;.........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#13">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#13">Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;..............................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#15">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#15">Type&#160;definitions&#160;.........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">MemIf_GetVersionInfo&#160;..............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#16">MemIf_SetMode&#160;.......................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#17">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#17">MemIf_Read&#160;.............................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">MemIf_Write&#160;.............................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#18">MemIf_Cancel&#160;..........................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#19">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#19">MemIf_GetStatus&#160;......................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#19">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#19">MemIf_GetJobResult&#160;................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#20">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#20">MemIf_EraseImmediateBlock&#160;...................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#21">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#21">MemIf_InvalidateBlock&#160;..............................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#21">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#21">Services used by&#160;the&#160;MemIf&#160;......................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">Table&#160;8-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">Glossary&#160;...................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">Table&#160;8-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_MemIfs.html#24">Abbreviations&#160;............................................................................................&#160;24&#160;</a><br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+5&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-6_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;MemIf&#160;as specified&#160;in<a href="TechnicalReference_MemIfs.html#2">&#160;[1].&#160;</a>&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_MemIfs.html#6">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+PRE-COMPILE&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+MEMIF_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;<br/>
+Vector-Informatik,&#160;<br/>
+according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+MEMIF_MODULE_ID &#160;&#160;<br/>
+22&#160;decimal&#160;<br/>(according&#160;to ref<a href="TechnicalReference_MemIfs.html#2">.&#160;[3])</a>&#160;<br/>
+*&#160;For&#160;the&#160;precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>
+MemIf&#160;(Memory&#160;Abstraction&#160;Interface) provides the&#160;interface&#160;that&#160;is&#160;used&#160;by&#160;the&#160;NvM&#160;to&#160;<br/>access NV&#160;memory&#160;devices.&#160;Two&#160;different&#160;types of&#160;NV&#160;memory&#160;are intended&#160;for&#160;use:&#160;Flash&#160;<br/>memory&#160;and&#160;EEPROM.&#160;To&#160;abstract&#160;the&#160;hardware dependencies&#160;of&#160;the&#160;memory&#160;devices,&#160;<br/>low&#160;level drivers&#160;with&#160;a&#160;commonly&#160;defined&#160;API&#160;are used:&#160;Fls&#160;and&#160;Eep&#160;(internal&#160;or external).&#160;<br/>These&#160;modules&#160;are&#160;abstracted&#160;by&#160;the&#160;modules Fee&#160;(Flash&#160;EEPROM&#160;Emulation) and&#160;Ea&#160;<br/>(EEPROM&#160;Abstraction).&#160;Both&#160;modules&#160;may&#160;exist&#160;at&#160;the&#160;same&#160;time.&#160;<br/>
+MemIf&#160;offers&#160;a&#160;common&#160;interface&#160;for accessing&#160;Fee&#160;or Ea&#160;instances.&#160;In&#160;order to&#160;distinguish&#160;<br/>those&#160;different&#160;instances&#160;MemIf&#160;provides&#160;a&#160;set&#160;of&#160;device&#160;handles,&#160;which&#160;may&#160;be&#160;used&#160;for&#160;<br/>configuration&#160;of&#160;NvM.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+6&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-7_2.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;MemIf&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;<br/>
+AUTOSAR&#160;architecture&#160;<br/>
+&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;&#160;MemIf.&#160;These&#160;interfaces&#160;<br/>are described&#160;in&#160;chapter<a href="TechnicalReference_MemIfs.html#14">&#160;5.&#160;</a>&#160;<br/>
+COM<br/>
+DCM<br/>
+NvM<br/>
+IPDU<br/>
+Det<br/>
+MemIf<br/>
+Fee<br/>
+FR&#160;<br/>
+Ea<br/>
+CAN&#160;IF<br/>
+FR&#160;IF<br/>
+Fls<br/>
+Eep<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;<br/>
+Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;MemIf&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+7&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-8_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-8_3.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features listed&#160;in&#160;this chapter cover the&#160;complete&#160;functionality&#160;specified&#160;in<a href="TechnicalReference_MemIfs.html#2">&#160;[1].</a>&#160;<br/>The&#160;&#160;&#34;supported&#34;&#160;&#160;and&#160;&#160;&#34;not&#160;&#160;supported&#34;&#160;&#160;features&#160;&#160;are&#160;&#160;presented&#160;&#160;in&#160;&#160;the&#160;&#160;following&#160;&#160;two&#160;&#160;tables.&#160;<br/>For further information&#160;of&#160;not&#160;supported&#160;features also&#160;see&#160;chapte<a href="TechnicalReference_MemIfs.html#23">r&#160;7.</a>&#160;<br/>The&#160;following&#160;features&#160;described&#160;in<a href="TechnicalReference_MemIfs.html#2">&#160;[1]&#160;</a>are&#160;supported:&#160;<br/>
+<b>Feature&#160;<br/></b>MemIf&#160;allows&#160;the&#160;NVRAM&#160;manager&#160;to&#160;access&#160;multiple&#160;instances&#160;of&#160;memory&#160;hardware&#160;<br/>abstraction&#160;modules&#160;(Fee&#160;or&#160;Ea),&#160;regardless&#160;of&#160;different&#160;APIs&#160;and&#160;implementations.&#160;<br/>
+Table&#160;3-1&#160;&#160;<br/>
+Supported&#160;SWS&#160;features&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+MemIf&#160;does&#160;not&#160;need&#160;any&#160;initialization.&#160;Nevertheless&#160;it&#160;is&#160;necessary&#160;to&#160;initialize&#160;all&#160;memory&#160;<br/>hardware abstraction&#160;module&#160;instances&#160;that&#160;are&#160;interfaced&#160;by&#160;MemIf.&#160;<br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>MemIf&#160;does&#160;<b>not&#160;</b>provide&#160;any&#160;services&#160;for&#160;initialization of&#160;underlying&#160;memory&#160;hardware&#160;<br/>
+&#160;&#160;abstraction&#160;modules.&#160;Initialization of&#160;these&#160;modules&#160;is&#160;not&#160;done&#160;by&#160;MemIf!&#160;<br/>
+<b>&#160;</b><br/>
+<b>3.3&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+MemIf&#160;&#160;does&#160;&#160;not&#160;&#160;implement&#160;&#160;main-functions&#160;&#160;that&#160;&#160;would&#160;&#160;need&#160;&#160;recurring&#160;&#160;execution.&#160;&#160;Job&#160;<br/>requests&#160;are&#160;mapped&#160;to&#160;the&#160;appropriate&#160;underlying&#160;memory&#160;hardware&#160;abstraction&#160;module,&#160;<br/>which&#160;implements&#160;the&#160;main-function&#160;for&#160;processing&#160;the&#160;job.&#160;<br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>MemIf&#160;is&#160;<b>not</b>&#160;responsible&#160;for&#160;calling&#160;main-functions&#160;of&#160;the&#160;underlying&#160;hardware&#160;<br/>
+&#160;&#160;abstraction&#160;modules.&#160;Calling&#160;main-functions&#160;cyclically&#160;has&#160;to&#160;be&#160;implemented&#160;in the&#160;<br/>
+BSW&#160;Scheduler&#160;(or&#160;something&#160;similar).&#160;<br/>
+<b>&#160;</b><br/>
+<b>3.4&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.4.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+Development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;by&#160;&#160;default&#160;&#160;to&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError(),&#160;&#160;(specified&#160;&#160;in<a href="TechnicalReference_MemIfs.html#2">&#160;&#160;[2]),&#160;&#160;</a>if&#160;&#160;the&#160;&#160;pre-compile&#160;&#160;configuration&#160;&#160;parameter&#160;&#160;for&#160;<br/>“Development&#160;Mode”&#160;and&#160;“Development&#160;Error&#160;Reporting”&#160;are&#160;enabled.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+8&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-9_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_MemIfs.html#15">5.3.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+1&#160;<br/>
+MemIf_SetMode&#160;<br/>
+2&#160;<br/>
+MemIf_Read&#160;<br/>
+3&#160;<br/>
+MemIf_Write&#160;<br/>
+4&#160;<br/>
+MemIf_Cancel&#160;<br/>
+5&#160;<br/>
+MemIf_GetStatus&#160;<br/>
+6&#160;<br/>
+MemIf_GetJobResult&#160;<br/>
+7&#160;<br/>
+MemIf_InvalidateBlock&#160;<br/>
+8&#160;<br/>
+MemIf_GetVersionInfo&#160;<br/>
+9&#160;<br/>
+MemIf_EraseImmediateBlock&#160;<br/>
+Table&#160;3-2&#160;&#160;<br/>
+Mapping&#160;of&#160;service&#160;IDs&#160;to&#160;services&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;<br/>
+MEMIF_E_PARAM_DEVICE&#160;<br/>
+The&#160;parameter&#160;denoting&#160;the&#160;device index&#160;passed&#160;to&#160;<br/>the&#160;API&#160;service is out&#160;of&#160;range.&#160;&#160;<br/>
+0x02&#160;<br/>
+MEMIF_E_PARAM_POINTER&#160;&#160;The&#160;parameter&#160;passed&#160;to MemIf_GetVersionInfo&#160;<br/>
+references no&#160;valid address&#160;(NULL-Pointer).&#160;<br/>
+Table&#160;3-3&#160;&#160;<br/>
+Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+&#160;<br/>
+<b>3.4.1.1&#160;</b><br/>
+<b>Parameter&#160;Checking&#160;</b><br/>
+The&#160;following&#160;table&#160;shows&#160;which&#160;parameter&#160;checks are&#160;performed&#160;on&#160;which&#160;services:&#160;<br/>
+&#160;<br/>
+<b>Check&#160;</b><br/>
+o&#160;<br/>
+ter&#160;<br/>
+&#160;t<br/>
+g a<br/>
+&#160;<br/>
+e&#160;<br/>
+n<br/>
+c<br/>
+&#160;<br/>
+i<br/>
+s&#160;<br/>
+i<br/>
+ed<br/>
+me<br/>
+es<br/>
+a<br/>
+nc<br/>
+&#160;<br/>
+v<br/>
+ss&#160;ci&#160;r&#160;er&#160;dres<br/>
+&#160;<br/>
+&#160;dek&#160;&#160;pa&#160;erv&#160;&#160;pak&#160;efe&#160;&#160;add<br/>
+<b>Service</b><br/>
+ex<br/>
+I s<br/>
+i<br/>
+<b>&#160;</b><br/>
+P<br/>
+Chec<br/>
+ndi&#160;A<br/>
+Chec<br/>
+for &#160;r<br/>
+alv<br/>
+MemIf_GetVersionInfo&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_SetMode&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_Read&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_Write&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_Cancel&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_GetStatus&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_GetJobResult&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_InvalidateBlock&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_EraseImmediateBlock&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;3-4&#160;&#160;<br/>
+Development&#160;Error&#160;Reporting:&#160;Assignment&#160;of&#160;checks&#160;to&#160;services&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+9&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-10_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+AUTOSAR&#160;requires&#160;that&#160;API&#160;functions&#160;check the&#160;validity&#160;of&#160;their&#160;parameters.&#160;The&#160;checks&#160;in&#160;<br/><a href="TechnicalReference_MemIfs.html#9">Table&#160;3-4&#160;</a>are&#160;internal parameter checks of&#160;the&#160;API&#160;functions.&#160;&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+10&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-11_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;MemIf&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;MemIf&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapters<a href="TechnicalReference_MemIfs.html#11">&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_MemIfs.html#11">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+MemIf.h&#160;<br/>
+API&#160;of&#160;module&#160;MemIf,&#160;only&#160;this&#160;file needs&#160;to be&#160;included&#160;by&#160;upper&#160;layer&#160;<br/>software&#160;(e.g.&#160;NvM)&#160;<br/>
+MemIf_Types.h&#160;<br/>
+Defines&#160;all&#160;standard&#160;types,&#160;needed&#160;by&#160;upper&#160;layer&#160;modules&#160;as well&#160;as the&#160;<br/>modules Fee&#160;and Ea.&#160;<br/>This&#160;file needs&#160;to&#160;be&#160;included&#160;by&#160;all&#160;memory&#160;hardware&#160;abstraction&#160;<br/>modules according&#160;to&#160;AUTOSAR.&#160;<br/>
+MemIf.c&#160;<br/>
+Implementation&#160;of&#160;the&#160;functionalities of&#160;the&#160;module&#160;MemIf&#160;<br/>
+Table&#160;4-1&#160;&#160;<br/>
+Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files&#160;are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+MemIf_Cfg.h&#160;<br/>
+Configuration header&#160;file&#160;<br/>
+MemIf_Cfg.c&#160;<br/>
+Configuration source&#160;file&#160;<br/>
+Table&#160;4-2&#160;&#160;<br/>
+Generated&#160;files&#160;<br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+11&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_1.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_2.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_3.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_4.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_5.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_6.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_7.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_8.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_9.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-12_10.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Include&#160;Structure&#160;</b><br/>
+<b>deployment&#160;File&#160;Structure</b><br/>
+Fee.h<br/>
+«configurable<br/>
+0..*<br/>
+MemIf_Cfg.h<br/>
+include»<br/>
+Det.h<br/>
+«include»<br/>
+«configurable<br/>
+Ea.h<br/>
+include»<br/>
+0..*<br/>
+«include»<br/>
+MemIf.h<br/>
+MemIf_Types.h<br/>
+«include»<br/>
+Std_Types.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+MemIf.c<br/>
+MemIf_Cfg.c<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;<br/>
+Include&#160;structure&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;&#160;</b><br/>
+The&#160;&#160;objects&#160;&#160;(e.g.&#160;&#160;variables,&#160;&#160;functions,&#160;&#160;constants)&#160;&#160;are&#160;&#160;declared&#160;&#160;by&#160;&#160;compiler&#160;&#160;independent&#160;<br/>definitions&#160;&#160;–&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definitions.&#160;&#160;Each&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definition&#160;&#160;is&#160;<br/>assigned&#160;to&#160;a&#160;memory&#160;section.&#160;<br/>The&#160;&#160;following&#160;&#160;table&#160;&#160;contains&#160;&#160;the&#160;&#160;memory&#160;&#160;section&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;<br/>definitions,&#160;which&#160;are&#160;defined&#160;for&#160;the&#160;MemIf,&#160;and&#160;illustrates&#160;their&#160;assignment&#160;among&#160;each&#160;<br/>other.&#160;<br/>
+&#160;<br/>
+<b>Compiler&#160;Abstraction&#160;</b><br/>
+DE<br/>
+<b>Definitions&#160;</b><br/>
+&#160;<br/>
+CO<br/>
+A<br/>
+<b>&#160;</b><br/>
+_<br/>
+T<br/>
+E<br/>
+A<br/>
+&#160;<br/>
+T&#160;<br/>
+&#160;<br/>
+T<br/>
+D<br/>
+S<br/>
+E<br/>
+A<br/>
+L_<br/>
+<b>Memory&#160;Mapping&#160;</b><br/>
+N<br/>
+D<br/>
+P<br/>
+RIV<br/>
+P<br/>
+<b>Sections&#160;</b><br/>
+IF_CO<br/>
+IF_CO<br/>
+IF_P<br/>
+IF_A<br/>
+M<br/>
+M<br/>
+M<br/>
+M<br/>
+ME<br/>
+ME<br/>
+ME<br/>
+ME<br/>
+MEMIF_START_SEC_CONST_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_STOP_SEC_CONST_8BIT&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+12&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-13_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+MEMIF_START_SEC_CONST_32BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_STOP_SEC_CONST_32BIT&#160;<br/>
+MEMIF_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_STOP&#160;_SEC_CODE&#160;<br/>
+Memory&#160;sections&#160;in&#160;which&#160;underlying memory&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+hardware&#160;abstraction&#160;modules’&#160;code resides&#160;<br/>
+Memory&#160;sections&#160;of&#160;data&#160;buffers, which&#160;are passed&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+to&#160;the&#160;API&#160;services&#160;for read&#160;or&#160;write&#160;jobs&#160;<br/>
+Memory&#160;sections&#160;of&#160;buffers&#160;passed&#160;to&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MemIf_GetVersionInfo&#160;<br/>
+Table&#160;4-3&#160;&#160;<br/>
+Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+13&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-14_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>Interfaces&#160;Overview&#160;</b><br/>
+<b>class&#160;Logical&#160;View</b><br/>
+<b>Nv&#160;M</b><br/>
+<b>MemIf</b><br/>
++&#160;&#160;MemIf_Cancel(uint8)&#160;:&#160;void<br/>+&#160;&#160;MemIf_EraseImmediateBlock(uint8,&#160;uint16)&#160;:&#160;Std_ReturnType<br/>+&#160;&#160;MemIf_GetJobResult(uint8)&#160;:&#160;MemIf_JobResultType<br/>+&#160;&#160;MemIf_GetStatus(uint8)&#160;:&#160;MemIf_StatusType<br/>+&#160;&#160;MemIf_GetVersionInfo(Std_VersionInfoType*)&#160;:&#160;void<br/>
+<b>Det</b><br/>
++&#160;&#160;MemIf_InvalidateBlock(uint8,&#160;uint16)&#160;:&#160;Std_ReturnType<br/>+&#160;&#160;MemIf_Read(uint8,&#160;uint16,&#160;uint16,&#160;MemIf_DataPtr_pu8*,&#160;uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Det_ReportError(uint16,&#160;uint8,&#160;uint8,&#160;uint8)&#160;:&#160;void<br/>
++&#160;&#160;MemIf_SetMode(MemIf_ModeType)&#160;:&#160;void<br/>+&#160;&#160;MemIf_Write(uint8,&#160;uint16,&#160;MemIf_DataPtr_pu8)&#160;:&#160;Std_ReturnType<br/>
+0..*<br/>
+0..*<br/>
+<b>Fee</b><br/>
+<b>Ea</b><br/>
++&#160;&#160;Fee_Cancel()&#160;:&#160;void<br/>
++&#160;&#160;Ea_Cancel()&#160;:&#160;void<br/>
++&#160;&#160;Fee_EraseImmediateBlock(uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Ea_EraseImmediateBlock(uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Fee_GetJobResult()&#160;:&#160;MemIf_JobResultType<br/>
++&#160;&#160;Ea_GetJobResult()&#160;:&#160;MemIf_JobResultType<br/>
++&#160;&#160;Fee_GetStatus()&#160;:&#160;MemIf_StatusType<br/>
++&#160;&#160;Ea_GetStatus()&#160;:&#160;MemIf_StatusType<br/>
++&#160;&#160;Fee_GetVersionInfo(Std_VersionInfoType*)&#160;:&#160;void<br/>
++&#160;&#160;Ea_GetVersionInfo(Std_VersionInfoType)&#160;:&#160;void<br/>
++&#160;&#160;Fee_Init()&#160;:&#160;void<br/>
++&#160;&#160;Ea_Init()&#160;:&#160;void<br/>
++&#160;&#160;Fee_InvalidateBlock(uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Ea_InvalidateBlock(uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Fee_Read(uint16,&#160;uint16,&#160;uint8*,&#160;uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Ea_Read(uint16,&#160;uint16,&#160;uint8*,&#160;uint16)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Fee_SetMode(MemIf_ModeType)&#160;:&#160;void<br/>
++&#160;&#160;Ea_SetMode(MemIf_ModeType)&#160;:&#160;void<br/>
++&#160;&#160;Fee_Write(uint16,&#160;uint8*)&#160;:&#160;Std_ReturnType<br/>
++&#160;&#160;Ea_Write(uint16,&#160;uint8*)&#160;:&#160;Std_ReturnType<br/>
+&#160;<br/>
+Figure&#160;5-1&#160;<br/>
+MemIf&#160;interactions&#160;with&#160;other&#160;BSW&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+MemIf_StatusType&#160;<br/>
+enum&#160;<br/>
+Denotes&#160;the&#160;states&#160;of&#160;<br/>
+MEMIF_UNINIT&#160;<br/>
+BSW&#160;modules&#160;in the&#160;<br/>
+Module&#160;is&#160;not&#160;initialized&#160;<br/>
+memory&#160;stack&#160;<br/>
+MEMIF_IDLE&#160;<br/>There are no&#160;pending&#160;jobs that&#160;<br/>need&#160;processing&#160;<br/>MEMIF_BUSY&#160;<br/>Module is processing&#160;jobs,&#160;no&#160;<br/>further&#160;job&#160;requests&#160;are&#160;accepted&#160;<br/>MEMIF_BUSY_INTERNAL&#160;<br/>No job&#160;requests&#160;are&#160;being&#160;<br/>processed,&#160;but&#160;the&#160;module is busy&#160;<br/>executing&#160;internal&#160;operations&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+14&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-15_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+MemIf_JobResultType&#160;&#160;enum&#160;<br/>
+Denotes&#160;the&#160;result&#160;of&#160;a&#160;<br/>
+MEMIF_JOB_OK&#160;<br/>
+job&#160;request&#160;after&#160;<br/>
+Job&#160;processing&#160;finished&#160;<br/>
+processing&#160;of&#160;this&#160;job&#160;<br/>
+successfully&#160;<br/>MEMIF_JOB_FAILED&#160;<br/>Job&#160;processing&#160;finished&#160;with an&#160;<br/>error&#160;<br/>MEMIF_JOB_PENDING&#160;<br/>Job&#160;is&#160;currently&#160;being&#160;processed&#160;<br/>MEMIF_JOB_CANCELLED&#160;<br/>Job&#160;has&#160;been cancelled&#160;by&#160;the&#160;<br/>user&#160;<br/>MEMIF_BLOCK_INCONSISTENT&#160;<br/>Job&#160;finished successfully,&#160;but&#160;data&#160;<br/>is&#160;inconsistent&#160;<br/>MEMIF_BLOCK_INVALID&#160;<br/>Job&#160;finished successfully&#160;but&#160;data&#160;<br/>has&#160;been&#160;invalidated&#160;<br/>
+MemIf_ModeType&#160;<br/>
+enum&#160;<br/>
+Denotes&#160;the&#160;processing&#160;<br/>
+MEMIF_MODE_SLOW&#160;<br/>
+mode&#160;for&#160;a&#160;module in&#160;the&#160;&#160;Jobs&#160;are&#160;processed with&#160;the&#160;<br/>
+memory&#160;stack&#160;<br/>
+configured&#160;properties&#160;for&#160;slow&#160;<br/>mode&#160;<br/>MEMIF_MODE_FAST&#160;<br/>Jobs&#160;are&#160;processed with&#160;the&#160;<br/>configured&#160;properties&#160;for&#160;fast&#160;mode&#160;<br/>
+Table&#160;5-1&#160;&#160;<br/>
+Type&#160;definitions&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;provided by&#160;MemIf&#160;</b><br/>
+The&#160;MemIf&#160;API&#160;consists of&#160;services,&#160;which&#160;are realized&#160;by&#160;function&#160;calls.&#160;<br/>
+<b>5.3.1&#160;</b><br/>
+<b>MemIf_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>MemIf_GetVersionInfo&#160;</b>(&#160;Std_VersionInfoType&#160;*&#160;VersionInfoPtr&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+VersionInfoPtr<br/>
+Reference to&#160;a version&#160;information&#160;structure&#160;in&#160;RAM<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service&#160;writes&#160;the&#160;version&#160;information&#160;of&#160;MemIf&#160;to the referenced structure.&#160;&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;In case&#160;the&#160;input&#160;parameter&#160;references&#160;an&#160;invalid&#160;address&#160;(NULL-pointer)&#160;the&#160;error&#160;<br/>
+MEMIF_E_PARAM_POINTER&#160;is&#160;reported&#160;to&#160;Det&#160;and execution&#160;of&#160;the&#160;service is aborted.&#160;<br/>
+&#160;&#160;This&#160;service is only&#160;available if&#160;“Version Info Api”&#160;is&#160;configured&#160;to&#160;STD_ON&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+15&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-16_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+&#160;&#160;This&#160;service has&#160;no&#160;restriction&#160;to&#160;the&#160;allowed&#160;or&#160;expected&#160;caller&#160;context.&#160;<br/>
+Table&#160;5-2&#160;&#160;<br/>
+MemIf_GetVersionInfo&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>MemIf_SetMode&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>MemIf_SetMode</b>(MemIf_ModeType&#160;Mode&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Mode<br/>
+Mode&#160;to&#160;switch modules&#160;into<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service&#160;switches&#160;all&#160;underlying&#160;memory&#160;hardware&#160;abstraction modules&#160;to&#160;the&#160;requested mode of&#160;<br/>operation,&#160;by&#160;calling&#160;[Ea|Fee]_SetMode&#160;(See description&#160;of&#160;respective module’s&#160;function).&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;All&#160;memory&#160;abstraction&#160;modules have to&#160;be&#160;in&#160;state&#160;MEMIF_IDLE&#160;when this&#160;service is&#160;<br/>
+executed.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;service has&#160;no&#160;restriction&#160;to&#160;the&#160;allowed&#160;or&#160;expected&#160;caller&#160;context.&#160;<br/>
+Table&#160;5-3&#160;&#160;<br/>
+MemIf_SetMode&#160;<br/>
+<b>5.3.3&#160;</b><br/>
+<b>MemIf_Read&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Std_ReturnType&#160;<b>MemIf_Read</b>&#160;<br/>
+(&#160;<br/>&#160;<br/>
+uint8&#160;<br/>
+DeviceIndex,&#160;<br/>
+&#160;<br/>
+uint16&#160;&#160;BlockNumber,&#160;<br/>
+&#160;<br/>
+uint16&#160;&#160;BlockOffset,&#160;<br/>
+&#160;<br/>
+uint8*&#160;&#160;DataBufferPtr,&#160;<br/>
+&#160;<br/>
+uint16&#160;&#160;Length&#160;<br/>
+)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module to&#160;which the&#160;read&#160;operation&#160;<br/>
+&#160;<br/>
+shall&#160;be&#160;delegated.&#160;<br/>
+BlockNumber<br/>
+Identifies&#160;the&#160;block&#160;to&#160;read&#160;in&#160;non<br/>
+&#160;<br/>
+-volatile memory.&#160;<br/>
+BlockOffset<br/>
+Offset&#160;in the block&#160;identified&#160;by&#160;BlockNumber&#160;from&#160;which on reading&#160;is&#160;<br/>
+&#160;<br/>
+performed&#160;<br/>
+DataBufferPtr<br/>
+Reference to the&#160;data&#160;buffer&#160;to&#160;which the data&#160;in&#160;non<br/>
+&#160;<br/>
+-volatile memory&#160;is&#160;read&#160;<br/>
+to.&#160;<br/>
+Length<br/>
+Number&#160;of&#160;bytes&#160;to&#160;read<br/>
+&#160;<br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+16&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-17_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK<br/>
+Read&#160;job request is&#160;accepted&#160;by&#160;the&#160;addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+E_NOT_OK<br/>
+Read&#160;job request is&#160;rejected by&#160;the addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the job request to the&#160;appropriate&#160;memory&#160;hardware&#160;abstraction&#160;module by&#160;calling&#160;the&#160;service&#160;<br/>[Ea|Fee]_Read&#160;of&#160;the addressed&#160;module&#160;instance&#160;(See description of&#160;respective&#160;module’s&#160;function)&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;reported&#160;to&#160;Det&#160;and&#160;execution&#160;of&#160;the&#160;<br/>service is aborted.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-4&#160;&#160;<br/>
+MemIf_Read&#160;<br/>
+<b>5.3.4&#160;</b><br/>
+<b>MemIf_Write&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Std_ReturnType&#160;<b>MemIf_Write</b>&#160;&#160;<br/>
+(&#160;<br/>&#160;<br/>
+uint8&#160;<br/>
+DeviceIndex,&#160;<br/>
+&#160;<br/>
+uint16&#160;&#160;BlockNumber,&#160;<br/>
+&#160;<br/>
+uint8*&#160;&#160;DataBufferPtr&#160;<br/>
+)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module&#160;to&#160;which the&#160;write&#160;<br/>
+&#160;<br/>
+operation shall&#160;be&#160;delegated.&#160;<br/>
+BlockNumber<br/>
+Identifies&#160;the block&#160;to&#160;write&#160;to&#160;non<br/>
+&#160;<br/>
+-volatile memory.&#160;<br/>
+DataBufferPtr<br/>
+Reference to the&#160;data buffer whose content&#160;is&#160;written&#160;to non<br/>
+&#160;<br/>
+-volatile memory&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK<br/>
+Write&#160;job&#160;request is&#160;accepted&#160;by&#160;the&#160;addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+E_NOT_OK<br/>
+Write&#160;job&#160;request is&#160;rejected by&#160;the addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the job request to the&#160;appropriate&#160;memory&#160;hardware&#160;abstraction&#160;module by&#160;calling&#160;the&#160;service&#160;<br/>[Ea|Fee]_Write&#160;of&#160;the addressed&#160;module instance&#160;(See&#160;description&#160;of&#160;respective module’s&#160;function)&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;reported&#160;to&#160;Det&#160;and&#160;execution&#160;of&#160;the&#160;<br/>service is aborted.&#160;<br/>
+Call&#160;context&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+17&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-18_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-5&#160;&#160;<br/>
+MemIf_Write&#160;<br/>
+<b>5.3.5&#160;</b><br/>
+<b>MemIf_Cancel&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>MemIf_Cancel</b>&#160;( uint8 DeviceIndex&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module&#160;whose job&#160;processing&#160;shall&#160;<br/>
+&#160;<br/>
+be&#160;cancelled.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the cancel&#160;request to&#160;the&#160;appropriate&#160;memory&#160;hardware&#160;abstraction module by&#160;calling&#160;the&#160;<br/>service&#160;[Ea|Fee]_Cancel&#160;of&#160;the addressed&#160;module instance&#160;(See&#160;description&#160;of&#160;respective module’s&#160;<br/>function)&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;reported&#160;to&#160;Det&#160;and&#160;execution&#160;of&#160;the&#160;<br/>service is aborted.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-6&#160;&#160;<br/>
+MemIf_Cancel&#160;<br/>
+<b>5.3.6&#160;</b><br/>
+<b>MemIf_GetStatus&#160;</b><br/>
+<b>Prototype&#160;<br/></b>MemIf_StatusType&#160;<b>MemIf_GetStatus</b>&#160;( uint8 DeviceIndex&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module&#160;whose job&#160;processing&#160;shall&#160;<br/>
+&#160;<br/>
+be&#160;cancelled.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+MEMIF_IDLE<br/>
+Addressed&#160;module&#160;is&#160;ready&#160;to&#160;accept&#160;job&#160;requests<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_UNINIT<br/>
+Addressed&#160;module&#160;is&#160;not&#160;initialized<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_BUSY<br/>
+Addressed&#160;module&#160;is&#160;processing&#160;a&#160;job&#160;and is&#160;not&#160;able to accept&#160;new&#160;job&#160;<br/>
+&#160;<br/>
+requests&#160;<br/>
+MEMIF_BUSY_INTERNAL&#160;Addressed&#160;module&#160;is&#160;not&#160;processing&#160;any&#160;job requests,&#160;but the&#160;module&#160;is&#160;busy&#160;<br/>
+&#160;&#160;executing internal&#160;operations&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the&#160;call&#160;to&#160;this&#160;service&#160;to the appropriate&#160;memory&#160;hardware abstraction&#160;module by&#160;calling&#160;the&#160;<br/>service&#160;[Ea|Fee]_GetStatus&#160;(See&#160;description&#160;of&#160;respective module’s&#160;function).&#160;&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+18&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-19_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices&#160;and unequal&#160;to&#160;MEMIF_BROADCAST_ID),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;<br/>reported&#160;to Det&#160;and&#160;execution&#160;of&#160;the&#160;service is aborted.&#160;<br/>
+<b>&gt;&#160;&#160;</b>In case&#160;the&#160;MEMIF_BROADCAST_ID&#160;is&#160;used as&#160;device index&#160;parameter,&#160;the&#160;overall&#160;status&#160;of&#160;all&#160;<br/>
+underlying&#160;memory&#160;abstraction&#160;modules is&#160;returned.&#160;This&#160;overall&#160;status&#160;is&#160;computed&#160;as&#160;<br/>follows:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+MEMIF_IDLE&#160;–&#160;all&#160;underlying&#160;devices are&#160;in this&#160;state&#160;<br/>
+<b>&gt;&#160;</b><br/>
+MEMIF_UNINIT&#160;–&#160;at&#160;least&#160;one&#160;device returned&#160;this&#160;state&#160;<br/>
+<b>&gt;&#160;</b><br/>
+MEMIF_BUSY&#160;–&#160;at&#160;least&#160;one device returned&#160;this&#160;state&#160;and no&#160;other&#160;returned&#160;<br/>MEMIF_UNINIT&#160;<br/>
+<b>&gt;&#160;</b><br/>
+MEMIF_BUSY_INTERNAL&#160;–&#160;at&#160;least&#160;one&#160;device returned&#160;this&#160;state and&#160;no&#160;other&#160;returned&#160;<br/>MEMIF_BUSY&#160;or&#160;MEMIF_UNINIT&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-7&#160;&#160;<br/>
+MemIf_GetStatus&#160;<br/>
+<b>5.3.7&#160;</b><br/>
+<b>MemIf_GetJobResult&#160;</b><br/>
+<b>Prototype&#160;<br/></b>MemIf_JobResultType&#160;<b>MemIf_GetJobResult&#160;</b>( uint8 DeviceIndex&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module&#160;whose job&#160;<br/>
+&#160;<br/>
+processing&#160;shall&#160;be&#160;cancelled.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+MEMIF_JOB_OK<br/>
+Job&#160;processing finished&#160;successfully<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_JOB_FAILED<br/>
+Job&#160;processing finished&#160;with an&#160;error<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_JOB_PENDING<br/>
+Job&#160;is&#160;currently&#160;being&#160;processed<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_JOB_CANCELLED<br/>
+Job&#160;has&#160;been&#160;cancelled by&#160;the&#160;user<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_BLOCK_INCONSISTENT<br/>
+Job&#160;finished successfully,&#160;but&#160;data&#160;is&#160;inconsistent<br/>
+&#160;<br/>
+&#160;<br/>
+MEMIF_BLOCK_INVALID<br/>
+Job&#160;finished successfully&#160;but&#160;data&#160;has&#160;been&#160;invalidated<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the call&#160;to&#160;this&#160;service to the appropriate&#160;memory&#160;hardware abstraction&#160;module by&#160;calling&#160;the&#160;<br/>service [Ea|Fee]_GetJobResult (See&#160;description&#160;of&#160;respective module’s&#160;function).&#160;&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;reported&#160;to&#160;Det&#160;and&#160;execution&#160;of&#160;the&#160;<br/>service is aborted.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-8&#160;&#160;<br/>
+MemIf_GetJobResult&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+19&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-20_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>5.3.8&#160;</b><br/>
+<b>MemIf_EraseImmediateBlock&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Std_ReturnType&#160;<b>MemIf_EraseImmediateBlock</b>&#160;&#160;<br/>
+(&#160;<br/>&#160;<br/>
+uint8&#160;<br/>
+DeviceIndex,&#160;<br/>
+&#160;<br/>
+uint16&#160;&#160;BlockNumber&#160;<br/>
+)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module to&#160;which&#160;the&#160;operation shall&#160;<br/>
+&#160;<br/>
+be&#160;delegated.&#160;<br/>
+BlockNumber<br/>
+Identifies&#160;the block&#160;to&#160;erase&#160;in&#160;non<br/>
+&#160;<br/>
+-volatile&#160;memory.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK<br/>
+Erase&#160;job&#160;request&#160;is&#160;accepted&#160;by&#160;the&#160;addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+E_NOT_OK<br/>
+Erase&#160;job&#160;request&#160;is&#160;rejected by&#160;the&#160;addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the job request to the&#160;appropriate&#160;memory&#160;hardware&#160;abstraction&#160;module by&#160;calling&#160;the&#160;service&#160;<br/>[Ea|Fee]_EraseImmediateBlock&#160;of&#160;the addressed&#160;module&#160;instance&#160;(See&#160;description&#160;of&#160;respective module’s&#160;<br/>function)&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;reported&#160;to&#160;Det&#160;and&#160;execution&#160;of&#160;the&#160;<br/>service is aborted.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-9&#160;&#160;<br/>
+MemIf_EraseImmediateBlock&#160;<br/>
+<b>5.3.9&#160;</b><br/>
+<b>MemIf_InvalidateBlock&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Std_ReturnType&#160;<b>MemIf_InvalidateBlock</b>&#160;&#160;<br/>
+(&#160;<br/>&#160;<br/>
+uint8&#160;<br/>
+DeviceIndex,&#160;<br/>
+&#160;<br/>
+uint16&#160;&#160;BlockNumber&#160;<br/>
+)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+DeviceIndex<br/>
+Index&#160;of&#160;the memory&#160;hardware abstraction&#160;module to&#160;which the&#160;operation shall&#160;<br/>
+&#160;<br/>
+be&#160;delegated.&#160;<br/>
+BlockNumber<br/>
+Identifies&#160;the block&#160;to&#160;invalidate&#160;in&#160;non<br/>
+&#160;<br/>
+-volatile memory.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+E_OK<br/>
+Erase job&#160;request&#160;is&#160;accepted&#160;by&#160;the&#160;addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+E_NOT_OK<br/>
+Erase job&#160;request&#160;is&#160;rejected by&#160;the addressed&#160;memory&#160;hardware&#160;abstraction&#160;<br/>
+&#160;<br/>
+module.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+20&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-21_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Delegates&#160;the job request to the&#160;appropriate&#160;memory&#160;hardware&#160;abstraction&#160;module by&#160;calling&#160;the&#160;service&#160;<br/>[Ea|Fee]_InvalidateBlock&#160;of&#160;the&#160;addressed&#160;module&#160;instance&#160;(See&#160;description&#160;of&#160;respective module’s&#160;<br/>function)&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;parameter&#160;DeviceIndex&#160;is&#160;out&#160;of&#160;range&#160;(greater&#160;than&#160;the&#160;number&#160;of&#160;configured&#160;<br/>
+devices),&#160;the&#160;error&#160;code&#160;MEMIF_E_PARAM_DEVICE&#160;is&#160;reported&#160;to&#160;Det&#160;and&#160;execution&#160;of&#160;the&#160;<br/>service is aborted.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>NvM&#160;/&#160;Application&#160;<br/>
+Table&#160;5-10&#160;&#160;<br/>
+MemIf_InvalidateBlock&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;MemIf&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other components,&#160;which&#160;are used&#160;by&#160;the&#160;MemIf&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;(se<a href="TechnicalReference_MemIfs.html#2">e&#160;[2])</a>&#160;<br/>
+Det_ReportError&#160;<br/>
+EA&#160;(see<a href="TechnicalReference_MemIfs.html#2">&#160;[4])</a>&#160;<br/>
+Ea_SetMode&#160;<br/>
+Ea_Read&#160;<br/>
+Ea_Write&#160;<br/>
+Ea_Cancel&#160;<br/>
+Ea_GetStatus&#160;<br/>
+Ea_GetJobResult&#160;<br/>
+Ea_InvalidateBlock&#160;<br/>
+Ea_GetVersionInfo&#160;<br/>
+Ea_EraseImmediateBlock&#160;<br/>
+FEE&#160;(see<a href="TechnicalReference_MemIfs.html#2">&#160;[5])</a>&#160;<br/>
+Fee_SetMode&#160;<br/>
+Fee_Read&#160;<br/>
+Fee_Write&#160;<br/>
+Fee_Cancel&#160;<br/>
+Fee_GetStatus&#160;<br/>
+Fee_GetJobResult&#160;<br/>
+Fee_InvalidateBlock&#160;<br/>
+Fee_GetVersionInfo&#160;<br/>
+Fee_EraseImmediateBlock&#160;<br/>
+Table&#160;5-11&#160;&#160;<br/>
+Services&#160;used&#160;by&#160;the&#160;MemIf&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+21&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-22_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+The&#160;&#160;MEMIF&#160;&#160;attributes&#160;&#160;can&#160;&#160;be&#160;&#160;configured&#160;&#160;using&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;Configurator.&#160;&#160;The&#160;&#160;outputs&#160;&#160;of&#160;<br/>the&#160;configuration&#160;and&#160;generation&#160;process&#160;are the&#160;configuration&#160;source&#160;files.&#160;&#160;<br/>The&#160;description&#160;of&#160;each&#160;used&#160;parameter is set&#160;in&#160;the&#160;MemIf&#160;bswmd&#160;file.&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+22&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-23_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>7&#160;&#160;AUTOSAR&#160;Standard&#160;Compliance&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Deviations&#160;</b><br/>
+<b>7.1.1&#160;</b><br/>
+<b>Extension of Error&#160;Codes&#160;</b><br/>
+In&#160;contradiction&#160;to&#160;AUTOSAR&#160;standard&#160;MemIf019,&#160;no&#160;set&#160;of&#160;macros&#160;is&#160;implemented,&#160;which&#160;<br/>maps&#160;&#160;the&#160;&#160;Memory&#160;&#160;Abstraction&#160;&#160;Interface&#160;&#160;API&#160;&#160;to&#160;&#160;the&#160;&#160;API&#160;&#160;of&#160;&#160;the&#160;&#160;corresponding&#160;&#160;memory&#160;<br/>abstraction&#160;module.&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+No&#160;Extensions&#160;to&#160;AUTOSAR standard&#160;&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+23&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-24_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>8&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>8.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+DaVinci&#160;Configurator&#160;&#160;Generation&#160;tool&#160;for&#160;MICROSAR&#160;components&#160;<br/>
+Table&#160;8-1&#160;&#160;<br/>
+Glossary&#160;<br/>
+<b>8.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+NVRAM&#160;<br/>
+Non&#160;Volatile&#160;RAM&#160;Manager&#160;<br/>
+NvM&#160;<br/>
+NVRAM&#160;Manager&#160;<br/>
+Fee&#160;<br/>
+Flash&#160;EEPROM&#160;Emulation&#160;<br/>
+Ea&#160;<br/>
+EEPROM&#160;Abstraction&#160;<br/>
+Fls&#160;<br/>
+Flash&#160;Driver&#160;<br/>
+Eep&#160;<br/>
+EEPROM&#160;Driver&#160;<br/>
+RAM&#160;<br/>
+Random&#160;Access&#160;Memory&#160;<br/>
+Table&#160;8-2&#160;&#160;<br/>
+Abbreviations&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+24&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/MemIf/doc/TechnicalReference_MemIf-25_1.png"/><br/>
+Technical Reference&#160;MICROSAR MemIf&#160;&#160;<br/>
+&#160;<br/>
+<b>9&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/>&gt;&#160; &#160;News&#160;<br/>&gt;&#160; &#160;Products&#160;<br/>&gt;&#160; &#160;Demo&#160;software&#160;<br/>&gt;&#160; &#160;Support&#160;<br/>&gt;&#160; &#160;Training&#160;data&#160;<br/>&gt;&#160; &#160;Addresses&#160;<br/>&#160;<br/>
+<a href="http://www.vector.com/"><b>www.vector.com&#160;</b></a><br/>
+&#160;<br/>
+2015,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.02.00&#160;<br/>
+25&#160;/&#160;25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#2">1 Document Information</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#2">1.1 History</a></li>
+<li><a href="TechnicalReference_MemIfs.html#2">1.2 Reference Documents</a></li>
+<li><a href="TechnicalReference_MemIfs.html#2">1.3 Scope of the Document</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#6">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#7">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#8">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#8">3.1 Features</a></li>
+<li><a href="TechnicalReference_MemIfs.html#8">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_MemIfs.html#8">3.3 Main Functions</a></li>
+<li><a href="TechnicalReference_MemIfs.html#8">3.4 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#8">3.4.1 Development Error Reporting</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#9">3.4.1.1 Parameter Checking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#11">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#11">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#11">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_MemIfs.html#11">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#12">4.2 Include Structure</a></li>
+<li><a href="TechnicalReference_MemIfs.html#12">4.3 Compiler Abstraction and Memory Mapping</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#14">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#14">5.1 Interfaces Overview</a></li>
+<li><a href="TechnicalReference_MemIfs.html#14">5.2 Type Definitions</a></li>
+<li><a href="TechnicalReference_MemIfs.html#15">5.3 Services provided by MemIf</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#15">5.3.1 MemIf_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_MemIfs.html#16">5.3.2 MemIf_SetMode</a></li>
+<li><a href="TechnicalReference_MemIfs.html#16">5.3.3 MemIf_Read</a></li>
+<li><a href="TechnicalReference_MemIfs.html#17">5.3.4 MemIf_Write</a></li>
+<li><a href="TechnicalReference_MemIfs.html#18">5.3.5 MemIf_Cancel</a></li>
+<li><a href="TechnicalReference_MemIfs.html#18">5.3.6 MemIf_GetStatus</a></li>
+<li><a href="TechnicalReference_MemIfs.html#19">5.3.7 MemIf_GetJobResult</a></li>
+<li><a href="TechnicalReference_MemIfs.html#20">5.3.8 MemIf_EraseImmediateBlock</a></li>
+<li><a href="TechnicalReference_MemIfs.html#20">5.3.9 MemIf_InvalidateBlock</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#21">5.4 Services used by MemIf</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#22">6 Configuration</a></li>
+<li><a href="TechnicalReference_MemIfs.html#23">7 AUTOSAR Standard Compliance</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#23">7.1 Deviations</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#23">7.1.1 Extension of Error Codes</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#23">7.2 Additions/ Extensions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#24">8 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_MemIfs.html#24">8.1 Glossary</a></li>
+<li><a href="TechnicalReference_MemIfs.html#24">8.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_MemIfs.html#25">9 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

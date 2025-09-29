@@ -1,0 +1,562 @@
+---
+title: VehSigCdng_MDD
+linkTitle: VehSigCdng_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>VehSigCdng</strong></p>
+<p><strong>Sep</strong> <strong>20, 2016</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Spandana Balani<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 10%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>SB</td>
+<td>1</td>
+<td>13-Jul-2015</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updated for FDD v2.0.0</td>
+<td>NS</td>
+<td>2</td>
+<td>2-Jun-2016</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated for FDD v2.2.0</td>
+<td>SB</td>
+<td>3</td>
+<td>20-Sep-2016</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><u>Table of Contents</u></p>
+<p>1 Introduction 4</p>
+<p>1.1 Purpose 4</p>
+<p>1.2 Scope 4</p>
+<p>2 VehSigCdng High-Level Description 5</p>
+<p>3 Design details of software module 6</p>
+<p>3.1 Graphical representation of VehSigCdng 6</p>
+<p>3.2 Data Flow Diagram 8</p>
+<p>3.2.1 Component level DFD 8</p>
+<p>3.2.2 Function level DFD 8</p>
+<p>4 Constant Data Dictionary 9</p>
+<p>4.1 Program (fixed) Constants 9</p>
+<p>4.1.1 Embedded Constants 9</p>
+<p>5 Software Component Implementation 10</p>
+<p>5.1.1 Sub-Module Functions 10</p>
+<p>5.1.2 Interrupt Service Routines 10</p>
+<p>5.1.3 Server Runnable Functions 10</p>
+<p>5.1.4 Module Internal (Local) Functions 10</p>
+<p>5.1.5 Transition Functions 11</p>
+<p>6 Known Limitations with Design 13</p>
+<p>7 UNIT TEST CONSIDERATION 14</p>
+<p>Appendix A Abbreviations and Acronyms 15</p>
+<p>Appendix B Glossary 16</p>
+<p>Appendix C References 17</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<h2 id="scope">Scope</h2>
+<h1 id="vehsigcdng-high-level-description">VehSigCdng High-Level Description</h1>
+<p>Refer to FDD</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-vehsigcdng">Graphical representation of VehSigCdng</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.PNG" style="width:4.8861in;height:8.49077in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Refer to FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Refer to FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<p>See .m file</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h3 id="sub-module-functions">Sub-Module Functions</h3>
+<h4 id="initialization-sub-module-vehsigcdnginit1">Initialization sub-module VehSigCdngInit1()</h4>
+<h4 id="periodic-sub-module-vehsigcdngper1">Periodic sub-module VehSigCdngPer1()</h4>
+<p>Design Rationale - <em>Fault Injection client call is conditional compiled based on “FLTINJENA” build constant.</em></p>
+<h3 id="interrupt-service-routines">Interrupt Service Routines</h3>
+<p>None</p>
+<h3 id="server-runnable-functions">Server Runnable Functions</h3>
+<p>None</p>
+<h3 id="module-internal-local-functions">Module Internal (Local) Functions</h3>
+<h4 id="local-function-1">Local Function #1</h4>
+<p>Refer to VehSpd block in the model</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSigCdng_VehSpd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehSpdSerlCom_Kph_T_f32</td>
+<td>Float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpdVldSerlCom_Cnt_T_lgc</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpdOvrd_Kph_T_f32</td>
+<td>Float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpdOvrdVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>Float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpdVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Notes: VehSpd_Kph_T_f32, VehSpdVld_Cnt_T_logl are the outputs of the function</p>
+<h4 id="local-function-2">Local Function #2</h4>
+<p>Refer to VehLgtA block in the model</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSigCdng_VehLgtA</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehLgtASerlCom_MpSecSq_T_f32</td>
+<td>Float32</td>
+<td>-180</td>
+<td>180</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehLgtAVldSerlCom_Cnt_T_lgc</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehLgtA_KphpS_T_f32</td>
+<td>Float32</td>
+<td>-50</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehLgtAVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Notes: VehLgtA_KphpS_T_f32, VehLgtAVld_Cnt_T_logl are the outputs of the function</p>
+<h4 id="local-function-3">Local Function #3</h4>
+<p>Refer to VehLatA block in the model</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSigCdng_VehLatA</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehLatASerlCom_MpSecSq_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehLatAVldSerlCom_Cnt_T_lgc</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehLatA_MpSecSq_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehLatAVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Notes: VehLatA_MpSecSq_T_f32, VehLatAVld_Cnt_T_logl are the outputs of the function</p>
+<h4 id="local-function-4">Local Function #4</h4>
+<p>Refer to VehYawRate block in the model</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSigCdng_VehYawRate</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehYawRateSerlCom_DegpS_T_f32</td>
+<td>Float32</td>
+<td>-120</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehYawRateVldSerlCom_Cnt_T_lgc</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehYawRate_DegpS_T_f32</td>
+<td>Float32</td>
+<td>-120</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehYawRateVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Notes: VehYawRate_DegpS_T_f32, VehYawRateVld_Cnt_T_logl are the outputs of the function</p>
+<h4 id="local-function-5">Local Function #5</h4>
+<p>Refer to “Lateral Acceleration Estimation” block in the model</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSigCdng_LatAEstmn</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehYawRate_DegpS_T_f32</td>
+<td>Float32</td>
+<td>-120</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehYawRateVld_Cnt_T_lgc</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>Float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpdVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehLatAEstimd_MtrPerSecSqd_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehLatAEstimdVld_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Notes: VehLatAEstimd_MtrPerSecSqd_T_f32, VehLatAEstimdVld_Cnt_T_logl are the outputs of the function</p>
+<h3 id="transition-functions">Transition Functions</h3>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD – SF033A_VehSigCdng_Design</td>
+<td>See Synergy Sub project version</td>
+</tr>
+</tbody>
+</table>

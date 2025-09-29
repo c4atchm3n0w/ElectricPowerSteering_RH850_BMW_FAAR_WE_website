@@ -1,0 +1,2235 @@
+---
+title: R20UT3753EJ0100-AUTOSARs
+linkTitle: R20UT3753EJ0100-AUTOSARs
+weight: 29
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-1_1.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-1_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-1_3.png"/><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Getting&#160;Started&#160;Document&#160;for&#160;<br/>X1x&#160;MCAL&#160;Driver&#160;<br/>
+&#160;<br/>&#160;<br/>
+User’s&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;&#160;<br/>
+Manual&#160;<br/>
+Version.1.0.7<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+Target&#160;Device:&#160;<br/>
+RH850/P1x&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+All&#160;information&#160;contained&#160;in&#160;these&#160;materials,&#160;including&#160;products&#160;and&#160;product&#160;specifications,&#160;<br/>represents&#160;information&#160;on&#160;the&#160;product&#160;at&#160;the&#160;time&#160;of&#160;publication&#160;and&#160;is&#160;subject&#160;to&#160;change&#160;by&#160;<br/>Renesas&#160;Electronics&#160;Corp.&#160;without&#160;notice.&#160;Please&#160;review&#160;the&#160;latest&#160;information&#160;published&#160;by&#160;<br/>Renesas&#160;Electronics&#160;Corp.&#160;through&#160;various&#160;means,&#160;including&#160;the&#160;Renesas&#160;Electronics&#160;Corp.&#160;<br/>website<a href="http://www.renesas.com/">&#160;(http://www.renesas.com).&#160;</a><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<a href="http://www.renesas.com/">www.renesas.com&#160;</a><br/>
+<a href="http://www.renesas.com/">Rev</a>.1.00&#160;Jun&#160;2016<br/>
+<hr/>
+<a name=2></a>&#160;<br/>
+&#160;<br/>
+<b>2</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=3></a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+Notice&#160;<br/>
+&#160;<br/>
+1.&#160;<br/>
+All&#160;information&#160;included&#160;in&#160;this&#160;document&#160;is&#160;current&#160;as of&#160;the&#160;date this document&#160;is issued.&#160;Such&#160;information,&#160;however,&#160;is&#160;<br/>
+&#160;<br/>
+subject&#160;to&#160;change&#160;without&#160;any&#160;prior&#160;notice.&#160;Before&#160;purchasing&#160;or&#160;using&#160;any&#160;Renesas Electronics&#160;products listed&#160;herein,&#160;please&#160;<br/>
+&#160;<br/>&#160;<br/>
+confirm&#160;the&#160;latest product&#160;information&#160;with&#160;a&#160;Renesas Electronics&#160;sales&#160;office.&#160;Also,&#160;please&#160;pay&#160;regular and&#160;careful&#160;attention&#160;to&#160;<br/>
+&#160;<br/>
+additional&#160;and&#160;different&#160;information&#160;to&#160;be&#160;disclosed&#160;by&#160;Renesas Electronics&#160;such&#160;as that&#160;disclosed&#160;through&#160;our&#160;website.&#160;<br/>
+&#160;<br/>
+2.&#160;<br/>
+Renesas Electronics&#160;does&#160;not&#160;assume&#160;any&#160;liability&#160;for&#160;infringement&#160;of&#160;patents,&#160;copyrights,&#160;or&#160;other&#160;intellectual&#160;property&#160;rights&#160;<br/>
+&#160;<br/>
+of&#160;third&#160;parties by&#160;or&#160;arising&#160;from&#160;the&#160;use&#160;of&#160;Renesas Electronics&#160;products&#160;or&#160;technical&#160;information&#160;described&#160;in&#160;this&#160;document.&#160;<br/>
+&#160;<br/>
+No&#160;license,&#160;express,&#160;implied&#160;or&#160;otherwise,&#160;is granted&#160;hereby&#160;under&#160;any&#160;patents,&#160;copyrights or&#160;other&#160;intellectual&#160;property&#160;rights&#160;<br/>
+&#160;<br/>
+of&#160;Renesas Electronics&#160;or&#160;others.&#160;<br/>
+&#160;<br/>&#160;<br/>
+3.&#160;<br/>
+You&#160;should&#160;not&#160;alter,&#160;modify,&#160;copy,&#160;or&#160;otherwise&#160;misappropriate&#160;any&#160;Renesas Electronics&#160;product,&#160;whether&#160;in&#160;whole or&#160;in&#160;part.&#160;<br/>
+&#160;<br/>
+4.&#160;<br/>
+Descriptions&#160;of&#160;circuits,&#160;software&#160;and&#160;other&#160;related&#160;information&#160;in&#160;this document&#160;are&#160;provided&#160;only&#160;to&#160;illustrate the&#160;operation&#160;of&#160;<br/>
+&#160;<br/>
+semiconductor&#160;products and&#160;application&#160;examples.&#160;&#160;You&#160;are&#160;fully&#160;responsible for&#160;the&#160;incorporation&#160;of&#160;these&#160;circuits,&#160;software,&#160;<br/>
+&#160;<br/>
+and&#160;information&#160;in&#160;the&#160;design&#160;of&#160;your&#160;equipment.&#160;&#160;Renesas Electronics&#160;assumes no&#160;responsibility&#160;for&#160;any&#160;losses incurred&#160;by&#160;<br/>
+&#160;<br/>
+you&#160;or&#160;third&#160;parties arising&#160;from&#160;the&#160;use&#160;of&#160;these&#160;circuits,&#160;software,&#160;or&#160;information.&#160;<br/>
+&#160;<br/>&#160;<br/>
+5.&#160;<br/>
+When&#160;exporting&#160;the&#160;products or&#160;technology&#160;described&#160;in&#160;this&#160;document,&#160;you&#160;should&#160;comply&#160;with&#160;the&#160;applicable export&#160;control&#160;<br/>
+&#160;<br/>
+laws&#160;and&#160;regulations and&#160;follow&#160;the&#160;procedures required&#160;by&#160;such&#160;laws and&#160;regulations.&#160;&#160;You&#160;should&#160;not&#160;use&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics&#160;products or&#160;the&#160;technology&#160;described&#160;in&#160;this&#160;document&#160;for&#160;any&#160;purpose&#160;relating&#160;to&#160;military&#160;applications or&#160;use&#160;by&#160;<br/>
+&#160;<br/>
+the&#160;military,&#160;including&#160;but&#160;not&#160;limited&#160;to&#160;the&#160;development&#160;of&#160;weapons of&#160;mass destruction.&#160;&#160;Renesas Electronics&#160;products and&#160;<br/>
+&#160;<br/>
+technology&#160;may&#160;not&#160;be&#160;used&#160;for&#160;or&#160;incorporated&#160;into&#160;any&#160;products or&#160;systems&#160;whose&#160;manufacture,&#160;use,&#160;or&#160;sale is&#160;prohibited&#160;<br/>
+&#160;<br/>
+under&#160;any&#160;applicable domestic or&#160;foreign&#160;laws or&#160;regulations.&#160;<br/>
+&#160;<br/>&#160;<br/>
+6.&#160;<br/>
+Renesas Electronics&#160;has used&#160;reasonable care&#160;in&#160;preparing&#160;the&#160;information&#160;included&#160;in&#160;this document,&#160;but&#160;Renesas Electronics&#160;<br/>
+&#160;<br/>
+does not&#160;warrant&#160;that&#160;such&#160;information&#160;is error&#160;free.&#160;&#160;Renesas Electronics&#160;assumes no&#160;liability&#160;whatsoever&#160;for&#160;any&#160;damages&#160;<br/>
+&#160;<br/>
+incurred&#160;by&#160;you&#160;resulting&#160;from&#160;errors in&#160;or&#160;omissions from&#160;the&#160;information&#160;included&#160;herein.&#160;<br/>
+&#160;<br/>
+7.&#160;<br/>
+Renesas Electronics&#160;products are&#160;classified&#160;according&#160;to&#160;the&#160;following&#160;three&#160;quality&#160;grades: &#160;&#34;Standard&#34;,&#160;&#34;High&#160;Quality&#34;,&#160;and&#160;<br/>
+&#160;<br/>
+&#34;Specific&#34;.&#160;&#160;The&#160;recommended&#160;applications for&#160;each&#160;Renesas Electronics&#160;product&#160;depends&#160;on&#160;the&#160;product's quality&#160;grade,&#160;as&#160;<br/>
+&#160;<br/>&#160;<br/>
+indicated&#160;below.&#160;&#160;You&#160;must check&#160;the&#160;quality&#160;grade&#160;of&#160;each&#160;Renesas Electronics&#160;product&#160;before&#160;using&#160;it&#160;in&#160;a&#160;particular&#160;<br/>
+&#160;<br/>
+application.&#160;&#160;You&#160;may&#160;not&#160;use&#160;any&#160;Renesas Electronics&#160;product&#160;for&#160;any&#160;application&#160;categorized&#160;as &#34;Specific&#34;&#160;without&#160;the&#160;prior&#160;<br/>
+&#160;<br/>
+written&#160;consent&#160;of&#160;Renesas Electronics.&#160;&#160;Further,&#160;you&#160;may&#160;not&#160;use&#160;any&#160;Renesas Electronics&#160;product&#160;for&#160;any&#160;application&#160;for&#160;<br/>
+&#160;<br/>
+which&#160;it&#160;is not&#160;intended&#160;without&#160;the&#160;prior&#160;written&#160;consent&#160;of&#160;Renesas Electronics.&#160;&#160;Renesas Electronics shall&#160;not&#160;be&#160;in&#160;any&#160;way&#160;<br/>
+&#160;<br/>
+liable for&#160;any&#160;damages or&#160;losses incurred&#160;by&#160;you&#160;or&#160;third&#160;parties arising&#160;from&#160;the&#160;use&#160;of&#160;any&#160;Renesas Electronics&#160;product&#160;for&#160;an&#160;<br/>
+&#160;<br/>
+application&#160;categorized&#160;as &#34;Specific&#34;&#160;or&#160;for&#160;which&#160;the&#160;product&#160;is not&#160;intended&#160;where&#160;you&#160;have&#160;failed&#160;to&#160;obtain&#160;the&#160;prior&#160;written&#160;<br/>
+&#160;<br/>
+consent&#160;of&#160;Renesas Electronics.&#160;&#160;The&#160;quality&#160;grade&#160;of&#160;each&#160;Renesas Electronics&#160;product&#160;is &#34;Standard&#34;&#160;unless otherwise&#160;<br/>
+&#160;<br/>
+expressly&#160;specified&#160;in&#160;a&#160;Renesas Electronics&#160;data sheets or&#160;data&#160;books,&#160;etc.&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#34;Standard&#34;:&#160;<br/>
+Computers;&#160;office&#160;equipment;&#160;communications equipment;&#160;test&#160;and&#160;measurement&#160;equipment;&#160;audio&#160;and&#160;visual&#160;<br/>
+&#160;<br/>
+equipment;&#160;home&#160;electronic appliances; machine&#160;tools;&#160;personal&#160;electronic equipment;&#160;and&#160;industrial&#160;robots.&#160;<br/>
+&#160;<br/>
+&#34;High&#160;Quality&#34;:&#160;Transportation&#160;equipment&#160;(automobiles,&#160;trains,&#160;ships,&#160;etc.);&#160;traffic control&#160;systems; anti-disaster&#160;systems; anti-&#160;<br/>
+&#160;<br/>
+crime&#160;systems; safety&#160;equipment;&#160;and&#160;medical&#160;equipment&#160;not&#160;specifically&#160;designed&#160;for&#160;life&#160;support.&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#34;Specific&#34;:&#160;<br/>
+Aircraft;&#160;aerospace&#160;equipment;&#160;submersible repeaters;&#160;nuclear&#160;reactor&#160;control&#160;systems;&#160;medical&#160;equipment&#160;or&#160;<br/>
+&#160;<br/>
+systems for&#160;life&#160;support&#160;(e.g.&#160;artificial&#160;life&#160;support&#160;devices or&#160;systems),&#160;surgical&#160;implantations,&#160;or&#160;healthcare&#160;<br/>
+&#160;<br/>
+intervention&#160;(e.g.&#160;excision,&#160;etc.),&#160;and&#160;any&#160;other&#160;applications&#160;or&#160;purposes that&#160;pose&#160;a&#160;direct&#160;threat&#160;to&#160;human&#160;life.&#160;<br/>
+&#160;<br/>
+8.&#160;<br/>
+You&#160;should&#160;use&#160;the&#160;Renesas Electronics&#160;products described&#160;in&#160;this&#160;document&#160;within&#160;the&#160;range&#160;specified&#160;by&#160;Renesas Electronics,&#160;<br/>
+&#160;<br/>
+especially&#160;with&#160;respect&#160;to&#160;the&#160;maximum&#160;rating,&#160;operating&#160;supply&#160;voltage&#160;range,&#160;movement&#160;power&#160;voltage&#160;range,&#160;heat&#160;radiation&#160;<br/>
+&#160;<br/>
+characteristics,&#160;installation&#160;and&#160;other&#160;product&#160;characteristics.&#160;Renesas Electronics&#160;shall&#160;have&#160;no&#160;liability&#160;for&#160;malfunctions&#160;or&#160;<br/>
+&#160;<br/>&#160;<br/>
+damages arising&#160;out&#160;of&#160;the&#160;use&#160;of&#160;Renesas Electronics&#160;products&#160;beyond&#160;such&#160;specified&#160;ranges.&#160;<br/>
+&#160;<br/>
+9.&#160;<br/>
+Although&#160;Renesas Electronics&#160;endeavors to&#160;improve&#160;the&#160;quality&#160;and&#160;reliability&#160;of&#160;its products,&#160;semiconductor&#160;products have&#160;<br/>
+&#160;<br/>
+specific characteristics&#160;such&#160;as the&#160;occurrence&#160;of&#160;failure&#160;at&#160;a&#160;certain&#160;rate and&#160;malfunctions&#160;under&#160;certain&#160;use&#160;conditions.&#160;Further,&#160;<br/>
+&#160;<br/>
+Renesas Electronics&#160;products are&#160;not&#160;subject&#160;to&#160;radiation&#160;resistance&#160;design.&#160;&#160;Please&#160;be&#160;sure&#160;to&#160;implement&#160;safety&#160;measures to&#160;<br/>
+&#160;<br/>
+guard&#160;them&#160;against the&#160;possibility&#160;of&#160;physical&#160;injury,&#160;and&#160;injury&#160;or&#160;damage&#160;caused&#160;by&#160;fire in&#160;the&#160;event&#160;of&#160;the&#160;failure&#160;of&#160;a&#160;<br/>
+&#160;<br/>
+Renesas Electronics&#160;product,&#160;such&#160;as safety&#160;design&#160;for&#160;hardware&#160;and&#160;software&#160;including&#160;but&#160;not&#160;limited&#160;to&#160;redundancy,&#160;fire&#160;<br/>
+&#160;<br/>
+control&#160;and&#160;malfunction&#160;prevention,&#160;appropriate&#160;treatment&#160;for&#160;aging&#160;degradation&#160;or&#160;any&#160;other&#160;appropriate&#160;measures.&#160;&#160;Because&#160;<br/>
+&#160;<br/>
+the&#160;evaluation&#160;of&#160;microcomputer software&#160;alone&#160;is very&#160;difficult,&#160;please&#160;evaluate the&#160;safety&#160;of&#160;the&#160;final&#160;products&#160;or&#160;system&#160;<br/>
+&#160;<br/>&#160;<br/>
+manufactured&#160;by&#160;you.&#160;<br/>
+&#160;<br/>
+10.&#160;<br/>
+Please&#160;contact&#160;a&#160;Renesas Electronics&#160;sales&#160;office&#160;for&#160;details as&#160;to&#160;environmental&#160;matters such&#160;as the&#160;environmental&#160;<br/>
+&#160;<br/>
+compatibility&#160;of&#160;each&#160;Renesas Electronics&#160;product.&#160;&#160;Please&#160;use&#160;Renesas Electronics&#160;products in&#160;compliance&#160;with&#160;all&#160;applicable&#160;<br/>
+&#160;<br/>
+laws&#160;and&#160;regulations that&#160;regulate&#160;the&#160;inclusion&#160;or&#160;use&#160;of&#160;controlled&#160;substances,&#160;including&#160;without&#160;limitation,&#160;the&#160;EU&#160;RoHS&#160;<br/>
+&#160;<br/>
+Directive.&#160;&#160;Renesas Electronics&#160;assumes no&#160;liability&#160;for&#160;damages or&#160;losses occurring&#160;as a&#160;result&#160;of&#160;your&#160;noncompliance&#160;with&#160;<br/>
+&#160;<br/>
+applicable laws and&#160;regulations.&#160;<br/>
+&#160;<br/>&#160;<br/>
+11.&#160;<br/>
+This document&#160;may&#160;not&#160;be&#160;reproduced&#160;or&#160;duplicated,&#160;in&#160;any&#160;form,&#160;in&#160;whole or&#160;in&#160;part,&#160;without&#160;prior&#160;written&#160;consent&#160;of&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics.&#160;<br/>
+&#160;<br/>
+12.&#160;<br/>
+Please&#160;contact&#160;a&#160;Renesas Electronics&#160;sales&#160;office&#160;if&#160;you&#160;have&#160;any&#160;questions regarding&#160;the&#160;information&#160;contained&#160;in&#160;this&#160;<br/>
+&#160;<br/>
+document&#160;or&#160;Renesas Electronics&#160;products,&#160;or&#160;if&#160;you&#160;have&#160;any&#160;other&#160;inquiries.&#160;<br/>
+&#160;&#160;&#160;<br/>
+&#160;<br/>
+(Note 1)&#160;&#160;&#34;Renesas Electronics&#34;&#160;as used&#160;in&#160;this document&#160;means Renesas Electronics&#160;Corporation&#160;and&#160;also&#160;includes its majority-&#160;<br/>
+&#160;<br/>
+owned&#160;subsidiaries.&#160;<br/>
+&#160;<br/>
+(Note 2)&#160;&#160;&#34;Renesas Electronics&#160;product(s)&#34;&#160;means any&#160;product&#160;developed&#160;or&#160;manufactured&#160;by&#160;or&#160;for&#160;Renesas Electronics.&#160;<br/>
+<b>3</b>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3</b><br/>
+&#160;<br/>
+<hr/>
+<a name=4></a>&#160;<br/>
+&#160;<br/>
+&#160;&#160;<b>4</b>&#160;<br/>
+<hr/>
+<a name=5></a>&#160;<br/>
+<b>Abbreviations&#160;and&#160;Acronyms</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Abbreviation&#160;/&#160;Acronym</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+ARXML/arxml&#160;<br/>
+AUTOSAR&#160;xml&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive&#160;Open&#160;System&#160;Architecture&#160;<br/>
+BSWMDT&#160;<br/>
+Basic&#160;Software&#160;Module&#160;Description&#160;Template&#160;<br/>
+&lt;MSN&gt;&#160;<br/>
+Module&#160;Short&#160;Name&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+GUI&#160;<br/>
+Graphical&#160;User&#160;Interface&#160;<br/>
+MB&#160;<br/>
+Mega&#160;Bytes&#160;<br/>
+MHz&#160;<br/>
+Mega&#160;Hertz&#160;<br/>
+RAM&#160;<br/>
+Random&#160;Access&#160;Memory&#160;<br/>
+xml/XML&#160;<br/>
+eXtensible&#160;Markup&#160;Language&#160;<br/>
+&lt;MICRO_VARIANT&gt;&#160;<br/>
+F1x,&#160;R1x,&#160;P1x,&#160;E1x&#160;etc.&#160;<br/>
+&lt;MICRO_SUB_VARIANT&gt;&#160;<br/>
+F1L,F1M,F1H,&#160;R1L,&#160;P1L,P1M,&#160;E1L,&#160;E1MS&#160;etc.&#160;<br/>
+AUTOSAR_VERSION&#160;<br/>
+3.2.2&#160;or&#160;4.0.3&#160;<br/>
+DEVICE_NAME&#160;<br/>
+Example&#160;:701205EAFP&#160;<br/>
+RUCG&#160;<br/>
+Renesas&#160;Unified&#160;Code&#160;Generator&#160;<br/>
+.DLL&#160;&#160;<br/>
+&#160;Dynamic&#160;Linking&#160;Library&#160;&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Definitions</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Terminology</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+.xml&#160;<br/>
+XML&#160;File.&#160;<br/>
+.arxml&#160;<br/>
+AUTOSAR&#160;XML&#160;File.&#160;<br/>
+.trxml&#160;<br/>
+Translation&#160;XML&#160;File.&#160;<br/>
+ECU&#160;Configuration&#160;<br/>
+The&#160;ECU&#160;Configuration&#160;Parameter&#160;Definition&#160;is&#160;of&#160;type&#160;XML,&#160;which&#160;contains&#160;the&#160;<br/>
+Parameter&#160;Definition&#160;File&#160;<br/>
+definition&#160;for AUTOSAR software&#160;components&#160;i.e.&#160;definitions&#160;for Modules,&#160;<br/>Containers&#160;and&#160;Parameters.&#160;The&#160;format&#160;of&#160;the&#160;XML&#160;File&#160;will&#160;be&#160;compliant&#160;with&#160;<br/>AUTOSAR&#160;ECU&#160;specification&#160;standards.&#160;<br/>
+ECU&#160;Configuration&#160;<br/>
+The&#160;ECU Configuration&#160;Description&#160;file&#160;in&#160;XML&#160;format,&#160;which&#160;contains&#160;the&#160;<br/>
+Description&#160;File&#160;<br/>
+configured&#160;values&#160;for&#160;Parameters,&#160;Containers&#160;and&#160;Modules.&#160;ECU&#160;Configuration&#160;<br/>Description&#160;XML&#160;File&#160;format&#160;will&#160;be&#160;compliant&#160;with&#160;the&#160;AUTOSAR ECU&#160;<br/>specification&#160;standards.&#160;<br/>
+BSWMDT&#160;File&#160;<br/>
+The&#160;BSWMDT&#160;File&#160;in&#160;XML&#160;format,&#160;which&#160;is&#160;the&#160;template&#160;for&#160;the&#160;Basic&#160;Software&#160;<br/>Module&#160;Description.&#160;BSWMDT&#160;File&#160;format&#160;will&#160;be&#160;compliant&#160;with&#160;the&#160;AUTOSAR&#160;<br/>BSWMDT&#160;specification&#160;standards.&#160;<br/>
+Translation&#160;XML&#160;File&#160;<br/>
+Translation&#160;XML&#160;File&#160;is&#160;in&#160;XML&#160;format&#160;which&#160;contains&#160;translation&#160;and&#160;device&#160;<br/>specific&#160;header&#160;file&#160;path.&#160;<br/>
+Configuration&#160;XML&#160;File&#160;<br/>
+Configuration&#160;XML&#160;File&#160;is&#160;in&#160;XML&#160;format&#160;which&#160;contains&#160;command&#160;line&#160;options&#160;<br/>and&#160;options&#160;for&#160;input/output&#160;file&#160;path.&#160;<br/>
+<b>5&#160;</b><br/>
+<hr/>
+<a name=6></a>&#160;<br/>
+&#160;<br/>
+<b>6</b>&#160;<br/>
+<hr/>
+<a name=7></a>&#160;<br/>
+<b>Table&#160;Of&#160;Contents&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#11"><b>Chapter&#160;1</b>&#160;&#160;<b>Introduction&#160;.....................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#13"><b>Chapter&#160;2</b>&#160;&#160;<b>Generation&#160;Tool&#160;...............................................................&#160;13</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#13"><b>2.1.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#13"><b>Translation&#160;XML&#160;File&#160;................................................................................................................&#160;13</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#14">2.1.1.&#160;&#160;Translation&#160;Header&#160;File&#160;................................................................................................&#160;14&#160;<br/>2.1.2.&#160;&#160;Device Specific&#160;Header File&#160;..........................................................................................&#160;14&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#14"><b>2.2.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#14"><b>Configuration&#160;XML&#160;File&#160;...........................................................................................................&#160;14</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#15"><b>2.3.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#15"><b>Usage&#160;........................................................................................................................................&#160;15</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#16"><b>2.4.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#16"><b>Sample&#160;Usage&#160;..........................................................................................................................&#160;16</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#18"><b>2.5.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#18"><b>Tool&#160;Installation&#160;Requirements&#160;..............................................................................................&#160;18</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#18">2.5.1.&#160;&#160;Hardware Requirements&#160;...............................................................................................&#160;18&#160;<br/>2.5.2.&#160;&#160;Software&#160;Requirements&#160;.................................................................................................&#160;18&#160;<br/>2.5.3.&#160;&#160;Limitations&#160;.....................................................................................................................&#160;18&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#18"><b>2.6.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#18"><b>Tool Installation&#160;.......................................................................................................................&#160;18</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#19">2.6.1.&#160;&#160;Pre Requisite&#160;................................................................................................................&#160;19&#160;<br/>2.6.2.&#160;&#160;Installation&#160;Steps&#160;..........................................................................................................&#160;19&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#19"><b>2.7.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#19"><b>Tool Un-Installation&#160;.................................................................................................................&#160;19</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#19"><b>2.8.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#19"><b>Common&#160;Messages&#160;................................................................................................................&#160;19</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#19">2.8.1.&#160;&#160;Error&#160;Messages&#160;.............................................................................................................&#160;19&#160;<br/></a><a href="R20UT3753EJ0100-AUTOSARs.html#23">2.8.2.&#160;&#160;Warning&#160;Messages&#160;.......................................................................................................&#160;23&#160;<br/>2.8.3.&#160;&#160;Information&#160;Messages&#160;..................................................................................................&#160;23&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#24"><b>2.9.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#24"><b>R3.2.2 Messages......................................................................................................................&#160;24</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#24">2.9.1.&#160;&#160;Error Messages&#160;............................................................................................................&#160;24&#160;<br/>2.9.2.&#160;&#160;Warning&#160;Messages&#160;.......................................................................................................&#160;24&#160;<br/>2.9.3.&#160;&#160;Information&#160;Messages&#160;..................................................................................................&#160;24&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#24"><b>2.10.</b>&#160;&#160;<b>R4.0.3 Messages......................................................................................................................&#160;24</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#25">2.10.1.&#160;&#160;Error Messages&#160;............................................................................................................&#160;25&#160;<br/>2.10.2.&#160;&#160;Warning&#160;Messages&#160;.......................................................................................................&#160;25&#160;<br/>2.10.3.&#160;&#160;Information&#160;Messages&#160;..................................................................................................&#160;25&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#25"><b>2.11.</b>&#160;&#160;<b>BSWMDT&#160;File&#160;...........................................................................................................................&#160;25</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#27"><b>Chapter&#160;3</b>&#160;&#160;<b>Application&#160;Example&#160;.......................................................&#160;27</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#27"><b>3.1.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#27"><b>Folder&#160;Structure.......................................................................................................................&#160;27</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#27"><b>3.2.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#27"><b>Makefile&#160;Description&#160;...............................................................................................................&#160;27</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#27">3.2.1.&#160;&#160;App_&lt;Msn&gt;_&lt;variant&gt;_Sample.mak&#160;...........................................................................&#160;27&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#33"><b>3.3.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#33"><b>Integrating&#160;The&#160;&lt;MSN&gt;&#160;Driver&#160;Component&#160;With&#160;&#160;Other&#160;Components&#160;..............................&#160;33</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#34"><b>3.4.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#34"><b>Building&#160;The&#160;&lt;MSN&gt;&#160;Driver&#160;Component&#160;..............................................................................&#160;34</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#35">3.4.1.&#160;&#160;Targets&#160;Supported By&#160;The&#160;Sample Base&#160;Makefile&#160;.......................................................&#160;35&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#37"><b>Chapter&#160;4</b>&#160;&#160;<b>Support&#160;For&#160;Different&#160;Interrupt&#160;Categories&#160;...................&#160;37</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#39"><b>Chapter&#160;5</b>&#160;&#160;<b>GNU&#160;MAKE&#160;Environment&#160;................................................&#160;39</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#39"><b>5.1.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#39"><b>Build&#160;Process&#160;With&#160;GNUMAKE&#160;..............................................................................................&#160;39</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#39"><b>5.2.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#39"><b>Build&#160;Process&#160;Without&#160;GNUMAKE&#160;........................................................................................&#160;39</b>&#160;</a><br/>
+<b>7&#160;</b><br/>
+<hr/>
+<a name=8></a>&#160;<br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#43"><b>Chapter&#160;6</b>&#160;&#160;<b>Load&#160;Binaries&#160;..................................................................&#160;43</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#45"><b>Chapter&#160;7</b>&#160;&#160;<b>Appendix..........................................................................&#160;45</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#45"><b>7.1.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#45"><b>Translation&#160;XML&#160;File&#160;................................................................................................................&#160;45</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#45"><b>7.2.</b>&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#45"><b>Configuration&#160;XML&#160;File&#160;.................................................................................................................&#160;45</b>&#160;</a><br/>
+&#160;<br/>
+&#160;<br/><b>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/></b>&#160;<br/>
+<b>8&#160;</b><br/>
+<hr/>
+<a name=9></a>&#160;<br/>
+<b>List&#160;Of&#160;Figures&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#13">Figure&#160;2-1&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#13">Generation&#160;Tool&#160;Overview&#160;.................................................................................................&#160;13&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>List&#160;Of&#160;Tables&#160;<br/>&#160;</b><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#15">Table 2-1&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#15">Options&#160;and&#160;Description&#160;....................................................................................................&#160;15&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#24">Table&#160;2-2&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#24">Mandatory&#160;Parameters&#160;......................................................................................................&#160;24&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#25">Table&#160;2-3&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#25">Mandatory&#160;Parameters&#160;......................................................................................................&#160;25&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#37">Table&#160;4-1&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#37">CAT1&#160;and&#160;CAT2 Naming&#160;Convention&#160;................................................................................&#160;37&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#38">Table&#160;4-2&#160;</a><br/>
+<a href="R20UT3753EJ0100-AUTOSARs.html#38">List&#160;of&#160;ISR&#160;Names&#160;that&#160;need&#160;to&#160;be&#160;configured&#160;and&#160;published&#160;in&#160;Os.h&#160;(CAT2)&#160;or&#160;used&#160;in&#160;the&#160;<br/>interrupt&#160;vector&#160;table&#160;(CAT1)&#160;for&#160;&lt;MSN&gt;&#160;Driver&#160;.................................................................&#160;38&#160;</a><br/>
+<b>&#160;<br/>&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>9&#160;</b><br/>
+<hr/>
+<a name=10></a>&#160;<br/>
+<b>10&#160;</b><br/>
+<hr/>
+<a name=11></a><b>Introduction&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160;&#160;Chapter&#160;1</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>Chapter&#160;1&#160;</b><br/>
+<b>Introduction&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+The&#160;document&#160;describes&#160;the&#160;information&#160;Generation&#160;Tool&#160;and&#160;references&#160;to&#160;<br/>Sections&#160;in&#160;the&#160;Component&#160;User&#160;Manuals&#160;that&#160;the&#160;user&#160;needs&#160;to&#160;refer&#160;to&#160;build&#160;<br/>the&#160;executable.&#160;<br/>
+&#160;<br/>
+Generation&#160;Tool&#160;is&#160;a&#160;command&#160;line&#160;tool&#160;that&#160;accepts&#160;ECU&#160;Configuration&#160;<br/>Description&#160;File(s),&#160;BSWMDT&#160;File,&#160;Translation&#160;XML&#160;File&#160;and&#160;Configuration&#160;<br/>XML&#160;File&#160;as&#160;input&#160;and&#160;generates&#160;the&#160;C&#160;source&#160;and&#160;header&#160;files&#160;based&#160;on&#160;the&#160;<br/>configuration&#160;of&#160;the&#160;module.&#160;<br/>
+<b>11&#160;</b><br/>
+<hr/>
+<a name=12></a><b>Chapter&#160;1&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Introduction</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>12</b>&#160;<br/>
+<hr/>
+<a name=13></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;Chapter&#160;2</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Chapter&#160;2&#160;</b><br/>
+<b>Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Generation&#160;Tool&#160;is&#160;a&#160;command&#160;line&#160;tool&#160;that&#160;provides&#160;scalability&#160;and&#160;<br/>configurability&#160;for&#160;the&#160;component.&#160;It&#160;accepts&#160;ECU&#160;Configuration&#160;Description&#160;<br/>File(s),&#160;BSWMDT&#160;File,&#160;Translation&#160;XML&#160;File&#160;and&#160;Configuration&#160;XML&#160;File&#160;as&#160;<br/>input&#160;and&#160;generates&#160;the&#160;C&#160;Header&#160;and&#160;C&#160;Source&#160;files.&#160;However&#160;Configuration&#160;<br/>XML&#160;File&#160;is&#160;optional.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+ECU&#160;Configuration&#160;<br/>
+&#160;<br/>
+Output&#160;Folder&#160;&#160;-O&#160;or&#160;<br/>
+Description&#160;Fil&#160;e(s&#160;)&#160;<br/>
+&#160;<br/>
+-OUTPU&#160;T&#160;<br/>
+(.arxml),&#160;&#160;BSWMDT&#160;<br/>
+<b>Generation&#160;&#160;Tool</b>&#160;<br/>
+‘Folder_Name’&#160;<br/>
+File&#160;and&#160;Translation&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+XML&#160;Fi&#160;le&#160;(.trxml)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Label&#160;to&#160;be&#160;searched&#160;<br/>
+inc&#160;<br/>
+src&#160;<br/>
+&#160;<br/>
+Configuration&#160;XML&#160;<br/>
+Translation&#160;Header&#160;<br/>
+&#160;<br/>&#160;<br/>
+File&#160;(.cfgxml)&#160;<br/>
+File&#160;(.h)&#160;<br/>
+&#160;<br/>*.h&#160;<br/>
+*.c&#160;<br/>
+&#160;<br/>
+Mapped&#160;Label&#160;to&#160;be&#160;searched&#160;<br/>
+&#160;<br/>&#160;<br/>
+Address&#160;to&#160;be&#160;generated&#160;<br/>
+Device&#160;Specific&#160;<br/>Header&#160;File&#160;(.h)&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Figure&#160;2-1&#160;</b><br/>
+<b>Generation&#160;Tool&#160;Overview&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.1.&#160;</b><br/>
+<b>Translation&#160;XML&#160;File&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Generation&#160;Tool&#160;accepts&#160;ECU&#160;Configuration&#160;Description&#160;File(s)&#160;(.arxml),&#160;<br/>BSWMDT&#160;File&#160;(.arxml)&#160;and&#160;Translation&#160;XML&#160;File&#160;(.trxml)&#160;as&#160;an&#160;input.&#160;<br/>Translation&#160;XML&#160;File&#160;is&#160;in&#160;XML&#160;format&#160;which&#160;contains&#160;translation&#160;and&#160;device&#160;<br/>specific&#160;header&#160;file&#160;path.&#160;For&#160;the&#160;syntax&#160;of&#160;the&#160;contents&#160;of&#160;Translation&#160;XML&#160;<br/>File,&#160;please&#160;refer&#160;the&#160;Chapter&#160;8&#160;<i>Appendix</i>.&#160;<br/>
+&#160;<br/>&#160;<br/>
+If&#160;mapped&#160;device&#160;specific&#160;address&#160;label&#160;is&#160;changed/updated&#160;then&#160;only&#160;<br/>respective&#160;mapping&#160;in&#160;Translation&#160;Header&#160;File&#160;needs&#160;to&#160;be&#160;updated.&#160;In&#160;this&#160;<br/>case&#160;there&#160;will&#160;not&#160;be&#160;any&#160;impact&#160;on&#160;Generation&#160;Tool&#160;for&#160;the&#160;generation&#160;of&#160;<br/>address&#160;in&#160;tool&#160;generated&#160;output&#160;file(s).&#160;<br/>
+<b>13&#160;</b><br/>
+<hr/>
+<a name=14></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>2.1.1.&#160;&#160;Translation Header File&#160;</b><br/>
+&#160;<br/>
+This&#160;file is&#160;look-up&#160;table (mapping&#160;in&#160;the&#160;form&#160;of&#160;definitions)&#160;for the&#160;device&#160;<br/>specific&#160;address&#160;labels. Based&#160;on&#160;the&#160;configuration in&#160;ECU Configuration&#160;<br/>Description&#160;File,&#160;the&#160;mapped device&#160;specific&#160;address&#160;labels&#160;will&#160;be searched&#160;<br/>in Device&#160;Specific&#160;Header&#160;File&#160;by&#160;Generation&#160;Tool&#160;to&#160;generate&#160;associated&#160;<br/>address&#160;in tool&#160;generated output&#160;file(s). For&#160;the Translation Header File path,&#160;<br/>the&#160;value&#160;of&#160;‘&lt;Msn&gt;DeviceName’&#160;parameter&#160;from&#160;the container&#160;<br/>‘&lt;Msn&gt;General’&#160;container&#160;should&#160;be&#160;present&#160;as&#160;child&#160;tag&#160;of&#160;TRANSLATION-&#160;<br/>FILE-PATH&#160;in&#160;Translation&#160;XML&#160;File.&#160;Both&#160;‘Absolute’&#160;and&#160;‘Relative’&#160;paths&#160;are&#160;<br/>supported by&#160;generation&#160;tool&#160;however&#160;default&#160;path is&#160;‘Relative’&#160;path.&#160;<br/>
+&#160;<br/>
+E.g.&#160;<br/>
+&#160;<br/>
+&lt;TRANSLATION-FILE-PATH&gt;&#160;<br/>
+&#160;<br/>
+&lt;Value_Of_MsnDeviceName&gt;..\DF_Timer.h&#160;<br/>
+..\DF_Timer_ISR.h&lt;/&#160;Value_Of_MsnDeviceName&gt;&#160;<br/>
+&#160;<br/>
+&lt;/TRANSLATION-FILE-PATH&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.1.2.&#160;&#160;Device&#160;Specific&#160;Header File&#160;</b><br/>
+&#160;<br/>
+This&#160;file&#160;contains&#160;device&#160;specific&#160;labels&#160;and&#160;associated&#160;address.&#160;Based&#160;on&#160;the&#160;<br/>configuration&#160;in&#160;ECU&#160;Configuration&#160;Description&#160;File,&#160;the&#160;mapped&#160;device&#160;<br/>specific&#160;address&#160;labels&#160;will&#160;be&#160;used&#160;to&#160;generate&#160;associated&#160;address&#160;in&#160;tool&#160;<br/>generated&#160;output&#160;file(s).&#160;For&#160;the&#160;Device&#160;Specific&#160;Header&#160;File&#160;path,&#160;the&#160;value&#160;of&#160;<br/>‘&lt;Msn&gt;DeviceName’&#160;parameter&#160;from&#160;the&#160;container&#160;‘&lt;Msn&gt;General’&#160;container&#160;<br/>should&#160;be&#160;present&#160;as&#160;child&#160;tag&#160;of&#160;DEVICE-FILE-PATH&#160;in&#160;Translation&#160;XML&#160;File.&#160;<br/>Both&#160;‘Absolute’&#160;and&#160;‘Relative’&#160;paths&#160;are&#160;supported&#160;by&#160;generation&#160;tool&#160;however&#160;<br/>default&#160;path&#160;is&#160;‘Relative’&#160;path.&#160;<br/>
+&#160;<br/>
+If&#160;multiple&#160;Device&#160;Specific&#160;Header&#160;Files&#160;need&#160;to&#160;be&#160;provided&#160;for&#160;the&#160;same&#160;<br/>device&#160;(value&#160;of&#160;‘&lt;Msn&gt;DeviceName’&#160;parameter)&#160;in&#160;Translation&#160;XML&#160;File,&#160;then&#160;<br/>each&#160;Device&#160;Specific&#160;Header&#160;File&#160;path&#160;should&#160;be&#160;separated&#160;with&#160;‘space’.&#160;<br/>
+&#160;<br/>
+E.g.&#160;<br/>
+&#160;<br/>
+&lt;DEVICE-FILE-PATH&gt;&#160;<br/>
+&#160;<br/>
+&lt;Value_Of_MsnDeviceName&gt;..\DF_Timer.h&#160;..\DF_Timer_ISR.h&lt;/&#160;<br/>
+Value_Of_MsnDeviceName&gt;&#160;<br/>
+&#160;<br/>
+&lt;/DEVICE-FILE-PATH&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Remark&#160;&#160;</b>Generation&#160;Tool&#160;will&#160;searches&#160;the&#160;mapped&#160;labels&#160;in&#160;Device&#160;Specific&#160;Header&#160;<br/>
+File&#160;by&#160;using&#160;Translation&#160;Header&#160;File&#160;for&#160;the&#160;respective&#160;address&#160;generation&#160;in&#160;<br/>tool&#160;generated&#160;output&#160;file(s).&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>2.2.&#160;</b><br/>
+<b>Configuration&#160;XML&#160;File&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Configuration&#160;XML&#160;File&#160;is&#160;in&#160;XML&#160;format&#160;which&#160;contains&#160;command&#160;line&#160;options&#160;<br/>and&#160;input/output&#160;path.&#160;For&#160;the&#160;syntax&#160;of&#160;the&#160;contents&#160;of&#160;Configuration&#160;XML&#160;File,&#160;<br/>please&#160;refer&#160;the&#160;Chapter&#160;8&#160;<i>Appendix</i>.&#160;<br/>
+<b>14&#160;</b><br/>
+<hr/>
+<a name=15></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;2&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+E.g.&#160;<br/>
+&#160;<br/>
+&lt;LOG&gt;ON/OFF&lt;/LOG&gt;&#160;<br/>
+&#160;<br/>
+&lt;HELP&gt;ON/OFF&lt;/HELP&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>2.3.&#160;</b><br/>
+<b>Usage&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;section&#160;provides&#160;the information&#160;regarding usage&#160;of&#160;the Generation&#160;Tool.&#160;<br/>It also&#160;provides&#160;the syntax&#160;of&#160;the command line&#160;arguments&#160;(input filenames&#160;<br/>and&#160;options).&#160;<br/>
+&#160;<br/>&#160;<br/>
+Generation&#160;Tool&#160;executable is&#160;invoked&#160;as&#160;shown&#160;below.&#160;<br/>
+&#160;<br/>&#160;<br/><b>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;RUCG.exe&#160;&lt;DLL&#160;Path&gt;&#160;[&lt;Options&gt;]&#160;{&lt;Input&#160;Filename&gt;}</b>&#160;<br/>&#160;<br/>
+Where,&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;RUCG.exe:&#160;RUCG&#160;Tool&#160;Executable&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;DLL&#160;Path:&#160;Module specific&#160;DLL&#160;file&#160;path&#160;<br/>
+Options: [-H/-Help&#160;-C/-Config&#160;-O/-Output&#160;-Osrc&#160;&#160;-Oinc&#160;-L/-Log&#160;-D/-Dryrun]&#160;<br/>
+&#160;<br/>
+Input&#160;Filename(s): {ECU Configuration Description File(s), BSWMDT&#160;File and&#160;<br/>Translation&#160;XML File&#160;[optional]}&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Notations:</b>&#160;<br/>
+&#160;<br/>
+{data}&#160;represents&#160;compulsory&#160;data&#160;<br/>
+&#160;<br/>
+&lt;data&gt;&#160;represents&#160;the&#160;actual&#160;data&#160;that&#160;will&#160;be&#160;specified&#160;on&#160;command&#160;line&#160;<br/>
+during&#160;tool&#160;usage.&#160;<br/>
+&#160;<br/>
+[data]&#160;represents&#160;optional&#160;data.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Table 2-1&#160;&#160;Options and&#160;Description&#160;</b><br/>
+&#160;<br/>
+<b>Option</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+-H/-Help&#160;<br/>
+To&#160;display&#160;help&#160;regarding&#160;usage&#160;of&#160;the&#160;tool.&#160;Gets&#160;the&#160;<br/>highest&#160;priority&#160;when&#160;used&#160;with&#160;other&#160;options.&#160;<br/>
+-C/-Config&#160;<br/>
+To&#160;execute&#160;tool&#160;with&#160;the&#160;options&#160;provided&#160;in&#160;the&#160;<br/>Configuration&#160;XML&#160;File.&#160;Command&#160;line&#160;options&#160;get&#160;the&#160;<br/>higher&#160;priority&#160;than&#160;the&#160;options&#160;provided&#160;in&#160;Configuration&#160;<br/>XML&#160;File.&#160;<br/>
+<b>15&#160;</b><br/>
+<hr/>
+<a name=16></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table&#160;2-1&#160;&#160;Options&#160;and&#160;Description</b>&#160;<br/>
+&#160;<br/>
+<b>Option</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+-O/-Output&#160;<br/>
+By&#160;default,&#160;the&#160;tool&#160;generates&#160;output files&#160;in&#160;the&#160;<br/>‘&lt;Component_Name&gt;_Output’&#160;folder&#160;in&#160;the&#160;path&#160;where&#160;<br/>executable&#160;is&#160;present.&#160;The&#160;user&#160;can&#160;use&#160;the&#160;-O&#160;option&#160;<br/>followed&#160;by&#160;the&#160;folder&#160;name,&#160;to&#160;generate&#160;the&#160;output&#160;files&#160;in&#160;<br/>the&#160;specified&#160;folder.&#160;Either&#160;absolute&#160;path&#160;or&#160;relative&#160;path&#160;<br/>can&#160;be&#160;provided&#160;to&#160;specify&#160;the&#160;folder name.&#160;<br/>The&#160;C&#160;Source&#160;and&#160;C&#160;Header&#160;files&#160;are&#160;generated&#160;in&#160;the&#160;sub&#160;<br/>folders&#160;‘src’&#160;and&#160;‘inc’&#160;within&#160;the&#160;output&#160;folder.&#160;<br/>
+-Osrc&#160;<br/>
+The&#160;user&#160;can&#160;use&#160;the&#160;-Osrc&#160;option&#160;followed&#160;by&#160;the&#160;folder&#160;<br/>name,&#160;to&#160;generate&#160;the&#160;C&#160;Source&#160;files&#160;in&#160;the&#160;specified&#160;<br/>folder.&#160;<br/>
+-Oinc&#160;<br/>
+The&#160;user&#160;can&#160;use&#160;the&#160;-Oinc&#160;option&#160;followed&#160;by&#160;the&#160;folder&#160;<br/>name,&#160;to&#160;generate&#160;the&#160;C&#160;Header&#160;files&#160;in&#160;the&#160;specified&#160;<br/>folder.&#160;<br/>
+–L/-Log&#160;<br/>
+To&#160;log&#160;the&#160;output&#160;to&#160;the&#160;&lt;Component_Name&gt;.log&#160;file.&#160;<br/>
+-D/-Dryrun&#160;<br/>
+To&#160;execute&#160;tool&#160;in&#160;validation&#160;mode.&#160;The&#160;tool&#160;will&#160;not&#160;<br/>generate&#160;output&#160;files&#160;even&#160;though&#160;the&#160;input&#160;file&#160;provided&#160;is&#160;<br/>error&#160;free.&#160;<br/>
+&#160;<br/>
+<b>Remark</b>&#160;&#160;&#160;&#160;<br/>
+•&#160;&#160;&#160;If&#160;Translation&#160;XML&#160;File&#160;is&#160;not&#160;provided&#160;on&#160;the&#160;command&#160;line&#160;then&#160;<br/>
+‘&lt;Component_Name&gt;_X1x.trxml’&#160;which&#160;is&#160;present&#160;in&#160;the&#160;same&#160;location&#160;of&#160;<br/>‘&lt;Component_Name&gt;_X1x.dll’&#160;is&#160;considered&#160;as&#160;‘default’&#160;Translation&#160;XML&#160;<br/>File&#160;by&#160;the&#160;Generation&#160;Tool.&#160;<br/>
+&#160;<br/>•&#160;&#160;&#160;If&#160;Configuration&#160;XML&#160;File&#160;is&#160;not&#160;provided&#160;on&#160;the&#160;command&#160;line&#160;then&#160;<br/>
+‘&lt;Component_Name&gt;_X1x.cfgxml’&#160;which&#160;is&#160;present&#160;in&#160;the&#160;same&#160;location&#160;of&#160;<br/>‘&lt;Component_Name&gt;_X1x.dll’&#160;is&#160;considered&#160;as&#160;‘default’&#160;Configuration&#160;<br/>XML&#160;File&#160;by&#160;the&#160;Generation&#160;Tool.&#160;<br/>
+&#160;<br/>•&#160;&#160;&#160;The&#160;Generation&#160;Tool&#160;should&#160;not&#160;be&#160;executed&#160;more&#160;than&#160;five&#160;times&#160;in&#160;parallel&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>2.4.&#160;</b><br/>
+<b>Sample&#160;Usage&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Sample&#160;usage&#160;of&#160;the&#160;generation&#160;tool&#160;is&#160;given&#160;below.&#160;“&lt;Msn&gt;_X1x.dll”&#160;is&#160;taken&#160;<br/>as&#160;example.&#160;Similar&#160;usage&#160;is&#160;applicable&#160;for&#160;other&#160;MCAL&#160;Generation&#160;Tools.&#160;<br/>where&#160;&lt;Msn&gt;_X1x.dll&#160;is&#160;in&#160;DLL&#160;Path.&#160;<br/>&#160;<br/><b>RUCG.exe &lt;DLL&#160;Path&gt;</b>&#160;<br/>
+&#160;<br/>
+&lt;Msn&gt;&#160;Driver&#160;Generation&#160;Tool&#160;usage&#160;is&#160;displayed&#160;on&#160;the&#160;terminal.&#160;Generation&#160;<br/>Tool&#160;accepts&#160;Configuration&#160;XML&#160;File&#160;as&#160;default&#160;and&#160;performs&#160;the&#160;execution,&#160;<br/>based&#160;on&#160;the&#160;settings&#160;provided&#160;in&#160;Configuration&#160;XML&#160;File.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;-H</b>&#160;<br/>
+&#160;<br/>
+Displays&#160;&lt;MSN&gt;&#160;Driver&#160;Generation&#160;Tool&#160;help&#160;information&#160;on&#160;the&#160;terminal,&#160;<br/>where&#160;&lt;MSN&gt;&#160;Driver&#160;Generation&#160;Tool&#160;executable&#160;is&#160;present.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;-L&#160;-O&#160;output&#160;Sample.arxml&#160;BSWMDT.arxml</b>&#160;<br/>
+&#160;<br/>
+Generation&#160;Tool&#160;logs&#160;the&#160;output&#160;to&#160;the&#160;&lt;Msn&gt;.log&#160;file.&#160;&lt;Msn&gt;_PBcfg.c&#160;file&#160;is&#160;<br/>generated&#160;in&#160;‘src’&#160;folder.&#160;&lt;Msn&gt;_Cfg.h&#160;file&#160;is&#160;generated&#160;in&#160;‘include’&#160;folder.&#160;<br/>
+<b>16</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=17></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;2&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RUCG.exe&#160;&lt;DLL&#160;Path&gt;&#160;-D&#160;Sample.arxml&#160;BswMd.arxml&#160;</b><br/>
+&#160;<br/>Generation&#160;Tool&#160;validates&#160;an&#160;input&#160;file&#160;and&#160;displays&#160;error/warning/information&#160;<br/>messages&#160;if&#160;any&#160;on&#160;the&#160;command&#160;line.&#160;Output&#160;files&#160;are&#160;not&#160;generated&#160;since&#160;–D&#160;<br/>option&#160;is&#160;provided&#160;in&#160;the&#160;command&#160;line.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;-O&#160;output&#160;Sample.arxml&#160;BswMd.arxml</b>&#160;<br/>
+&#160;<br/>
+Output&#160;files&#160;are&#160;generated&#160;in&#160;folder&#160;“output”.&#160;&lt;Msn&gt;_PBcfg.c&#160;is&#160;generated&#160;in&#160;<br/>‘src’&#160;folder.&#160;&lt;Msn&gt;_Cfg.h&#160;file&#160;is&#160;generated&#160;in&#160;‘inc’&#160;folder.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;C:\Input\Sample.arxml&#160;C:\Input\BswMd.arxml&#160;-O&#160;<br/>output</b>&#160;<br/>
+&#160;<br/>
+Generation&#160;Tool&#160;accepts&#160;input&#160;file&#160;(Sample.arxml)&#160;from&#160;absolute&#160;directory&#160;path&#160;<br/>“C:\Input”.&#160;Output&#160;files&#160;are&#160;generated&#160;in&#160;folder&#160;“output”.&#160;&lt;Msn&gt;_PBcfg.c&#160;is&#160;<br/>generated&#160;in&#160;‘src’&#160;folder.&#160;&lt;Msn&gt;_Cfg.h&#160;file&#160;is&#160;generated&#160;in&#160;‘inc’&#160;folder.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;Sample.arxml&#160;BswMd.arxml&#160;-O&#160;C:\Output</b>&#160;<br/>
+&#160;<br/>
+Output&#160;files&#160;are&#160;generated&#160;in&#160;folder&#160;“C:\Output”.&#160;&lt;Msn&gt;_PBcfg.c&#160;is&#160;generated&#160;<br/>in&#160;‘src’&#160;folder.&#160;&lt;Msn&gt;_Cfg.h&#160;file&#160;is&#160;generated&#160;in&#160;‘inc’&#160;folder.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;Sample.arxml&#160;BswMd.arxml&#160;Sample.trxml</b>&#160;<br/>
+&#160;<br/>
+Generation&#160;Tool&#160;accepts&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;(Sample.arxml),&#160;<br/>BSWMDT&#160;File&#160;(BswMd.arxml)&#160;and&#160;Translation&#160;XML&#160;File&#160;(Sample.trxml)&#160;from&#160;<br/>the&#160;current&#160;working&#160;directory.&#160;Output&#160;files&#160;are&#160;generated&#160;in&#160;the&#160;default&#160;folder&#160;<br/>“&lt;Msn&gt;_Output”,&#160;since&#160;–O&#160;option&#160;is&#160;not&#160;provided&#160;in&#160;the&#160;command&#160;line.&#160;<br/>&lt;Msn&gt;_PBcfg.c&#160;is&#160;generated&#160;in&#160;‘src’&#160;folder.&#160;&lt;Msn&gt;_Cfg.h&#160;file&#160;is&#160;generated&#160;in&#160;<br/>‘inc’&#160;folder.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>RUCG.exe &lt;DLL&#160;Path&gt;&#160;-C&#160;Sample.cfgxml</b>&#160;<br/>
+&#160;<br/>
+Generation&#160;Tool&#160;accepts&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;(Sample.arxml),&#160;<br/>BSWMDT&#160;File&#160;(BswMd.arxml)&#160;and&#160;Configuration&#160;XML&#160;File&#160;(Sample.cfgxml)&#160;<br/>from&#160;the&#160;current&#160;working&#160;directory.&#160;Tool&#160;accepts&#160;options&#160;provided&#160;in&#160;the&#160;<br/>Configuration&#160;XML&#160;File.&#160;If&#160;Configuration&#160;XML&#160;File&#160;name&#160;is&#160;not&#160;provided&#160;as&#160;<br/>input&#160;with&#160;-C&#160;option,&#160;Generation&#160;Tool&#160;errors&#160;out.&#160;<br/>
+&#160;<br/>
+<b>Remark</b>&#160;<br/>
+&#160;<br/>
+•&#160;&#160;If&#160;Translation&#160;XML&#160;File&#160;is&#160;not&#160;provided&#160;on&#160;the&#160;command&#160;line,&#160;<br/>
+&lt;Msn&gt;_X1x.dll&#160;considers&#160;&lt;Msn&gt;_X1x.trxml&#160;as&#160;‘default’&#160;Translation&#160;XML File&#160;<br/>from&#160;the&#160;same&#160;directory&#160;where&#160;the&#160;tool&#160;is&#160;located.&#160;<br/>
+&#160;<br/>
+•&#160;&#160;If&#160;Configuration&#160;XML&#160;File&#160;is&#160;not&#160;provided&#160;on&#160;the&#160;command&#160;line,&#160;<br/>
+&lt;Msn&gt;_X1x.dll&#160;considers&#160;&lt;Msn&gt;_X1x.cfgxml&#160;as&#160;‘default’&#160;Configuration&#160;<br/>XML&#160;File&#160;from&#160;the&#160;same&#160;directory&#160;where&#160;the&#160;tool&#160;is&#160;located.&#160;<br/>
+&#160;<br/>
+•&#160;&#160;If&#160;any&#160;filename/directory&#160;name&#160;related&#160;argument&#160;on&#160;the&#160;command&#160;line&#160;<br/>
+contain&#160;the&#160;‘space’,&#160;then&#160;the&#160;same&#160;argument&#160;on&#160;the&#160;command&#160;line&#160;should&#160;<br/>be&#160;provided&#160;in&#160;double&#160;quotes&#160;“”&#160;as&#160;followed&#160;by&#160;standard&#160;command&#160;line&#160;<br/>feature.&#160;E.g.&#160;if&#160;file&#160;name&#160;is&#160;‘Sample&#160;Description.arxml’,&#160;then&#160;on&#160;the&#160;<br/>command&#160;line&#160;the&#160;same&#160;name&#160;should&#160;be&#160;provided&#160;in&#160;double&#160;quotes&#160;“”&#160;as&#160;<br/>“Sample&#160;Description.arxml”.&#160;<br/>
+&#160;<br/>
+•&#160;&#160;The&#160;‘include’&#160;and&#160;‘src’&#160;directories&#160;are&#160;generated&#160;inside&#160;the&#160;output&#160;directory&#160;<br/>
+<b>17&#160;</b><br/>
+<hr/>
+<a name=18></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+provided&#160;on&#160;the&#160;command&#160;line&#160;or&#160;in&#160;the&#160;default&#160;output&#160;directory&#160;<br/>&lt;Msn&gt;_Output.&#160;<br/>
+&#160;<br/>
+•&#160;&#160;BSWMDT&#160;file&#160;should&#160;not&#160;be&#160;updated&#160;manually&#160;since&#160;it&#160;is&#160;“Static&#160;<br/>
+Configuration”&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>2.5.&#160;</b><br/>
+<b>Tool&#160;Installation&#160;Requirements&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;minimum&#160;hardware&#160;and&#160;software&#160;requirements&#160;for&#160;proper&#160;installation&#160;of&#160;<br/>Module&#160;Specific&#160;Generation&#160;Tool&#160;are&#160;listed&#160;below.&#160;This&#160;ensures&#160;optimal&#160;<br/>performance&#160;of&#160;the&#160;Tool.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.5.1.&#160;&#160;Hardware&#160;Requirements&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Processor&#160;</b><br/>
+Pentium/equivalent&#160;processor&#160;@&#160;500&#160;MHz&#160;or&#160;greater&#160;<br/>
+&#160;<br/>
+<b>Memory&#160;</b><br/>
+RAM&#160;64MB&#160;or&#160;greater&#160;<br/>
+&#160;<br/>
+<b>Hard&#160;Disk&#160;Drive&#160;</b><br/>
+500&#160;MB&#160;or&#160;greater&#160;storage&#160;capacity&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.5.2.&#160;&#160;Software&#160;Requirements&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Operating&#160;System&#160;</b><br/>
+Microsoft&#160;Windows&#160;Platform&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.5.3.&#160;&#160;Limitations&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+Command&#160;Line&#160;characters&#160;are&#160;limited&#160;to&#160;128&#160;depending&#160;upon&#160;the&#160;operating&#160;<br/>system.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.6.&#160;</b><br/>
+<b>Tool&#160;Installation&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;installation&#160;procedure&#160;of&#160;Module&#160;Specific&#160;Generation&#160;Tool&#160;is&#160;provided&#160;in&#160;<br/>the&#160;section&#160;below.&#160;<br/>
+<b>18&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=19></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;2&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.6.1.&#160;&#160;Pre&#160;Requisite&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+Module&#160;Specific&#160;Generation&#160;Tool&#160;executable&#160;runs&#160;on&#160;Windows&#160;platforms&#160;only.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.6.2.&#160;&#160;Installation&#160;Steps&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+Copy&#160;the&#160;Module&#160;Specific&#160;Generation&#160;Tool&#160;executable&#160;file&#160;to&#160;the&#160;local&#160;hard&#160;<br/>disk.&#160;<br/>
+&#160;<br/>&#160;<br/>
+Run&#160;the&#160;executable&#160;with&#160;-H&#160;option&#160;to&#160;get&#160;help&#160;on&#160;usage&#160;of&#160;the&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+RUCG.exe&#160;&lt;DLL Path&gt;<b>&#160;</b>-H&#160;<br/>
+&#160;<br/>&#160;<br/>
+This&#160;command&#160;generates&#160;usage&#160;of&#160;Module&#160;Specific&#160;Driver&#160;Generation&#160;Tool&#160;on&#160;<br/>the&#160;command&#160;line.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.7.&#160;</b><br/>
+<b>Tool&#160;Un-Installation&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+There&#160;is&#160;no&#160;specific&#160;method&#160;for&#160;un-installing&#160;the&#160;Module&#160;specific&#160;Generation&#160;<br/>Tool.&#160;To&#160;un-install,&#160;delete&#160;the&#160;Module&#160;specific&#160;Generation&#160;Tool&#160;executable&#160;from&#160;<br/>the&#160;existing&#160;directory.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.8.&#160;</b><br/>
+<b>Common&#160;Messages&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;section&#160;contains&#160;the&#160;list&#160;of&#160;error/warning/information&#160;messages&#160;<br/>
+&#160;<br/>
+which&#160;is&#160;common&#160;for&#160;AUTOSAR&#160;Renesas&#160;R3.2.2&#160;and&#160;R4.0.3&#160;X1x&#160;MCAL&#160;Driver&#160;<br/>module&#160;that&#160;will&#160;be&#160;generated&#160;by&#160;the&#160;Generation&#160;Tool.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.8.1.&#160;&#160;Error&#160;Messages&#160;</b><br/>
+&#160;<br/>
+<b>ERR000001:&#160;File&#160;&lt;File_Name&gt;&#160;does&#160;not&#160;exist.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;occurs,&#160;if&#160;the&#160;input&#160;&lt;File_Name&gt;&#160;is&#160;not&#160;found.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000002:&#160;Name&#160;of&#160;the&#160;Generation&#160;Tool&#160;Configuration&#160;XML&#160;File&#160;is&#160;not&#160;<br/>given&#160;along&#160;with&#160;&lt;-C/-CONFIG&gt;&#160;option.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;occurs,&#160;if&#160;the&#160;name&#160;of&#160;the&#160;Generation&#160;Tool&#160;Configuration&#160;XML&#160;File&#160;is&#160;<br/>not&#160;given&#160;along&#160;with&#160;&lt;-C/-CONFIG&gt;&#160;option.&#160;<br/>
+<b>19&#160;</b><br/>
+<hr/>
+<a name=20></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>ERR000003:&#160;File&#160;&lt;File&#160;name&gt;&#160;is&#160;not&#160;as&#160;per&#160;XML&#160;standard.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;input&#160;&lt;File&#160;name&gt;&#160;is&#160;not&#160;as&#160;per&#160;XML&#160;standard.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000004:&#160;Cannot&#160;open&#160;the&#160;&lt;Log&#160;file&#160;name&gt;&#160;file.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;unable&#160;to&#160;open&#160;the&#160;&lt;Log&#160;file&#160;name&gt;&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000005:&#160;Name&#160;of&#160;output&#160;directory&#160;is&#160;not&#160;given&#160;along&#160;with&#160;&lt;-O/-&#160;<br/>OUTPUT&gt;&#160;option.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;output&#160;directory&#160;name&#160;is&#160;not&#160;given&#160;along&#160;with&#160;&lt;-O/-&#160;<br/>OUTPUT&gt;&#160;option.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000006:&#160;Name&#160;of&#160;output&#160;directory&#160;is&#160;not&#160;given&#160;in&#160;OUTPUT-PATH&#160;tag&#160;<br/>in&#160;&lt;File&#160;name&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;output&#160;directory&#160;is&#160;not&#160;given&#160;in&#160;OUTPUT-PATH&#160;tag&#160;in&#160;<br/>configuration&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000007:&#160;The&#160;Generation&#160;Tool&#160;expects&#160;inputs.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;no&#160;option&#160;is&#160;provided&#160;in&#160;the&#160;command&#160;line&#160;and&#160;none&#160;<br/>of&#160;the&#160;option&#160;in&#160;the&#160;configuration&#160;file&#160;is&#160;set.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000008:&#160;The&#160;option&#160;&lt;option&gt;&#160;is&#160;not&#160;supported&#160;by&#160;the&#160;Generation</b>&#160;<br/><b>Tool.&#160;The&#160;Generation&#160;Tool&#160;supports&#160;&lt;-O/-OUTPUT,&#160;-Osrc&#160;,&#160;-Oinc,&#160;-H/-HELP,&#160;&#160;&#160;-<br/>L/-LOG,&#160;-C/-CONFIGFILE&#160;and&#160;-D/-DRYRUN&gt;&#34;&#160;&#160;&#160;options.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;invalid&#160;&lt;option&gt;&#160;is&#160;provided&#160;to&#160;the&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000009:&#160;Invalid&#160;output&#160;directory&#160;name&#160;&lt;output&#160;directory&#160;name&gt;&#160;as&#160;<br/>the&#160;file&#160;with&#160;same&#160;name&#160;exists.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;&lt;output&#160;directory&#160;name&gt;&#160;already&#160;exists.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000010:&#160;Invalid&#160;output&#160;directory&#160;name&#160;&lt;output&#160;directory&#160;name&gt;&#160;<br/>Directory&#160;name&#160;should&#160;not&#160;contain&#160;any&#160;of&#160;\*\?\&#34;\|\:&#160;characters.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;&lt;output&#160;directory&#160;name&gt;&#160;path&#160;contains&#160;junk&#160;<br/>character.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000011:&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;is&#160;not&#160;provided&#160;as&#160;input&#160;<br/>to&#160;the&#160;Generation&#160;Tool.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;is&#160;not&#160;given&#160;in&#160;<br/>the&#160;command&#160;line&#160;or&#160;in&#160;configuration&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000012:&#160;The&#160;input&#160;&lt;File&#160;name&gt;&#160;is&#160;not&#160;as&#160;per&#160;XML&#160;standard.&#160;Provide&#160;<br/>the&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;as&#160;input&#160;on&#160;the&#160;command&#160;line.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;is&#160;not&#160;as&#160;per&#160;<br/>XML&#160;standard.&#160;<br/>
+<b>20&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=21></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;2&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>ERR000013:&#160;&lt;File&#160;name&gt;&#160;should&#160;contain&#160;the&#160;TRANSLATION-FILE-PATH'&#160;<br/>and&#160;'DEVICE-FILE-PATH'&#160;tags.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;translation&#160;&lt;File&#160;name&gt;&#160;doesn’t&#160;have&#160;<br/>‘TRANSLATION-FILE-PATH’&#160;&#160;and&#160;'DEVICE-FILE-PATH'&#160;tags.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000014:&#160;'TRANSLATION-FILE-PATH'&#160;tag in&#160;&lt;File name&gt;&#160;is empty.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error will&#160;occur, if&#160;the&#160;translation &lt;File name&gt;&#160;doesn’t have&#160;<br/>‘TRANSLATION-FILE-PATH’&#160;tags.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000015:&#160;The 'device_name' tag should be&#160;present&#160;as&#160;child of</b>&#160;<br/><b>'TRANSLATION-FILE-PATH'' tag in&#160;&lt;File name&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error will&#160;occur, if&#160;the&#160;device mentioned&#160;in&#160;ECU Configuration Description&#160;<br/>File&#160;is&#160;not present&#160;in&#160;<br/>
+&#160;<br/>
+'TRANSLATION-FILE-PATH’&#160;tag in the&#160;&lt;File name&gt;.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000016:&#160;‘DEVICE-FILE-PATH’&#160;tag in&#160;&lt;File&#160;name&gt;&#160;is empty.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error will&#160;occur, if&#160;the&#160;translation file&#160;&lt;File&#160;name&gt;&#160;doesn’t&#160;have&#160;‘DEVICE-&#160;<br/>FILE-PATH’&#160;tags.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000017:&#160;The 'device_name’ tag&#160;should be present&#160;as&#160;child of</b>&#160;<br/><b>‘DEVICE-FILE-PATH'&#160;tag&#160;in&#160;&lt;File&#160;name&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error will&#160;occur, if&#160;the&#160;device mentioned&#160;in&#160;ECU Configuration Description&#160;<br/>File&#160;is&#160;not present&#160;in&#160;<br/>
+&#160;<br/>
+‘DEVICE-FILE-PATH’&#160;tag.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000018:&#160;Cannot&#160;create directory&#160;&lt;output&#160;directory&#160;name&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error will&#160;occur, if&#160;unable to create&#160;output&#160;directory&#160;&lt;output directory&#160;<br/>name&gt;.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000019:&#160;Cannot&#160;open&#160;&lt;File&#160;name&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error will&#160;occur,&#160;if&#160;unable to open&#160;&lt;File&#160;name&gt;.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000020:&#160;The&#160;macro&#160;label&#160;&lt;macro&#160;label&gt;&#160;should&#160;be&#160;unique&#160;in&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;<br/>&lt;translation&#160;file&#160;name&gt;&#160;translation&#160;C&#160;Header&#160;File.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;macro&#160;label&#160;is&#160;not&#160;unique&#160;in&#160;translation&#160;C&#160;Header&#160;File.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000021:&#160;The&#160;macro&#160;definition&#160;for&#160;&lt;macro&#160;label&gt;&#160;macro&#160;is&#160;not&#160;found&#160;<br/>in&#160;&lt;translation&#160;file&#160;name&gt;&#160;translation&#160;C&#160;Header&#160;File.&#160;The&#160;macro&#160;label&#160;<br/>format&#160;should&#160;be&#160;&lt;label&#160;format&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;macro&#160;definition&#160;is&#160;not&#160;found&#160;in&#160;translation&#160;C&#160;Header&#160;<br/>File.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>21&#160;</b><br/>
+<hr/>
+<a name=22></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>ERR000022:&#160;The&#160;macro&#160;value&#160;for&#160;&lt;macro&#160;label&gt;&#160;macro&#160;is&#160;empty&#160;in</b>&#160;<br/><b>&lt;translation&#160;file&#160;name&gt;&#160;translation&#160;C&#160;Header&#160;File.</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;macro&#160;label&#160;value&#160;is&#160;empty&#160;in&#160;translation&#160;C&#160;Header&#160;File.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000023:&#160;The&#160;macro&#160;definition&#160;for&#160;&lt;macro&#160;value&gt;&#160;macro&#160;is&#160;not&#160;found&#160;<br/>in&#160;input&#160;device&#160;specific&#160;C&#160;Header&#160;File(s).</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;macro&#160;definition&#160;is&#160;not&#160;found&#160;in&#160;input&#160;device&#160;specific&#160;C&#160;<br/>Header&#160;File(s).&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000024:&#160;The&#160;macro&#160;value&#160;for&#160;&lt;macro&#160;value&gt;&#160;macro&#160;is&#160;empty&#160;in&#160;input&#160;<br/>device&#160;specific&#160;C&#160;Header&#160;File(s).</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;macro&#160;value&#160;is&#160;empty&#160;in&#160;input&#160;device&#160;specific&#160;C&#160;Header&#160;<br/>File(s).&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000025:&#160;Path&#160;&lt;Configured&#160;Reference&#160;Path&gt;&#160;provided&#160;for&#160;Bsw&#160;Module&#160;<br/>is&#160;incorrect.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;reference&#160;provided&#160;for&#160;Bsw&#160;Module&#160;Component&#160;is&#160;<br/>incorrect.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000026:&#160;BSWMDT&#160;content&#160;is&#160;not&#160;present&#160;in&#160;the&#160;input&#160;file(s)&#160;for</b>&#160;<br/><b>‘&lt;Module&#160;Name&gt;’&#160;module.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;module&#160;specific&#160;BSWMDT&#160;content&#160;is&#160;not&#160;present&#160;in&#160;<br/>the&#160;input&#160;files.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000027:&#160;&lt;MSN&gt;&#160;BSWMDT&#160;File&#160;of&#160;either&#160;AUTOSAR&#160;R3.2&#160;or&#160;R4.0&#160;<br/>should&#160;be&#160;given&#160;as&#160;input.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;both&#160;R3.2&#160;and&#160;R4.0&#160;BSWMDT&#160;file&#160;given&#160;to&#160;the&#160;input&#160;<br/>to&#160;the&#160;generation&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000028:&#160;'MODULE-DESCRIPTION-REF'&#160;element&#160;should&#160;be&#160;present&#160;in&#160;<br/>the&#160;description&#160;file&#160;of&#160;'&lt;Module&#160;Name&gt;'&#160;module.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;MODULE-DESCRIPTION-REF&#160;element&#160;is&#160;not&#160;<br/>present&#160;module&#160;specific&#160;description&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR000029:&#160;AUTOSAR&#160;version&#160;of&#160;BSWMDT&#160;File&#160;and&#160;Module&#160;Description</b>&#160;<br/><b>File&#160;is&#160;different.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;the&#160;AUTOSAR&#160;version&#160;of&#160;the&#160;BSWMDT&#160;File&#160;and&#160;module&#160;<br/>description&#160;file&#160;is&#160;different.&#160;<br/>&#160;<br/><b>&#160;<br/>ERR000031:&#160;&lt;’&lt;Drive name&gt;’ :\&gt;&#160;Drive does&#160;not&#160;exist.</b>&#160;<br/>&#160;<br/>This&#160;error will&#160;occur&#160;when output&#160;drive&#160;does&#160;not&#160;exist.&#160;<br/>&#160;<br/><b>ERR000032:&#160;File extension&#160;is&#160;not&#160;as&#160;per&#160;AUTOSAR&#160;ECU Configuration&#160;<br/>Description&#160;File&#160;naming&#160;convention&#160;for&#160;‘&lt;File&#160;path&gt;’ file.&#160;</b><br/>
+<b>22&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=23></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;2&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;This&#160;error&#160;will&#160;occur if&#160;supporting&#160;file&#160;extensions&#160;are not as&#160;per&#160;AUTOSAR&#160;&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;ECU Configuration&#160;Description&#160;File&#160;naming&#160;standard.&#160;<br/>&#160;<br/>
+<b>2.8.2.&#160;&#160;Warning&#160;Messages&#160;</b><br/>
+<b>&#160;<br/></b>None.&#160;<br/>
+&#160;<br/>
+<b>2.8.3.&#160;&#160;Information&#160;Messages&#160;</b><br/>
+&#160;<br/>
+<b>INF000001:&#160;Tool&#160;Version:</b>&#160;<br/>
+&#160;<br/>
+This&#160;is&#160;to&#160;display&#160;Tool&#160;Version&#160;for&#160;each&#160;execution&#160;of&#160;the&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000002:&#160;Command&#160;line&#160;arguments:</b>&#160;<br/>
+&#160;<br/>
+This&#160;is&#160;to&#160;display&#160;the&#160;command&#160;line&#160;arguments&#160;for&#160;each&#160;execution&#160;of&#160;the&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000003:&#160;The&#160;valid&#160;inputs&#160;are&#160;provided&#160;below.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;command&#160;line&#160;option&#160;is&#160;not&#160;given.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000004:&#160;Opened&#160;file&#160;&lt;filename&gt;&#160;at&#160;&lt;time&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;during&#160;opening&#160;the&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000005:&#160;Error(s)&#160;and&#160;Warning(s)&#160;detected.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;display&#160;the&#160;number&#160;of&#160;errors&#160;and&#160;warnings.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000006:&#160;Execution&#160;completed&#160;successfully.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;execution&#160;completed&#160;successfully.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000007:&#160;Execution&#160;completed&#160;successfully&#160;with&#160;warnings.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;execution&#160;completed&#160;successfully&#160;with&#160;<br/>warnings.&#160;<br/>
+&#160;<br/>&#160;<br/>
+I<b>NF000008:&#160;Execution&#160;terminated&#160;due&#160;to&#160;command&#160;line&#160;errors.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;execution&#160;terminated&#160;due&#160;to&#160;command&#160;line&#160;<br/>errors.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000009:&#160;Execution&#160;terminated&#160;due&#160;to&#160;error&#160;in&#160;the&#160;input&#160;file.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;execution&#160;terminated&#160;due&#160;to&#160;error&#160;in&#160;the&#160;input&#160;<br/>file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>INF000010:&#160;Execution&#160;terminated&#160;due&#160;to&#160;error,&#160;during&#160;the&#160;structure&#160;<br/>generation&#160;in the&#160;output&#160;file.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;execution&#160;terminated&#160;during&#160;structure&#160;<br/>generation&#160;in&#160;output&#160;file.&#160;<br/>
+<b>23&#160;</b><br/>
+<hr/>
+<a name=24></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.9.&#160;</b><br/>
+<b>R3.2.2&#160;Messages&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;section&#160;contains&#160;the&#160;list&#160;of&#160;error/warning/information&#160;messages&#160;which&#160;is&#160;<br/>specific&#160;to&#160;AUTOSAR&#160;Renesas&#160;R3.2.2&#160;X1x&#160;MCAL&#160;Driver&#160;module&#160;that&#160;will&#160;be&#160;<br/>generated&#160;by&#160;the&#160;Generation&#160;Tool.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.9.1.&#160;&#160;Error&#160;Messages&#160;</b><br/>
+&#160;<br/>
+<b>ERR000030:&#160;The&#160;'parameter&#160;tag&#160;name'&#160;tag&#160;should&#160;be&#160;configured&#160;in</b>&#160;<br/><b>BSWMDT&#160;File.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;any&#160;of&#160;the&#160;configuration&#160;parameter(s)&#160;mentioned&#160;below&#160;<br/>is&#160;(are)&#160;not&#160;configured&#160;in&#160;BSWMDT&#160;File.&#160;<br/>
+&#160;<br/>
+The&#160;list&#160;of&#160;mandatory&#160;parameters&#160;with&#160;respect&#160;to&#160;container&#160;is&#160;listed&#160;below:&#160;<br/>
+<b>&#160;</b><br/>
+<b>Table&#160;2-2&#160;&#160;Mandatory&#160;Parameters&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Container</b>&#160;<br/>
+<b>Parameters</b>&#160;<br/>
+BswImplementation&#160;<br/>
+SW-MAJOR-VERSION&#160;<br/>
+SW-MINOR-VERSION&#160;<br/>
+SW-PATCH-VERSION&#160;<br/>
+AR-MAJOR-VERSION&#160;<br/>
+AR-MINOR-VERSION&#160;<br/>
+AR-PATCH-VERSION&#160;<br/>
+VendorApiInfix&#160;<br/>
+BswModuleDescription&#160;<br/>
+ModuleId&#160;<br/>
+&#160;<br/>
+<b>Note:&#160;VendorApiInfix&#160;parameter&#160;is&#160;mandatory&#160;for&#160;only&#160;some&#160;modules.</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.9.2.&#160;&#160;Warning&#160;Messages&#160;</b><br/>
+&#160;<br/>
+None.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.9.3.&#160;&#160;Information&#160;Messages&#160;</b><br/>
+&#160;<br/>
+None.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.10.&#160;&#160;R4.0.3&#160;Messages&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;section&#160;contains&#160;the&#160;list&#160;of&#160;error/warning/information&#160;messages&#160;which&#160;is&#160;<br/>specific&#160;to&#160;AUTOSAR&#160;Renesas&#160;R4.0.3&#160;X1x&#160;MCAL&#160;Driver&#160;module&#160;that&#160;will&#160;be&#160;<br/>generated&#160;by&#160;the&#160;Generation&#160;Tool.&#160;<br/>
+<b>24&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=25></a><b>Generation&#160;Tool&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;2&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.10.1.&#160;Error&#160;Messages&#160;</b><br/>
+&#160;<br/>
+<b>ERR000030:&#160;The&#160;'parameter&#160;tag&#160;name'&#160;tag&#160;should&#160;be&#160;configured&#160;in</b>&#160;<br/><b>BSWMDT&#160;File.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;will&#160;occur,&#160;if&#160;any&#160;of&#160;the&#160;configuration&#160;parameter(s)&#160;mentioned&#160;below&#160;<br/>is&#160;(are)&#160;not&#160;configured&#160;in&#160;BSWMDT&#160;File.&#160;<br/>
+&#160;<br/>
+The&#160;list&#160;of&#160;mandatory&#160;parameters&#160;with&#160;respect&#160;to&#160;container&#160;is&#160;listed&#160;below:&#160;<br/>
+<b>&#160;</b><br/>
+<b>Table&#160;2-3&#160;&#160;Mandatory&#160;Parameters&#160;</b><br/>
+&#160;<br/>
+<b>Container</b>&#160;<br/>
+<b>Parameters</b>&#160;<br/>
+BswImplementation&#160;<br/>
+SwVersion&#160;<br/>
+VendorId&#160;<br/>
+ArReleaseVersion&#160;<br/>
+VendorApiInfix&#160;<br/>
+BswModuleDescription&#160;<br/>
+ModuleId&#160;<br/>
+&#160;<br/>
+<b>Note:&#160;VendorApiInfix&#160;parameter&#160;is&#160;mandatory&#160;for&#160;only&#160;some&#160;modules.</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.10.2.&#160;Warning Messages&#160;</b><br/>
+None.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.10.3.&#160;Information Messages&#160;</b><br/>
+&#160;<br/>
+None.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.11.&#160;&#160;BSWMDT&#160;File&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;BSWMDT&#160;File&#160;is&#160;the&#160;template&#160;for&#160;the&#160;Basic&#160;Software&#160;Module&#160;Description.&#160;<br/>Module&#160;specific&#160;Generation&#160;Tool&#160;uses&#160;“Common&#160;Published&#160;Information”&#160;from&#160;<br/>module&#160;specific&#160;BSWMDT&#160;file.&#160;BSWMDT&#160;file&#160;should&#160;not&#160;be&#160;updated&#160;manually&#160;<br/>since&#160;it&#160;is&#160;“Static&#160;Configuration”&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+The&#160;required&#160;elements&#160;from&#160;BSWMDT&#160;File&#160;by&#160;module&#160;specific&#160;Generation&#160;<br/>Tool&#160;are&#160;as&#160;follows:&#160;<br/>
+&#160;<br/>
+BSW-MODULE-DESCRIPTION&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+MODULE-ID&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>25&#160;</b><br/>
+<hr/>
+<a name=26></a><b>Chapter&#160;2&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Generation&#160;Tool&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>BSW-IMPLEMENTATION&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+SW-VERSION&#160;<br/>
+•&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+VENDOR-ID&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+AR-RELEASE-VERSION&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+VENDOR-API-INFIX&#160;<br/>
+&#160;<br/>&#160;<br/>
+In&#160;case&#160;of&#160;multiple&#160;driver&#160;support&#160;implementation,&#160;VENDOR-API-INFIX&#160;is&#160;<br/>mandatory.&#160;In&#160;case&#160;of&#160;single&#160;driver&#160;support&#160;implementation,&#160;VENDOR-<br/>API-&#160;INFIX&#160;is&#160;not&#160;used.&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>26</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=27></a><b>&#160;Application&#160;Example &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;Chapter&#160;3</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+&#160;<br/>
+<b>Chapter&#160;3&#160;</b><br/>
+<b>Application&#160;Example&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>3.1.&#160;</b><br/>
+<b>Folder&#160;Structure&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Refer&#160;Section&#160;“Integration&#160;and&#160;Build&#160;Process”&#160;in&#160;the&#160;respective&#160;component&#160;<br/>User&#160;Manuals.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>3.2.&#160;</b><br/>
+<b>Makefile&#160;Description&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Makefile&#160;is&#160;available&#160;in&#160;the&#160;folder&#160;“X1X\&lt;&#160;MICRO_VARIANT&#160;<br/>&gt;\modules\&lt;msn&gt;\sample_application\&lt;&#160;MICRO_SUB_VARIANT&#160;<br/>&gt;\make\&lt;compiler&gt;”.&#160;&#160;<br/>The&#160;Makefiles&#160;with&#160;the&#160;guidelines&#160;provided&#160;in&#160;AUTOSAR&#160;BSW&#160;Makefile&#160;<br/>Interface&#160;Specification,&#160;which&#160;enables&#160;easy&#160;integration&#160;with&#160;other&#160;components&#160;<br/>and&#160;the&#160;application.&#160;<br/>
+&#160;<br/>
+The&#160;files&#160;is:&#160;<br/>&#160;<br/>&#160;<br/>•&#160;App_&lt;Msn&gt;_&lt;MICRO_SUB_VARIANT&gt;_&lt;DEVICE_NAME&gt;Sample.mak&#160;<br/>(Contains&#160;the&#160;device&#160;specific&#160;instructions).&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>3.2.1.&#160;&#160;App_&lt;Msn&gt;_&lt;variant&gt;_Sample.mak&#160;</b><br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+#&#160;Makefile&#160;to&#160;compile&#160;and&#160;build&#160;the&#160;Sample&#160;application&#160;with&#160;the&#160;AUTOSAR&#160;<br/>&lt;MSN&gt;&#160;#&#160;<br/>
+&#160;<br/>
+#&#160;Driver&#160;Component&#160;(For&#160;Test&#160;purposes&#160;only)&#160;<br/>
+#&#160;<br/>
+&#160;<br/>
+#&#160;Compatible&#160;with&#160;GNU&#160;Make&#160;3.81&#160;for&#160;Win32. &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;#&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+#&#160;Definitions&#160;of&#160;global&#160;environment&#160;variables&#160;<br/>
+&#160; &#160;#&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+#Get&#160;name&#160;of&#160;the&#160;current&#160;application&#160;<br/>
+&#160;<br/>
+CURRENT_APPL&#160;=&#160;App_&lt;Msn&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+#&#160;Get&#160;the&#160;project&#160;directory&#160;into&#160;variable&#160;&#34;PROJECT_ROOT&#34;&#160;<br/>
+<b>27&#160;</b><br/>
+<hr/>
+<a name=28></a><b>Chapter&#160;3&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;Application&#160;Example&#160; &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;<br/>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;</b><br/>
+&#160;<br/>
+PROJECT_ROOT&#160;=&#160;$(shell&#160;cd)\..\..\..\..\..\..&#160;<br/>&#160;<br/>
+COMMON_SAMPLE_CORE_PATH =&#160;&#160;&#160;&#160;&#160;<br/>$(PROJECT_ROOT)\$(MICRO_FAMILY)\common_platform&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;\modules\&lt;Msn&gt;\sample_application&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+#&#160;Get&#160;the&#160;current&#160;working&#160;directory&#160;into&#160;variable&#160;&#34;SAMPLE_ROOT_PATH&#34;&#160;<br/>
+SAMPLE_ROOT_PATH&#160;=&#160;<br/>
+$(PROJECT_ROOT)\$(MICRO_FAMILY)\$(MICRO_VARIANT)\modules<br/>
+&lt;Msn&gt;\sample_application\$(MICRO_SUB_VARIANT)&#160;<br/>
+&#160;<br/>
+#&#160;Get&#160;the&#160;current&#160;working&#160;directory&#160;into&#160;variable&#160;&#34;STUBS&#34;&#160;<br/>
+STUBS_PATH =&#160;<br/>
+$(PROJECT_ROOT)\$(MICRO_FAMILY)&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;&#160;&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;&#160;\common_platform\generic&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;\stubs\$(AUTOSAR_VERSION)&#160;<br/>
+&#160;<br/>
+#&#160;Get&#160;current&#160;configuration&#160;path&#160;<br/>
+&#160;<br/>
+&lt;MSN&gt;_CONFIG_PATH&#160;=&#160;<br/>$(SAMPLE_ROOT_PATH)\$(AUTOSAR_VERSION)&#160;<br/>&#160;<br/>
+&#160;<br/>
+#&#160;Get&#160;TRXML&#160;path&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TRXML_CONFIG_PATH&#160;=&#160;&#160;$(PROJECT_ROOT)&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\$(MICRO_FAMILY)\$(MICRO_VARIANT)&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\common_family\generator&#160;<br/>
+&#160;<br/>#&#160;Get&#160;BSWMDT&#160;path&#160;<br/>
+&#160;<br/>
+&lt;MSN&gt;_BSWMDT_CONFIG_PATH&#160;=&#160;$(PROJECT_ROOT)&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\$(MICRO_FAMILY)&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\$(MICRO_VARIANT)&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\modules\&lt;Msn&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+\generator&#160;<br/>
+&#160;<br/>#&#160;Get&#160;current&#160;configuration&#160;file&#160;path&#160;<br/>
+&#160;<br/>
+&lt;MSN&gt;_CONFIG_FILE&#160;=&#160;$(MSN_CONFIG_PATH)&#160;\config&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;\App_&lt;MSN&gt;_$(MICRO_SUB_VARIANT)_&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;$(DEVICE_NAME)_Sample.arxml&#160;<br/>&#160;<br/>
+#&#160;Path&#160;to&#160;TRXML&#160;Configuration&#160;File&#160;which&#160;is&#160;required&#160;for&#160;this&#160;module&#160;<br/>
+&#160;<br/>
+TRXML_CONFIG_FILE&#160;=&#160;<br/>&#34;$(TRXML_CONFIG_PATH)\Sample_Application_$(MICRO<br/>_VARIANT).trxml&#34;&#34;&#160;<br/>
+&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;# Path&#160;to&#160;ECUM Configuration File&#160;which&#160;is&#160;required&#160;for this&#160;module&#160;<br/>
+ECUM_CONFIG_PATH =&#160;$(STUBS_PATH)\EcuM&#160;<br/>
+&#160;<br/>
+ECUM_CONFIG_FILE&#160;=&#160;&#34;$(ECUM_CONFIG_PATH)\xml\EcuM_Msn.arxml&#34;&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>28</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=29></a><b>&#160;Application&#160;Example &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;Chapter&#160;3</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;#&#160;Path&#160;to&#160;TRXML&#160;Configuration&#160;File&#160;which&#160;is&#160;required for Test Application&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;TRXML_CONFIG_FILE&#160;=&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;<br/>
+&#34;$(TRXML_CONFIG_PATH)\Sample_Application_$(MICRO_VARIANT).trxml&#34;&#160;<br/>
+&#160;<br/>
+# Path&#160;to BSWMDT&#160;Configuration File&#160;which&#160;is&#160;required for MSN&#160;Sample&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;<br/>Application&#160;<br/>&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;MSN_BSWMDT_CONFIG_FILE&#160;=&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;<br/>
+&#34;$(MSN_BSWMDT_CONFIG_PATH)\R403_$(MODULE_NAME)_$(MICRO_V<br/>ARIANT)_BSWMDT.arxml&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;#&#160;Version check&#160;for inter&#160;modules&#160;required&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;MSN_VERSION_CHECK_REQ&#160;=&#160;yes&#160;<br/>&#160;<br/>
+#&#160;Database&#160;to&#160;be&#160;linked&#160;together&#160;with&#160;the&#160;current&#160;application&#160;<br/>
+&#160;<br/>
+#&#160;Define&#160;'no'&#160;to&#160;isolate&#160;database&#160;from&#160;the&#160;application&#160;<br/>
+&#160;<br/>
+&lt;MSN&gt;_DBASE_REQ&#160;=&#160;yes&#160;<br/>
+&#160;<br/>&#160;<br/>
+#&#160;Get&#160;the&#160;name&#160;of&#160;the&#160;SRECORD&#160;file&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CURRENT_APPL_SRECORD&#160;=&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$(CURRENT_APPL)_$(MICRO_SUB_VARIANT)_Sample&#160;<br/>&#160;<br/>
+#&#160;Name&#160;of&#160;the&#160;database&#160;if&#160;generated&#160;separately&#160;<br/>
+&#160;<br/>
+&lt;MSN&gt;_DB&#160;=&#160;&lt;Msn&gt;_PBcfg&#160;<br/>
+&#160;<br/>&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+#&#160;Final&#160;executable&#160;<br/>
+#&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+EXE&#160;=&#160;$(CURRENT_APPL)_&#160;MICRO_&#160;<br/>
+&lt;SUB_VARIANT&gt;_Sample.$(EXE_FILE_SUFFIX)&#160;<br/>
+LIBRARIES_TO_BUILD&#160;=&#160;<br/>
+OBJECTS_LINK_ONLY&#160;=&#160;<br/>
+&#160;<br/>
+OBJECT_OUTPUT_PATH&#160;&#160;=&#160;$(SAMPLE_ROOT_PATH)\obj\ghs&#160;<br/>
+GENERATED_SOURCE_FILES&#160;=&#160;<br/>
+CC_FILES_TO_BUILD&#160;=&#160;<br/>
+&#160;<br/>
+CPP_FILES_TO_BUILD&#160;=&#160;<br/>
+ASM_FILES_TO_BUILD&#160;=&#160;<br/>
+&#160;<br/>&#160;<br/>
+CC_INCLUDE_PATH&#160;=&#160;<br/>
+CPP_INCLUDE_PATH&#160;=&#160;<br/>
+ASM_INCLUDE_PATH&#160;=&#160;<br/>
+<b>29</b>&#160;<br/>
+<hr/>
+<a name=30></a><b>Chapter&#160;3&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;Application&#160;Example&#160; &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;<br/>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+PREPROCESSOR_DEFINES&#160;=&#160;<br/>
+&#160;<br/>&#160;<br/>
+LIBRARIES_LINK_ONLY&#160;=&#160;<br/>
+DIRECTORIES_TO_CREATE&#160;=&#160;<br/>
+DEPEND_GCC_OPTS&#160;=&#160;<br/>
+&#160;<br/>&#160;<br/>
+MAKE_CLEAN_RULES&#160;=&#160;<br/>
+MAKE_GENERATE_RULES&#160;=&#160;<br/>
+MAKE_COMPILE_RULES&#160;=&#160;<br/>
+MAKE_DEBUG_RULES&#160;=&#160;<br/>
+MAKE_CONFIG_RULES&#160;=&#160;<br/>
+MAKE_ADD_RULES&#160;=&#160;<br/>
+&#160;<br/>&#160;<br/>
+MAKE_DEBUG_RULES&#160;=&#160;<br/>MAKE_&#160;CONFIG_RULES&#160;=&#160;<br/>MAKE_ADD_RULES&#160;=&#160;<br/>&#160;<br/>MAKE_DEBUG_RULES&#160;+=&#160;debug_base_make&#160;<br/>
+&#160;<br/>
+STD_LIBRARY&#160;=&#160;<br/>
+&#160;<br/>
+LNKFILE&#160;=&#160;<br/>$(PROJECT_ROOT)\$(MICRO_FAMILY)\$(MICRO_VARIANT)\modules\&lt;msn<br/>&gt;\sample_application\$(MICRO_SUB_VARIANT)\make\ghs\$(CURRENT_APP<br/>L)_$(MICRO_SUB_VARIANT)_$(DEVICE_NAME)_Sample.ld&#160;<br/>&#160;<br/>LNKFILE_DB&#160;=&#160;<br/>$(PROJECT_ROOT)\$(MICRO_FAMILY)\$(MICRO_VARIANT)\modules\&lt;ms<br/>n&gt;\sample_application\$(MICRO_SUB_VARIANT)\make\ghs\$(CURRENT_A<br/>PPL)_$(MICRO_SUB_VARIANT)_$(DEVICE_NAME)_Sample_db.ld&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;.PHONY:&#160;MAKE_CLEAN_RULES&#160;MAKE_GENERATE_RULES&#160;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;MAKE_COMPILE_RULES&#160;\&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;MAKE_DEBUG_RULES&#160;MAKE_CONFIG_RULES&#160;MAKE_ADD_RULES&#160;<br/>&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+#&#160;Modules&#160;to&#160;be&#160;included&#160;in&#160;the&#160;project&#160;<br/>
+#&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>#&#160;Sample&#160;Application&#160;<br/>
+&#160;<br/>
+#&#160;<br/>
+&#160;<br/>
+include&#160;<br/>$(COMMON_SAMPLE_CORE_PATH)\make\$(CURRENT_APPL)_Common_S&#160;<br/>ample_Defs.mak&#160;<br/>
+&#160;<br/>
+include&#160;<br/>$(COMMON_SAMPLE_CORE_PATH)\make\$(CURRENT_APPL)_Common_S&#160;<br/>
+<b>30</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=31></a><b>&#160;Application&#160;Example &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;Chapter&#160;3</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+ample_rules.mak&#160;<br/>
+&#160;<br/>&#160;<br/>
+SAMPLE_CORE_PATH&#160;=&#160;$(SAMPLE_ROOT_PATH)&#160;<br/>
+&#160;<br/>
+include&#160;<br/>$(SAMPLE_CORE_PATH)\make\$(CURRENT_APPL&#160;<br/>_$(MICRO_SUB_VARIANT)_Sample_defs.mak&#160;<br/>include&#160;<br/>$(SAMPLE_CORE_PATH)\make\$(CURRENT_APPL&#160;<br/>_$(MICRO_SUB_VARIANT)_Sample_rules.mak&#160;<br/>
+&#160;<br/>&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>&#160;<br/>##############################################################&#160;<br/>
+&#160;<br/>&#160;<br/>
+#&#160;DET&#160;Module&#160;Core&#160;Path&#160;<br/>
+&#160;<br/>
+#&#160;<br/>
+&#160;<br/>
+#DET_CORE_PATH&#160;=&#160;$(STUBS_PATH)\Det&#160;<br/>
+&#160;<br/>
+#include&#160;$(DET_CORE_PATH)\make\det_defs.mak&#160;<br/>
+&#160;<br/>
+#include&#160;$(DET_CORE_PATH)\make\det_rules.mak&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>&#160;<br/>
+#&#160;OS&#160;Module&#160;Core&#160;Path&#160;<br/>
+&#160;<br/>
+#&#160;<br/>
+&#160;<br/>
+OS_CORE_PATH&#160;=&#160;$(STUBS_PATH)\os&#160;<br/>
+&#160;include&#160;$(OS_CORE_PATH)\make\os_defs.mak&#160;<br/>
+&#160;include&#160;$(OS_CORE_PATH)\make\&#160;os_rules.mak&#160;<br/>
+&#160;#############################################################&#160;<br/>
+&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;##############################################################&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;#&#160;ECUM&#160;Module Core&#160;Path&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;#&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;ECUM_CORE_PATH =&#160;$(STUBS_PATH)\EcuM&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;include $(ECUM_CORE_PATH)\make\ecum_defs.mak&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;include $(ECUM_CORE_PATH)\make\ecum_rules.mak&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;##############################################################&#160;<br/>&#160;<br/>
+&#160;##############################################################&#160;<br/>
+&#160;<br/>
+&#160;#&#160;Scheduler&#160;Manager&#160;Module&#160;Core&#160;Path&#160;<br/>
+&#160;<br/>
+&#160;#&#160;<br/>
+&#160;<br/>
+&#160;ifeq&#160;($(AUTOSAR_VERSION), 3.2.2)&#160;<br/>&#160;SCHM_CORE_PATH =&#160;$(STUBS_PATH)\SchM&#160;<br/>&#160;include&#160;$(SCHM_CORE_PATH)\make\schm_defs.mak&#160;<br/>&#160;else&#160;<br/>&#160;RTE_CORE_PATH =&#160;$(STUBS_PATH)\SchM&#160;<br/>&#160;include&#160;$(RTE_CORE_PATH)\make\rte_defs.mak&#160;<br/>&#160;endif&#160;&#160;<br/>
+<b>31</b>&#160;<br/>
+<hr/>
+<a name=32></a><b>Chapter&#160;3&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;Application&#160;Example&#160; &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;<br/>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;</b><br/>
+&#160;#############################################################&#160;<br/>&#160;<br/>&#160;#&#160;&lt;MSN&gt;&#160;Driver&#160;Component&#160;<br/>
+&#160;<br/>
+&#160;#&#160;<br/>
+&#160;<br/>
+&lt;MSN&gt;_CORE_PATH&#160;=&#160;<br/>&#160;$(PROJECT_ROOT&#160;\$(MICRO_FAMILY)\&#160;&#160;common_platform&#160;<br/>
+&#160;\modules\&lt;msn&gt;&#160;<br/>
+&#160;include&#160;$(&lt;MSN&gt;_CORE_PATH)\make\renesas_&lt;msn&gt;_defs.mak&#160;&#160;<br/>
+&#160;include&#160;$(&lt;MSN&gt;_CORE_PATH)\make\renesas&#160;_&lt;msn&gt;_check.mak&#160;<br/>
+&#160;include&#160;$(&lt;MSN&gt;_CORE_PATH)\make\renesas_&lt;msn&gt;_rules.mak&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;#############################################################&#160;<br/>
+&#160;<br/>&#160;<br/>
+##############################################################&#160;<br/>
+&#160;<br/>
+# Command to generate&#160;standalone&#160;database&#160;<br/>
+#&#160;<br/>
+&#160; &#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;<br/>$(MSN_DB).$(S_RECORD_SUFFIX):$(MSN_DB).$(OBJ_FILE_SUFFIX)&#160;<br/>$(LNKFILE_DB)&#160;<br/>@echo&#160;&#160; &#160;*********************************************************************&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160;&#160; &#160;@echo&#160;Building&#160;the&#160;standalone&#160;database&#160;...&#160;&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;$(DBLINKER)&#160;$(LNKFILE_DB)&#160;\&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;&#34;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(OBJ_FILE_SUFFIX)&#34;&#160;\&#160;<br/>
+-map=&#34;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(MAP_FILE_SUFFIX)&#34;&#160;\&#160;<br/>-o &#34;$(OBJECT_OUTPUT_PATH)\$(MSN_DB).$(EXE_FILE_SUFFIX)&#34;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;@echo&#160;Generating Motorola S-Record file...&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160;&#160; &#160;$(CONVERTER)&#160;$(SFLAGS)&#160;&#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;<br/>&#34;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(EXE_FILE_SUFFIX)&#34;&#160;\&#160;<br/>&#160; &#160;&#160;<br/>
+&#160;&#160;&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;-o&#160;&#34;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(S_RECORD_SUFFIX)&#34;&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;&#160;@echo&#160;Done ...&#160;<br/>
+&#160;<br/>##############################################################&#160;<br/>##################&#160;<br/>
+&#160;<br/>
+$(&lt;MSN&gt;_DB).$(S_RECORD_SUFFIX):$(&lt;MSN&gt;_DB).$(OBJ_FILE_SUFFIX&#160;<br/>)&#160;$(LNKFILE_DB)&#160;<br/>
+&#160;<br/>
+<a href="mailto:@echo">@echo&#160;</a>*********************************************************************&#160;<br/>
+&#160;<br/>
+<a href="mailto:@echo">@echo&#160;</a>Building&#160;the&#160;standalone&#160;database ...&#160;<br/>
+&#160;<br/>
+$(DBLINKER)&#160;$(LNKFILE_DB)&#160;\&#160;<br/>
+&#34;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(OBJ_FILE_SUFFIX)&#34;&#160;\&#160;<br/>
+-map=&#34;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(MAP_FILE_SUFFIX)&#34;&#160;\&#160;<br/>
+&#160;<br/>
+-o &#34;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(EXE_FILE_SUFFIX)&#34;&#160;<br/>
+&#160;<br/>
+<a href="mailto:@echo">@echo&#160;</a>Generating Motorola S-Record file...&#160;<br/>
+&#160;<br/>
+$(CONVERTER)&#160;$(SFLAGS)&#160;<br/>&#34;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(EXE_FILE_SUFFIX)&#34;&#160;\&#160;<br/>
+&#160;<br/>
+-o &#34;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(S_RECORD_SUFFIX)&#34;&#160;<br/>
+&#160;<br/>
+<a href="mailto:@echo">@echo&#160;</a>Done ...&#160;<br/>
+&#160;<br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;<br/>
+<b>32</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=33></a><b>&#160;Application&#160;Example &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;Chapter&#160;3</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+&#160; &#160; &#160;<br/>###############################################################&#160;<br/>&#160;<br/># End of&#160;the&#160;Base Make script&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; #&#160;<br/>###############################################################&#160;<br/>
+&#160;<br/>
+<b>3.3.&#160;</b><br/>
+<b>Integrating&#160;The&#160;&lt;MSN&gt; Driver&#160;Component&#160;With&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Other&#160;Components&#160;</b><br/>
+&#160;<br/>
+This&#160;section&#160;explains&#160;the&#160;procedure&#160;to&#160;integrate&#160;the&#160;&lt;MSN&gt;Driver&#160;Component&#160;<br/>with&#160;other&#160;BSW&#160;components&#160;and&#160;the&#160;application.&#160;<br/>
+&#160;<br/>
+Depending&#160;on&#160;the&#160;various&#160;configurations,&#160;the&#160;following&#160;modules&#160;are&#160;required&#160;to&#160;<br/>be&#160;integrated&#160;with&#160;the&#160;&lt;MSN&gt;Driver&#160;Component:&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+&lt;MSN&gt;Interface (Folder&#160;‘Sample_Application’&#160;where the&#160;sample&#160;<br/>application&#160;for &lt;MSN&gt;&#160;exists. The&#160;variable ‘&lt;MSN&gt;_CORE_PATH’&#160;<br/>and the&#160;corresponding&#160;module&#160;Makefile names&#160;must be suitably&#160;<br/>changed in the base Makefile)&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;<br/>
+Development Error Tracer (Folder&#160;‘Det’&#160;where&#160;the&#160;DET&#160;module files&#160;exist.&#160;<br/>The&#160;variable ‘DET_CORE_PATH’&#160;and&#160;the&#160;corresponding&#160;module&#160;<br/>Makefile names&#160;must be suitably&#160;changed&#160;in&#160;the base&#160;Makefile)&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;<br/>
+Scheduler Manager (Folder ‘SchM’&#160;where&#160;the&#160;SCHM module exists.&#160;<br/>The&#160;variable ‘RTE_CORE_PATH’&#160;and&#160;the&#160;corresponding&#160;module&#160;<br/>Makefile names&#160;must be suitably&#160;changed&#160;in&#160;the&#160;base&#160;Makefile)&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;<br/>
+MCU Interface (Folder ‘Mcu’&#160;in the give example.&#160;The&#160;variables&#160;<br/>‘MCU_CONFIG_PATH’&#160;and ‘MCU_CONFIG_FILE’&#160;must be suitably&#160;<br/>changed in the module&#160;Makefile&#160;<br/>(Software_Source_Code\ssc\mak\renesas_&lt;MSN&gt;_rules.mak)&#160;and&#160;<br/>the&#160;base Makefile).&#160;<br/>
+&#160;<br/>&#160;<br/>
+All&#160;the&#160;above folders&#160;are given&#160;only&#160;as&#160;examples&#160;and they&#160;have&#160;to&#160;be&#160;<br/>replaced&#160;with&#160;actual&#160;component&#160;folders. It&#160;is&#160;assumed&#160;that&#160;every&#160;component&#160;<br/>has&#160;the&#160;corresponding module&#160;Makefiles.&#160;<br/>
+&#160;<br/>
+Apart from&#160;the above&#160;BSW&#160;components, few&#160;other folders&#160;are provided&#160;as&#160;<br/>mentioned&#160;below:&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+AUTOSAR Type&#160;definition&#160;Files&#160;(Folder&#160;‘common\include’,&#160;where the&#160;<br/>header files&#160;containing&#160;standard definitions&#160;that&#160;are common&#160;to&#160;all&#160;<br/>components&#160;are placed. The&#160;variable&#160;‘STUB_CORE_PATH’&#160;and&#160;the&#160;<br/>corresponding&#160;module Makefile names&#160;must be&#160;suitably&#160;changed in the&#160;<br/>base Makefile)&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+RH850&#160;specific&#160;Files&#160;(Folder&#160;‘X1X\common_platform\generic\include’,where&#160;<br/>the&#160;header files&#160;that&#160;are common&#160;to&#160;all&#160;components&#160;but&#160;specific&#160;to&#160;Renesas&#160;<br/>V850 microcontroller are placed. The&#160;variable ‘&#160;<br/>GENERIC_PLATFORM_PATH’&#160;and&#160;the&#160;corresponding module Makefile&#160;<br/>names&#160;must be suitably&#160;changed in the base Makefile)&#160;<br/>
+&#160;<br/>
+Compiler specific&#160;Files&#160;(Folder&#160;‘compiler’,&#160;where the&#160;header&#160;files&#160;that&#160;are&#160;<br/>common&#160;to&#160;all&#160;components&#160;but specific&#160;to&#160;GreenHills&#160;Compiler are placed.&#160;<br/>The&#160;variable&#160;‘COMPILER_PATH’&#160;and&#160;the&#160;corresponding&#160;module&#160;Makefile&#160;<br/>
+<b>33</b>&#160;<br/>
+<hr/>
+<a name=34></a><b>Chapter&#160;3&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;Application&#160;Example&#160; &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;<br/>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;</b><br/>
+names&#160;must be suitably&#160;changed in the base Makefile).&#160;<br/>
+&#160;<br/>
+<b>3.4.&#160;</b><br/>
+<b>Building&#160;The&#160;&lt;MSN&gt;&#160;Driver&#160;Component&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;section&#160;explains&#160;the procedure to build the&#160;&lt;MSN&gt;Driver Component&#160;for&#160;<br/>any&#160;given configuration.&#160;<br/>
+&#160;<br/>
+The&#160;&lt;MSN&gt;&#160;Driver Configuration&#160;Description&#160;file (.arxml)&#160;has&#160;to&#160;be&#160;given&#160;as&#160;<br/>input&#160;to&#160;the&#160;&lt;MSN&gt;&#160;Driver&#160;Generation&#160;Tool. The&#160;tool&#160;generates&#160;output files&#160;<br/>namely&#160;&lt;Msn&gt;_Lcfg.c, &lt;Msn&gt;_PBcfg.c, &lt;Msn&gt;_Cbk.h&#160;and&#160;&lt;Msn&gt;_Cfg.h.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Following&#160;variables&#160;must&#160;be&#160;defined&#160;in&#160;the&#160;base&#160;Makefile&#160;described&#160;in</b>&#160;<br/><b>Section&#160;5.2.1&#160;(Makefile&#160;Description)</b>&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+PROJECT_ROOT: Root directory&#160;where the&#160;projects&#160;for&#160;all&#160;components&#160;<br/>exist.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+SPECIFIC_APPL_ROOT_PATH: Directory&#160;where the&#160;&lt;MSN&gt;&#160;sample&#160;<br/>application&#160;exists.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+OBJECT_OUTPUT_PATH:&#160;Directory&#160;where&#160;the module specific&#160;output&#160;<br/>files&#160;are generated.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+STARTUP_&lt;family&gt;_CORE_PATH: Core&#160;path for the&#160;variant specific&#160;<br/>statup&#160;files&#160;exist.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+STUB_CORE_PATH: Core&#160;path&#160;for the&#160;stub&#160;files&#160;exist.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+COMPILER_PATH: Directory&#160;where the compiler files&#160;exist.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+DEVICE_FILE_PATH: Directory&#160;where the device files&#160;exists.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+MSN_CORE_PATH: Core&#160;path&#160;for the &lt;MSN&gt;&#160;Driver&#160;Component&#160;<br/>folder.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+MSN_TOOL_PATH: Directory&#160;where the&#160;module&#160;specific&#160;tool&#160;exe&#160;exist.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+CC_INCLUDE_PATH:&#160;Path&#160;variable&#160;where&#160;all&#160;the&#160;header&#160;files&#160;can&#160;be&#160;<br/>found&#160;by&#160;the&#160;compiler.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+CC_FILES_TO_BUILD:&#160;Variable&#160;that&#160;contains&#160;the&#160;list&#160;of&#160;source&#160;files,&#160;to&#160;<br/>be&#160;compiled&#160;and&#160;linked.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+&lt;MSN&gt;_clean_generated_files: This&#160;target can be&#160;used to clean&#160;the&#160;<br/>configuration&#160;source and header&#160;files&#160;generated&#160;by&#160;the &lt;MSN&gt;&#160;Driver&#160;<br/>Generation&#160;Tool.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+debug_&lt;MSN&gt;_makefile:&#160;This&#160;target&#160;can&#160;be&#160;used&#160;to print&#160;the&#160;debug&#160;<br/>information&#160;such as&#160;paths&#160;used&#160;by&#160;&lt;MSN&gt;&#160;Driver Component.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+generate_&lt;MSN&gt;_config:&#160;This&#160;target can&#160;be&#160;used&#160;to invoke the&#160;&lt;MSN&gt;&#160;<br/>Driver Generation Tool&#160;which in turn takes&#160;the&#160;ECU&#160;Configuration&#160;<br/>Description&#160;files&#160;(App_&lt;MSN&gt;_&lt;DEVICE_NAME&gt;_Sample.arxml)&#160;as&#160;<br/>an&#160;input and generates&#160;the&#160;configuration&#160;source and header&#160;files.&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>Following&#160;variables&#160;must&#160;be&#160;defined&#160;in&#160;the&#160;Module&#160;Makefile&#160;described&#160;in</b>&#160;<br/><b>Section&#160;5.2.1&#160;(Makefile&#160;Description):</b>&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+PROJECT_ROOT:&#160;Root&#160;directory&#160;where&#160;the&#160;projects&#160;for&#160;all&#160;components&#160;<br/>exist.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+MSN_CONFIG_PATH:&#160;Configuration&#160;path&#160;for&#160;description&#160;file&#160;of&#160;the&#160;<br/>&lt;MSN&gt;&#160;Driver&#160;Component.&#160;<br/>
+&#160;<br/>
+<b>34</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=35></a><b>&#160;Application&#160;Example &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;Chapter&#160;3</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+•&#160;<br/>
+MSN_CONFIG_FILE:&#160;Name&#160;of&#160;the&#160;&lt;MSN&gt;&#160;Driver&#160;Component&#160;description&#160;<br/>file.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+STUB_CONFIG_PATH:&#160;Configuration&#160;path&#160;for&#160;description&#160;file&#160;of&#160;the&#160;stub.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+MCU_CONFIG_FILE:&#160;&#160;Name&#160;of&#160;the&#160;MCU&#160;Driver&#160;Component&#160;description&#160;<br/>file.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+TRXML_CONFIG_PATH: TRXML&#160;Configuration&#160;file&#160;path used&#160;for the&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;&lt;MSN&gt;&#160;Driver Component.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+TRXML_CONFIG_FILE:&#160;TRXML&#160;Configuration&#160;file&#160;used&#160;for&#160;the&#160;&lt;MSN&gt;&#160;<br/>
+&#160; &#160;&#160;Driver Component.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+BSWMDT_CONFIG_PATH: Path for &lt;MSN&gt;&#160;BSWMDT&#160;file.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+BSWMDT_CONFIG_FILE:&#160;Name of&#160;the &lt;MSN&gt;&#160;BSWMDT&#160;file.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+GENERIC_STUB_PATH: Directory&#160;where&#160;the&#160;generic&#160;stub&#160;exist.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+GENERIC_PLATFORM_PATH: Directory&#160;where the generic&#160;platform&#160;<br/>files&#160;exist.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+CC_INCLUDE_PATH: Path&#160;variable&#160;where&#160;all&#160;the header files&#160;can&#160;be&#160;<br/>found&#160;by&#160;the compiler.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+CC_FILES_TO_BUILD:&#160;Variable that&#160;contains&#160;the list&#160;of&#160;source files, to&#160;<br/>be&#160;compiled&#160;and linked.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+&lt;MSN&gt;_DB: Name of&#160;the&#160;Post-build configuration&#160;file.&#160;<br/>
+&#160;<br/>
+The&#160;above mentioned&#160;variables&#160;must be used&#160;by&#160;the user to build the base&#160;<br/>Makefile.&#160;<br/>
+&#160;<br/>
+A&#160;sample base&#160;Makefile (App_&lt;MSN&gt;_&#160;&lt;MICRO_SUB_VARIANT&gt;&#160;<br/>_Device_Sample.mak)&#160;has&#160;been&#160;provided&#160;with the product for reference.&#160;<br/>This&#160;file can&#160;be modified&#160;to&#160;suit the developer’s&#160;needs.&#160;<br/>
+&#160;<br/>
+The&#160;targets&#160;that&#160;are supported&#160;in the&#160;base Makefile enable the user&#160;in build&#160;<br/>and cleanup&#160;activities&#160;during/after the&#160;build process. They&#160;are&#160;listed below:&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>3.4.1.&#160;&#160;Targets&#160;Supported&#160;By&#160;The&#160;Sample&#160;Base&#160;Makefile&#160;</b><br/>
+&#160;<br/>
+<b>3.4.1.1.&#160;&#160;debug_base_make&#160;</b><br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make&#160;utility&#160;and&#160;passing&#160;“debug_base_make”&#160;as&#160;a&#160;parameter&#160;<br/>prints&#160;all&#160;the&#160;variables&#160;that&#160;are&#160;used&#160;in&#160;the&#160;base&#160;Makefile.&#160;This&#160;can&#160;be&#160;used&#160;to&#160;<br/>print&#160;various&#160;paths&#160;and&#160;file&#160;names&#160;to&#160;see&#160;if&#160;they&#160;are&#160;correct.&#160;<br/>
+&#160;<br/>
+<b>3.4.1.2.&#160;&#160;clean_objs&#160;</b><br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make utility&#160;and passing “clean_objs”&#160;as&#160;a&#160;parameter&#160;deletes&#160;all&#160;<br/>the&#160;object files&#160;from&#160;the&#160;output folder&#160;<br/>(“X1X\&lt;MICRO_VARIANT&gt;\modules\&lt;msn&gt;\Sample_application\&lt;&#160;<br/>MICRO_SUB_VARIANT&#160;&gt;\obj”&#160;in this&#160;case).&#160;<br/>
+&#160;<br/>
+<b>3.4.1.3.&#160;&#160;clean&#160;</b><br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make utility&#160;and&#160;passing “clean”&#160;as&#160;a&#160;parameter&#160;deletes&#160;tool&#160;<br/>generated&#160;files&#160;in the configuration output&#160;folders&#160;<br/>(“X1X\&lt;MICRO_VARIANT&gt;\modules\&lt;msn&gt;\sample_application\&lt;&#160;<br/>MICRO_SUB_VARIANT&gt;\src”&#160;and&#160;<br/>
+&#160;<br/>
+“X1X\&lt;MICRO_VARIANT&gt;\modules\&lt;msn&gt;\Sample_application\&lt;&#160;<br/>MICRO_SUB_VARIANT&gt;\include”in&#160;this&#160;case)&#160;<br/>
+&#160;<br/>
+.&#160;<br/>
+<b>35</b>&#160;<br/>
+<hr/>
+<a name=36></a><b>Chapter&#160;3&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;Application&#160;Example&#160; &#160;&#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;<br/>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;</b><br/>
+<b>3.4.1.4.&#160;&#160;clean_all&#160;</b><br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make&#160;utility&#160;and&#160;passing&#160;“clean_all”&#160;as&#160;a&#160;parameter&#160;deletes&#160;all&#160;<br/>files&#160;such&#160;as&#160;object&#160;file,&#160;list&#160;files&#160;and&#160;map&#160;files&#160;from&#160;the&#160;output&#160;folder&#160;<br/>(“X1X\&lt;&#160;MICRO_VARIANT&#160;&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160;\modules\&lt;msn&gt;\sample_application\&lt;&#160;MICRO_SUB_VARIANT&#160;&#160; &#160; &#160; &#160; &#160;&#160;<br/>
+&gt;\obj”&#160;in&#160;this&#160;case).&#160;<br/>
+&#160;<br/>
+<b>3.4.1.5.&#160;&#160;generate_&lt;msn&gt;_config&#160;</b><br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make utility&#160;and passing “generate_&lt;MSN&gt;_config”&#160;as&#160;a&#160;<br/>parameter&#160;invokes&#160;the &lt;MSN&gt;&#160;Driver Generation Tool.&#160;The&#160;tool&#160;takes&#160;the&#160;<br/>ECU Configuration&#160;Description&#160;File(s)&#160;(“X1X\&lt;&#160;MICRO_VARIANT&#160;<br/>&gt;\modules\&lt;msn&gt;\Sample_application\&lt;MICRO_SUB_VARIANT&gt;&#160;<br/>&#160; &#160;\&#160;AUTOSAR_VERSION&#160;<br/>
+&#160;<br/>
+config\&lt;MSN&gt;_Sample_&#160;&lt;MICRO_SUB_VARIANT&gt;\.arxml”&#160;as&#160;input and&#160;<br/>generates&#160;the output files&#160;in folders&#160;<br/>
+&#160;<br/>
+“X1X\&lt;&#160;MICRO_VARIANT&#160;&gt;\modules\&lt;msn&gt;\Sample_application\&lt;&#160;<br/>MICRO_SUB_VARIANT&gt;\&#160;AUTOSAR_VERSION&#160;\src”&#160;and&#160;<br/>
+&#160;<br/>
+“X1X\&lt;&#160;MICRO_VARIANT&#160;&gt;1\modules\&lt;msn&gt;\Sample_application\&lt;&#160;<br/>MICRO_SUB_VARIANT&gt;\&#160;AUTOSAR_VERSION&#160;\include”).&#160;<br/>
+&#160;<br/>
+App_&lt;MSN&gt;_&lt;&#160;MICRO_SUB_VARIANT&#160;&gt;_Sample.out&#160;<br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make&#160;utility&#160;and&#160;passing&#160;“Sample.out”&#160;as&#160;a&#160;parameter&#160;invokes&#160;the&#160;<br/>compiler&#160;and&#160;linker&#160;sequentially.&#160;Then&#160;it generates&#160;the&#160;executable&#160;<br/>“App_&lt;MSN&gt;_&lt;&#160;MICRO_SUB_VARIANT&#160;&gt;_Sample.out”.&#160;<br/>
+&#160;<br/>
+<b>3.4.1.6.&#160;&#160;&lt;Msn&gt;_PBcfg.s37&#160;</b><br/>
+&#160;<br/>
+Invoking&#160;the&#160;Make&#160;utility&#160;and&#160;passing&#160;“&lt;Msn&gt;_PBcfg.s37”&#160;as&#160;a&#160;parameter&#160;<br/>invokes&#160;<br/>the&#160;compiler&#160;and&#160;linker&#160;sequentially&#160;and&#160;generates&#160;the&#160;Motorola&#160;S-Record&#160;file&#160;<br/>“&lt;Msn&gt;_PBcfg.s37”&#160;in&#160;the&#160;output&#160;folder.&#160;<br/>This&#160;scenario&#160;typically&#160;arises&#160;when&#160;post-build&#160;parameters&#160;are&#160;modified&#160;and&#160;<br/>only&#160;the&#160;database&#160;needs&#160;to&#160;be&#160;flashed&#160;into&#160;the&#160;device&#160;without&#160;disturbing&#160;the&#160;<br/>
+other&#160;ROM&#160;contents.&#160;<br/>
+&#160;<br/>
+<b>36</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=37></a><b>&#160;Support&#160;For&#160;Different&#160;Interrupt&#160;Categories &#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;Chapter&#160;4&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+<b>Chapter&#160;4&#160;&#160;Support&#160;For Different&#160;Interrupt&#160;Categories&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+The&#160;&lt;MSN&gt;&#160;Driver&#160;supports&#160;CAT1&#160;and&#160;CAT2&#160;interrupt&#160;categories:&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>CAT1</b>&#160;<br/>
+&#160;<br/>
+In&#160;&#160;CAT1&#160;&#160;type&#160;&#160;of&#160;&#160;interrupt&#160;&#160;ISR&#160;&#160;does&#160;&#160;not&#160;&#160;use&#160;&#160;an&#160;&#160;operating&#160;&#160;system&#160;&#160;service.&#160;&#160;In&#160;<br/>practice,&#160;the&#160;OS&#160;does&#160;not&#160;handle&#160;these&#160;interrupts,&#160;and&#160;the&#160;interrupt&#160;handler&#160;is&#160;<br/>implemented&#160;&#160;in&#160;&#160;the&#160;&#160;driver&#160;&#160;code,&#160;&#160;with&#160;&#160;the&#160;&#160;only&#160;&#160;restriction&#160;&#160;that&#160;&#160;OS&#160;&#160;services&#160;<br/>cannot&#160;be&#160;called.&#160;Typically,&#160;these&#160;are&#160;the&#160;fastest&#160;highest&#160;priority&#160;interrupts.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>CAT2</b>&#160;<br/>
+&#160;<br/>
+In&#160;&#160;CAT2&#160;type&#160;&#160;of&#160;&#160;interrupt&#160;wherein&#160;the&#160;&#160;ISR&#160;&#160;is&#160;&#160;handled&#160;by&#160;&#160;the&#160;&#160;system&#160;and&#160;&#160;OS&#160;<br/>calls&#160;can&#160;be&#160;called&#160;from&#160;the&#160;handler.&#160;<br/>
+&#160;<br/>&#160;<br/>
+For&#160;CAT1&#160;and&#160;CAT2,&#160;the&#160;selection&#160;of&#160;interrupt&#160;category&#160;is&#160;for&#160;each&#160;interrupt&#160;in&#160;<br/>the&#160;module.&#160;Individual&#160;MCAL&#160;module&#160;does&#160;not&#160;contain&#160;any&#160;option&#160;for&#160;interrupt&#160;<br/>category&#160;configuration.&#160;The&#160;user&#160;has&#160;to&#160;configure&#160;the&#160;ISR&#160;category&#160;in&#160;OS&#160;and&#160;<br/>also&#160;&#160;to&#160;&#160;use&#160;&#160;the&#160;&#160;right&#160;&#160;MCAL&#160;&#160;specified&#160;&#160;name&#160;&#160;and&#160;&#160;MCAL&#160;&#160;expects&#160;<br/>&#34;ISR(INTERRUPT_NAME)&#34;&#160;keyword&#160;defined&#160;in OS&#160;in case of&#160;CAT2.&#160;<br/>
+&#160;<br/>
+<b>Notes&#160;&#160;1.&#160;&#160;&#160;</b>The&#160;understanding&#160;is&#160;Os&#160;module&#160;does&#160;not&#160;publish&#160;short&#160;name&#160;handles&#160;for&#160;<br/>
+CAT1&#160;OsIsr&#160;container.&#160;But&#160;it&#160;should&#160;be&#160;defined&#160;in&#160;the&#160;interrupt&#160;vector&#160;table&#160;<br/>by&#160;the&#160;OS.&#160;<br/>
+&#160;<br/>
+<b>2. &#160;&#160;</b>The&#160;understanding&#160;is&#160;that&#160;Os&#160;module&#160;should&#160;publish&#160;short&#160;name&#160;handles&#160;<br/>
+for&#160;CAT2&#160;OsIsr&#160;container&#160;according&#160;to&#160;ecuc_sws_2108&#160;requirement&#160;by&#160;<br/>adding&#160;the&#160;Os_&#34;&#160;pefix&#160;to&#160;the&#160;configured&#160;interrupt&#160;name.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Reference&#160;between the&#160;&lt;MSN&gt;&#160;module&#160;and OS:</b>&#160;<br/>
+&#160;<br/>
+&lt;Msn&gt;&#160;module's&#160;&lt;Module&gt;_Irq.c/h&#160;files&#160;include&#160;&#34;Os.h&#34;&#160;header&#160;file&#160;to&#160;obtain&#160;the&#160;<br/>interrupt&#160;&#160;category&#160;&#160;information&#160;&#160;configured&#160;&#160;in&#160;&#160;the&#160;&#160;OS.&#160;&#160;Therefore&#160;&#160;following&#160;&#160;pre-&#160;<br/>processor&#160;&#160;definitions&#160;&#160;are&#160;&#160;expected&#160;&#160;to&#160;&#160;be&#160;&#160;published&#160;&#160;in&#160;&#160;Os.h&#160;&#160;file&#160;&#160;by&#160;&#160;the&#160;&#160;OS&#160;&#160;in&#160;<br/>case&#160;of&#160;CAT2&#160;or&#160;to&#160;be&#160;used&#160;in&#160;the&#160;interrupt&#160;vector&#160;table&#160;in&#160;case&#160;of&#160;CAT1.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Table&#160;4-1&#160;&#160;CAT1&#160;and&#160;CAT2 Naming&#160;Convention&#160;</b><br/>
+&#160;<br/>
+<b>Interrupt&#160;Category</b>&#160;<br/>
+<b>Naming&#160;Convention</b>&#160;<br/>
+CAT1&#160;<br/>
+&lt;MCAL_INTERRUPT_NAME&gt;_&#160;ISR&#160;<br/>
+CAT2&#160;<br/>
+&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR&#160;<br/>
+CAT2&#160;(In&#160;case&#160;the&#160;handles&#160;of&#160;<br/>
+Os_&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR&#160;<br/>
+the&#160;OsIsr container&#160;are&#160;<br/>generated&#160;without&#160;‘Os_’&#160;prefix&#160;<br/>by&#160;Os&#160;generation&#160;tool)&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>37&#160;</b><br/>
+<hr/>
+<a name=38></a><b>Chapter&#160;4&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;Support&#160;For&#160;Different&#160;Interrupt&#160;Categories&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b>&#160;<br/>
+<b>MCAL in&#160;Stand&#160;Alone:</b>&#160;<br/>
+&#160;<br/>
+In&#160;&#160;case&#160;&#160;if&#160;&#160;the&#160;&#160;MCAL&#160;&#160;modules&#160;&#160;are&#160;&#160;to&#160;&#160;be&#160;&#160;used&#160;&#160;stand&#160;&#160;alone&#160;&#160;without&#160;&#160;having&#160;<br/>standard&#160;Autosar&#160;Os&#160;module,&#160;the&#160;user&#160;has&#160;to&#160;prepare&#160;an&#160;Os.h&#160;stub&#160;file&#160;with&#160;the&#160;<br/>published&#160;&#160;handles&#160;&#160;only&#160;&#160;for&#160;&#160;those&#160;&#160;interrupt&#160;&#160;names&#160;&#160;which&#160;&#160;are&#160;&#160;to&#160;&#160;be&#160;&#160;used&#160;&#160;as&#160;<br/>CAT2.&#160;<br/>
+&#160;<br/>
+<b>Table&#160;4-2&#160;</b><br/>
+<b>List&#160;of&#160;ISR&#160;Names&#160;that&#160;need&#160;to&#160;be&#160;configured&#160;and&#160;published&#160;in&#160;Os.h&#160;</b><br/>
+<b>(CAT2)&#160;or&#160;used&#160;in&#160;the&#160;interrupt&#160;vector&#160;table&#160;(CAT1)&#160;for&#160;&lt;MSN&gt;&#160;Driver&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>CAT2(In&#160;case&#160;the&#160;handles&#160;of&#160;the&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Sl.&#160;</b><br/>
+<b>OsIsr container&#160;are&#160;generated&#160;</b><br/>
+<b>CAT1</b>&#160;<br/>
+<b>CAT2</b>&#160;<br/>
+<b>No.</b>&#160;<br/>
+<b>without&#160;‘Os_’&#160;prefix&#160;by&#160;Os&#160;<br/>generation&#160;tool)</b>&#160;<br/>
+1&#160;<br/>
+&lt;MSN&gt;n_SGm_ISR&#160;<br/>
+&lt;MSN&gt;n_SGm_CAT2_ISR&#160;<br/>
+Os_&lt;MSN&gt;n_SGm_CAT2_ISR&#160;<br/>
+2&#160;<br/>
+&lt;MSN&gt;_DMA_CHxy_ISR&#160;<br/>
+&lt;MSN&gt;_DMA_CHxy_CAT2_ISR&#160;<br/>
+Os_&lt;MSN&gt;_DMA_CHxy_CAT2_IS&#160;<br/>R&#160;<br/>
+&#160;<br/>
+Where&#160;<br/>
+&#160;<br/>
+‘n’&#160;indicate&#160;HW&#160;Unit&#160;number&#160;<br/>
+&#160;<br/>
+‘m’&#160;indicate&#160;SG&#160;Unit&#160;number&#160;<br/>
+&#160;<br/>
+‘xy’&#160;indicate&#160;DMA&#160;channel&#160;Id&#160;number&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>38&#160;</b><br/>
+<hr/>
+<a name=39></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-39_1.png"/><br/>
+<b>&#160;GNU MAKE&#160;Environment&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160;Chapter&#160;5&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Chapter&#160;5&#160;</b><br/>
+<b>GNU&#160;MAKE Environment&#160;</b><br/>
+&#160;<br/>
+Every&#160;component&#160;is&#160;delivered&#160;with&#160;the&#160;necessary&#160;Make&#160;scripts&#160;that&#160;are&#160;<br/>required&#160;to&#160;integrate&#160;the&#160;component&#160;with&#160;the&#160;application.&#160;The&#160;scripts&#160;are&#160;<br/>compatible&#160;with&#160;GNU&#160;Make&#160;version&#160;3.81.&#160;<br/>
+&#160;<br/>&#160;<br/>
+All&#160;the&#160;delivered&#160;Makefiles&#160;have&#160;to&#160;be&#160;included&#160;in&#160;the&#160;project&#160;level&#160;base&#160;<br/>Makefile&#160;in&#160;order&#160;to&#160;build&#160;the&#160;component&#160;together&#160;with&#160;the&#160;application.&#160;Refer&#160;<br/>section&#160;“<b>Integration&#160;and&#160;Build&#160;Process</b>”&#160;of&#160;the&#160;respective&#160;component&#160;User&#160;<br/>Manuals&#160;for&#160;more&#160;information&#160;on&#160;the&#160;Makefile&#160;variables&#160;and&#160;their&#160;usage.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>5.1.&#160;</b><br/>
+<b>Build&#160;Process&#160;With&#160;GNUMAKE&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+When&#160;the&#160;batch&#160;file&#160;of&#160;certain&#160;application&#160;is&#160;built,&#160;the&#160;GNU&#160;Make&#160;utility&#160;will&#160;be&#160;<br/>searched&#160;by&#160;batch&#160;file.&#160;The&#160;GNU&#160;Make&#160;utility&#160;should&#160;be&#160;present&#160;in&#160;the&#160;default&#160;<br/>path&#160;specified&#160;by&#160;GNUMAKE\PATH&#160;variable.&#160;By&#160;making&#160;use&#160;of&#160;the&#160;GNU&#160;Make&#160;<br/>utility&#160;the&#160;batch&#160;file&#160;will&#160;be&#160;compiled.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>5.2.&#160;</b><br/>
+<b>Build&#160;Process&#160;Without&#160;GNUMAKE&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+If&#160;GNU&#160;Make&#160;utility&#160;is&#160;not&#160;present&#160;at&#160;the&#160;default&#160;path&#160;or&#160;present&#160;in&#160;some&#160;other&#160;<br/>directory&#160;the&#160;following&#160;procedure&#160;is&#160;followed&#160;to&#160;set&#160;the&#160;Environmental&#160;variable&#160;<br/>GNUMAKE\PATH.&#160;<br/>
+&#160;<br/>
+1. &#160;&#160;Right&#160;click&#160;on&#160;“My&#160;Computer”&#160;select&#160;properties,&#160;user&#160;will&#160;find&#160;System&#160;<br/>
+Properties.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>39&#160;</b><br/>
+<hr/>
+<a name=40></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-40_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-40_2.png"/><br/>
+<b>Chapter&#160;5&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;GNU MAKE&#160;Environment&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+2. &#160;&#160;In&#160;System&#160;Properties&#160;select&#160;“Advanced”&#160;option,&#160;user&#160;will&#160;find&#160;<br/>
+“Environmental&#160;Variables”&#160;at&#160;the&#160;bottom&#160;side&#160;of&#160;window.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>3. &#160;&#160;Click&#160;on&#160;“Environmental&#160;Variables”,&#160;user&#160;will&#160;find&#160;“Environment&#160;Variables”&#160;<br/>
+window&#160;in&#160;that,&#160;select&#160;“New”.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>40&#160;</b><br/>
+<hr/>
+<a name=41></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-41_1.png"/><br/>
+<b>&#160;GNU MAKE&#160;Environment&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160;Chapter&#160;5&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>4. &#160;&#160;After&#160;step&#160;3,&#160;user&#160;can&#160;find&#160;“New&#160;User&#160;Variable”&#160;window&#160;with&#160;“Variable&#160;<br/>
+name”&#160;and&#160;“Variable&#160;path”&#160;options&#160;which&#160;needs&#160;to&#160;be&#160;set,&#160;Variable&#160;name&#160;<br/>will&#160;be&#160;set&#160;as&#160;GNUMAKE&#160;and&#160;Variable&#160;path&#160;is&#160;the&#160;path&#160;of&#160;the&#160;directory&#160;<br/>where&#160;GNU&#160;Make&#160;utility&#160;is&#160;present&#160;and&#160;click&#160;ok.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>5. &#160;&#160;After&#160;step&#160;4,&#160;in&#160;“System&#160;Properties”&#160;window&#160;click&#160;“Apply”&#160;and&#160;then&#160;“Ok”.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Remark&#160;&#160;</b>GNU&#160;Make&#160;utility&#160;version&#160;3.81&#160;must&#160;be&#160;separately&#160;downloaded&#160;and&#160;installed&#160;to&#160;<br/>
+use&#160;the&#160;Makefiles&#160;delivered&#160;along&#160;with&#160;the&#160;component.&#160;More&#160;information&#160;on&#160;the&#160;<br/>utility&#160;can&#160;be&#160;found&#160;at<a href="http://www.gnu.org/">&#160;http://www.gnu.org/&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>41&#160;</b><br/>
+<hr/>
+<a name=42></a><b>Chapter&#160;5&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;GNU MAKE&#160;Environment&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>42&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=43></a><b>&#160;Load Binaries&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;Chapter&#160;6</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160;&#160;</b>&#160;<br/>
+<b>Chapter&#160;6&#160;</b><br/>
+<b>Load&#160;Binaries&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Once&#160;the&#160;Executable&#160;or&#160;S-Record&#160;is&#160;generated&#160;using&#160;the&#160;project&#160;level&#160;base&#160;<br/>Makefile,&#160;it&#160;needs&#160;to&#160;be&#160;downloaded&#160;into&#160;the&#160;target&#160;using&#160;a&#160;Flash&#160;programmer.&#160;<br/>
+&#160;<br/>&#160;<br/>
+The&#160;user&#160;has&#160;to&#160;read&#160;the&#160;instructions&#160;provided&#160;in&#160;the&#160;Flash&#160;programmer’s&#160;User&#160;<br/>Manual&#160;thoroughly&#160;before&#160;using&#160;it.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>43&#160;</b><br/>
+<hr/>
+<a name=44></a><b>&#160;Chapter&#160;6 &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Load&#160;Binaries&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>44&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=45></a><b>&#160;Appendix&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160;&#160;Chapter&#160;7&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;&#160;</b>&#160;<br/>
+<b>Chapter&#160;7&#160;</b><br/>
+<b>Appendix&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>7.1.&#160;&#160;Translation&#160;XML&#160;File&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Translation&#160;XML&#160;File&#160;content&#160;format&#160;shall&#160;be&#160;given&#160;as&#160;mentioned&#160;below:&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;?xml&#160;version=&#34;1.0&#34;&#160;encoding=&#34;UTF-8&#34;?&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+The&#160;tag PATH-DETAILS&#160;should not be&#160;renamed&#160;since&#160;it is&#160;top&#160;level&#160;element.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;PATH-DETAILS&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+TRANSLATION-FILE-PATH&#160;should contain the path&#160;of&#160;the translation&#160;<br/>header file.&#160;<br/>
+The&#160;tag TRANSLATION-FILE-PATH should not&#160;be renamed. Only&#160;respective&#160;<br/>value&#160;should be updated&#160;for&#160;the translation&#160;header file.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;TRANSLATION-FILE-PATH&gt;&#160;<br/>
+&lt;value_of_&lt;MSN&gt;DeviceName&gt;Path&lt;/value_of_&lt;MSN&gt;DeviceName&gt;&#160;<br/>
+&lt;/TRANSLATION-FILE-PATH&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+The&#160;tags&#160;present&#160;in&#160;DEVICE-FILE-PATH tag&#160;should contain the&#160;path&#160;of&#160;<br/>the&#160;device specific&#160;C Header File.&#160;<br/>
+The&#160;tags&#160;present&#160;in&#160;DEVICE-FILE-PATH should&#160;be&#160;equal&#160;to&#160;the&#160;value&#160;<br/>for parameter&#160;&lt;MSN&gt;DeviceName present in&#160;&lt;MSN&gt;General&#160;container.&#160;<br/>
+The&#160;tag DEVICE-FILE-PATH should not&#160;be renamed.&#160;<br/>
+&#160;<br/>&#160;<br/>
+If&#160;multiple device header files&#160;need to&#160;provide for same device&#160;then each file&#160;<br/>name should&#160;be&#160;separated&#160;with&#160;space.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;DEVICE-FILE-PATH&gt;&#160;<br/>
+&lt;value_of_&lt;MSN&gt;DeviceName&gt;Path&lt;/value_of_&lt;MSN&gt;DeviceName&gt;&#160;<br/>
+&lt;/DEVICE-FILE-PATH&gt;&#160;<br/>
+&lt;/PATH-DETAILS&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>7.2.&#160;&#160;Configuration&#160;XML&#160;File&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Configuration&#160;XML&#160;File&#160;content&#160;format&#160;shall&#160;be&#160;given&#160;as&#160;mentioned&#160;below:&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;?&#160;<br/>xml&#160;version=&#34;1.0&#34;&#160;encoding=&#34;UTF-8&#34;?&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+<b>45&#160;</b><br/>
+<hr/>
+<a name=46></a><b>Chapter&#160;7&#160;&#160;&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160; &#160; &#160;&#160;Appendix</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+None&#160;of&#160;the&#160;tag&#160;from&#160;this&#160;XML&#160;should&#160;be&#160;renamed&#160;or&#160;deleted.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;XML&gt;&#160;<br/>
+&lt;!--&#160;Supported&#160;Command&#160;Line&#160;options&#160;&#160;--&gt;&#160;<br/>
+&lt;OPTION&gt;&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or&#160;OFF&#160;should&#160;be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;HELP&gt;ON/OFF&lt;/HELP&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or&#160;OFF&#160;should&#160;be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;LOG&gt;ON/OFF&lt;/LOG&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or&#160;OFF&#160;should&#160;be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;DRYRUN&gt;ON/OFF&lt;/DRYRUN&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or&#160;OFF&#160;should&#160;be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;OUTPUT&gt;OFF&lt;/OUTPUT&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Name&#160;of&#160;output&#160;directory&#160;--&gt;&#160;<br/>
+&lt;OUTPUT-PATH&gt;Path&lt;/OUTPUT-PATH&gt;&#160;<br/>
+&lt;/OPTION&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;To&#160;provide&#160;input&#160;files.&#160;If&#160;multiple&#160;input&#160;files&#160;need&#160;to&#160;be&#160;provided&#160;then&#160;<br/>
+each&#160;file&#160;should&#160;be&#160;separated&#160;with&#160;&#34;,&#34;.&#160;--&gt;&#160;<br/>
+&lt;INPUT-FILE&gt;Path&lt;/INPUT-FILE&gt;&#160;<br/>
+&lt;/XML&gt;&#160;<br/>
+<b>46&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=47></a>&#160;<br/>
+&#160;<br/>
+<b>Revision&#160;History</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Sl.No.</b>&#160;&#160;<b>Description</b>&#160;<br/>
+<b>Version</b>&#160;<br/>
+<b>Date</b>&#160;<br/>
+1.&#160;<br/>
+Initial&#160;Version&#160;<br/>
+1.0.0&#160;<br/>
+31-Jan-2013&#160;<br/>
+2.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.1&#160;<br/>
+16-Oct-2013&#160;<br/>
+1.&#160;-Osrc&#160;and&#160;-Oinc&#160;options&#160;are&#160;added&#160;at&#160;section&#160;4.3.&#160;Usage.&#160;<br/>2.&#160;&#160;Error&#160;message&#160;ERR000008&#160;is&#160;updated&#160;at&#160;section&#160;4.8.1.&#160;Error&#160;<br/>Messages.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>3.&#160;F1x&#160;is&#160;renamed&#160;to&#160;X1x&#160;in&#160;all&#160;relevant&#160;places.&#160;&#160;<br/>&#160;<br/>
+3.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.2&#160;<br/>
+24-Jan-2014&#160;<br/>
+1.&#160;Chapter&#160;5&#160;is&#160;updated&#160;for paths.&#160;<br/>2.&#160;F1x&#160;and&#160;F1L&#160;names&#160;are&#160;removed.&#160;<br/>3.&#160;Makefile&#160;location&#160;is&#160;updated.&#160;<br/>4.&#160;Name&#160;of&#160;executable&#160;is&#160;updated.&#160;<br/>
+&#160;<br/>
+4.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.3&#160;<br/>
+08-April-2014&#160;<br/>
+1.&#160;Page&#160;Number alignment&#160;is&#160;corrected.&#160;<br/>2.&#160;R-&#160;Number is&#160;added&#160;for&#160;document.&#160;<br/>
+5.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.4&#160;<br/>
+17-July-2014&#160;<br/>
+1.&#160;Copyright&#160;year information&#160;is&#160;corrected.&#160;<br/>2.&#160;R-&#160;Number is&#160;added&#160;for&#160;document.&#160;<br/>
+6.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.5&#160;<br/>
+09-Aug-2014&#160;<br/>
+1.&#160;Document&#160;is&#160;updated&#160;as&#160;per&#160;template.&#160;<br/>&#160;<br/>
+7&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.6&#160;<br/>
+23-Mar-2016&#160;<br/>
+1.&#160;New&#160;Error&#160;message&#160;ERR000031&#160;added.&#160;<br/>2.&#160;Warning&#160;message&#160;WRN000001&#160;message&#160;updated&#160;to&#160;error&#160;<br/>message&#160;ERR000032.&#160;<br/>3.&#160;Updated&#160;chapter4&#160;for RUCG&#160;and&#160;DLL&#160;usage.&#160;<br/>
+8.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.7&#160;<br/>
+29-Jun-2016&#160;<br/>
+&#160;1.&#160;&#160;Chapter&#160;2&#160;and&#160;3&#160;removed&#160;to&#160;make&#160;the&#160;document&#160;independent&#160;of&#160;&#160;&#160;<br/>&#160; &#160; &#160;&#160;any&#160;specific&#160;tool.&#160;<br/>&#160;2.&#160;&#160;Autosar&#160;version&#160;3.2.2&#160;version&#160;check&#160;removed&#160;from&#160;section&#160;3.2.1.&#160;<br/>
+<b>47</b>&#160;<br/>
+<hr/>
+<a name=48></a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Getting&#160;Started&#160;Document&#160;for&#160;X1x&#160;MCAL&#160;Driver&#160;User's&#160;Manual</b>&#160;<br/><b>Version.1.0.7</b>&#160;<br/>
+&#160;<br/>
+Publication&#160;Date:&#160;Rev.1.00,&#160;June&#160;&#160;29,&#160;2016&#160;<br/>
+&#160;<br/>
+Published&#160;by:&#160;Renesas&#160;Electronics&#160;Corporation&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=49></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-49_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-49_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>SALES&#160;&#160;OFFICES</b>&#160;<br/>
+&#160;<br/>
+<a href="http://www.renesas.com/">http://www.renesas.com&#160;</a><br/>
+Refer&#160;&#160;<a href="http://www.renesas.com/">to&#160;&#34;http://www.renesas.com/&#34;&#160;f</a>or&#160;the&#160;latest&#160;&#160;and&#160;&#160;de&#160;&#160;tailed&#160;&#160;information.&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;America&#160;&#160;Inc.</b>&#160;<br/>2880&#160;&#160;Scott&#160;&#160;Boulevard&#160;&#160;Santa&#160;&#160;Clara,&#160;&#160;CA&#160;95050-2554,&#160;U.S.A.&#160;<br/>Tel:&#160;&#160;&#160;+1-408-588-6000,&#160;Fax:&#160;&#160;+1-408-588-6130&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Canada&#160;&#160;Limited</b>&#160;<br/>1101&#160;&#160;Nicholson&#160;&#160;Road,&#160;&#160;Newmarket,&#160;&#160;Ontario&#160;&#160;L3Y&#160;&#160;9C3,&#160;&#160;Canada&#160;<br/>Tel:&#160;&#160;+1-905-898-5441,&#160;Fax:&#160;&#160;+1-905-898-3220&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Europe&#160;&#160;Limited</b>&#160;<br/>Dukes&#160;&#160;Meadow,&#160;&#160;Millboard&#160;&#160;Road,&#160;&#160;Bourne&#160;&#160;End,&#160;&#160;Buckinghamshire,&#160;SL8&#160;&#160;5FH,&#160;&#160;U.K&#160;<br/>Tel:&#160;&#160;+44-1628-585-100,&#160;Fax:&#160;&#160;+44-1628-585-900&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Europe&#160;&#160;GmbH&#160;<br/></b>Arcadiastrasse&#160;10,&#160;&#160;40472&#160;&#160;Düsseldorf,&#160;&#160;Germany&#160;<br/>Tel:&#160;&#160;+49-211-65030,&#160;Fax:&#160;&#160;+49-211-6503-1327&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;(China)&#160;&#160;Co.,&#160;&#160;Ltd.</b>&#160;<br/>7th&#160;&#160;Floor,&#160;&#160;Quantum&#160;&#160;Plaza,&#160;&#160;No.27&#160;&#160;ZhiChunLu&#160;&#160;Haidian&#160;&#160;District,&#160;&#160;Beijing&#160;&#160;100083,&#160;&#160;P.R.China&#160;<br/>Tel:&#160;&#160;+86-10-8235-1155,&#160;Fax:&#160;&#160;+86-10-8235-7679&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;(Shanghai)&#160;&#160;Co.,&#160;&#160;Ltd.</b>&#160;<br/>Unit&#160;&#160;204,&#160;&#160;205,&#160;&#160;AZIA&#160;&#160;Center,&#160;&#160;No.1233&#160;&#160;Lujiazui&#160;&#160;Ring&#160;&#160;Rd.,&#160;&#160;Pudong&#160;&#160;District,&#160;&#160;Shanghai&#160;&#160;200120,&#160;&#160;China&#160;<br/>Tel:&#160;&#160;+86-21-5877-1818,&#160;Fax:&#160;&#160;+86-21-6887-7858&#160;/&#160;-7898&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Hong&#160;&#160;Kong&#160;&#160;Limited</b>&#160;<br/>Unit&#160;&#160;1601-1613,&#160;&#160;16/F.,&#160;&#160;Tower&#160;&#160;2,&#160;Grand&#160;&#160;Century&#160;&#160;Place,&#160;&#160;193&#160;&#160;Prince&#160;&#160;Edward&#160;&#160;Road&#160;&#160;West,&#160;&#160;Mongkok,&#160;&#160;Kowloon,&#160;&#160;Hong&#160;&#160;Kong&#160;<br/>Tel:&#160;&#160;+852-2886-9318,&#160;Fax:&#160;&#160;+852&#160;&#160;2886-9022/9044&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Taiwan&#160;&#160;Co.,&#160;&#160;Ltd.</b>&#160;<br/>7F,&#160;&#160;No.&#160;&#160;363&#160;&#160;Fu&#160;Shing&#160;&#160;North&#160;&#160;Road&#160;&#160;Taipei,&#160;&#160;Taiwan&#160;<br/>Tel:&#160;&#160;+886-2-8175-9600,&#160;Fax:&#160;&#160;+886&#160;&#160;2-8175-9670&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Singapore&#160;&#160;Pte.&#160;&#160;Ltd.</b>&#160;<br/>1&#160;harbourFront&#160;Avenue,&#160;&#160;#06-10,&#160;&#160;keppel&#160;&#160;Bay&#160;&#160;Tower,&#160;&#160;Singapore&#160;&#160;098632&#160;<br/>Tel:&#160;&#160;+65-6213-0200,&#160;Fax:&#160;&#160;+65-6278-8001&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Malaysia&#160;&#160;Sdn.Bhd.</b>&#160;<br/>Unit&#160;&#160;906,&#160;&#160;Block&#160;&#160;B,&#160;Menara&#160;&#160;Amcorp,&#160;&#160;Amcorp&#160;&#160;Trade&#160;&#160;Centre,&#160;&#160;No.&#160;&#160;18,&#160;&#160;Jln&#160;&#160;Persiaran&#160;&#160;Barat,&#160;&#160;46050&#160;&#160;Petaling&#160;&#160;Jaya,&#160;&#160;Selangor&#160;&#160;Darul&#160;&#160;Ehsan,&#160;&#160;Malaysia&#160;<br/>Tel:&#160;&#160;+60-3-7955-9390,&#160;Fax:&#160;&#160;+60-3-7955-9510&#160;<br/>
+<b>Renesas&#160;&#160;Electronics&#160;&#160;Korea&#160;&#160;Co.,&#160;&#160;Ltd.</b>&#160;<br/>11F.,&#160;&#160;Samik&#160;&#160;Lavied'&#160;&#160;or&#160;Bldg.,&#160;&#160;720-2&#160;&#160;Yeoksam-Dong,&#160;Kangnam-Ku,&#160;Seoul&#160;&#160;135-080,&#160;&#160;Korea&#160;<br/>Tel:&#160;&#160;+82-2-558-3737,&#160;Fax:&#160;&#160;+82-2-558-5141&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Renesas&#160;&#160;Electronics&#160;&#160;Corporation.&#160;&#160;All&#160;rights&#160;reserved.&#160;<br/>
+Colophon&#160;&#160;1.0&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=50></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-50_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1M/4.01.01.D/R20UT3753EJ0100-AUTOSAR-50_2.jpg"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Getting Started&#160;Document&#160;for X1x&#160;MCAL&#160;Driver&#160;<br/>
+&#160;<br/>
+User’s Manual&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;R20UT3753EJ0100&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#11">Chapter 1 Introduction</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#13">Chapter 2 Generation Tool</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#13">2.1. Translation XML File</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#14">2.1.1. Translation Header File</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#14">2.1.2. Device Specific Header File</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#14">2.2. Configuration XML File</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#15">2.3. Usage</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#16">2.4. Sample Usage</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#18">2.5. Tool Installation Requirements</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#18">2.5.1. Hardware Requirements</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#18">2.5.2. Software Requirements</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#18">2.5.3. Limitations</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#18">2.6. Tool Installation</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#19">2.6.1. Pre Requisite</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#19">2.6.2. Installation Steps</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#19">2.7. Tool Un-Installation</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#19">2.8. Common Messages</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#19">2.8.1. Error Messages</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#23">2.8.2. Warning Messages</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#23">2.8.3. Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#24">2.9. R3.2.2 Messages</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#24">2.9.1. Error Messages</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#24">2.9.2. Warning Messages</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#24">2.9.3. Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#24">2.10. R4.0.3 Messages</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#25">2.10.1. Error Messages</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#25">2.10.2. Warning Messages</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#25">2.10.3. Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#25">2.11. BSWMDT File</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#27">Chapter 3 Application Example</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#27">3.1. Folder Structure</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#27">3.2. Makefile Description</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#27">3.2.1. App_&lt;Msn&gt;_&lt;variant&gt;_Sample.mak</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#33">3.3. Integrating The &lt;MSN&gt; Driver Component With &#160;Other Components</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#34">3.4. Building The &lt;MSN&gt; Driver Component</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#35">3.4.1. Targets Supported By The Sample Base Makefile</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#35">3.4.1.1. debug_base_make</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#35">3.4.1.2. clean_objs</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#35">3.4.1.3. clean</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#36">3.4.1.4. clean_all</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#36">3.4.1.5. generate_&lt;msn&gt;_config</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#36">3.4.1.6. &lt;Msn&gt;_PBcfg.s37</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#37">Chapter 4 Support For Different Interrupt Categories</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#39">Chapter 5 GNU MAKE Environment</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#39">5.1. Build Process With GNUMAKE</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#39">5.2. Build Process Without GNUMAKE</a></li>
+</ul>
+</li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#43">Chapter 6 Load Binaries</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#45">Chapter 7 Appendix</a>
+<ul>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#45">7.1. Translation XML File</a></li>
+<li><a href="R20UT3753EJ0100-AUTOSARs.html#45">7.2. Configuration XML File</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

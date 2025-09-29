@@ -1,0 +1,1101 @@
+---
+title: TechnicalReference_IoHwAbs
+linkTitle: TechnicalReference_IoHwAbs
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR IOHWAB&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;<br/>Version&#160;3.00.02&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Christian Leder&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Christian&#160;Marchl&#160;<br/>
+2007-02-09&#160;&#160;1.00.00&#160;<br/>
+Initial version&#160;<br/>
+Christian&#160;Marchl&#160;<br/>
+2007-08-09&#160;&#160;1.01.00&#160;<br/>
+Typos corrected;&#160;Added&#160;description&#160;for&#160;<br/>component&#160;name&#160;field&#160;<br/>
+Christian&#160;Marchl&#160;<br/>
+2007-12-13&#160;&#160;1.01.01&#160;<br/>
+Version&#160;adapted&#160;according&#160;to&#160;new&#160;<br/>version&#160;scheme&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2008-05-21&#160;&#160;2.00.00&#160;<br/>
+Transfer of&#160;the&#160;document&#160;to&#160;new&#160;<br/>Technical Reference&#160;template;&#160;Adapted&#160;<br/>descriptions&#160;and&#160;screenshots&#160;to&#160;new&#160;<br/>software version&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2008-07-11&#160;<br/>
+2.00.01&#160;<br/>
+Update&#160;of&#160;document&#160;due&#160;to&#160;changes in&#160;<br/>DCM&#160;interface&#160;and&#160;RTE&#160;usage&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2009-01-14&#160;&#160;2.01.00&#160;<br/>
+Update&#160;of&#160;the&#160;naming&#160;of&#160;graphical&#160;<br/>elements&#160;in&#160;the&#160;configuration,&#160;<br/>Screenshots&#160;reworked,&#160;DCM&#160;<br/>subfunctions&#160;reworked,&#160;Added&#160;<br/>description&#160;of&#160;default value&#160;in&#160;<br/>configuration&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2009-03-23&#160;&#160;2.01.01&#160;<br/>
+Updated&#160;development&#160;error detection&#160;<br/>in&#160;GUI&#160;description,&#160;toolchain&#160;naming&#160;<br/>updated,&#160;&#160;hints added&#160;to&#160;chapter&#160;4.1.2&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2009-07-21&#160;&#160;2.02.00&#160;<br/>
+Updated&#160;description&#160;of&#160;the&#160;generation&#160;<br/>process (user&#160;blocks,&#160;autom.&#160;SWC&#160;<br/>generation),&#160;updated&#160;AUTOSAR&#160;figure,&#160;<br/>added&#160;information&#160;on&#160;user defined&#160;<br/>signals&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2009-09-25&#160;&#160;2.02.01&#160;<br/>
+Reworked&#160;description&#160;of&#160;DCM&#160;interface&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2010-11-26&#160;<br/>
+2.02.02&#160;<br/>
+<b>&gt;&#160;&#160;</b>Added&#160;chapter&#160;4.3 Critical&#160;Sections&#160;<br/>
+<b>&gt;&#160;&#160;</b>GUI&#160;description&#160;updated&#160;<br/>
+<b>&gt;&#160;&#160;</b>Added&#160;information&#160;about&#160;necessary&#160;<br/>
+make&#160;process&#160;modifications&#160;to&#160;4.1.2&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2011-03-02&#160;<br/>
+2.02.03&#160;<br/>
+Reworked&#160;the&#160;service&#160;descriptions&#160;in&#160;<br/>chapters 5.4.3,&#160;5.4.7&#160;and&#160;5.4.10:&#160;<br/>parameter ‘signal’&#160;is [inout],&#160;now&#160;<br/>
+Christoph&#160;Ederer&#160;<br/>
+2013-04-10&#160;&#160;3.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Component&#160;rework&#160;and&#160;update&#160;to&#160;<br/>
+AUTOSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>Update&#160;to&#160;new&#160;Configuration&#160;Tooling&#160;<br/>
+‘DaVinci&#160;Configurator&#160;5’&#160;<br/>
+Christian&#160;Leder&#160;<br/>
+2014-03-14&#160;&#160;3.00.01&#160;<br/>
+Generated&#160;file&#160;adapted&#160;from&#160;IoHwAb.c&#160;<br/>to&#160;IoHwAb_30.c&#160;<br/>
+Christian&#160;Leder&#160;<br/>
+2014-06-18&#160;&#160;3.00.02&#160;<br/>
+ReturnType&#160;changed&#160;in&#160;CS&#160;port&#160;<br/>operation&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+2&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-3_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_IOHardwareAbstraction.pdf&#160;<br/>
+V3.2.0&#160;<br/>
+(available at:&#160;<br/><a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_IOHardwareAbstraction.pdf">http://www.autosar.org/download/R4.0/AUTOSAR_SWS_IOHa<br/>rdwareAbstraction.pdf)</a>&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DevelopmentErrorTracer.pdf&#160;<br/>
+V3.2.0&#160;<br/>
+(available at:&#160;<br/><a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_DevelopmentErrorTracer.pdf">http://www.autosar.org/download/R4.0/AUTOSAR_SWS_Deve<br/>lopmentErrorTracer.pdf)</a>&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+V1.6.0&#160;<br/>
+(available at:&#160;<br/><a href="http://www.autosar.org/download/R4.0/AUTOSAR_TR_BSWModuleList.pdf">http://www.autosar.org/download/R4.0/AUTOSAR_TR_BSWM<br/>oduleList.pdf)</a>&#160;<br/>
+[4]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_EXP_VFB.pdf&#160;<br/>
+V2.2.0&#160;<br/>
+(available at:&#160;<br/><a href="http://www.autosar.org/download/R4.0/AUTOSAR_EXP_VFB.pdf">http://www.autosar.org/download/R4.0/AUTOSAR_EXP_VFB.<br/>pdf)</a>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+3&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_IoHwAbs.html#7"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#7"><b>Component&#160;History&#160;......................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#8"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#8"><b>Introduction...................................................................................................................&#160;8</b>&#160;<br/></a><a href="TechnicalReference_IoHwAbs.html#9">2.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#9">Architecture&#160;Overview&#160;........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11"><b>Functional&#160;Description&#160;...............................................................................................&#160;11</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">Features&#160;..........................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">3.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">Initialization&#160;......................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">3.3&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">States&#160;..............................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">3.4&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Main Functions&#160;................................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">3.5&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Error&#160;Handling&#160;..................................................................................................&#160;12&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">3.5.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13"><b>Integration&#160;...................................................................................................................&#160;13</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Scope of&#160;Delivery&#160;.............................................................................................&#160;13&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Static Files&#160;.......................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Dynamic&#160;Files&#160;..................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#14">4.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#14">Critical&#160;Sections&#160;...............................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#15">4.3&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#15">Generated&#160;Template&#160;Files&#160;................................................................................&#160;15&#160;<br/>4.3.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#15">User&#160;Blocks&#160;......................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#16">4.3.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#16">Unrecognized/Deleted&#160;Signals&#160;.........................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#17"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#17"><b>API&#160;Description&#160;...........................................................................................................&#160;17</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#17">Type&#160;Definitions&#160;...............................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#17">5.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#17">Services provided by&#160;IOHWAB&#160;........................................................................&#160;17&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#17">IoHwAb_Init&#160;.....................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">IoHwAb_GetVersionInfo&#160;...................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">5.3&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">Generated&#160;API&#160;Function&#160;Templates&#160;..................................................................&#160;18&#160;<br/></a><a href="TechnicalReference_IoHwAbs.html#19">5.3.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#19">Client/Server&#160;Operation:&#160;<br/>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt;&#160;...................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#20">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#20">Sender/Receiver&#160;Port&#160;Runnable:&#160;<br/>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt;&#160;...........................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#21">5.3.3&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#21">Runnable Entity:&#160;IoHwAb_&lt;&#160;RunnableName&gt;&#160;..................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#22">5.3.4&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#22">Schedulable Entity:&#160;IoHwAb_&lt;SchedulableName&gt;&#160;..........................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">5.4&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">Services used by&#160;IOHWAB&#160;..............................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">5.5&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">Callback&#160;Functions&#160;...........................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">5.6&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Configurable Interfaces&#160;....................................................................................&#160;24&#160;<br/>5.6.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Notifications&#160;.....................................................................................&#160;24&#160;</a><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+4&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<a href="TechnicalReference_IoHwAbs.html#24">5.7&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Service Ports&#160;...................................................................................................&#160;24&#160;<br/>5.7.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Client&#160;Server&#160;Interface&#160;.....................................................................&#160;24&#160;<br/>5.7.1.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Provide&#160;Ports&#160;on&#160;IOHWAB&#160;Side&#160;.....................................&#160;24&#160;<br/>5.7.1.1.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Provide&#160;Ports&#160;.............................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">5.7.1.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Require Ports&#160;on&#160;IOHWAB&#160;Side&#160;.....................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#25"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#25"><b>Configuration&#160;..............................................................................................................&#160;25</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#25">Configuration Variants&#160;......................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#25">6.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#25">Configuration&#160;Workflow&#160;....................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;32</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">Glossary&#160;..........................................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">7.2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">Abbreviations&#160;...................................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#33"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#33"><b>Contact&#160;........................................................................................................................&#160;33</b>&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+5&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=6></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_IoHwAbs.html#9">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#9">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#10">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#10">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;IOHWAB&#160;........................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#15">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#15">User&#160;Block&#160;Implementation&#160;Area&#160;...............................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#26">Figure&#160;6-1&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#26">Configuration&#160;Workflow&#160;.............................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#27">Figure&#160;6-2&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#27">SWC&#160;import&#160;select&#160;file&#160;..............................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#28">Figure&#160;6-3&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#28">Imported&#160;Software&#160;Component&#160;.................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#29">Figure&#160;6-4&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#29">I/O&#160;Hardware&#160;and&#160;Application Software&#160;Component&#160;.................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#30">Figure&#160;6-5&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#30">30&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_IoHwAbs.html#7">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#7">Component&#160;history......................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#11">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Service IDs&#160;...............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#12">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Static&#160;files&#160;.................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#13">Generated&#160;files&#160;.........................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#14">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#14">Files generated&#160;by&#160;the&#160;RTE&#160;Generator&#160;.....................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">IoHwAb_Init&#160;..............................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#18">IoHwAb_GetVersionInfo&#160;...........................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#19">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#19">IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt;&#160;............................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#20">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#20">IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt;&#160;...................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#22">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#22">IoHwAb_&lt;PortPrototypeName&gt;_&lt;Read/Write&gt;&#160;........................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">[Service name]&#160;..........................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#23">Services used by&#160;the&#160;IOHWAB&#160;.................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#24">Provide&#160;Ports&#160;............................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">Glossary&#160;...................................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IoHwAbs.html#32">Abbreviations&#160;............................................................................................&#160;32&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+6&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=7></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>3.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Update&#160;to&#160;AUTOSAR&#160;4&#160;<br/>
+<b>&gt;&#160;&#160;</b>Full&#160;support&#160;of&#160;Client/Server&#160;port&#160;functionality&#160;<br/>
+<b>&gt;&#160;&#160;</b>Full&#160;support&#160;of&#160;Sender/Receiver&#160;port&#160;functionality&#160;<br/>
+<b>&gt;&#160;&#160;</b>Full&#160;BSW&#160;Schedulable Entity&#160;support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Full&#160;Runnable Entity&#160;Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Update&#160;of&#160;configuration&#160;tooling&#160;to&#160;DaVinci&#160;Configurator&#160;5.x&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+7&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=8></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;IOHWAB&#160;as specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_IoHwAbs.html#8">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+IOHWAB_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+IOHWAB_MODULE_ID &#160;&#160;<br/>
+254&#160;decimal&#160;<br/>(according&#160;to ref<a href="TechnicalReference_IoHwAbs.html#3">.&#160;[3])</a>&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;3.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>&#160;<br/>The&#160;&#160;aim&#160;&#160;of&#160;&#160;the&#160;&#160;IOHWAB&#160;&#160;is&#160;&#160;to&#160;&#160;provide&#160;&#160;ECU&#160;&#160;hardware-independent&#160;&#160;data&#160;&#160;transition&#160;&#160;from&#160;<br/>driver&#160;modules&#160;up&#160;to&#160;the&#160;Software&#160;Components.&#160;To&#160;fulfill&#160;this&#160;task&#160;the&#160;IOHWAB&#160;generates&#160;<br/>a&#160;Software&#160;Component&#160;description&#160;from&#160;the&#160;user&#160;configuration.&#160;This&#160;Software&#160;Component&#160;<br/>description&#160;can&#160;be&#160;imported&#160;by&#160;the&#160;‘Vector DaVinci Developer’&#160;and/or the&#160;RTE&#160;module.&#160;<br/>After&#160;import,&#160;the&#160;IOHWAB&#160;is&#160;displayed&#160;like&#160;a&#160;normal&#160;Software&#160;Component&#160;(SW-C)&#160;with&#160;a&#160;<br/>set&#160;of&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Client/Server Ports,&#160;<br/>
+<b>&gt;&#160;&#160;</b>Sender/Receiver Ports,&#160;<br/>
+<b>&gt;&#160;&#160;</b>Runnable&#160;Entities&#160;<br/>
+within&#160;&#160;the&#160;&#160;‘DaVinci&#160;&#160;Developer’&#160;&#160;modeling&#160;&#160;tool.&#160;&#160;Other&#160;&#160;SW-Cs&#160;&#160;can&#160;&#160;access&#160;&#160;I/O&#160;&#160;modules&#160;&#160;via&#160;<br/>these&#160;ports&#160;through&#160;the&#160;RTE&#160;and&#160;the&#160;I/O&#160;Hardware&#160;Abstraction.&#160;<br/>This&#160;&#160;release&#160;&#160;of&#160;&#160;the&#160;&#160;IOHWAB&#160;&#160;is&#160;&#160;a&#160;&#160;completely&#160;&#160;generic&#160;&#160;approach&#160;&#160;and&#160;&#160;does&#160;&#160;not&#160;&#160;generate&#160;<br/>ready-to-use&#160;&#160;code&#160;&#160;files.&#160;&#160;Instead,&#160;&#160;it&#160;&#160;generates&#160;&#160;function&#160;&#160;stubs&#160;&#160;(containing&#160;&#160;user&#160;&#160;code&#160;<br/>sections,&#160;&#160;called&#160;&#160;‘User&#160;&#160;Blocks’&#160;&#160;–&#160;&#160;see&#160;&#160;<a href="TechnicalReference_IoHwAbs.html#32">7.1,&#160;&#160;</a><a href="TechnicalReference_IoHwAbs.html#14">0)&#160;&#160;</a>that&#160;&#160;are&#160;&#160;accessible&#160;&#160;via&#160;&#160;the&#160;&#160;supported&#160;<br/>AUTOSAR interfaces:&#160;Sender/Receiver Ports,&#160;Client/Server Ports, Runnable&#160;entities.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+8&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-9_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;IOHWAB&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;<br/>&#160;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+9&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-10_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+The&#160;&#160;next&#160;&#160;figure&#160;&#160;shows&#160;&#160;the&#160;&#160;interfaces&#160;&#160;to&#160;&#160;adjacent&#160;&#160;modules&#160;&#160;of&#160;&#160;the&#160;&#160;IOHWAB.&#160;&#160;These&#160;<br/>interfaces&#160;are&#160;described&#160;in&#160;chapte<a href="TechnicalReference_IoHwAbs.html#17">r&#160;5.&#160;</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;IOHWAB&#160;<br/>
+Applications&#160;do&#160;not&#160;access&#160;the&#160;services&#160;of&#160;the&#160;BSW&#160;modules&#160;directly.&#160;They&#160;use&#160;the&#160;service&#160;<br/>ports&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;&#160;BSW&#160;&#160;modules&#160;&#160;via&#160;&#160;the&#160;&#160;RTE.&#160;&#160;The&#160;&#160;service&#160;&#160;ports&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;<br/>IOHWAB&#160;are listed&#160;in&#160;chapte<a href="TechnicalReference_IoHwAbs.html#24">r&#160;5.7&#160;</a>and&#160;are defined&#160;in&#160;[1].&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+10&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-11_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>IOHWAB.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_IoHwAbs.html#11">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_IoHwAbs.html#11">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Abstraction&#160;of&#160;MCAL&#160;signals&#160;<br/>Creation&#160;of&#160;a&#160;Software&#160;Component&#160;Description&#160;file that&#160;can&#160;be&#160;imported&#160;by&#160;DaVinci&#160;Developer&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Automatic&#160;abstraction&#160;of&#160;I/O&#160;modules&#160;(Implementation of&#160;the&#160;‘firmware’&#160;has&#160;to&#160;be&#160;done&#160;by&#160;the&#160;<br/>user)&#160;<br/>I/O&#160;control&#160;via DCM&#160;<br/>Support&#160;of&#160;BswInterruptEntities&#160;<br/>Automatic&#160;signal&#160;aging&#160;and&#160;debouncing&#160;<br/>Production Error&#160;Detection&#160;<br/>AUTOSAR&#160;Debugging&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+Initialization&#160;is&#160;not&#160;necessarily&#160;needed&#160;for&#160;the&#160;IOHWAB.&#160;Therefore,&#160;the&#160;provided&#160;service&#160;for&#160;<br/>initialization&#160;can&#160;be&#160;removed&#160;by&#160;a&#160;pre-compile&#160;option&#160;during&#160;the&#160;configuration&#160;phase.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Basic Knowledge&#160;<br/></b>It&#160;is&#160;not&#160;intended&#160;to&#160;initialize drivers&#160;in the&#160;IOHWAB&#160;initialization&#160;function.&#160;Driver&#160;<br/>
+&#160;&#160;initialization has&#160;to be&#160;done&#160;by&#160;the&#160;ECUM.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>3.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+The&#160;IOHWAB&#160;itself&#160;neither&#160;has&#160;certain&#160;module&#160;&#160;states&#160;nor&#160;does&#160;any&#160;handling&#160;of&#160;&#160;states&#160;of&#160;<br/>lower-level drivers. Caring&#160;about&#160;time&#160;flows and&#160;states is the&#160;user’s responsibility.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+11&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=12></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+The&#160;&#160;I/O&#160;&#160;Hardware&#160;&#160;Abstraction&#160;&#160;module&#160;&#160;does&#160;&#160;not&#160;&#160;provide&#160;&#160;(a)&#160;&#160;fix&#160;&#160;main&#160;&#160;function(s),&#160;&#160;but&#160;<br/>implements&#160;a&#160;generic approach,&#160;i.e.&#160;main&#160;functions can&#160;be&#160;created&#160;in&#160;the&#160;configuration&#160;and&#160;<br/>are generated&#160;into&#160;the&#160;configuration&#160;source&#160;files.&#160;<br/>The&#160;I/O&#160;Hardware&#160;Abstraction&#160;refers&#160;to&#160;main&#160;functions&#160;as&#160;‘BSW&#160;Schedulable&#160;Entities’,&#160;see&#160;<br/><a href="TechnicalReference_IoHwAbs.html#22">5.3.4.&#160;&#160;</a>After&#160;&#160;creating&#160;&#160;a&#160;&#160;BSW&#160;&#160;Schedulable&#160;&#160;Entity&#160;&#160;in&#160;&#160;the&#160;&#160;configuration,&#160;&#160;the&#160;&#160;configured&#160;<br/>information&#160;&#160;is&#160;&#160;passed&#160;&#160;to&#160;&#160;the&#160;&#160;RTE/SCHM&#160;&#160;via&#160;&#160;‘Internal&#160;&#160;Behavior’.&#160;&#160;After&#160;&#160;the&#160;&#160;generation&#160;&#160;is&#160;<br/>finished,&#160;the&#160;Schedulable&#160;Entity&#160;functionality&#160;can&#160;be&#160;implemented&#160;in&#160;the&#160;function&#160;template&#160;<br/>in&#160;the&#160;file&#160;‘IoHwAb_30.c’.&#160;At&#160;runtime,&#160;it&#160;will be&#160;called&#160;cyclically&#160;by&#160;the&#160;SCHM&#160;as configured.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;as&#160;specified&#160;in&#160;[2],&#160;if&#160;‘Development&#160;Mode’&#160;and&#160;‘Development&#160;Error&#160;<br/>Reporting’&#160;are enabled&#160;in&#160;the&#160;configuration&#160;tool.&#160;<br/>If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;IOHWAB&#160;ID is&#160;254.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;<a href="TechnicalReference_IoHwAbs.html#17">in&#160;&#160;5.2.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x01&#160;<br/>
+IoHwAb_Init()&#160;<br/>
+0x10&#160;<br/>
+IoHwAb_GetVersionInfo()&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+IOHWAB_E_INV_POINTER&#160;&#160;API&#160;service&#160;called&#160;with&#160;“NULL&#160;pointer”&#160;as&#160;parameter&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+&#160;<br/>
+<b>3.5.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+As&#160;&#160;production&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;typically&#160;&#160;done&#160;&#160;on&#160;&#160;driver&#160;&#160;level,&#160;&#160;the&#160;&#160;IOHWAB&#160;&#160;does&#160;&#160;not&#160;<br/>provide&#160;any&#160;reporting&#160;mechanism.&#160;&#160;Nonetheless,&#160;&#160;production&#160;error&#160;reporting&#160;can&#160;be&#160;added&#160;<br/>manually&#160;to&#160;‘IoHwAb_30.c’, if&#160;necessary.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+12&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=13></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;&#160;the&#160;MICROSAR&#160;&#160;IOHWAB&#160;<br/>into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;IOHWAB&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_IoHwAbs.html#13">rs&#160;&#160;4.1.1&#160;<br/>and&#160;4.1.2:</a>&#160;<br/>
+&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+IoHwAb.h&#160;<br/>
+Declares&#160;the&#160;interface&#160;of&#160;the&#160;MICROSAR&#160;component&#160;IOHWAB&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+IoHwAb_30.c&#160;<br/>
+Code&#160;template&#160;that&#160;contains&#160;the&#160;interfaces&#160;of&#160;the&#160;IOHWAB&#160;as well&#160;as&#160;<br/>the&#160;generated&#160;API&#160;function&#160;templates.&#160;<br/>
+IoHwAb_Cfg.h&#160;<br/>
+Contains&#160;the&#160;static configuration&#160;of&#160;the&#160;IOHWAB&#160;<br/>
+IoHwAb_Cbk.h&#160;<br/>
+Code&#160;template&#160;for&#160;prototypes of&#160;callback&#160;functions&#160;<br/>
+IoHwAb_Types.h&#160;&#160;Contains&#160;all&#160;the&#160;data&#160;types that&#160;are used&#160;in&#160;the&#160;IOHWAB&#160;(File&#160;is only&#160;<br/>
+used,&#160;if&#160;RTE&#160;usage&#160;is&#160;deactivated)&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+13&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-14_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-14_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-14_4.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>The&#160;files ‘IoHwAb_30.c’&#160;and ‘IoHwAb_Cbk.h’&#160;are&#160;code templates,&#160;i.e.&#160;after&#160;generation&#160;<br/>
+&#160;&#160;they&#160;are&#160;not&#160;complete&#160;and require&#160;user&#160;modifications.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>Generated&#160;code&#160;templates are&#160;not&#160;part&#160;of&#160;the&#160;AUTOSAR&#160;make&#160;files provided by&#160;the&#160;<br/>
+&#160;&#160;module,&#160;because&#160;the&#160;file&#160;may&#160;be&#160;copied&#160;to different&#160;locations&#160;in an&#160;integration&#160;package&#160;<br/>
+(e.g.&#160;a&#160;common&#160;folder&#160;for&#160;all&#160;editable code&#160;templates).&#160;<br/>Please add all&#160;generated&#160;code&#160;templates&#160;to your&#160;make process,&#160;manually.&#160;If&#160;the&#160;Vector&#160;<br/>make environment&#160;is&#160;used,&#160;add&#160;the&#160;file&#160;to&#160;the&#160;variable ‘APP_SOURCE_LST’&#160;in the&#160;file&#160;<br/>‘Makefile.project.part.defines’.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+For&#160;successfully&#160;integrating&#160;the&#160;IOHWAB&#160;in&#160;a&#160;MICROSAR&#160;environment,&#160;there&#160;are&#160;further&#160;<br/>files&#160;needed.&#160;These&#160;Files can&#160;be&#160;generated&#160;by&#160;the&#160;RTE&#160;generator.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Rte_IoHwAb.h&#160;&#160;Contains&#160;the&#160;prototypes of&#160;all&#160;the&#160;IOHWAB&#160;operation&#160;services&#160;<br/>Rte_Type.h&#160;<br/>
+Contains&#160;all&#160;the&#160;data&#160;types that&#160;are used&#160;in&#160;the&#160;IOHWAB&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Files&#160;generated&#160;by&#160;the&#160;RTE&#160;Generator&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+The&#160;IOHWAB&#160;implements&#160;the&#160;following&#160;critical section:&#160;<br/>
+<b>&gt;&#160;&#160;</b>IOHWAB_EXCLUSIVE_AREA_0:&#160;This critical&#160;section&#160;can&#160;be&#160;used&#160;to&#160;protect&#160;code&#160;<br/>
+passages that&#160;may&#160;contain&#160;coherent&#160;operations.&#160;The&#160;critical section&#160;shall&#160;prevent&#160;task&#160;<br/>switches.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>This&#160;critical&#160;section&#160;can&#160;be&#160;used in&#160;the&#160;user&#160;code.&#160;To&#160;create a&#160;protected&#160;code&#160;passage,&#160;<br/>
+&#160;&#160;call&#160;the&#160;macro&#160;IoHwAb_GlobalSuspend()&#160;before&#160;the&#160;protected&#160;part&#160;and&#160;<br/>
+IoHwAb_GlobalRestore()&#160;after&#160;it.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>Be sure&#160;to&#160;use&#160;critical&#160;sections&#160;scarcely&#160;and&#160;keep&#160;them&#160;as&#160;short&#160;as possible,&#160;because&#160;<br/>
+<b>&#160;&#160;</b>they&#160;may&#160;affect&#160;the&#160;system&#160;performance.&#160;Furthermore,&#160;pay&#160;attention&#160;that&#160;you&#160;do&#160;not&#160;<br/>
+nest&#160;critical&#160;sections&#160;and&#160;always&#160;close&#160;opened&#160;sections.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+14&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-15_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-15_2.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Generated&#160;Template&#160;Files&#160;</b><br/>
+A&#160;generated&#160;template&#160;file&#160;in&#160;this&#160;document&#160;is&#160;a&#160;file&#160;which:&#160;<br/>
+<b>&gt;&#160;&#160;</b>is generated&#160;by&#160;the&#160;generation&#160;tool at&#160;every&#160;generation&#160;process&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>the&#160;user can&#160;modify&#160;for&#160;his needs&#160;<br/>
+<b>&gt;&#160;&#160;</b>preserves that&#160;the&#160;user&#160;implementation&#160;will not&#160;be&#160;overwritten&#160;during&#160;the&#160;next&#160;<br/>
+generation&#160;process&#160;<br/>
+&#160;<br/>
+<b>4.3.1&#160;</b><br/>
+<b>User Blocks&#160;</b><br/>
+In&#160;order not&#160;to&#160;overwrite&#160;the&#160;user&#160;code,&#160;the&#160;template&#160;file&#160;contains&#160;special&#160;comments,&#160;where&#160;<br/>code&#160;can&#160;be&#160;inserted.&#160;The&#160;comments&#160;have&#160;the&#160;following&#160;format:&#160;<br/>/**********************************************************************************&#160;<br/>&#160;* DO NOT CHANGE THIS COMMENT! &lt;USERBLOCK&#160;NAME&gt; DO NOT CHANGE THIS COMMENT &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;<br/>***********************************************************************************/&#160;<br/>&#160;<br/>/**********************************************************************************&#160;<br/>&#160;* DO NOT CHANGE THIS COMMENT! &lt;/USERBLOCK&gt; DO NOT CHANGE THIS COMMENT &#160; &#160;&#160;<br/>***********************************************************************************/&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Do not&#160;edit&#160;manually&#160;<br/></b>Do not&#160;modify&#160;or&#160;delete&#160;the&#160;comment&#160;lines!&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;following&#160;example&#160;explains where the&#160;code&#160;can&#160;be&#160;implemented:&#160;<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;User&#160;Block&#160;Implementation&#160;Area&#160;<br/>
+Every&#160;code&#160;outside&#160;this area&#160;will be&#160;overwritten&#160;during&#160;the&#160;next&#160;generation&#160;process.&#160;<br/>
+&#160;<br/>
+The&#160;I/O&#160;Hardware&#160;Abstraction&#160;provides the&#160;following&#160;generated&#160;template&#160;files:&#160;<br/>
+<b>&gt;&#160;&#160;</b>IoHwAb_30.c&#160;<br/>
+<b>&gt;&#160;&#160;</b>IoHwAb_Cbk.h&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+15&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-16_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>4.3.2&#160;</b><br/>
+<b>Unrecognized/Deleted Signals&#160;</b><br/>
+If&#160;&#160;a&#160;&#160;Port&#160;&#160;Prototype,&#160;&#160;Runnable&#160;&#160;Entity&#160;&#160;or&#160;&#160;BSW&#160;&#160;Schedulable&#160;&#160;Entity&#160;&#160;is&#160;&#160;removed&#160;&#160;from&#160;&#160;or&#160;<br/>renamed&#160;in&#160;the&#160;configuration,&#160;possibly&#160;already&#160;implemented&#160;code&#160;would&#160;be&#160;lost,&#160;because&#160;<br/>the&#160;&#160;generated&#160;&#160;service&#160;&#160;would&#160;&#160;be&#160;&#160;deleted&#160;&#160;from&#160;&#160;the&#160;&#160;generated&#160;&#160;file.&#160;&#160;In&#160;&#160;this&#160;&#160;case,&#160;&#160;the&#160;<br/>‘IoHwAb_30.c’&#160;template&#160;file&#160;contains&#160;a&#160;section&#160;at&#160;the&#160;end,&#160;which&#160;receives&#160;the&#160;code&#160;from&#160;all&#160;<br/>services&#160;whose&#160;associated&#160;signals have&#160;been&#160;deleted:&#160;<br/>
+/*&#160;Section&#160;for&#160;deleted/unrecognized&#160;user&#160;blocks:&#160;*/&#160;<br/><b>#if</b>&#160;0&#160;<br/><b>#endif</b>&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>This&#160;section only&#160;contains code&#160;from&#160;signals&#160;that&#160;have been&#160;deleted&#160;during&#160;the&#160;last&#160;<br/>
+<b>&#160;&#160;</b>generation process.&#160;During&#160;the&#160;next&#160;generation,&#160;the&#160;section&#160;will&#160;be&#160;cleared.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+16&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=17></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+The&#160;&#160;API&#160;&#160;of&#160;&#160;the&#160;&#160;I/O&#160;&#160;Hardware&#160;&#160;Abstraction&#160;&#160;is&#160;&#160;mainly&#160;&#160;generic,&#160;&#160;only&#160;&#160;<a href="TechnicalReference_IoHwAbs.html#17">IoHwAb_Init&#160;&#160;</a>and&#160;<br/><a href="TechnicalReference_IoHwAbs.html#18">IoHwAb_GetVersionInfo&#160;</a>are&#160;permanent.&#160;The&#160;fixed&#160;API&#160;is&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_IoHwAbs.html#17">r&#160;5.2,&#160;</a>the&#160;<br/>generic,&#160;configuration-specific&#160;API&#160;is&#160;described&#160;in<a href="TechnicalReference_IoHwAbs.html#18">&#160;5.3.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;I/O&#160;Hardware&#160;Abstraction&#160;module&#160;does&#160;not&#160;provide&#160;any&#160;default&#160;types,&#160;but&#160;implements&#160;<br/>a&#160;generic&#160;approach,&#160;i.e.&#160;types&#160;can&#160;be&#160;created&#160;in&#160;the&#160;configuration&#160;and&#160;are&#160;generated&#160;into&#160;<br/>the&#160;configuration&#160;source&#160;files (either by&#160;the&#160;I/O&#160;Hardware&#160;Abstraction&#160;itself&#160;or by&#160;the&#160;RTE).&#160;<br/>
+&#160;<br/>
+The&#160;current&#160;implementation&#160;supports the&#160;creation&#160;of&#160;the&#160;following&#160;types:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Typedefs&#160;to&#160;primitive&#160;types&#160;(provided&#160;by&#160;AUTOSAR Standard/Platform&#160;Types)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Arrays &#160;(consisting&#160;of&#160;primitive&#160;types or types that&#160;are derived&#160;from&#160;these)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Structs ((consisting&#160;of&#160;primitive&#160;types or types that&#160;are&#160;derived&#160;from these)&#160;<br/>
+&#160;<br/>
+Types can&#160;be&#160;created/configured&#160;via&#160;the&#160;following&#160;configuration&#160;containers:&#160;<br/>
+<b>&gt;&#160;&#160;</b>…/IoHwAbDatatypes/IoHwAbImplementationTypes/IoHwAbTypeReference&#160;<br/>
+<b>&gt;&#160;&#160;</b>…/IoHwAbDatatypes/IoHwAbImplementationTypes/IoHwAbArray&#160;<br/>
+<b>&gt;&#160;&#160;</b>…/IoHwAbDatatypes/IoHwAbImplementationTypes/IoHwAbRecord&#160;<br/>
+The&#160;destination&#160;file&#160;of&#160;the&#160;typedefs&#160;after&#160;the&#160;generation&#160;process&#160;depends&#160;on&#160;the&#160;following&#160;<br/>configuration&#160;switch:&#160;‘/MICROSAR/IoHwAb/IoHwAbGeneral/IoHwAbUseRte’.&#160;<br/>If&#160;the&#160;RTE&#160;is&#160;used,&#160;the&#160;file&#160;‘Rte_Type.h’&#160;will&#160;contain&#160;the&#160;typedefs.&#160;Otherwise,&#160;the&#160;typedefs&#160;<br/>are generated&#160;into&#160;the&#160;file&#160;‘IoHwAb_Types.h’.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;IOHWAB&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>IoHwAb_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>IoHwAb_Init</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;stub&#160;can be used&#160;to&#160;implement any&#160;initialization&#160;activities&#160;and shall&#160;be called&#160;by&#160;the&#160;ECUM. It&#160;<br/>is&#160;not&#160;intended&#160;to initialize&#160;drivers&#160;in the&#160;IOHWAB&#160;initialization function.&#160;Driver initialization&#160;has&#160;to&#160;be&#160;done&#160;<br/>by&#160;the&#160;ECUM.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+17&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=18></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_IoHwAbs.html#12">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;service can&#160;be&#160;disabled&#160;using&#160;the&#160;configuration&#160;parameter&#160;<br/>
+‘/MICROSAR/IoHwAb/IoHwAbGeneral/IoHwAbUseInitFunction’&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context&#160;(EcuM)&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;IoHwAb_Init&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>IoHwAb_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void &#160;<b>IoHwAb_GetVersionInfo</b>&#160;( Std_VersionInfoType *versioninfo )&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo&#160;<br/>
+Pointer&#160;to&#160;where the&#160;version information&#160;shall&#160;be&#160;stored&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service returns&#160;the&#160;version&#160;information&#160;of&#160;this&#160;module.&#160;The&#160;provided&#160;information&#160;is:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Module ID&#160;<br/>
+<b>&gt;&#160;&#160;</b>Vendor&#160;ID&#160;<br/>
+<b>&gt;&#160;&#160;</b>Version Information&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_IoHwAbs.html#12">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;service can&#160;be&#160;disabled&#160;using&#160;the&#160;configuration&#160;parameter&#160;<br/>
+‘/MICROSAR/IoHwAb/IoHwAbGeneral/IoHwAbVersionInfoApi’&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;IoHwAb_GetVersionInfo&#160;<br/>
+&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Generated&#160;API&#160;Function Templates&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;service&#160;&#160;descriptions&#160;&#160;do&#160;&#160;not&#160;&#160;refer&#160;&#160;to&#160;&#160;certain&#160;&#160;API&#160;&#160;functions,&#160;&#160;but&#160;&#160;to&#160;&#160;function&#160;<br/>stubs&#160;that&#160;will&#160;be&#160;generated&#160;by&#160;the&#160;IOHWAB.&#160;The&#160;service&#160;name,&#160;as&#160;well&#160;as&#160;the&#160;parameter&#160;<br/>format&#160;is influenced&#160;by&#160;the&#160;configuration&#160;settings.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+18&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-19_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>The&#160;following&#160;functions&#160;can&#160;be&#160;invoked&#160;concurrently&#160;by&#160;the&#160;RTE.&#160;As&#160;software&#160;on&#160;the&#160;<br/>
+<b>&#160;&#160;</b>lower&#160;layer&#160;may&#160;not&#160;support&#160;concurrency,&#160;the&#160;application should avoid parallel&#160;calls&#160;of&#160;<br/>
+signal&#160;services.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>5.3.1&#160;</b><br/>
+<b>Client/Server Operation:&#160;<br/>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt;&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;&#160;<b>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt;</b>&#160;( &lt;ConfiguredType&gt;&#160;<br/>&lt;*&gt;&lt;OperationArgumentName&gt; )&#160;<br/>
+<b>Parameter&#160;</b><br/>
+&lt;OperationArgumentNa&#160;Configured &#160;operation parameter&#160;<br/>me&gt;&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+ReturnType can&#160;be&#160;configured&#160;/ defined&#160;in&#160;the&#160;configuration phase.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;the&#160;implementation&#160;of&#160;an&#160;operation&#160;contained&#160;in a&#160;configured Client/Server Port Prototype.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context&#160;(RTE)&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt;&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+19&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-20_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-20_2.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Practical&#160;Procedure&#160;<br/></b>A&#160;Client/Server&#160;Operation can&#160;be&#160;created&#160;by&#160;the&#160;following&#160;steps:&#160;<br/>
+&#160;&#160;<b>&gt;&#160;&#160;</b>Create a&#160;Client/Server&#160;Interface&#160;by&#160;adding&#160;an&#160;instance&#160;of&#160;the&#160;configuration&#160;container&#160;<br/>
+‘/MICROSAR/IoHwAb/IoHwAbCSPortInterface’&#160;<br/>
+<b>&gt;&#160;&#160;</b>Create&#160;the&#160;corresponding&#160;operations&#160;by&#160;adding&#160;instances&#160;of&#160;the&#160;configuration&#160;<br/>
+container&#160;‘/MICROSAR/IoHwAb/IoHwAbCSPortInterface/IoHwAbOperation’&#160;and add&#160;<br/>operation&#160;arguments&#160;(‘…/IoHwAbOperation/IoHwAbOperationArgument’)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Create a&#160;Client/Server&#160;PortPrototype&#160;by&#160;adding&#160;an instance&#160;of&#160;the&#160;configuration&#160;<br/>
+container&#160;‘/MICROSAR/IoHwAb/IoHwAbCSPortPrototype’&#160;and set&#160;the&#160;contained&#160;<br/>parameter&#160;‘IoHwAbCSPortInterfaceRef’&#160;to&#160;the&#160;Port&#160;Interface&#160;created&#160;before&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>This&#160;function&#160;is&#160;a&#160;template that&#160;contains no&#160;implementation&#160;code.&#160;Add&#160;the&#160;<br/>
+&#160;&#160;implementation&#160;in&#160;the&#160;file&#160;‘IoHwAb_30.c’.&#160;More&#160;Information&#160;about&#160;where to&#160;implement&#160;<br/>
+your&#160;code can&#160;be&#160;found&#160;in<a href="TechnicalReference_IoHwAbs.html#15">&#160;4.3.1.</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>5.3.2&#160;</b><br/>
+<b>Sender/Receiver Port Runnable:&#160;<br/>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt;&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void &#160;<b>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt;</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;the&#160;implementation&#160;of&#160;a&#160;port&#160;element contained&#160;in&#160;a&#160;configured&#160;Sender/Receiver Port&#160;<br/>Prototype.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context&#160;(RTE)&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt;&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+20&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-21_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-21_2.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Practical&#160;Procedure&#160;<br/></b>A&#160;Sender/Receiver&#160;port&#160;element&#160;can&#160;be&#160;created&#160;by&#160;the&#160;following&#160;steps:&#160;<br/>
+&#160;&#160;<b>&gt;&#160;&#160;</b>Create&#160;a&#160;Sender/Receiver&#160;Interface&#160;by&#160;adding&#160;an&#160;instance&#160;of&#160;the&#160;configuration&#160;<br/>
+container&#160;‘/MICROSAR/IoHwAb/IoHwAbSRPortInterface’&#160;<br/>
+<b>&gt;&#160;&#160;</b>Create&#160;the&#160;corresponding&#160;port&#160;elements&#160;by&#160;adding&#160;instances&#160;of&#160;the&#160;configuration&#160;<br/>
+container&#160;‘/MICROSAR/IoHwAb/IoHwAbSRPortInterface/IoHwAbPortElement’&#160;<br/>
+<b>&gt;&#160;&#160;</b>Create a&#160;Sender/Receiver&#160;PortPrototype&#160;by&#160;adding&#160;an&#160;instance of&#160;the&#160;configuration&#160;<br/>
+container&#160;‘/MICROSAR/IoHwAb/IoHwAbSRPortPrototype’&#160;and set&#160;the&#160;contained&#160;<br/>parameter&#160;‘IoHwAbSRPortInterfaceRef’&#160;to&#160;the&#160;Port&#160;Interface&#160;created&#160;before&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>This&#160;function&#160;is&#160;a&#160;template that&#160;contains no&#160;implementation&#160;code.&#160;Add&#160;the&#160;<br/>
+&#160;&#160;implementation&#160;in&#160;the&#160;file&#160;‘IoHwAb_30.c’.&#160;More&#160;Information&#160;about&#160;where to&#160;implement&#160;<br/>
+your&#160;code can&#160;be&#160;found&#160;in<a href="TechnicalReference_IoHwAbs.html#15">&#160;4.3.1.</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>5.3.3&#160;</b><br/>
+<b>Runnable&#160;Entity:&#160;IoHwAb_&lt; RunnableName&gt;&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void &#160;<b>IoHwAb_&lt;RunnableName&gt;</b>&#160;( )&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;the&#160;implementation&#160;of&#160;a&#160;Runnable&#160;Entity.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+21&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-22_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-22_2.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context&#160;(RTE)&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;IoHwAb_&lt;PortPrototypeName&gt;_&lt;Read/Write&gt;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Practical&#160;Procedure&#160;<br/></b>A&#160;Runnable Entity&#160;can&#160;be created&#160;by&#160;the&#160;following steps:&#160;<br/>
+&#160;&#160;<b>&gt;&#160;&#160;</b>Create a&#160;Runnable Entity&#160;by&#160;adding&#160;an&#160;instance&#160;of&#160;the&#160;configuration&#160;container&#160;<br/>
+‘/MICROSAR/IoHwAb/IoHwAbRunnable’&#160;and configure&#160;the&#160;contained parameters.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>This&#160;function&#160;is&#160;a&#160;template that&#160;contains no&#160;implementation&#160;code.&#160;Add&#160;the&#160;<br/>
+&#160;&#160;implementation&#160;in&#160;the&#160;file&#160;‘IoHwAb_30.c’.&#160;More&#160;Information&#160;about&#160;where to&#160;implement&#160;<br/>
+your&#160;code can&#160;be&#160;found&#160;in<a href="TechnicalReference_IoHwAbs.html#15">&#160;4.3.1.</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>5.3.4&#160;</b><br/>
+<b>Schedulable&#160;Entity:&#160;IoHwAb_&lt;SchedulableName&gt;&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>IoHwAb_&lt;SchedulableName&gt;</b>&#160;( void )&#160;<br/>
+<b>Parameter&#160;</b><br/>
+--&#160;<br/>
+--&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+--&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;the&#160;implementation of&#160;a&#160;BSW&#160;Schedulable Entity.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+22&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-23_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-23_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-23_3.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Expected&#160;to be&#160;called&#160;in&#160;application context&#160;(RTE)&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;[Service&#160;name]&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Practical&#160;Procedure&#160;<br/></b>A&#160;BSW&#160;Schedulable Entity&#160;can&#160;be&#160;created&#160;by&#160;the&#160;following&#160;steps:&#160;<br/>
+&#160;&#160;Create a&#160;Schedulable Entity&#160;by&#160;adding&#160;an&#160;instance of&#160;the&#160;configuration container&#160;<br/>
+‘/MICROSAR/IoHwAb/IoHwAbSchedulable’&#160;and configure&#160;the&#160;contained parameters.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Edit&#160;<br/></b>This&#160;function&#160;is&#160;a&#160;template that&#160;contains no&#160;implementation&#160;code.&#160;Add&#160;the&#160;<br/>
+&#160;&#160;implementation&#160;in&#160;the&#160;file&#160;‘IoHwAb_30.c’.&#160;More&#160;Information&#160;about&#160;where to&#160;implement&#160;<br/>
+your&#160;code can&#160;be&#160;found&#160;i<a href="TechnicalReference_IoHwAbs.html#15">n&#160;4.3.1.</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>5.4&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;IOHWAB&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>IOHWAB&#160;&#160;are&#160;&#160;listed.&#160;&#160;For&#160;&#160;details&#160;&#160;about&#160;&#160;prototype&#160;&#160;and&#160;&#160;functionality&#160;&#160;refer&#160;&#160;to&#160;&#160;the&#160;<br/>documentation&#160;of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError (optional)&#160;<br/>
+DIO&#160;<br/>
+All&#160;(optional)&#160;<br/>
+GPT&#160;<br/>
+All&#160;(optional)&#160;<br/>
+ICU&#160;<br/>
+All&#160;(optional)&#160;<br/>
+PORT&#160;<br/>
+All&#160;(optional)&#160;<br/>
+PWM&#160;<br/>
+All&#160;(optional)&#160;<br/>
+SPI&#160;<br/>
+All&#160;(optional)&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;IOHWAB&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;release&#160;of&#160;the&#160;IOHWAB&#160;does&#160;not&#160;implement&#160;any&#160;callback&#160;functions.&#160;If&#160;necessary,&#160;the&#160;<br/>user may&#160;implement&#160;prototypes&#160;of&#160;callback&#160;functions in&#160;the&#160;file&#160;IoHwAb_Cbk.h.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Note&#160;<br/></b>It&#160;is&#160;not&#160;possible&#160;to pass&#160;an&#160;approaching&#160;callback&#160;function&#160;through&#160;the&#160;RTE&#160;to&#160;the&#160;<br/>
+&#160;&#160;software&#160;component.&#160;Actions&#160;for&#160;handling&#160;callbacks&#160;have to&#160;be&#160;implemented&#160;inside&#160;the&#160;<br/>
+IOHWAB.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+23&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=24></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>5.6&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>5.6.1&#160;</b><br/>
+<b>Notifications&#160;</b><br/>
+The&#160;I/O&#160;Hardware&#160;Abstraction&#160;does&#160;not&#160;provide&#160;Notifications.&#160;<br/>
+<b>5.7&#160;</b><br/>
+<b>Service&#160;Ports&#160;</b><br/>
+<b>5.7.1&#160;</b><br/>
+<b>Client&#160;Server Interface&#160;</b><br/>
+A&#160;client&#160;server&#160;interface&#160;is&#160;related&#160;to&#160;a&#160;Provide&#160;Port&#160;at&#160;the&#160;server&#160;side&#160;and&#160;a&#160;Require&#160;Port&#160;<br/>at&#160;client&#160;side.&#160;&#160;<br/>
+<b>5.7.1.1&#160;</b><br/>
+<b>Provide&#160;Ports&#160;on&#160;IOHWAB&#160;Side&#160;</b><br/>
+All&#160;&#160;the&#160;Provide&#160;Ports&#160;of&#160;the&#160;&#160;IOHWAB&#160;&#160;the&#160;API&#160;functions&#160;described&#160;<a href="TechnicalReference_IoHwAbs.html#17">in&#160;&#160;5.2&#160;</a>are&#160;available&#160;&#160;as&#160;<br/>Runnable&#160;Entities.&#160;The&#160;Runnable&#160;Entities&#160;are&#160;invoked&#160;via&#160;Operations.&#160;The&#160;mapping&#160;from&#160;a&#160;<br/>SWC&#160;client&#160;call&#160;to&#160;an&#160;Operation&#160;is&#160;performed&#160;by&#160;the&#160;RTE.&#160;In&#160;this&#160;mapping&#160;the&#160;RTE&#160;adds&#160;<br/>Port Defined&#160;Argument&#160;Values to&#160;the&#160;client&#160;call of&#160;the&#160;SWC,&#160;if&#160;configured.&#160;<br/>The&#160;&#160;following&#160;&#160;sub-chapters&#160;&#160;present&#160;&#160;the&#160;&#160;Provide&#160;&#160;Ports&#160;&#160;defined&#160;&#160;for&#160;&#160;the&#160;&#160;IOHWAB&#160;&#160;and&#160;&#160;the&#160;<br/>Operations&#160;defined&#160;for&#160;the&#160;Provide&#160;Ports,&#160;the&#160;API&#160;functions&#160;related&#160;to&#160;the&#160;Operations&#160;&#160;and&#160;<br/>the&#160;Port Defined&#160;Argument&#160;Values&#160;to&#160;be&#160;added&#160;by&#160;the&#160;RTE.&#160;<br/>
+&#160;<br/>
+<b>5.7.1.1.1&#160;</b><br/>
+<b>Provide&#160;Ports&#160;</b><br/>
+<b>Operation&#160;</b><br/>
+<b>API&#160;Function&#160;</b><br/>
+<b>Port&#160;Defined&#160;Argument&#160;Values&#160;</b><br/>
+&lt;IoHwAbOperation&gt;&#160;&#160;IoHwAb_&lt;IoHwAbCSPortPrototy&#160;&lt;*&gt;&lt;IoHwAbOperationArgume<br/>
+pe&gt;_&lt;IoHwAbOperation&gt;&#160;<br/>
+nt&gt;&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;Provide&#160;Ports&#160;<br/>
+<b>5.7.1.2&#160;</b><br/>
+<b>Require&#160;Ports&#160;on&#160;IOHWAB&#160;Side&#160;</b><br/>
+The&#160;I/O&#160;Hardware&#160;Abstraction&#160;does&#160;not&#160;provide&#160;any&#160;Require&#160;Ports.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+24&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=25></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;IOHWAB&#160;the&#160;attributes can&#160;be&#160;configured&#160;with&#160;the&#160;following&#160;tools:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Developer&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;IOHWAB&#160;supports&#160;the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;&#160;configuration&#160;&#160;classes&#160;&#160;of&#160;&#160;the&#160;&#160;IOHWAB&#160;&#160;parameters&#160;&#160;depend&#160;&#160;on&#160;&#160;the&#160;&#160;supported&#160;<br/>configuration&#160;variants.&#160;For&#160;their&#160;definitions please&#160;see&#160;the&#160;IoHwAb_bswmd.arxml file.&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Configuration Workflow&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;describes&#160;&#160;the&#160;&#160;workflow&#160;&#160;that&#160;&#160;is&#160;&#160;necessary&#160;&#160;to&#160;&#160;integrate&#160;&#160;the&#160;&#160;I/O&#160;&#160;Hardware&#160;<br/>Abstraction&#160;into&#160;a&#160;MICROSAR system.&#160;<br/>The&#160;I/O&#160;Hardware&#160;Abstraction&#160;is&#160;not&#160;a&#160;classic&#160;BSW&#160;module,&#160;as&#160;it&#160;has&#160;not&#160;only&#160;interfaces&#160;<br/>with&#160;&#160;other&#160;&#160;BSW&#160;&#160;modules,&#160;&#160;but&#160;&#160;an&#160;&#160;interface&#160;&#160;with&#160;&#160;one&#160;&#160;or&#160;&#160;more&#160;&#160;Application&#160;&#160;Components&#160;<br/>above&#160;&#160;the&#160;&#160;RTE.&#160;&#160;For&#160;&#160;this&#160;&#160;reason,&#160;&#160;the&#160;&#160;IOHWAB&#160;&#160;has&#160;to&#160;define&#160;a&#160;&#160;way&#160;&#160;to&#160;&#160;communicate&#160;&#160;with&#160;<br/>Application&#160;Components&#160;through&#160;the&#160;RTE.&#160;<br/>The&#160;&#160;basic&#160;&#160;concepts&#160;&#160;for&#160;&#160;such&#160;&#160;interaction&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_IoHwAbs.html#3">[4].&#160;&#160;</a>This&#160;&#160;chapter&#160;&#160;gives&#160;&#160;only&#160;&#160;a&#160;<br/>description&#160;of&#160;the&#160;technical realization&#160;in&#160;the&#160;MICROSAR tool chain.&#160;<br/>The&#160;following&#160;diagram&#160;gives&#160;an&#160;overview&#160;of&#160;the&#160;interaction&#160;between&#160;the&#160;involved&#160;tools&#160;and&#160;<br/>the&#160;user.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+25&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-26_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+&#160;<br/>
+Figure&#160;6-1&#160;&#160;Configuration&#160;Workflow&#160;<br/>
+For&#160;&#160;a&#160;&#160;successful&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;I/O&#160;&#160;Hardware&#160;Abstraction&#160;&#160;into&#160;&#160;a&#160;&#160;MICROSAR&#160;&#160;system&#160;<br/>please&#160;execute&#160;the&#160;following&#160;steps:&#160;<br/><b>&#160;&#160;</b>Configure&#160;the&#160;‘IoHwAb’&#160;module&#160;in&#160;the&#160;DaVinci&#160;Configurator&#160;and&#160;save&#160;the&#160;<br/>
+Configuration.&#160;The&#160;Software Component&#160;description&#160;of&#160;the&#160;I/O&#160;Hardware&#160;Abstraction&#160;is&#160;<br/>generated&#160;automatically&#160;upon&#160;saving&#160;and&#160;can&#160;be&#160;found&#160;in&#160;the&#160;SIP&#160;folder (‘&lt;SIP&#160;<br/>Folder&gt;\internal\&lt;Application&#160;Folder&gt;\Config\ServiceComponents’).&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+26&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-27_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>&#160;&#160;</b>Open&#160;the&#160;DaVinci Developer&#160;project&#160;or create&#160;a&#160;new&#160;one&#160;and&#160;import&#160;the&#160;I/O&#160;Hardware&#160;<br/>
+Abstraction’s SWC&#160;file&#160;as&#160;follows:&#160;<br/>
+&#160;<br/>
+Figure&#160;6-2&#160;&#160;SWC&#160;import&#160;select&#160;file&#160;<br/>
+<b>&#160;&#160;</b>Select&#160;the&#160;SWC&#160;file&#160;and&#160;start&#160;the&#160;import.&#160;After the&#160;import is&#160;finished,&#160;the&#160;module&#160;with&#160;<br/>
+all&#160;configured&#160;ports, interfaces&#160;and&#160;data&#160;types&#160;should&#160;be&#160;present&#160;in&#160;your project:&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+27&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-28_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-28_2.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+&#160;<br/>
+Figure&#160;6-3&#160;&#160;Imported&#160;Software&#160;Component&#160;<br/>
+<b>&#160;&#160;</b>Create&#160;a&#160;new&#160;application&#160;software component&#160;and&#160;create&#160;the&#160;counterparts of&#160;the&#160;ports&#160;<br/>
+that&#160;are provided/required&#160;by&#160;the&#160;I/O&#160;Hardware&#160;Abstraction&#160;component&#160;type.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>Do not&#160;connect&#160;the&#160;SWC&#160;ports&#160;in&#160;the&#160;DaVinci&#160;Developer,&#160;because&#160;no&#160;more&#160;<br/>
+<b>&#160;&#160;</b>configuration&#160;of&#160;the&#160;RTE&#160;inside&#160;DaVinci&#160;Configurator&#160;would be&#160;possible,&#160;then.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+28&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-29_1.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+&#160;<br/>
+Figure&#160;6-4&#160;&#160;I/O&#160;Hardware&#160;and&#160;Application&#160;Software&#160;Component&#160;<br/>
+<b>&#160;&#160;</b>Save&#160;and&#160;close&#160;the&#160;DaVinci Developer project.&#160;<br/>
+<b>&#160;&#160;</b>Switch&#160;back to&#160;the&#160;DaVinci Configurator&#160;and&#160;configure the&#160;RTE&#160;module&#160;by&#160;using&#160;the&#160;<br/>
+‘Runtime&#160;System’&#160;domain&#160;editor.&#160;<br/>
+<b>&#160;&#160;</b>First,&#160;create&#160;the&#160;Software&#160;Components&#160;of&#160;I/O&#160;Hardware&#160;Abstraction&#160;and&#160;Application&#160;<br/>
+inside&#160;the&#160;RTE&#160;by&#160;using&#160;the&#160;‘ECU Software Components&#160;Editor’&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+29&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-30_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-30_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-30_3.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+&#160;<br/>
+Figure&#160;6-5&#160;&#160;&#160;<br/>
+<b>&#160;&#160;</b>Go&#160;to&#160;‘Application&#160;Components’&#160;container&#160;and&#160;add&#160;two&#160;Software Components,&#160;the&#160;<br/>
+‘IoHwAb’&#160;and&#160;the&#160;Software Component(s)&#160;created&#160;in&#160;the&#160;DaVinci Developer.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>The&#160;I/O&#160;Hardware&#160;Abstraction&#160;SWC&#160;description&#160;exists&#160;twice in&#160;this&#160;selection.&#160;Please&#160;<br/>
+<b>&#160;&#160;</b>use&#160;the&#160;SWC&#160;description&#160;with the&#160;path&#160;<br/>
+‘/MICROSAR_SWCS_DEV/IoHwAb_swc/ComponentTypes/IoHwAb’.&#160;This&#160;is&#160;the&#160;SWC&#160;<br/>description created&#160;by&#160;the DaVinci&#160;Developer.&#160;Otherwise,&#160;all&#160;modifications&#160;to&#160;the&#160;<br/>Software&#160;Component&#160;that&#160;have been&#160;done&#160;in&#160;the&#160;DaVinci&#160;Developer&#160;would&#160;not&#160;be&#160;<br/>adapted.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;&#160;</b>The&#160;next&#160;step&#160;is connecting&#160;the&#160;ports of&#160;the&#160;components&#160;with&#160;the&#160;‘Add&#160;Component&#160;<br/>
+Connection’&#160;editor.&#160;Start the&#160;editor&#160;and&#160;select&#160;I/O&#160;Hardware&#160;Abstraction&#160;and&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+30&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-31_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/IoHwAb/doc/TechnicalReference_IoHwAb-31_2.png"/><br/>
+Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+Application&#160;Software Component&#160;and&#160;map&#160;the&#160;ports&#160;as needed.&#160;If&#160;the&#160;ports&#160;of&#160;the&#160;both&#160;<br/>components&#160;can&#160;be&#160;connected&#160;1:1,&#160;the&#160;‘Automatic Mapping’&#160;can&#160;be&#160;used.&#160;<br/>
+<b>&#160;&#160;</b>Last,&#160;the&#160;Runnable&#160;Entities&#160;of&#160;both&#160;components&#160;have&#160;to&#160;mapped&#160;to&#160;OS&#160;Tasks.&#160;This&#160;<br/>
+can&#160;be&#160;done&#160;by&#160;using&#160;the&#160;‘Add&#160;Task Mapping’&#160;editor.&#160;<br/>
+<b>&#160;&#160;</b>Validate&#160;and&#160;generate&#160;the&#160;configuration.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>If&#160;you&#160;have to change&#160;the configuration&#160;of&#160;the&#160;I/O&#160;Hardware&#160;Abstraction&#160;after&#160;the&#160;SWC&#160;<br/>
+<b>&#160;&#160;</b>has&#160;been&#160;imported&#160;into&#160;the&#160;DaVinci&#160;Developer&#160;workspace,&#160;the&#160;SWC&#160;has&#160;to be&#160;imported&#160;<br/>
+again,&#160;every&#160;time it&#160;is&#160;changed,&#160;because&#160;the&#160;DaVinci&#160;Developer&#160;will&#160;not&#160;adapt&#160;the&#160;<br/>changes&#160;automatically.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>If&#160;you&#160;have to change&#160;the DaVinci&#160;Developer&#160;project&#160;after&#160;the&#160;Software&#160;Components&#160;<br/>
+<b>&#160;&#160;</b>have been&#160;created&#160;in&#160;the&#160;RTE&#160;configuration,&#160;the&#160;DaVinci&#160;Configurator&#160;project&#160;has&#160;to be&#160;<br/>
+closed and&#160;re-opened&#160;and the&#160;Application Components&#160;in&#160;the&#160;‘ECU&#160;Software&#160;<br/>Components’&#160;editor&#160;have to&#160;be&#160;removed&#160;and&#160;re-added,&#160;because&#160;the&#160;DaVinci&#160;<br/>Configurator&#160;will&#160;not&#160;adapt&#160;the&#160;changes&#160;automatically.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+31&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=32></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+DaVinci&#160;Configurator&#160;&#160;Configuration&#160;tool&#160;for&#160;MICROSAR&#160;components&#160;<br/>User&#160;Block&#160;<br/>
+Especially&#160;marked,&#160;user&#160;editable code section&#160;within a&#160;generated&#160;C-<br/>Source&#160;file&#160;–&#160;these&#160;code&#160;sections are not&#160;overwritten&#160;when the&#160;module&#160;<br/>configuration&#160;is&#160;being&#160;re-generated&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+32&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=33></a>Technical Reference&#160;MICROSAR IOHWAB&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;3.00.02&#160;<br/>
+33&#160;/&#160;33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+</body>
+</html>

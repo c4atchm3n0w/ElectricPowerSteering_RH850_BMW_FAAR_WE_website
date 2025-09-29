@@ -1,0 +1,1033 @@
+---
+title: TechnicalReference_3rdParty-MCAL-Integrations
+linkTitle: TechnicalReference_3rdParty-MCAL-Integrations
+weight: 136
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>MCAL&#160;Integration Package&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Basics&#160;and workflows&#160;<br/>Version&#160;1.04.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Authors&#160;<br/>
+Andrej&#160;&#160;Gazvoda,&#160;&#160;Günther&#160;&#160;Piehler,&#160;&#160;Roland&#160;&#160;Süß,&#160;&#160;Ingo&#160;<br/>Wuttke&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-2_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Roland Süß&#160;;&#160;Ingo&#160;Wuttke&#160;<br/>
+2015-02-27&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;Ideas,&#160;usage as&#160;<br/>Application&#160;Note;&#160;Porting&#160;to&#160;<br/>Technical&#160;Reference&#160;<br/>template;&#160;adding detailed&#160;<br/>description about&#160;3rd&#160;party&#160;<br/>tools&#160;etc.&#160;<br/>
+Günther&#160;Piehler&#160;<br/>
+2015-04-24&#160;<br/>
+1.00.01&#160;<br/>
+Review;&#160;small&#160;changes&#160;to&#160;<br/>increase understandability;&#160;<br/>Known Issue&#160;for&#160;missing&#160;<br/>config items&#160;added&#160;&#160;<br/>released&#160;<br/>
+Andrej&#160;Gazvoda;&#160;Roland Süß&#160;<br/>
+2015-06-30&#160;<br/>
+1.00.02&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7.3&#160;</a><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#27">/&#160;7.4&#160;</a>-&#160;Added&#160;known&#160;<br/>issues&#160;regarding&#160;EB&#160;tresos™&#160;<br/>tool&#160;<br/>
+Günther&#160;Piehler&#160;<br/>
+2015-07-17&#160;<br/>
+1.01.00&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">2.3&#160;</a>-&#160;Introduction&#160;of&#160;Mixed&#160;<br/>AUTOSAR&#160;use&#160;case&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#10">3&#160;</a>ff&#160;-&#160;Extend description&#160;of&#160;<br/>MCAL&#160;preparation&#160;<br/>(prerequisites)&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">4&#160;</a>-&#160;hint&#160;about&#160;recommended&#160;<br/>workflow&#160;added&#160;<br/>
+Günther&#160;Piehler&#160;<br/>
+2015-10-26&#160;<br/>
+1.01.01&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2.2&#160;</a><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#13">/&#160;3.2.3&#160;</a>-&#160;parameter&#160;<br/>corrected&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">4&#160;</a>–&#160;added hint&#160;for&#160;MCAL&#160;<br/>Integration&#160;video&#160;<br/>
+Günther&#160;Piehler&#160;<br/>
+2016-01-26&#160;<br/>
+1.02.00&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">4.2&#160;</a>-&#160;added hint&#160;for&#160;“round&#160;<br/>trip”&#160;ability&#160;<br/>general&#160;-&#160;new&#160;CI&#160;applied&#160;<br/>
+Günther&#160;Piehler&#160;<br/>
+2016-07-05&#160;<br/>
+1.03.00&#160;<br/>
+Pag<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">e&#160;3&#160;</a>-&#160;Added&#160;further&#160;useful&#160;<br/>documents&#160;as&#160;reference&#160;<br/>&#160;<br/>
+Günther&#160;Piehler&#160;<br/>
+2016-09-27&#160;<br/>
+1.04.00&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#7">1&#160;</a>–&#160;completely&#160;new&#160;<br/>Reference&#160;to&#160;QuickStart&#160;<br/>document&#160;deleted&#160;(replaced&#160;<br/>within this&#160;document);&#160;<br/>Reference&#160;to&#160;ScreenCase&#160;<br/>and ReleaseNote&#160;added&#160;<br/>Hints&#160;for&#160;AUTOSAR3&#160;&lt;-&gt;&#160;<br/>AUTOSAR4 differentiation&#160;<br/>added&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2.2&#160;</a>–&#160;non-interactive mode&#160;<br/>introduced&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#13">3.2.3&#160;</a>–&#160;reference&#160;to&#160;Release&#160;<br/>Notes&#160;added&#160;for&#160;further&#160;info&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-3_2.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25">6&#160;</a>–&#160;completely&#160;new&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7&#160;</a>–&#160;issue&#160;for&#160;“MCAL&#160;and SIP&#160;<br/>storage&#160;location”&#160;removed&#160;<br/><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#28">8&#160;</a>–&#160;hint&#160;to&#160;“generate&#160;all”&#160;<br/>added&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;&#160;Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+Product&#160;Information&#160;MICROSAR&#160;Vector&#160;SLP4&#160;<br/>
+1.03.02&#160;<br/>
+[2]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+Catalog&#160;–&#160;Product&#160;Information MICROSAR&#160;–&#160;Chapter&#160;MCAL&#160;<br/>
+V1.3&#160;–&#160;<br/>2015-02&#160;<br/>
+[3]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+Application Note “AN-ISC-8-1153_ThirdPartyModules.pdf”&#160;<br/>
+Latest&#160;<br/>(e.g.&#160;1.0)&#160;<br/>
+[4]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+Application Note “AN-ISC-8-1171_Tresos_LicenseHandling.pdf”&#160;<br/>
+Latest&#160;<br/>(e.g.&#160;<br/>1.00.01)&#160;<br/>
+[5]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+Application Note “AN-ISC-8-1180_MCAL-Integration-Variants.pdf”&#160;&#160;Latest&#160;<br/>
+(e.g.&#160;0.9)&#160;<br/>
+[6]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+Release Note&#160;<br/>
+As&#160;<br/>
+“ReleaseNotes_3rdPartyMCAL_VectorIntegration.pdf”&#160;<br/>
+provided&#160;<br/>within&#160;<br/>your&#160;SIP&#160;<br/>
+[7]&#160;&#160;&#160;<br/>
+Vector&#160;<br/>
+ScreenCast_McalIntegration_Tresos.pdf&#160;<br/>
+As&#160;<br/>provided&#160;<br/>within&#160;<br/>your&#160;SIP&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;</b><br/>
+questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-4_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#7"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#7"><b>Purpose&#160;of&#160;the&#160;document&#160;.............................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#8"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#8"><b>Introduction...................................................................................................................&#160;8</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#8">Responsibility&#160;.....................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">2.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">Support&#160;requests................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">2.3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">Mix&#160;between&#160;AUTOSAR&#160;specification versions&#160;..................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#10"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#10"><b>First&#160;Steps&#160;...................................................................................................................&#160;10</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#10">Delivery&#160;structure&#160;.............................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">Starting up&#160;.......................................................................................................&#160;11&#160;<br/>3.2.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">MCAL&#160;delivered&#160;within Vector&#160;SIP&#160;....................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">MCAL&#160;not&#160;contained within Vector&#160;SIP&#160;.............................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#13">3.2.3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#13">MCAL&#160;Update&#160;needed&#160;......................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14"><b>Workflow&#160;.....................................................................................................................&#160;14</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">Single configuration&#160;tool&#160;usage&#160;........................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">4.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">Mixed&#160;configuration&#160;tool&#160;usage.........................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#17">4.3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#17">Split&#160;configuration&#160;tool&#160;usage&#160;...........................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19"><b>Configuration&#160;tools&#160;.....................................................................................................&#160;19</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">Vector&#160;DaVinci&#160;Configurator&#160;.............................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">5.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">EB&#160;tresos™&#160;......................................................................................................&#160;19&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">Setting&#160;up&#160;a new&#160;Configuration Project&#160;............................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#20">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#20">Project&#160;Details&#160;..................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#21">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#21">Selection of&#160;components&#160;..................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Creation&#160;of&#160;importers&#160;and exporters&#160;.................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Configure&#160;the&#160;MCAL&#160;components&#160;....................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Generation&#160;of&#160;the&#160;3rd party&#160;MCAL&#160;....................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Configuration hints&#160;for&#160;parallel&#160;usage&#160;of&#160;DaVinci&#160;Configurator&#160;and&#160;EB&#160;<br/>tresos™&#160;...........................................................................................................&#160;23&#160;<br/>5.3.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Vector&#160;DaVinci&#160;Configurator&#160;5&#160;..........................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">EB&#160;tresos™&#160;......................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25"><b>Restrictions&#160;.................................................................................................................&#160;25</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25">UNC&#160;path usage&#160;..............................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26"><b>Known&#160;Issues&#160;.............................................................................................................&#160;26</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">Long&#160;path&#160;names&#160;.............................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">Missing&#160;configuration items&#160;within imported&#160;configuration&#160;................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7.3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">Configuration Export&#160;with EB&#160;tresos™&#160;Version&#160;13.0.0&#160;......................................&#160;26&#160;</a><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-5_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#27">7.4&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#27">Error&#160;messages&#160;regarding&#160;CommonPublishedInformation&#160;with EB&#160;tresos™&#160;....&#160;27&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#28"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#28"><b>Frequently&#160;Asked&#160;Questions&#160;.....................................................................................&#160;28</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30"><b>9</b>&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;30</b>&#160;<br/>9.1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30">Glossary&#160;..........................................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30">9.2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30">Abbreviations&#160;...................................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#31"><b>10</b>&#160;&#160;<b>Contact&#160;........................................................................................................................&#160;31</b>&#160;<br/></a>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-6_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#16">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#16">Configuration workflow&#160;–&#160;Mixed&#160;configuration&#160;tool&#160;usage&#160;..........................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#20">Figure&#160;5-1&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#20">New&#160;Configuration Project&#160;........................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#21">Figure&#160;5-2&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#21">Configuration Project&#160;Data&#160;........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Figure&#160;5-3&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Component&#160;Configurations&#160;.......................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Figure&#160;5-4&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Create an&#160;exporter&#160;(step&#160;1)&#160;.......................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Figure&#160;5-5&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">Create an&#160;exporter&#160;(step&#160;2&#160;–&#160;AUTOSAR&#160;options)&#160;......................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Figure&#160;5-6&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Generate Button&#160;.......................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Figure&#160;5-7&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">DEM&#160;Path&#160;using&#160;DaVinci&#160;Configurator&#160;5&#160;...................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Figure&#160;5-8&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">Settings&#160;within DaVinci&#160;Configurator&#160;5&#160;Pro................................................&#160;23&#160;</a><br/>
+<a href="file:///D:/usr/development/Products/BSW/MICROSAR3/TechRefs/MSR_TechRef_3rdPartyMCAL_Integration/base/Doc_TechRef/trunk/TechnicalReference_3rdParty-MCAL-Integration.docm%23_Toc462741220">Figure&#160;5-9&#160;</a><br/>
+<a href="file:///D:/usr/development/Products/BSW/MICROSAR3/TechRefs/MSR_TechRef_3rdPartyMCAL_Integration/base/Doc_TechRef/trunk/TechnicalReference_3rdParty-MCAL-Integration.docm%23_Toc462741220">DEM-Path&#160;in the&#160;Outline&#160;window&#160;of&#160;tresos™&#160;............................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">Figure&#160;5-10&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">DEM-Path&#160;within tresos™&#160;.........................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">Figure&#160;5-11&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">Settings&#160;for&#160;DEM&#160;within tresos™&#160;..............................................................&#160;24&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">Guidance&#160;for&#160;single&#160;configuration&#160;tool&#160;usage&#160;............................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#17">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#17">Guidance&#160;for&#160;mixed&#160;configuration&#160;tool&#160;mode&#160;.............................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#18">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#18">Guidance&#160;for&#160;split&#160;configuration&#160;tool&#160;usage&#160;...............................................&#160;18&#160;</a><br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-7_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>1&#160;&#160;Purpose&#160;of&#160;the&#160;document&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;supports&#160;&#160;the&#160;&#160;user&#160;&#160;by&#160;&#160;launching&#160;&#160;the&#160;&#160;delivery,&#160;&#160;setting&#160;&#160;up&#160;&#160;a&#160;&#160;project&#160;&#160;and&#160;<br/>serving&#160;&#160;the&#160;&#160;tooling-&#160;&#160;and&#160;&#160;configuration-based&#160;&#160;interfaces&#160;&#160;between&#160;&#160;the&#160;&#160;Vector&#160;&#160;MICROSAR&#160;<br/>BSW&#160;and&#160;the&#160;3rd&#160;party&#160;MCAL.&#160;<br/>The&#160;term&#160;“tooling”&#160;means&#160;Vector&#160;DaVinci&#160;Configurator&#160;on&#160;the&#160;one&#160;hand&#160;and&#160;a&#160;third&#160;party&#160;<br/>configuration&#160;and&#160;generation&#160;framework&#160;(EB&#160;&#160;tresos™,&#160;&#160;KPIT&#160;ECU&#160;Spectrum™&#160;…)&#160;on&#160;the&#160;<br/>other.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-8_2.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+The&#160;&#160;<i>MICROSAR&#160;&#160;MCAL&#160;&#160;Integration&#160;&#160;Package</i>&#160;&#160;covers&#160;&#160;the&#160;&#160;integration&#160;&#160;of&#160;&#160;a&#160;&#160;<i>3rd&#160;&#160;party&#160;&#160;MCAL</i>&#160;<br/>package&#160;into&#160;the&#160;Vector&#160;MICROSAR&#160;BSW&#160;stack.&#160;As&#160;part&#160;of&#160;this,&#160;Vector&#160;performs&#160;a&#160;setup&#160;<br/>of&#160;&#160;the&#160;&#160;MCAL&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;&#160;customer&#160;or&#160;&#160;the&#160;&#160;semiconductor&#160;&#160;vendor&#160;&#160;and&#160;&#160;supplements&#160;&#160;it&#160;<br/>with&#160;items&#160;needed&#160;for the&#160;integration&#160;with&#160;the&#160;MICROSAR&#160;BSW.&#160;<br/>Typically&#160;&#160;the&#160;&#160;semiconductor&#160;&#160;vendor&#160;&#160;delivers&#160;&#160;the&#160;&#160;MCAL&#160;&#160;with&#160;&#160;its&#160;&#160;own&#160;&#160;configuration&#160;&#160;and&#160;<br/>generation&#160;&#160;tool&#160;&#160;chain.&#160;&#160;Vector&#160;&#160;provides&#160;&#160;solutions&#160;&#160;to&#160;&#160;deal&#160;&#160;with&#160;&#160;the&#160;&#160;dependencies&#160;&#160;and&#160;<br/>interfaces&#160;on&#160;embedded&#160;and&#160;on&#160;configuration&#160;level&#160;between&#160;the&#160;AUTOSAR&#160;BSW&#160;and&#160;the&#160;<br/>MCAL&#160;&#160;components&#160;&#160;(with&#160;&#160;AUTOSAR4.0.3&#160;&#160;these&#160;&#160;configuration&#160;&#160;level&#160;&#160;based&#160;&#160;interfaces&#160;&#160;are&#160;<br/>about&#160;10&#160;parameters).&#160;<br/>The&#160;&#160;following&#160;&#160;use&#160;&#160;cases&#160;&#160;and&#160;&#160;corresponding&#160;&#160;workflows&#160;&#160;are&#160;&#160;explained&#160;&#160;and&#160;&#160;illustrated&#160;&#160;in&#160;<br/>detail&#160;later on:&#160;<br/>
+1.&#160;&#160;<i>Single&#160;configuration&#160;tool&#160;usage</i>:&#160;Usage&#160;of&#160;the&#160;Vector DaVinci Configurator as&#160;exclusive&#160;<br/>
+configuration&#160;tool&#160;for both&#160;the&#160;MICROSAR&#160;BSW&#160;and&#160;the&#160;3rd&#160;party&#160;MCAL.&#160;<br/>
+2.&#160;&#160;<i>Mixed&#160;configuration&#160;tool&#160;usage</i>:&#160;Parallel and&#160;synchronized&#160;usage&#160;of&#160;the&#160;DaVinci&#160;<br/>
+Configurator and&#160;a&#160;3rd&#160;party&#160;MCAL&#160;configuration&#160;tool.&#160;<br/>
+3.&#160;&#160;<i>Split&#160;configuration&#160;tool&#160;usage</i>:&#160;Split&#160;configuration&#160;and&#160;code&#160;generation&#160;using&#160;DaVinci&#160;<br/>
+Configurator&#160;for&#160;the&#160;configuration/generation&#160;of&#160;the&#160;MICROSAR&#160;BSW&#160;and&#160;the&#160;3rd&#160;<br/>party&#160;tool&#160;for&#160;configuration/generation&#160;of&#160;the&#160;MCAL.&#160;<br/>
+In&#160;principal&#160;all&#160;three&#160;use&#160;cases&#160;are&#160;supported&#160;and&#160;the&#160;decision&#160;which&#160;one&#160;is&#160;used&#160;depends&#160;<br/>on&#160;&#160;user&#160;&#160;requirements&#160;&#160;as&#160;&#160;well&#160;&#160;as&#160;&#160;on&#160;&#160;the&#160;&#160;capabilities&#160;&#160;of&#160;&#160;the&#160;&#160;integrated&#160;&#160;MCAL.&#160;&#160;Detailed&#160;<br/>decision&#160;guidance&#160;and&#160;hints will be&#160;given&#160;in&#160;this document.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Many&#160;items&#160;described within&#160;this&#160;document&#160;are&#160;AUTOSAR&#160;release independent.&#160;<br/>
+&#160;&#160;Wherever&#160;necessary&#160;we will&#160;add a&#160;hint&#160;when there is a&#160;deviation within the workflow&#160;or&#160;<br/>
+any&#160;other&#160;topic&#160;from&#160;AUTOSAR4 to&#160;AUTOSAR3.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Responsibility&#160;</b><br/>
+Vector&#160;does&#160;not&#160;take&#160;over any&#160;responsibility&#160;for the&#160;usage&#160;and&#160;functionality&#160;of&#160;the&#160;<br/>integrated&#160;3rd&#160;party&#160;components.&#160;The&#160;<i>MCAL&#160;integration</i>&#160;into&#160;the&#160;MICROSAR SIP&#160;does not&#160;<br/>include&#160;a&#160;full&#160;functional&#160;test&#160;for the&#160;3rd&#160;party&#160;components.&#160;It&#160;remains&#160;the&#160;responsibility&#160;of&#160;<br/>the&#160;customer to&#160;ensure&#160;freeness of&#160;defect&#160;and&#160;shortcomings as well&#160;as&#160;functional&#160;<br/>completeness&#160;of&#160;the&#160;3rd&#160;party&#160;components.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-9_2.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Support&#160;requests&#160;</b><br/>
+Vector will support you&#160;in&#160;all&#160;aspects&#160;of&#160;the&#160;<i>MCAL&#160;integration</i>&#160;into&#160;your MICROSAR&#160;SIP.&#160;In&#160;<br/>case&#160;of&#160;questions or&#160;problems please&#160;get&#160;in&#160;touch&#160;with&#160;your MICROSAR contact&#160;(e.g.&#160;as&#160;<br/>defined&#160;in&#160;the&#160;delivery&#160;description&#160;that&#160;is part&#160;of&#160;your SIP).&#160;<br/>Since&#160;Vector is not&#160;the&#160;vendor of&#160;the&#160;integrated&#160;3rd&#160;party&#160;components such&#160;support&#160;<br/>requests&#160;shall&#160;be&#160;directed&#160;to&#160;the&#160;3rd&#160;party&#160;software vendor as&#160;they&#160;can&#160;provide&#160;you&#160;with&#160;<br/>first-hand&#160;information&#160;and&#160;support.&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>Mix&#160;between&#160;AUTOSAR&#160;specification versions&#160;</b><br/>
+Sometimes&#160;it is&#160;necessary&#160;that&#160;there is&#160;a&#160;mixture of&#160;components&#160;released&#160;for different&#160;<br/>AUTOSAR versions.&#160;Most&#160;common&#160;case&#160;of&#160;mixture is&#160;the&#160;use&#160;of&#160;AUTOSAR 3.x&#160;related&#160;<br/>BSW&#160;(because&#160;OEMs&#160;have&#160;fixed&#160;their&#160;platform&#160;SW)&#160;with&#160;AUTOSAR4.0.x&#160;related&#160;MCALs.&#160;<br/>This is&#160;based&#160;on&#160;the&#160;fact&#160;that&#160;there are&#160;continuously&#160;new&#160;HW&#160;platforms available&#160;through&#160;<br/>the&#160;semiconductor vendors but&#160;not&#160;all&#160;devices&#160;will be&#160;supported&#160;with&#160;ASR4-&#160;as well&#160;as&#160;<br/>ASR3-based&#160;MCALs.&#160;In&#160;future there will be&#160;also&#160;the&#160;situation&#160;of&#160;mixture of&#160;AUTOSAR4.x&#160;<br/>based&#160;BSW&#160;with&#160;AUTOSAR3.x&#160;based&#160;MCALs&#160;(or also&#160;AUTOSAR4.x&#160;with&#160;AUTOSAR4.0.x&#160;<br/>MCAL&#160;to&#160;BSW&#160;or&#160;vice&#160;versa).&#160;This is due&#160;to&#160;some&#160;OEM&#160;decisions&#160;to&#160;start&#160;with&#160;<br/>AUTOSAR4.x&#160;but&#160;willing&#160;to&#160;use&#160;some&#160;older&#160;microcontroller devices.&#160;<br/>AUTOSAR3.x&#160;and&#160;AUTOSAR4.x&#160;based&#160;SW&#160;in&#160;general is&#160;not&#160;directly&#160;compatible.&#160;<br/>Nevertheless&#160;Vector supports you&#160;to&#160;be&#160;able&#160;to&#160;mix&#160;those&#160;components.&#160;There&#160;are several&#160;<br/>measures&#160;to&#160;take&#160;and&#160;Vector provides&#160;a&#160;solution&#160;for this with&#160;the&#160;term&#160;<i>MCAL&#160;Integration&#160;<br/>Package&#160;(mixed&#160;ASR)</i>.&#160;There are&#160;some&#160;wrappers (on&#160;embedded&#160;as&#160;well&#160;as on&#160;<br/>configuration&#160;side) that&#160;are part of&#160;your SIP.&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Currently&#160;Vector&#160;supports&#160;mixing&#160;of&#160;AUTOSAR3.x&#160;related&#160;BSW&#160;with&#160;MCALs&#160;up&#160;to&#160;<br/>
+&#160;&#160;AUTOSAR4.0.3 but&#160;no&#160;higher&#160;releases.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-10_2.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>3&#160;&#160;First&#160;Steps&#160;</b><br/>
+During&#160;<i>MCAL&#160;integration</i>&#160;at&#160;Vector&#160;several&#160;supplements&#160;have&#160;been&#160;created&#160;and&#160;integrated&#160;<br/>into&#160;your delivery.&#160;A&#160;short overview&#160;of&#160;contributed&#160;parts shall&#160;be&#160;given.&#160;<br/>
+<b>3.1&#160;</b><br/>
+<b>Delivery&#160;structure&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;delivery&#160;structure&#160;may&#160;vary&#160;in few&#160;elements.&#160;The&#160;following&#160;description&#160;is&#160;meant&#160;to&#160;<br/>
+&#160;&#160;be&#160;a&#160;general&#160;one.&#160;Single&#160;artefacts&#160;may&#160;be&#160;located&#160;slightly&#160;different.&#160;This&#160;depends&#160;on&#160;<br/>
+evolving&#160;our&#160;MICROSAR&#160;BSW&#160;product&#160;as&#160;well&#160;as differentiation&#160;between used&#160;tooling&#160;<br/>(with&#160;AUTOSAR3 DaVinci&#160;Configurator&#160;4&#160;is&#160;used&#160;which relies on&#160;bit&#160;different&#160;folders&#160;as&#160;<br/>DaVinci&#160;Configurator&#160;5&#160;Vectors&#160;solution&#160;for&#160;AUTOSAR4 based&#160;product).&#160;<br/>Further&#160;details,&#160;e.g.&#160;about&#160;delivery&#160;structure,&#160;can&#160;be&#160;seen in<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">&#160;[5].</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;following&#160;parts&#160;of&#160;the&#160;delivery&#160;(MICROSAR&#160;SIP)&#160;are&#160;relevant&#160;for&#160;the&#160;successful&#160;<i>MCAL&#160;<br/>integration&#160;(based&#160;on&#160;an&#160;AUTOSAR4&#160;BSW&#160;SIP)</i>:&#160;<br/>
+<b>&gt;&#160;&#160;</b>BSW\&lt;MCAL_µC&gt;:&#160;&#160;Contains&#160;the&#160;makefiles&#160;(AUTOSAR makefiles) for all&#160;3rd&#160;party&#160;<br/>
+MCAL&#160;components&#160;(typically&#160;all&#160;MCAL&#160;components&#160;are&#160;merged&#160;into&#160;1&#160;file).&#160;<br/>
+<b>&gt;&#160;&#160;</b>BSWMD\&lt;MCAL_µC&gt;:&#160;&#160;Contains&#160;configuration&#160;items&#160;for integration&#160;into&#160;the&#160;DaVinci&#160;<br/>
+Configurator.&#160;After&#160;execution&#160;of&#160;steps&#160;described&#160;unde<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">r&#160;3.2&#160;</a>the&#160;basic&#160;software definition&#160;<br/>files&#160;(VSMD)&#160;<br/>
+<b>&gt;&#160;&#160;</b>DaVinciConfigurator\Generator\&lt;MCAL_µC&gt;:&#160;&#160;&#160;Contains&#160;configuration&#160;items&#160;<br/>
+for integration&#160;into&#160;the&#160;DaVinci&#160;Configurator&#160;e.g.&#160;XML-preparation&#160;files as well&#160;as&#160;files&#160;<br/>containing&#160;the&#160;commands&#160;for execution&#160;of&#160;the&#160;3rd&#160;party&#160;code&#160;generator plus&#160;optional&#160;<br/>convenience&#160;features&#160;like&#160;registration&#160;of&#160;Init-APIs&#160;towards&#160;the&#160;ECUM&#160;component&#160;<br/>recommended&#160;configurations&#160;etc.&#160;<br/>
+<b>&gt;&#160;&#160;</b>ThirdParty\&lt;MCAL_µC&gt;\Supply:&#160;&#160;Contains&#160;or currently&#160;must&#160;contain&#160;3rd&#160;party&#160;<br/>
+MCAL&#160;and&#160;the&#160;tooling&#160;provided&#160;along&#160;with.&#160;The&#160;structure is&#160;defined&#160;by&#160;the&#160;MCAL&#160;<br/>supplier.&#160;Typically&#160;the&#160;supply&#160;folder contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>MCAL&#160;implementation&#160;(C-&#160;and&#160;H&#160;files)&#160;<br/>
+<b>&gt;&#160;&#160;</b>BSWMD description&#160;files according&#160;to&#160;AUTOSAR&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Tooling&#160;for&#160;MCAL&#160;configuration&#160;and&#160;generation&#160;<br/>
+<b>&gt;&#160;&#160;</b>MCAL&#160;related&#160;documentation&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-11_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-11_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-11_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-11_4.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Your&#160;delivery&#160;(SIP)&#160;may&#160;not&#160;finally&#160;contain&#160;the&#160;integrated&#160;MCAL&#160;because&#160;of&#160;several&#160;<br/>
+<b>&#160;&#160;</b>reasons&#160;(license etc.).&#160;Currently&#160;it&#160;is&#160;recommended&#160;that&#160;the&#160;MCAL&#160;and its&#160;generation&#160;<br/>
+tooling,&#160;to&#160;be&#160;used with Vectors&#160;SIP,&#160;is&#160;directly&#160;installed&#160;into&#160;this&#160;above&#160;mentioned&#160;<br/>folder&#160;ThirdParty\&lt;MCAL_µC&gt;\Supply&#160;with exactly&#160;the&#160;default&#160;name&#160;of&#160;your&#160;<br/>MCALs supplier!&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Depending&#160;on&#160;the&#160;deployment&#160;of&#160;your&#160;MCAL&#160;supplier&#160;(keyword:&#160;1 package&#160;for&#160;the&#160;<br/>
+&#160;&#160;whole MCAL,&#160;several&#160;packages&#160;for&#160;single&#160;functionalities like basic&#160;IO,&#160;memory,&#160;<br/>
+communication)&#160;you&#160;will&#160;have to install&#160;1&#160;or&#160;more&#160;packages&#160;into&#160;the&#160;Supply&#160;folder&#160;of&#160;<br/>your&#160;SIP.&#160;<br/>Example with MCAL&#160;from&#160;3rd&#160;party&#160;MCAL&#160;of&#160;Infineon:&#160;<br/>ThirdParty\&lt;MCAL_µC&gt;\Supply&#160;<br/>.\MC-ISAR_AS4XX_AURIX_TC27X_CA_PB_BASE_V100&#160;<br/>.\MC-ISAR_AS4XX_AURIX_TC27X_CA_PB_MEM_V100&#160;<br/>.\Tresos&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/><b>&gt;&#160;&#160;</b>ThirdParty\&lt;MCAL_µC&gt;\VectorIntegration:&#160;&#160;Contains&#160;tools&#160;which&#160;supports&#160;<br/>
+the&#160;user during&#160;project&#160;setup&#160;(refer to<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">&#160;3.2)</a>&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Starting up&#160;</b><br/>
+There are&#160;3&#160;possible&#160;scenarios&#160;for your SIP&#160;which&#160;will be&#160;explained&#160;in&#160;detail.&#160;<br/>
+<b>3.2.1&#160;</b><br/>
+<b>MCAL delivered&#160;within Vector SIP&#160;</b><br/>
+To&#160;&#160;figure&#160;&#160;out&#160;&#160;if&#160;&#160;this&#160;&#160;scenario&#160;&#160;is&#160;&#160;applied&#160;&#160;with&#160;&#160;your&#160;&#160;SIP&#160;&#160;just&#160;&#160;have&#160;&#160;a&#160;&#160;look&#160;&#160;into&#160;&#160;the&#160;&#160;above&#160;<br/>mentioned&#160;folders.&#160;When&#160;they&#160;are&#160;&#160;existent&#160;&#160;and&#160;contain&#160;&#160;the&#160;needed&#160;files&#160;(e.g.&#160;&#160;embedded&#160;<br/>source&#160;code,&#160;AUTOSAR description&#160;files etc.) you&#160;do&#160;not&#160;have&#160;to&#160;do&#160;any&#160;other&#160;preparation.&#160;<br/>
+<b>3.2.2&#160;</b><br/>
+<b>MCAL not&#160;contained within&#160;Vector&#160;SIP&#160;</b><br/>
+With&#160;this scenario&#160;you&#160;have&#160;to&#160;do&#160;some&#160;preparations,&#160;e.g.&#160;install&#160;the&#160;MCAL&#160;etc.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>In order&#160;to&#160;activate&#160;the&#160;MCAL&#160;and&#160;to use&#160;the&#160;workflows&#160;described&#160;later&#160;on&#160;some&#160;<br/>
+<b>&#160;&#160;</b>adaptions&#160;have to&#160;be&#160;made&#160;on&#160;MCAL&#160;packages.&#160;<br/>
+To&#160;ease&#160;this&#160;procedure Vector&#160;provides&#160;a&#160;tool&#160;to execute these&#160;steps&#160;automatically.&#160;<br/>This&#160;feature also&#160;supports&#160;the&#160;user&#160;during MCAL&#160;package&#160;updates&#160;received&#160;from&#160;the&#160;<br/>MCAL&#160;manufacturer&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-12_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-12_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-12_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-12_4.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Please consider&#160;that&#160;the&#160;different&#160;semiconductor&#160;vendors&#160;may&#160;provide&#160;several&#160;<br/>
+&#160;&#160;packages.&#160;Sometimes&#160;it&#160;might&#160;be&#160;necessary&#160;to&#160;perform&#160;merge actions&#160;by&#160;hand&#160;before&#160;<br/>
+above mentioned&#160;tool&#160;can be&#160;performed.&#160;For&#160;specific&#160;information&#160;please&#160;refer&#160;to&#160;the&#160;<br/>document<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">&#160;[6].</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Practical&#160;Procedure&#160;<br/></b>Please start&#160;the&#160;batch&#160;file located&#160;here:&#160;<br/>
+&#160;&#160;ThirdParty\&lt;MCAL_µC&gt;\VectorIntegration\Script_MCAL_Prepare.bat&#160;<br/>
+with the&#160;option&#160;--prepare.&#160;<br/>If&#160;you&#160;are&#160;facing&#160;problems&#160;please&#160;refer&#160;to chapter<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25">&#160;6&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>For&#160;compatibility&#160;reasons&#160;the&#160;Script_MCAL_Prepare.bat&#160;is&#160;taken&#160;over&#160;but&#160;currently&#160;<br/>
+&#160;&#160;does nothing else than&#160;calling&#160;a&#160;GUI&#160;tooling&#160;named&#160;<i>3rd&#160;party&#160;MCAL&#160;Integration Helper</i>.&#160;<br/>
+This&#160;tooling&#160;asks&#160;you&#160;for&#160;some&#160;details&#160;like&#160;the&#160;location the&#160;MCAL&#160;is&#160;currently&#160;installed&#160;<br/>in.&#160;It&#160;also&#160;double checks&#160;existence of&#160;the&#160;MCAL&#160;(e.g.&#160;for&#160;update use&#160;case&#160;etc.).&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>The&#160;tooling&#160;processes&#160;the&#160;following&#160;principal steps:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Prepare MCAL&#160;configuration&#160;tool by&#160;copying&#160;of&#160;plugins&#160;or similar steps&#160;<br/>
+<b>&gt;&#160;&#160;</b>Delete/Rename&#160;MCAL&#160;specifics like&#160;Compiler_cfg.h&#160;and&#160;MemMap.h&#160;within&#160;include&#160;<br/>
+paths&#160;(as&#160;those&#160;files are&#160;already&#160;contained&#160;within&#160;the&#160;Vector&#160;SIP)&#160;<br/>
+<b>&gt;&#160;&#160;</b>Copy&#160;(maybe&#160;rename&#160;of)&#160;BSWMD&#160;files&#160;from&#160;a&#160;location&#160;within&#160;the&#160;3rd&#160;party&#160;folder&#160;<br/>
+structure&#160;for&#160;one&#160;specific derivative&#160;to&#160;the&#160;location&#160;the&#160;Vector tooling&#160;is expecting&#160;it.&#160;If&#160;<br/>needed&#160;you&#160;will be&#160;asked&#160;which&#160;derivative&#160;shall&#160;be&#160;taken.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Adaptions&#160;on&#160;certain&#160;artefacts&#160;created&#160;and&#160;delivered&#160;by&#160;Vector to&#160;integrate&#160;the&#160;MCAL&#160;<br/>
+on&#160;several levels (e.g.&#160;Makefiles,&#160;Tooling-interfaces)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-13_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-13_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-13_4.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Expert&#160;Knowledge&#160;<br/></b>The&#160;user&#160;may&#160;have the&#160;requirement&#160;to&#160;process&#160;all&#160;within an&#160;automated&#160;testsuite,&#160;which&#160;<br/>
+&#160;&#160;results&#160;in a&#160;so&#160;called&#160;non-interactive mode of&#160;the&#160;GUI&#160;tooling.&#160;Non-interactive means&#160;<br/>
+that&#160;the&#160;tooling&#160;does&#160;not&#160;require user&#160;inputs&#160;whilst&#160;showing&#160;up&#160;the&#160;GUI.&#160;<br/>This&#160;requires&#160;that&#160;the&#160;GUI&#160;inputs&#160;are&#160;handed&#160;over&#160;via the&#160;command line&#160;interface.&#160;<br/>Detailed&#160;description is&#160;included&#160;within the&#160;Script_MCAL_Prepare.bat.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>3.2.3&#160;</b><br/>
+<b>MCAL Update needed&#160;</b><br/>
+Usually&#160;&#160;within&#160;&#160;your&#160;&#160;development&#160;&#160;phase&#160;&#160;there&#160;&#160;will&#160;&#160;be&#160;&#160;updates&#160;&#160;of&#160;&#160;your&#160;&#160;3rd&#160;&#160;party&#160;&#160;MCAL.&#160;<br/>Vector&#160;&#160;supports&#160;&#160;you&#160;&#160;for&#160;&#160;this&#160;&#160;use&#160;&#160;case&#160;&#160;and&#160;&#160;does&#160;&#160;some&#160;&#160;preparations&#160;&#160;within&#160;&#160;the&#160;&#160;MCAL&#160;<br/>Integration&#160;Package&#160;phase.&#160;<br/>When&#160;you&#160;are&#160;receiving&#160;an&#160;update&#160;of&#160;the&#160;MCAL&#160;please&#160;clean&#160;up&#160;the&#160;MCAL&#160;Integration.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Practical&#160;Procedure&#160;<br/></b>Execute the&#160;Script_MCAL_Prepare.bat&#160;with the&#160;option&#160;--undo.&#160;<br/>
+&#160;&#160;Install&#160;the&#160;Update of&#160;the&#160;MCAL&#160;and execute&#160;the&#160;Script_MCAL_Prepare.bat&#160;with&#160;<br/>
+option&#160;--prepare&#160;again.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Due&#160;to&#160;the&#160;fact&#160;that&#160;the&#160;update&#160;process&#160;is&#160;quite&#160;supplier&#160;specific&#160;please&#160;refer&#160;to your&#160;<br/>
+<b>&#160;&#160;</b>provide<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">d&#160;[6].</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-14_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-14_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-14_4.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>4&#160;&#160;Workflow&#160;</b><br/>
+As&#160;&#160;mentioned&#160;&#160;in&#160;&#160;the&#160;&#160;introduction&#160;&#160;there&#160;&#160;are&#160;&#160;three&#160;&#160;reasonable&#160;&#160;workflows&#160;&#160;the&#160;&#160;user&#160;&#160;can&#160;<br/>choose&#160;&#160;from.&#160;&#160;Which&#160;&#160;one&#160;&#160;leads&#160;&#160;to&#160;&#160;the&#160;&#160;highest&#160;&#160;benefit-cost&#160;&#160;ratio&#160;&#160;depends&#160;&#160;on&#160;&#160;user&#160;<br/>requirements&#160;/&#160;preference&#160;on&#160;the&#160;one&#160;hand&#160;and&#160;on&#160;the&#160;level&#160;auf&#160;AUTOSAR&#160;conformance&#160;<br/>of&#160;&#160;the&#160;&#160;MCAL&#160;&#160;on&#160;&#160;the&#160;&#160;other&#160;&#160;hand.&#160;&#160;In&#160;&#160;the&#160;&#160;following&#160;&#160;all&#160;&#160;three&#160;&#160;workflows&#160;&#160;are&#160;&#160;introduced&#160;&#160;and&#160;<br/>their&#160;corresponding&#160;prerequisites&#160;and&#160;advantages/disadvantages&#160;are&#160;listed&#160;for guidance.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Your&#160;SIP&#160;contains&#160;a Release&#160;Note<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">&#160;[6]&#160;</a>which describes&#160;the&#160;recommended&#160;/&#160;supported&#160;<br/>
+&#160;&#160;workflow.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Multimedia&#160;Link&#160;<br/></b>For&#160;the&#160;case&#160;that&#160;semiconductor&#160;supplies MCAL&#160;with EB&#160;tresos&#160;studio&#160;there is a&#160;video&#160;<br/>
+&#160;&#160;available&#160;which shows&#160;the&#160;MCAL&#160;integration&#160;as&#160;well&#160;as an&#160;exemplary&#160;workflow.&#160;We&#160;<br/>
+highly&#160;recommend&#160;having&#160;a look&#160;into&#160;this&#160;video&#160;for&#160;better&#160;understanding necessary&#160;<br/>inputs&#160;as&#160;well&#160;as interaction.&#160;<br/>Just&#160;have a&#160;look&#160;at<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">&#160;[7].</a>&#160;<br/>When you&#160;are&#160;not&#160;able&#160;to watch&#160;this&#160;video please&#160;get&#160;in contact&#160;with Vector&#160;delivery&#160;<br/>engineer&#160;to&#160;provide&#160;you&#160;an&#160;offline-version.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Due&#160;to&#160;the&#160;fact&#160;that&#160;following&#160;chapters&#160;only&#160;mention&#160;the&#160;term&#160;DaVinci&#160;Configurator&#160;<br/>
+&#160;&#160;some&#160;words&#160;upfront.&#160;<br/>
+You&#160;will&#160;(have to)&#160;use&#160;DaVinci&#160;Configurator&#160;4&#160;for&#160;AUTOSAR3 based&#160;MICROSAR&#160;<br/>product.&#160;With&#160;AUTOSAR4 based&#160;MICROSAR&#160;product&#160;you&#160;will&#160;have to use&#160;DaVinci&#160;<br/>Configurator&#160;5.&#160;<br/>For&#160;some&#160;special&#160;reasons&#160;you&#160;will&#160;get&#160;DaVinci&#160;Configurator&#160;5&#160;even&#160;if&#160;your&#160;delivery&#160;is&#160;<br/>based&#160;on&#160;MICROSAR3&#160;but&#160;this&#160;is&#160;not&#160;driven&#160;by&#160;topic&#160;MCAL&#160;but&#160;on&#160;some&#160;others&#160;and&#160;<br/>therefore&#160;not&#160;explained in&#160;further&#160;details.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Single&#160;configuration&#160;tool&#160;usage&#160;</b><br/>
+After&#160;&#160;execution&#160;&#160;of&#160;&#160;the&#160;first&#160;&#160;steps&#160;&#160;described&#160;&#160;<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">in&#160;&#160;3.2&#160;&#160;</a>the&#160;&#160;user&#160;&#160;is&#160;&#160;able&#160;&#160;to&#160;&#160;use&#160;&#160;Vector&#160;&#160;DaVinci&#160;<br/>Configurator&#160;as&#160;the&#160;exclusive&#160;configuration&#160;tool&#160;for&#160;both&#160;the&#160;MICROSAR&#160;BSW&#160;as&#160;well&#160;as&#160;<br/>the&#160;3rd&#160;party&#160;MCAL.&#160;The&#160;configuration&#160;of&#160;the&#160;3rd&#160;party&#160;components&#160;is&#160;based&#160;on&#160;the&#160;MCAL&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-15_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+AUTOSAR&#160;&#160;component&#160;&#160;definition&#160;&#160;files&#160;&#160;(BSWMD)&#160;&#160;which&#160;&#160;are&#160;&#160;(have&#160;&#160;to&#160;&#160;be)&#160;&#160;included&#160;&#160;in&#160;&#160;the&#160;<br/>original&#160;semiconductor vendor&#160;packages.&#160;<br/>You&#160;can&#160;activate/add&#160;the&#160;3rd&#160;party&#160;components&#160;to&#160;your&#160;configuration&#160;in&#160;the&#160;same&#160;way&#160;you&#160;<br/>would&#160;activate/add&#160;the&#160;MICROSAR&#160;BSW&#160;components.&#160;<br/>Vector&#160;has&#160;integrated&#160;the&#160;commands&#160;for&#160;the&#160;external&#160;code&#160;generators&#160;&#160;so&#160;that&#160;you&#160;will&#160;be&#160;<br/>able&#160;to&#160;start&#160;the&#160;MCAL&#160;code&#160;generation&#160;within&#160;the&#160;Configurator&#160;GUI&#160;by&#160;using&#160;this&#160;workflow.&#160;<br/>DaVinci&#160;&#160;Configurator&#160;&#160;is&#160;&#160;used&#160;&#160;to&#160;&#160;call&#160;&#160;the&#160;&#160;MCAL&#160;&#160;generator&#160;&#160;and&#160;&#160;also&#160;&#160;displays&#160;&#160;warnings,&#160;<br/>errors, and&#160;other information.&#160;&#160;<br/>
+&#160;<br/>
+<b>Prerequisite&#160;<br/></b>AUTOSAR&#160;component&#160;definition&#160;files provided by&#160;MCAL&#160;manufacturer&#160;must&#160;be&#160;completely&#160;<br/>AUTOSAR&#160;conform&#160;and&#160;consistent&#160;to&#160;possibly&#160;used proprietary&#160;file&#160;formats&#160;(used&#160;internally&#160;by&#160;<br/>the&#160;3rd&#160;party&#160;tool).&#160;<br/>
+<b>Advantages&#160;</b><br/>
+<b>Disadvantages&#160;</b><br/>
+Only&#160;one&#160;configuration&#160;tool&#160;and one&#160;<br/>
+No usage of&#160;convenience&#160;features&#160;which are&#160;<br/>
+configuration&#160;file&#160;to&#160;be&#160;used&#160;/&#160;no&#160;redundant&#160;data&#160;&#160;possibly&#160;provided by&#160;MCAL&#160;manufacturer&#160;but&#160;<br/>
+not&#160;transferred/modeled&#160;within the&#160;AUTOSAR&#160;<br/>component&#160;definition&#160;files&#160;<br/>
+All&#160;dependencies between&#160;BSW&#160;and&#160;MCAL&#160;<br/>
+&#160;<br/>
+components&#160;can&#160;be&#160;solved&#160;easily&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Guidance&#160;for&#160;single&#160;configuration&#160;tool&#160;usage&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Mixed configuration&#160;tool&#160;usage&#160;</b><br/>
+The&#160;&#160;configuration&#160;&#160;tooling&#160;&#160;respectively&#160;&#160;the&#160;&#160;internal&#160;&#160;(proprietary)&#160;&#160;description&#160;&#160;files&#160;&#160;of&#160;&#160;some&#160;<br/>3rd&#160;party&#160;MCAL&#160;contains&#160;internal&#160;logic&#160;which&#160;supports&#160;the&#160;user&#160;during&#160;configuration&#160;steps.&#160;<br/>Examples&#160;are&#160;<br/>
+<b>&gt;&#160;&#160;</b>Parameter&#160;A&#160;is&#160;only&#160;needed&#160;if&#160;Parameter&#160;B&#160;is&#160;set&#160;to&#160;value&#160;“X”&#160;<br/>
+<b>&gt;&#160;&#160;</b>Parameter C is&#160;calculated&#160;automatically&#160;based&#160;on&#160;A&#160;and&#160;B&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;component&#160;instantiation&#160;a&#160;list of&#160;containers is created&#160;automatically&#160;with&#160;<br/>
+reasonable&#160;and&#160;different&#160;values&#160;<br/>
+These&#160;&#160;mechanisms&#160;&#160;are&#160;&#160;not&#160;&#160;completely&#160;&#160;specified&#160;&#160;by&#160;&#160;the&#160;&#160;AUTOSAR&#160;&#160;standard&#160;&#160;and&#160;&#160;not&#160;<br/>always&#160;&#160;modeled&#160;&#160;correctly&#160;&#160;within&#160;&#160;the&#160;AUTOSAR&#160;&#160;component&#160;&#160;definition&#160;&#160;files&#160;&#160;provided.&#160;&#160;The&#160;<br/>fact&#160;is&#160;that&#160;they&#160;are&#160;not&#160;feasible&#160;useable&#160;outside&#160;the&#160;original&#160;MCAL&#160;configuration&#160;tool.&#160;As&#160;a&#160;<br/>result&#160;and&#160;depending&#160;on&#160;the&#160;level&#160;of&#160;feature&#160;convenience&#160;of&#160;the&#160;MCAL&#160;tool&#160;it&#160;is&#160;advisable&#160;<br/>to&#160;at&#160;least&#160;use&#160;it&#160;for the&#160;project&#160;setup&#160;as it&#160;will&#160;speed&#160;up&#160;the&#160;process&#160;in&#160;this&#160;phase.&#160;&#160;<br/>By&#160;doing&#160;so&#160;the&#160;user&#160;has&#160;to&#160;deal&#160;with&#160;two&#160;different&#160;tools&#160;during&#160;ECUC&#160;setup.&#160;But&#160;in&#160;a&#160;later&#160;<br/>phase&#160;&#160;it&#160;&#160;will&#160;&#160;be&#160;&#160;easier&#160;&#160;to&#160;&#160;use&#160;&#160;a&#160;&#160;<i>one&#160;&#160;tool&#160;&#160;solution</i>&#160;&#160;as&#160;described&#160;&#160;<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">in&#160;&#160;4.1.&#160;</a>Thus&#160;&#160;the&#160;user&#160;&#160;will&#160;<br/>have&#160;to&#160;deal&#160;with&#160;a&#160;tool&#160;transition.&#160;To&#160;ease&#160;this&#160;procedure&#160;Vector&#160;has&#160;introduced&#160;some&#160;tool&#160;<br/>features.&#160;<br/>The&#160;diagram&#160;below&#160;shows&#160;a&#160;workflow&#160;to&#160;use&#160;both&#160;the&#160;features&#160;of&#160;the&#160;MCAL&#160;tool&#160;and&#160;the&#160;<br/>convenience&#160;of&#160;a&#160;solution&#160;which&#160;is based&#160;on&#160;a&#160;single&#160;tool.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-16_2.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Configuration&#160;workflow&#160;–&#160;Mixed&#160;configuration&#160;tool&#160;usage&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-17_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-17_3.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>Prerequisite&#160;<br/></b>AUTOSAR&#160;component&#160;definition&#160;files provided by&#160;MCAL&#160;manufacturer&#160;must&#160;be&#160;completely&#160;<br/>AUTOSAR&#160;conform&#160;and&#160;as&#160;consistent&#160;as&#160;possible&#160;to&#160;used proprietary&#160;files&#160;<br/>
+<b>Advantages&#160;</b><br/>
+<b>Disadvantages&#160;</b><br/>
+Usage&#160;of&#160;convenience&#160;features&#160;of&#160;both&#160;tools&#160;<br/>
+Additional&#160;tool&#160;knowledge is needed&#160;<br/>
+Dependencies between&#160;BSW&#160;and&#160;MCAL&#160;<br/>
+Overhead&#160;due&#160;to&#160;export/import&#160;workflow&#160;&#160;<br/>
+components&#160;can&#160;be&#160;solved&#160;by&#160;data&#160;<br/>synchronization (export/import)&#160;<br/>Switch&#160;to&#160;single&#160;configuration tool&#160;and&#160;<br/>
+&#160;<br/>
+configuration&#160;file possible&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Guidance&#160;for&#160;mixed&#160;configuration&#160;tool&#160;mode&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Practical&#160;Procedure&#160;(startup)&#160;</b><br/>
+1.&#160;&#160;Create&#160;a&#160;DaVinci project&#160;<br/>
+&#160;<br/>
+2.&#160;&#160;Activate&#160;BSW&#160;components&#160;needed,&#160;but&#160;no&#160;MCAL&#160;components&#160;<br/>3.&#160;&#160;Create&#160;a&#160;project&#160;within&#160;the&#160;3rd&#160;party&#160;configuration&#160;tool (see<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">&#160;5.2)</a>&#160;<br/>4.&#160;&#160;Configure all&#160;MCAL&#160;components needed&#160;within&#160;the&#160;3rd&#160;party&#160;configuration&#160;<br/>
+tool&#160;<br/>
+5.&#160;&#160;Export&#160;all&#160;MCAL&#160;components&#160;from&#160;the&#160;3rd&#160;party&#160;tool to&#160;an&#160;AUTOSAR&#160;<br/>
+conform&#160;ECUC&#160;file&#160;&#160;<br/>
+6.&#160;&#160;Import&#160;this&#160;file&#160;in&#160;DaVinci Configurator&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>As&#160;marked&#160;in&#160;figure&#160;above,&#160;the&#160;loop or&#160;sometimes&#160;mentioned&#160;as&#160;round&#160;trip&#160;is&#160;generally&#160;<br/>
+&#160;&#160;supported.&#160;Precondition&#160;for&#160;a&#160;successful&#160;round&#160;trip is DaVinci&#160;Configurator&#160;5.10&#160;and&#160;<br/>
+above (this&#160;implies&#160;that&#160;with&#160;AUTOSAR3 based&#160;BSW&#160;and DaVinci&#160;Configurator&#160;4&#160;this&#160;<br/>scenario&#160;is&#160;not&#160;fully&#160;supported).&#160;<br/>Round&#160;trip&#160;workflow&#160;has&#160;been&#160;evaluated&#160;with several&#160;semiconductor&#160;vendors&#160;MCALs&#160;<br/>and in&#160;principal&#160;is&#160;working.&#160;<br/>Based on&#160;the&#160;semiconductors&#160;AUTOSAR&#160;compatibility&#160;there may&#160;raise some warnings&#160;<br/>or&#160;sometimes even&#160;single parameters&#160;may&#160;be&#160;reconfigured,&#160;based&#160;on&#160;insufficient&#160;<br/>importer&#160;functionality.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Split&#160;configuration&#160;tool&#160;usage&#160;</b><br/>
+This&#160;workflow&#160;is&#160;required&#160;if&#160;the&#160;third&#160;party&#160;configuration&#160;tool&#160;is&#160;not&#160;completely&#160;AUTOSAR&#160;<br/>compliant&#160;&#160;as&#160;&#160;it&#160;&#160;e.g.&#160;&#160;violates&#160;&#160;the&#160;&#160;AUTOSAR&#160;&#160;standard&#160;&#160;parameter&#160;&#160;definition&#160;&#160;or&#160;&#160;does&#160;&#160;not&#160;<br/>support a&#160;lossless ECUC&#160;roundtrip&#160;with&#160;DaVinci Configurator&#160;or other&#160;AUTOSAR&#160;tools.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-18_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+As&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;&#160;interfaces&#160;&#160;respectively&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;&#160;exchanged&#160;&#160;parameters&#160;&#160;between&#160;<br/>the&#160;AUTOSAR&#160;&#160;BSW&#160;and&#160;the&#160;&#160;MCAL&#160;&#160;components&#160;is&#160;&#160;comparatively&#160;&#160;small&#160;it&#160;may&#160;also&#160;be&#160;a&#160;<br/>solution&#160;&#160;to&#160;&#160;use&#160;&#160;both&#160;&#160;tools&#160;&#160;permanently&#160;&#160;in&#160;&#160;parallel.&#160;&#160;The&#160;&#160;implication&#160;&#160;is&#160;&#160;that&#160;&#160;the&#160;&#160;code&#160;<br/>generation&#160;will be&#160;triggered&#160;from&#160;the&#160;tool in&#160;which&#160;the&#160;configuration&#160;has been&#160;made.&#160;<br/>In&#160;&#160;order&#160;&#160;to&#160;&#160;integrate&#160;&#160;both&#160;&#160;parts&#160;&#160;on&#160;&#160;embedded&#160;&#160;side&#160;&#160;there&#160;&#160;is&#160;&#160;still&#160;&#160;the&#160;&#160;need&#160;&#160;to&#160;&#160;share&#160;&#160;some&#160;<br/>parameters&#160;&#160;between&#160;&#160;both&#160;&#160;configuration&#160;&#160;tools.&#160;&#160;This&#160;&#160;can&#160;&#160;either&#160;&#160;be&#160;&#160;achieved&#160;&#160;by&#160;&#160;manual&#160;<br/>replication&#160;&#160;(using&#160;&#160;configuration&#160;&#160;stubs,&#160;&#160;e.g.&#160;&#160;DEM&#160;&#160;stub&#160;&#160;of&#160;&#160;3rd&#160;&#160;party&#160;&#160;MCAL,&#160;&#160;MCU&#160;&#160;stub&#160;&#160;of&#160;<br/>Vector)&#160;or by&#160;using&#160;the&#160;import&#160;export&#160;mechanisms introduced&#160;in<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">&#160;4.2.</a>&#160;<br/>
+<b>Prerequisite&#160;<br/></b>AUTOSAR&#160;component&#160;definition&#160;files provided by&#160;MCAL&#160;manufacturer&#160;must&#160;be&#160;available but&#160;<br/>must&#160;be&#160;matching&#160;to proprietary&#160;formats&#160;only&#160;partly&#160;(at&#160;interfaces&#160;between&#160;BSW&#160;and&#160;MCAL).&#160;<br/>
+<b>Advantages&#160;</b><br/>
+<b>Disadvantages&#160;</b><br/>
+Relatively&#160;tolerant&#160;workflow&#160;in case&#160;that&#160;<br/>
+Dependencies between&#160;BSW&#160;and&#160;MCAL&#160;<br/>
+AUTOSAR&#160;component&#160;definition&#160;files&#160;and/or&#160;3rd&#160;&#160;components&#160;must&#160;be&#160;solved&#160;manually&#160;<br/>party&#160;tools&#160;are&#160;not&#160;completely&#160;AUTOSAR&#160;<br/>conform&#160;<br/>
+&#160;<br/>
+Additional&#160;tool&#160;knowledge is needed&#160;<br/>
+&#160;<br/>
+Overhead&#160;due&#160;to&#160;2&#160;tool&#160;workflow&#160;and&#160;<br/>redundant&#160;configuration&#160;data&#160;&#160;manual&#160;<br/>synchronization needed&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Guidance&#160;for&#160;split&#160;configuration&#160;tool&#160;usage&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-19_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-19_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-19_3.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>5&#160;&#160;Configuration&#160;tools&#160;</b><br/>
+In&#160;this chapter&#160;some&#160;hints&#160;for&#160;the&#160;configuration&#160;tools&#160;included&#160;in&#160;your package&#160;are&#160;given.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Most&#160;common&#160;tooling&#160;used&#160;by&#160;3rd&#160;party&#160;MCAL&#160;supplier&#160;is&#160;EB&#160;tresos™&#160;therefore&#160;the&#160;<br/>
+&#160;&#160;usage&#160;is&#160;explained extensively.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Vector&#160;DaVinci&#160;Configurator&#160;</b><br/>
+Use&#160;DaVinci Configurator to&#160;configure your MICROSAR&#160;BSW&#160;using&#160;a&#160;DPA&#160;project.&#160;<br/>Please&#160;&#160;refer&#160;&#160;to&#160;&#160;the&#160;&#160;startup&#160;&#160;manual&#160;&#160;included&#160;&#160;in&#160;&#160;the&#160;&#160;delivery.&#160;&#160;In&#160;&#160;addition&#160;&#160;the&#160;&#160;DaVinci&#160;<br/>Configurator provides&#160;user support via&#160;the&#160;help&#160;menu.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>EB&#160;tresos™&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Reference</b>&#160;<br/>Additional&#160;and useful&#160;information&#160;can&#160;be&#160;found&#160;h<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">ere&#160;[7].</a>&#160;<br/>
+&#160;&#160;With&#160;questions&#160;about&#160;tooling&#160;license&#160;(applicable until&#160;EB&#160;tresos&#160;16)&#160;additional&#160;<br/>
+information&#160;can&#160;be&#160;found&#160;ther<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#3">e&#160;[4].</a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>The&#160;program itself&#160;is located&#160;in&#160;the&#160;folder&#160;beneath:&#160;ThirdParty\&lt;MCAL_µC&gt;\Supply\&#160;<br/>
+To&#160;&#160;start&#160;&#160;the&#160;&#160;tool&#160;&#160;the&#160;&#160;user&#160;&#160;must&#160;&#160;execute&#160;&#160;tresos_gui.exe&#160;&#160;which&#160;&#160;can&#160;&#160;be&#160;&#160;found&#160;&#160;usually&#160;<br/>beneath&#160;&#160;Tresos\bin.&#160;&#160;Just&#160;&#160;to&#160;&#160;note,&#160;&#160;some&#160;&#160;3rd&#160;&#160;party&#160;&#160;MCAL&#160;&#160;suppliers&#160;&#160;also&#160;&#160;provide&#160;&#160;64bit&#160;<br/>versions of&#160;EB&#160;tresos™.&#160;<br/>A&#160;useful&#160;documentation&#160;when&#160;you&#160;are&#160;struggling&#160;with&#160;a&#160;task&#160;can&#160;be&#160;found&#160;within&#160;the&#160;tresos&#160;<br/>folder structure&#160;by&#160;searching&#160;for a&#160;document&#160;named&#160;“<i>Studio_documentation_users_guide</i>”.&#160;<br/>
+<b>5.2.1&#160;</b><br/>
+<b>Setting up a&#160;new&#160;Configuration Project&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>To&#160;create&#160;a&#160;new&#160;project&#160;the&#160;Project&#160;Wizard&#160;must&#160;be&#160;started&#160;by&#160;to&#160;selecting&#160;File&#160;&#160;New&#160;<br/>
+&#160;Configuration&#160;Project.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;project&#160;name&#160;as&#160;well&#160;as&#160;the&#160;workspace&#160;location&#160;plus&#160;the&#160;relevant&#160;AUTOSAR&#160;<br/>
+Release&#160;Version&#160;can&#160;now&#160;be&#160;chosen.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-20_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-20_2.jpg"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+&#160;<br/>
+Figure&#160;5-1&#160;&#160;New&#160;Configuration&#160;Project&#160;<br/>
+<b>&gt;&#160;&#160;</b>Hint:&#160;The&#160;workspace&#160;location&#160;can&#160;be&#160;chosen&#160;freely&#160;the&#160;path&#160;for code&#160;generation&#160;output&#160;<br/>
+can&#160;be&#160;set&#160;in&#160;the&#160;next&#160;step.&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>Project Details&#160;</b><br/>
+In&#160;the&#160;next&#160;step&#160;the&#160;wizard request&#160;the&#160;following&#160;data:&#160;<br/>
+<b>&gt;&#160;&#160;</b>ECU&#160;ID:&#160;fill in&#160;a&#160;symbolic name&#160;<br/>
+<b>&gt;&#160;&#160;</b>Target:&#160;Select&#160;your&#160;microcontroller&#160;target&#160;<br/>
+<b>&gt;&#160;&#160;</b>Generation&#160;Path:&#160;please&#160;choose&#160;the&#160;settings&#160;according&#160;to&#160;the&#160;settings&#160;within&#160;the&#160;<br/>
+DaVinci Configurator&#160;to&#160;keep&#160;consistency&#160;and&#160;avoid&#160;problems&#160;regarding&#160;make&#160;process&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;remaining&#160;choices&#160;can&#160;be&#160;selected&#160;such&#160;as in&#160;the&#160;figure&#160;below&#160;<br/>
+<b>&gt;&#160;&#160;</b>We&#160;recommend&#160;to&#160;activate&#160;the&#160;check&#160;box&#160;to&#160;‘Automatically&#160;add&#160;the&#160;minimum number&#160;<br/>
+of&#160;child&#160;elements&#160;in&#160;lists’&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-21_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-21_2.jpg"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+&#160;<br/>
+Figure&#160;5-2&#160;&#160;Configuration&#160;Project&#160;Data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Hint:&#160;Several project&#160;settings can&#160;be&#160;changed&#160;after creation&#160;of&#160;the&#160;project&#160;by&#160;editing&#160;<br/>
+the&#160;file&#160;preferences.xdm&#160;located&#160;within&#160;the&#160;created&#160;workspace&#160;folder; e.g.&#160;adapt&#160;the&#160;<br/>generation&#160;path&#160;by&#160;changing&#160;the&#160;default&#160;value&#160;‘output’&#160;to&#160;a&#160;relative&#160;or absolute&#160;path&#160;<br/>(&lt;d:var name=”GenerationPath”&#160;value=”output”/&gt;)&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>Selection of&#160;components&#160;</b><br/>
+Now&#160;&#160;choose&#160;&#160;the&#160;&#160;components,&#160;&#160;which&#160;&#160;should&#160;&#160;be&#160;&#160;added&#160;&#160;to&#160;&#160;the&#160;&#160;project.&#160;&#160;In&#160;&#160;general,&#160;&#160;every&#160;<br/>MCAL&#160;component&#160;should&#160;be&#160;selected.&#160;In&#160;that&#160;case,&#160;use&#160;STRG +&#160;A&#160;to&#160;select&#160;all&#160;and&#160;click on&#160;<br/>the&#160;tagged&#160;button.&#160;<br/>Attention:&#160;&#160;Some&#160;&#160;additional&#160;&#160;“dummy”&#160;&#160;components&#160;&#160;(stubs)&#160;&#160;might&#160;&#160;be&#160;&#160;necessary&#160;&#160;in&#160;&#160;order&#160;&#160;to&#160;<br/>configure&#160;the&#160;MCAL&#160;components&#160;e.g.&#160;Base,&#160;Resource,&#160;Dem&#160;or&#160;EcuM.&#160;Those&#160;components&#160;<br/>are&#160;&#160;only&#160;&#160;used&#160;&#160;to&#160;&#160;provide&#160;&#160;parameters&#160;&#160;and&#160;&#160;references&#160;&#160;needed&#160;&#160;by&#160;&#160;the&#160;&#160;MCAL&#160;&#160;components&#160;<br/>such&#160;as&#160;<i>Dem&#160;Events</i>&#160;and&#160;<i>EcuM&#160;run&#160;modes</i>,&#160;please&#160;refer to<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">&#160;5.3.</a>&#160;<br/>The&#160;window&#160;should&#160;now&#160;be&#160;similar to&#160;this:&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-22_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-22_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-22_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-22_4.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+&#160;<br/>
+Figure&#160;5-3&#160;&#160;Component&#160;Configurations&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>Creation of&#160;importers&#160;and&#160;exporters&#160;</b><br/>
+Now&#160;&#160;the&#160;&#160;user&#160;&#160;has&#160;&#160;the&#160;&#160;possibility&#160;&#160;to&#160;&#160;create&#160;&#160;importer&#160;&#160;and/or&#160;&#160;exporter&#160;&#160;to&#160;&#160;create&#160;&#160;a&#160;<br/>configuration&#160;&#160;file&#160;&#160;in&#160;&#160;an&#160;&#160;AUTOSAR&#160;&#160;standardized&#160;&#160;format&#160;&#160;out&#160;&#160;of&#160;&#160;the&#160;&#160;proprietary&#160;&#160;tresos™&#160;<br/>configuration&#160;&#160;files.&#160;&#160;This&#160;&#160;functionality&#160;&#160;is&#160;&#160;needed&#160;&#160;to&#160;&#160;enable&#160;&#160;the&#160;&#160;workflows&#160;&#160;described&#160;&#160;in&#160;<br/>chapter<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">&#160;4.2&#160;</a>and<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#17">&#160;0.&#160;</a>&#160;<br/>Please&#160;Click on&#160;+ to&#160;add&#160;an&#160;Im-/Exporter and&#160;use&#160;the&#160;following&#160;settings:&#160;<br/>
+&#160; &#160; &#160;<br/>
+&#160;<br/>
+Figure&#160;5-4&#160;&#160;Create&#160;an&#160;exporter&#160;(step&#160;1)&#160;<br/>Figure&#160;5-5&#160;&#160;Create&#160;an&#160;exporter&#160;(step&#160;2&#160;–&#160;AUTOSAR&#160;options)&#160;<br/>
+The&#160;importer can&#160;be&#160;configured&#160;in&#160;a&#160;similar manner.&#160;<br/>If&#160;you&#160;don’t&#160;create&#160;the&#160;im-/exporters&#160;during&#160;setup&#160;you&#160;can&#160;do&#160;this&#160;later&#160;by&#160;using&#160;the&#160;context&#160;<br/>menu&#160;on&#160;the&#160;corresponding&#160;project.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-23_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-23_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-23_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-23_4.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>Configure&#160;the&#160;MCAL&#160;components&#160;</b><br/>
+Now&#160;the&#160;wizard is&#160;finished&#160;and&#160;the&#160;MCAL&#160;itself&#160;can&#160;be&#160;configured.&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>&#160;&#160;Generation of&#160;the&#160;3rd&#160;party&#160;MCAL&#160;</b><br/>
+If&#160;everything&#160;is&#160;configured,&#160;click&#160;on&#160;the&#160;generation&#160;button.&#160;Tresos&#160;will&#160;now&#160;generate&#160;your&#160;<br/>project&#160;(note:&#160;there&#160;will&#160;be&#160;a&#160;validation&#160;phase&#160;triggered&#160;before&#160;to&#160;ensure&#160;that&#160;configuration&#160;<br/>is formal correct).&#160;<br/>
+&#160;<br/>
+Figure&#160;5-6&#160;&#160;Generate&#160;Button&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Configuration&#160;hints&#160;for&#160;parallel&#160;usage&#160;of&#160;DaVinci&#160;Configurator&#160;and&#160;EB&#160;<br/>tresos™&#160;</b><br/>
+One&#160;&#160;important&#160;&#160;thing&#160;&#160;to&#160;&#160;consider&#160;&#160;is&#160;&#160;that&#160;&#160;the&#160;&#160;configurations&#160;&#160;for&#160;&#160;Dem&#160;&#160;and&#160;&#160;EcuM&#160;&#160;must&#160;&#160;be&#160;<br/>consistent&#160;&#160;between&#160;&#160;DaVinci&#160;&#160;Configurator&#160;&#160;and&#160;&#160;tresos&#160;&#160;as&#160;&#160;these&#160;&#160;are&#160;&#160;interface&#160;&#160;components&#160;<br/>provided&#160;by&#160;Vector&#160;that&#160;also&#160;have&#160;impact&#160;on&#160;the&#160;3rd&#160;party&#160;software.&#160;Affected&#160;configuration&#160;<br/>entities&#160;<br/>
+are&#160;<br/>
+Dem/DemConfigSet/DemEventParameter&#160;<br/>
+and&#160;<br/>
+EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource.&#160;<br/>
+The&#160;following&#160;chapters&#160;handle&#160;the&#160;&#160;configuration&#160;&#160;direction&#160;from&#160;upper&#160;layer&#160;to&#160;lower&#160;layer&#160;<br/>like&#160;mentioned&#160;above,&#160;but&#160;please&#160;are&#160;aware&#160;that&#160;the&#160;direction&#160;might&#160;also&#160;be&#160;inverse,&#160;i.e.&#160;for&#160;<br/>configuration&#160;&#160;of&#160;&#160;<i>Dio&#160;&#160;Ports</i>,&#160;&#160;<i>Mcu&#160;&#160;ConfigSets</i>,&#160;&#160;<i>Mcu&#160;&#160;ClockReferences</i>&#160;&#160;or&#160;&#160;<i>Fee&#160;&#160;Blocks</i>.&#160;&#160;If&#160;&#160;you&#160;<br/>use&#160;the&#160;workflows described&#160;in<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">&#160;0&#160;</a>and<a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">&#160;4.2&#160;</a>this&#160;is done&#160;by&#160;export and&#160;import&#160;features.&#160;<br/>
+<b>5.3.1&#160;</b><br/>
+<b>Vector&#160;DaVinci&#160;Configurator 5&#160;</b><br/>
+You&#160;can&#160;find&#160;the&#160;configuration&#160;of&#160;e.g.&#160;DemEventParameter in&#160;the&#160;Basic Editor.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-7&#160;&#160;DEM&#160;Path&#160;using&#160;DaVinci&#160;Configurator&#160;5&#160;<br/>
+&#160;<br/>
+Figure&#160;5-8&#160;&#160;Settings&#160;within&#160;DaVinci&#160;Configurator&#160;5&#160;Pro&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-24_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-24_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-24_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-24_4.jpg"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>EB&#160;tresos™&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>One&#160;fast&#160;way&#160;to&#160;change&#160;the&#160;configuration&#160;for&#160;DEM in&#160;tresos™&#160;is with&#160;the&#160;Outline&#160;<br/>
+window.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>To&#160;do&#160;so&#160;you,&#160;double-click on&#160;DEM.&#160;Now,&#160;if&#160;you&#160;have&#160;Outline&#160;opened,&#160;you&#160;will see&#160;the&#160;<br/>
+folder structure&#160;of&#160;DEM.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Navigate&#160;to&#160;DemEventParameter_0,&#160;select&#160;the&#160;same&#160;Event ID&#160;and&#160;Event Kind&#160;<br/>
+as in&#160;the&#160;DaVinci Configurator Pro.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-10&#160;&#160;DEM-Path&#160;within&#160;tresos™&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-9&#160;&#160;DEM-Path&#160;in&#160;the&#160;Outline&#160;<br/>
+window&#160;of&#160;tresos™&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-11&#160;&#160;Settings&#160;for&#160;DEM&#160;within&#160;tresos™&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-25_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>6&#160;&#160;Restrictions&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>UNC path&#160;usage&#160;</b><br/>
+<i>3rd&#160;party&#160;MCAL&#160;Integration&#160;Helper</i>&#160;tool&#160;does&#160;not&#160;support&#160;calling&#160;it&#160;via&#160;UNC&#160;path.&#160;There&#160;is&#160;<br/>no&#160;workaround&#160;etc.&#160;available.&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-26_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-26_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-26_3.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>7&#160;&#160;Known&#160;Issues&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;known&#160;issues&#160;which&#160;are&#160;related&#160;to&#160;MCAL&#160;integration&#160;package&#160;but&#160;<br/>are&#160;not&#160;fixable&#160;by&#160;Vector&#160;without&#160;support&#160;of&#160;&#160;3rd&#160;parties.&#160;Vector&#160;is&#160;working&#160;on&#160;solutions&#160;in&#160;<br/>coordination&#160;with&#160;the&#160;other involved&#160;parties.&#160;<br/>
+<b>7.1&#160;</b><br/>
+<b>Long path names&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>The&#160;3rd&#160;party&#160;deliverables&#160;are&#160;currently&#160;stored&#160;/&#160;copied&#160;into&#160;the Vector&#160;delivery&#160;<br/>
+<b>&#160;&#160;</b>structure&#160;and&#160;may&#160;use&#160;very&#160;long&#160;path&#160;names.&#160;The Vector&#160;delivery&#160;structure itself&#160;<br/>
+usually&#160;resides&#160;some&#160;folders&#160;below&#160;the&#160;root&#160;directory.&#160;It&#160;may&#160;happen&#160;that&#160;some&#160;<br/>Microsoft&#160;Windows™&#160;tools&#160;are&#160;not&#160;able&#160;to&#160;access&#160;those&#160;files&#160;anymore&#160;due&#160;to&#160;resulting&#160;<br/>path names which are&#160;too long.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>Currently&#160;Vector is working&#160;on&#160;a&#160;solution&#160;for&#160;this problem.&#160;<br/>As long&#160;as there&#160;is no&#160;final&#160;fix&#160;we&#160;recommend&#160;to&#160;install&#160;the&#160;Vector&#160;SIP&#160;as well&#160;as the&#160;3rd&#160;<br/>party&#160;MCAL&#160;as near to&#160;the&#160;root-directory&#160;as possible&#160;(e.g.&#160;D:\&lt;ECU-Acronym&gt;&#160;like&#160;<br/>D:\BCM)&#160;<br/>&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Missing configuration items&#160;within&#160;imported configuration&#160;</b><br/>
+Sometimes&#160;&#160;it&#160;&#160;happens&#160;&#160;that&#160;&#160;3rd&#160;&#160;party&#160;&#160;tools&#160;&#160;do&#160;&#160;not&#160;&#160;export&#160;&#160;all&#160;&#160;configuration&#160;&#160;items&#160;&#160;/&#160;<br/>information&#160;into&#160;AUTOSAR&#160;standard&#160;format&#160;of&#160;ECUC.&#160;<br/>Currently&#160;&#160;there&#160;&#160;is&#160;&#160;no&#160;&#160;workaround&#160;&#160;available&#160;&#160;for&#160;&#160;this.&#160;The&#160;&#160;user&#160;&#160;will&#160;&#160;be&#160;&#160;informed&#160;&#160;within&#160;&#160;the&#160;<br/>import&#160;process&#160;into&#160;DaVinci&#160;Configurator.&#160;After&#160;importing&#160;there&#160;must&#160;be&#160;manual&#160;editing&#160;of&#160;<br/>the&#160;configuration&#160;to&#160;add&#160;all&#160;of&#160;those&#160;“missed&#160;information”&#160;(Note:&#160;mainly&#160;these&#160;are&#160;not&#160;used&#160;<br/>by&#160;3rd&#160;party&#160;tooling&#160;but&#160;relevant&#160;for consistent&#160;configuration&#160;with&#160;components&#160;BSWMDs).&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Due&#160;to&#160;the&#160;fact&#160;that&#160;3rd&#160;party&#160;supply&#160;must&#160;be&#160;AUTOSAR&#160;conform&#160;please&#160;ask&#160;your&#160;<br/>
+&#160;&#160;MCAL&#160;vendor&#160;to&#160;provide&#160;an&#160;update&#160;of&#160;the&#160;corresponding&#160;artefacts.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>7.3&#160;</b><br/>
+<b>Configuration Export&#160;with EB tresos™ Version 13.0.0&#160;</b><br/>
+After&#160;&#160;you&#160;&#160;have&#160;&#160;exported&#160;&#160;the&#160;&#160;EB&#160;&#160;tresos™&#160;&#160;configuration,&#160;&#160;you&#160;&#160;have&#160;&#160;to&#160;&#160;close&#160;&#160;the&#160;&#160;project&#160;<br/>before&#160;you&#160;proceed&#160;the&#160;export&#160;the&#160;next&#160;time.&#160;If&#160;not,&#160;the&#160;export&#160;will&#160;be&#160;faulty&#160;and&#160;will&#160;cause&#160;<br/>problems during&#160;import&#160;into&#160;DaVinci Configurator.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-27_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>7.4&#160;</b><br/>
+<b>Error&#160;messages&#160;regarding&#160;CommonPublishedInformation&#160;with&#160;EB tresos™&#160;</b><br/>
+After&#160;&#160;setting&#160;&#160;up&#160;&#160;a&#160;&#160;MCAL&#160;&#160;project&#160;&#160;with&#160;&#160;EB&#160;&#160;tresos™&#160;&#160;error&#160;&#160;messages&#160;&#160;might&#160;&#160;occur&#160;&#160;for&#160;&#160;each&#160;<br/>parameter of&#160;container&#160;CommonPublishedInformation&#160;like&#160;follows:&#160;<br/>
+Invalid value for node&#160;“/AUTOSAR/TOP-LEVEL-<br/>PACKAGES/Wdg/ELEMENTS/Wdg/CommonPublishedInformation/VendorId<br/>”: Value&#160;“”&#160;is no number&#160;<br/>
+Closing&#160;EB&#160;tresos™&#160;tool&#160;once&#160;and&#160;opening&#160;again&#160;resolves&#160;the&#160;problem.&#160;This&#160;issue&#160;affects&#160;<br/>all&#160;MCAL&#160;modules.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-28_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>8&#160;&#160;Frequently&#160;Asked&#160;Questions&#160;</b><br/>
+<b>Q:</b>&#160;&#160;My&#160;&#160;delivery&#160;&#160;is&#160;&#160;a&#160;&#160;mixed&#160;&#160;version&#160;&#160;of&#160;&#160;BSW&#160;&#160;regarding&#160;AUTOSAR3&#160;&#160;and&#160;&#160;MCAL&#160;&#160;regarding&#160;<br/>AUTOSAR4,&#160;what&#160;do&#160;I&#160;have&#160;to&#160;care&#160;for?&#160;<br/><b>A:</b>&#160;When&#160;you&#160;ordered&#160;a&#160;SIP&#160;from&#160;Vector&#160;with&#160;“MCAL&#160;Integration&#160;package&#160;(mixed&#160;ASR)”&#160;we&#160;<br/>already&#160;have&#160;cared&#160;about&#160;&#160;this&#160;and&#160;also&#160;&#160;provide&#160;&#160;you&#160;some&#160;embedded&#160;software&#160;&#160;wrappers&#160;<br/>(e.g.&#160;&#160;for&#160;&#160;Watchdog&#160;&#160;driver).&#160;&#160;The&#160;&#160;“integration&#160;&#160;process”&#160;&#160;at&#160;&#160;Vectors&#160;&#160;side&#160;&#160;has&#160;&#160;done&#160;&#160;all&#160;<br/>necessary&#160;topics&#160;like&#160;extensions&#160;of&#160;makefiles&#160;etc.&#160;that&#160;you&#160;as&#160;the&#160;user&#160;do&#160;not&#160;have&#160;to&#160;care&#160;<br/>about&#160;it.&#160;<br/>
+&#160;<br/>
+<b>Q:</b>&#160;I&#160;have&#160;got&#160;a&#160;DaVinci&#160;Configurator&#160;5&#160;but&#160;my&#160;delivery&#160;is&#160;AUTOSAR3&#160;based,&#160;are&#160;there&#160;any&#160;<br/>consequences&#160;or tasks&#160;I&#160;have&#160;to&#160;care&#160;about?&#160;<br/><b>A:</b>&#160;In&#160;regard&#160;of&#160;MCAL&#160;integration&#160;for&#160;AUTOSAR3&#160;based&#160;products&#160;the&#160;DaVinci&#160;Configurator&#160;<br/>5&#160;does&#160;not&#160;care!&#160;As&#160;a&#160;hint:&#160;There&#160;may&#160;be&#160;some&#160;AUTOSAR4-based&#160;components&#160;which&#160;use&#160;<br/>DaVinci&#160;&#160;Configurator&#160;&#160;5&#160;&#160;framework&#160;&#160;or&#160;&#160;definitely&#160;&#160;have&#160;&#160;to&#160;&#160;be&#160;&#160;configured&#160;&#160;using&#160;&#160;DaVinci&#160;<br/>Configurator&#160;5&#160;but&#160;this&#160;will&#160;be&#160;explained&#160;in&#160;details&#160;with&#160;the&#160;respective&#160;components.&#160;But&#160;as&#160;<br/>mentioned&#160;before,&#160;this&#160;is not&#160;relevant&#160;for MCAL&#160;configuration&#160;/&#160;generation&#160;purpose.&#160;<br/>
+&#160;<br/>
+<b>Q:</b>&#160;The&#160;MCAL&#160;will&#160;be&#160;generated&#160;component&#160;by&#160;component&#160;and&#160;takes&#160;a&#160;while.&#160;Is&#160;there&#160;any&#160;<br/>option&#160;to&#160;increase&#160;or speed&#160;up&#160;this generation?&#160;<br/><b>A:</b>&#160;Based&#160;on&#160;EB&#160;tresos&#160;as&#160;generation&#160;tooling&#160;there&#160;is&#160;the&#160;possibility&#160;to&#160;call&#160;the&#160;generation&#160;<br/>with&#160;&#160;an&#160;&#160;option&#160;&#160;to&#160;&#160;generate&#160;&#160;all&#160;&#160;MCAL&#160;&#160;components&#160;&#160;contained&#160;&#160;in&#160;&#160;the&#160;&#160;ECUC&#160;&#160;file.&#160;&#160;The&#160;&#160;user&#160;<br/>therefore&#160;has&#160;to&#160;add&#160;a&#160;so&#160;called&#160;<i>external&#160;generation&#160;step</i>&#160;(applies&#160;to&#160;DaVinci&#160;Configurator&#160;<br/>5&#160;naming&#160;but&#160;is&#160;also&#160;possible&#160;with&#160;DaVinci&#160;Configurator&#160;4).&#160;For&#160;details&#160;about&#160;how&#160;to&#160;create&#160;<br/>an&#160;<i>external&#160;generation&#160;step</i>&#160;please&#160;use&#160;DaVinci tooling&#160;help.&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-29_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-29_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-29_3.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Example&#160;<br/></b>External&#160;generation&#160;step&#160;needs&#160;a command line&#160;parameter&#160;as&#160;follows:&#160;<br/>
+&#160;&#160;tresos_cmd.bat&#160;-Dtarget=PA&#160;-Dderivate=MPC574XG legacy generate&#160;<br/>
+D:\BCM\XSL_Output.arxml@asc:4.0.3&#160;-o D:\BCM\Gendata&#160;-n Adc&#160;-n&#160;<br/>Dio&#160;–n EcuM&#160;-n Fls&#160;-n Gpt&#160;-n Icu&#160;-n Mcl&#160;-n Mcu&#160;-n Port&#160;-n Pwm&#160;-n&#160;<br/>Spi&#160;-n Wdg&#160;-n Resource&#160;-n Dem&#160;-g Adc_TS_T2D35M10I1R0&#160;-g&#160;<br/>Dio_TS_T2D35M10I1R0&#160;-g Fls_TS_T2D35M10I1R0&#160;-g&#160;<br/>Gpt_TS_T2D35M10I1R0&#160;-g Icu_TS_T2D35M10I1R0&#160;-g&#160;<br/>Mcl_TS_T2D35M10I1R0&#160;-g Mcu_TS_T2D35M10I1R0&#160;-g&#160;<br/>Port_TS_T2D35M10I1R0&#160;-g Pwm_TS_T2D35M10I1R0&#160;-g&#160;<br/>Spi_TS_T2D35M10I1R0&#160;-g Wdg_TS_T2D35M10I1R0&#160;-g&#160;<br/>Base_TS_T2D35M10I1R0&#160;<br/>Please refer&#160;to EB&#160;tresos&#160;studio documentation&#160;about&#160;all&#160;needed&#160;details&#160;(e.g.&#160;<br/>derivative,&#160;component&#160;list&#160;etc.).&#160;Please watch&#160;out&#160;that&#160;there&#160;may&#160;be&#160;a&#160;“generate&#160;all”&#160;<br/>option.&#160;Please&#160;do&#160;not&#160;use this&#160;because&#160;then also&#160;Dem,&#160;EcuM&#160;or&#160;other&#160;components&#160;<br/>(maybe&#160;other&#160;COM&#160;components)&#160;will&#160;also be&#160;generated.&#160;This&#160;will&#160;definitely&#160;create&#160;<br/>conflicts&#160;for&#160;the&#160;build process later&#160;on!&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Based on&#160;EB&#160;tresos&#160;internal&#160;behavior&#160;and plug-in management&#160;the&#160;ECUC&#160;which is&#160;<br/>
+<b>&#160;&#160;</b>handed&#160;over&#160;for&#160;generation&#160;reasons&#160;has&#160;to&#160;comply&#160;from&#160;naming&#160;perspective to the&#160;<br/>
+registered&#160;plugins.&#160;<br/>This&#160;results&#160;in&#160;the&#160;fact&#160;that&#160;ECUC&#160;file&#160;must&#160;not&#160;contain any&#160;other&#160;component&#160;then&#160;<br/>registered&#160;(e.g.&#160;NvM,&#160;OS&#160;etc.)&#160;and&#160;shortname&#160;/&#160;AR-package name has&#160;to&#160;fit&#160;to&#160;the&#160;<br/>registered&#160;one&#160;(Dem,&#160;EcuM).&#160;<br/>Vector&#160;does&#160;this&#160;during&#160;its&#160;integration&#160;of&#160;the&#160;MCAL&#160;via XSL-transformation&#160;file but&#160;only&#160;<br/>on&#160;component&#160;level&#160;and not&#160;for&#160;“generate&#160;all”&#160;purpose.&#160;So&#160;the&#160;user&#160;would&#160;have to&#160;<br/>create&#160;such&#160;a&#160;XSL-transformation&#160;file by&#160;its&#160;own if&#160;this&#160;use case&#160;(generate&#160;all)&#160;should&#160;<br/>be&#160;applied.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-30_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>9&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>9.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+3rd&#160;party&#160;components&#160;&#160;BSW&#160;components&#160;that&#160;have been&#160;provided by&#160;a company&#160;other&#160;than&#160;<br/>/&#160;MCAL&#160;<br/>
+Vector.&#160;Vector&#160;may&#160;have integrated&#160;the&#160;software&#160;within the&#160;SIP&#160;but&#160;does&#160;<br/>not&#160;take over&#160;any&#160;responsibility&#160;with regard&#160;to&#160;the&#160;functionality&#160;of&#160;these&#160;<br/>components.&#160;<br/>
+3rd&#160;party&#160;MCAL&#160;<br/>
+Windows&#160;based&#160;tooling&#160;providing&#160;a&#160;GUI&#160;to&#160;support&#160;the&#160;user&#160;to&#160;integrate&#160;a&#160;<br/>
+Integration&#160;Helper&#160;<br/>
+3rd&#160;party&#160;MCAL&#160;into&#160;the&#160;Vector&#160;SIP.&#160;<br/>
+DaVinci&#160;Configurator&#160;&#160;&#160;Vectors&#160;configuration and&#160;generation&#160;tool&#160;of&#160;the&#160;MICROSAR&#160;components&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>9.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basic&#160;Software&#160;<br/>
+BSWMD&#160;<br/>
+Basic&#160;Software&#160;Module Description;&#160;AUTOSAR&#160;standard&#160;file&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager;&#160;AUTOSAR&#160;BSW&#160;component&#160;<br/>
+DPA&#160;<br/>
+DaVinci&#160;Project&#160;Assistant&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+ECUC&#160;<br/>
+ECU&#160;Configuration;&#160;configuration of&#160;all&#160;BSW&#160;as&#160;well&#160;as MCAL&#160;<br/>components&#160;(Note:&#160;AUTOSAR&#160;also supports&#160;ECUC&#160;splits&#160;containing&#160;just&#160;<br/>a subset&#160;of&#160;components&#160;with its&#160;configuration)&#160;<br/>
+ECUM&#160;<br/>
+ECU&#160;State&#160;Manager;&#160;AUTOSAR&#160;BSW&#160;component&#160;<br/>
+(G)UI&#160;<br/>
+(graphical)&#160;User&#160;Interface&#160;<br/>
+MCAL&#160;<br/>
+Microcontroller&#160;Abstraction&#160;layer&#160;&#160;<br/>
+MICROSAR&#160;<br/>
+Vectors&#160;solution&#160;/&#160;brand&#160;for&#160;AUTOSAR&#160;BSW&#160;<br/>
+SIP&#160;<br/>
+Software&#160;Integration&#160;Package&#160;(as&#160;provided by&#160;Vector);&#160;MICROSAR&#160;<br/>delivery&#160;containing&#160;customers’&#160;selection&#160;of&#160;MICROSAR&#160;BSW&#160;<br/>components&#160;including&#160;all&#160;parts&#160;of&#160;<i>MCAL&#160;Integration</i>.&#160;<br/>
+StMD&#160;<br/>
+Standard Module Definition&#160;also&#160;known as&#160;BSWMD&#160;<br/>
+VSMD&#160;<br/>
+Vendor&#160;Specific&#160;Module&#160;Definition&#160;(within&#160;AUTOSAR&#160;methodology&#160;it&#160;is&#160;<br/>derived&#160;from&#160;StMD)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_3rdParty-MCAL-Integration-31_1.png"/><br/>
+Technical&#160;Reference&#160;MCAL&#160;Integration&#160;Package&#160;<br/>
+<b>10&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>
+<b>www.vector.com&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.04.00&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#7">1 Purpose of the document</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#8">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#8">2.1 Responsibility</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">2.2 Support requests</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#9">2.3 Mix between AUTOSAR specification versions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#10">3 First Steps</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#10">3.1 Delivery structure</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2 Starting up</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2.1 MCAL delivered within Vector SIP</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#11">3.2.2 MCAL not contained within Vector SIP</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#13">3.2.3 MCAL Update needed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">4 Workflow</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#14">4.1 Single configuration tool usage</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#15">4.2 Mixed configuration tool usage</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#17">4.3 Split configuration tool usage</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">5 Configuration tools</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">5.1 Vector DaVinci Configurator</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">5.2 EB tresos™</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#19">5.2.1 Setting up a new Configuration Project</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#20">5.2.2 Project Details</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#21">5.2.3 Selection of components</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#22">5.2.4 Creation of importers and exporters</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.2.5 Configure the MCAL components</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.2.6 &#160;Generation of the 3rd party MCAL</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.3 Configuration hints for parallel usage of DaVinci Configurator and EB tresos™</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#23">5.3.1 Vector DaVinci Configurator 5</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#24">5.3.2 EB tresos™</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25">6 Restrictions</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#25">6.1 UNC path usage</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7 Known Issues</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7.1 Long path names</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7.2 Missing configuration items within imported configuration</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#26">7.3 Configuration Export with EB tresos™ Version 13.0.0</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#27">7.4 Error messages regarding CommonPublishedInformation with EB tresos™</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#28">8 Frequently Asked Questions</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30">9 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30">9.1 Glossary</a></li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#30">9.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_3rdParty-MCAL-Integrations.html#31">10 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

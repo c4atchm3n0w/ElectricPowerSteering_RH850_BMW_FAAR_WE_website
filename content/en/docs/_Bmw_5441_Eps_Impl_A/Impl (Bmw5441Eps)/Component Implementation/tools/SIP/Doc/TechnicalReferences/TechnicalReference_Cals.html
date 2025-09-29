@@ -1,0 +1,2090 @@
+---
+title: TechnicalReference_Cals
+linkTitle: TechnicalReference_Cals
+weight: 152
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Crypto&#160;Abstraction Library&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;<br/>Version&#160;2.2&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Wladimir&#160;Gerber,&#160;Markus&#160;Schneider&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Wladimir&#160;Gerber&#160;<br/>
+2012-10-01&#160;<br/>
+1.0&#160;<br/>
+Initial&#160;version&#160;<br/>
+Markus Schneider&#160;<br/>
+2013-04-03&#160;<br/>
+2.0&#160;<br/>
+Updated&#160;for&#160;AUTOSAR&#160;4;&#160;<br/>Adapting&#160;chapter<a href="TechnicalReference_Cals.html#16">&#160;3.1.3,&#160;</a><a href="TechnicalReference_Cals.html#45">5&#160;</a>and&#160;chapter&#160;7.1&#160;<br/>
+Markus Schneider&#160;<br/>
+2013-10-14&#160;<br/>
+2.1&#160;<br/>
+Update&#160;of&#160;chapter&#160;<a href="TechnicalReference_Cals.html#45">‘5&#160;Configuration’</a>&#160;<br/>
+Markus Schneider&#160;<br/>
+2014-10-15&#160;<br/>
+2.2&#160;<br/>
+Added&#160;SymEncrypt,&#160;KeyDerive and&#160;<br/>KeyExchange&#160;services;&#160;Removed&#160;chapter&#160;<br/>“Component&#160;History”&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CryptoAbstractionLibrary.pdf&#160;<br/>
+V1.2.0&#160;&#160;<br/>R4.0&#160;&#160;<br/>Rev&#160;3&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+V1.6.0&#160;&#160;<br/>R4.0&#160;<br/>Rev&#160;3&#160;<br/>
+<b>&#160;</b><br/>
+<b>Scope&#160;of&#160;the&#160;Document</b>&#160;<br/>This&#160;&#160;technical&#160;&#160;reference&#160;&#160;describes&#160;&#160;the&#160;&#160;general&#160;&#160;use&#160;&#160;of&#160;&#160;the&#160;&#160;Microsar&#160;&#160;Crypto&#160;&#160;Abstraction&#160;<br/>Library&#160;(CAL) software.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+2&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=3></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Cals.html#8"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#8"><b>Introduction...................................................................................................................&#160;8</b>&#160;<br/></a><a href="TechnicalReference_Cals.html#9">1.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#9">Architecture&#160;Overview&#160;........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11"><b>Functional&#160;Description&#160;...............................................................................................&#160;11</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11">Features&#160;..........................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#12">2.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#12">Initialization&#160;......................................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#12">2.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#12">States&#160;..............................................................................................................&#160;12&#160;<br/></a><a href="TechnicalReference_Cals.html#13">2.3.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#13">Streaming&#160;Approach.........................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#13">2.4&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#13">Error&#160;Handling&#160;..................................................................................................&#160;13&#160;<br/>2.4.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#13">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#13">2.4.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#13">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#14"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#14"><b>Integration&#160;...................................................................................................................&#160;14</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#14">Scope of&#160;Delivery&#160;.............................................................................................&#160;14&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#14">Static Files&#160;.......................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#15">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#15">Dynamic&#160;Files&#160;..................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#16">3.1.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#16">Include Structure&#160;..............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#16">3.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#16">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.....................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18"><b>API&#160;Description&#160;...........................................................................................................&#160;18</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18">Type&#160;Definitions&#160;...............................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#19">4.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#19">Services provided by&#160;CAL&#160;................................................................................&#160;19&#160;<br/>4.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#19">Cal_SymDecryptStart&#160;.......................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">4.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">Cal_SymDecryptUpdate&#160;...................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">4.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">Cal_SymDecryptFinish&#160;.....................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#21">4.2.4&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#21">Cal_SymEncryptStart&#160;.......................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#22">4.2.5&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#22">Cal_SymEncryptUpdate&#160;...................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#23">4.2.6&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#23">Cal_SymEncryptFinish&#160;.....................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#23">4.2.7&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#23">Cal_KeyDeriveStart..........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#24">4.2.8&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#24">Cal_KeyDeriveUpdate&#160;......................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#25">4.2.9&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#25">Cal_KeyDeriveFinish&#160;........................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#25">4.2.10&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#25">Cal_KeyExchangeCalcSecretStart&#160;...................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#26">4.2.11&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#26">Cal_KeyExchangeCalcSecretUpdate&#160;...............................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#27">4.2.12&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#27">Cal_KeyExchangeCalcSecretFinish&#160;.................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#27">4.2.13&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#27">Cal_KeyExchangeCalcPubVal&#160;.........................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#28">4.2.14&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#28">Cal_RandomSeedStart&#160;....................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#29">4.2.15&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#29">Cal_RandomSeedUpdate&#160;................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#29">4.2.16&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#29">Cal_RandomSeedFinish&#160;..................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">4.2.17&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">Cal_RandomGenerate&#160;.....................................................................&#160;30&#160;</a><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+3&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<a href="TechnicalReference_Cals.html#30">4.2.18&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">Cal_SignatureVerifyStart&#160;..................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#31">4.2.19&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#31">Cal_SignatureVerifyUpdate&#160;..............................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#32">4.2.20&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#32">Cal_SignatureVerifyFinish&#160;................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#32">4.2.21&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#32">Cal_HashStart&#160;..................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">4.2.22&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">Cal_HashUpdate&#160;..............................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">4.2.23&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">Cal_HashFinish&#160;................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#34">4.2.24&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#34">Cal_SymKeyExtractStart&#160;..................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">4.2.25&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">Cal_SymKeyExtractUpdate&#160;..............................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">4.2.26&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">Cal_SymKeyExtractFinish&#160;................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#36">4.2.27&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#36">Cal_SymBlockEncryptStart&#160;..............................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#37">4.2.28&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#37">Cal_SymBlockEncryptUpdate&#160;..........................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#37">4.2.29&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#37">Cal_SymBlockEncryptFinish&#160;............................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#38">4.2.30&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#38">Cal_SymBlockDecryptStart&#160;..............................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#39">4.2.31&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#39">Cal_SymBlockDecryptUpdate&#160;..........................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#39">4.2.32&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#39">Cal_SymBlockDecryptFinish&#160;............................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">4.2.33&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">Cal_MacGenerateStart&#160;....................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">4.2.34&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">Cal_MacGenerateUpdate&#160;................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#41">4.2.35&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#41">Cal_MacGenerateFinish&#160;..................................................................&#160;41&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">4.2.36&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">Cal_MacVerifyStart&#160;..........................................................................&#160;42&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">4.2.37&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">Cal_MacVerifyUpdate&#160;......................................................................&#160;42&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#43">4.2.38&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#43">Cal_MacVerifyFinish&#160;........................................................................&#160;43&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">4.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">API&#160;used&#160;by&#160;CAL..............................................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">4.4&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Callback&#160;Functions&#160;...........................................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">4.5&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Configurable Interfaces&#160;....................................................................................&#160;44&#160;<br/>4.5.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Notifications&#160;.....................................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">4.5.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Callout&#160;Functions&#160;.............................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">4.5.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Hook&#160;Functions&#160;................................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45"><b>Configuration&#160;..............................................................................................................&#160;45</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Configuration Variants&#160;......................................................................................&#160;45&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">5.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Configuration with DaVinci&#160;Configurator&#160;...........................................................&#160;45&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Common&#160;Properties&#160;.........................................................................&#160;45&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Service&#160;Type&#160;related&#160;Properties&#160;.......................................................&#160;45&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#46">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#46">Service specific&#160;Properties&#160;...............................................................&#160;46&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#46">5.3&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#46">Configuration&#160;of&#160;CPL&#160;........................................................................................&#160;46&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#47"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#47"><b>AUTOSAR&#160;Standard&#160;Compliance...............................................................................&#160;47</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#47">Deviation from&#160;the&#160;AUTOSAR&#160;Software&#160;Specification&#160;......................................&#160;47&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#48"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#48"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;48</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#48">Abbreviations&#160;...................................................................................................&#160;48&#160;</a><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+4&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<a href="TechnicalReference_Cals.html#49"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#49"><b>Contact&#160;........................................................................................................................&#160;49</b>&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+5&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=6></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_Cals.html#9">Figure&#160;1-1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#9">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#10">Figure&#160;1-2&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#10">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;CAL&#160;...............................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#12">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#12">Sequence&#160;Diagram&#160;...................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#16">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#16">Include structure&#160;of&#160;the&#160;MSR&#160;CAL&#160;.............................................................&#160;16&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Cals.html#11">Table&#160;2-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11">Table&#160;2-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11">Table&#160;2-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#11">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#15">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#15">Static&#160;files&#160;.................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#15">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#15">Dynamic&#160;files&#160;............................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#17">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#17">Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;..............................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18">Type&#160;definitions&#160;.........................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#18">Cal_&lt;Service&gt;ConfigType&#160;........................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#19">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#19">Cal_&lt;Primitive&gt;ConfigType&#160;......................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">Table&#160;4-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">Cal_SymDecryptStart&#160;...............................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">Table&#160;4-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#20">Cal_SymDecryptUpdate&#160;...........................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#21">Table&#160;4-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#21">Cal_SymDecryptFinish&#160;.............................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#22">Table&#160;4-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#22">Cal_SymEncryptStart&#160;...............................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#22">Table&#160;4-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#22">Cal_SymEncryptUpdate&#160;...........................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#23">Table&#160;4-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#23">Cal_SymEncryptFinish&#160;.............................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#24">Table&#160;4-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#24">Cal_KeyDeriveStart&#160;..................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#24">Table&#160;4-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#24">Cal_KeyDeriveUpdate&#160;..............................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#25">Table&#160;4-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#25">Cal_KeyDeriveFinish&#160;................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#26">Table&#160;4-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#26">Cal_KeyExchangeCalcSecretStart&#160;...........................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#26">Table&#160;4-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#26">Cal_KeyExchangeCalcSecretUpdate&#160;.......................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#27">Table&#160;4-15&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#27">Cal_KeyExchangeCalcSecretFinish&#160;.........................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#28">Table&#160;4-16&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#28">Cal_KeyExchangeCalcPubVal&#160;..................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#28">Table&#160;4-17&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#28">Cal_RandomSeedStart&#160;.............................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#29">Table&#160;4-18&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#29">Cal_RandomSeedUpdate&#160;.........................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">Table&#160;4-19&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">Cal_RandomSeedFinish&#160;...........................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">Table&#160;4-20&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#30">Cal_RandomGenerate&#160;..............................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#31">Table&#160;4-21&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#31">Cal_SignatureVerifyStart&#160;..........................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#31">Table&#160;4-22&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#31">Cal_SignatureVerifyUpdate&#160;.......................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#32">Table&#160;4-23&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#32">Cal_SignatureVerifyFinish.........................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">Table&#160;4-24&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">Cal_HashStart&#160;..........................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">Table&#160;4-25&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#33">Cal_HashUpdate&#160;......................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#34">Table&#160;4-26&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#34">Cal_HashFinish&#160;........................................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">Table&#160;4-27&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">Cal_SymKeyExtractStart&#160;..........................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">Table&#160;4-28&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#35">Cal_SymKeyExtractUpdate&#160;......................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#36">Table&#160;4-29&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#36">Cal_SymKeyExtractFinish&#160;........................................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#36">Table&#160;4-30&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#36">Cal_SymBlockEncryptStart&#160;.......................................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#37">Table&#160;4-31&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#37">Cal_SymBlockEncryptUpdate&#160;...................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#38">Table&#160;4-32&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#38">Cal_SymBlockEncryptFinish&#160;.....................................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#38">Table&#160;4-33&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#38">Cal_SymBlockDecryptStart&#160;.......................................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#39">Table&#160;4-34&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#39">Cal_SymBlockDecryptUpdate&#160;...................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">Table&#160;4-35&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">Cal_SymBlockDecryptFinish&#160;.....................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">Table&#160;4-36&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#40">Cal_MacGenerateStart&#160;.............................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#41">Table&#160;4-37&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#41">Cal_MacGenerateUpdate&#160;.........................................................................&#160;41&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">Table&#160;4-38&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">Cal_MacGenerateFinish&#160;...........................................................................&#160;42&#160;</a><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+6&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=7></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<a href="TechnicalReference_Cals.html#42">Table&#160;4-39&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#42">Cal_MacVerifyStart&#160;...................................................................................&#160;42&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#43">Table&#160;4-40&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#43">Cal_MacVerifyUpdate&#160;...............................................................................&#160;43&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#43">Table&#160;4-41&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#43">Cal_MacVerifyFinish&#160;.................................................................................&#160;43&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Table&#160;4-42&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#44">Services used by&#160;the&#160;CAL.........................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Common&#160;Properties&#160;..................................................................................&#160;45&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#45">Service&#160;Type&#160;related&#160;Properties&#160;................................................................&#160;45&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#46">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#46">Service specific&#160;Properties&#160;........................................................................&#160;46&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#48">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cals.html#48">Abbreviations&#160;............................................................................................&#160;48&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+7&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=8></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>1&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;CAL&#160;as specified&#160;in<a href="TechnicalReference_Cals.html#2">&#160;[1].&#160;</a>&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Release:&#160;</b><br/>
+4.0&#160;Release&#160;3&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+Pre-compile time&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+CAL_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+CAL_MODULE_ID &#160;&#160;<br/>
+206&#160;decimal&#160;<br/>(according&#160;to ref.&#160;see<a href="TechnicalReference_Cals.html#2">&#160;[2]&#160;<br/></a>)&#160;<br/>
+&#160;<br/>
+This&#160;&#160;module&#160;&#160;provides&#160;&#160;a&#160;&#160;standardized&#160;&#160;interface&#160;&#160;to&#160;&#160;some&#160;&#160;primitives&#160;&#160;for&#160;&#160;cryptographic&#160;<br/>functionality.&#160;&#160;The&#160;CAL&#160;module&#160;&#160;itself&#160;does&#160;not&#160;&#160;implement&#160;&#160;the&#160;crypto&#160;functions,&#160;&#160;but&#160;&#160;utilizes&#160;<br/>the&#160;&#160;CPL&#160;&#160;module.&#160;&#160;Thus,&#160;&#160;the&#160;&#160;actual&#160;&#160;implementation&#160;&#160;of&#160;&#160;symmetrical&#160;&#160;or&#160;&#160;asymmetrical&#160;<br/>encryption&#160;or&#160;decryption&#160;depends&#160;on&#160;the&#160;functionality&#160;and&#160;capability&#160;of&#160;the&#160;underlying&#160;CPL&#160;<br/>module.&#160;&#160;The&#160;&#160;CAL&#160;&#160;just&#160;&#160;provides&#160;&#160;a&#160;&#160;common&#160;&#160;interface&#160;&#160;to&#160;&#160;these&#160;&#160;routines&#160;&#160;according&#160;&#160;to&#160;<br/>AUTOSAR&#160;standards.&#160;<br/>The&#160;Cryptographic&#160;Primitive&#160;Library&#160;(CPL)&#160;is&#160;a&#160;separate&#160;package&#160;and&#160;not&#160;part&#160;of&#160;the&#160;CAL&#160;<br/>module.&#160;<br/>The&#160;CAL&#160;offers&#160;C&#160;functions&#160;that&#160;can&#160;be&#160;called&#160;from&#160;source&#160;code,&#160;i.e.&#160;from&#160;BSW&#160;modules,&#160;<br/>from&#160;SWC&#160;or&#160;from&#160;Complex&#160;Device&#160;Drivers.&#160;<br/>As&#160;&#160;the&#160;&#160;CAL&#160;&#160;is&#160;&#160;a&#160;&#160;library,&#160;&#160;it&#160;&#160;is&#160;&#160;not&#160;&#160;related&#160;&#160;to&#160;&#160;a&#160;&#160;special&#160;&#160;layer&#160;&#160;of&#160;&#160;the&#160;&#160;AUTSOAR&#160;&#160;Layered&#160;<br/>Software&#160;Architecture.&#160;The&#160;services&#160;of&#160;the&#160;CAL&#160;are&#160;always&#160;executed&#160;in&#160;the&#160;context&#160;of&#160;the&#160;<br/>calling&#160;function.&#160;<br/>The&#160;module&#160;implementation&#160;related&#160;to&#160;this&#160;document&#160;provides&#160;a&#160;subset&#160;of&#160;the&#160;functionality&#160;<br/>specified&#160;in<a href="TechnicalReference_Cals.html#2">&#160;[1].</a>&#160;<br/>The&#160;current&#160;version&#160;covers the&#160;following&#160;functionality:&#160;<br/>
+<b>&gt;&#160;&#160;Symmetrical&#160;Decryption/Encryption&#160;Interface:</b>&#160;Symmetrical decryption&#160;and&#160;<br/>
+encryption&#160;of&#160;data&#160;with&#160;arbitrary&#160;length.&#160;<br/>
+<b>&gt;&#160;&#160;Random Interface:&#160;</b>A&#160;self-shrinking&#160;generator is provided&#160;for generating&#160;pseudo&#160;<br/>
+random&#160;numbers.&#160;<br/>
+<b>&gt;&#160;&#160;Signature&#160;Verify&#160;Interface:</b>&#160;Verification&#160;of&#160;a&#160;digital signature.&#160;<br/>
+<b>&gt;&#160;&#160;Hash&#160;Interface:</b>&#160;Computation&#160;of&#160;a&#160;hash&#160;value.&#160;<br/>
+<b>&gt;&#160;&#160;Symmetrical&#160;Key&#160;Extract&#160;Interface:</b>&#160;Extracting&#160;a&#160;key&#160;from&#160;a&#160;given&#160;char array.&#160;<br/>
+<b>&gt;&#160;&#160;Symmetrical&#160;Block&#160;Interface:</b>&#160;Symmetrical block&#160;decryption&#160;and&#160;encryption.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+8&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cal-9_1.png"/><br/>
+Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>&gt;&#160;&#160;MAC Generate and&#160;Verify&#160;Interface:</b>&#160;Generation&#160;and&#160;verification&#160;of&#160;a&#160;Message&#160;<br/>
+Authentication&#160;Code&#160;(MAC).&#160;<br/>
+<b>&gt;&#160;&#160;Key&#160;Derivation Interface:</b>&#160;Derive&#160;one&#160;or&#160;more secret&#160;keys from&#160;a&#160;secret&#160;value.&#160;<br/>
+<b>&gt;&#160;&#160;Key&#160;Exchange&#160;Interface:</b>&#160;Key&#160;exchange&#160;service.&#160;<br/>
+<b>1.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;CAL&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;1-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+9&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=10></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;CAL.&#160;These&#160;interfaces&#160;are&#160;<br/>described&#160;in&#160;chapte<a href="TechnicalReference_Cals.html#18">r&#160;4.&#160;</a>&#160;<br/>
+<b>&#160;cmp&#160;Architecture&#160;ov&#160;erv&#160;iew</b><br/>
+<b>BSW&#160;/&#160;SWC&#160;/&#160;CDD</b><br/>
+Cal_&lt;Service&gt;Start<br/>
+Cal_&lt;Service&gt;Update<br/>
+Cal_&lt;Service&gt;Finish<br/>
+<b>Crypto&#160;Abstraction&#160;Layer</b><br/>
+Cpl_&lt;Primitive&gt;Start<br/>
+Cpl_&lt;Primitive&gt;Update<br/>
+Cpl_&lt;Primitive&gt;Finish<br/>
+<b>Cryptographic&#160;Primitiv&#160;e&#160;Library</b><br/>
+&#160;<br/>
+Figure&#160;1-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;CAL&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+10&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=11></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>2&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>2.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;a&#160;subset&#160;of&#160;the&#160;functionality&#160;specified&#160;for&#160;<br/>the&#160;CAL.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_Cals.html#2">&#160;&#160;[1],</a>&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/><b>&#160;&#160;</b><a href="TechnicalReference_Cals.html#11">Table&#160;2-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&#160;&#160;</b><a href="TechnicalReference_Cals.html#11">Table&#160;2-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+For further information&#160;of&#160;not&#160;supported&#160;features see&#160;also&#160;chapte<a href="TechnicalReference_Cals.html#45">r&#160;5.</a>&#160;<br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;<a href="TechnicalReference_Cals.html#2">in&#160;[1]&#160;</a>are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Symmetrical&#160;Interface&#160;(Encryption and&#160;Decryption)&#160;<br/>Hash&#160;Interface&#160;<br/>Symmetrical&#160;Block&#160;Interface&#160;(Encryption and Decryption)&#160;<br/>Signature&#160;Interface&#160;(Verification)&#160;<br/>Symmetrical&#160;Key&#160;Extract&#160;Interface&#160;<br/>MAC&#160;Interface&#160;(Generate and Verify)&#160;<br/>Random&#160;Interface&#160;<br/>Key&#160;Derivation Interface&#160;<br/>Key&#160;Exchange Interface&#160;<br/>
+Table&#160;2-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;<a href="TechnicalReference_Cals.html#2">in&#160;[1]&#160;</a>are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Asymmetrical&#160;Interface&#160;<br/>Checksum&#160;Interface&#160;<br/>Symmetrical&#160;Key&#160;Wrapping&#160;Interface&#160;<br/>Asymmetrical&#160;Key&#160;Extract&#160;Interface&#160;<br/>Asymmetrical&#160;Key&#160;Wrapping&#160;Interface&#160;<br/>
+Table&#160;2-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>None&#160;<br/>
+Table&#160;2-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+11&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=12></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+There&#160;&#160;is&#160;&#160;no&#160;&#160;specific&#160;&#160;module&#160;&#160;initialization&#160;&#160;necessary.&#160;&#160;Each&#160;&#160;primitive&#160;&#160;instance&#160;&#160;is&#160;&#160;initialized&#160;<br/>separately&#160;in&#160;the&#160;specific&#160;Cal_&lt;service&gt;Start&#160;function&#160;before&#160;the&#160;functionality&#160;itself&#160;can&#160;be&#160;<br/>used.&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+The&#160;CAL&#160;module&#160;provides&#160;two&#160;types&#160;of&#160;functionalities.&#160;One&#160;type&#160;is&#160;a&#160;simple&#160;user&#160;interface,&#160;<br/>where&#160;&#160;the&#160;&#160;functionality&#160;&#160;can&#160;&#160;be&#160;&#160;accessed&#160;&#160;directly.&#160;&#160;The&#160;&#160;other&#160;&#160;type&#160;&#160;uses&#160;&#160;a&#160;&#160;streaming&#160;<br/>approach,&#160;where&#160;an&#160;arbitrary&#160;amount&#160;of&#160;data&#160;can&#160;be&#160;applied&#160;to&#160;the&#160;service&#160;primitive.&#160;In&#160;the&#160;<br/>latter&#160;&#160;case,&#160;&#160;the&#160;&#160;functionality&#160;&#160;will&#160;&#160;be&#160;&#160;accessed&#160;&#160;through&#160;&#160;3&#160;&#160;functions:&#160;&#160;the&#160;<br/><b>Cal_&lt;service&gt;Start()</b>,&#160;&#160;the&#160;&#160;<b>Cal_&lt;service&gt;Update()</b>&#160;&#160;and&#160;&#160;the&#160;&#160;<b>Cal_&lt;service&gt;Finish</b>&#160;<br/>function.&#160;Each&#160;service&#160;contains&#160;a&#160;state&#160;machine,&#160;saved&#160;in&#160;the&#160;context&#160;buffer,&#160;which&#160;allows&#160;<br/>the&#160;call&#160;of&#160;each&#160;function&#160;only&#160;in&#160;its&#160;appropriate&#160;state.&#160;The&#160;internal&#160;state&#160;diagram&#160;of&#160;each&#160;of&#160;<br/>the&#160;function&#160;can&#160;be&#160;depicted&#160;from&#160;the&#160;following&#160;figure:&#160;&#160;<br/>
+<b>&#160;act&#160;SysServ&#160;ice_Asr4_Cal</b><br/>
+Initial<br/>
+<b>IDLE</b><br/>
+[Cal_&lt;Service&gt;Start]<br/>
+<b>&lt;SERVICE&gt;START</b><br/>
+<b>&lt;SERVICE&gt;FINISH</b><br/>
+<b>&lt;SERVICE&gt;ACTIVE</b><br/>
+[Cal_&lt;Service&gt;Update]<br/>
+<b>&lt;SERVICE&gt;UPDATE</b><br/>
+[Cal_&lt;Service&gt;Finish]<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;Sequence&#160;Diagram&#160;<br/>
+The&#160;CAL&#160;module&#160;does&#160;not&#160;provide&#160;any&#160;main&#160;function.&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+12&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=13></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>2.3.1&#160;</b><br/>
+<b>Streaming&#160;Approach&#160;</b><br/>
+The&#160;implementation&#160;of&#160;those&#160;CAL&#160;services&#160;which&#160;expect&#160;arbitrary&#160;amounts&#160;of&#160;user data&#160;are&#160;<br/>based&#160;on&#160;the&#160;streaming&#160;approach&#160;with&#160;start,&#160;update&#160;and&#160;finish&#160;functions,&#160;see<a href="TechnicalReference_Cals.html#12">&#160;Figure&#160;2-1.</a>&#160;<br/>
+<b>2.4&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+The&#160;module&#160;does&#160;not&#160;provide&#160;any&#160;error detections&#160;according&#160;to&#160;AUTOSAR.&#160;<br/>
+<b>2.4.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+The&#160;CAL&#160;is&#160;not&#160;performing&#160;any&#160;error&#160;checking&#160;at&#160;development&#160;level&#160;and&#160;also&#160;does&#160;not&#160;use&#160;<br/>the&#160;DET.&#160;There&#160;are&#160;no&#160;configuration&#160;settings necessary&#160;for error reporting.&#160;<br/>
+<b>2.4.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+The&#160;module&#160;does&#160;not&#160;generate&#160;production&#160;code&#160;error reporting.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+13&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=14></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>3&#160;&#160;Integration&#160;</b><br/>
+This chapter gives necessary&#160;information&#160;for the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;CAL&#160;into&#160;an&#160;<br/>application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>3.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;&#160;CAL&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Cals.html#14">rs&#160;&#160;3.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Cals.html#15">3.1.2:</a>&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Object&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Delivery&#160;&#160;Delivery&#160;</b><br/>
+Cal.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file&#160;of&#160;the Hash Interface.&#160;It&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+contains&#160;all&#160;function&#160;declarations.&#160;<br/>
+Cal.c&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+This&#160;source file contains&#160;Cal_GetVersionInfo&#160;<br/>
+Cal_Hash.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the Hash&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Inteface.&#160;<br/>
+Cal_KeyDerive.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the&#160;Key&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Derive Interface.&#160;<br/>
+Cal_KeyExchange&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the&#160;Key&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Exchange Interface.&#160;<br/>
+Cal_MacGenerate.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the MAC&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Generate&#160;Inteface.&#160;<br/>
+Cal_MacVerify.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the MAC&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Verification Inteface.&#160;<br/>
+Cal_Random.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the Random&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Inteface.&#160;<br/>
+Cal_SignatureVerify.c&#160;<br/>
+This&#160;source file contains&#160;the&#160;definition&#160;of&#160;the&#160;Signature&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Verify&#160;Inteface.&#160;<br/>
+Cal_SymBlockDecrypt.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Symmetrical&#160;Block&#160;Decrypt&#160;Inteface.&#160;<br/>
+Cal_SymBlockEncrypt.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Symmetrical&#160;Block&#160;Encrypt&#160;Inteface.&#160;<br/>
+Cal_SymDecrypt.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Symmetrical&#160;Decrypt Inteface.&#160;<br/>
+Cal_SymEncrypt.c&#160;<br/>
+This&#160;source file contains&#160;the definition&#160;of&#160;the&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Symmetrical&#160;Encrypt&#160;Interface.&#160;<br/>
+Cal_SymKeyExtract.c&#160;<br/>
+This&#160;source file&#160;contains&#160;the definition&#160;of&#160;the&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Symmetrical&#160;Key&#160;Extract Inteface.&#160;<br/>
+Cal_Types.h&#160;<br/>
+This&#160;header file contains&#160;the declaration&#160;of&#160;all&#160;CAL&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+specific&#160;Types.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+14&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=15></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Object&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Delivery&#160;&#160;Delivery&#160;</b><br/>
+Cpl.lib1&#160;<br/>
+This&#160;is&#160;the library&#160;of&#160;the Cryptographic&#160;primitive&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+function.&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+The&#160;files&#160;for&#160;the&#160;CAL&#160;module&#160;come&#160;along&#160;with&#160;the&#160;CPL&#160;library&#160;functions.&#160;Thus,&#160;integrating&#160;<br/>the&#160;&#160;CAL&#160;&#160;requires&#160;&#160;also&#160;&#160;add&#160;&#160;the&#160;&#160;CPL.lib&#160;&#160;to&#160;&#160;your&#160;&#160;linker&#160;&#160;command&#160;&#160;file.&#160;&#160;The&#160;&#160;CAL&#160;&#160;uses&#160;&#160;the&#160;<br/>services&#160;&#160;of&#160;&#160;the&#160;&#160;CPL&#160;&#160;when&#160;&#160;calling&#160;&#160;the&#160;&#160;CAL.&#160;&#160;The&#160;&#160;CPL&#160;&#160;functions&#160;&#160;are&#160;&#160;not&#160;&#160;described&#160;&#160;here&#160;<br/>explicitly.&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator.&#160;For more&#160;<br/>information&#160;about&#160;the&#160;configuration&#160;see&#160;chapte<a href="TechnicalReference_Cals.html#45">r&#160;5.2&#160;‘Configuration&#160;with&#160;DaVinci&#160;<br/>Configurator’.</a>&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Cal_Cfg.h&#160;<br/>
+This&#160;is&#160;header file contains&#160;the&#160;service type configurations&#160;and name handles&#160;<br/>for the&#160;configuration IDs&#160;<br/>
+Cal_Cfg.c&#160;<br/>
+This&#160;source&#160;file contains&#160;the service&#160;configurations.&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Dynamic&#160;files&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+1&#160;The&#160;CPL&#160;is&#160;an&#160;additional&#160;module.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+15&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=16></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>3.1.3&#160;</b><br/>
+<b>Include&#160;Structure&#160;</b><br/>
+<b>&#160;class&#160;IncludeStructure</b><br/>
+CAL<br/>
+Std_Types.h<br/>
+Cal_Cfg.h<br/>
+Cpl_&lt;Service&gt;.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+Cal_Types.h<br/>
+Cal_Cfg.c<br/>
+«include»<br/>
+«include»<br/>
+Cal.h<br/>
+MemMap.h<br/>
+«include»<br/>
+«include»<br/>
+Cal_&lt;Service&gt;.c<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;Include&#160;structure&#160;of&#160;the&#160;MSR&#160;CAL&#160;<br/>
+Due&#160;to&#160;the&#160;adjustable&#160;context&#160;buffer&#160;sizes,&#160;the&#160;include&#160;structure&#160;of&#160;the&#160;CAL&#160;differs&#160;from&#160;the&#160;<br/>AUTOSAR&#160;&#160;Specification.&#160;&#160;The&#160;&#160;‘Cal_Types.h’&#160;&#160;includes&#160;&#160;the&#160;&#160;‘Cal_Cfg.h’&#160;&#160;than&#160;&#160;the&#160;&#160;other&#160;&#160;way&#160;<br/>round.&#160;&#160;Furthermore&#160;the&#160;‘Cal_Cfg.c’&#160;&#160;has&#160;&#160;to&#160;include&#160;the&#160;specific&#160;‘Cpl_&lt;Service&gt;.h’&#160;headers&#160;<br/>to&#160;solve&#160;the&#160;linked&#160;symbols.&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;&#160;</b><br/>
+The&#160;&#160;objects&#160;&#160;(e.g.&#160;&#160;variables,&#160;&#160;functions,&#160;&#160;constants)&#160;&#160;are&#160;&#160;declared&#160;&#160;by&#160;&#160;compiler&#160;&#160;independent&#160;<br/>definitions&#160;&#160;–&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definitions.&#160;&#160;Each&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definition&#160;&#160;is&#160;<br/>assigned&#160;to&#160;a&#160;memory&#160;section.&#160;<br/>The&#160;&#160;following&#160;&#160;table&#160;&#160;contains&#160;&#160;the&#160;&#160;memory&#160;&#160;section&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;<br/>definitions&#160;of&#160;the&#160;CAL&#160;and&#160;illustrates their&#160;assignment&#160;among&#160;each&#160;other.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+16&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=17></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Compiler&#160;Abstraction&#160;</b><br/>
+<b>Definitions&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+T&#160;<br/>
+&#160;<br/>
+DE<br/>
+NS<br/>
+<b>Memory&#160;Mapping&#160;</b><br/>
+CO<br/>
+CO<br/>
+<b>Sections&#160;</b><br/>
+L_<br/>
+L_<br/>
+CA<br/>
+CA<br/>
+CAL_START_SEC_CONST_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+CAL_STOP_SEC_CONST_UNSPECIFIED&#160;<br/>
+CAL_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+CAL_STOP_SEC_CODE&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+17&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=18></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_Cals.html#10">&#160;Figure&#160;1-2.</a>&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;types defined&#160;by&#160;the&#160;CAL&#160;are described&#160;in&#160;this chapter.&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+Cal_ReturnType<br/>
+CAL_E_OK<br/>
+&#160;<br/>
+Enum&#160;<br/>
+Defines&#160;the&#160;different&#160;<br/>
+&#160;<br/>
+CAL_E_NOT_OK&#160;<br/>
+&#160;<br/>
+return values&#160;from&#160;the&#160;<br/>CAL&#160;functions&#160;<br/>
+CAL_E_SMALL_BUFFER&#160;<br/>CAL_E_ENTROPY_EXHAUSTION&#160;<br/>
+Cal_ConfigIdType&#160;<br/>
+Enum&#160;<br/>
+The&#160;configuration&#160;ID&#160;of&#160;<br/>
+Every&#160;configuration&#160;gets&#160;its&#160;own&#160;<br/>
+the&#160;cryptographic&#160;<br/>
+configuration&#160;id.&#160;<br/>
+primitive.&#160;<br/>
+Cal_ActionType&#160;<br/>
+Enum&#160;<br/>
+Internal&#160;state&#160;of&#160;the&#160;<br/>
+CAL_ACT_IDLE&#160;<br/>
+stream&#160;functions&#160;<br/>
+CAL_ACT_ACTIVE&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Type&#160;definitions&#160;<br/>
+<b>&#160;Cal_&lt;Service&gt;ConfigType&#160;</b><br/>
+<b>Struct&#160;Element&#160;Name&#160;&#160;C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+ConfigId&#160;<br/>
+Cal_Co<br/>
+ID&#160;of&#160;this&#160;configuration&#160;<br/>
+Range of&#160;enum&#160;Cal_ConfigIdType&#160;<br/>
+nfigIdTy<br/>
+&#160;<br/>
+pe&#160;<br/>
+Depends on&#160;the&#160;AUTOSAR&#160;<br/>
+Function&#160;&#160;Pointer&#160;to underlying&#160;<br/>
+PrimitiveStartFct&#160;<br/>
+compiler&#160;abstraction&#160;definition&#160;for&#160;<br/>
+pointer&#160;<br/>
+Cpl_&lt;primitive&gt;Start&#160;<br/>
+function&#160;pointers.&#160;<br/>Depends on&#160;the&#160;AUTOSAR&#160;<br/>
+PrimitiveUpdateFct<br/>
+Function&#160;&#160;Pointer&#160;to underlying&#160;<br/>
+&#160;<br/>
+compiler&#160;abstraction&#160;definition&#160;for&#160;<br/>
+pointer&#160;<br/>
+Cpl_&lt;primitive&gt;Update&#160;<br/>
+function&#160;pointers.&#160;<br/>Depends on&#160;the&#160;AUTOSAR&#160;<br/>
+Function&#160;&#160;Pointer&#160;to underlying&#160;<br/>
+PrimitiveFinishFct&#160;<br/>
+compiler&#160;abstraction&#160;definition&#160;for&#160;<br/>
+pointer&#160;<br/>
+Cpl_&lt;primitive&gt;Finish&#160;<br/>
+function&#160;pointers.&#160;<br/>Depends on&#160;the&#160;AUTOSAR&#160;<br/>
+Const&#160;<br/>
+ID&#160;of&#160;the&#160;underlying&#160;<br/>
+PrimitiveConfigPtr&#160;<br/>
+compiler&#160;abstraction&#160;definition&#160;for&#160;<br/>
+pointer&#160;<br/>
+primitive configuration.&#160;<br/>
+pointers&#160;to&#160;constant&#160;data.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Cal_&lt;Service&gt;ConfigType&#160;<br/>
+<b>Cal_&lt;Primitive&gt;ConfigType&#160;</b><br/>
+<b>Struct&#160;Element&#160;Name&#160;&#160;C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+ConfigId&#160;<br/>
+Cal_Co<br/>
+ID&#160;of&#160;this&#160;configuration&#160;<br/>
+Range of&#160;enum&#160;Cal_ConfigIdType&#160;<br/>
+nfigIdTy<br/>pe&#160;<br/>Cal_Co<br/>nfigIdTy<br/>pe&#160;<br/>nfigIdTy<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+18&#160;/&#160;49&#160;<br/>
+pe&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=19></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Struct&#160;Element&#160;Name&#160;&#160;C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;<br/></b>&#160;<br/>
+Depends&#160;on&#160;the&#160;AUTOSAR&#160;<br/>
+Function&#160;&#160;Pointer&#160;to underlying&#160;<br/>
+PrimitiveFct&#160;<br/>
+compiler&#160;abstraction&#160;definition&#160;for&#160;<br/>
+pointer&#160;<br/>
+Cpl_&lt;primitive&gt;&#160;<br/>
+pointers&#160;to&#160;constant&#160;data.&#160;<br/>Depends on&#160;the&#160;AUTOSAR&#160;<br/>
+Const&#160;<br/>
+ID&#160;of&#160;the&#160;underlying&#160;<br/>
+PrimitiveConfigPtr&#160;<br/>
+compiler&#160;abstraction&#160;definition&#160;for&#160;<br/>
+pointer&#160;<br/>
+primitive configuration&#160;<br/>
+pointers&#160;to&#160;constant&#160;data.&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Cal_&lt;Primitive&gt;ConfigType&#160;<br/>
+<b>Cal_&lt;Service&gt;CtxBufType[]&#160;<br/></b>As&#160;&#160;the&#160;&#160;CAL&#160;&#160;is&#160;&#160;a&#160;&#160;library,&#160;&#160;it&#160;&#160;is&#160;&#160;not&#160;&#160;allowed&#160;&#160;to&#160;store&#160;&#160;any&#160;&#160;internal&#160;&#160;states&#160;&#160;in&#160;&#160;the&#160;&#160;library.&#160;When&#160;<br/>calling&#160;a&#160;service&#160;of&#160;the&#160;CAL,&#160;the&#160;application&#160;provides a&#160;pointer to&#160;a&#160;buffer,&#160;in&#160;which&#160;the&#160;CAL&#160;<br/>and&#160;the&#160;underlying&#160;&#160;CPL&#160;can&#160;store&#160;all&#160;context&#160;&#160;and&#160;status&#160;information&#160;that&#160;&#160;is&#160;necessary&#160;to&#160;<br/>process the&#160;service,&#160;see<a href="TechnicalReference_Cals.html#2">&#160;[1],&#160;</a>[CAL0730].&#160;&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;CAL&#160;</b><br/>
+<b>4.2.1&#160;</b><br/>
+<b>Cal_SymDecryptStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymDecryptStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymDecryptCtxBufType contextBuffer, const Cal_SymKeyType *keyPtr,&#160;<br/>const uint8 *InitVectorPtr, uint32 InitVectorLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the constant&#160;CAL&#160;module configuration&#160;which&#160;has&#160;to&#160;be&#160;<br/>used&#160;during the symmetrical&#160;decryption computation.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;which&#160;has&#160;to&#160;be&#160;used&#160;during the&#160;symmetrical&#160;<br/>decryption computation.&#160;<br/>
+InitVectorPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;initialization&#160;vector&#160;which&#160;has&#160;to&#160;be&#160;used during&#160;the&#160;<br/>symmetrical&#160;decryption&#160;computation.&#160;<br/>
+InitVectorLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the&#160;initialization&#160;vector&#160;which&#160;has&#160;to be&#160;used&#160;during&#160;the&#160;<br/>symmetrical&#160;decryption&#160;computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;symmetrical&#160;decrypt&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+19&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=20></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+Table&#160;4-4&#160;&#160;&#160;Cal_SymDecryptStart&#160;<br/>
+&#160;<br/>
+<b>4.2.2&#160;</b><br/>
+<b>Cal_SymDecryptUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymDecryptUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymDecryptCtxBufType contextBuffer, const uint8&#160;*cipherTextPtr,&#160;<br/>uint32 cipherTextLength, uint8 *plainTextPtr, uint32&#160;<br/>*plainTextLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the constant&#160;CAL&#160;module configuration&#160;which&#160;has&#160;to&#160;be&#160;<br/>used&#160;during the symmetrical&#160;decryption computation.&#160;<br/>
+cipherTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;constant cipher text that shall&#160;be&#160;decrypted.&#160;<br/>
+cipherTextLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the cipher text in bytes.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+plainTextLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;plainTextPtr. On returning&#160;from&#160;this&#160;function the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;decrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+plainTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;decrypted&#160;text.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_SMALL_BUFFER&#160;-&#160;The&#160;provided&#160;buffer is&#160;too small&#160;to&#160;store the result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;symmetrical&#160;decryption&#160;service&#160;with the input&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-5&#160;&#160;&#160;Cal_SymDecryptUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.3&#160;</b><br/>
+<b>Cal_SymDecryptFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymDecryptFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymDecryptCtxBufType contextBuffer, uint8 *plainTextPtr, uint32&#160;<br/>*plainTextLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the constant&#160;CAL&#160;module configuration&#160;which&#160;has&#160;to&#160;be&#160;<br/>used&#160;during the symmetrical&#160;decryption computation.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+20&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=21></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+plainTextLengthPtr&#160;<br/>
+Holds&#160;a&#160;pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;plainTextPtr. On returning&#160;from&#160;this&#160;function the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;decrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+plainTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;decrypted&#160;text.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;success, decryption&#160;data has&#160;been accepted.&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Wrong parameter&#160;or calling sequence&#160;<br/>CAL_E_SMALL_BUFFER&#160;-&#160;Input buffer size too small&#160;(parameter&#160;in&#160;<br/>*plainTextLengthPtr)&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;symmetrical&#160;decryption service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-6&#160;&#160;&#160;Cal_SymDecryptFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.4&#160;</b><br/>
+<b>Cal_SymEncryptStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymEncryptStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymDecryptCtxBufType contextBuffer, const Cal_SymKeyType *keyPtr,&#160;<br/>const uint8&#160;*InitVectorPtr, uint32 InitVectorLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;encryption&#160;computation.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;which&#160;has&#160;to&#160;be&#160;used&#160;during the&#160;symmetrical&#160;<br/>encryption computation.&#160;<br/>
+InitVectorPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;initialization&#160;vector&#160;which&#160;has&#160;to&#160;be&#160;used during&#160;the&#160;<br/>symmetrical&#160;encryption&#160;computation.&#160;<br/>
+InitVectorLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the&#160;initialization&#160;vector&#160;which&#160;has&#160;to be&#160;used&#160;during&#160;the&#160;<br/>symmetrical&#160;encryption&#160;computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;symmetrical&#160;encrypt&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+21&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=22></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-7&#160;&#160;&#160;Cal_SymEncryptStart&#160;<br/>
+&#160;<br/>
+<b>4.2.5&#160;</b><br/>
+<b>Cal_SymEncryptUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymEncryptUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymDecryptCtxBufType contextBuffer, const uint8 *plainTextPtr,&#160;<br/>uint32&#160;plainTextLength, uint8 *cipherTextPtr, uint32&#160;<br/>*cipherTextLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the constant&#160;CAL&#160;module configuration&#160;which&#160;has&#160;to&#160;be&#160;<br/>used&#160;during the symmetrical&#160;encryption computation.&#160;<br/>
+plainTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;plain&#160;text that&#160;shall&#160;be&#160;encrypted.&#160;<br/>
+plainTextLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the plain text&#160;in&#160;bytes.&#160;<br/>
+cipherTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;encrypted&#160;text.&#160;<br/>
+cipherTextLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;cipherTextPtr.&#160;On returning&#160;from&#160;this&#160;function&#160;the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;encrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_SMALL_BUFFER&#160;-&#160;The&#160;provided&#160;buffer is&#160;too small&#160;to&#160;store the result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;symmetrical&#160;encryption&#160;service&#160;with the input&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-8&#160;&#160;&#160;Cal_SymEncryptUpdate&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+22&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=23></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4.2.6&#160;</b><br/>
+<b>Cal_SymEncryptFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymEncryptFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymDecryptCtxBufType contextBuffer, uint8 *cipherTextPtr, uint32&#160;<br/>*cipherTextLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the constant&#160;CAL&#160;module configuration&#160;which&#160;has&#160;to&#160;be&#160;<br/>used&#160;during the symmetrical&#160;encryption computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+cipherTextLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;cipherTextPtr.&#160;On returning&#160;from&#160;this&#160;function&#160;the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;encrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+cipherTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;encrypted&#160;text.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;success, decryption&#160;data has&#160;been accepted.&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Wrong parameter&#160;or calling sequence&#160;<br/>CAL_E_SMALL_BUFFER&#160;-&#160;Input buffer size too small&#160;(parameter&#160;in&#160;<br/>*plainTextLengthPtr)&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;symmetrical&#160;encryption service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the&#160;calling&#160;function&#160;<br/>
+Table&#160;4-9&#160;&#160;&#160;Cal_SymEncryptFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.7&#160;</b><br/>
+<b>Cal_KeyDeriveStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_KeyDeriveStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_KeyDeriveCtxBufType&#160;contextBuffer,&#160;uint32 keyLength, uint32&#160;<br/>iterations)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;derivation.&#160;<br/>
+keyLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the key&#160;to&#160;be&#160;derived by&#160;the&#160;underlying key&#160;derivation&#160;<br/>primitive.&#160;<br/>
+iterations&#160;<br/>
+Holds&#160;the&#160;number&#160;of&#160;iterations&#160;to&#160;be&#160;performed&#160;by&#160;the&#160;underlying key&#160;<br/>derivation&#160;primitive.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+23&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=24></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;key&#160;derivation service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-10&#160;&#160;&#160;Cal_KeyDeriveStart&#160;<br/>
+&#160;<br/>
+<b>4.2.8&#160;</b><br/>
+<b>Cal_KeyDeriveUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymEncryptUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_KeyDeriveCtxBufType&#160;contextBuffer, const uint8 *passwordPtr, uint32&#160;<br/>passwordLength,&#160;const&#160;uint8 *saltPtr, uint32&#160;saltLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;derivation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+passwordPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;password,&#160;i.e.&#160;the&#160;original&#160;key, from&#160;which to derive a&#160;<br/>new&#160;key.&#160;<br/>
+passwordLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the password&#160;in&#160;bytes.&#160;<br/>
+saltPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;cryptographic&#160;salt, i.e.&#160;a random&#160;number, for the&#160;<br/>underlying primitive.&#160;<br/>
+saltLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the salt&#160;in bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;key&#160;derivation&#160;service&#160;with input data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-11&#160;&#160;&#160;Cal_KeyDeriveUpdate&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+24&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=25></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4.2.9&#160;</b><br/>
+<b>Cal_KeyDeriveFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_KeyDeriveFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_KeyDeriveCtxBufType&#160;contextBuffer, uint8 *keyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;derivation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;key&#160;<br/>derivation.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;success, decryption&#160;data has&#160;been accepted.&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Wrong parameter&#160;or calling sequence&#160;&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;key&#160;derive service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-12&#160;&#160;&#160;Cal_KeyDeriveFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.10&#160;&#160;Cal_KeyExchangeCalcSecretStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_KeyExchangeCalcSecretStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_KeyExchangeCalcSecretCtxBufType&#160;contextBuffer, const&#160;<br/>Cal_KeyExchangeBaseType basePtr, const Cal_KeyExchangePrivateType&#160;<br/>privateValuePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration that&#160;has&#160;to be used&#160;during&#160;<br/>the&#160;key&#160;exchange.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can&#160;be&#160;<br/>stored.&#160;<br/>
+basePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;base&#160;information&#160;known&#160;to&#160;both&#160;users&#160;of&#160;the key&#160;<br/>exchange&#160;protocol.&#160;<br/>
+privateValuePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;length&#160;information&#160;is&#160;<br/>stored.&#160;On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160; size of&#160;the&#160;<br/>buffer provided&#160;by&#160;publicValuePtr. On returning&#160;from&#160;this&#160;function&#160;the actual&#160;<br/>length&#160;of&#160;the calculated&#160;public&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+25&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=26></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;start the public&#160;value&#160;calculation&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-13&#160;&#160;&#160;Cal_KeyExchangeCalcSecretStart&#160;<br/>
+&#160;<br/>
+<b>4.2.11&#160;&#160;Cal_KeyExchangeCalcSecretUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_KeyExchangeCalcSecretUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_KeyExchangeCalcSecretCtxBufType&#160;contextBuffer, const uint8&#160;<br/>*partnerPublicValuePtr, uint32&#160;partnerPublicValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration that&#160;has&#160;to be used&#160;during&#160;<br/>the&#160;key&#160;exchange.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+partnerPublicValuePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;data&#160;representing&#160;the&#160;public&#160;value of&#160;the key&#160;exchange&#160;<br/>partner.&#160;<br/>
+partnerPublicValueLength&#160;&#160;Contains&#160;the&#160;length&#160;of&#160;the partner&#160;value&#160;in&#160;bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;key&#160;exchange service&#160;with the public&#160;value&#160;coming&#160;from&#160;the partner&#160;<br/>of&#160;the key&#160;exchange&#160;protocol.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-14&#160;&#160;&#160;Cal_KeyExchangeCalcSecretUpdate&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+26&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=27></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4.2.12&#160;&#160;Cal_KeyExchangeCalcSecretFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_KeyExchangeCalcSecretFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_KeyExchangeCalcSecretCtxBufType&#160;contextBuffer, uint8 *&#160;<br/>sharedSecretPtr, uint32 * sharedSecretLengthPtr, boolean&#160;<br/>TruncationIsAllowed)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;derivation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+sharedSecretPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;key&#160;<br/>exchange.If&#160;the result does&#160;not fit&#160;into the given&#160;buffer,&#160;and truncation&#160;is&#160;<br/>allowed,&#160;the result shall&#160;be&#160;truncated.&#160;<br/>
+sharedSecretLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;length&#160;information&#160;is&#160;<br/>stored.&#160;On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size of&#160;the&#160;<br/>buffer provided&#160;by&#160;sharedSecretPtr. On returning from&#160;this&#160;function the actual&#160;<br/>length&#160;of&#160;the computed&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+TruncationIsAllowed&#160;<br/>
+This&#160;parameter&#160;states&#160;whether&#160;a&#160;truncation&#160;of&#160;the result&#160;is&#160;allowed&#160;or not.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;success, decryption&#160;data has&#160;been accepted.&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Wrong parameter&#160;or calling sequence&#160;&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;key&#160;exchange&#160;service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-15&#160;&#160;&#160;Cal_KeyExchangeCalcSecretFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.13&#160;&#160;Cal_KeyExchangeCalcPubVal&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_KeyExchangeCalcPubVal&#160;</b>(Cal_ConfigIdType cfgId,&#160;const&#160;<br/>* basePtr, const *&#160;privateValuePtr, uint8 * publicValuePtr, uint32 *&#160;<br/>publicValueLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration that&#160;has&#160;to be used&#160;during&#160;<br/>the&#160;key&#160;exchange.&#160;<br/>
+basePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;base&#160;information&#160;known&#160;to&#160;both&#160;users&#160;of&#160;the key&#160;<br/>exchange&#160;protocol.&#160;<br/>
+privateValuePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;private information&#160;known only&#160;to&#160;the current user of&#160;the&#160;<br/>key&#160;exchange&#160;protocol.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+27&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=28></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+publicValuePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;public&#160;value&#160;of&#160;the&#160;<br/>key&#160;exchange&#160;protocol.&#160;<br/>
+publicValueLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;length&#160;information&#160;is&#160;<br/>stored.&#160;On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size of&#160;the&#160;<br/>buffer provided&#160;by&#160;publicValuePtr. On returning&#160;from&#160;this&#160;function&#160;the actual&#160;<br/>length&#160;of&#160;the calculated&#160;public&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;success, decryption&#160;data has&#160;been accepted.&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Wrong parameter&#160;or calling sequence&#160;&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;start the public&#160;value&#160;calculation&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-16&#160;&#160;&#160;Cal_KeyExchangeCalcPubVal&#160;<br/>
+&#160;<br/>
+<b>4.2.14&#160;&#160;Cal_RandomSeedStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_RandomSeedStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_RandomCtxBufType contextBuffer)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the&#160;seeding of&#160;the&#160;random&#160;number&#160;generator.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;random&#160;seed service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-17&#160;&#160;&#160;Cal_RandomSeedStart&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+28&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=29></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4.2.15&#160;&#160;Cal_RandomSeedUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_RandomSeedUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_RandomCtxBufType contextBuffer, const uint8 *seedPtr, uint32&#160;<br/>seedLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the seeding of&#160;the&#160;random&#160;number&#160;generator.&#160;<br/>
+seedPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;seed&#160;for the&#160;random&#160;number&#160;generator.&#160;<br/>
+seedLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the seed&#160;in&#160;bytes.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed a&#160;seed&#160;to&#160;the&#160;random&#160;number&#160;generator.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-18&#160;&#160;&#160;Cal_RandomSeedUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.16&#160;&#160;Cal_RandomSeedFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_RandomSeedFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_RandomCtxBufType contextBuffer)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during random&#160;number&#160;generator.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;random&#160;seed service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+29&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=30></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-19&#160;&#160;&#160;Cal_RandomSeedFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.17&#160;&#160;Cal_RandomGenerate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_RandomGenerate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_RandomCtxBufType contextBuffer, uint8 *resultPtr, uint32&#160;<br/>resultLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during random&#160;number&#160;generator.&#160;<br/>
+resultLength&#160;<br/>
+Holds&#160;the&#160;amount&#160;of&#160;random&#160;bytes&#160;which should be generated.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;If&#160;a&#160;seed is&#160;needed,&#160;this&#160;must be the&#160;same context buffer that&#160;has&#160;<br/>been&#160;used&#160;for the call&#160;of&#160;the RandomSeed&#160;interfaces.&#160;<br/>
+resultPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;random&#160;<br/>number&#160;generation.&#160;The memory&#160;location&#160;must have at least the&#160;size&#160;<br/>&#34;resultLength&#34;.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_ENTROPY_EXHAUSTION&#160;-&#160;Request failed,&#160;entropy&#160;of&#160;random&#160;<br/>number&#160;generator is&#160;exhausted.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;start the random&#160;number&#160;generation&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>Call&#160;Context&#160;<br/>
+none&#160;<br/>
+Table&#160;4-20&#160;&#160;&#160;Cal_RandomGenerate&#160;<br/>
+&#160;<br/>
+<b>4.2.18&#160;&#160;Cal_SignatureVerifyStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SignatureVerifyStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SignatureVerifyCtxBufType contextBuffer, const&#160;<br/>Cal_AsymPublicKeyType *keyPtr)&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+30&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=31></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the signature computation/verification.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;necessary&#160;for the&#160;signature&#160;verification.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;signature&#160;verify&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-21&#160;&#160;&#160;Cal_SignatureVerifyStart&#160;<br/>
+&#160;<br/>
+<b>4.2.19&#160;&#160;Cal_SignatureVerifyUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SignatureVerifyUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SignatureVerifyCtxBufType contextBuffer, const uint8 *dataPtr,&#160;<br/>uint32 dataLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the signature computation/verification.&#160;<br/>
+dataPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;signature&#160;which shall&#160;be&#160;verified.&#160;<br/>
+dataLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the signature to&#160;verify&#160;in&#160;bytes.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;signature&#160;verification service&#160;with&#160;the&#160;input&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-22&#160;&#160;&#160;Cal_SignatureVerifyUpdate&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+31&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=32></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+&#160;<br/>
+<b>4.2.20&#160;&#160;Cal_SignatureVerifyFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SignatureVerifyFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SignatureVerifyCtxBufType contextBuffer, const uint8&#160;*signaturePtr,&#160;<br/>uint32 signatureLength, Cal_VerifyResultType *resultPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the signature computation/verification.&#160;<br/>
+signaturePtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;holds&#160;the signature&#160;to&#160;be&#160;<br/>verified.&#160;<br/>
+signatureLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the&#160;Signature&#160;to&#160;be&#160;verified.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+resultPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;<br/>signature&#160;verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;signature&#160;verification&#160;service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-23&#160;&#160;&#160;Cal_SignatureVerifyFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.21&#160;&#160;Cal_HashStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_HashStart&#160;</b>(Cal_ConfigIdType&#160;cfgId,&#160;<br/>Cal_HashCtxBufType contextBuffer)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration that&#160;has&#160;to be used&#160;during&#160;<br/>the&#160;hash&#160;value&#160;computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Buffer pointer&#160;to&#160;the&#160;context data.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+32&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=33></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;hash service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-24&#160;&#160;&#160;Cal_HashStart&#160;<br/>
+&#160;<br/>
+<b>4.2.22&#160;&#160;Cal_HashUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_HashUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_HashCtxBufType contextBuffer, const uint8 *dataPtr, uint32&#160;<br/>dataLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration that&#160;has&#160;to be used&#160;during&#160;<br/>the&#160;hash&#160;value&#160;computation.&#160;<br/>
+dataPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;data&#160;to&#160;be&#160;hashed.&#160;<br/>
+dataLength&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;be hashed.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer&#160;in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;hash service&#160;with the&#160;input&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-25&#160;&#160;&#160;Cal_HashUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.23&#160;&#160;Cal_HashFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_HashFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_HashCtxBufType contextBuffer, uint8 *resultPtr, uint32&#160;<br/>*resultLengthPtr, boolean truncationIsAllowed)&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+33&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=34></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration that&#160;has&#160;to be used&#160;during&#160;<br/>the&#160;hash&#160;value&#160;computation.&#160;<br/>
+resultLengthPtr&#160;<br/>
+Holds&#160;a&#160;pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;length&#160;information&#160;is&#160;<br/>stored.&#160;On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size of&#160;the&#160;<br/>buffer provided&#160;by&#160;resultPtr.&#160;On returning&#160;from&#160;this&#160;function&#160;the&#160;actual&#160;length&#160;of&#160;<br/>the&#160;computed&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+resultPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;hash&#160;<br/>value&#160;computation. If&#160;the result does&#160;not fit into&#160;the&#160;given&#160;buffer, and&#160;truncation&#160;<br/>is&#160;allowed,&#160;the&#160;result shall&#160;be truncated.&#160;<br/>
+TruncationIsAllowed&#160;<br/>
+This&#160;parameter&#160;states&#160;whether&#160;a&#160;truncation&#160;of&#160;the result is&#160;allowed&#160;or not.&#160;<br/>TRUE:&#160;Truncation&#160;is&#160;allowed.&#160;FALSE:&#160;Truncation is&#160;not&#160;allowed.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_SMALL_BUFFER&#160;-&#160;The&#160;provided&#160;buffer is&#160;too small&#160;to&#160;store the result,&#160;<br/>and truncation&#160;was&#160;not allowed.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;hash&#160;service&#160;of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-26&#160;&#160;&#160;Cal_HashFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.24&#160;&#160;Cal_SymKeyExtractStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymKeyExtractStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymKeyExtractCtxBufType contextBuffer)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;extraction.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer&#160;in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;symmetrical&#160;key&#160;extraction&#160;service&#160;of&#160;the&#160;CAL&#160;module.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+34&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=35></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-27&#160;&#160;&#160;Cal_SymKeyExtractStart&#160;<br/>
+&#160;<br/>
+<b>4.2.25&#160;&#160;Cal_SymKeyExtractUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymKeyExtractUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymKeyExtractCtxBufType contextBuffer, const uint8 *dataPtr, uint32&#160;<br/>dataLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;extraction.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+dataPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;data&#160;which contains&#160;the key&#160;in a&#160;format&#160;which&#160;cannot&#160;be&#160;<br/>used&#160;directly&#160;by&#160;the&#160;CAL.&#160;From&#160;this&#160;data&#160;the key&#160;will&#160;be extracted&#160;in&#160;a CAL-<br/>conforming&#160;format.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;symmetrical&#160;key&#160;extraction&#160;service&#160;with&#160;input&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-28&#160;&#160;&#160;Cal_SymKeyExtractUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.26&#160;&#160;Cal_SymKeyExtractFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymKeyExtractFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymKeyExtractCtxBufType&#160;contextBuffer, Cal_SymKeyType *keyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the key&#160;extraction.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+35&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=36></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;a structure where&#160;the&#160;result (i.e.&#160;the&#160;symmetrical&#160;key)&#160;is&#160;<br/>stored in.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;symmetrical&#160;key&#160;extraction&#160;service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-29&#160;&#160;&#160;Cal_SymKeyExtractFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.27&#160;&#160;Cal_SymBlockEncryptStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymBlockEncryptStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymBlockEncryptCtxBufType contextBuffer, const Cal_SymKeyType&#160;<br/>*keyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;block&#160;encryption&#160;computation.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;which&#160;has&#160;to&#160;be&#160;used&#160;during the&#160;symmetrical&#160;block&#160;<br/>encryption computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;symmetrical&#160;block&#160;encrypt&#160;service&#160;of&#160;the&#160;CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-30&#160;&#160;&#160;Cal_SymBlockEncryptStart&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+36&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=37></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4.2.28&#160;&#160;Cal_SymBlockEncryptUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymBlockEncryptUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymBlockEncryptCtxBufType&#160;contextBuffer, const uint8 *plainTextPtr,&#160;<br/>uint32 plainTextLength, uint8 *cipherTextPtr, uint32&#160;<br/>*cipherTextLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;block&#160;encryption&#160;computation.&#160;<br/>
+plainTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;plain&#160;text that&#160;shall&#160;be&#160;encrypted.&#160;<br/>
+plainTextLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the plain text&#160;in&#160;bytes.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+cipherTextLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;cipherTextPtr.&#160;On returning&#160;from&#160;this&#160;function&#160;the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;encrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+cipherTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;encrypted&#160;text.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;symmetrical&#160;block&#160;encryption&#160;service&#160;with&#160;the&#160;input data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-31&#160;&#160;&#160;Cal_SymBlockEncryptUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.29&#160;&#160;Cal_SymBlockEncryptFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymBlockEncryptFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymBlockEncryptCtxBufType contextBuffer)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;block&#160;encryption&#160;computation.&#160;<br/>
+plainTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;plain&#160;text that&#160;shall&#160;be&#160;encrypted.&#160;<br/>
+plainTextLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the plain text&#160;in&#160;bytes.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+37&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=38></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+cipherTextLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;cipherTextPtr.&#160;On&#160;returning&#160;from&#160;this&#160;function&#160;the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;encrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+cipherTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;encrypted&#160;text.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_SMALL_BUFFER The&#160;provided&#160;buffer is&#160;too small&#160;to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;symmetrical&#160;block&#160;encryption&#160;service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-32&#160;&#160;&#160;Cal_SymBlockEncryptFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.30&#160;&#160;Cal_SymBlockDecryptStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymBlockDecryptStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymBlockDecryptCtxBufType contextBuffer, const Cal_SymKeyType&#160;<br/>*keyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;block&#160;decryption&#160;computation.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;which&#160;has&#160;to&#160;be&#160;used&#160;during the&#160;symmetrical&#160;block&#160;<br/>decryption computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;symmetrical&#160;block&#160;decrypt&#160;service&#160;of&#160;the&#160;CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-33&#160;&#160;&#160;Cal_SymBlockDecryptStart&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+38&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=39></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+&#160;<br/>
+<b>4.2.31&#160;&#160;Cal_SymBlockDecryptUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymBlockDecryptUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymBlockDecryptCtxBufType contextBuffer, const uint8&#160;<br/>*cipherTextPtr, uint32&#160;cipherTextLength, uint8 *plainTextPtr, uint32&#160;<br/>*plainTextLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;block&#160;decryption&#160;computation.&#160;<br/>
+plainTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;decrypted&#160;text.&#160;<br/>
+cipherTextLength&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the cipher text in bytes.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+plainTextLength&#160;<br/>
+Holds&#160;a pointer to&#160;a memory&#160;location&#160;in&#160;which&#160;the&#160;length information&#160;is&#160;stored.&#160;<br/>On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size&#160;of&#160;the&#160;buffer&#160;<br/>provided by&#160;plainTextPtr. On returning&#160;from&#160;this&#160;function the&#160;amount&#160;of&#160;data&#160;<br/>that&#160;has&#160;been&#160;decrypted&#160;shall&#160;be&#160;stored.&#160;<br/>
+cipherTextPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;constant cipher text that shall&#160;be&#160;decrypted.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;symmetrical&#160;block&#160;decryption&#160;service&#160;with&#160;the&#160;input data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-34&#160;&#160;&#160;Cal_SymBlockDecryptUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.32&#160;&#160;Cal_SymBlockDecryptFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_SymBlockDecryptFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_SymBlockDecryptCtxBufType contextBuffer)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the symmetrical&#160;block&#160;decryption&#160;computation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+39&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=40></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_SMALL_BUFFER The&#160;provided&#160;buffer is&#160;too small&#160;to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;symmetrical&#160;block&#160;decryption&#160;service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-35&#160;&#160;&#160;Cal_SymBlockDecryptFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.33&#160;&#160;Cal_MacGenerateStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_MacGenerateStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_MacGenerateCtxBufType contextBuffer, const Cal_SymKeyType *keyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module&#160;configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the MAC computation.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;necessary&#160;for the&#160;MAC&#160;generation.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;MAC&#160;generate&#160;service of&#160;the&#160;CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the&#160;calling&#160;function&#160;<br/>
+Table&#160;4-36&#160;&#160;&#160;Cal_MacGenerateStart&#160;<br/>
+&#160;<br/>
+<b>4.2.34&#160;&#160;Cal_MacGenerateUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_MacGenerateUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_MacGenerateCtxBufType contextBuffer, const uint8 *dataPtr,&#160;uint32&#160;<br/>dataLength)&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+40&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=41></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the MAC computation.&#160;<br/>
+dataPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;data&#160;for which&#160;a&#160;MAC shall&#160;be computed.&#160;<br/>
+dataLength&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;for&#160;which the MAC shall&#160;be&#160;computed.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;MAC&#160;generate&#160;service&#160;with the input data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-37&#160;&#160;&#160;Cal_MacGenerateUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.35&#160;&#160;Cal_MacGenerateFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_MacGenerateFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_MacGenerateCtxBufType contextBuffer, uint8 *resultPtr, uint32&#160;<br/>*resultLengthPtr, boolean TruncationIsAllowed)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the&#160;CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the MAC computation.&#160;<br/>
+TruncationIsAllowed&#160;<br/>
+This&#160;parameter&#160;states&#160;whether&#160;a&#160;truncation&#160;of&#160;the result is&#160;allowed&#160;or not.&#160;<br/>TRUE:&#160;Truncation&#160;is&#160;allowed.&#160;FALSE:&#160;Truncation is&#160;not&#160;allowed.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+resultLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;length&#160;information&#160;is&#160;<br/>stored.&#160;On calling this&#160;function&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;size of&#160;the&#160;<br/>buffer provided&#160;by&#160;resultPtr.&#160;On returning&#160;from&#160;this&#160;function&#160;the&#160;actual&#160;length&#160;of&#160;<br/>the&#160;computed&#160;MAC&#160;shall&#160;be stored.&#160;<br/>
+resultPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;MAC&#160;<br/>generation. If&#160;the&#160;result&#160;does&#160;not fit into&#160;the&#160;given&#160;buffer, and&#160;truncation is&#160;<br/>allowed,&#160;the result shall&#160;be&#160;truncated.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;&#160;<br/>CAL_E_SMALL_BUFFER&#160;-&#160;The&#160;provided&#160;buffer is&#160;too small&#160;to&#160;store the result,&#160;<br/>and truncation&#160;was&#160;not&#160;allowed.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+41&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=42></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;MAC generation service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-38&#160;&#160;&#160;Cal_MacGenerateFinish&#160;<br/>
+&#160;<br/>
+<b>4.2.36&#160;&#160;Cal_MacVerifyStart&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_MacVerifyStart&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_MacVerifyCtxBufType contextBuffer, const Cal_SymKeyType *keyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the MAC&#160;verification.&#160;<br/>
+keyPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;key&#160;necessary&#160;for the&#160;MAC&#160;verification.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;initialize the&#160;MAC&#160;verify&#160;service of&#160;the CAL&#160;module.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-39&#160;&#160;&#160;Cal_MacVerifyStart&#160;<br/>
+&#160;<br/>
+<b>4.2.37&#160;&#160;Cal_MacVerifyUpdate&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_MacVerifyUpdate&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_MacVerifyCtxBufType contextBuffer, const uint8 *dataPtr, uint32&#160;<br/>dataLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the MAC&#160;verification.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+42&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=43></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+dataPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;data&#160;for which&#160;a&#160;MAC shall&#160;be&#160;verified.&#160;<br/>
+dataLength&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;for which the MAC shall&#160;be&#160;verified.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;feed the&#160;MAC&#160;verification service&#160;with the&#160;input&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-40&#160;&#160;&#160;Cal_MacVerifyUpdate&#160;<br/>
+&#160;<br/>
+<b>4.2.38&#160;&#160;Cal_MacVerifyFinish&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Cal_ReturnType&#160;<b>Cal_MacVerifyFinish&#160;</b>(Cal_ConfigIdType cfgId,&#160;<br/>Cal_MacVerifyCtxBufType contextBuffer, const uint8 *MacPtr, uint32&#160;<br/>MacLength, Cal_VerifyResultType *resultPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cfgId&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the CAL&#160;module configuration&#160;which has&#160;to&#160;be&#160;used&#160;<br/>during the MAC&#160;verification.&#160;<br/>
+MacPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;MAC&#160;to&#160;verify.&#160;<br/>
+MacLength&#160;<br/>
+Holds&#160;the&#160;length&#160;of&#160;the&#160;MAC to&#160;be&#160;verified.&#160;<br/>
+contextBuffer&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the buffer in&#160;which&#160;the&#160;context&#160;of&#160;this&#160;service can be&#160;<br/>stored.&#160;<br/>
+resultPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;MAC&#160;<br/>verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Cal_ReturnType&#160;<br/>
+CAL_E_OK&#160;-&#160;Request successful&#160;&#160;<br/>CAL_E_NOT_OK&#160;-&#160;Request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;be&#160;used&#160;to&#160;finish&#160;the&#160;MAC verification service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Call&#160;Context&#160;<br/>
+Context&#160;of&#160;the calling&#160;function&#160;<br/>
+Table&#160;4-41&#160;&#160;&#160;Cal_MacVerifyFinish&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+43&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=44></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>API&#160;used by&#160;CAL&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other&#160;components,&#160;which&#160;are&#160;used&#160;by&#160;the&#160;&#160;CAL&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+CPL&#160;<br/>
+Cpl_&lt;Primitive&gt;Start&#160;<br/>
+CPL&#160;<br/>
+Cpl_&lt;Primitive&gt;Update&#160;<br/>
+CPL&#160;<br/>
+Cpl_&lt;Primitive&gt;Finish&#160;<br/>
+CPL&#160;<br/>
+Cpl_&lt;Primitive&gt;&#160;<br/>
+Table&#160;4-42&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;CAL&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+The&#160;CAL&#160;functions&#160;do&#160;not&#160;provide&#160;any&#160;callback functions.&#160;<br/>
+<b>4.5&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>4.5.1&#160;</b><br/>
+<b>Notifications&#160;</b><br/>
+The&#160;CAL&#160;module&#160;does&#160;not&#160;provide&#160;notifications&#160;for&#160;upper&#160;layers.&#160;The&#160;CAL&#160;routines&#160;are&#160;all&#160;<br/>synchronous.&#160;<br/>
+<b>4.5.2&#160;</b><br/>
+<b>Callout Functions&#160;&#160;</b><br/>
+Further on&#160;the&#160;CAL&#160;module&#160;supports no&#160;callout&#160;function.&#160;<b>&#160;</b><br/>
+<b>4.5.3&#160;</b><br/>
+<b>Hook&#160;Functions&#160;&#160;</b><br/>
+The&#160;CAL&#160;supports no&#160;hook&#160;functions.&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+44&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=45></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>5&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;CAL&#160;the&#160;attributes can&#160;be&#160;configured&#160;with&#160;the&#160;following&#160;methods:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator,&#160;for detailed&#160;description&#160;see<a href="TechnicalReference_Cals.html#45">&#160;5.2&#160;</a><br/>
+<b>5.1&#160;</b><br/>
+<b>Configuration Variants&#160;</b><br/>
+The&#160;CAL&#160;supports the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Configuration&#160;with DaVinci&#160;Configurator&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>Common Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;<br/>typed&#160;bold<b>&#160;</b><br/>
+CalVersionInfoApi&#160;<br/>
+<b>STD_ON&#160;</b><br/>
+Enables&#160;or disables&#160;Cal_GetVersionInfo&#160;API.&#160;<br/>
+STD_OFF&#160;<br/>
+CalDisableNotConfiguredApis&#160;<br/>
+<b>STD_ON&#160;</b><br/>
+If&#160;enabled,&#160;APIs&#160;of&#160;not&#160;configured&#160;services&#160;are&#160;<br/>
+STD_OFF<br/>
+unavailable.<br/>
+&#160;<br/>
+&#160;<br/>
+CalMaxAlignScalarType&#160;<br/>
+8&#160;&#160;<br/>
+The&#160;scalar type&#160;which has&#160;the&#160;maximum&#160;alignment&#160;<br/>
+16&#160;<br/>
+restrictions&#160;on the given&#160;platform.&#160;Valid&#160;values&#160;are:&#160;<br/>
+&#160;<br/>
+8,&#160;16, 32&#160;Bit.&#160;<br/>
+<b>32&#160;</b><br/>
+Table&#160;5-1&#160;&#160;&#160;Common&#160;Properties&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>Service&#160;Type&#160;related Properties&#160;</b><br/>
+Depending&#160;on&#160;the&#160;type&#160;of&#160;service,&#160;the&#160;following&#160;parameters&#160;may&#160;configurable:&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;<br/>typed&#160;bold<b>&#160;</b><br/>
+Cal&lt;ServiceType&gt;MaxKeySize&#160;<br/>
+1..&#160;<br/>
+This&#160;is&#160;the maximum&#160;size&#160;over all&#160;key&#160;lengths&#160;used&#160;<br/>
+4294967295&#160;&#160;in all&#160;CPL primitives,&#160;which&#160;implement an&#160;<br/>
+&lt;ServiceType&gt;&#160;Service.&#160;<br/>
+Please note&#160;that&#160;the&#160;calling&#160;application has&#160;to&#160;<br/>provide&#160;the&#160;key&#160;buffer. So,&#160;it has&#160;to&#160;be&#160;ensured that&#160;<br/>the&#160;size&#160;of&#160;this&#160;buffer&#160;matches&#160;with&#160;the&#160;configured&#160;<br/>value&#160;here.&#160;<br/>
+Cal&lt;ServiceType&gt;MaxCtxBufByteSize&#160;&#160;1..&#160;<br/>
+This&#160;is&#160;the maximum&#160;size&#160;over all&#160;context&#160;buffers&#160;<br/>
+4294967295&#160;&#160;used&#160;in all&#160;CPL primitives,&#160;which&#160;implement an&#160;<br/>
+&lt;ServiceType&gt;&#160;Service.&#160;<br/>
+Please note&#160;that&#160;the&#160;calling&#160;application has&#160;to&#160;<br/>provide&#160;the&#160;context&#160;buffer. So,&#160;it has&#160;to&#160;be&#160;ensured&#160;<br/>that the&#160;size&#160;of&#160;this&#160;buffer&#160;matches&#160;with&#160;the&#160;<br/>configured&#160;value here.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;Service&#160;Type&#160;related&#160;Properties&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+45&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=46></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cal-46_1.png"/><br/>
+Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Note&#160;<br/></b>For&#160;the&#160;methods&#160;internal&#160;storage,&#160;the&#160;buffer&#160;size will&#160;be&#160;always&#160;one max&#160;align&#160;type&#160;<br/>
+&#160;&#160;larger&#160;than entered.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>Service&#160;specific&#160;Properties&#160;</b><br/>
+Each&#160;service&#160;configuration&#160;has&#160;the&#160;following&#160;adjustable&#160;parameters:&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Configuration Short Name&#160;<br/>
+This&#160;container comprises&#160;the configuration of&#160;one&#160;&lt;ServiceType&gt;&#160;<br/>service.&#160;The&#160;container&#160;name serves&#160;as&#160;a symbolic&#160;name&#160;for the&#160;<br/>identifier&#160;of&#160;a&#160;service configuration.&#160;<br/>
+&lt;ServiceType&gt;&#160;Init&#160;Configuration&#160;<br/>
+This&#160;is&#160;the name of&#160;the C symbol,&#160;which contains&#160;the configuration&#160;<br/>of&#160;the underlying&#160;cryptographic&#160;primitive.&#160;<br/>
+Usually,&#160;this&#160;symbol&#160;represents&#160;a&#160;structure&#160;provided&#160;by&#160;the CPL&#160;<br/>module.&#160;<br/>
+Name of&#160;&lt;ServiceType&gt;&#160;Primitive&#160;<br/>
+This&#160;is&#160;the name of&#160;the cryptographic&#160;primitive to&#160;use.&#160;<br/>
+This&#160;name will&#160;be used to form&#160;the function&#160;pointers&#160;to&#160;the&#160;Start,&#160;<br/>Update and&#160;Finish&#160;functions&#160;of&#160;the corresponding cryptographic&#160;<br/>primitive&#160;according to&#160;the&#160;following rule:&#160;<br/>&lt;name&gt;_[Start|Update|Finish]&#160;<br/>
+Usually&#160;these functions&#160;are&#160;provided by&#160;the&#160;CPL module.&#160;<br/>
+&lt;ServiceType&gt;&#160;Include&#160;File&#160;<br/>
+Name of&#160;the Cpl&#160;header&#160;that&#160;shall&#160;be&#160;included for the&#160;specific&#160;<br/>service.&#160;<br/>
+&lt;ServiceType&gt;&#160;CPL&#160;Reference2&#160;<br/>
+Selecting a&#160;reference&#160;will&#160;populate&#160;the&#160;configuration fields.&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;Service&#160;specific&#160;Properties&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Configuration of CPL&#160;</b><br/>
+The&#160;attributes&#160;of&#160;the&#160;CPL&#160;configuration&#160;have&#160;to&#160;be&#160;either&#160;set&#160;by&#160;generator&#160;or&#160;manually.&#160;For&#160;<br/>the&#160;definition&#160;and&#160;declaration&#160;of&#160;the&#160;configuration&#160;please&#160;read&#160;the&#160;specific CPL&#160;manual.&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+2&#160;This&#160;option is&#160;only&#160;available&#160;for selected&#160;services&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+46&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=47></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>6&#160;&#160;AUTOSAR&#160;Standard&#160;Compliance&#160;</b><br/>
+At&#160;the&#160;current&#160;version&#160;not&#160;all&#160;services&#160;specified&#160;by&#160;AUTOSAR&#160;are&#160;implemented,&#160;for&#160;details&#160;<br/>see<a href="TechnicalReference_Cals.html#11">&#160;Table&#160;2-1&#160;</a>and<a href="TechnicalReference_Cals.html#11">&#160;Table&#160;2-2.</a>&#160;<br/>
+&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Deviation from&#160;the&#160;AUTOSAR&#160;Software&#160;Specification&#160;</b><br/>
+The&#160;&#160;MSR&#160;&#160;CAL&#160;&#160;‘Include&#160;&#160;File&#160;&#160;Structure’&#160;&#160;slightly&#160;&#160;differs&#160;&#160;to&#160;&#160;the&#160;AUTOSAR&#160;&#160;SWS,&#160;&#160;due&#160;&#160;to&#160;&#160;the&#160;<br/>adjustable&#160;&#160;context&#160;&#160;buffer&#160;&#160;sizes,&#160;&#160;the&#160;&#160;‘Cal_Types.h’&#160;&#160;have&#160;&#160;to&#160;&#160;include&#160;&#160;the&#160;&#160;generated&#160;<br/>‘Cal_Cfg.h’.&#160;&#160;Furthermore&#160;&#160;the&#160;&#160;‘Cal_Cfg.c’&#160;&#160;has&#160;&#160;to&#160;&#160;include&#160;&#160;the&#160;&#160;specific&#160;&#160;‘Cpl_&lt;Service&gt;.h’&#160;<br/>headers to&#160;solve&#160;the&#160;linked&#160;symbols&#160;(cf.&#160;Chapte<a href="TechnicalReference_Cals.html#16">r&#160;3.1.3).</a>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+47&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=48></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+CAL&#160;<br/>
+Crypto&#160;Abstraction&#160;Library&#160;<br/>
+CPL&#160;<br/>
+Crypto&#160;Primitive Library&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+48&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=49></a>Technical Reference&#160;MICROSAR Crypto&#160;Abstraction&#160;Library&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&#160;&#160;</b>News&#160;<br/>
+<b>&#160;&#160;</b>Products&#160;<br/>
+<b>&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&#160;&#160;</b>Support&#160;<br/>
+<b>&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;2.2&#160;<br/>
+49&#160;/&#160;49&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Cals.html#8">1 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#9">1.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#11">2 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#11">2.1 Features</a></li>
+<li><a href="TechnicalReference_Cals.html#12">2.2 Initialization</a></li>
+<li><a href="TechnicalReference_Cals.html#12">2.3 States</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#13">2.3.1 Streaming Approach</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#13">2.4 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#13">2.4.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_Cals.html#13">2.4.2 Production Code Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#14">3 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#14">3.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#14">3.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Cals.html#15">3.1.2 Dynamic Files</a></li>
+<li><a href="TechnicalReference_Cals.html#16">3.1.3 Include Structure</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#16">3.2 Compiler Abstraction and Memory Mapping</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#18">4 API Description</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#18">4.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_Cals.html#19">4.2 Services provided by CAL</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#19">4.2.1 Cal_SymDecryptStart</a></li>
+<li><a href="TechnicalReference_Cals.html#20">4.2.2 Cal_SymDecryptUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#20">4.2.3 Cal_SymDecryptFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#21">4.2.4 Cal_SymEncryptStart</a></li>
+<li><a href="TechnicalReference_Cals.html#22">4.2.5 Cal_SymEncryptUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#23">4.2.6 Cal_SymEncryptFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#23">4.2.7 Cal_KeyDeriveStart</a></li>
+<li><a href="TechnicalReference_Cals.html#24">4.2.8 Cal_KeyDeriveUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#25">4.2.9 Cal_KeyDeriveFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#25">4.2.10 Cal_KeyExchangeCalcSecretStart</a></li>
+<li><a href="TechnicalReference_Cals.html#26">4.2.11 Cal_KeyExchangeCalcSecretUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#27">4.2.12 Cal_KeyExchangeCalcSecretFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#27">4.2.13 Cal_KeyExchangeCalcPubVal</a></li>
+<li><a href="TechnicalReference_Cals.html#28">4.2.14 Cal_RandomSeedStart</a></li>
+<li><a href="TechnicalReference_Cals.html#29">4.2.15 Cal_RandomSeedUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#29">4.2.16 Cal_RandomSeedFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#30">4.2.17 Cal_RandomGenerate</a></li>
+<li><a href="TechnicalReference_Cals.html#30">4.2.18 Cal_SignatureVerifyStart</a></li>
+<li><a href="TechnicalReference_Cals.html#31">4.2.19 Cal_SignatureVerifyUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#32">4.2.20 Cal_SignatureVerifyFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#32">4.2.21 Cal_HashStart</a></li>
+<li><a href="TechnicalReference_Cals.html#33">4.2.22 Cal_HashUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#33">4.2.23 Cal_HashFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#34">4.2.24 Cal_SymKeyExtractStart</a></li>
+<li><a href="TechnicalReference_Cals.html#35">4.2.25 Cal_SymKeyExtractUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#35">4.2.26 Cal_SymKeyExtractFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#36">4.2.27 Cal_SymBlockEncryptStart</a></li>
+<li><a href="TechnicalReference_Cals.html#37">4.2.28 Cal_SymBlockEncryptUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#37">4.2.29 Cal_SymBlockEncryptFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#38">4.2.30 Cal_SymBlockDecryptStart</a></li>
+<li><a href="TechnicalReference_Cals.html#39">4.2.31 Cal_SymBlockDecryptUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#39">4.2.32 Cal_SymBlockDecryptFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#40">4.2.33 Cal_MacGenerateStart</a></li>
+<li><a href="TechnicalReference_Cals.html#40">4.2.34 Cal_MacGenerateUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#41">4.2.35 Cal_MacGenerateFinish</a></li>
+<li><a href="TechnicalReference_Cals.html#42">4.2.36 Cal_MacVerifyStart</a></li>
+<li><a href="TechnicalReference_Cals.html#42">4.2.37 Cal_MacVerifyUpdate</a></li>
+<li><a href="TechnicalReference_Cals.html#43">4.2.38 Cal_MacVerifyFinish</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#44">4.3 API used by CAL</a></li>
+<li><a href="TechnicalReference_Cals.html#44">4.4 Callback Functions</a></li>
+<li><a href="TechnicalReference_Cals.html#44">4.5 Configurable Interfaces</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#44">4.5.1 Notifications</a></li>
+<li><a href="TechnicalReference_Cals.html#44">4.5.2 Callout Functions</a></li>
+<li><a href="TechnicalReference_Cals.html#44">4.5.3 Hook Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#45">5 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#45">5.1 Configuration Variants</a></li>
+<li><a href="TechnicalReference_Cals.html#45">5.2 Configuration with DaVinci Configurator</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#45">5.2.1 Common Properties</a></li>
+<li><a href="TechnicalReference_Cals.html#45">5.2.2 Service Type related Properties</a></li>
+<li><a href="TechnicalReference_Cals.html#46">5.2.3 Service specific Properties</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#46">5.3 Configuration of CPL</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#47">6 AUTOSAR Standard Compliance</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#47">6.1 Deviation from the AUTOSAR Software Specification</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#48">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Cals.html#48">7.1 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cals.html#49">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

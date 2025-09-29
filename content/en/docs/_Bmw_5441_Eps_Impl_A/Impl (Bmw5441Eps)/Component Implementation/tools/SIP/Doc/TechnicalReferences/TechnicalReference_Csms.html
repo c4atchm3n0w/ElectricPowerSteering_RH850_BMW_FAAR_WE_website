@@ -1,0 +1,2039 @@
+---
+title: TechnicalReference_Csms
+linkTitle: TechnicalReference_Csms
+weight: 192
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR CSM&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Cryptographic&#160;Service Manager&#160;<br/>Version&#160;1.03.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Markus Schneider,&#160;Anant&#160;Gupta&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-2_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Schneider,&#160;Markus&#160;<br/>
+2017-03-14&#160;<br/>
+1.01.00&#160;<br/>
+Initial&#160;Creation&#160;for&#160;ASR&#160;4.3&#160;<br/>
+Gupta,&#160;Anant&#160;<br/>
+2017-03-17&#160;<br/>
+1.01.00&#160;<br/>
+Add&#160;configurational&#160;details&#160;<br/>
+Schneider,&#160;Markus&#160;<br/>
+2017-05-08&#160;<br/>
+1.02.00&#160;<br/>
+<a href="TechnicalReference_Csms.html#10">3.1.1&#160;</a>Added&#160;backward&#160;compatible static&#160;<br/>definition&#160;limitation&#160;<br/><a href="TechnicalReference_Csms.html#14">5&#160;</a>Adapted&#160;to&#160;Specification&#160;<br/>
+Schneider,&#160;Markus&#160;<br/>
+2017-06-07&#160;<br/>
+1.03.00&#160;<br/>
+Adapted&#160;chapter<a href="TechnicalReference_Csms.html#13">&#160;4.2&#160;<br/></a>Added&#160;information&#160;about&#160;SecureCounter&#160;<br/>Removed&#160;API&#160;description&#160;for&#160;<br/>SecureCounter&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CryptoServiceManager.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DET.pdf&#160;<br/>
+4.3.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Csms.html#7"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#7"><b>Component&#160;History&#160;......................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#8"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#8"><b>Introduction...................................................................................................................&#160;8</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#8">Architecture&#160;Overview&#160;........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10"><b>Functional&#160;Description&#160;...............................................................................................&#160;10</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Features&#160;..........................................................................................................&#160;10&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Deviations&#160;........................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Initialization&#160;......................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">3.3&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Main Functions&#160;................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#11">3.4&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#11">Error&#160;Handling&#160;..................................................................................................&#160;11&#160;<br/>3.4.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#11">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13"><b>Integration&#160;...................................................................................................................&#160;13</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Scope of&#160;Delivery&#160;.............................................................................................&#160;13&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Static Files&#160;.......................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Dynamic&#160;Files&#160;..................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">4.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Critical&#160;Sections&#160;...............................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14"><b>API&#160;Description&#160;...........................................................................................................&#160;14</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14">Type&#160;Definitions&#160;...............................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14">5.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14">Services provided by&#160;CSM&#160;...............................................................................&#160;14&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14">Csm_Init&#160;...........................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">Csm_InitMemory&#160;..............................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">Csm_GetVersionInfo&#160;........................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#16">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#16">Csm_CancelJob&#160;...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#17">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#17">Csm_KeyElementSet&#160;.......................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#17">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#17">Csm_KeySetValid&#160;............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#18">5.2.7&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#18">Csm_KeyElementGet&#160;.......................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#19">5.2.8&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#19">Csm_KeyElementCopy&#160;....................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#20">5.2.9&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#20">Csm_KeyCopy&#160;.................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#20">5.2.10&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#20">Csm_RandomSeed&#160;..........................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">5.2.11&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">Csm_KeyGenerate&#160;..........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">5.2.12&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">Csm_KeyDerive&#160;...............................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#22">5.2.13&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#22">Csm_KeyExchangeCalcPubVal&#160;.......................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#23">5.2.14&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#23">Csm_KeyExchangeCalcSecret&#160;........................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#24">5.2.15&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#24">Csm_CertificateParse&#160;......................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#24">5.2.16&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#24">Csm_CertificateVerify&#160;.......................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#25">5.2.17&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#25">Csm_Hash&#160;.......................................................................................&#160;25&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<a href="TechnicalReference_Csms.html#26">5.2.18&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#26">Csm_MacGenerate&#160;..........................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#26">5.2.19&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#26">Csm_MacVerify&#160;................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#27">5.2.20&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#27">Csm_Encrypt&#160;...................................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#28">5.2.21&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#28">Csm_Decrypt&#160;...................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#29">5.2.22&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#29">Csm_AEADEncrypt&#160;..........................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#30">5.2.23&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#30">Csm_AEADDecrypt..........................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#31">5.2.24&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#31">Csm_SignatureGenerate&#160;.................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#32">5.2.25&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#32">Csm_SignatureVerify&#160;.......................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#33">5.2.26&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#33">Csm_RandomGenerate&#160;...................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#33">5.3&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#33">Services used by&#160;CSM&#160;.....................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">5.4&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Callback&#160;Functions&#160;...........................................................................................&#160;34&#160;<br/>5.4.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Csm_CallbackNotification&#160;................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">5.5&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Service Ports&#160;...................................................................................................&#160;34&#160;<br/>5.5.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Client&#160;Server&#160;Interface&#160;.....................................................................&#160;34&#160;<br/>5.5.1.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Provide&#160;Ports&#160;on&#160;CSM&#160;Side&#160;...........................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#35"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#35"><b>Configuration&#160;..............................................................................................................&#160;35</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#35">Overview&#160;..........................................................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#36">6.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#36">Configuration of&#160;a&#160;cryptographic&#160;operation&#160;.......................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">6.3&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Configuration Variants&#160;......................................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">6.4&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Backward&#160;Compatibility&#160;....................................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">6.5&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Configuration with DaVinci&#160;Configurator&#160;5&#160;Pro&#160;.................................................&#160;37&#160;<br/></a><a href="TechnicalReference_Csms.html#38">6.5.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">General&#160;Properties&#160;...........................................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">6.5.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">Key&#160;Properties&#160;.................................................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">6.5.3&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Primitives Properties&#160;........................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">6.5.4&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Queue&#160;Properties&#160;.............................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">6.5.5&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Callback&#160;Properties&#160;..........................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#40">6.5.6&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#40">Job&#160;Properties&#160;..................................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;41</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41">Glossary&#160;..........................................................................................................&#160;41&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41">7.2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41">Abbreviations&#160;...................................................................................................&#160;41&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#42"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#42"><b>Contact&#160;........................................................................................................................&#160;42</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_Csms.html#8">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#8">AUTOSAR&#160;4.3&#160;Architecture&#160;Overview&#160;.........................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#9">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#9">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;CSM&#160;................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#35">Figure&#160;6-1&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#35">Structural&#160;overview&#160;and basic&#160;workflow&#160;....................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#36">Figure&#160;6-2&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#36">Configuration CsmPrimitive&#160;......................................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Figure&#160;6-3&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Configuration CryptoPrimitive&#160;...................................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Figure&#160;6-4&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#37">Configuration CryptoDriverObject&#160;.............................................................&#160;37&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Csms.html#7">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#7">Component&#160;history......................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#10">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#12">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#12">Service IDs&#160;...............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#12">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#12">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Static&#160;files&#160;.................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#13">Generated&#160;files&#160;.........................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#14">Type&#160;definitions&#160;.........................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">Csm_Init&#160;...................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#15">Csm_InitMemory&#160;......................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#16">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#16">Csm_GetVersionInfo&#160;.................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#16">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#16">Csm_CancelJob&#160;.......................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#17">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#17">Csm_KeyElementSet&#160;................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#18">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#18">Csm_KeySetValid&#160;.....................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#19">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#19">Csm_KeyElementGet&#160;...............................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#19">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#19">Csm_KeyElementCopy&#160;.............................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#20">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#20">Csm_KeyCopy&#160;..........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">Csm_RandomSeed&#160;..................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#21">Csm_KeyGenerate&#160;...................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#22">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#22">Csm_KeyDerive&#160;........................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#23">Table&#160;5-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#23">Csm_KeyExchangeCalcPubVal&#160;................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#23">Table&#160;5-15&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#23">Csm_KeyExchangeCalcSecret&#160;.................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#24">Table&#160;5-16&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#24">Csm_CertificateParse&#160;...............................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#25">Table&#160;5-17&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#25">Csm_CertificateVerify&#160;...............................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#25">Table&#160;5-18&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#25">Csm_Hash&#160;................................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#26">Table&#160;5-19&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#26">Csm_MacGenerate...................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#27">Table&#160;5-20&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#27">Csm_MacVerify&#160;........................................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#28">Table&#160;5-21&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#28">Csm_Encrypt&#160;............................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#29">Table&#160;5-22&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#29">Csm_Decrypt&#160;............................................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#30">Table&#160;5-23&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#30">Csm_AEADEncrypt&#160;..................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#31">Table&#160;5-24&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#31">Csm_AEADDecrypt&#160;..................................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#32">Table&#160;5-25&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#32">Csm_SignatureGenerate&#160;..........................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#32">Table&#160;5-26&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#32">Csm_SignatureVerify&#160;................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#33">Table&#160;5-27&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#33">Csm_RandomGenerate&#160;............................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Table&#160;5-28&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Services used&#160;by&#160;the&#160;CSM&#160;........................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Table&#160;5-29&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#34">Csm_CallbackNotification&#160;.........................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">General&#160;Properties....................................................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">Table&#160;6-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#38">Key&#160;Properties&#160;..........................................................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Table&#160;6-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Primitives Properties&#160;.................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Table&#160;6-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#39">Queue&#160;Properties&#160;.....................................................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#40">Table&#160;6-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#40">Callback&#160;Properties...................................................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#40">Table&#160;6-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#40">Job&#160;Properties&#160;..........................................................................................&#160;40&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<a href="TechnicalReference_Csms.html#41">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41">Glossary&#160;...................................................................................................&#160;41&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Csms.html#41">Abbreviations&#160;............................................................................................&#160;41&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00&#160;<br/>
+Initial&#160;beta&#160;release&#160;<br/>
+1.01&#160;<br/>
+Adaptions to&#160;the&#160;specification;&#160;several&#160;improvements&#160;and&#160;bugfixes&#160;<br/>
+1.02&#160;<br/>
+Serial&#160;Production Release&#160;<br/>
+1.03&#160;<br/>
+SafeBsw&#160;Release&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;CSM&#160;as specified&#160;in<a href="TechnicalReference_Csms.html#2">&#160;[1].&#160;</a>&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_Csms.html#8">elease*:</a></b><b>&#160;</b><br/>
+4.3&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+CSM_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+CSM_MODULE_ID &#160;&#160;<br/>
+110&#160;decimal&#160;<br/>
+*&#160;For the detailed functional&#160;specification please also refer to the&#160;corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>The&#160;CSM&#160;provides&#160;synchronous&#160;and&#160;asynchronous&#160;services&#160;to&#160;enable&#160;a&#160;unique&#160;access&#160;to&#160;<br/>basic&#160;&#160;cryptographic&#160;&#160;functionalities&#160;&#160;for&#160;&#160;software&#160;&#160;components&#160;&#160;(SWC)&#160;&#160;and&#160;&#160;basic&#160;&#160;software&#160;<br/>(BSW).&#160;The&#160;CSM&#160;offers&#160;a&#160;standardized&#160;interface&#160;to&#160;higher&#160;software&#160;layers&#160;to&#160;access&#160;these&#160;<br/>functionalities.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;CSM&#160;is&#160;located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.3&#160;Architecture&#160;Overview&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+&#160;<br/>
+The&#160;&#160;next&#160;&#160;figure&#160;&#160;shows&#160;&#160;the&#160;&#160;interfaces&#160;&#160;to&#160;&#160;adjacent&#160;&#160;modules&#160;&#160;of&#160;&#160;the&#160;&#160;CSM.&#160;&#160;These&#160;&#160;interfaces&#160;<br/>are described&#160;in&#160;chapte<a href="TechnicalReference_Csms.html#14">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;cmp&#160;Architecture</b><br/>
+<b>User&#160;Application</b><br/>
+Csm_&lt;KeyManagement&gt;<br/>
+UserCallback<br/>
+Csm_CancelJob<br/>
+Csm_&lt;Service&gt;<br/>
+«optional»<br/>
+Det_ReportError<br/>
+Csm_MainFunction<br/>
+<b>RTE</b><br/>
+<b>CSM</b><br/>
+<b>Det</b><br/>
+«optional»<br/>
+Csm_Init<br/>
+<b>Bsw&#160;M</b><br/>
+CryIf_&lt;KeyManagement&gt;<br/>
+Csm_CallbackNotification<br/>
+CryIf_ProcessJob<br/>
+CryIf_CancelJob<br/>
+«optional»<br/>
+<b>CRYIF</b><br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;CSM&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>CSM.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_Csms.html#2">&#160;&#160;[1],</a>&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Csms.html#10">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Csms.html#10">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR standard conform&#160;features&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;<a href="TechnicalReference_Csms.html#2">in&#160;[1]&#160;</a>are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Queueing&#160;and&#160;cancellation of&#160;jobs&#160;<br/>Job&#160;prioritization&#160;<br/>Synchronous&#160;and asynchronous&#160;job&#160;handling&#160;<br/>Key&#160;management&#160;APIs&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;&#160;</b><br/>
+The&#160;following&#160;features&#160;specified&#160;in<a href="TechnicalReference_Csms.html#2">&#160;[1]&#160;</a>are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>4.x&#160;backward&#160;compatible&#160;API&#160;and&#160;Client-Server&#160;Interface&#160;<br/>4.x&#160;backward&#160;compatible definitions&#160;are static&#160;and&#160;will&#160;be&#160;removed&#160;in&#160;the&#160;next&#160;release&#160;<br/>Secure Counter&#160;Increment&#160;and&#160;Secure&#160;Counter&#160;Read are&#160;not&#160;supported&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+Before&#160;&#160;any&#160;&#160;other&#160;&#160;functionality&#160;&#160;of&#160;&#160;the&#160;&#160;CSM&#160;&#160;module&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;the&#160;&#160;initialization&#160;&#160;function&#160;<br/>Csm_Init()&#160;has&#160;to&#160;be&#160;called&#160;by&#160;the&#160;BSWM.&#160;<br/>
+For&#160;&#160;manual&#160;&#160;null&#160;&#160;initialization&#160;&#160;of&#160;&#160;RAM&#160;&#160;variables&#160;&#160;the&#160;&#160;CSM&#160;&#160;offers&#160;&#160;the&#160;&#160;function&#160;<br/>Csm_InitMemory()&#160;which&#160;can&#160;be&#160;called&#160;before the&#160;Csm_Init().&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+The&#160;&#160;CSM&#160;&#160;module&#160;&#160;implementation&#160;&#160;provides&#160;&#160;one&#160;&#160;main&#160;&#160;function.&#160;&#160;When&#160;&#160;the&#160;&#160;usage&#160;&#160;of&#160;<br/>asynchronous&#160;job&#160;processing&#160;is&#160;enabled,&#160;this&#160;main&#160;function&#160;has&#160;to&#160;be&#160;called&#160;cyclically&#160;on&#160;<br/>task&#160;level.&#160;The&#160;main&#160;function&#160;is&#160;responsible&#160;to&#160;dispatch&#160;new&#160;jobs&#160;to&#160;the&#160;underlying&#160;CRYIF&#160;<br/>respectively&#160;CRYPTO&#160;driver.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.4.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;CSM_DEV_ERROR_DETECT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;CSM&#160;ID is&#160;110.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_Csms.html#14">5.2.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x00&#160;<br/>
+Csm_Init&#160;<br/>
+0x01&#160;<br/>
+Csm_MainFunction&#160;<br/>
+0x3B&#160;<br/>
+Csm_GetVersionInfo&#160;<br/>
+0x5D&#160;<br/>
+Csm_Hash&#160;<br/>
+0x60&#160;<br/>
+Csm_MacGenerate&#160;<br/>
+0x61&#160;<br/>
+Csm_MacVerify&#160;<br/>
+0x5E&#160;<br/>
+Csm_Encrypt&#160;<br/>
+0x5F&#160;<br/>
+Csm_Decrypt&#160;<br/>
+0x62&#160;<br/>
+Csm_AEADEncrypt&#160;<br/>
+0x63&#160;<br/>
+Csm_AEADDecrypt&#160;<br/>
+0x76&#160;<br/>
+Csm_SignatureGenerate&#160;<br/>
+0x64&#160;<br/>
+Csm_SignatureVerify&#160;<br/>
+0x65&#160;<br/>
+Csm_SecureCounterIncrement&#160;<br/>
+0x66&#160;<br/>
+Csm_SecureCounterRead&#160;<br/>
+0x72&#160;<br/>
+Csm_RandomGenerate&#160;<br/>
+0x78&#160;<br/>
+Csm_KeyElementSet&#160;<br/>
+0x67&#160;<br/>
+Csm_KeySetValid&#160;<br/>
+0x68&#160;<br/>
+Csm_KeyElementGet&#160;<br/>
+0x71&#160;<br/>
+Csm_KeyElementCopy&#160;<br/>
+0x73&#160;<br/>
+Csm_KeyCopy&#160;<br/>
+0x69&#160;<br/>
+Csm_RandomSeed&#160;<br/>
+0x6A&#160;<br/>
+Csm_KeyGenerate&#160;<br/>
+0x6B&#160;<br/>
+Csm_KeyDerive&#160;<br/>
+0x6C&#160;<br/>
+Csm_KeyExchangeCalcPubVal&#160;<br/>
+0x6D&#160;<br/>
+Csm_KeyExchangeCalcSecret&#160;<br/>
+0x6E&#160;<br/>
+Csm_CertificateParse&#160;<br/>
+0x74&#160;<br/>
+Csm_CertificateVerify&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x6F&#160;<br/>
+Csm_CancelJob&#160;<br/>
+0x70&#160;<br/>
+Csm_CallbackNotification&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;<br/>
+API&#160;request&#160;called&#160;with invalid parameter&#160;(Nullpointer)&#160;<br/>
+0x05&#160;<br/>
+API&#160;request&#160;called&#160;before&#160;initialization of&#160;CSM&#160;module&#160;<br/>
+0x07&#160;<br/>
+Initialization of&#160;CSM&#160;module&#160;failed&#160;<br/>
+0x09&#160;<br/>
+Requested&#160;service is not&#160;initialized&#160;<br/>
+0x03&#160;<br/>
+API&#160;request&#160;called&#160;with invalid parameter&#160;(invalid&#160;method&#160;for&#160;<br/>selected&#160;service)&#160;<br/>
+0x11&#160;<br/>
+The&#160;service Csm_Init()&#160;is&#160;called&#160;while the&#160;module&#160;is&#160;already&#160;<br/>initialized&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-13_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;&#160;CSM&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;CSM&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Csms.html#13">rs&#160;&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Csms.html#13">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Csm.c&#160;<br/>
+This&#160;is&#160;the&#160;source&#160;file of&#160;the&#160;CSM.&#160;<br/>
+Csm.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file&#160;of&#160;the&#160;CSM.&#160;<br/>
+Csm_Cbk.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file which contains&#160;the&#160;callback&#160;function&#160;declaration.&#160;<br/>
+Csm_Types.h&#160;&#160;This&#160;is&#160;the&#160;common&#160;header&#160;file used&#160;within the&#160;crypto&#160;stack.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator 5&#160;Pro.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Csm_Cfg.c&#160;<br/>
+This&#160;is&#160;configuration source&#160;file.&#160;<br/>
+Csm_Cfg.h&#160;<br/>
+This&#160;is&#160;configuration header&#160;file.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+The&#160;&#160;CSM&#160;&#160;has&#160;&#160;critical&#160;&#160;code&#160;&#160;sections&#160;&#160;which&#160;&#160;must&#160;&#160;not&#160;&#160;be&#160;&#160;interrupted.&#160;&#160;The&#160;&#160;sections&#160;&#160;are&#160;<br/>related&#160;to&#160;the&#160;queue&#160;handling,&#160;job&#160;sorting&#160;and&#160;job&#160;queuing.&#160;<br/>The&#160;CSM&#160;module&#160;calls&#160;the&#160;following&#160;function&#160;when&#160;entering&#160;a&#160;critical&#160;section:&#160;<br/>
+<b>&gt;&#160;&#160;</b>SchM_Enter_Csm_CSM_EXCLUSIVE_AREA_0&#160;<br/>
+When&#160;the&#160;critical section&#160;is left&#160;the&#160;following&#160;function&#160;is called&#160;by&#160;the&#160;CSM module:&#160;<br/>
+<b>&gt;&#160;&#160;</b>SchM_Exit_Csm_CSM_EXCLUSIVE_AREA_0&#160;<br/>
+This critical section&#160;is&#160;needed&#160;to&#160;ensure&#160;consistency&#160;of&#160;global RAM&#160;variables&#160;regarding&#160;the&#160;<br/>queue&#160;handling.&#160;The&#160;runtime&#160;and&#160;length&#160;of&#160;the&#160;critical section&#160;depends on&#160;the&#160;configured&#160;<br/>queue&#160;size.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;critical&#160;section is&#160;only&#160;needed&#160;when asynchronous&#160;jobs&#160;are configured.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_Csms.html#9">&#160;Figure&#160;2-2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+Application&#160;related&#160;types&#160;defined&#160;by&#160;the&#160;&#160;CSM&#160;&#160;are&#160;described&#160;in&#160;this&#160;chapter.&#160;All&#160;types&#160;not&#160;<br/>described&#160;here&#160;are&#160;defined&#160;by&#160;the&#160;CSM as&#160;described&#160;in<a href="TechnicalReference_Csms.html#2">&#160;[1].</a>&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+Crypto_OperationMod<br/>
+uint8&#160;<br/>
+Indicator&#160;of&#160;the&#160;<br/>
+CRYPTO_OPERATIONMODE_START&#160;<br/>
+eType&#160;<br/>
+mode(s)/operation(s)&#160;to&#160;<br/>
+Perform&#160;start&#160;operation&#160;<br/>
+be&#160;performed.&#160;<br/>
+CRYPTO_OPERATIONMODE_UPDAT<br/>E&#160;<br/>Perform&#160;update&#160;operation&#160;<br/>CRYPTO_OPERATIONMODE_FINIS<br/>H&#160;&#160;<br/>Perform&#160;finish operation&#160;<br/>CRYPTO_OPERATIONMODE_STREA<br/>MSTART&#160;&#160;<br/>Perform&#160;start&#160;and update&#160;operation&#160;<br/>CRYPTO_OPERATIONMODE_SINGL<br/>ECALL&#160;&#160;<br/>Perform&#160;start,&#160;update and&#160;finish&#160;<br/>operation&#160;<br/>
+Crypto_VerifyResultTy&#160;uint8&#160;<br/>
+Enumeration&#160;of&#160;the&#160;result&#160;&#160;CRYPTO_E_VER_OK&#160;&#160;<br/>
+pe&#160;<br/>
+type&#160;of&#160;verification&#160;<br/>
+The&#160;result&#160;of&#160;the&#160;verification&#160;is&#160;<br/>
+operations.&#160;&#160;&#160;<br/>
+&#34;true&#34;,&#160;i.e.&#160;the&#160;two compared&#160;<br/>elements&#160;are&#160;identical.&#160;This&#160;return&#160;<br/>code shall&#160;be&#160;given&#160;as value&#160;&#34;0&#34;&#160;<br/>CRYPTO_E_VER_NOT_OK&#160;&#160;<br/>The&#160;result&#160;of&#160;the&#160;verification&#160;is&#160;<br/>&#34;false&#34;,&#160;i.e.&#160;the&#160;two compared&#160;<br/>elements&#160;are&#160;not&#160;identical.&#160;This&#160;<br/>return code&#160;shall&#160;be&#160;given&#160;as value&#160;<br/>&#34;1&#34;.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Type&#160;definitions&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;CSM&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>Csm_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Csm_Init&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the Csm.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+None&#160;<br/>Set&#160;all&#160;service states&#160;to&#160;initial&#160;idle.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;Csm_Init&#160;<br/>
+&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>Csm_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Csm_InitMemory&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Power-up&#160;memory&#160;initialization.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Use this&#160;function&#160;in case&#160;these variables&#160;are not&#160;initialized&#160;by&#160;the&#160;startup&#160;code.&#160;<br/>Module&#160;is&#160;uninitialized.&#160;<br/>Initialize component variables&#160;at&#160;power up.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;Csm_InitMemory&#160;<br/>
+&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>Csm_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Csm_GetVersionInfo&#160;</b>(Std_VersionInfoType *versioninfo)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo [out]&#160;<br/>
+Pointer&#160;to&#160;where to store the version&#160;information. Parameter&#160;must not&#160;be&#160;<br/>NULL.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Implements&#160;the&#160;API to&#160;be&#160;called&#160;cyclically&#160;to process&#160;the&#160;requested services.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&gt;&#160;&#160;Csm&#160;is&#160;initialized.GetVersionInfo&#160;API&#160;is&#160;enabled&#160;via&#160;pre-compile configuration.&#160;<br/>Calls&#160;the configured main function of&#160;the&#160;specific&#160;Cry&#160;service&#160;if&#160;requested.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;Csm_GetVersionInfo&#160;<br/>
+&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>Csm_CancelJob&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_CancelJob&#160;</b>(uint32 jobId,&#160;Crypto_OperationModeType mode)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Not used,&#160;just for interface&#160;compatibility&#160;provided&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+Std_ReturnType&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Cancels&#160;the&#160;given&#160;job.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Removes&#160;the job&#160;in&#160;the&#160;Csm&#160;Queue&#160;and&#160;calls&#160;the&#160;job's&#160;callback&#160;with&#160;the&#160;result&#160;<br/>CRYPTO_E_JOB_CANCELED.&#160;It also passes&#160;the cancellation command to&#160;the CryIf&#160;to&#160;try&#160;to cancel&#160;the job&#160;<br/>in the&#160;Crypto&#160;Driver.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;Csm_CancelJob&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>Csm_KeyElementSet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyElementSet&#160;</b>(uint32 keyId, uint32 keyElementId, const&#160;<br/>uint8 *keyPtr, uint32 keyLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element to&#160;be&#160;written.&#160;<br/>
+keyPtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the key&#160;element bytes&#160;to be processed.&#160;<br/>
+keyLength [in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;key&#160;element bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed&#160;because&#160;write&#160;access&#160;was&#160;<br/>denied&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed because the key&#160;is&#160;not&#160;<br/>available&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed because key&#160;element&#160;<br/>size&#160;does&#160;not match size of&#160;provided&#160;data&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;the given&#160;key&#160;element&#160;bytes&#160;to&#160;the&#160;key&#160;identified&#160;by&#160;keyId.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;Csm_KeyElementSet&#160;<br/>
+&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>Csm_KeySetValid&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeySetValid&#160;</b>(uint32 keyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;for&#160;which a&#160;new&#160;material&#160;shall&#160;be&#160;validated.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;the key&#160;state&#160;of&#160;the key&#160;identified&#160;by&#160;keyId&#160;to valid.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;Csm_KeySetValid&#160;<br/>
+&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>Csm_KeyElementGet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyElementGet&#160;</b>(uint32 keyId, uint32 keyElementId, uint8&#160;<br/>*keyPtr, uint32&#160;*keyLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;from&#160;which&#160;a key&#160;element shall&#160;be&#160;extracted.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element to&#160;be&#160;extracted.&#160;<br/>
+keyPtr&#160;[out]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the memory&#160;location&#160;where the&#160;key&#160;shall&#160;be&#160;copied to.&#160;<br/>
+inout]&#160;[out]&#160;<br/>
+keyLengthPtr&#160;Holds&#160;a&#160;pointer to the memory&#160;location&#160;in&#160;which the output&#160;buffer&#160;<br/>length&#160;in&#160;bytes&#160;is&#160;stored.&#160;On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain&#160;<br/>the&#160;buffer length&#160;in bytes&#160;of&#160;the keyPtr.&#160;When the&#160;request has&#160;finished,&#160;the&#160;<br/>actual&#160;size of&#160;the&#160;written&#160;input bytes&#160;shall&#160;be stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed&#160;because read&#160;access&#160;was&#160;<br/>denied&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed because the key&#160;is&#160;not&#160;<br/>available&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Retrieves&#160;the&#160;key&#160;element&#160;bytes&#160;from&#160;a&#160;specific&#160;key&#160;element of&#160;the key&#160;identified&#160;by&#160;the&#160;keyId&#160;and stores&#160;<br/>the&#160;key&#160;element in&#160;the&#160;memory&#160;location pointed&#160;by&#160;the key&#160;pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;Csm_KeyElementGet&#160;<br/>
+&#160;<br/>
+<b>5.2.8&#160;</b><br/>
+<b>Csm_KeyElementCopy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyElementCopy&#160;</b>(uint32 keyId, uint32 keyElementId, uint32&#160;<br/>targetKeyId, uint32 targetKeyElementId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;source&#160;element.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;the&#160;source for the&#160;copy&#160;<br/>operation.&#160;<br/>
+targetKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;destination&#160;<br/>element.&#160;<br/>
+targetKeyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;the&#160;destination&#160;for the&#160;<br/>copy&#160;operation.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request&#160;failed,&#160;Crypto&#160;Driver Object is&#160;busy&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed&#160;because read&#160;access&#160;was&#160;<br/>denied&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed&#160;because&#160;write&#160;access&#160;was&#160;<br/>denied&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed because the key&#160;is&#160;not&#160;<br/>available&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed because key&#160;element&#160;<br/>sizes&#160;are&#160;not&#160;compatible&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;copy&#160;a key&#160;elements&#160;from&#160;one key&#160;to a&#160;target key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;Csm_KeyElementCopy&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>5.2.9&#160;</b><br/>
+<b>Csm_KeyCopy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyCopy&#160;</b>(uint32 keyId, uint32 targetKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;source&#160;element.&#160;<br/>
+targetKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;destination&#160;<br/>element.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed&#160;because read&#160;access&#160;was&#160;<br/>denied&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed&#160;because&#160;write&#160;access&#160;was&#160;<br/>denied&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed&#160;because the key&#160;is&#160;not&#160;<br/>available&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed because key&#160;element&#160;<br/>sizes&#160;are&#160;not&#160;compatible&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;copy&#160;all&#160;key&#160;elements&#160;from&#160;the source key&#160;to a&#160;target key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Csm_KeyCopy&#160;<br/>
+&#160;<br/>
+<b>5.2.10&#160;&#160;Csm_RandomSeed&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_RandomSeed&#160;</b>(uint32 keyId, const uint8 *seedPtr,&#160;uint32&#160;<br/>seedLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;for&#160;which a&#160;new&#160;material&#160;shall&#160;be&#160;generated.&#160;<br/>
+seedPtr&#160;[in]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;containing&#160;the&#160;data&#160;to&#160;feed&#160;the&#160;seed.&#160;<br/>
+seedLength [in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the&#160;seed&#160;in&#160;bytes.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+Std_ReturnType&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Feeds&#160;a&#160;key&#160;with&#160;a random&#160;seed.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;Csm_RandomSeed&#160;<br/>
+&#160;<br/>
+<b>5.2.11&#160;&#160;Csm_KeyGenerate&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyGenerate&#160;</b>(uint32 keyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;for&#160;which a&#160;new&#160;material&#160;shall&#160;be&#160;generated.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+Std_ReturnType&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Generates&#160;a key&#160;based on&#160;key&#160;element input.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;Csm_KeyGenerate&#160;<br/>
+&#160;<br/>
+<b>5.2.12&#160;&#160;Csm_KeyDerive&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyDerive&#160;</b>(uint32 keyId, uint32 targetKeyId)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;used&#160;for key&#160;derivation.&#160;<br/>
+targetKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;used&#160;to&#160;store the derived key.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request&#160;failed,&#160;Crypto&#160;Driver Object is&#160;busy&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Derives&#160;a&#160;new&#160;key&#160;by&#160;using&#160;the key&#160;elements&#160;in the&#160;given&#160;key&#160;identified&#160;by&#160;the&#160;keyId.&#160;The&#160;given&#160;key&#160;<br/>contains&#160;the&#160;key&#160;elements&#160;for&#160;the&#160;password and&#160;salt.&#160;The&#160;derived&#160;key&#160;is&#160;stored&#160;in the&#160;key&#160;element&#160;with the&#160;<br/>id 1&#160;of&#160;the key&#160;identified by&#160;targetCryptoKeyId.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;Csm_KeyDerive&#160;<br/>
+&#160;<br/>
+<b>5.2.13&#160;&#160;Csm_KeyExchangeCalcPubVal&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyExchangeCalcPubVal&#160;</b>(uint32 keyId, uint8 *publicValuePtr,&#160;<br/>uint32 *publicValueLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;key&#160;identifier&#160;of&#160;the key&#160;to&#160;be&#160;used&#160;for the&#160;key&#160;exchange protocol.&#160;<br/>
+publicValuePtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;public&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+inout]&#160;[out]&#160;<br/>
+publicValueLengthPtr&#160;Holds&#160;a&#160;pointer to the&#160;memory&#160;location&#160;in&#160;which the&#160;<br/>public&#160;value&#160;length&#160;in&#160;bytes&#160;is&#160;stored.&#160;On calling&#160;this&#160;function, this&#160;parameter&#160;<br/>shall&#160;contain&#160;the&#160;size of&#160;the&#160;buffer in bytes&#160;provided&#160;by&#160;publicValuePtr.&#160;When&#160;<br/>the&#160;request has&#160;finished, the actual&#160;length&#160;of&#160;the returned&#160;value&#160;shall&#160;be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_KEY_NOT_VALID&#160;Request failed&#160;because the&#160;key's&#160;state&#160;is&#160;<br/>&#34;invalid&#34;&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calculates&#160;the&#160;public&#160;value&#160;of&#160;the current&#160;user for the&#160;key&#160;exchange and stores&#160;the public&#160;key&#160;in the&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+memory&#160;location&#160;pointed&#160;by&#160;the&#160;public&#160;value&#160;pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;Csm_KeyExchangeCalcPubVal&#160;<br/>
+&#160;<br/>
+<b>5.2.14&#160;&#160;Csm_KeyExchangeCalcSecret&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_KeyExchangeCalcSecret&#160;</b>(uint32 keyId, const uint8&#160;<br/>*partnerPublicValuePtr, uint32&#160;partnerPublicValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;key&#160;identifier&#160;of&#160;the key&#160;to&#160;be&#160;used&#160;for the&#160;key&#160;exchange protocol.&#160;<br/>
+partnerPublicValuePtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the memory&#160;location containing the partner's&#160;public&#160;value.&#160;<br/>
+partnerPublicValueLength&#160;&#160;Contains&#160;the&#160;number&#160;of&#160;bytes&#160;of&#160;the partner public&#160;value.&#160;<br/>[in]&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calculates&#160;the&#160;shared secret&#160;key&#160;for the&#160;key&#160;exchange&#160;with&#160;the&#160;key&#160;material&#160;of&#160;the&#160;key&#160;identified by&#160;the&#160;<br/>keyId&#160;and&#160;the&#160;partner&#160;public&#160;key.&#160;The&#160;shared secret&#160;key&#160;is&#160;stored as&#160;a&#160;key&#160;element in the&#160;same key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;Csm_KeyExchangeCalcSecret&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>5.2.15&#160;&#160;Csm_CertificateParse&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_CertificateParse&#160;</b>(uint32 keyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;to be used&#160;for the&#160;certificate&#160;parsing.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+Std_ReturnType&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;dispatch&#160;the certificate&#160;parse function to the&#160;CRYIF.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-16&#160;&#160;&#160;Csm_CertificateParse&#160;<br/>
+&#160;<br/>
+<b>5.2.16&#160;&#160;Csm_CertificateVerify&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_CertificateVerify&#160;</b>(uint32 keyId, uint32 verifyKeyId,&#160;<br/>Crypto_VerifyResultType *verifyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+keyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;to be used&#160;to&#160;validate&#160;the certificate.&#160;<br/>
+verifyKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;containing&#160;the&#160;certificate&#160;to&#160;be verified.&#160;<br/>
+verifyPtr&#160;[in]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location,&#160;which&#160;will&#160;contain&#160;the&#160;result&#160;of&#160;the&#160;<br/>certificate&#160;verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+Std_ReturnType&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Verifies&#160;the certificate&#160;stored in&#160;the&#160;key&#160;referenced by&#160;verifyKeyId&#160;with the certificate&#160;stored in the&#160;key&#160;<br/>referenced&#160;by&#160;keyId.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-17&#160;&#160;&#160;Csm_CertificateVerify&#160;<br/>
+&#160;<br/>
+<b>5.2.17&#160;&#160;Csm_Hash&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_Hash&#160;</b>(uint32 jobId, Crypto_OperationModeType mode, const&#160;<br/>uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32 *resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;for&#160;which the hash shall&#160;be&#160;computed.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;be hashed.&#160;<br/>
+resultPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;hash&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+resultLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;in&#160;bytes&#160;is&#160;<br/>stored.&#160;On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the size&#160;of&#160;the&#160;<br/>buffer provided&#160;by&#160;resultPtr.&#160;When the&#160;request&#160;has&#160;finished,&#160;the&#160;actual&#160;length&#160;<br/>of&#160;the returned&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface shall&#160;be used&#160;for the&#160;hash computation&#160;service.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-18&#160;&#160;&#160;Csm_Hash&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>5.2.18&#160;&#160;Csm_MacGenerate&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_MacGenerate&#160;</b>(uint32 jobId, Crypto_OperationModeType mode,&#160;<br/>const uint8 *dataPtr, uint32 dataLength, uint8 *macPtr, uint32 *macLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;for&#160;which the MAC shall&#160;be&#160;computed.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;for&#160;the&#160;MAC generation.&#160;<br/>
+macPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;MAC shall&#160;be&#160;stored.&#160;<br/>
+macLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;in&#160;bytes&#160;is&#160;<br/>stored.&#160;On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the size&#160;of&#160;the&#160;<br/>buffer provided&#160;by&#160;macPtr. When&#160;the request has&#160;finished,&#160;the&#160;actual&#160;length&#160;of&#160;<br/>the&#160;returned&#160;MAC shall&#160;be&#160;stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Uses&#160;the given&#160;data to&#160;perform&#160;a&#160;MAC generation&#160;and&#160;stores&#160;the&#160;MAC&#160;in&#160;the&#160;memory&#160;location pointed&#160;to by&#160;<br/>the&#160;MAC&#160;pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-19&#160;&#160;&#160;Csm_MacGenerate&#160;<br/>
+&#160;<br/>
+<b>5.2.19&#160;&#160;Csm_MacVerify&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_MacVerify&#160;</b>(uint32 jobId, Crypto_OperationModeType mode,&#160;<br/>const uint8 *dataPtr, uint32 dataLength, const uint8 *macPtr, uint32 macLength,&#160;<br/>Crypto_VerifyResultType *verifyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the&#160;CSM service.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;for&#160;which the MAC shall&#160;be&#160;verified.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;data&#160;bytes&#160;for which&#160;the&#160;MAC&#160;shall&#160;be&#160;verified.&#160;<br/>
+macPtr&#160;[in]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;MAC&#160;to&#160;be verified.&#160;<br/>
+macLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;MAC&#160;length in&#160;BITS&#160;to&#160;be&#160;verified.&#160;<br/>
+verifyPtr&#160;[out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location,&#160;which&#160;will&#160;hold&#160;the result of&#160;the MAC&#160;<br/>verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Verifies&#160;the&#160;given MAC&#160;by&#160;comparing&#160;if&#160;the&#160;MAC is&#160;generated&#160;with the given&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-20&#160;&#160;&#160;Csm_MacVerify&#160;<br/>
+&#160;<br/>
+<b>5.2.20&#160;&#160;Csm_Encrypt&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_Encrypt&#160;</b>(uint32 jobId, Crypto_OperationModeType mode, const&#160;<br/>uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32 *resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM&#160;service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;to&#160;be encrypted.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;encrypt.&#160;<br/>
+resultPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;encrypted&#160;data&#160;shall&#160;be&#160;stored.&#160;<br/>
+resultLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;information&#160;<br/>is&#160;stored&#160;in bytes. On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the size&#160;<br/>of&#160;the buffer provided&#160;by&#160;resultPtr.&#160;When the&#160;request has&#160;finished, the actual&#160;<br/>length&#160;of&#160;the returned&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Encrypts&#160;the&#160;given data&#160;and stores&#160;the&#160;ciphertext&#160;in the memory&#160;location&#160;pointed&#160;by&#160;the&#160;result pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-21&#160;&#160;&#160;Csm_Encrypt&#160;<br/>
+&#160;<br/>
+<b>5.2.21&#160;&#160;Csm_Decrypt&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_Decrypt&#160;</b>(uint32 jobId, Crypto_OperationModeType mode, const&#160;<br/>uint8 *dataPtr,&#160;uint32 dataLength, uint8 *resultPtr, uint32 *resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;to&#160;be&#160;decrypted.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;decrypt.&#160;<br/>
+resultPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;decrypted data&#160;shall&#160;be&#160;stored.&#160;<br/>
+resultLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;information&#160;<br/>is&#160;stored&#160;in bytes. On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the size&#160;<br/>of&#160;the buffer provided&#160;by&#160;resultPtr.&#160;When the&#160;request has&#160;finished, the actual&#160;<br/>length&#160;of&#160;the returned&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Decrypts&#160;the given&#160;encrypted&#160;data&#160;and stores&#160;the&#160;decrypted&#160;plaintext in&#160;the&#160;memory&#160;location pointed&#160;by&#160;the&#160;<br/>result pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-22&#160;&#160;&#160;Csm_Decrypt&#160;<br/>
+&#160;<br/>
+<b>5.2.22&#160;&#160;Csm_AEADEncrypt&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_AEADEncrypt&#160;</b>(uint32 jobId, Crypto_OperationModeType mode,&#160;<br/>const uint8 *plaintextPtr, uint32 plaintextLength, const uint8&#160;<br/>*associatedDataPtr, uint32&#160;associatedDataLength, uint8 *ciphertextPtr, uint32&#160;<br/>*ciphertextLengthPtr, uint8 *tagPtr, uint32 *tagLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+plaintextPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;to&#160;be encrypted.&#160;<br/>
+plaintextLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;encrypt.&#160;<br/>
+associatedDataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;associated&#160;data.&#160;<br/>
+associatedDataLength&#160;[in]&#160;&#160;Contains&#160;the&#160;number&#160;of&#160;bytes&#160;of&#160;the associated&#160;data.&#160;<br/>
+ciphertextPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;encrypted data&#160;shall&#160;be&#160;stored.&#160;<br/>
+ciphertextLengthPtr&#160;[in,out]&#160;&#160;Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;in&#160;bytes&#160;of&#160;<br/>
+the&#160;ciphertext&#160;is&#160;stored. On&#160;calling&#160;this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain&#160;<br/>the&#160;size&#160;of&#160;the buffer in bytes&#160;provided by&#160;resultPtr.&#160;When&#160;the request has&#160;<br/>finished,&#160;the&#160;actual&#160;length&#160;of&#160;the returned&#160;value&#160;shall&#160;be stored.&#160;<br/>
+tagPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;Tag&#160;shall&#160;be&#160;stored.&#160;<br/>
+tagLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;in&#160;bytes&#160;of&#160;<br/>the&#160;Tag&#160;is&#160;stored.&#160;On&#160;calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the size&#160;<br/>of&#160;the buffer in bytes&#160;provided&#160;by&#160;resultPtr.&#160;When the&#160;request&#160;has&#160;finished,&#160;the&#160;<br/>actual&#160;length of&#160;the returned value shall&#160;be&#160;stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-30_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Uses&#160;the given&#160;input&#160;data to perform&#160;a&#160;AEAD encryption&#160;and&#160;stores&#160;the&#160;ciphertext and&#160;the&#160;MAC in the&#160;<br/>memory&#160;locations&#160;pointed by&#160;the&#160;ciphertext&#160;pointer&#160;and&#160;Tag&#160;pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-23&#160;&#160;&#160;Csm_AEADEncrypt&#160;<br/>
+&#160;<br/>
+<b>5.2.23&#160;&#160;Csm_AEADDecrypt&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_AEADDecrypt&#160;(uint32 jobId, Crypto_OperationModeType mode,&#160;<br/>const uint8 *ciphertextPtr, uint32 ciphertextLength, const uint8&#160;<br/>*associatedDataPtr, uint32 associatedDataLength, const uint8 *tagPtr, uint32&#160;<br/>tagLength, uint8 *plaintextPtr, uint32 *plaintextLengthPtr,&#160;<br/>Crypto_</b>_VerifyResultType *verifyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+ciphertextPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;to&#160;be decrypted.&#160;<br/>
+ciphertextLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;decrypt.&#160;<br/>
+associatedDataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;associated&#160;data.&#160;<br/>
+associatedDataLength&#160;[in]&#160;&#160;Contains&#160;the&#160;number&#160;of&#160;bytes&#160;of&#160;the associated&#160;data.&#160;<br/>
+tagPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;Tag&#160;shall&#160;be&#160;stored.&#160;<br/>
+tagLength [in]&#160;<br/>
+Contains&#160;the&#160;length&#160;in&#160;bytes&#160;of&#160;the&#160;Tag&#160;to&#160;be&#160;verified.&#160;<br/>
+plaintextPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;encrypted data&#160;shall&#160;be&#160;stored.&#160;<br/>
+plaintextLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;in&#160;bytes&#160;of&#160;<br/>the&#160;ciphertext&#160;is&#160;stored. On&#160;calling&#160;this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain&#160;<br/>the&#160;size&#160;of&#160;the buffer in bytes&#160;provided by&#160;resultPtr.&#160;When&#160;the request has&#160;<br/>finished,&#160;the&#160;actual&#160;length&#160;of&#160;the returned&#160;value&#160;shall&#160;be stored.&#160;<br/>
+verifyPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;result of&#160;the&#160;verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Uses&#160;the given&#160;data to&#160;perform&#160;an&#160;AEAD decryption and&#160;stores&#160;the plaintext and&#160;the&#160;result of&#160;in&#160;the&#160;memory&#160;<br/>locations&#160;pointed&#160;by&#160;the plaintext&#160;pointer&#160;and&#160;verifyPtr&#160;pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-24&#160;&#160;&#160;Csm_AEADDecrypt&#160;<br/>
+&#160;<br/>
+<b>5.2.24&#160;&#160;Csm_SignatureGenerate&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_SignatureGenerate&#160;</b>(uint32 jobId, Crypto_OperationModeType&#160;<br/>mode, const uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32&#160;<br/>*resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;to&#160;be signed.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;sign.&#160;<br/>
+resultPtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;signature&#160;shall&#160;be stored.&#160;<br/>
+resultLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;output&#160;length&#160;in&#160;bytes&#160;is&#160;<br/>stored.&#160;On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the size&#160;of&#160;the&#160;<br/>buffer in bytes&#160;provided by&#160;resultPtr.&#160;When the&#160;request&#160;has&#160;finished,&#160;the&#160;actual&#160;<br/>length&#160;of&#160;the returned&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Uses&#160;the given&#160;data to&#160;perform&#160;the signature calculation and stores&#160;the signature in the&#160;memory&#160;location&#160;<br/>pointed&#160;by&#160;the result pointer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-32_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-25&#160;&#160;&#160;Csm_SignatureGenerate&#160;<br/>
+&#160;<br/>
+<b>5.2.25&#160;&#160;Csm_SignatureVerify&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_SignatureVerify&#160;</b>(uint32 jobId,&#160;Crypto_OperationModeType&#160;<br/>mode, const uint8 *dataPtr, uint32 dataLength, const uint8 *signaturePtr,&#160;<br/>uint32 signatureLength, Crypto_VerifyResultType *verifyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+mode [in]&#160;<br/>
+Indicates&#160;which operation&#160;mode(s)&#160;to&#160;perfom.&#160;<br/>
+dataPtr&#160;[in]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;to&#160;be&#160;verified.&#160;<br/>
+dataLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;number&#160;of&#160;bytes&#160;to&#160;be verified.&#160;<br/>
+signaturePtr&#160;[in]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;signature to&#160;be&#160;verified.&#160;<br/>
+signatureLength&#160;[in]&#160;<br/>
+Contains&#160;the&#160;signature&#160;length&#160;in bytes.&#160;<br/>
+verifyPtr&#160;[out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location,&#160;which&#160;will&#160;hold&#160;the result of&#160;the&#160;<br/>signature&#160;verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Verifies&#160;the&#160;given signature&#160;by&#160;comparing&#160;with a&#160;generated signature.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-26&#160;&#160;&#160;Csm_SignatureVerify&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-33_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>5.2.26&#160;&#160;Csm_RandomGenerate&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>Csm_RandomGenerate&#160;</b>(uint32 jobId, uint8 *resultPtr, uint32&#160;<br/>*resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+jobId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the job using the CSM service.&#160;<br/>
+resultPtr&#160;[out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;hold&#160;the&#160;result of&#160;the&#160;random&#160;<br/>number&#160;generation.&#160;<br/>
+resultLengthPtr&#160;[in,out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;result length&#160;in bytes&#160;is&#160;<br/>stored.&#160;On calling this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain the number&#160;of&#160;<br/>random&#160;bytes,&#160;which shall&#160;be&#160;stored&#160;to&#160;the&#160;buffer&#160;provided&#160;by&#160;resultPtr.&#160;When&#160;<br/>the&#160;request has&#160;finished, the actual&#160;length&#160;of&#160;the returned&#160;value&#160;shall&#160;be&#160;<br/>stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+CSM_E_OK&#160;Request successful&#160;<br/>
+CSM_E_NOT_OK&#160;Request&#160;failed&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;service&#160;is&#160;busy&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full&#160;<br/>
+CRYPTO_E_ENTROPY_EXHAUSTION&#160;Request failed,&#160;entropy&#160;of&#160;random&#160;<br/>number&#160;generator is&#160;exhausted&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;The&#160;provided buffer is&#160;too small&#160;to&#160;store the&#160;<br/>result&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface shall&#160;be used&#160;for generation&#160;of&#160;random&#160;numbers.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Service&#160;is&#160;idle.&#160;<br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-27&#160;&#160;&#160;Csm_RandomGenerate&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;CSM&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other&#160;components,&#160;which&#160;are&#160;used&#160;by&#160;the&#160;CSM&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-34_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError&#160;<br/>
+Table&#160;5-28&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;CSM&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback&#160;functions&#160;that&#160;are&#160;implemented&#160;by&#160;the&#160;&#160;CSM&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;Csm_Cbk.h&#160;by&#160;the&#160;CSM.&#160;<br/>
+<b>5.4.1&#160;</b><br/>
+<b>Csm_CallbackNotification&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Csm_CallbackNotification&#160;</b>(&#160;Crypto_JobType&#160;*job, Std_ReturnType result&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+job&#160;<br/>
+Points&#160;to&#160;the&#160;completed&#160;job's&#160;information&#160;structure. It&#160;contains&#160;a&#160;callbackID to&#160;<br/>identify&#160;which job is&#160;finished.&#160;<br/>
+result&#160;<br/>
+Contains&#160;the&#160;result of&#160;the cryptographic&#160;operation.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Notifies&#160;the&#160;CSM&#160;about&#160;the&#160;completion&#160;of&#160;the request&#160;with&#160;the&#160;result of&#160;the cryptographic&#160;operation.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Table&#160;5-29&#160;&#160;&#160;Csm_CallbackNotification&#160;<br/>
+&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Service&#160;Ports&#160;</b><br/>
+<b>5.5.1&#160;</b><br/>
+<b>Client&#160;Server Interface&#160;</b><br/>
+A&#160;client&#160;server&#160;interface&#160;is&#160;related&#160;to&#160;a&#160;Provide&#160;Port&#160;at&#160;the&#160;server&#160;side&#160;and&#160;a&#160;Require&#160;Port&#160;<br/>at&#160;client&#160;side.&#160;&#160;<br/>
+<b>5.5.1.1&#160;</b><br/>
+<b>Provide&#160;Ports&#160;on&#160;CSM&#160;Side&#160;</b><br/>
+At&#160;&#160;the&#160;&#160;Provide&#160;&#160;Ports&#160;&#160;of&#160;&#160;the&#160;&#160;CSM&#160;&#160;the&#160;&#160;API&#160;&#160;functions&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_Csms.html#14">5.2&#160;&#160;</a>are&#160;&#160;available&#160;&#160;as&#160;<br/>Runnable&#160;Entities.&#160;The&#160;Runnable&#160;Entities&#160;are&#160;invoked&#160;via&#160;Operations.&#160;The&#160;mapping&#160;from&#160;a&#160;<br/>SWC&#160;client&#160;call&#160;to&#160;an&#160;Operation&#160;is&#160;performed&#160;by&#160;the&#160;RTE.&#160;In&#160;this&#160;mapping&#160;the&#160;RTE&#160;adds&#160;<br/>Port Defined&#160;Argument&#160;Values to&#160;the&#160;client&#160;call of&#160;the&#160;SWC,&#160;if&#160;configured.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-35_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-35_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+&#160;<br/>
+Figure&#160;6-1&#160;&#160;Structural&#160;overview&#160;and&#160;basic&#160;workflow&#160;<br/>
+<a href="TechnicalReference_Csms.html#35">Figure&#160;6-1&#160;</a>gives&#160;a&#160;structural&#160;overview&#160;and&#160;shows&#160;the&#160;basic&#160;workflow&#160;of&#160;the&#160;crypto&#160;stack.&#160;<br/>The&#160;Swc&#160;requests&#160;a&#160;cryptographic&#160;service&#160;of&#160;the&#160;CSM&#160;providing&#160;the&#160;necessary&#160;data&#160;and&#160;<br/>the&#160;&#160;id&#160;&#160;of&#160;&#160;the&#160;&#160;CsmJob&#160;&#160;which&#160;&#160;will&#160;&#160;be&#160;&#160;performed&#160;&#160;in&#160;&#160;the&#160;&#160;underlying&#160;&#160;CryptoDriverObject.&#160;&#160;The&#160;<br/>CsmJob&#160;contains&#160;all&#160;computational&#160;parameters&#160;for&#160;performing&#160;the&#160;cryptographic&#160;operation&#160;<br/>(see&#160;chapte<a href="TechnicalReference_Csms.html#36">r&#160;6.2&#160;</a>and<a href="TechnicalReference_Csms.html#40">&#160;6.5.6)</a>.&#160;<br/>At&#160;configuration&#160;time,&#160;each&#160;CsmJob&#160;is&#160;assigned&#160;to&#160;a&#160;CsmQueue,&#160;regardless&#160;of&#160;processing&#160;<br/>type&#160;(synchronous or asynchronous)&#160;of&#160;the&#160;job.&#160;Each&#160;CsmQueue&#160;is mapped&#160;to&#160;CryIfQueue&#160;<br/>and&#160;a&#160;CryIfQueue&#160;itself&#160;is&#160;mapped&#160;to&#160;a&#160;CryptoDriverObject&#160;of&#160;a&#160;crypto&#160;driver.&#160;At&#160;the&#160;crypto&#160;<br/>layer,&#160;N crypto&#160;drivers&#160;may&#160;coexist and&#160;do&#160;not&#160;interfere&#160;each&#160;other.&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+35&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-36_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-36_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+The&#160;&#160;CryptoDriverObject&#160;&#160;must&#160;&#160;allocate&#160;&#160;the&#160;&#160;required&#160;&#160;workspace&#160;&#160;and&#160;&#160;support&#160;&#160;the&#160;<br/>cryptographic&#160;&#160;operational&#160;&#160;in&#160;&#160;general.&#160;&#160;A&#160;&#160;job&#160;&#160;in&#160;&#160;computation&#160;&#160;occupies&#160;&#160;the&#160;&#160;cryptographic&#160;<br/>workspace&#160;of&#160;the&#160;cryptographic&#160;&#160;service;&#160;&#160;therefore&#160;&#160;jobs&#160;running&#160;in&#160;&#160;the&#160;same&#160;crypto&#160;driver&#160;<br/>object&#160;are&#160;processed&#160;in&#160;serialized&#160;fashion,&#160;whereas&#160;jobs&#160;running&#160;in&#160;different&#160;crypto&#160;driver&#160;<br/>objects&#160;or jobs&#160;of&#160;different&#160;cryptographic type&#160;may&#160;run&#160;in&#160;parallel.&#160;&#160;<br/>All&#160;CSM&#160;attributes can&#160;be&#160;configured&#160;with&#160;the&#160;following&#160;tools:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator 5&#160;Pro&#160;for a&#160;detailed&#160;description&#160;see<a href="TechnicalReference_Csms.html#37">&#160;6.5&#160;</a>&#160;&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Configuration of a&#160;cryptographic&#160;operation&#160;</b><br/>
+A&#160;cryptographic&#160;algorithm&#160;is&#160;mostly&#160;configurable&#160;and&#160;must&#160;be&#160;parametrized&#160;to&#160;operate&#160;in&#160;<br/>specific&#160;mode.&#160;A&#160;CsmJob&#160;encapsulates&#160;all&#160;these&#160;information&#160;and&#160;can&#160;be&#160;considered&#160;as&#160;an&#160;<br/>instance&#160;of&#160;a&#160;cryptographic&#160;algorithm&#160;realized&#160;in&#160;a&#160;CryptoDriverObject.&#160;The&#160;cryptographic&#160;<br/>operation&#160;and&#160;the&#160;operational&#160;mode&#160;are&#160;configured&#160;in&#160;a&#160;CsmPrimitive&#160;and&#160;is&#160;referred&#160;by&#160;a&#160;<br/>concrete&#160;CsmJob.&#160;A&#160;CsmPrimitive&#160;can&#160;be&#160;of&#160;following&#160;primitive&#160;service&#160;types:&#160;<br/>
+-&#160;&#160;MacGenerate&#160;<br/>
+-&#160;&#160;Hash&#160;<br/>
+-&#160;&#160;MacVerifiy&#160;<br/>
+-&#160;&#160;Random&#160;Generate&#160;<br/>
+-&#160;&#160;SignatureGenerate&#160;<br/>
+-&#160;&#160;AEADEncrypt&#160;<br/>
+-&#160;&#160;SignatureVerify&#160;<br/>
+-&#160;&#160;AEADDecrypt&#160;<br/>
+-&#160;&#160;Encrypt&#160;<br/>
+-&#160;&#160;Secure&#160;Counter Read&#160;<br/>
+-&#160;&#160;Decrypt&#160;<br/>
+-&#160;&#160;Secure Counter Increment&#160;<br/>
+Further,&#160;each&#160;CsmPrimitive&#160;defines&#160;the&#160;algorithm&#160;family,&#160;mode&#160;and&#160;secondary&#160;family.&#160;The&#160;<br/>user&#160;&#160;has&#160;&#160;to&#160;&#160;ensure&#160;&#160;that&#160;&#160;the&#160;&#160;underlying&#160;&#160;destination&#160;&#160;crypto&#160;&#160;driver&#160;&#160;object&#160;&#160;supports&#160;&#160;the&#160;<br/>configured&#160;&#160;combination&#160;&#160;of&#160;&#160;these&#160;&#160;three&#160;&#160;parameters.&#160;&#160;The&#160;&#160;CryptoDriverObject&#160;&#160;itself&#160;&#160;must&#160;<br/>refer&#160;&#160;at&#160;&#160;least&#160;&#160;one&#160;&#160;CryptoPrimitive&#160;&#160;which&#160;&#160;matches&#160;&#160;in&#160;&#160;primitive&#160;&#160;service&#160;&#160;type,&#160;&#160;family,&#160;&#160;mode&#160;<br/>and&#160;secondary&#160;family&#160;(compa<a href="TechnicalReference_Csms.html#36">re&#160;Figure&#160;6-2,&#160;</a><a href="TechnicalReference_Csms.html#37">Figure&#160;6-3&#160;</a>and<a href="TechnicalReference_Csms.html#37">&#160;Figure&#160;6-4).</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;6-2&#160;&#160;Configuration&#160;CsmPrimitive&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+36&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-37_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-37_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-37_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+&#160;<br/>
+Figure&#160;6-3&#160;&#160;Configuration&#160;CryptoPrimitive&#160;<br/>
+&#160;<br/>
+Figure&#160;6-4&#160;&#160;Configuration&#160;CryptoDriverObject&#160;<br/>
+<b>6.3&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;CSM&#160;supports&#160;the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;configuration&#160;classes&#160;of&#160;the&#160;CSM&#160;parameters&#160;depend&#160;on&#160;the&#160;supported&#160;configuration&#160;<br/>variants.&#160;For their&#160;definitions please&#160;see&#160;the&#160;Csm_bswmd.arxml file.&#160;<br/>
+<b>6.4&#160;</b><br/>
+<b>Backward Compatibility&#160;</b><br/>
+The&#160;CSM&#160;does&#160;not&#160;support&#160;backward&#160;compatible&#160;interfaces&#160;to&#160;AUTOSAR&#160;4.2.x,&#160;but&#160;offers&#160;<br/>old&#160;&#160;standard&#160;&#160;definitions&#160;&#160;within&#160;&#160;the&#160;&#160;Csm_Types.h.&#160;&#160;However,&#160;&#160;these&#160;&#160;definitions&#160;&#160;are&#160;&#160;not&#160;<br/>configurable&#160;and&#160;must&#160;be&#160;adapted&#160;manually&#160;if&#160;needed.&#160;<br/>
+<b>6.5&#160;</b><br/>
+<b>Configuration&#160;with&#160;DaVinci&#160;Configurator 5&#160;Pro&#160;&#160;</b><br/>
+The&#160;CSM&#160;is configured&#160;with&#160;the&#160;help&#160;of&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator 5&#160;Pro.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+37&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=38></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-38_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>6.5.1&#160;</b><br/>
+<b>General&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+CsmDevErrorDetect&#160;<br/>
+<b>TRUE&#160;</b><br/>
+Pre-processor switch to enable and disable&#160;development&#160;<br/>
+FALSE<br/>
+error detection.<br/>
+&#160;<br/>
+&#160;<br/>
+CsmVersionInfoApi&#160;<br/>
+<b>TRUE&#160;</b><br/>
+Pre-processor switch to enable and disable&#160;availability&#160;of&#160;<br/>
+FALSE<br/>
+the&#160;API Csm_GetVersionInfo().&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+-&#160;True:&#160;API Csm_GetVersionInfo()&#160;is&#160;available.&#160;&#160;&#160;<br/>
+-&#160;False:&#160;API Csm_GetVersionInfo()&#160;is&#160;not available.&#160;<br/>
+CsmCustomIncludeFiles&#160;&#160;<b>-&#160;</b><br/>
+Include custom&#160;header file&#160;<br/>
+CsmMainFunctionPeriod&#160;&#160;0&#160;-&#160;3600&#160;<br/>
+Specifies&#160;the&#160;period&#160;of&#160;main function&#160;Csm_MainFunction&#160;<br/>
+<b>0.01&#160;</b><br/>
+in seconds.&#160;<br/>
+CsmAsymPublicKeyMax<br/>
+1&#160;-&#160;4294967295&#160;<br/>
+Maximum&#160;length&#160;in&#160;bytes&#160;of&#160;an&#160;asymmetric&#160;public&#160;key&#160;for&#160;<br/>
+Length&#160;<br/>
+all&#160;algorithms&#160;<br/>
+CsmAsymPrivateKeyMax&#160;1&#160;-&#160;4294967295&#160;<br/>
+Maximum&#160;length&#160;in&#160;bytes&#160;of&#160;an&#160;asymmetric&#160;private&#160;key&#160;for&#160;<br/>
+Length&#160;<br/>
+all&#160;algorithms&#160;<br/>
+CsmSymKeyMaxLength&#160;&#160;1&#160;-&#160;4294967295&#160;<br/>
+Maximum&#160;length&#160;in&#160;bytes&#160;of&#160;a&#160;symmetric&#160;key&#160;for all&#160;<br/>algorithms&#160;<br/>
+CsmUseDeprecated&#160;<br/>
+TRUE&#160;<br/>
+Currently&#160;not supported&#160;<br/>
+<b>FALSE</b>&#160;<br/>
+&#160;<br/>Decides&#160;if&#160;the deprecated&#160;interfaces&#160;shall&#160;be&#160;used&#160;<br/>(Backwards&#160;compatibility).&#160;<br/>
+-&#160;True: use deprecated interfaces.&#160;<br/>
+-&#160;False:&#160;use&#160;normal&#160;interfaces.&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;General&#160;Properties&#160;<br/>
+<b>6.5.2&#160;</b><br/>
+<b>Key&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+CsmKeyId&#160;<br/>
+0&#160;-&#160;4294967295<b>&#160;</b><br/>
+Identifier of&#160;the&#160;CsmKey&#160;<br/>
+CsmKeyUsePort&#160;<br/>
+<b>TRUE&#160;</b><br/>
+Does&#160;the key&#160;need&#160;RTE&#160;interfaces?&#160;&#160;<br/>
+FALSE&#160;<br/>
+-&#160;True: RTE&#160;interfaces&#160;used&#160;for this&#160;key&#160;&#160;<br/>
+-&#160;False:&#160;No RTE&#160;interfaces&#160;used&#160;for this&#160;key&#160;<br/>
+CsmKeyRef&#160;<br/>
+<b>-&#160;</b><br/>
+This&#160;parameter&#160;refers&#160;to&#160;the&#160;used&#160;CryIfKey.&#160;The&#160;<br/>underlying CryIfKey&#160;refers&#160;to a&#160;specific&#160;CryptoKey&#160;in the&#160;<br/>Crypto&#160;Driver.&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;Key&#160;Properties&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+38&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=39></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-39_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>6.5.3&#160;</b><br/>
+<b>Primitives&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+Csm&lt;Service&gt;Algorithm<br/>
+Service&#160;<br/>
+Determines&#160;the&#160;algorithm&#160;mode used&#160;for the&#160;crypto&#160;<br/>
+Mode&#160;<br/>
+depending&#160;<br/>
+service&#160;<br/>
+literals<b>&#160;</b><br/>
+Csm&lt;Service&gt;Processin<br/>
+CSM_ASYNCHR&#160;Determines&#160;how&#160;the&#160;interface shall&#160;be&#160;used&#160;for that&#160;<br/>
+g&#160;<br/>
+ONOUS&#160;<br/>
+primitive&#160;<br/>
+CSM_SYNCHRO<br/>NOUS&#160;&#160;<b>&#160;</b><br/>
+Csm&lt;Service&gt;DataMaxL&#160;1&#160;-<b>&#160;</b>4294967295&#160;<br/>
+Max&#160;size of&#160;the&#160;input&#160;data length in bytes.&#160;<br/>
+ength&#160;<br/>
+Csm&lt;Service&gt;Algorithm<br/>
+String&#160;<br/>
+Set&#160;algorithm&#160;family&#160;which&#160;is&#160;not defined&#160;by&#160;AUTOSAR&#160;<br/>
+FamilyCustom&#160;<br/>
+Csm&lt;Service&gt;&#160;<br/>
+String&#160;<br/>
+Set&#160;algorithm&#160;mode which&#160;is&#160;not defined&#160;by&#160;AUTOSAR&#160;<br/>
+AlgorithmModeCustom&#160;<br/>
+Csm&lt;Service&gt;&#160;<br/>
+Service&#160;<br/>
+Determines&#160;the secondary&#160;algorithm&#160;family&#160;used&#160;for the&#160;<br/>
+AlgorithmSecondaryFami&#160;depending&#160;<br/>
+crypto&#160;service&#160;<br/>
+ly&#160;<br/>
+literals&#160;<br/>
+e.g.&#160;The&#160;hash&#160;algorithm&#160;for RSA&#160;Signatures&#160;<br/>
+Csm&lt;Service&gt;&#160;<br/>
+String&#160;<br/>
+Set&#160;secondary&#160;algorithm&#160;family&#160;which&#160;is&#160;not&#160;defined&#160;by&#160;<br/>
+AlgorithmSecondaryFami<br/>
+AUTOSAR&#160;<br/>
+lyCustom&#160;<br/>
+Csm&lt;Service&gt;Algorithm<br/>
+Service&#160;<br/>
+Determines&#160;the&#160;algorithm&#160;family&#160;used&#160;for the&#160;crypto&#160;<br/>
+Family&#160;<br/>
+depending&#160;<br/>
+service&#160;<br/>
+literals&#160;<br/>
+Csm&lt;Service&gt;&lt;Type&gt;Le&#160;1&#160;-<b>&#160;</b>4294967295&#160;<br/>
+Service type&#160;specific&#160;length&#160;(Service dependent&#160;<br/>
+ngth&#160;<br/>
+parameter)&#160;<br/>
+Table&#160;6-3&#160;&#160;&#160;Primitives&#160;Properties&#160;<br/>
+<b>6.5.4&#160;</b><br/>
+<b>Queue&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+CsmQueueSize&#160;<br/>
+1&#160;-&#160;4294967295<b>&#160;</b><br/>
+Size&#160;of&#160;the CsmQueue. If&#160;jobs&#160;cannot&#160;be&#160;processed&#160;by&#160;<br/>the&#160;underlying hardware since the&#160;hardware&#160;is&#160;busy,&#160;the&#160;<br/>jobs&#160;stay&#160;in the&#160;prioritized&#160;queue.&#160;&#160;<br/>If&#160;the queue&#160;is&#160;full,&#160;the&#160;next&#160;job&#160;will&#160;be&#160;rejected.&#160;<br/>
+CsmChannelRef&#160;<br/>
+-&#160;<br/>
+This&#160;parameter&#160;refers&#160;to&#160;the used&#160;CryIfChannel.&#160;<br/>
+Table&#160;6-4&#160;&#160;&#160;Queue&#160;Properties&#160;<br/>
+<b>6.5.5&#160;</b><br/>
+<b>Callback&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+CsmCallbackFunc&#160;<br/>
+-<b>&#160;</b><br/>
+Callback&#160;function&#160;to&#160;be&#160;called&#160;if&#160;an&#160;asynchronous&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+39&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=40></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-40_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+operation has&#160;finished&#160;&#160;&#160;<br/>
+CsmCallbackId&#160;<br/>
+0&#160;-&#160;4294967295&#160;<br/>
+Identifier of&#160;the callback&#160;function.&#160;<br/>
+Table&#160;6-5&#160;&#160;&#160;Callback&#160;Properties&#160;<br/>
+<b>6.5.6&#160;</b><br/>
+<b>Job Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;typed&#160;<br/>bold<b>&#160;</b><br/>
+CsmJobPriority&#160;<br/>
+0&#160;-&#160;4294967295<b>&#160;</b><br/>
+Priority&#160;of&#160;the job.&#160;&#160;<br/>The&#160;higher the&#160;value,&#160;the&#160;higher the job's&#160;priority.&#160;<br/>
+CsmJobId&#160;<br/>
+0&#160;-&#160;4294967295&#160;<br/>
+Identifier of&#160;the&#160;CSM job&#160;<br/>
+CsmJobUsePort&#160;<br/>
+<b>TRUE&#160;</b><br/>
+Does&#160;the job&#160;need&#160;RTE&#160;interfaces?&#160;&#160;<br/>
+FALSE&#160;<br/>
+-&#160;True: the job&#160;needs&#160;RTE&#160;interfaces&#160;&#160;<br/>
+-&#160;False:&#160;the&#160;job&#160;needs&#160;no&#160;RTE&#160;interfaces&#160;<br/>
+CsmJobPrimitiveCallback&#160;TRUE&#160;<br/>
+This&#160;parameter&#160;indicates,&#160;whether the&#160;callback&#160;function&#160;<br/>
+UpdateNotification&#160;<br/>
+<b>FALSE</b><br/>
+shall&#160;be&#160;called,&#160;if&#160;the UPDATE&#160;operation&#160;has&#160;finished.<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+CsmJobUseOldPort&#160;<br/>
+TRUE&#160;<br/>
+Does&#160;the user needs&#160;old&#160;RTE&#160;interfaces?&#160;<br/>
+<b>FALSE</b>&#160;<br/>
+CsmJobPrimitiveRef&#160;<br/>
+-&#160;<br/>
+This&#160;parameter&#160;refers&#160;to&#160;the used&#160;CsmPrimitive.&#160;Different&#160;<br/>jobs&#160;may&#160;refer to one&#160;CsmPrimitive.&#160;The&#160;referred&#160;<br/>CsmPrimitive provides&#160;detailed information&#160;on&#160;the&#160;actual&#160;<br/>cryptographic&#160;routine.&#160;<br/>
+CsmJobPrimitiveCallback&#160;-&#160;<br/>
+This&#160;parameter&#160;refers&#160;to&#160;the used&#160;CsmCallback.&#160;&#160;<br/>
+Ref&#160;<br/>
+The&#160;referred&#160;CsmCallback&#160;is&#160;called&#160;when&#160;the&#160;crypto&#160;job&#160;<br/>has&#160;been&#160;finished.&#160;<br/>
+CsmJobQueueRef&#160;<br/>
+-&#160;<br/>
+This&#160;parameter&#160;refers&#160;to&#160;the queue.&#160;&#160;<br/>The&#160;queue is&#160;used if&#160;the underlying&#160;crypto&#160;driver object&#160;is&#160;<br/>busy.&#160;The&#160;queue&#160;refers&#160;also to the&#160;channel&#160;which&#160;is&#160;used.&#160;<br/>
+CsmJobKeyRef&#160;<br/>
+-&#160;<br/>
+This&#160;parameter&#160;refers&#160;to&#160;the key&#160;which&#160;shall&#160;be used for&#160;<br/>the&#160;CsmPrimitive.&#160;It's&#160;possible&#160;to&#160;use&#160;a&#160;CsmKey&#160;for&#160;<br/>different jobs&#160;<br/>
+Table&#160;6-6&#160;&#160;&#160;Job&#160;Properties&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+40&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=41></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-41_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+CSM&#160;<br/>
+Crypto&#160;Service Manager&#160;<br/>
+CRYIF&#160;<br/>
+Crypto&#160;Interface&#160;<br/>
+CRYPTO&#160;<br/>
+Crypto&#160;Driver&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application&#160;Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+41&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=42></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Csm-42_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CSM&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.03.00&#160;<br/>
+42&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Csms.html#7">1 Component History</a></li>
+<li><a href="TechnicalReference_Csms.html#8">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#8">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#10">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#10">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#10">3.1.1 Deviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#10">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_Csms.html#10">3.3 Main Functions</a></li>
+<li><a href="TechnicalReference_Csms.html#11">3.4 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#11">3.4.1 Development Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#13">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#13">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#13">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Csms.html#13">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#13">4.2 Critical Sections</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#14">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#14">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_Csms.html#14">5.2 Services provided by CSM</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#14">5.2.1 Csm_Init</a></li>
+<li><a href="TechnicalReference_Csms.html#15">5.2.2 Csm_InitMemory</a></li>
+<li><a href="TechnicalReference_Csms.html#15">5.2.3 Csm_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_Csms.html#16">5.2.4 Csm_CancelJob</a></li>
+<li><a href="TechnicalReference_Csms.html#17">5.2.5 Csm_KeyElementSet</a></li>
+<li><a href="TechnicalReference_Csms.html#17">5.2.6 Csm_KeySetValid</a></li>
+<li><a href="TechnicalReference_Csms.html#18">5.2.7 Csm_KeyElementGet</a></li>
+<li><a href="TechnicalReference_Csms.html#19">5.2.8 Csm_KeyElementCopy</a></li>
+<li><a href="TechnicalReference_Csms.html#20">5.2.9 Csm_KeyCopy</a></li>
+<li><a href="TechnicalReference_Csms.html#20">5.2.10 Csm_RandomSeed</a></li>
+<li><a href="TechnicalReference_Csms.html#21">5.2.11 Csm_KeyGenerate</a></li>
+<li><a href="TechnicalReference_Csms.html#21">5.2.12 Csm_KeyDerive</a></li>
+<li><a href="TechnicalReference_Csms.html#22">5.2.13 Csm_KeyExchangeCalcPubVal</a></li>
+<li><a href="TechnicalReference_Csms.html#23">5.2.14 Csm_KeyExchangeCalcSecret</a></li>
+<li><a href="TechnicalReference_Csms.html#24">5.2.15 Csm_CertificateParse</a></li>
+<li><a href="TechnicalReference_Csms.html#24">5.2.16 Csm_CertificateVerify</a></li>
+<li><a href="TechnicalReference_Csms.html#25">5.2.17 Csm_Hash</a></li>
+<li><a href="TechnicalReference_Csms.html#26">5.2.18 Csm_MacGenerate</a></li>
+<li><a href="TechnicalReference_Csms.html#26">5.2.19 Csm_MacVerify</a></li>
+<li><a href="TechnicalReference_Csms.html#27">5.2.20 Csm_Encrypt</a></li>
+<li><a href="TechnicalReference_Csms.html#28">5.2.21 Csm_Decrypt</a></li>
+<li><a href="TechnicalReference_Csms.html#29">5.2.22 Csm_AEADEncrypt</a></li>
+<li><a href="TechnicalReference_Csms.html#30">5.2.23 Csm_AEADDecrypt</a></li>
+<li><a href="TechnicalReference_Csms.html#31">5.2.24 Csm_SignatureGenerate</a></li>
+<li><a href="TechnicalReference_Csms.html#32">5.2.25 Csm_SignatureVerify</a></li>
+<li><a href="TechnicalReference_Csms.html#33">5.2.26 Csm_RandomGenerate</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#33">5.3 Services used by CSM</a></li>
+<li><a href="TechnicalReference_Csms.html#34">5.4 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#34">5.4.1 Csm_CallbackNotification</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#34">5.5 Service Ports</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#34">5.5.1 Client Server Interface</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#34">5.5.1.1 Provide Ports on CSM Side</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#35">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#35">6.1 Overview</a></li>
+<li><a href="TechnicalReference_Csms.html#36">6.2 Configuration of a cryptographic operation</a></li>
+<li><a href="TechnicalReference_Csms.html#37">6.3 Configuration Variants</a></li>
+<li><a href="TechnicalReference_Csms.html#37">6.4 Backward Compatibility</a></li>
+<li><a href="TechnicalReference_Csms.html#37">6.5 Configuration with DaVinci Configurator 5 Pro</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#38">6.5.1 General Properties</a></li>
+<li><a href="TechnicalReference_Csms.html#38">6.5.2 Key Properties</a></li>
+<li><a href="TechnicalReference_Csms.html#39">6.5.3 Primitives Properties</a></li>
+<li><a href="TechnicalReference_Csms.html#39">6.5.4 Queue Properties</a></li>
+<li><a href="TechnicalReference_Csms.html#39">6.5.5 Callback Properties</a></li>
+<li><a href="TechnicalReference_Csms.html#40">6.5.6 Job Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#41">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Csms.html#41">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_Csms.html#41">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Csms.html#42">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

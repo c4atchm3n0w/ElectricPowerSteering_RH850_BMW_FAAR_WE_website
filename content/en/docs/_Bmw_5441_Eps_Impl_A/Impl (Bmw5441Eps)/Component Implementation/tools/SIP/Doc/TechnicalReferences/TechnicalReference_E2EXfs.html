@@ -1,0 +1,888 @@
+---
+title: TechnicalReference_E2EXfs
+linkTitle: TechnicalReference_E2EXfs
+weight: 212
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR E2E Transformer&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.3.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Stephanie Schaaf&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Stephanie Schaaf&#160;<br/>
+2016-10-21&#160;<br/>
+1.0.0&#160;<br/>
+Initial&#160;version&#160;<br/>
+Stephanie Schaaf&#160;<br/>
+2017-03-21&#160;<br/>
+1.1.0&#160;<br/>
+Support&#160;for&#160;E2E&#160;profile 7&#160;<br/>
+Bernd&#160;Sigle&#160;<br/>
+2017-06-06&#160;<br/>
+1.2.0&#160;<br/>
+Minor&#160;improvements&#160;<br/>
+Philipp&#160;Niethammer&#160;<br/>
+2017-08-15&#160;<br/>
+1.3.0&#160;<br/>
+Updated&#160;to&#160;match&#160;Autosar&#160;4.3.0&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_E2ETransformer.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DefaultErrorTracer.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[4]&#160;&#160;A&#160;<br/>
+AUTOSAR&#160;<br/>
+AUTOSAR_SWS_E2ELibrary.pdf&#160;<br/>
+4.3.0&#160;<br/>
+<b>Scope&#160;of&#160;the&#160;Document</b>&#160;<br/>
+This&#160;technical reference&#160;describes the&#160;general use&#160;of&#160;the&#160;E2E&#160;Transformer.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_E2EXfs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#7">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;9</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Features&#160;............................................................................................................&#160;9&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Deviations&#160;..........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Additions/&#160;Extensions&#160;.........................................................................&#160;9&#160;<br/>3.1.2.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Memory&#160;Initialization&#160;........................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">3.1.3&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Limitations&#160;........................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Initialization&#160;......................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">3.3&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">States&#160;..............................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">3.4&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Main Functions&#160;................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">3.5&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Error&#160;Handling&#160;..................................................................................................&#160;10&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#11">3.5.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#11">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12"><b>Integration&#160;...................................................................................................................&#160;12</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Scope of&#160;Delivery&#160;.............................................................................................&#160;12&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Static Files&#160;.......................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Dynamic&#160;Files&#160;..................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13"><b>API&#160;Description&#160;...........................................................................................................&#160;13</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">Type&#160;Definitions&#160;...............................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">5.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">Services provided by&#160;E2EXf&#160;.............................................................................&#160;13&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">E2EXf_GetVersionInfo&#160;.....................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#14">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#14">E2EXf_InitMemory&#160;...........................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#15">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#15">E2EXf_Init&#160;........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#16">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#16">E2EXf_DeInit&#160;...................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#17">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#17">E2EXf_&lt;transformerId&gt;&#160;...................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#18">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#18">E2EXf_Inv_&lt;transformerId&gt;&#160;.............................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#20">5.3&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#20">Services used by&#160;E2EXf&#160;...................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21"><b>Configuration&#160;..............................................................................................................&#160;21</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21">Configuration Variants&#160;......................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21">6.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21">Configuration of&#160;EndToEndTransformationComSpecProps&#160;..............................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;22</b>&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<a href="TechnicalReference_E2EXfs.html#22">7.1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">Glossary&#160;..........................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">7.2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">Abbreviations&#160;...................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#23"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#23"><b>Contact&#160;........................................................................................................................&#160;23</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_E2EXfs.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#7">AUTOSAR&#160;Architecture&#160;Overview&#160;...............................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#8">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#8">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;E2EXf&#160;..............................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21">Figure&#160;6-1&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#21">Configuration of&#160;EndToEndTransformationComSpecProps&#160;.......................&#160;21&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_E2EXfs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.......................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#9">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;....................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#10">Service IDs&#160;...............................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#11">Table&#160;3-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#11">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Static&#160;files&#160;.................................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#12">Generated&#160;files&#160;.........................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">E2EXf_ConfigType&#160;...................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#13">E2EXf_GetVersionInfo&#160;..............................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#14">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#14">E2EXf_InitMemory&#160;....................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#15">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#15">E2EXf_Init&#160;................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#16">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#16">E2EXf_DeInit&#160;............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#17">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#17">E2EXf_&lt;transformerId&gt;&#160;............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#19">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#19">E2EXf_Inv_&lt;transformerId&gt;&#160;.....................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#20">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#20">Services used by&#160;the&#160;E2EXf&#160;.....................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">Glossary&#160;...................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2EXfs.html#22">Abbreviations&#160;............................................................................................&#160;22&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.0.0&#160;<br/>
+Initial creation&#160;&#160;<br/>
+1.1.0&#160;<br/>
+Support&#160;for&#160;E2E&#160;profile 7&#160;<br/>
+1.2.0&#160;<br/>
+Minor&#160;improvements&#160;<br/>
+1.3.0&#160;<br/>
+Minor&#160;improvements&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-7_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;E2EXf&#160;as specified&#160;in&#160;[1].&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_E2EXfs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+E2EXf_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+E2EXf_MODULE_ID &#160;&#160;<br/>
+176&#160;decimal&#160;<br/>(according&#160;to ref.<a href="TechnicalReference_E2EXfs.html#2">&#160;[2])</a>&#160;<br/>
+*&#160;For the detailed functional&#160;specification please also refer to the corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>
+The&#160;E2EXf&#160;module&#160;provides the&#160;functionality&#160;to&#160;ensure a&#160;correct&#160;communication.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;E2EXf&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;&#160;E2EXf.&#160;These&#160;interfaces&#160;<br/>are described&#160;in&#160;chapte<a href="TechnicalReference_E2EXfs.html#13">r&#160;5.</a>&#160;<br/>
+<b>&#160;class&#160;Architecture</b><br/>
+<b>Det</b><br/>
+<b>E2EXf</b><br/>
+<b>E2ELib</b><br/>
+&#160;&#160;<br/>
+Figure&#160;2-2&#160;<br/>
+Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;E2EXf&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>E2EXf.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_E2EXfs.html#9">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_E2EXfs.html#9">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+Vector Informatik provides&#160;further&#160;E2EXf&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR standard.&#160;The&#160;<br/>corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_E2EXfs.html#9">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Protect&#160;safety-related&#160;data elements&#160;<br/>Check&#160;safety-related&#160;data elements&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;</b><br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Post-build-selectable variant&#160;<br/>E2E&#160;profile 11 and 22&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>Memory&#160;Initialization&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+<b>3.1.2.1&#160;</b><br/>
+<b>Memory&#160;Initialization&#160;</b><br/>
+AUTOSAR&#160;&#160;expects&#160;&#160;the&#160;&#160;startup&#160;&#160;code&#160;&#160;to&#160;&#160;automatically&#160;&#160;initialize&#160;&#160;RAM.&#160;&#160;Not&#160;&#160;every&#160;&#160;startup&#160;<br/>code&#160;of&#160;embedded&#160;targets&#160;reinitializes&#160;all&#160;variables&#160;correctly.&#160;It&#160;is&#160;possible&#160;that&#160;the&#160;state&#160;of&#160;<br/>a&#160;variable&#160;may&#160;not&#160;be&#160;initialized&#160;as&#160;expected.&#160;To&#160;avoid&#160;this&#160;problem&#160;the&#160;Vector&#160;AUTOSAR&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+E2EXf&#160;provides&#160;an&#160;additional&#160;function&#160;to&#160;initialize&#160;the&#160;relevant&#160;variables&#160;of&#160;the&#160;E2EXf.&#160;See&#160;<br/>also&#160;chapte<a href="TechnicalReference_E2EXfs.html#10">rs&#160;3.2&#160;</a>and<a href="TechnicalReference_E2EXfs.html#14">&#160;5.2.2&#160;</a>for&#160;details.&#160;<br/>
+<b>3.1.3&#160;</b><br/>
+<b>Limitations&#160;</b><br/>
+There are&#160;no&#160;known&#160;limitations.&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+The&#160;&#160;E2E&#160;&#160;Transformer&#160;&#160;is&#160;&#160;initialized&#160;&#160;by&#160;&#160;calling&#160;&#160;E2EXf_Init().&#160;&#160;This&#160;&#160;is&#160;&#160;done&#160;&#160;by&#160;&#160;the&#160;&#160;ECU&#160;<br/>State&#160;Manager (EcuM).&#160;<br/>On&#160;platforms&#160;in&#160;which&#160;the&#160;Random&#160;Access&#160;Memory&#160;(RAM)&#160;is&#160;not&#160;initialized&#160;to&#160;zero&#160;by&#160;the&#160;<br/>startup&#160;&#160;code&#160;&#160;the&#160;&#160;function&#160;&#160;E2EXf_InitMemory&#160;&#160;has&#160;&#160;to&#160;&#160;be&#160;&#160;called&#160;&#160;first&#160;&#160;and&#160;&#160;then&#160;&#160;a&#160;&#160;call&#160;&#160;to&#160;<br/>E2EXf_Init&#160;can&#160;be&#160;realized.&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+The&#160;E2EXf&#160;has&#160;no&#160;internal state&#160;machine,&#160;it is&#160;operational after initialization.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+No&#160;main&#160;function&#160;exists because&#160;all&#160;functionality&#160;is performed&#160;within&#160;the&#160;called&#160;API.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_E2EXfs.html#2">&#160;&#160;[3],</a>&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;E2EXf_DEV_ERROR_DETECT&#160;==&#160;STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;E2EXf&#160;ID is&#160;176.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_E2EXfs.html#13">5.2.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x00&#160;<br/>
+E2EXf_GetVersionInfo&#160;<br/>
+0x01&#160;<br/>
+E2EXf_Init&#160;<br/>
+0x02&#160;<br/>
+E2EXf_DeInit&#160;<br/>
+0x03&#160;<br/>
+E2EXf_&lt;transformerId&gt;&#160;<br/>
+0x04&#160;<br/>
+E2EXf_Inv_&lt;transformerId&gt;&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;<br/>
+API&#160;service used&#160;without&#160;module initialization&#160;<br/>
+0x02&#160;<br/>
+Invalid configuration&#160;set&#160;was selected&#160;<br/>
+0x03&#160;<br/>
+API&#160;service called&#160;with wrong&#160;parameter&#160;<br/>
+0x04&#160;<br/>
+API&#160;service called&#160;with invalid pointer&#160;<br/>
+Table&#160;3-5&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+<b>3.5.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+No&#160;production&#160;errors are speciﬁed&#160;for&#160;E2EXf.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;E2EXf&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;E2EXf&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_E2EXfs.html#12">rs&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_E2EXfs.html#12">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+E2EXf.c&#160;<br/>
+Main implementation&#160;file&#160;of&#160;the&#160;E2EXf.&#160;<br/>
+E2EXf.h&#160;<br/>
+Main header&#160;file of&#160;the&#160;E2EXf.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool DaVinci Configurator.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+E2EXf_LCfg.c&#160;<br/>
+Definitions&#160;of&#160;all&#160;structures in&#160;link-time variant.&#160;<br/>
+E2EXf_LCfg.h&#160;<br/>
+Declarations&#160;of&#160;all&#160;structures&#160;in link-time&#160;variant.&#160;<br/>
+E2EXf_MemMap.h&#160;<br/>
+Template&#160;contains&#160;E2EXf&#160;specific&#160;part&#160;of&#160;the&#160;memory&#160;mapping.&#160;<br/>
+E2EXf_Compiler_Cfg.h&#160;&#160;Template&#160;contains&#160;E2EXf&#160;specific&#160;part&#160;of&#160;the&#160;compiler&#160;abstraction.&#160;<br/>E2EXf_rules.mak,&#160;<br/>
+Make&#160;files according&#160;to&#160;the&#160;AUTOSAR&#160;make&#160;environment&#160;proposal&#160;are&#160;<br/>
+E2EXf_defs.mak,&#160;<br/>
+generated&#160;into&#160;the&#160;mak&#160;subdirectory.&#160;<br/>
+E2EXf_check.mak,&#160;<br/>E2EXf_cfg.mak&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_E2EXfs.html#8">&#160;Figure&#160;2-2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;types defined&#160;by&#160;the&#160;E2EXf&#160;are&#160;described&#160;in&#160;this chapter.&#160;<br/>
+<b>&#160;E2EXf_ConfigType&#160;</b><br/>
+This structure contains&#160;the&#160;configuration&#160;for&#160;the&#160;E2E&#160;Transformer.&#160;Currently&#160;it&#160;only&#160;contains&#160;<br/>a&#160;dummy&#160;element&#160;since&#160;the&#160;post-build&#160;selectable&#160;variant&#160;is&#160;not&#160;yet&#160;supported.&#160;<br/>
+<b>Struct&#160;Element&#160;Name&#160;</b><br/>
+<b>C-Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+E2EXf_dummy&#160;<br/>
+uint8&#160;<br/>
+dummy&#160;element&#160;<br/>
+-&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;E2EXf_ConfigType&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;E2EXf&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>E2EXf_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>E2EXf_GetVersionInfo</b>&#160;(&#160;Std_VersionInfoType&#160;*versioninfo&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo&#160;<br/>
+Pointer&#160;to the&#160;memory&#160;location&#160;holding&#160;the&#160;version&#160;information&#160;of&#160;the&#160;E2EXf.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;API can&#160;be used to&#160;get&#160;the&#160;version information&#160;of&#160;the E2EXf.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_E2EXfs.html#10">e 'Service IDs'</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;API&#160;is&#160;only&#160;available&#160;if&#160;enabled&#160;by&#160;the&#160;configuration parameter&#160;E2EXf_VersionInfoApi.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No restriction&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;E2EXf_GetVersionInfo&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>E2EXf_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>E2EXf_InitMemory</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the global&#160;variables&#160;in case&#160;an&#160;initializing startup&#160;code&#160;is&#160;not&#160;used.&#160;This&#160;function sets&#160;the E2EXf&#160;<br/>into&#160;an&#160;uninitialized&#160;state.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;this&#160;function&#160;is&#160;used&#160;it&#160;shall&#160;be&#160;called&#160;before any&#160;other&#160;E2EXf&#160;function&#160;after&#160;startup.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Task&#160;context&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;E2EXf_InitMemory&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>E2EXf_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>E2EXf_Init</b>&#160;(&#160;E2EXf_ConfigType&#160;*config&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+config&#160;<br/>
+Pointer&#160;to a&#160;selected configuration structure,&#160;in&#160;the&#160;post-build-selectable&#160;<br/>variant.&#160;NULL&#160;in&#160;link-time variant.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the state of&#160;the&#160;E2E&#160;Transformer.&#160;The&#160;main part of&#160;it&#160;is&#160;the&#160;initialization&#160;of&#160;the E2E&#160;library&#160;state&#160;<br/>structures, which&#160;is&#160;done&#160;by&#160;calling&#160;all&#160;init-functions&#160;from&#160;E2E&#160;library.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;table 'Service IDs'&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;API&#160;should&#160;be&#160;called by&#160;the&#160;ECU&#160;State&#160;Manger&#160;during&#160;the&#160;startup&#160;phase.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;has&#160;to&#160;be&#160;called&#160;before any&#160;other&#160;E2EXf&#160;service&#160;function&#160;is&#160;called&#160;&#160;&#160;<br/>
+(except&#160;E2EXf_InitMemory()).&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Task&#160;context&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;E2EXf_Init&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>E2EXf_DeInit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>E2EXf_DeInit</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Deinitializes&#160;the E2E&#160;transformer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;table 'Service IDs'&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;shall&#160;be&#160;called&#160;only&#160;when the&#160;E2E&#160;transformer&#160;is&#160;initialized.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Task&#160;context&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;E2EXf_DeInit&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>E2EXf_&lt;transformerId&gt;&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint8&#160;<b>E2EXf_&lt;transformerId&gt;</b>&#160;(&#160;uint8 *buffer, uint16 *bufferLength,&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;const uint8 *inputBuffer, uint16 inputBufferLength&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+buffer&#160;<br/>
+This&#160;is&#160;the buffer allocated&#160;by&#160;the&#160;RTE,&#160;where the E2E&#160;transformer places&#160;its&#160;<br/>output&#160;data.&#160;<br/>If&#160;the E2E&#160;transformer is&#160;configured&#160;for in-place transformation,&#160;it also&#160;<br/>contains&#160;its&#160;input&#160;data.&#160;<br/>
+bufferLength&#160;<br/>
+Used&#160;length of&#160;the&#160;output&#160;buffer.&#160;<br/>
+inputBuffer&#160;<br/>
+If&#160;the E2E&#160;transformer is&#160;configured&#160;for out-of-place transformation, this&#160;buffer&#160;<br/>holds&#160;the&#160;input&#160;data&#160;for the&#160;transformer.&#160;<br/>If&#160;executeDespiteDataUnavailability&#160;is&#160;set&#160;to true and the&#160;transformer is&#160;<br/>executed&#160;without&#160;valid&#160;input data,&#160;RTE&#160;will&#160;hand&#160;over a&#160;NULL&#160;pointer&#160;to the&#160;<br/>transformer.&#160;<br/>
+inputBufferLength&#160;<br/>
+This&#160;argument holds&#160;the&#160;length&#160;of&#160;the&#160;E2E&#160;transformer’s&#160;input&#160;data (in the&#160;<br/>inputBuffer argument).&#160;<br/>If&#160;executeDespiteDataUnavailability&#160;is&#160;set&#160;to true and the&#160;transformer is&#160;<br/>executed&#160;without&#160;valid&#160;input data,&#160;the length&#160;will&#160;be equal&#160;to&#160;0.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint8&#160;<br/>
+0x00&#160;(E_OK): Function performed&#160;successfully.&#160;<br/>0x77&#160;(E_SAFETY_SOFT_RUNTIMEERROR):&#160;<br/>A&#160;runtime error occurred, safety&#160;properties&#160;could not&#160;be checked&#160;(state or&#160;<br/>status&#160;cannot&#160;be determined) but&#160;non-protected output&#160;data&#160;could be&#160;<br/>produced nonetheless.&#160;<br/>0xFF&#160;(E_SAFETY_HARD_RUNTIMEERROR):&#160;&#160;<br/>A&#160;runtime error occurred, safety&#160;properties&#160;could not&#160;be checked&#160;and&#160;no&#160;<br/>output&#160;data&#160;could&#160;be&#160;produced.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Protects&#160;the data&#160;to be transmitted.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;table 'Service IDs'&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Task&#160;or&#160;ISR2&#160;context&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;E2EXf_&lt;transformerId&gt;&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>E2EXf_Inv_&lt;transformerId&gt;&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint8&#160;<b>E2EXf_Inv_&lt;transformerId&gt;</b>&#160;(&#160;uint8 *buffer, uint16 *bufferLength,&#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;const uint8 *inputBuffer, uint16 inputBufferLength&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+buffer&#160;<br/>
+This&#160;is&#160;the buffer allocated&#160;by&#160;the&#160;RTE,&#160;where the E2E&#160;transformer places&#160;its&#160;<br/>output&#160;data.&#160;<br/>If&#160;the E2E&#160;transformer is&#160;configured&#160;for in-place transformation,&#160;it also&#160;<br/>contains&#160;its&#160;input&#160;data.&#160;<br/>
+bufferLength&#160;<br/>
+Used&#160;length of&#160;the&#160;output&#160;buffer.&#160;<br/>
+inputBuffer&#160;<br/>
+If&#160;the E2E&#160;transformer is&#160;configured&#160;for out-of-place transformation, this&#160;buffer&#160;<br/>holds&#160;the&#160;input&#160;data&#160;for the&#160;transformer.&#160;<br/>If&#160;executeDespiteDataUnavailability&#160;is&#160;set&#160;to true and the&#160;transformer is&#160;<br/>executed&#160;without&#160;valid&#160;input data,&#160;RTE&#160;will&#160;hand&#160;over a&#160;NULL&#160;pointer&#160;to the&#160;<br/>transformer.&#160;<br/>
+inputBufferLength&#160;<br/>
+This&#160;argument holds&#160;the&#160;length&#160;of&#160;the&#160;E2E&#160;transformer’s&#160;input&#160;data (in the&#160;<br/>inputBuffer argument).&#160;<br/>If&#160;executeDespiteDataUnavailability&#160;is&#160;set&#160;to true and the&#160;transformer is&#160;<br/>executed&#160;without&#160;valid&#160;input data,&#160;the length&#160;will&#160;be equal&#160;to&#160;0.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint8&#160;<br/>
+The&#160;high&#160;nibble&#160;represents&#160;the&#160;state of&#160;the&#160;E2E&#160;state&#160;machine,&#160;<br/>the&#160;low&#160;nibble represents&#160;the status&#160;of&#160;the last E2E&#160;check.&#160;<br/>
+0x00&#160;(E_OK):&#160;The&#160;communication&#160;is&#160;safe.&#160;<br/>
+0x01&#160;(E_SAFETY_VALID_REP):&#160;<br/>The&#160;data&#160;are valid&#160;according to safety,&#160;although&#160;data&#160;with&#160;a repeated counter&#160;<br/>were received.&#160;<br/>
+0x02&#160;(E_SAFETY_VALID_SEQ):&#160;<br/>The&#160;data&#160;are valid&#160;according to safety,&#160;although&#160;a&#160;counter jump occurred.&#160;<br/>
+0x03&#160;(E_SAFETY_VALID_ERR):&#160;<br/>The&#160;data&#160;are valid&#160;according to safety,&#160;although&#160;the&#160;check&#160;itself&#160;failed.&#160;<br/>
+0x20&#160;(E_SAFETY_NODATA_OK):&#160;<br/>No&#160;data&#160;are&#160;available since&#160;initialization&#160;of&#160;transformer.&#160;<br/>
+0x21&#160;(E_SAFETY_NODATA_REP):&#160;<br/>No data&#160;are&#160;available since&#160;initialization&#160;of&#160;transformer&#160;because&#160;a repeated&#160;<br/>counter&#160;was&#160;received.&#160;<br/>
+0x22&#160;(E_SAFETY_NODATA_SEQ):&#160;<br/>No data&#160;are&#160;available since&#160;initialization&#160;of&#160;transformer&#160;and&#160;a counter jump&#160;<br/>occurred.&#160;<br/>
+0x23&#160;(E_SAFETY_NODATA_ERR):&#160;<br/>No data&#160;are&#160;available since&#160;initialization&#160;of&#160;transformer.&#160;Therefore the&#160;check&#160;<br/>failed.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+0x30&#160;(E_SAFETY_INIT_OK):&#160;<br/>Not enough&#160;data&#160;were received&#160;to use them.&#160;<br/>
+0x31&#160;(E_SAFETY_INIT_REP):&#160;<br/>Not enough&#160;data&#160;were received&#160;to use them&#160;but some with&#160;a repeated&#160;counter&#160;<br/>were received.&#160;<br/>
+0x32&#160;(E_SAFETY_INIT_SEQ):&#160;<br/>Not enough&#160;data&#160;were received&#160;to use them, additionally&#160;a counter&#160;jump&#160;<br/>occurred.&#160;<br/>
+0x33&#160;(E_SAFETY_INIT_ERR):&#160;<br/>Not&#160;enough&#160;data&#160;were received&#160;to use them, additionally&#160;a check&#160;failed.&#160;<br/>
+0x40&#160;(E_SAFETY_INVALID_OK):&#160;<br/>The&#160;data&#160;are invalid and&#160;cannot&#160;be&#160;used.&#160;<br/>
+0x41&#160;(E_SAFETY_INVALID_REP):&#160;<br/>The&#160;data&#160;are invalid and&#160;cannot&#160;be&#160;used&#160;because&#160;a repeated&#160;counter&#160;was&#160;<br/>received.&#160;<br/>
+0x42&#160;(E_SAFETY_INVALID_SEQ):&#160;<br/>The&#160;data&#160;are invalid and&#160;cannot&#160;be&#160;used&#160;due&#160;to a&#160;counter jump.&#160;<br/>
+0x43&#160;(E_SAFETY_INVALID_ERR):&#160;<br/>The&#160;data&#160;are invalid and&#160;cannot&#160;be&#160;used&#160;because&#160;a check&#160;failed.&#160;<br/>
+0x77&#160;(E_SAFETY_SOFT_RUNTIMEERROR):&#160;<br/>A&#160;runtime error occurred, safety&#160;properties&#160;could not&#160;be checked&#160;(state or&#160;<br/>status&#160;cannot&#160;be determined) but&#160;non-protected output&#160;data&#160;could be&#160;<br/>produced nonetheless.&#160;<br/>
+0xFF&#160;(E_SAFETY_HARD_RUNTIMEERROR):&#160;<br/>A&#160;runtime error occurred, safety&#160;properties&#160;could not&#160;be checked&#160;and&#160;no&#160;<br/>output&#160;data&#160;could&#160;be&#160;produced.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Checks&#160;the received&#160;data. If&#160;the data can&#160;be&#160;used by&#160;the&#160;caller, then&#160;the&#160;function&#160;returns&#160;E_OK.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;table 'Service IDs'&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;reentrant.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Task&#160;or&#160;ISR2 context&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;E2EXf_Inv_&lt;transformerId&gt;&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;E2EXf&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>E2EXf&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<a href="TechnicalReference_E2EXfs.html#2">([3])</a>&#160;<br/>
+Det_ReportError&#160;<br/>
+E2ELibrary&#160;<a href="TechnicalReference_E2EXfs.html#2">([4])</a>&#160;<br/>
+E2E_PXXCheck&#160;<br/>E2E_PXXCheckInit&#160;<br/>E2E_PXXMapStatusToSM&#160;<br/>E2E_PXXProtect&#160;<br/>E2E_PXXProtectInit&#160;<br/>E2E_SMCheck&#160;<br/>E2E_SMCheckInit&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;E2EXf&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-21_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-21_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;E2EXf&#160;the&#160;attributes can&#160;be&#160;configured&#160;with&#160;the&#160;following&#160;tools:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator&#160;<br/>
+Currently,&#160;only&#160;the&#160;GetVersionInfo&#160;API&#160;and&#160;development&#160;error&#160;reporting&#160;can&#160;be&#160;<br/>enabled/disabled&#160;in&#160;the&#160;E2EXf&#160;Ecu&#160;configuration.&#160;<br/>
+The&#160;remaining&#160;configuration&#160;of&#160;the&#160;E2E&#160;transformer&#160;is based&#160;on&#160;the&#160;<br/>EndToEndTransformationDescription,&#160;<br/>EndToEndTransformationISignalProps&#160;and&#160;<br/>EndToEndTransformationComSpecProps&#160;in&#160;the&#160;system&#160;description.&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;E2EXf&#160;supports the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-LINK-TIME&#160;<br/>
+The&#160;configuration&#160;classes&#160;of&#160;the&#160;E2EXf&#160;parameters&#160;depend&#160;on&#160;the&#160;supported&#160;configuration&#160;<br/>variants.&#160;For their&#160;definitions please&#160;see&#160;the&#160;E2EXf_bswmd.arxml&#160;file.&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Configuration of EndToEndTransformationComSpecProps&#160;</b><br/>
+The&#160;&#160;EndToEndTransformationComSpecProps&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;to&#160;&#160;configure&#160;<br/>adjusted/special&#160;&#160;configuration&#160;&#160;values&#160;&#160;valid&#160;&#160;for&#160;&#160;the&#160;&#160;port&#160;&#160;to&#160;&#160;which&#160;&#160;the&#160;&#160;Receiver&#160;&#160;ComSpec&#160;<br/>belongs.&#160;<br/>These&#160;options&#160;can&#160;be&#160;configured&#160;in&#160;the&#160;Receiver&#160;ComSpec&#160;of&#160;the&#160;port&#160;properties&#160;dialog&#160;in&#160;<br/>the&#160;DaVinci Developer&#160;(see&#160;following&#160;Figure).&#160;<br/>
+&#160;<br/>
+Figure&#160;6-1&#160;&#160;Configuration&#160;of&#160;EndToEndTransformationComSpecProps&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+DaVinci&#160;Configurator&#160;&#160;Configuration and&#160;generation tool&#160;for&#160;MICROSAR&#160;components&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2EXf-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;Transformer&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#7">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#9">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#9">3.1.1 Deviations</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#9">3.1.2 Additions/ Extensions</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#9">3.1.2.1 Memory Initialization</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#10">3.1.3 Limitations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#10">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#10">3.3 States</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#10">3.4 Main Functions</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#10">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#10">3.5.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#11">3.5.2 Production Code Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#12">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#12">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#12">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#12">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#13">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#13">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#13">5.2 Services provided by E2EXf</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#13">5.2.1 E2EXf_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#14">5.2.2 E2EXf_InitMemory</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#15">5.2.3 E2EXf_Init</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#16">5.2.4 E2EXf_DeInit</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#17">5.2.5 E2EXf_&lt;transformerId&gt;</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#18">5.2.6 E2EXf_Inv_&lt;transformerId&gt;</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#20">5.3 Services used by E2EXf</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#21">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#21">6.1 Configuration Variants</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#21">6.2 Configuration of EndToEndTransformationComSpecProps</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#22">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_E2EXfs.html#22">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_E2EXfs.html#22">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2EXfs.html#23">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

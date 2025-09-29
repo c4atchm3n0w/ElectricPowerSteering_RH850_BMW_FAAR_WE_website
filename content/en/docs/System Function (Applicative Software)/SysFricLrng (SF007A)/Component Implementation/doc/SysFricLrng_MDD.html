@@ -1,0 +1,1146 @@
+---
+title: SysFricLrng_MDD
+linkTitle: SysFricLrng_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>SysFricLrng</strong></p>
+<p><strong>Oct 04, 2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Matthew Leser</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 25%" />
+<col style="width: 17%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Basavaraja Ganeshappa</td>
+<td>1.0</td>
+<td>24<sup>th</sup> Mar 2016</td>
+</tr>
+<tr class="odd">
+<td>Re base lined by pulling 1.3.1</td>
+<td>Basavaraja Ganeshappa</td>
+<td>2.0</td>
+<td>25<sup>th</sup> Jul 2016</td>
+</tr>
+<tr class="even">
+<td>Implementation of SF007A v2.0.0 &amp; v2.1.0</td>
+<td>Krishna Anne</td>
+<td>3.0</td>
+<td>3<sup>rd</sup> Oct 2016</td>
+</tr>
+<tr class="odd">
+<td>Updated to design version 2.2.0</td>
+<td>TATA</td>
+<td>4.0</td>
+<td>05-Dec-16</td>
+</tr>
+<tr class="even">
+<td>Updated to design version 2.4.0</td>
+<td>KK</td>
+<td>5.0</td>
+<td>28-Feb-17</td>
+</tr>
+<tr class="odd">
+<td>Updated Diagram and added Unit Test Consideration</td>
+<td>ML</td>
+<td>6.0</td>
+<td>04-Oct-17</td>
+</tr>
+</tbody>
+</table>
+<p><u>Table of Contents</u></p>
+<p><a href="#introduction">1 Introduction <span>6</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>6</span></a></p>
+<p><a href="#sysfriclrng-high-level-description">2 SysFricLrng High-Level Description <span>7</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>8</span></a></p>
+<p><a href="#graphical-representation-of-sysfriclrng">3.1 Graphical representation of SysFricLrng <span>8</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>9</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>9</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>9</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>10</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>10</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>10</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>11</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>11</span></a></p>
+<p><a href="#init-sysfriclrnginit1">5.1.1 Init: SysFricLrngInit1 <span>11</span></a></p>
+<p><a href="#design-rationale">5.1.1.1 Design Rationale <span>11</span></a></p>
+<p><a href="#module-outputs">5.1.1.2 Module Outputs <span>11</span></a></p>
+<p><a href="#per-sysfriclrngper1">5.1.2 Per: SysFricLrngPer1 <span>11</span></a></p>
+<p><a href="#design-rationale-1">5.1.2.1 Design Rationale <span>11</span></a></p>
+<p><a href="#store-module-inputs-to-local-copies">5.1.2.2 Store Module Inputs to Local copies <span>11</span></a></p>
+<p><a href="#processing-of-function">5.1.2.3 (Processing of function)……… <span>11</span></a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">5.1.2.4 Store Local copy of outputs into Module Outputs <span>11</span></a></p>
+<p><a href="#server-runnables">5.2 Server Runnables <span>11</span></a></p>
+<p><a href="#server-runnable-name">5.2.1 Server Runnable Name <span>11</span></a></p>
+<p><a href="#design-rationale-2">5.2.1.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing-of-function-1">5.2.1.2 (Processing of function)……… <span>11</span></a></p>
+<p><a href="#server-runnables-1">5.3 Server Runnables <span>12</span></a></p>
+<p><a href="#server-runnable-name-1">5.3.1 Server Runnable Name <span>12</span></a></p>
+<p><a href="#design-rationale-3">5.3.1.1 Design Rationale <span>12</span></a></p>
+<p><a href="#processing-of-function-2">5.3.1.2 (Processing of function)……… <span>12</span></a></p>
+<p><a href="#server-runnable-name-2">5.3.2 Server Runnable Name <span>12</span></a></p>
+<p><a href="#design-rationale-4">5.3.2.1 Design Rationale <span>12</span></a></p>
+<p><a href="#processing-of-function-3">5.3.2.2 (Processing of function)……… <span>12</span></a></p>
+<p><a href="#server-runnable-name-3">5.3.3 Server Runnable Name <span>12</span></a></p>
+<p><a href="#design-rationale-5">5.3.3.1 Design Rationale <span>12</span></a></p>
+<p><a href="#processing-of-function-4">5.3.3.2 (Processing of function)……… <span>12</span></a></p>
+<p><a href="#server-runnable-name-4">5.3.4 Server Runnable Name <span>12</span></a></p>
+<p><a href="#design-rationale-6">5.3.4.1 Design Rationale <span>12</span></a></p>
+<p><a href="#processing-of-function-5">5.3.4.2 (Processing of function)……… <span>12</span></a></p>
+<p><a href="#server-runnable-name-5">5.3.5 Server Runnable Name <span>13</span></a></p>
+<p><a href="#design-rationale-7">5.3.5.1 Design Rationale <span>13</span></a></p>
+<p><a href="#processing-of-function-6">5.3.5.2 (Processing of function)……… <span>13</span></a></p>
+<p><a href="#server-runnable-name-6">5.3.6 Server Runnable Name <span>13</span></a></p>
+<p><a href="#processing-of-function-7">5.3.6.2 (Processing of function)……… <span>13</span></a></p>
+<p><a href="#server-runnable-name-7">5.3.7 Server Runnable Name <span>13</span></a></p>
+<p><a href="#processing-of-function-8">5.3.7.2 (Processing of function)……… <span>13</span></a></p>
+<p><a href="#interrupt-functions">5.4 Interrupt Functions <span>13</span></a></p>
+<p><a href="#interrupt-function-name">5.4.1 Interrupt Function Name <span>13</span></a></p>
+<p><a href="#design-rationale-11">5.4.1.1 Design Rationale <span>13</span></a></p>
+<p><a href="#processing-of-the-isr-function..">5.4.1.2 (Processing of the ISR function)….. <span>13</span></a></p>
+<p><a href="#module-internal-local-functions">5.5 Module Internal (Local) Functions <span>14</span></a></p>
+<p><a href="#local-function-1">5.5.1 Local Function #1 <span>14</span></a></p>
+<p><a href="#design-rationale-12">5.5.1.1 Design Rationale <span>14</span></a></p>
+<p><a href="#processing">5.5.1.2 Processing <span>14</span></a></p>
+<p><a href="#local-function-2">5.5.2 Local Function #2 <span>14</span></a></p>
+<p><a href="#design-rationale-13">5.5.2.1 Design Rationale <span>14</span></a></p>
+<p><a href="#processing-1">5.5.2.2 Processing <span>14</span></a></p>
+<p><a href="#local-function-3">5.5.3 Local Function #3 <span>15</span></a></p>
+<p><a href="#design-rationale-14">5.5.3.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-2">5.5.3.2 Processing <span>15</span></a></p>
+<p><a href="#local-function-4">5.5.4 Local Function #4 <span>15</span></a></p>
+<p><a href="#design-rationale-15">5.5.4.1 Design Rationale <span>15</span></a></p>
+<p><a href="#processing-3">5.5.4.2 Processing <span>15</span></a></p>
+<p><a href="#local-function-5">5.5.5 Local Function #5 <span>16</span></a></p>
+<p><a href="#design-rationale-16">5.5.5.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-4">5.5.5.2 Processing <span>16</span></a></p>
+<p><a href="#local-function-6">5.5.6 Local Function #6 <span>16</span></a></p>
+<p><a href="#design-rationale-17">5.5.6.1 Design Rationale <span>16</span></a></p>
+<p><a href="#processing-5">5.5.6.2 Processing <span>16</span></a></p>
+<p><a href="#local-function-7">5.5.7 Local Function #7 <span>16</span></a></p>
+<p><a href="#design-rationale-18">5.5.7.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-6">5.5.7.2 Processing <span>17</span></a></p>
+<p><a href="#local-function-8">5.5.8 Local Function #8 <span>17</span></a></p>
+<p><a href="#design-rationale-19">5.5.8.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-7">5.5.8.2 Processing <span>17</span></a></p>
+<p><a href="#section">5.5.8.3 <span>17</span></a></p>
+<p><a href="#local-function-9">5.5.9 Local Function #9 <span>17</span></a></p>
+<p><a href="#design-rationale-20">5.5.9.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-8">5.5.9.2 Processing <span>18</span></a></p>
+<p><a href="#local-function-10">5.5.10 Local Function #10 <span>18</span></a></p>
+<p><a href="#design-rationale-21">5.5.10.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-9">5.5.10.2 Processing <span>18</span></a></p>
+<p><a href="#local-function-11">5.5.11 Local Function #11 <span>18</span></a></p>
+<p><a href="#design-rationale-22">5.5.11.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-10">5.5.11.2 Processing <span>19</span></a></p>
+<p><a href="#local-function-12">5.5.12 Local Function #12 <span>19</span></a></p>
+<p><a href="#design-rationale-23">5.5.12.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-11">5.5.12.2 Processing <span>19</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.6 GLOBAL Function/Macro Definitions <span>19</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>20</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>21</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>22</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>23</span></a></p>
+<p><a href="#references">Appendix C References <span>24</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>MDD for System Friction Learning</p>
+<h1 id="sysfriclrng-high-level-description">SysFricLrng High-Level Description</h1>
+<p><em>Refer FDD</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<p><em>Refer FDD</em></p>
+<h2 id="graphical-representation-of-sysfriclrng">Graphical representation of SysFricLrng</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:2.77417in;height:5.48684in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p><em>Refer FDD</em></p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p><em>Refer FDD</em></p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p><em>Refer FDD</em></p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>INDEX0_CNT_U08</td>
+<td>1</td>
+<td>CNT</td>
+<td>0U</td>
+</tr>
+<tr class="even">
+<td>INDEX1_CNT_U08</td>
+<td>1</td>
+<td>CNT</td>
+<td>1U</td>
+</tr>
+<tr class="odd">
+<td>INDEX2_CNT_U08</td>
+<td>1</td>
+<td>CNT</td>
+<td>2U</td>
+</tr>
+<tr class="even">
+<td>INDEX3_CNT_U08</td>
+<td>1</td>
+<td>CNT</td>
+<td>3U</td>
+</tr>
+<tr class="odd">
+<td>SYSSATNFRICESTIMDMIN_HWNWMTR_F32</td>
+<td>1</td>
+<td>HwNwMtr</td>
+<td>0.0F</td>
+</tr>
+<tr class="even">
+<td>SYSSATNFRICESTIMDMAX_HWNWMTR_F32 2</td>
+<td>1</td>
+<td>HwNwMtr</td>
+<td>20.0F</td>
+</tr>
+<tr class="odd">
+<td>SYSFRICESTIMDMIN_HWNWMTR_F32</td>
+<td>1</td>
+<td>HwNwMtr</td>
+<td>0.0F</td>
+</tr>
+<tr class="even">
+<td>SYSFRICESTIMDMAX_HWNWMTR_F32</td>
+<td>1</td>
+<td>HwNwMtr</td>
+<td>20.0F</td>
+</tr>
+<tr class="odd">
+<td>SYSFRICOFFSMIN_HWNWMTR_F32</td>
+<td>1</td>
+<td>HwNwMtr</td>
+<td>-5.0F</td>
+</tr>
+<tr class="even">
+<td>SYSFRICOFFSMAX_HWNWMTR_F32</td>
+<td>1</td>
+<td>HwNwMtr</td>
+<td>5.0F</td>
+</tr>
+</tbody>
+</table>
+<p>For rest of the constants, please refer Data Dictionary</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<p>The detailed design of the function is provided in the FDD.</p>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-sysfriclrnginit1">Init: SysFricLrngInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>In MDD, filters are initialized inside the for loop using switch case but in code filters are initialized one by one without any conditions.</em></p>
+<p><em>In model, filters are initialized twice as it is not possible to use a variable for the filter initialization in the model. This is redundancy is not present in the code as variables are used for initializing the filters.</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="per-sysfriclrngper1">Per: SysFricLrngPer1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="server-runnables">Server Runnables </h2>
+<h2 id="server-runnable-name">Server Runnable Name</h2>
+<p><em>ClrFricLrngOperMod</em></p>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-1"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnables-1">Server Runnables </h2>
+<h2 id="server-runnable-name-1">Server Runnable Name</h2>
+<p><em>GetFricLrngData</em></p>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-2"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-2">Server Runnable Name</h2>
+<p><em>GetFricOffsOutpDi</em></p>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-3"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-3">Server Runnable Name</h2>
+<p><em>InitFricLrngTbl</em></p>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-4"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-4">Server Runnable Name</h2>
+<p><em>SetFricLrngDatal</em></p>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-5"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-5">Server Runnable Name</h2>
+<p><em>SetFricOffsOutpDi</em></p>
+<h2 id="design-rationale-7">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-6"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-6">Server Runnable Name</h2>
+<h4 class="unnumbered" id="getfricdata"><em>GetFricData</em></h4>
+<h4 id="design-rationale-8">Design Rationale</h4>
+<p><em>Refer FDD</em></p>
+<p>To avoid calculating array indexing for updating PIMs Rte_Pim_FricLrngData()-&gt;Hys and Rte_Pim_FricLrngData()-&gt;RngCntr, performed casting the array argument back to it's actual type (similar to what we do with cal arrays) so we can use normal indexing.</p>
+<h2 id="processing-of-function-7"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-7">Server Runnable Name</h2>
+<h4 class="unnumbered" id="setfricdata"><em>SetFricData</em></h4>
+<h4 id="design-rationale-9">Design Rationale</h4>
+<p><em>Refer FDD</em></p>
+<p>To avoid calculating array indexing for updating from PIMs Rte_Pim_FricLrngData()-&gt;Hys and Rte_Pim_FricLrngData()-&gt;RngCntr, performed casting the array argument back to it's actual type (similar to what we do with cal arrays) so we can use normal indexing.</p>
+<h2 id="processing-of-function-8"> (Processing of function)………</h2>
+<p><em>On server invocation call</em></p>
+<h2 id="server-runnable-name-8">Server Runnable Name</h2>
+<p><em>FricLrngShtDwn</em></p>
+<h2 id="design-rationale-10">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-9"> (Processing of function)………</h2>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="interrupt-function-name">Interrupt Function Name</h2>
+<p><em>None</em></p>
+<h2 id="design-rationale-11">Design Rationale</h2>
+<p><em>NA</em></p>
+<h2 id="processing-of-the-isr-function..">(Processing of the ISR function)…..</h2>
+<p><em>NA</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>FricLearning</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="4"><strong>Arguments Passed</strong></td>
+<td>SelHwAg_HwDeg_T_f32</td>
+<td>Float32</td>
+<td>-1440.0</td>
+<td>1440.0</td>
+</tr>
+<tr class="odd">
+<td>SelColTq_HwNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>VehSpdIdx_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>HwVelDir_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>LrngEna_Cnt_T_Logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-12">Design Rationale</h2>
+<h2 id="processing">Processing</h2>
+<p>Refer to ‘FricLearning’ subsystem in FDD.</p>
+<p>Following per instance data is updated.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>*Rte_Pim_RawAvrg() (Min:0, Max:20)</td>
+</tr>
+<tr class="even">
+<td>Rte_Pim_SatnAvrgFric()[VehSpdIdx_Cnt_T_u16] (Min:0, Max:20)</td>
+</tr>
+</tbody>
+</table>
+<p>Also writes the outputs SysFricEstimd and SysSatnFricEstimd</p>
+<h2 id="local-function-2">Local Function #2</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RunningAndCalibrationModes</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>*FricOffs_HwNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-5.0</td>
+<td>+5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*LrngEna_Cnt_T_Logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-13">Design Rationale</h2>
+<h2 id="processing-1">Processing</h2>
+<p>Following PIMs are updated; refer to ‘RunningAndCalibrationModes’ subsystem in the FDD. FricOffs_HwNwtMtr_T_f32 is the output of this function</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Rte_Pim_FricLrngData()-&gt;FricOffs (Min:-5, Max:5)</td>
+</tr>
+<tr class="even">
+<td>*Rte_Pim_RawAvrg() (Min:0, Max:20)</td>
+</tr>
+<tr class="odd">
+<td>Rte_Pim_SatnAvrgFric()[VehSpdIdx_Cnt_T_u16] (Min:0, Max:20)</td>
+</tr>
+</tbody>
+</table>
+<p>Also updates the input argument, *FricOffs_HwNwtMtr_T_f32.</p>
+<h2 id="local-function-3">Local Function #3</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RawAvrgCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="4"><strong>Arguments Passed</strong></td>
+<td>VehSpdIdx_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>DeltaIdxOffsDec_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>DeltaIdxOffsInc_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>TotalCounter_Cnt_T_u32</td>
+<td>Uint32</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>LrngEna_Cnt_T_Logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-14">Design Rationale</h2>
+<h2 id="processing-2">Processing</h2>
+<p>Refer to ‘Raw Average Calculation’ subsystem in FDD.</p>
+<p>Following per instance data is updated.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>*Rte_Pim_RawAvrg() (Min:0, Max:20)</td>
+</tr>
+<tr class="even">
+<td>Rte_Pim_SatnAvrgFric()[VehSpdIdx_Cnt_T_u16] (Min:0, Max:20)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-function-4">Local Function #4</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>PhiCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="4"><strong>Arguments Passed</strong></td>
+<td>SelHwAg_HwDeg_T_f32</td>
+<td>Float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td>Gate_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="even">
+<td>DeltaIdxOffs_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>SelColTq_HwNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-15">Design Rationale</h2>
+<h2 id="processing-3">Processing</h2>
+<p>Refer to ‘Raw Average Calculation’ subsystem in FDD.</p>
+<p>Following per instance data is updated.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Rte_Pim_FricLrngData()-&gt;Hys[DeltaIdxOffs_Cnt_T_u16][Gate_Cnt_T_u16 + 1U] (Min:-127, Max:127)</td>
+</tr>
+<tr class="even">
+<td>Rte_Pim_FricLrngData()-&gt;Hys[DeltaIdxOffs_Cnt_T_u16][Gate_Cnt_T_u16] (Min:-127, Max:127)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-function-5">Local Function #5</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RangeCounterManager</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="4"><strong>Arguments Passed</strong></td>
+<td>DeltaIdxOffs_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>DeltaIdxOffsDec_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>DeltaIdxOffsInc_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>Gate_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-16">Design Rationale</h2>
+<h2 id="processing-4">Processing</h2>
+<p>Refer to ‘Range counter manager’ subsystem in FDD.</p>
+<p>Following per instance data is updated.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>*Rte_Pim_ RngCntrThdExcdd() (Min:0, Max:1)</td>
+</tr>
+<tr class="even">
+<td>Rte_Pim_FricLrngData-&gt;RngCntr (:,:) (Min:0, Max:65535)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-function-6">Local Function #6</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>NTCSetReset</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MaxRawAvrgFric_Cnt_T_f32</td>
+<td>Float32</td>
+<td>-127</td>
+<td>254</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-17">Design Rationale</h2>
+<h2 id="processing-5">Processing</h2>
+<p>Refer to ‘NTC_Pass’ and ‘NTC_Fail’ subsystem in FDD</p>
+<p>Sets or resets the NTCNR_0X0A2</p>
+<h2 id="local-function-7">Local Function #7</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ClearingMode</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>none</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>none</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-18">Design Rationale</h2>
+<h2 id="processing-6">Processing</h2>
+<p>Refer to ‘Clearing Mode’ subsystem in FDD.</p>
+<p>Following per instance data is updated.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>*Rte_Pim_FricOffs()(Min:-5, Max:5)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-function-8">Local Function #8</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ResettingMode</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>*FricOffs_HwNwtMtr_T_f32</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-19">Design Rationale</h2>
+<h2 id="processing-7">Processing</h2>
+<h2 id="section"></h2>
+<p>Refer to ‘ResettingMode’ subsystem in FDD.</p>
+<p>Following per instance data is updated. Also updates the input argument ‘*FricOffs_HwNwtMtr_T_f32’.</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Rte_Pim_FricLrngData()-&gt;RngCntr(;)</td>
+</tr>
+<tr class="even">
+<td>Rte_Pim_AvrgFricLpFil<strong>X</strong>()-&gt;FilSt (X: 1 to 4)</td>
+</tr>
+<tr class="odd">
+<td>Rte_Pim_FricLrngData()-&gt;Hys(;)</td>
+</tr>
+<tr class="even">
+<td>Rte_Pim_FricOffs()(Min:-5, Max:5)</td>
+</tr>
+<tr class="odd">
+<td><p>Rte_Pim_VehBasLineFric()[] (Min:-0, Max:127)</p>
+<p>Rte_Pim_RawAvrgFric()[] (Min:--127, Max:254)</p>
+<p>Rte_Pim_FilAvrgFric()[] (Min:--10 , Max: 10)</p>
+<p>Rte_Pim_SatnAvrgFric()[](Min:--127, Max:254)</p>
+<p>Rte_Pim_FricLrngData()-&gt;VehLrndFric[] (0-127)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-function-9">Local Function #9</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>HwAngConstraint</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>FilHwAg_HwDeg_T_f32</td>
+<td>Float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*HwAgOK_Cnt_T_Logl</td>
+<td>boolean</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*SelHwAg_HwDeg_T_f32</td>
+<td>Float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-20">Design Rationale</h2>
+<p> IDXSELN2_ULS_U08 is not used in the code because it is not required instead IDXSELN1_ULS_U08 serves the purpose.</p>
+<h2 id="processing-8">Processing</h2>
+<p>Refer to ‘HwAngConstraint‘ subsystem in FDD. Updates the input arguments, *HwAgOK_Cnt_T_Logl and *SelHwAg_HwDeg_T_f32</p>
+<h2 id="local-function-10">Local Function #10</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>HwVelConstraint</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="3"><strong>Arguments Passed</strong></td>
+<td>HwVel_HwRadPerSec_T_f32</td>
+<td>Float32</td>
+<td>-42</td>
+<td>42</td>
+</tr>
+<tr class="odd">
+<td>HwVelOK_Cnt_T_Logl</td>
+<td>Boolean</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>HwVelDir_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-21">Design Rationale</h2>
+<h2 id="processing-9">Processing</h2>
+<p>Refer to ‘HwVelConstraint’ subsystem in FDD.</p>
+<h2 id="local-function-11">Local Function #11</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSpdConstraint</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>Float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td rowspan="2"></td>
+<td>*VehSpdOK_Cnt_T_Logl</td>
+<td>Boolean</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>*VehSpdIdx_Cnt_T_u16</td>
+<td>Uint16</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-22">Design Rationale</h2>
+<p><em>Code is optimized due to limitation with the model; hence code completely won’t match the model. There won’t be any impact on the functionality.</em></p>
+<p><em>In the model as it is not possible to break the for loop until the loop iterator reaches the configured constant threshold value, index corresponding to the position in ‘SysFricLrngVehSpd’ which breaches the conditions mentioned in ‘VehSpdIdxCalcn’ subsystem is calculated by successively adding the index value after multiplying it with either the condition true or false based on whether the vehicle speed value breaches the threshold mentioned in the FDD. In code as it is possible to exit the for loop as soon as a value in ‘VehSpdIdxCalcn’ breaches thresholds as mentioned in FDD, no such successive addition of loop counter is required.</em></p>
+<h2 id="processing-10">Processing</h2>
+<p>Refer to ‘VehSpdConstraint’ subsystem in FDD.</p>
+<h2 id="local-function-12">Local Function #12</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ColTqconstraint</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="2"><strong>Arguments Passed</strong></td>
+<td>FilColTq_HwNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>*SelColTq_HwNwtMtr_T_f32</td>
+<td>Boolean</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-23">Design Rationale</h2>
+<h2 id="processing-11">Processing</h2>
+<p>Refer to ‘ColTqconstraint’ subsystem in FDD. Updates the *SelColTq_HwNwtMtr_T_f32.</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>NA</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<ol type="1">
+<li><p>In model, one based indexing is used but in code 0 based indexing is used.</p></li>
+<li><p>In the NVM block needs area of Developer tool, the options of "Restore at Startup" and "Store at Shutdown" are disabled as the newer version (3.13.22 SP2) of this tool throws warnings while doing a DCF check.</p></li>
+<li><p>There will be a source model mismatch that occurs because of a logic change that happened for a PSR. There is limiting that occurs in the new Non Rte Server Runnable. These limits were switched for the PSR but this change was not brought in for the design. An ICR has been submitted to fix the design to match the implementation, EA4#15920.</p></li>
+</ol>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>Process 4.02.01</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>Process 4.02.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD- SF007A_SysFricLrng_Design</td>
+<td>See Synergy sub project version</td>
+</tr>
+</tbody>
+</table>

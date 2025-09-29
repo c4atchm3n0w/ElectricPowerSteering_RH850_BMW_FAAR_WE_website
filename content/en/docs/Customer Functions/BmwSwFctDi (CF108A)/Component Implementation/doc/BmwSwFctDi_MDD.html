@@ -1,0 +1,505 @@
+---
+title: BmwSwFctDi_MDD
+linkTitle: BmwSwFctDi_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>BmwSwFctDi</strong></p>
+<p><strong>July 28, 2018</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Akilan Rathakrishnan,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, USA<br />
+<u>Change History</u></strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial version</td>
+<td>Akilan Rathakrishnan</td>
+<td>1.0</td>
+<td>28-Jul-2018</td>
+</tr>
+<tr class="odd">
+<td>Updated Design rationale for periodic and init runnables</td>
+<td>Akilan Rathakrishanan</td>
+<td>2.0</td>
+<td>30-Jul-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u></p>
+<p><a href="#introduction">1 Introduction <span>5</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>5</span></a></p>
+<p><a href="#scope">1.2 Scope <span>5</span></a></p>
+<p><a href="#bmwswfctdi-high-level-description">2 BmwSwFctDi High-Level Description <span>6</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>7</span></a></p>
+<p><a href="#graphical-representation-of-bmwvehspd">3.1 Graphical representation of BmwVehSpd <span>8</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>9</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>9</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>9</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>10</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>10</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>10</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>11</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>11</span></a></p>
+<p><a href="#bmwswfctdiinit1">5.1.1 BmwSwFctDiInit1 <span>11</span></a></p>
+<p><a href="#design-rationale">5.1.1.1 Design Rationale <span>11</span></a></p>
+<p><a href="#_Toc421011516">5.1.1.2 Module Outputs <span>11</span></a></p>
+<p><a href="#bmwswfctdiper1">5.1.2 BmwSwFctDiPer1 <span>11</span></a></p>
+<p><a href="#design-rationale-1">5.1.2.1 Design Rationale <span>11</span></a></p>
+<p><a href="#module-outputs-1">5.1.2.2 Module Outputs <span>11</span></a></p>
+<p><a href="#server-runnables">5.2 Server Runnables <span>11</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>11</span></a></p>
+<p><a href="#interrupt-function-name">5.3.1 Interrupt Function Name <span>11</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>11</span></a></p>
+<p><a href="#updcodingbits">5.4.1 UpdCodingBits <span>11</span></a></p>
+<p><a href="#readcodingdata">5.4.2 ReadCodingData <span>11</span></a></p>
+<p><a href="#pullcmpcmddibmwovrd">5.4.3 PullCmpCmdDiBmwOvrd <span>12</span></a></p>
+<p><a href="#inertiacmpvelcmddibmwovrd">5.4.4 InertiaCmpVelCmdDiBmwOvrd <span>12</span></a></p>
+<p><a href="#clsdloophysena">5.4.5 ClsdLoopHysEna <span>12</span></a></p>
+<p><a href="#ctrldvelrtnena">5.4.6 CtrldVelRtnEna <span>12</span></a></p>
+<p><a href="#ovrdcmdena">5.4.7 OvrdCmdEna <span>12</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>12</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>13</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>14</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>15</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>16</span></a></p>
+<p><a href="#please-references">Appendix C Please references <span>17</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module Design Document for CF0108A_BmwSwFctDi_Impl</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="bmwswfctdi-high-level-description">BmwSwFctDi High-Level Description</h1>
+<p>This is BMW specific and will allow features to be disabled per customer requirements without altering multiple SF''s. It will also take a client call from the BAC module coding and output Boolean logic to allow BMW to disable the required features. This client call will be changing over time from BMW and this function allows change to happen in one component instead of adjusting all the CF components that need and output from this.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<p>Please refer FDD</p>
+<h2 id="graphical-representation-of-bmwvehspd">Graphical representation of BmwVehSpd</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:5.41667in;height:8.85417in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Please refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Please refer FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Please refer FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Please refer .m file for constants</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h3 id="bmwswfctdiinit1">BmwSwFctDiInit1</h3>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><span id="_Toc421011516" class="anchor"></span>Implementation of the init runnable differs from design due to the way this component need to interact with BMW BAC Coding component.</p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p>None</p>
+<h2 id="bmwswfctdiper1">BmwSwFctDiPer1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>Implementation of the periodic differs from design due to the way this component need to interact with BMW BAC Coding component.</p>
+<h2 id="module-outputs-1">Module Outputs</h2>
+<p>None</p>
+<h2 id="server-runnables">Server Runnables </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="interrupt-function-name">Interrupt Function Name</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h3 id="updcodingbits">UpdCodingBits</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>UpdCodingBits</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CodingDataMode_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="readcodingdata">ReadCodingData</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ReadCodingData</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CodingDataMode_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pullcmpcmddibmwovrd">PullCmpCmdDiBmwOvrd</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>VehSpdRateLim</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>PullCmpCmdDi_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PullCmpCmdDiBmwOvrd_Cnt_T_logl</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inertiacmpvelcmddibmwovrd">InertiaCmpVelCmdDiBmwOvrd</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>InertiaCmpVelCmdDiBmwOvrd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>InertiaCmpVelCmdDi_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>InertiaCmpVelCmdDiBmwOvrd_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clsdloophysena">ClsdLoopHysEna</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ClsdLoopHysEna</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwTqCmdHys_HwNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>HwTqCmdHysBmwOvrd_HwNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="ctrldvelrtnena">CtrldVelRtnEna</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CtrldVelRtnEna</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CtrldVelRtnCmd_MotNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>CtrldVelRtnCmdBmwOvrd_MotNwtMtr_T_f32</td>
+<td>Float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ovrdcmdena">OvrdCmdEna</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProcessFourthAndGateState</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>OvrdCal_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CodingBit_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>OvrlCmdEna_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None.</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<ol type="1">
+<li><p>Client calls to BMW BAC Coding component are not listed in the design since this will require modeling 3<sup>rd</sup> party software.</p></li>
+</ol>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Please reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="please-references">Please references</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD: CF108A_BmwSwFctDi_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>

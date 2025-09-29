@@ -1,0 +1,294 @@
+---
+title: AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss
+linkTitle: AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss
+weight: 63
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-1_1.png"/><br/>
+&#160;<br/>&#160;<br/>
+<b>Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/></b>Version&#160;1.2&#160;<br/>2017-05-17&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1196&#160;<br/>
+<b>Author</b>&#160;<br/>
+Wolf, Jonas&#160;<br/>
+<b>Restrictions</b>&#160;&#160;Customer Confidential&#160;–&#160;Vector decides&#160;<br/><b>Abstract</b>&#160;<br/>
+MICROSAR&#160;BSW&#160;is&#160;supposed&#160;to&#160;be&#160;executed&#160;in&#160;one&#160;memory&#160;partition&#160;(with some&#160;<br/>exceptions).&#160;Architectural&#160;constraints, e.g. a&#160;safety&#160;concept, may&#160;require distributing&#160;<br/>MICROSAR&#160;BSW&#160;across&#160;different&#160;memory&#160;partitions.&#160;This&#160;application&#160;note describes&#160;<br/>the&#160;general&#160;approach and&#160;common&#160;techniques&#160;for distribution.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#2"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#2"><b>Overview&#160;........................................................................................................................................&#160;2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#2"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#2"><b>Introduction&#160;of&#160;Partitioning&#160;..........................................................................................................&#160;2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3"><b>Techniques&#160;for&#160;Crossing&#160;Partitions&#160;............................................................................................&#160;3</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">Trusted&#160;Functions&#160;................................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.2&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">Non-trusted&#160;Functions&#160;..........................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.3&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">Inter OS&#160;Application&#160;Communicator (IOC)&#160;...........................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.4&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">Sharing&#160;Data&#160;........................................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4"><b>Hooking&#160;into&#160;Interfaces&#160;................................................................................................................&#160;4</b>&#160;<br/></a><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">Example Code......................................................................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1.1&#160;&#160;Source&#160;File of&#160;A&#160;(A\A.c)&#160;.......................................................................................................&#160;6&#160;<br/>4.1.2&#160;&#160;Header File of&#160;B&#160;(B\B.h)&#160;.......................................................................................................&#160;6&#160;<br/>4.1.3&#160;&#160;Source File of&#160;B&#160;(B\B.c)&#160;.......................................................................................................&#160;6&#160;<br/>4.1.4&#160;&#160;Header File of&#160;Bmod&#160;(Bmod\Bmod.h)&#160;..................................................................................&#160;6&#160;<br/></a><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7">4.1.5&#160;&#160;Header File of&#160;Bmod&#160;(Bmod\B.h)&#160;.........................................................................................&#160;7&#160;<br/>4.1.6&#160;&#160;Source File of&#160;Bmod&#160;(Bmod\Bmod.c)&#160;..................................................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7"><b>5</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7"><b>Additional&#160;Resources&#160;...................................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7"><b>6</b>&#160;</a><br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7"><b>Contacts&#160;.........................................................................................................................................&#160;7</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-2_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-2_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-2_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-2_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-2_6.png"/><br/>
+Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+AUTOSAR&#160;was&#160;initially&#160;developed for single core microcontrollers&#160;without&#160;memory&#160;protection unit&#160;<br/>(MPU).&#160;The&#160;availability&#160;of&#160;more powerful&#160;microcontrollers&#160;and the introduction of&#160;ISO&#160;26262 led to new&#160;<br/>concepts&#160;in AUTOSAR&#160;addressing&#160;these changes.&#160;<br/>
+This&#160;document provides&#160;an&#160;approach how&#160;to&#160;distribute&#160;basic&#160;software&#160;across&#160;partitions&#160;on&#160;one&#160;core.&#160;<br/>Distributing&#160;the&#160;basic&#160;software across&#160;different cores&#160;is&#160;out of&#160;scope of&#160;this&#160;application note.&#160;The&#160;term&#160;<br/>basic&#160;software is&#160;used&#160;in this&#160;application&#160;note&#160;for&#160;all&#160;software components&#160;below&#160;the&#160;Runtime&#160;<br/>Environment (RTE), i.e.&#160;AUTOSAR modules,&#160;like ECUM or&#160;COM&#160;as&#160;well&#160;as&#160;complex&#160;drivers&#160;(CDs).&#160;<br/>
+Above&#160;the&#160;RTE, i.e. for application&#160;software components&#160;(SWC), partitioning&#160;is&#160;usually&#160;automatically&#160;<br/>handled by&#160;configuration&#160;of&#160;the RTE. Thus, this&#160;is&#160;also&#160;out of&#160;scope for this&#160;application&#160;note.&#160;<br/>
+Application SWCs&#160;<br/>
+RTE&#160;<br/>
+Complex&#160;<br/>
+OS&#160;<br/>
+AUTOSAR&#160;Modules&#160;<br/>
+Drivers&#160;<br/>
+&#160;<br/>
+Figure&#160;1-1&#160;Basic&#160;Software&#160;<br/>
+Apart from&#160;a&#160;few&#160;exceptions&#160;it is&#160;not&#160;possible to&#160;distribute&#160;the&#160;basic&#160;software into&#160;different partitions&#160;by&#160;<br/>configuration.&#160;This&#160;application&#160;note&#160;describes&#160;an&#160;approach for partitioning the basic&#160;software. It&#160;details&#160;<br/>the&#160;available techniques&#160;for implementing&#160;the partition&#160;crossing&#160;and shows&#160;an&#160;example use-case.&#160;<br/>
+An&#160;AUTOSAR operating system&#160;with&#160;Scalability&#160;Class&#160;3&#160;(SC3)&#160;and&#160;an&#160;MPU is&#160;required&#160;for&#160;memory&#160;<br/>partitioning.&#160;The&#160;term&#160;partition&#160;and&#160;OS&#160;Application&#160;are&#160;used&#160;synonymously.&#160;<br/>
+<b>2&#160;</b><br/>
+<b>Introduction of&#160;Partitioning&#160;</b><br/>
+Use the&#160;following three step approach to&#160;introduce&#160;working&#160;and effective&#160;partitioning&#160;of&#160;the&#160;basic&#160;<br/>software:&#160;<br/>
+1.&#160;&#160;Define&#160;partitioning scheme&#160;<br/>
+Use the&#160;software&#160;architecture of&#160;the&#160;ECU to describe the&#160;partitions&#160;and&#160;assign&#160;all&#160;SWCs&#160;and basic&#160;<br/>software components&#160;to a&#160;partition.&#160;Assignment to&#160;a&#160;partition&#160;is&#160;mainly&#160;defined&#160;by&#160;your safety&#160;<br/>concept.&#160;Partitions&#160;can&#160;be&#160;used&#160;if&#160;software components&#160;with&#160;different quality&#160;levels&#160;are to&#160;be&#160;<br/>executed&#160;on&#160;one&#160;ECU.&#160;<br/>
+2.&#160;&#160;Identify&#160;interfaces&#160;between&#160;components&#160;<br/>
+Use the&#160;information&#160;from&#160;the Technical&#160;References&#160;and the&#160;software&#160;architecture&#160;of&#160;the ECU to&#160;<br/>identify&#160;the&#160;interfaces&#160;between&#160;basic&#160;software components.&#160;Interfaces&#160;between&#160;software&#160;<br/>components&#160;are called functions&#160;and shared&#160;data.&#160;<br/>
+Make&#160;yourself&#160;aware of&#160;buffer ownership&#160;and&#160;also assign&#160;any&#160;buffers&#160;to a partition.&#160;<br/>
+3.&#160;&#160;Select technique&#160;to&#160;implement partition&#160;crossing&#160;<br/>
+Select one of&#160;the&#160;techniques&#160;from&#160;Section&#160;3&#160;to implement a&#160;crossing&#160;of&#160;partitions.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-3_2.png"/><br/>
+Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/>
+<b>Note&#160;<br/></b>A&#160;lot&#160;of&#160;interfaces&#160;between&#160;BSW&#160;modules&#160;can&#160;be&#160;deactivated by&#160;configuration.&#160;Evaluate&#160;<br/>
+&#160;<br/>
+whether deactivation&#160;of&#160;the&#160;interface is&#160;an option&#160;and&#160;deactivate the interface if&#160;possible.&#160;<br/>This&#160;may&#160;especially&#160;apply&#160;for interfaces&#160;to&#160;DEM and DET. If&#160;the interface is&#160;deactivated,&#160;<br/>there&#160;is&#160;no&#160;need to&#160;introduce cross-partition&#160;calls.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Techniques&#160;for&#160;Crossing Partitions&#160;</b><br/>
+<b>3.1&#160;&#160;Trusted Functions&#160;</b><br/>
+Trusted&#160;Functions&#160;are services&#160;exported&#160;by&#160;trusted&#160;applications&#160;for the&#160;use&#160;by&#160;other applications&#160;and&#160;<br/>are realized&#160;by&#160;the operating system&#160;(OS). Calling Trusted&#160;Functions&#160;usually&#160;implies&#160;switching&#160;from&#160;<br/>user mode to supervisor mode (and&#160;back&#160;when returning).&#160;<br/>
+Trusted&#160;Functions&#160;are executed&#160;on&#160;the&#160;stack&#160;of&#160;the caller.&#160;<br/>
+AUTOSAR&#160;specifies&#160;that&#160;interrupts&#160;have&#160;to&#160;be&#160;enabled&#160;when&#160;calling a&#160;Trusted&#160;Function. To ensure&#160;<br/>data&#160;consistency&#160;for an&#160;exclusive&#160;area&#160;in&#160;which&#160;the&#160;Trusted&#160;Function&#160;is&#160;called, OS&#160;resources&#160;can&#160;be&#160;<br/>used&#160;instead of&#160;disabling&#160;interrupts.&#160;This&#160;restriction does&#160;not&#160;apply&#160;to&#160;versions&#160;of&#160;Generation7&#160;of&#160;<br/>MICROSAR OS. They&#160;do&#160;not&#160;require&#160;enabled&#160;interrupts&#160;when&#160;calling&#160;Trusted&#160;Functions.&#160;<br/>
+For more information&#160;on&#160;Trusted&#160;Functions&#160;see&#160;AUTOSAR&#160;SWS&#160;OS&#160;(Version&#160;4.3, Section&#160;8.4.4) and&#160;<br/>Technical&#160;Reference&#160;MICROSAR OS&#160;(e.g.&#160;Version&#160;1.8.0,&#160;Section&#160;3.3).&#160;<br/>
+<b>3.2&#160;&#160;Non-trusted&#160;Functions&#160;</b><br/>
+Non-trusted&#160;Functions&#160;are&#160;services&#160;exported&#160;by&#160;non-trusted&#160;OS&#160;applications&#160;for the&#160;use&#160;by&#160;other&#160;<br/>applications&#160;and&#160;are realized by&#160;the operating&#160;system&#160;(OS). They&#160;have the following&#160;characteristic:&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+They&#160;run&#160;in user mode.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+They&#160;run&#160;with&#160;the&#160;MPU access&#160;rights&#160;of&#160;the&#160;owning OS&#160;application.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+They&#160;perform&#160;a&#160;stack&#160;switch to specific&#160;and secured&#160;Non-trusted&#160;Function&#160;stacks.&#160;<br/>
+Parameters&#160;are passed&#160;to&#160;the&#160;Non-trusted&#160;Function&#160;with a&#160;reference to a&#160;data structure provided&#160;by&#160;<br/>the&#160;caller.&#160;Returning of&#160;values&#160;is&#160;only&#160;possible&#160;if&#160;the caller passes&#160;the&#160;Non-trusted&#160;Functions&#160;<br/>parameters&#160;as&#160;pointer to&#160;global&#160;accessible data.&#160;<br/>
+<b>3.3&#160;&#160;Inter&#160;OS&#160;Application&#160;Communicator&#160;(IOC)&#160;</b><br/>
+If&#160;available&#160;in&#160;the&#160;operating&#160;system, IOC&#160;can&#160;be&#160;used to communicate&#160;between&#160;components&#160;as&#160;well.&#160;<br/>Since&#160;effort for configuration is&#160;higher than&#160;for the&#160;previously&#160;described techniques&#160;and there&#160;is&#160;only&#160;a&#160;<br/>benefit for rare use-cases, usage&#160;of&#160;IOC is&#160;not&#160;further&#160;described. The&#160;principles&#160;described for Non-<br/>trusted&#160;Functions,&#160;Trusted&#160;Functions&#160;and hooking&#160;into&#160;interfaces&#160;(see&#160;Sectio<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4">n&#160;4)</a>&#160;applies.&#160;<br/>
+<b>3.4&#160;&#160;Sharing&#160;Data&#160;</b><br/>
+It is&#160;in general&#160;not&#160;acceptable for two&#160;different partitions&#160;that&#160;comprise software&#160;of&#160;different quality&#160;<br/>levels&#160;to have&#160;write access&#160;to&#160;the same data&#160;in memory.&#160;Thus, usage of&#160;a&#160;shared&#160;buffer is&#160;usually&#160;<br/>avoided.&#160;<br/>
+An alternative is&#160;to&#160;restrict&#160;write&#160;access&#160;to&#160;the&#160;applications’&#160;memory&#160;and&#160;use a&#160;buffer for each direction&#160;<br/>of&#160;communication. The&#160;sender&#160;has&#160;read&#160;and&#160;write&#160;access&#160;to&#160;the&#160;buffer. The&#160;receiver&#160;only&#160;has&#160;read&#160;<br/>access&#160;to&#160;the&#160;buffer. Read&#160;and&#160;write&#160;access&#160;can&#160;be&#160;enforced&#160;by&#160;configuring the MPU respectively.&#160;<br/>
+To signal&#160;updates&#160;to the&#160;sending&#160;buffer, both the sender and&#160;the&#160;receiver hold a&#160;flag. If&#160;the sender&#160;<br/>puts&#160;in new data&#160;it toggles&#160;the&#160;flag&#160;on&#160;sender side. The&#160;receiver can&#160;detect&#160;new&#160;data&#160;if&#160;its&#160;own flag&#160;and&#160;<br/>the&#160;flag&#160;of&#160;the sender&#160;differ. After reading,&#160;the&#160;receiver&#160;toggles&#160;its&#160;own&#160;flag.&#160;This&#160;way, the&#160;sender can&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-4_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-4_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-4_4.png"/><br/>
+Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/>
+detect&#160;if&#160;data&#160;was&#160;read by&#160;the&#160;receiver. The&#160;two flags&#160;are readable from&#160;sender&#160;and receiver, but&#160;<br/>writable&#160;only&#160;by&#160;their&#160;respective&#160;owner.&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Hooking into&#160;Interfaces&#160;</b><br/>
+Usually&#160;Trusted&#160;Functions&#160;and Non-trusted Functions&#160;are not&#160;used&#160;by&#160;AUTOSAR&#160;basic&#160;software&#160;<br/>components. They&#160;can,&#160;however, be&#160;introduced&#160;manually&#160;by&#160;using the technique&#160;shown&#160;in the&#160;<br/>following&#160;example.&#160;<br/>
+There are two components&#160;A&#160;and&#160;B. A&#160;calls&#160;a&#160;function&#160;in B&#160;(B_func).&#160;Both&#160;components&#160;are&#160;assigned&#160;<br/>
+to&#160;different partitions.&#160;A&#160;is&#160;allocated&#160;to&#160;a&#160;non-trusted&#160;partition.&#160;B&#160;is&#160;allocated to&#160;a&#160;trusted&#160;partition.&#160;<br/>Thus, the function&#160;call&#160;from&#160;A&#160;to&#160;B&#160;needs&#160;to&#160;be&#160;redefined&#160;to&#160;a&#160;Trusted&#160;Function&#160;call.&#160;<br/>
+The&#160;original&#160;call&#160;and&#160;include graph are shown&#160;i<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4">n&#160;Figure&#160;4-1&#160;</a>and<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4">&#160;Figure&#160;4-2.</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;Original&#160;call&#160;graph&#160;<br/>
+&#160;<br/>
+Figure&#160;4-2&#160;Original&#160;include&#160;graph&#160;<br/>
+Redefinition&#160;of&#160;functions&#160;requires&#160;the&#160;introduction&#160;of&#160;a&#160;new&#160;component&#160;Bmod.&#160;Bmod&#160;will&#160;redefine&#160;the&#160;<br/>B_func&#160;to&#160;a&#160;different function&#160;name with the same signature,&#160;i.e.&#160;the Trusted&#160;Function&#160;configured&#160;in&#160;<br/>the&#160;operating system. In&#160;this&#160;example the&#160;Trusted&#160;Function&#160;call&#160;is&#160;named&#160;B_mod_B_func.&#160;The&#160;<br/>Trusted&#160;Function&#160;call&#160;in the&#160;operating system&#160;switches&#160;the memory&#160;protection&#160;to&#160;settings&#160;defined&#160;for&#160;<br/>the&#160;trusted application&#160;and&#160;finally&#160;calls&#160;B_func.&#160;<br/>
+<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4">Figure&#160;4-3&#160;</a>shows&#160;the&#160;modified&#160;call&#160;graph.&#160;<br/>
+&#160;<br/>
+Figure&#160;4-3&#160;Modified&#160;call&#160;graph&#160;<br/>
+To&#160;make A&#160;call&#160;a function in Bmod&#160;instead&#160;of&#160;B, the include&#160;graph needs&#160;to&#160;modified&#160;as&#160;well<a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#5">.&#160;Figure&#160;<br/>4-4&#160;</a>shows&#160;the modified&#160;include&#160;graph.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+4<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-5_2.png"/><br/>
+Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/>
+&#160;<br/>
+Figure&#160;4-4&#160;Modified&#160;include&#160;graph&#160;<br/>
+To&#160;make this&#160;modification&#160;to the&#160;include graph&#160;the&#160;include&#160;path&#160;that pointed&#160;to&#160;B&#160;is&#160;modified&#160;to&#160;point&#160;to&#160;<br/>Bmod. Please note&#160;that&#160;in&#160;Bmod\B.h&#160;the&#160;include&#160;path is&#160;resolved&#160;in the&#160;header file&#160;itself&#160;and not&#160;using&#160;<br/>include&#160;path&#160;compiler options&#160;(see&#160;line&#160;8 of&#160;Bmod\B.h&#160;below).&#160;<br/>
+The&#160;approach&#160;described above&#160;can&#160;also be used if&#160;no&#160;preprocessor define in the&#160;source file exists.&#160;<br/>The&#160;build system&#160;can&#160;also&#160;be&#160;used to set those defines&#160;individually&#160;for each source file,&#160;e.g.&#160;using&#160;the&#160;<br/>–D compiler option available for several&#160;compilers. All&#160;Vector components&#160;provide&#160;such a&#160;define&#160;in&#160;<br/>source code (see&#160;line&#160;3 of&#160;B.c&#160;below).&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+5<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-6_1.png"/><br/>
+Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/>
+<b>4.1&#160;&#160;Example Code&#160;</b><br/>
+<b>4.1.1&#160;&#160;Source&#160;File of&#160;A&#160;(A\A.c)&#160;</b><br/>
+#include &#34;B.h&#34;&#160;<br/>
+&#160;<br/>
+int A_func(void)&#160;<br/>
+{&#160;<br/>
+&#160; &#160;&#160;B_func(4u);&#160;<br/>
+&#160; &#160;&#160;return 0;&#160;<br/>
+}&#160;<br/>
+<b>4.1.2&#160;&#160;Header&#160;File of&#160;B&#160;(B\B.h)&#160;</b><br/>
+#ifndef B_H__&#160;<br/>
+#define B_H__&#160;<br/>
+&#160;<br/>
+typedef unsigned int btype;&#160;<br/>
+&#160;<br/>
+void B_func(btype);&#160;<br/>
+&#160;<br/>
+#endif&#160;<br/>
+<b>4.1.3&#160;&#160;Source&#160;File of&#160;B&#160;(B\B.c)&#160;</b><br/>
+#include &lt;stdio.h&gt;&#160;<br/>
+&#160;<br/>
+#define V_SOURCE_B&#160;<br/>
+&#160;<br/>
+#include &#34;B.h&#34;&#160;<br/>
+&#160;<br/>
+void B_func(btype a)&#160;<br/>
+{&#160;<br/>
+&#160; &#160;&#160;printf(&#34;Hallo %d\n&#34;, a);&#160;<br/>
+}&#160;<br/>
+<b>4.1.4&#160;&#160;Header&#160;File&#160;of&#160;Bmod&#160;(Bmod\Bmod.h)&#160;</b><br/>
+#ifndef BMOD_H__&#160;<br/>
+#define&#160;BMOD_H__&#160;<br/>
+&#160;<br/>
+void B_mod_B_func(btype a);&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+6<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1196_Distributing_BSW_Components_across_Partitions-7_1.png"/><br/>
+Distributing&#160;BSW&#160;Components&#160;across&#160;Partitions&#160;<br/>
+#endif&#160;<br/>
+<b>4.1.5&#160;&#160;Header&#160;File of&#160;Bmod&#160;(Bmod\B.h)&#160;</b><br/>
+#ifndef BMODPROXY_H__&#160;<br/>
+#define BMODPROXY_H__&#160;<br/>
+&#160;<br/>
+#if !defined(V_SOURCE_B)&#160;<br/>
+# define B_func B_mod_B_func&#160;<br/>
+#endif&#160;<br/>
+&#160;<br/>
+#include &#34;..\B\B.h&#34;&#160;<br/>
+&#160;<br/>
+#endif&#160;<br/>
+<b>4.1.6&#160;&#160;Source&#160;File of&#160;Bmod&#160;(Bmod\Bmod.c)&#160;</b><br/>
+#include &lt;stdio.h&gt;&#160;<br/>
+&#160;<br/>
+/* Order of includes is important */&#160;<br/>
+#include &#34;..\B\B.h&#34;&#160;<br/>
+#include &#34;Bmod.h&#34;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+void B_mod_B_func(btype a)&#160;<br/>
+{&#160;<br/>
+&#160; &#160;&#160;printf(&#34;trusted\n&#34;);&#160;<br/>
+&#160; &#160;&#160;B_func(a);&#160;<br/>
+&#160; &#160;&#160;printf(&#34;non-trusted\n&#34;);&#160;<br/>
+}&#160;<br/>
+<b>5&#160;</b><br/>
+<b>Additional&#160;Resources&#160;</b><br/>
+Intentionally&#160;left empty.&#160;<br/>
+<b>6&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For a full&#160;list&#160;with all&#160;Vector&#160;locations&#160;and&#160;addresses&#160;worldwide, please&#160;visi<a href="http://vector.com/contact/">t&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+7<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#2">1 Overview</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#2">2 Introduction of Partitioning</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3 Techniques for Crossing Partitions</a>
+<ul>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.1 Trusted Functions</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.2 Non-trusted Functions</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.3 Inter OS Application Communicator (IOC)</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#3">3.4 Sharing Data</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#4">4 Hooking into Interfaces</a>
+<ul>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1 Example Code</a>
+<ul>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1.1 Source File of A (A\A.c)</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1.2 Header File of B (B\B.h)</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1.3 Source File of B (B\B.c)</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#6">4.1.4 Header File of Bmod (Bmod\Bmod.h)</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7">4.1.5 Header File of Bmod (Bmod\B.h)</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7">4.1.6 Source File of Bmod (Bmod\Bmod.c)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7">5 Additional Resources</a></li>
+<li><a href="AN-ISC-8-1196_Distributing_BSW_Components_across_Partitionss.html#7">6 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

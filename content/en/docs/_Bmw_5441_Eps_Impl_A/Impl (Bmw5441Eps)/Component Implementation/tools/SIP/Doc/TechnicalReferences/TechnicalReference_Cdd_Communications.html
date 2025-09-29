@@ -1,0 +1,1775 @@
+---
+title: TechnicalReference_Cdd_Communications
+linkTitle: TechnicalReference_Cdd_Communications
+weight: 156
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Complex Device Driver&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>DaVinci&#160;Configurator&#160;<br/>Version&#160;2.04.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Safiulla Shakir,&#160;Gunnar&#160;Meiss,&#160;Markus&#160;Bart&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Safiulla Shakir&#160;<br/>
+2012-03-23&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;Version&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2012-08-08&#160;<br/>
+2.00.00&#160;<br/>
+Support&#160;AUTOSAR&#160;4&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2013-05-13&#160;<br/>
+2.00.01&#160;<br/>
+performed&#160;review&#160;rework&#160;<br/>
+Markus Bart&#160;<br/>
+2014-02-05&#160;<br/>
+2.01.00&#160;<br/>
+Support&#160;J1939Rm&#160;Contribution&#160;<br/>
+Markus Bart&#160;<br/>
+2014-02-28&#160;<br/>
+2.02.00&#160;<br/>
+Support&#160;the&#160;StartOfReception&#160;API&#160;with the&#160;<br/>PduInfoType&#160;according&#160;to&#160;ASR4.1.2&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2014-05-07&#160;<br/>
+2.02.00&#160;<br/>
+AR4-769:&#160;ESCAN00075414&#160;<br/>AR4-744:&#160;Cdd&#160;shall&#160;support&#160;<br/>CddSoAdUpperLayerContribution&#160;as&#160;an&#160;<br/>extension&#160;to&#160;AR&#160;4.0.3&#160;(schema shall&#160;<br/>remain at&#160;AR&#160;4.0.3)&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2016-02-24&#160;<br/>
+2.03.00&#160;<br/>
+FEAT-1631:&#160;Trigger&#160;Transmit&#160;API&#160;with&#160;<br/>SduLength&#160;In/Out&#160;according&#160;to&#160;ASR4.2.2&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2017-01-09&#160;<br/>
+2.04.00&#160;<br/>
+Rename&#160;TechnicalReference_Cdd.pdf&#160;to&#160;<br/>TechnicalReference_Cdd_Communication.<br/>pdf&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TPS_ECUConfiguration.pdf&#160;<br/>
+3.2.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+1.6.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-3_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>This&#160;symbol&#160;calls&#160;your&#160;attention&#160;to warnings.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Cdd_Communications.html#7"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#7"><b>Component&#160;History&#160;......................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#8"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#8"><b>Introduction...................................................................................................................&#160;8</b>&#160;<br/></a><a href="TechnicalReference_Cdd_Communications.html#9">2.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#9">Architecture&#160;Overview&#160;........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10"><b>Functional&#160;Description&#160;...............................................................................................&#160;10</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Features&#160;..........................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11"><b>Integration&#160;...................................................................................................................&#160;11</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">Scope of&#160;Delivery&#160;.............................................................................................&#160;11&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">Static Files&#160;.......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">Dynamic&#160;Files&#160;..................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">4.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.....................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12"><b>API&#160;Description&#160;CddPduRUpperLayerContribution&#160;as&#160;IF&#160;........................................&#160;12</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">5.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">Callback&#160;Functions&#160;...........................................................................................&#160;12&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">&lt;CDD&gt;_RxIndication&#160;.......................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#13">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#13">&lt;CDD&gt;_TxConfirmation&#160;...................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#13">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#13">&lt;CDD&gt;_TriggerTransmit&#160;..................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15"><b>API&#160;Description&#160;CddPduRUpperLayerContribution&#160;as&#160;TP&#160;.......................................&#160;15</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15">6.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15">Callback&#160;Functions&#160;...........................................................................................&#160;15&#160;<br/>6.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15">&lt;CDD&gt;_StartOfReception&#160;................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#16">6.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#16">&lt;CDD&gt;_CopyRxData&#160;.......................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#17">6.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#17">&lt;CDD&gt;_TpRxIndication&#160;...................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#18">6.2.4&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#18">&lt;CDD&gt;_CopyTxData&#160;.......................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#19">6.2.5&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#19">&lt;CDD&gt;_TpTxConfirmation&#160;...............................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#20"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#20"><b>API&#160;Description&#160;CddPduRLowerLayerContribution&#160;as&#160;IF&#160;........................................&#160;20</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#20">Services provided by&#160;&lt;CDD&gt;&#160;...........................................................................&#160;20&#160;<br/>7.1.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#20">&lt;CDD&gt;_Transmit&#160;.............................................................................&#160;20&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">7.1.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">&lt;CDD&gt;_CancelTransmit&#160;..................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">7.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#22"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#22"><b>API&#160;Description&#160;CddPduRLowerLayerContribution&#160;as&#160;TP&#160;......................................&#160;22</b>&#160;<br/>8.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#22">Services provided by&#160;&lt;CDD&gt;&#160;...........................................................................&#160;22&#160;<br/>8.1.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#22">&lt;CDD&gt;_Transmit&#160;.............................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#23">8.1.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#23">&lt;CDD&gt;_CancelTransmit&#160;..................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#24">8.1.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#24">&lt;CDD&gt;_CancelReceive&#160;...................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">8.1.4&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">&lt;CDD&gt;_ChangeParameter&#160;..............................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">8.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26"><b>9</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26"><b>API&#160;Description&#160;CddComIfUpperLayerContribution&#160;................................................&#160;26</b>&#160;<br/>9.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26">9.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26">Callback&#160;Functions&#160;...........................................................................................&#160;26&#160;<br/></a><a href="TechnicalReference_Cdd_Communications.html#27">9.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">&lt;CDD&gt;_RxIndication&#160;.......................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">9.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">&lt;CDD&gt;_TxConfirmation&#160;...................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#28">9.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#28">&lt;CDD&gt;_TriggerTransmit&#160;..................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29"><b>10</b>&#160;&#160;<b>API&#160;Description&#160;CddJ1939RmContribution&#160;..............................................................&#160;29</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29">10.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29">10.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29">Callback&#160;Functions&#160;...........................................................................................&#160;29&#160;<br/></a><a href="TechnicalReference_Cdd_Communications.html#30">10.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#30">&lt;CDD&gt;_RequestIndication...............................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#30">10.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#30">&lt;CDD&gt;_AckIndication&#160;......................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#31">10.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#31">&lt;CDD&gt;_RequestTimeoutIndication&#160;..................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#32"><b>11</b>&#160;&#160;<b>API&#160;Description&#160;CddSoAdUpperLayerContribution&#160;.................................................&#160;32</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#32">11.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#32">Services used by&#160;&lt;CDD&gt;&#160;.................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#33">11.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#33">Communication&#160;Interface&#160;Callback&#160;Functions&#160;..................................................&#160;33&#160;<br/>11.2.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#33">&lt;CDD&gt;_[SoAd][If]RxIndication&#160;.........................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#34">11.2.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#34">&lt;CDD&gt;_[SoAd][If]TxConfirmation&#160;....................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#35">11.2.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#35">&lt;CDD&gt;_[SoAd][If]TriggerTransmit&#160;....................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#36">11.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#36">Transport&#160;Protocol&#160;Callback&#160;Functions&#160;.............................................................&#160;36&#160;<br/>11.3.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#36">&lt;CDD&gt;_[SoAd][Tp]StartOfReception&#160;...............................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#37">11.3.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#37">&lt;CDD&gt;_[SoAd][Tp]CopyRxData&#160;......................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#38">11.3.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#38">&lt;CDD&gt;_[SoAd][Tp]RxIndication&#160;.......................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#39">11.3.4&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#39">&lt;CDD&gt;_[SoAd][Tp]CopyTxData.......................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#40">11.3.5&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#40">&lt;CDD&gt;_[SoAd][Tp]TxConfirmation&#160;..................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#41"><b>12</b>&#160;&#160;<b>Configuration&#160;..............................................................................................................&#160;41</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#41">12.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#41">Configuration Variants&#160;......................................................................................&#160;41&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#42"><b>13</b>&#160;&#160;<b>AUTOSAR&#160;Standard&#160;Compliance...............................................................................&#160;42</b>&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<a href="TechnicalReference_Cdd_Communications.html#42">13.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#42">Deviations&#160;........................................................................................................&#160;42&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#42">13.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#42">Additions/&#160;Extensions&#160;.......................................................................................&#160;42&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#42">13.3&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#42">Limitations........................................................................................................&#160;42&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#43"><b>14</b>&#160;&#160;<b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;43</b>&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#43">14.1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#43">Glossary&#160;..........................................................................................................&#160;43&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#44">14.2&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#44">Abbreviations&#160;...................................................................................................&#160;44&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#45"><b>15</b>&#160;&#160;<b>Contact&#160;........................................................................................................................&#160;45</b>&#160;<br/></a>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+Illustrations&#160;<br/><a href="TechnicalReference_Cdd_Communications.html#9">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#9">AUTOSAR&#160;4.1&#160;Architecture&#160;Overview&#160;.........................................................&#160;9&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Cdd_Communications.html#7">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#7">Component&#160;history......................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#10">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#11">Generated&#160;files&#160;.........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">Services used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#12">&lt;CDD&gt;_RxIndication&#160;................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#13">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#13">&lt;CDD&gt;_TxConfirmation&#160;...........................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#14">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#14">&lt;CDD&gt;_TriggerTransmit&#160;...........................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#15">Services used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#16">Table&#160;6-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#16">&lt;CDD&gt;_StartOfReception&#160;........................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#16">Table&#160;6-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#16">&lt;CDD&gt;_CopyRxData&#160;...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#17">Table&#160;6-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#17">&lt;CDD&gt;_TpRxIndication&#160;............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#18">Table&#160;6-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#18">&lt;CDD&gt;_CopyTxData&#160;................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#19">Table&#160;6-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#19">&lt;CDD&gt;_TpTxConfirmation&#160;.......................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#20">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#20">&lt;CDD&gt;_Transmit&#160;......................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">&lt;CDD&gt;_CancelTransmit&#160;...........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">Table&#160;7-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#21">Services used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#22">Table&#160;8-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#22">&lt;CDD&gt;_Transmit&#160;......................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#23">Table&#160;8-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#23">&lt;CDD&gt;_CancelTransmit&#160;...........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#24">Table&#160;8-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#24">&lt;CDD&gt;_CancelReceive&#160;............................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">Table&#160;8-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">&lt;CDD&gt;_ChangeParameter&#160;.......................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">Table&#160;8-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#25">Services used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26">Table&#160;9-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#26">Services used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">Table&#160;9-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">&lt;CDD&gt;_RxIndication&#160;................................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">Table&#160;9-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#27">&lt;CDD&gt;_RxIndication&#160;................................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#28">Table&#160;9-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#28">&lt;CDD&gt;_TriggerTransmit&#160;...........................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29">Table&#160;10-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#29">Services&#160;used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#30">Table&#160;10-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#30">&lt;CDD&gt;_RequestIndication&#160;.......................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#31">Table&#160;10-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#31">&lt;CDD&gt;_AckIndication&#160;..............................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#31">Table&#160;10-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#31">&lt;CDD&gt;_RequestTimeoutIndication&#160;...........................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#32">Table&#160;11-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#32">Services used by&#160;the&#160;&lt;CDD&gt;&#160;....................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#33">Table&#160;11-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#33">&lt;CDD&gt;_[SoAd][If]RxIndication&#160;.................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#34">Table&#160;11-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#34">&lt;CDD&gt;_[SoAd][If]TxConfirmation&#160;.............................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#35">Table&#160;11-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#35">&lt;CDD&gt;_[SoAd][If]TriggerTransmit&#160;............................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#36">Table&#160;11-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#36">&lt;CDD&gt;_[SoAd][Tp]StartOfReception&#160;........................................................&#160;36&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#37">Table 11-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#37">&lt;CDD&gt;_[SoAd][Tp]CopyRxData&#160;...............................................................&#160;37&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#38">Table&#160;11-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#38">&lt;CDD&gt;_[SoAd][Tp]RxIndication&#160;...............................................................&#160;38&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#39">Table&#160;11-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#39">&lt;CDD&gt;_[SoAd][Tp]CopyTxData&#160;...............................................................&#160;39&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#40">Table&#160;11-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#40">&lt;CDD&gt;_[SoAd][Tp]TxConfirmation&#160;...........................................................&#160;40&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#43">Table&#160;14-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#43">Glossary&#160;...................................................................................................&#160;43&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#44">Table&#160;14-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Cdd_Communications.html#44">Abbreviations&#160;............................................................................................&#160;44&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+First&#160;DaVinci&#160;Configurator&#160;AUTOSAR&#160;3&#160;Version&#160;&#160;<br/>
+2.00.00&#160;<br/>
+Added&#160;support&#160;of&#160;AUTOSAR&#160;4&#160;<br/>
+3.00.00&#160;<br/>
+Added&#160;support&#160;for&#160;Java&#160;7 &amp;&#160;SoAd &amp;&#160;DoIp&#160;<br/>
+3.01.00&#160;<br/>
+Added&#160;support&#160;for&#160;J1939Rm&#160;<br/>
+3.02.00&#160;<br/>
+Added&#160;support&#160;for&#160;StartOfReception&#160;with the&#160;PduInfoType&#160;according&#160;to&#160;<br/>ASR4.1.2&#160;<br/>AR4-769:&#160;Support&#160;Cdd&#160;API-SERVICE-PREFIX&#160;Parameter&#160;as&#160;APIs&#160;and&#160;<br/>SNV&#160;Prefix&#160;<br/>AR4-744:&#160;Cdd&#160;shall&#160;support&#160;CddSoAdUpperLayerContribution&#160;as&#160;an&#160;<br/>extension&#160;to&#160;AR&#160;4.0.3&#160;(schema shall&#160;remain&#160;at&#160;AR&#160;4.0.3)&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;&lt;CDD&gt;&#160;as specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_Cdd_Communications.html#8">elease*:</a></b><b>&#160;</b><br/>
+4.x&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+&lt;CDD&gt;_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+&lt;CDD&gt;_MODULE_ID &#160;&#160;<br/>
+255&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[2])&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>&#160;<br/>Any&#160;&#160;software&#160;&#160;module&#160;&#160;which&#160;&#160;is&#160;&#160;a&#160;&#160;part&#160;&#160;of&#160;&#160;the&#160;&#160;standard&#160;&#160;AUTOSAR&#160;&#160;architecture&#160;&#160;but&#160;&#160;not&#160;&#160;a&#160;<br/>basic&#160;software&#160;module&#160;can&#160;be&#160;implemented&#160;and&#160;treated&#160;as&#160;a&#160;Complex&#160;Device&#160;Driver.&#160;This&#160;<br/>technical reference&#160;describes the&#160;configurator for&#160;complex&#160;device&#160;driver&#160;configuration.&#160;<br/>In&#160;the&#160;AUTOSAR&#160;COM&#160;stack&#160;upper&#160;and&#160;lower&#160;layer&#160;Complex&#160;Device&#160;Drivers&#160;are&#160;allowed&#160;<br/>to&#160;access&#160;the&#160;PDUs.&#160;The&#160;PDUs&#160;that&#160;are&#160;exchanged&#160;between&#160;the&#160;CDD&#160;and&#160;the&#160;PDU&#160;router&#160;<br/>(in&#160;&#160;case&#160;&#160;the&#160;&#160;CDD&#160;&#160;is&#160;&#160;upper&#160;&#160;layer&#160;&#160;or&#160;&#160;lower&#160;&#160;layer&#160;&#160;for&#160;&#160;the&#160;&#160;PduR)&#160;&#160;or&#160;&#160;between&#160;&#160;the&#160;&#160;CDD&#160;&#160;and&#160;<br/>communication&#160;hardware&#160;abstraction&#160;layer&#160;modules&#160;(in&#160;case&#160;the&#160;CDD&#160;is&#160;lower&#160;layer)&#160;shall&#160;<br/>be&#160;conﬁgured.&#160;&#160;The&#160;contribution&#160;of&#160;the&#160;Complex&#160;Device&#160;Driver&#160;implies&#160;a&#160;reference&#160;to&#160;the&#160;<br/>global&#160;&#160;PDU&#160;&#160;and&#160;&#160;the&#160;&#160;deﬁnition&#160;&#160;of&#160;&#160;a&#160;&#160;HandleId.&#160;&#160;Figure&#160;&#160;2&#160;&#160;-&#160;&#160;1&#160;&#160;shows&#160;&#160;an&#160;&#160;example&#160;&#160;of&#160;&#160;a&#160;<br/>Complex&#160;Device&#160;Driver&#160;to&#160;the&#160;CANIF&#160;(lower&#160;layer)&#160;and&#160;one&#160;Complex&#160;Device&#160;Driver&#160;(upper&#160;<br/>layer)&#160;above&#160;the&#160;PDUR.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-9_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>2.1&#160;&#160;Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;&lt;CDD&gt;&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.1&#160;Architecture&#160;Overview&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>&lt;CDD&gt;.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Cdd_Communications.html#10">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Cdd_Communications.html#10">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+For further information&#160;of&#160;not&#160;supported&#160;features see&#160;also&#160;chapte<a href="TechnicalReference_Cdd_Communications.html#42">r&#160;13.</a>&#160;<br/>Vector&#160;&#160;Informatik&#160;&#160;provides&#160;&#160;further&#160;&#160;&lt;CDD&gt;&#160;&#160;functionality&#160;&#160;beyond&#160;&#160;the&#160;AUTOSAR&#160;&#160;standard.&#160;<br/>The&#160;corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Cdd_Communications.html#10">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>CddComIfUpperLayerContribution&#160;<br/>CddPduRLowerLayerContribution&#160;<br/>CddPduRUpperLayerContribution&#160;<br/>CddSoAdUpperLayerContribution&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>CddEcucPartitionInteraction&#160;<br/>CddComMLowerLayerContribution&#160;<br/>CddGenericNmLowerLayerContribution&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>CddJ1939RmContribution&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-11_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-11_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-11_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;gives&#160;&#160;necessary&#160;&#160;information&#160;&#160;for&#160;&#160;the&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;&lt;CDD&gt;&#160;<br/>into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;MSN&#160;is&#160;derived&#160;from&#160;the&#160;short&#160;name&#160;of&#160;the&#160;module configuration&#160;and&#160;not&#160;from&#160;the&#160;<br/>
+&#160;&#160;API-SERVICE-PREFIX&#160;of&#160;the&#160;VSMD&#160;file.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>4.1&#160;&#160;Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;&lt;CDD&gt;&#160;contains&#160;the&#160;files which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Cdd_Communications.html#11">rs&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Cdd_Communications.html#11">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+The&#160;&lt;CDD&gt;&#160;implementation&#160;has&#160;no&#160;static&#160;files.&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;CFG5.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Cdd_Cbk.h&#160;<br/>
+This&#160;file is&#160;generated&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;as&#160;a&#160;<br/>CddPduRUpperLayerContribution&#160;or&#160;CddComIfUpperLayerContribution.&#160;<br/>
+Cdd.h&#160;<br/>
+This&#160;file is&#160;generated&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;as&#160;a&#160;<br/>CddPduRLowerLayerContribution&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;&#160;</b><br/>
+The&#160;&#160;objects&#160;&#160;(e.g.&#160;&#160;variables,&#160;&#160;functions,&#160;&#160;constants)&#160;&#160;are&#160;&#160;declared&#160;&#160;by&#160;&#160;compiler&#160;&#160;independent&#160;<br/>definitions&#160;&#160;–&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definitions.&#160;&#160;Each&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definition&#160;&#160;is&#160;<br/>assigned&#160;to&#160;a&#160;memory&#160;section.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Edit&#160;<br/></b>Update&#160;for&#160;each&#160;&lt;CDD&gt;&#160;instance&#160;the&#160;templates _MemMap.h and _Compiler_Cfg.h&#160;and&#160;<br/>
+&#160;&#160;replace&#160;“_CDD”&#160;with your&#160;&lt;CDD&gt;&#160;name.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;CddPduRUpperLayerContribution&#160;as&#160;IF&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;<br/>as upper layer communication&#160;interface&#160;for the&#160;PduR.&#160;<br/>
+<b>5.1&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;Transmit&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+<b>5.2&#160;&#160;Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;&lt;CDD&gt;_Cbk.h&#160;by&#160;the&#160;&lt;CDD&gt;.&#160;<br/>
+<b>5.2.1&#160;</b><br/>
+<b>&lt;CDD&gt;_RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_RxIndication</b>&#160;(PduIdType RxPduId, PduInfoType*&#160;PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+RxPduId&#160;<br/>
+id of&#160;the CddPduRUpperLayerRxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+Payload&#160;information&#160;of&#160;the received&#160;I-PDU (pointer&#160;to data&#160;and&#160;data&#160;length).&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to indicate&#160;the&#160;complete&#160;reception of&#160;a&#160;RX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and&#160;active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_RxIndication call&#160;for&#160;the&#160;same&#160;RxPduId.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;&lt;CDD&gt;_RxIndication&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>&lt;CDD&gt;_TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_TxConfirmation</b>&#160;(PduIdType TxPduId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the&#160;CddPduRUpperLayerTxPdu.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to confirm&#160;the transmission&#160;of&#160;an&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_TxConfirmation&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;&lt;CDD&gt;_TxConfirmation&#160;<br/>
+&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>&lt;CDD&gt;_TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_TriggerTransmit</b>&#160;(PduIdType&#160;TxPduId,&#160;PduInfoType&#160;<br/>PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the&#160;CddPduRUpperLayerTxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+Contains&#160;a&#160;pointer to&#160;a buffer&#160;(SduDataPtr)&#160;to&#160;where&#160;the SDU&#160;data shall&#160;be&#160;<br/>copied,&#160;and&#160;the&#160;available&#160;buffer size in SduLengh.&#160;On&#160;return,&#160;the&#160;service&#160;will&#160;<br/>indicate&#160;the&#160;length&#160;of&#160;the copied SDU data&#160;in&#160;SduLength.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;SDU has&#160;been&#160;copied and&#160;SduLength&#160;indicates&#160;the&#160;number&#160;of&#160;<br/>copied bytes.&#160;<br/>E_NOT_OK&#160;&#160;No data&#160;has&#160;been&#160;copied,&#160;because Cdd is&#160;not&#160;initialized or&#160;<br/>TxPduId&#160;is&#160;not&#160;valid&#160;or PduInfoPtr&#160;is&#160;NULL_PTR or SduDataPtr&#160;is&#160;NULL_PTR&#160;<br/>or SduLength&#160;is&#160;too small.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to&#160;request the I-PDU for transmission.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_TriggerTransmit&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;&lt;CDD&gt;_TriggerTransmit&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>6&#160;&#160;API&#160;Description&#160;CddPduRUpperLayerContribution&#160;as&#160;TP&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;<br/>as upper layer transport&#160;protocol&#160;for the&#160;PduR.&#160;<br/>
+<b>6.1&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;Transmit&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;ChangeParameter&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;CancelReceive&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+<b>6.2&#160;&#160;Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;&lt;CDD&gt;_Cbk.h&#160;by&#160;the&#160;&lt;CDD&gt;.&#160;<br/>
+<b>6.2.1&#160;</b><br/>
+<b>&lt;CDD&gt;_StartOfReception&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>&lt;CDD&gt;_StartOfReception</b>&#160;(PduIdType&#160;id,&#160;PduInfoType* info,&#160;<br/>PduLengthType TpSduLength,&#160;PduLengthType*&#160;bufferSizePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the CddPduRUpperLayerRxPdu.&#160;<br/>
+info&#160;<br/>
+Pointer&#160;to a&#160;PduInfoType&#160;structure containing&#160;the&#160;payload&#160;data&#160;(without&#160;<br/>protocol&#160;information)&#160;and&#160;payload length of&#160;the&#160;first&#160;frame or&#160;single frame of&#160;a&#160;<br/>transport protocol&#160;I-PDU reception.&#160;Depending&#160;on&#160;the&#160;global&#160;parameter&#160;<br/>MetaDataLength,&#160;additional&#160;bytes&#160;containing&#160;MetaData&#160;(e.g. the&#160;CAN ID)&#160;are&#160;<br/>appended after the payload&#160;data.&#160;<br/>
+TpSduLength&#160;<br/>
+Length&#160;of&#160;the entire&#160;TP&#160;SDU&#160;which&#160;will&#160;be&#160;received.&#160;<br/>
+bufferSizePtr&#160;<br/>
+Length&#160;of&#160;the available receive buffer in the&#160;&lt;CDD&gt;.&#160;<br/>This&#160;parameter&#160;is&#160;used&#160;e.g.&#160;in CanTp to calculate&#160;the&#160;Block&#160;Size (BS).&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType&#160;constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;call&#160;indicates&#160;the&#160;reception start of&#160;a&#160;segmented&#160;PDU.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_StartOfReception&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;&lt;CDD&gt;_StartOfReception&#160;<br/>
+<b>6.2.2&#160;</b><br/>
+<b>&lt;CDD&gt;_CopyRxData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>&lt;CDD&gt;_CopyRxData</b>&#160;(PduIdType id,&#160;PduInfoType*&#160;info,&#160;<br/>PduLengthType*&#160;bufferSizePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the CddPduRUpperLayerRxPdu.&#160;<br/>
+info&#160;<br/>
+a PduInfoType&#160;pointing to&#160;the&#160;data&#160;to be copied&#160;in&#160;the&#160;&lt;CDD&gt;&#160;data&#160;buffer.&#160;<br/>
+bufferSizePtr&#160;<br/>
+available receive buffer after data&#160;has&#160;been&#160;copied.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called to&#160;trigger the copy&#160;process&#160;of&#160;a&#160;segmented&#160;PDU.&#160;The&#160;function&#160;can&#160;be&#160;called&#160;several&#160;<br/>times&#160;and each call&#160;to&#160;this&#160;function copies&#160;parts&#160;of&#160;the&#160;received&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_CopyRxData&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;6-3&#160;&#160;&#160;&lt;CDD&gt;_CopyRxData&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>6.2.3&#160;</b><br/>
+<b>&lt;CDD&gt;_TpRxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_TpRxIndication</b>&#160;(PduIdType&#160;id,&#160;Std_ReturnType&#160;result)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the CddPduRUpperLayerRxPdu.&#160;<br/>
+result&#160;<br/>
+a&#160;Std_ReturnType&#160;to&#160;indicate&#160;the result&#160;of&#160;the reception.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to indicate&#160;the&#160;complete&#160;reception&#160;of&#160;a&#160;&lt;CDD&gt;&#160;TP&#160;SDU or&#160;to report&#160;an&#160;error that&#160;<br/>occurred&#160;during&#160;reception.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_TpRxIndication call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;6-4&#160;&#160;&#160;&lt;CDD&gt;_TpRxIndication&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>6.2.4&#160;</b><br/>
+<b>&lt;CDD&gt;_CopyTxData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_CopyTxData</b>&#160;(PduIdType id,&#160;PduInfoType*&#160;info,&#160;RetryInfoType&#160;retry,&#160;<br/>PduLengthType*&#160;availableDataPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the&#160;CddPduRUpperLayerTxPdu.&#160;<br/>
+info&#160;<br/>
+a PduInfoType&#160;pointing to&#160;the&#160;destination&#160;buffer.&#160;<br/>
+retry&#160;<br/>
+NULL_PTR to&#160;indicate&#160;a successful&#160;copy&#160;process&#160;or a&#160;RetryInfoType&#160;<br/>containing&#160;a&#160;TpDataStateType&#160;constant of&#160;ComStackTypes.h.&#160;<br/>
+availableDataPtr&#160;<br/>
+Indicates&#160;the remaining number&#160;of&#160;bytes&#160;that&#160;are available in the&#160;TX&#160;buffer.&#160;<br/>availableDataPtr&#160;can&#160;be&#160;used&#160;by&#160;TP&#160;modules&#160;that&#160;support dynamic&#160;payload&#160;<br/>lengths&#160;(e.g. Iso FrTp) to determine&#160;the size of&#160;the following CFs.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called to&#160;request transmit data&#160;of&#160;a&#160;TP&#160;CddPduRUpperLayerTxPdu.&#160;The&#160;function&#160;can&#160;be&#160;<br/>called&#160;several&#160;times&#160;and&#160;each call&#160;to&#160;this&#160;function copies&#160;the next part&#160;of&#160;the data&#160;to be&#160;transmitted.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_CopyTxData&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;6-5&#160;&#160;&#160;&lt;CDD&gt;_CopyTxData&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>6.2.5&#160;</b><br/>
+<b>&lt;CDD&gt;_TpTxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_TpTxConfirmation</b>&#160;(PduIdType id,&#160;Std_ReturnType&#160;result)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the&#160;CddPduRUpperLayerTxPdu.&#160;<br/>
+result&#160;<br/>
+a&#160;Std_ReturnType&#160;to&#160;indicate&#160;the result&#160;of&#160;the transmission.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to confirm&#160;a&#160;successful&#160;transmission&#160;of&#160;a&#160;TP&#160;CddPduRUpperLayerTxPdu&#160;or to&#160;report&#160;<br/>an&#160;error that&#160;occurred&#160;during transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_TpTxConfirmation&#160;call&#160;for&#160;the&#160;same id.&#160;<br/>
+Table&#160;6-6&#160;&#160;&#160;&lt;CDD&gt;_TpTxConfirmation&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>7&#160;&#160;API&#160;Description&#160;CddPduRLowerLayerContribution&#160;as&#160;IF&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;<br/>as lower layer communication&#160;interface&#160;for the&#160;PduR.&#160;<br/>
+<b>7.1&#160;&#160;Services&#160;provided by&#160;&lt;CDD&gt;&#160;</b><br/>
+<b>7.1.1&#160;</b><br/>
+<b>&lt;CDD&gt;_Transmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_Transmit</b>&#160;(PduIdType TxPduId, PduInfoType*&#160;PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the IF&#160;CddPduRLowerLayerTxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+a PduInfoType&#160;pointing to&#160;the&#160;transmit buffer.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;transmission&#160;request has&#160;been accepted.&#160;<br/>E_NOT_OK&#160;&#160;the&#160;transmission&#160;request has&#160;NOT&#160;been&#160;accepted.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to initiate&#160;a&#160;transmission&#160;request&#160;of&#160;a&#160;TX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_Transmit&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;&lt;CDD&gt;_Transmit&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>7.1.2&#160;</b><br/>
+<b>&lt;CDD&gt;_CancelTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_CancelTransmit</b>&#160;(PduIdType&#160;TxPduId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id&#160;of&#160;the IF&#160;CddPduRLowerLayerTxPdu.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;transmission&#160;cancellation&#160;has&#160;been processed&#160;successful.&#160;<br/>E_NOT_OK&#160;&#160;the&#160;transmission&#160;cancellation&#160;has&#160;NOT&#160;been&#160;processed&#160;<br/>successful.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to&#160;cancel&#160;a&#160;transmission&#160;request of&#160;a&#160;TX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_CancelTransmit&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;&lt;CDD&gt;_CancelTransmit&#160;<br/>
+<b>7.2&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;RxIndication&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;TxConfirmation&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;TriggerTransmit&#160;<br/>
+Table&#160;7-3&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>8&#160;&#160;API&#160;Description&#160;CddPduRLowerLayerContribution&#160;as&#160;TP&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;<br/>as lower layer transport&#160;protocol&#160;for&#160;the&#160;PduR.&#160;<br/>
+<b>8.1&#160;&#160;Services&#160;provided by&#160;&lt;CDD&gt;&#160;</b><br/>
+<b>8.1.1&#160;</b><br/>
+<b>&lt;CDD&gt;_Transmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_Transmit</b>&#160;(PduIdType TxPduId,&#160;PduInfoType*&#160;PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the IF&#160;CddPduRLowerLayerTxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+a PduInfoType&#160;pointing to&#160;the&#160;transmit buffer.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;transmission&#160;request has&#160;been accepted.&#160;<br/>E_NOT_OK&#160;&#160;the&#160;transmission&#160;request&#160;has&#160;NOT&#160;been&#160;accepted.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to initiate&#160;a&#160;transmission&#160;request&#160;of&#160;a&#160;TX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_Transmit&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;8-1&#160;&#160;&#160;&lt;CDD&gt;_Transmit&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>8.1.2&#160;</b><br/>
+<b>&lt;CDD&gt;_CancelTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_CancelTransmit</b>&#160;(PduIdType&#160;id)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the IF&#160;CddPduRLowerLayerTxPdu.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;transmission&#160;cancellation&#160;has&#160;been processed&#160;successful.&#160;<br/>E_NOT_OK&#160;&#160;the&#160;transmission&#160;cancellation&#160;has&#160;NOT&#160;been&#160;processed&#160;<br/>successful.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to cancel&#160;a&#160;transmission&#160;request of&#160;a&#160;TX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_CancelTransmit&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;8-2&#160;&#160;&#160;&lt;CDD&gt;_CancelTransmit&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>8.1.3&#160;</b><br/>
+<b>&lt;CDD&gt;_CancelReceive&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_CancelReceive</b>&#160;(PduIdType&#160;id)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the&#160;TP&#160;CddPduRLowerLayerRxPdu.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;reception cancellation&#160;has&#160;been processed&#160;successful.&#160;<br/>E_NOT_OK&#160;&#160;the&#160;reception cancellation&#160;has&#160;NOT&#160;been&#160;processed&#160;successful.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to cancel&#160;a&#160;reception&#160;of&#160;a&#160;RX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_CancelReceive&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;8-3&#160;&#160;&#160;&lt;CDD&gt;_CancelReceive&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>8.1.4&#160;</b><br/>
+<b>&lt;CDD&gt;_ChangeParameter&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_ChangeParameter</b>&#160;(PduIdType&#160;id,&#160;TPParameterType parameter,&#160;<br/>uint16&#160;value)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the&#160;TP&#160;CddPduRLowerLayerRxPdu.&#160;<br/>
+parameter&#160;<br/>
+a&#160;TPParameterType&#160;enumeration&#160;of&#160;ComStackTypes.h.&#160;<br/>
+value&#160;<br/>
+the&#160;new&#160;value&#160;of&#160;the parameter&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;parameter&#160;change&#160;has&#160;been&#160;processed&#160;successful.&#160;<br/>E_NOT_OK&#160;&#160;the&#160;parameter&#160;change&#160;has&#160;NOT&#160;been&#160;processed&#160;successful.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to change&#160;a&#160;transport protocol&#160;parameter&#160;(e.g. block&#160;size)&#160;of&#160;a&#160;RX&#160;I-PDU&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_CancelParameter&#160;call&#160;for&#160;the&#160;same id.&#160;<br/>
+Table&#160;8-4&#160;&#160;&#160;&lt;CDD&gt;_ChangeParameter&#160;<br/>
+<b>8.2&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;StartOfReception&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;CopyRxData&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;RxIndication&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;CopyTxData&#160;<br/>
+PduR&#160;<br/>
+PduR_&lt;CDD&gt;TxConfirmation&#160;&#160;<br/>
+Table&#160;8-5&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-26_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-26_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>9&#160;&#160;API&#160;Description&#160;CddComIfUpperLayerContribution&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;<br/>as upper layer communication&#160;interface&#160;for a&#160;communication&#160;hardware abstraction&#160;layer.&#160;<br/>
+<b>9.1&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+CanIf,&#160;LinIf,&#160;FrIf&#160;<br/>
+CanIf_Transmit,&#160;LinIf_Transmit,&#160;FrIf_Transmit&#160;<br/>
+Table&#160;9-1&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+<b>9.2&#160;&#160;Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;&lt;CDD&gt;_Cbk.h&#160;by&#160;the&#160;&lt;CDD&gt;.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;names&#160;of&#160;the&#160;callbacks&#160;can&#160;be&#160;defined completely&#160;in&#160;the&#160;communication&#160;hardware&#160;<br/>
+&#160;&#160;abstraction&#160;layer.&#160;The&#160;postfix&#160;_RxIndication,&#160;_TxConfirmation&#160;and&#160;_TriggerTransmit&#160;is&#160;<br/>
+used in&#160;this&#160;chapter&#160;to&#160;eplain the&#160;usage&#160;of&#160;the&#160;function.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>9.2.1&#160;</b><br/>
+<b>&lt;CDD&gt;_RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_RxIndication</b>&#160;(PduIdType RxPduId, PduInfoType*&#160;PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+RxPduId&#160;<br/>
+id of&#160;the CddComIfUpperLayerRxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+Payload&#160;information&#160;of&#160;the received&#160;I-PDU (pointer&#160;to data&#160;and&#160;data&#160;length).&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to indicate&#160;the&#160;complete&#160;reception of&#160;a&#160;RX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;a communication&#160;hardware&#160;abstraction&#160;layer.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_RxIndication&#160;call&#160;for&#160;the&#160;same&#160;RxPduId.&#160;<br/>
+Table&#160;9-2&#160;&#160;&#160;&lt;CDD&gt;_RxIndication&#160;<br/>
+<b>9.2.2&#160;</b><br/>
+<b>&lt;CDD&gt;_TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_TxConfirmation</b>&#160;(PduIdType TxPduId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the CddComIfUpperLayerTxPdu.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to confirm&#160;the transmission&#160;of&#160;an&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;a communication&#160;hardware&#160;abstraction&#160;layer.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_TxConfirmation&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;9-3&#160;&#160;&#160;&lt;CDD&gt;_RxIndication&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>9.2.3&#160;</b><br/>
+<b>&lt;CDD&gt;_TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_TriggerTransmit</b>&#160;(PduIdType&#160;TxPduId,&#160;PduInfoType&#160;<br/>PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the CddComIfUpperLayerTxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+Contains&#160;a&#160;pointer to&#160;a buffer (SduDataPtr)&#160;to&#160;where&#160;the SDU&#160;data shall&#160;be&#160;<br/>copied,&#160;and&#160;the&#160;available&#160;buffer size in SduLengh.&#160;On&#160;return,&#160;the&#160;service&#160;will&#160;<br/>indicate&#160;the&#160;length&#160;of&#160;the copied&#160;SDU data&#160;in&#160;SduLength.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;SDU has&#160;been&#160;copied and&#160;SduLength&#160;indicates&#160;the&#160;number&#160;of&#160;<br/>copied bytes.&#160;<br/>E_NOT_OK&#160;&#160;No data&#160;has&#160;been&#160;copied,&#160;because Cdd is&#160;not&#160;initialized or&#160;<br/>TxPduId&#160;is&#160;not&#160;valid&#160;or PduInfoPtr&#160;is&#160;NULL_PTR or&#160;SduDataPtr&#160;is&#160;NULL_PTR&#160;<br/>or SduLength&#160;is&#160;too small.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to request the I-PDU for transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_TriggerTransmit&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;9-4&#160;&#160;&#160;&lt;CDD&gt;_TriggerTransmit&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>10&#160;&#160;API&#160;Description&#160;CddJ1939RmContribution&#160;</b><br/>
+This chapter describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is configured&#160;<br/>as&#160;upper layer of&#160;the&#160;J1939Rm&#160;module.&#160;<br/>
+<b>10.1&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;10-1&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+<b>10.2&#160;&#160;Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;&lt;CDD&gt;_Cbk.h&#160;by&#160;the&#160;&lt;CDD&gt;.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-30_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>10.2.1&#160;&#160;&lt;CDD&gt;_RequestIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void<b>&#160;&lt;CDD&gt;_RequestIndication</b>&#160;(uint8 node, NetworkHandleType channel, uint32&#160;<br/>requestedPgn, uint8 sourceAddress, uint8 destAddress, uint8 priority)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+node&#160;<br/>
+Node&#160;by&#160;which the request&#160;was&#160;received.&#160;<br/>
+channel&#160;<br/>
+Channel&#160;on&#160;which the request&#160;was&#160;received.&#160;<br/>
+requestedPgn&#160;<br/>
+PGN of&#160;the requested&#160;PG.&#160;<br/>
+sourceAddress&#160;<br/>
+Address&#160;of&#160;the&#160;node&#160;that sent&#160;the Request&#160;PG.&#160;<br/>
+destAddress&#160;<br/>
+Address&#160;of&#160;this&#160;node or&#160;0xFF&#160;for broadcast.&#160;<br/>
+priority&#160;<br/>
+Priority&#160;of&#160;the Request PG.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;RequestIndication&#160;provides&#160;information&#160;about&#160;a received&#160;J1939&#160;RQST&#160;message&#160;which affects&#160;a&#160;<br/>J1939Rm&#160;user that&#160;references&#160;this&#160;CDD.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_RequestIndication&#160;call&#160;for&#160;the&#160;same node.&#160;<br/>
+Table&#160;10-2&#160;&#160;&#160;&lt;CDD&gt;_RequestIndication&#160;<br/>
+<b>10.2.2&#160;&#160;&lt;CDD&gt;_AckIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void<b>&#160;&lt;CDD&gt;_AckIndication</b>&#160;(uint8 node, NetworkHandleType channel, uint32 ackPgn,&#160;<br/>uint8 ackCode, uint8 ackAddress, uint8 sourceAddress, uint8 priority)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+node&#160;<br/>
+Node&#160;by&#160;which the acknowledgement&#160;was&#160;received.&#160;<br/>
+channel&#160;<br/>
+Channel&#160;on&#160;which the acknowledgement&#160;was&#160;received.&#160;<br/>
+ackPgn&#160;<br/>
+Acknowledged&#160;PGN.&#160;<br/>
+ackCode&#160;<br/>
+Type of&#160;acknowledgement,&#160;see&#160;definition&#160;of&#160;J1939Rm_AckCode&#160;for available&#160;<br/>codes.&#160;<br/>
+ackAddress&#160;<br/>
+Address&#160;of&#160;this&#160;node.&#160;<br/>
+sourceAddress&#160;<br/>
+Address&#160;of&#160;the&#160;node&#160;that sent&#160;the&#160;Acknowledgement PG.&#160;<br/>
+priority&#160;<br/>
+Priority&#160;of&#160;the&#160;Acknowledgement PG.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;AckIndication provides&#160;information&#160;about&#160;a&#160;received J1939&#160;ACKM message&#160;which affects&#160;a&#160;J1939Rm&#160;<br/>user that&#160;references&#160;this&#160;CDD.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_AckIndication call&#160;for&#160;the&#160;same&#160;node.&#160;<br/>
+Table&#160;10-3&#160;&#160;&#160;&lt;CDD&gt;_AckIndication&#160;<br/>
+<b>10.2.3&#160;&#160;&lt;CDD&gt;_RequestTimeoutIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_RequestTimeoutIndication</b>&#160;(uint8 node, NetworkHandleType channel,&#160;<br/>uint32 requestedPgn, uint8 destAddress)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+node&#160;<br/>
+Node&#160;by&#160;which the request&#160;was&#160;sent.&#160;<br/>
+channel&#160;<br/>
+Channel&#160;on&#160;which the request&#160;was&#160;sent.&#160;<br/>
+requestedPgn&#160;<br/>
+PGN of&#160;the requested&#160;PG.&#160;<br/>
+destAddress&#160;<br/>
+Address&#160;of&#160;the&#160;destination&#160;node&#160;or 0xFF&#160;for broadcast.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;RequestTimeoutIndication&#160;is&#160;called&#160;after time out&#160;of&#160;a&#160;transmitted J1939&#160;RQST&#160;message.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_RequestTimeoutIndication&#160;call&#160;for&#160;the&#160;same node.&#160;<br/>
+Table&#160;10-4&#160;&#160;&#160;&lt;CDD&gt;_RequestTimeoutIndication&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-32_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-32_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11&#160;&#160;API&#160;Description&#160;CddSoAdUpperLayerContribution&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;APIs&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;if&#160;the&#160;&lt;CDD&gt;&#160;is&#160;configured&#160;<br/>as upper layer interface&#160;in&#160;the&#160;SoAd.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;caller&#160;and&#160;type&#160;infixes of&#160;the&#160;APIs&#160;are&#160;configurable in&#160;the&#160;SoAdBswModules.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>11.1&#160;&#160;Services&#160;used&#160;by&#160;&lt;CDD&gt;&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>&lt;CDD&gt;&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+SoAd&#160;<br/>
+SoAd_IfTransmit&#160;<br/>
+SoAd&#160;<br/>
+SoAd_TpTransmit&#160;<br/>
+SoAd&#160;<br/>
+SoAd_TpChangeParameter&#160;<br/>
+SoAd&#160;<br/>
+SoAd_TpCancelReceive&#160;<br/>
+SoAd&#160;<br/>
+SoAd_TpCancelTransmit&#160;<br/>
+Table&#160;11-1&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;&lt;CDD&gt;&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-33_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.2&#160;&#160;Communication Interface&#160;Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;&lt;CDD&gt;_Cbk.h&#160;by&#160;the&#160;&lt;CDD&gt;.&#160;<br/>
+<b>11.2.1&#160;&#160;&lt;CDD&gt;_[SoAd][If]RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_[SoAd][If]RxIndication</b>&#160;(PduIdType RxPduId, PduInfoType*&#160;PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+RxPduId&#160;<br/>
+id of&#160;the CddSoAdUpperLayerRxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+Payload&#160;information&#160;of&#160;the received&#160;I-PDU (pointer&#160;to data&#160;and&#160;data&#160;length).&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to indicate&#160;the&#160;complete&#160;reception of&#160;a&#160;RX&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAD.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][If]RxIndication call&#160;for&#160;the&#160;same&#160;RxPduId.&#160;<br/>
+Table&#160;11-2&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][If]RxIndication&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-34_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.2.2&#160;&#160;&lt;CDD&gt;_[SoAd][If]TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_[SoAd][If]TxConfirmation</b>&#160;(PduIdType TxPduId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the&#160;CddSoAdUpperLayerTxPdu.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to confirm&#160;the transmission&#160;of&#160;an&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][If]TxConfirmation&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;11-3&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][If]TxConfirmation&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-35_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.2.3&#160;&#160;&lt;CDD&gt;_[SoAd][If]TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>&lt;CDD&gt;_[SoAd][If]TriggerTransmit</b>&#160;(PduIdType&#160;TxPduId,&#160;PduInfoType&#160;<br/>PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+id of&#160;the&#160;CddSoAdUpperLayerTxPdu.&#160;<br/>
+PduInfoPtr&#160;<br/>
+Contains&#160;a&#160;pointer to&#160;a buffer (SduDataPtr)&#160;to&#160;where&#160;the SDU&#160;data shall&#160;be&#160;<br/>copied,&#160;and&#160;the&#160;available&#160;buffer size in SduLengh.&#160;On&#160;return,&#160;the&#160;service&#160;will&#160;<br/>indicate&#160;the&#160;length&#160;of&#160;the copied SDU data&#160;in&#160;SduLength.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;&#160;&#160;&#160;&#160;&#160;&#160;SDU has&#160;been&#160;copied and&#160;SduLength&#160;indicates&#160;the&#160;number&#160;of&#160;<br/>copied bytes.&#160;<br/>E_NOT_OK&#160;&#160;No data&#160;has&#160;been&#160;copied,&#160;because Cdd is&#160;not&#160;initialized or&#160;<br/>TxPduId&#160;is&#160;not&#160;valid&#160;or PduInfoPtr&#160;is&#160;NULL_PTR or SduDataPtr&#160;is&#160;NULL_PTR&#160;<br/>or SduLength&#160;is&#160;too small.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to request the I-PDU for transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][If]TriggerTransmit&#160;call&#160;for&#160;the&#160;same&#160;TxPduId.&#160;<br/>
+Table&#160;11-4&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][If]TriggerTransmit&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+35&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-36_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.3&#160;&#160;Transport Protocol&#160;Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback functions that&#160;are&#160;implemented&#160;by&#160;the&#160;&lt;CDD&gt;&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;&lt;CDD&gt;_Cbk.h&#160;by&#160;the&#160;&lt;CDD&gt;.&#160;<br/>
+<b>11.3.1&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]StartOfReception&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>&lt;CDD&gt;_[SoAd][Tp]StartOfReception</b>&#160;(PduIdType id, PduInfoType*&#160;<br/>info,&#160;PduLengthType TpSduLength,&#160;PduLengthType*&#160;bufferSizePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the CddSoAdUpperLayerRxPdu.&#160;<br/>
+info&#160;<br/>
+Pointer&#160;to a&#160;PduInfoType&#160;structure containing&#160;the&#160;payload&#160;data&#160;(without&#160;<br/>protocol&#160;information)&#160;and&#160;payload length of&#160;the&#160;first frame or&#160;single&#160;frame of&#160;a&#160;<br/>transport protocol&#160;I-PDU reception.&#160;Depending&#160;on&#160;the&#160;global&#160;parameter&#160;<br/>MetaDataLength,&#160;additional&#160;bytes&#160;containing&#160;MetaData&#160;(e.g. the&#160;CAN ID)&#160;are&#160;<br/>appended after the payload&#160;data.&#160;<br/>
+TpSduLength&#160;<br/>
+Length&#160;of&#160;the entire&#160;TP&#160;SDU&#160;which&#160;will&#160;be&#160;received.&#160;<br/>
+bufferSizePtr&#160;<br/>
+Length&#160;of&#160;the available receive buffer in the&#160;&lt;CDD&gt;.&#160;<br/>This&#160;parameter&#160;is&#160;used&#160;e.g.&#160;in CanTp to calculate&#160;the&#160;Block&#160;Size (BS).&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;call&#160;indicates&#160;the&#160;reception start of&#160;a&#160;segmented&#160;PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][Tp]StartOfReception&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;11-5&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]StartOfReception&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+36&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-37_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.3.2&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]CopyRxData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>&lt;CDD&gt;_[SoAd][Tp]CopyRxData</b>&#160;(PduIdType id,&#160;PduInfoType*&#160;info,&#160;<br/>PduLengthType*&#160;bufferSizePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the CddSoAdUpperLayerRxPdu.&#160;<br/>
+info&#160;<br/>
+a PduInfoType&#160;pointing to&#160;the&#160;data&#160;to be copied&#160;in&#160;the&#160;&lt;CDD&gt;&#160;data&#160;buffer.&#160;<br/>
+bufferSizePtr&#160;<br/>
+available receive buffer after data&#160;has&#160;been&#160;copied.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called to&#160;trigger the copy&#160;process&#160;of&#160;a&#160;segmented&#160;PDU.&#160;The&#160;function&#160;can&#160;be&#160;called&#160;several&#160;<br/>times&#160;and each call&#160;to&#160;this&#160;function copies&#160;parts&#160;of&#160;the&#160;received&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][Tp]CopyRxData&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;11-6&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]CopyRxData&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+37&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=38></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-38_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.3.3&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_[SoAd][Tp]RxIndication</b>&#160;(PduIdType id,&#160;Std_ReturnType&#160;result)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the CddSoAdUpperLayerRxPdu.&#160;<br/>
+result&#160;<br/>
+a&#160;Std_ReturnType&#160;to&#160;indicate&#160;the result&#160;of&#160;the reception.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to indicate&#160;the&#160;complete&#160;reception of&#160;a&#160;&lt;CDD&gt;&#160;TP&#160;SDU or&#160;to report&#160;an&#160;error that&#160;<br/>occurred&#160;during&#160;reception.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][Tp]RxIndication call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;11-7&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]RxIndication&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+38&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=39></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-39_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.3.4&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]CopyTxData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_[SoAd][Tp]CopyTxData</b>&#160;(PduIdType id,&#160;PduInfoType*&#160;info,&#160;RetryInfoType&#160;<br/>retry,&#160;PduLengthType*&#160;availableDataPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the&#160;CddSoAdUpperLayerTxPdu.&#160;<br/>
+info&#160;<br/>
+a PduInfoType&#160;pointing to&#160;the&#160;destination&#160;buffer.&#160;<br/>
+retry&#160;<br/>
+NULL_PTR to&#160;indicate&#160;a successful&#160;copy&#160;process&#160;or a&#160;RetryInfoType&#160;<br/>containing&#160;a&#160;TpDataStateType&#160;constant of&#160;ComStackTypes.h.&#160;<br/>
+availableDataPtr&#160;<br/>
+Indicates&#160;the remaining number&#160;of&#160;bytes&#160;that&#160;are available in the&#160;TX&#160;buffer.&#160;<br/>availableDataPtr&#160;can&#160;be&#160;used&#160;by&#160;TP&#160;modules&#160;that&#160;support dynamic&#160;payload&#160;<br/>lengths&#160;(e.g. Iso FrTp) to determine&#160;the size of&#160;the following CFs.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called to&#160;request transmit data&#160;of&#160;a&#160;TP&#160;CddSoAdUpperLayerTxPdu.&#160;The&#160;function&#160;can&#160;be&#160;<br/>called several&#160;times&#160;and&#160;each call&#160;to&#160;this&#160;function copies&#160;the next part&#160;of&#160;the data&#160;to be&#160;transmitted.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][Tp]CopyTxData&#160;call&#160;for&#160;the&#160;same&#160;id.&#160;<br/>
+Table&#160;11-8&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]CopyTxData&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+39&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=40></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-40_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>11.3.5&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>&lt;CDD&gt;_[SoAd][Tp]TxConfirmation</b>&#160;(PduIdType id,&#160;Std_ReturnType&#160;result)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id&#160;<br/>
+id of&#160;the&#160;CddSoAdUpperLayerTxPdu.&#160;<br/>
+result&#160;<br/>
+a&#160;Std_ReturnType&#160;to&#160;indicate&#160;the result&#160;of&#160;the transmission.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+a BufReq_ReturnType constant of&#160;ComStackTypes.h.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;to confirm&#160;a&#160;successful&#160;transmission&#160;of&#160;a&#160;TP&#160;CddSoAdUpperLayerTxPdu&#160;or to report&#160;<br/>an&#160;error that&#160;occurred&#160;during transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;N.a.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;<b>&lt;CDD&gt;&#160;</b>is&#160;initialized&#160;and active.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;SoAd.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called in&#160;interrupt&#160;and&#160;on&#160;task&#160;level&#160;and should not&#160;be&#160;interrupted&#160;by&#160;<br/>
+another&#160;&lt;CDD&gt;_[SoAd][Tp]TxConfirmation&#160;call&#160;for&#160;the&#160;same id.&#160;<br/>
+Table&#160;11-9&#160;&#160;&#160;&lt;CDD&gt;_[SoAd][Tp]TxConfirmation&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+40&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=41></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-41_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>12&#160;&#160;Configuration&#160;</b><br/>
+<b>12.1&#160;&#160;Configuration&#160;Variants&#160;</b><br/>
+The&#160;&lt;CDD&gt;&#160;supports the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;&#160;configuration&#160;&#160;classes&#160;&#160;of&#160;&#160;the&#160;&#160;&lt;CDD&gt;&#160;&#160;parameters&#160;&#160;depend&#160;&#160;on&#160;&#160;the&#160;&#160;supported&#160;<br/>configuration&#160;&#160;variants.&#160;&#160;For&#160;&#160;their&#160;&#160;definitions&#160;&#160;please&#160;&#160;see&#160;&#160;the&#160;&#160;[BSW_specific]_bswmd.arxml&#160;<br/>file.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+41&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=42></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-42_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>13&#160;&#160;AUTOSAR&#160;Standard&#160;Compliance&#160;</b><br/>
+<b>13.1&#160;&#160;Deviations&#160;</b><br/>
+No&#160;deviations.&#160;<br/>
+<b>13.2&#160;&#160;Additions/&#160;Extensions&#160;</b><br/>
+See<a href="TechnicalReference_Cdd_Communications.html#10">&#160;Table&#160;3-3&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard.</a>&#160;<br/>
+<b>13.3&#160;&#160;Limitations&#160;</b><br/>
+See<a href="TechnicalReference_Cdd_Communications.html#10">&#160;Table&#160;3-2&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features.</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+42&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=43></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-43_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>14&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>14.1&#160;&#160;Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+BSWMD&#160;<br/>
+The&#160;BSWMD&#160;is&#160;a&#160;formal&#160;notation of&#160;all&#160;information belonging&#160;to&#160;a certain&#160;<br/>BSW&#160;artifact&#160;(BSW&#160;module or&#160;BSW&#160;cluster)&#160;in addition&#160;to&#160;the&#160;<br/>implementation&#160;of&#160;that&#160;artifact.&#160;<br/>
+Buffer&#160;<br/>
+A&#160;buffer&#160;in a&#160;memory&#160;area normally&#160;in the&#160;RAM.&#160;It&#160;is&#160;an&#160;area,&#160;that&#160;the&#160;<br/>application has&#160;reserved&#160;for&#160;data&#160;storage.&#160;<br/>
+CANbedded&#160;<br/>
+…&#160;is&#160;the&#160;trademark&#160;of&#160;the Vector&#160;communication&#160;stack.&#160;<br/>
+CFG5&#160;<br/>
+&#160;<br/>
+Generation&#160;tool&#160;for&#160;CANbedded&#160;and MICROSAR&#160;components&#160;<br/>
+Component&#160;<br/>
+CAN&#160;Driver,&#160;Network&#160;Management&#160;...&#160;are&#160;software&#160;COMPONENTS&#160;in&#160;<br/>contrast&#160;to&#160;the&#160;expression&#160;module,&#160;which describes an&#160;ECU.&#160;<br/>
+Confirmation&#160;<br/>
+A&#160;service primitive defined in&#160;the&#160;ISO/OSI&#160;Reference Model&#160;(ISO&#160;7498).&#160;<br/>With&#160;the&#160;service primitive 'confirmation'&#160;a service provider&#160;informs&#160;a&#160;<br/>service user&#160;about&#160;the&#160;result&#160;of&#160;a&#160;preceding&#160;service request&#160;of&#160;the&#160;service&#160;<br/>user.&#160;Notification&#160;by&#160;the&#160;CAN&#160;Driver&#160;on&#160;asynchronous successful&#160;<br/>transmission&#160;of&#160;a&#160;CAN&#160;message.&#160;<br/>
+Electronic&#160;Control&#160;<br/>
+Also known as&#160;ECU.&#160;Small&#160;embedded&#160;computer&#160;system&#160;consisting&#160;of&#160;at&#160;<br/>
+Unit&#160;<br/>
+least&#160;one CPU&#160;and&#160;corresponding&#160;periphery&#160;which is placed in&#160;one&#160;<br/>housing.&#160;<br/>
+Indication&#160;<br/>
+A&#160;service primitive defined in&#160;the&#160;ISO/OSI&#160;Reference Model&#160;(ISO&#160;7498).&#160;<br/>With&#160;the&#160;service primitive 'indication'&#160;a service provider&#160;informs&#160;a&#160;service&#160;<br/>user&#160;about&#160;the&#160;occurrence of&#160;either&#160;an&#160;internal&#160;event&#160;or&#160;a&#160;service request&#160;<br/>issued by&#160;another&#160;service user.&#160;Notification of&#160;application in&#160;case&#160;of&#160;<br/>events&#160;in the&#160;Vector&#160;software&#160;components,&#160;e.g.&#160;an asynchronous&#160;<br/>reception of&#160;a&#160;CAN&#160;message.&#160;<br/>
+Interrupt&#160;<br/>
+Processor-specific&#160;event&#160;which can&#160;interrupt&#160;the&#160;execution&#160;of&#160;a&#160;current&#160;<br/>program&#160;section.&#160;<br/>
+Interrupt&#160;service&#160;<br/>
+The&#160;function&#160;used&#160;for&#160;direct&#160;processing&#160;of&#160;an&#160;interrupt.&#160;<br/>
+routine&#160;<br/>Network&#160;<br/>
+A&#160;network&#160;defines&#160;the&#160;assignment&#160;(1:N)&#160;between a&#160;logical&#160;communication&#160;<br/>grouping&#160;and a&#160;physical&#160;layer&#160;on&#160;which different&#160;modules are&#160;connected&#160;<br/>to&#160;(either&#160;CAN&#160;or&#160;LIN).&#160;One&#160;network&#160;consists&#160;of&#160;one&#160;channel,&#160;Y&#160;networks&#160;<br/>consists&#160;of&#160;1..Z channel(s).&#160;We&#160;say&#160;network&#160;if&#160;we&#160;talk&#160;about&#160;more&#160;than&#160;<br/>one bus.&#160;<br/>
+Transport&#160;Protocol&#160;<br/>
+Some&#160;information&#160;that&#160;must&#160;be&#160;transferred over&#160;the&#160;CAN/LIN bus&#160;does&#160;<br/>not&#160;fit&#160;into individual&#160;message&#160;frames&#160;because&#160;the data&#160;length&#160;exceeds&#160;<br/>the&#160;maximum&#160;of&#160;8&#160;bytes.&#160;In&#160;this&#160;case,&#160;the&#160;sender&#160;must&#160;divide&#160;up&#160;the&#160;data&#160;<br/>into&#160;a number&#160;of&#160;messages.&#160;Additional&#160;information is necessary&#160;for&#160;the&#160;<br/>receiver&#160;to&#160;put&#160;the&#160;data&#160;together&#160;again.&#160;<br/>
+Table&#160;14-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+43&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=44></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-44_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>14.2&#160;&#160;Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+CAN&#160;<br/>
+Controller&#160;Area&#160;Network&#160;protocol&#160;originally&#160;defined&#160;for&#160;use&#160;as&#160;a&#160;<br/>communication&#160;network&#160;for&#160;control&#160;applications&#160;in&#160;vehicles.&#160;<br/>
+CANIF&#160;<br/>
+Controller&#160;Area&#160;Network&#160;Interface&#160;<br/>
+CDD&#160;&#160;<br/>
+Complex&#160;Device Driver,&#160;Complex&#160;Drivers&#160;<br/>
+COM&#160;<br/>
+Communication&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+FRIF&#160;<br/>
+Flexray&#160;Interface&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ID&#160;<br/>
+Identifier&#160;(e.g.&#160;Identifier&#160;of&#160;a&#160;CAN&#160;message)&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+MSN&#160;<br/>
+Module Short&#160;Name&#160;<br/>
+PDU&#160;<br/>
+Protocol&#160;Data Unit&#160;<br/>
+SDU&#160;<br/>
+Service Data Unit&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+TP&#160;<br/>
+Transport&#160;Protocol&#160;<br/>
+VSMD&#160;<br/>
+Vendor&#160;Specific&#160;Module&#160;Description&#160;<br/>
+Table&#160;14-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+44&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=45></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Cdd_Communication-45_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Complex&#160;Device Driver&#160;<br/>
+<b>15&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more&#160;information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.04.00&#160;<br/>
+45&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#7">1 Component History</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#8">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#9">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#10">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#10">3.1 Features</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#11">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#11">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#11">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#11">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#11">4.2 Compiler Abstraction and Memory Mapping</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#12">5 API Description CddPduRUpperLayerContribution as IF</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#12">5.1 Services used by &lt;CDD&gt;</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#12">5.2 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#12">5.2.1 &lt;CDD&gt;_RxIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#13">5.2.2 &lt;CDD&gt;_TxConfirmation</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#13">5.2.3 &lt;CDD&gt;_TriggerTransmit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#15">6 API Description CddPduRUpperLayerContribution as TP</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#15">6.1 Services used by &lt;CDD&gt;</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#15">6.2 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#15">6.2.1 &lt;CDD&gt;_StartOfReception</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#16">6.2.2 &lt;CDD&gt;_CopyRxData</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#17">6.2.3 &lt;CDD&gt;_TpRxIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#18">6.2.4 &lt;CDD&gt;_CopyTxData</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#19">6.2.5 &lt;CDD&gt;_TpTxConfirmation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#20">7 API Description CddPduRLowerLayerContribution as IF</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#20">7.1 Services provided by &lt;CDD&gt;</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#20">7.1.1 &lt;CDD&gt;_Transmit</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#21">7.1.2 &lt;CDD&gt;_CancelTransmit</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#21">7.2 Services used by &lt;CDD&gt;</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#22">8 API Description CddPduRLowerLayerContribution as TP</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#22">8.1 Services provided by &lt;CDD&gt;</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#22">8.1.1 &lt;CDD&gt;_Transmit</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#23">8.1.2 &lt;CDD&gt;_CancelTransmit</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#24">8.1.3 &lt;CDD&gt;_CancelReceive</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#25">8.1.4 &lt;CDD&gt;_ChangeParameter</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#25">8.2 Services used by &lt;CDD&gt;</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#26">9 API Description CddComIfUpperLayerContribution</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#26">9.1 Services used by &lt;CDD&gt;</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#26">9.2 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#27">9.2.1 &lt;CDD&gt;_RxIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#27">9.2.2 &lt;CDD&gt;_TxConfirmation</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#28">9.2.3 &lt;CDD&gt;_TriggerTransmit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#29">10 API Description CddJ1939RmContribution</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#29">10.1 Services used by &lt;CDD&gt;</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#29">10.2 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#30">10.2.1 &lt;CDD&gt;_RequestIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#30">10.2.2 &lt;CDD&gt;_AckIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#31">10.2.3 &lt;CDD&gt;_RequestTimeoutIndication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#32">11 API Description CddSoAdUpperLayerContribution</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#32">11.1 Services used by &lt;CDD&gt;</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#33">11.2 Communication Interface Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#33">11.2.1 &lt;CDD&gt;_[SoAd][If]RxIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#34">11.2.2 &lt;CDD&gt;_[SoAd][If]TxConfirmation</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#35">11.2.3 &lt;CDD&gt;_[SoAd][If]TriggerTransmit</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#36">11.3 Transport Protocol Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#36">11.3.1 &lt;CDD&gt;_[SoAd][Tp]StartOfReception</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#37">11.3.2 &lt;CDD&gt;_[SoAd][Tp]CopyRxData</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#38">11.3.3 &lt;CDD&gt;_[SoAd][Tp]RxIndication</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#39">11.3.4 &lt;CDD&gt;_[SoAd][Tp]CopyTxData</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#40">11.3.5 &lt;CDD&gt;_[SoAd][Tp]TxConfirmation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#41">12 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#41">12.1 Configuration Variants</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#42">13 AUTOSAR Standard Compliance</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#42">13.1 Deviations</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#42">13.2 Additions/ Extensions</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#42">13.3 Limitations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#43">14 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Cdd_Communications.html#43">14.1 Glossary</a></li>
+<li><a href="TechnicalReference_Cdd_Communications.html#44">14.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Cdd_Communications.html#45">15 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

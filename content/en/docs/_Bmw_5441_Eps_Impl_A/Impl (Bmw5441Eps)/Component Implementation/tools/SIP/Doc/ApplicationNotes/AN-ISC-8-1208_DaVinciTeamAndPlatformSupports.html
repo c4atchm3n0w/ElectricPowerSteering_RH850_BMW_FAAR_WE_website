@@ -1,0 +1,677 @@
+---
+title: AN-ISC-8-1208_DaVinciTeamAndPlatformSupports
+linkTitle: AN-ISC-8-1208_DaVinciTeamAndPlatformSupports
+weight: 71
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-1_1.png"/><br/>
+&#160;<br/>&#160;<br/>
+<b>DaVinci&#160;Team&#160;and Platform Support&#160;<br/></b>Version&#160;1.0.1&#160;<br/>2017-09-06&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1208&#160;<br/>
+<b>Author</b>&#160;<br/>
+Wernicke,&#160;Matthias&#160;<br/>
+<b>Restrictions</b>&#160;<br/>
+Customer&#160;Confidential&#160;–&#160;Vector&#160;decides&#160;<br/>
+<b>Abstract</b>&#160;<br/>
+This&#160;application&#160;note&#160;describes&#160;how&#160;to&#160;organize DaVinci&#160;projects&#160;optimally&#160;for&#160;<br/>development&#160;with large teams.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2"><b>Overview&#160;........................................................................................................................................&#160;2</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2">Abbreviations&#160;.......................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2"><b>Background&#160;...................................................................................................................................&#160;2</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2">Collaboration (multi-user)&#160;.....................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#3">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#3">Product&#160;Line Approach&#160;........................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4"><b>Diff and&#160;Merge&#160;...............................................................................................................................&#160;4</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4">Concepts&#160;..............................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#5">3.2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#5">Project&#160;Merge&#160;.......................................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#5">3.3&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#5">Merge&#160;Approaches&#160;(2-way,&#160;3-way)&#160;......................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#7">3.4&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#7">Object&#160;Identification&#160;.............................................................................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#7">3.5&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#7">Project&#160;Merge in a&#160;Multi-User&#160;Development&#160;Process&#160;..........................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#9"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#9"><b>Platform&#160;Functions&#160;........................................................................................................................&#160;9</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#9">Concepts&#160;..............................................................................................................................&#160;9&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#10">4.2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#10">Definition&#160;of&#160;Platform&#160;Functions&#160;.........................................................................................10&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#11">4.3&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#11">Function Assignment&#160;.........................................................................................................11&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#11">4.4&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#11">Selective&#160;Merge based on&#160;Platform&#160;Functions&#160;..................................................................11&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#12">4.5&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#12">Tips&#160;and tricks&#160;....................................................................................................................12&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13"><b>5</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13"><b>Library Mechanisms....................................................................................................................13</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">Concepts&#160;............................................................................................................................13&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">5.2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">Sharing&#160;BSW&#160;Module Configurations&#160;................................................................................13&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">5.3&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">Sharing&#160;SWCs&#160;between DaVinci&#160;projects&#160;..........................................................................14&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">5.4&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">Sharing&#160;SWCs&#160;from&#160;a third-party&#160;tool&#160;................................................................................14&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15"><b>6</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15"><b>Configuration&#160;Management&#160;........................................................................................................15</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">Concepts&#160;............................................................................................................................15&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">6.2&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">DaVinci&#160;project&#160;files&#160;in CM&#160;repository&#160;................................................................................15&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#16">6.3&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#16">Working&#160;Copy&#160;.....................................................................................................................16&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#16">6.4&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#16">File&#160;Granularity&#160;...................................................................................................................16&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#18">6.5&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#18">Branches&#160;and Synchronization Points&#160;...............................................................................18&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#19"><b>7</b>&#160;</a><br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#19"><b>Contacts&#160;.......................................................................................................................................19</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-2_1.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+This&#160;application&#160;note&#160;describes&#160;how&#160;to&#160;organize DaVinci&#160;projects&#160;and&#160;how&#160;to&#160;use the DaVinci&#160;tool&#160;<br/>features&#160;optimally&#160;to&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Enable&#160;collaborative&#160;development&#160;of&#160;a project&#160;with&#160;a team&#160;of&#160;developers&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Enable&#160;a product&#160;line approach&#160;<br/>
+It&#160;covers&#160;aspects&#160;of&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Configuration management&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Management&#160;of&#160;libraries&#160;of&#160;AUTOSAR&#160;models&#160;(SWCs,&#160;EcuC)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Diff&#160;and merge of&#160;AUTOSAR&#160;models&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Platform&#160;development&#160;support&#160;<br/>
+Required tool&#160;versions:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+DaVinci&#160;Configurator&#160;Pro&#160;5.16 or&#160;later&#160;<br/>
+<b>&gt;&#160;</b><br/>
+DaVinci&#160;Developer&#160;4.1&#160;or&#160;later&#160;<br/>
+<b>1.1&#160;&#160;Abbreviations&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Meaning&#160;</b><br/>
+CM&#160;<br/>
+Configuration Management&#160;<br/>
+DEV&#160;<br/>
+DaVinci&#160;Developer&#160;<br/>
+CFG&#160;PRO&#160;<br/>
+DaVinci&#160;Configurator&#160;Pro&#160;<br/>
+SDG&#160;<br/>
+Special&#160;Data Group&#160;<br/>
+UUID&#160;<br/>
+Universally&#160;Unique Identifier&#160;<br/>
+ARXML&#160;<br/>
+AUTOSAR&#160;XML&#160;<br/>
+SWC&#160;<br/>
+Software Component&#160;<br/>
+ECUC&#160;<br/>
+ECU&#160;Configuration&#160;<br/>
+DCF&#160;<br/>
+DaVinci&#160;Configuration File&#160;<br/>
+SIP&#160;<br/>
+Software Integration&#160;Package&#160;<br/>
+SVN&#160;<br/>
+Subversion&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>2&#160;</b><br/>
+<b>Background&#160;</b><br/>
+AUTOSAR&#160;ECU&#160;SW&#160;is&#160;typically&#160;developed by&#160;a&#160;project&#160;team&#160;of&#160;several,&#160;sometimes&#160;dozens&#160;of&#160;team&#160;<br/>members.&#160;To organize the&#160;work,&#160;following approaches&#160;are typically&#160;used&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Collaboration&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Product&#160;Line Approach&#160;<br/>
+These approaches&#160;also&#160;have to be applied&#160;to the&#160;DaVinci&#160;projects.&#160;<br/>
+<b>2.1&#160;&#160;Collaboration&#160;(multi-user)&#160;</b><br/>
+Several&#160;project&#160;members&#160;work&#160;on the&#160;same SWC&#160;or&#160;the same BSW&#160;module.&#160;Parallel&#160;working must&#160;be&#160;<br/>possible.&#160;<b>Reserved</b>&#160;editing&#160;of&#160;the DaVinci&#160;project&#160;by&#160;one user&#160;is&#160;normally&#160;not&#160;accepted since&#160;it&#160;blocks&#160;<br/>the other&#160;users.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-3_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-3_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;1&#160;-&#160;Collaboration&#160;<br/>
+The DaVinci&#160;tools&#160;support&#160;collaboration&#160;with following concepts&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Diff&#160;and Merge,&#160;see section<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4">&#160;3&#160;</a><br/>
+<b>&gt;&#160;</b><br/>
+Configuration management,&#160;see secti<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">on&#160;6&#160;</a><br/>
+<b>2.2&#160;&#160;Product&#160;Line&#160;Approach&#160;</b><br/>
+A&#160;TIER1 typically&#160;offers&#160;an ECU&#160;product&#160;to several&#160;OEMs.&#160;The common parts&#160;for&#160;all&#160;OEM&#160;projects&#160;are&#160;<br/>developmed&#160;within&#160;a platform&#160;project.&#160;The OEM-specific&#160;projects&#160;are derived from&#160;this&#160;platform&#160;<br/>project.&#160;<br/>
+Furthermore,&#160;several&#160;ECU&#160;products&#160;may&#160;share a&#160;common library&#160;of&#160;AUTOSAR&#160;artifacts,&#160;e.g.&#160;standard&#160;<br/>data&#160;types,&#160;compu methods,&#160;etc.&#160;<br/>
+&#160;&#160;<br/>
+&#160;<br/>
+Figure&#160;2&#160;–&#160;Product&#160;Line Approach&#160;<br/>
+Over&#160;the time,&#160;the&#160;SW&#160;functionality&#160;of&#160;the&#160;ECU&#160;is&#160;developed&#160;as&#160;shown in<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4">&#160;Figure&#160;3: &#160;</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-4_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;3&#160;–&#160;Development&#160;process&#160;with a&#160;platform&#160;and&#160;several&#160;projects&#160;<br/>
+A&#160;platform&#160;team&#160;is&#160;mainly&#160;responsible&#160;for&#160;developing the central&#160;ECU&#160;functions&#160;F1,&#160;F2,&#160;F3&#160;that&#160;make&#160;<br/>the product&#160;and&#160;are relevant&#160;for&#160;all&#160;OEMs.&#160;The goal&#160;is&#160;to provide a common set&#160;of&#160;integrated functions&#160;<br/>consisting of&#160;SWCs&#160;and&#160;matching BSW&#160;configuration.&#160;&#160;<br/>
+With an independent&#160;time schedule,&#160;individual&#160;OEM project&#160;teams&#160;derive&#160;their&#160;project&#160;from&#160;the&#160;<br/>platform,&#160;and may&#160;develop&#160;OEM-specific&#160;functions&#160;<i>F4&#160;(OEM&#160;A)</i>&#160;and&#160;<i>F5 (OEM B)</i>.&#160;To benefit&#160;from&#160;the&#160;<br/>development&#160;of&#160;the platform&#160;team,&#160;the OEM&#160;projects&#160;are later&#160;on&#160;updated to the latest&#160;version&#160;of&#160;the&#160;<br/>platform.&#160;This&#160;update process&#160;shall&#160;happen&#160;under&#160;control&#160;of&#160;the&#160;project&#160;team.&#160;It&#160;shall&#160;only&#160;affect&#160;those&#160;<br/>functions,&#160;which have been&#160;taken over&#160;from&#160;the platform.&#160;The OEM-specific&#160;functions&#160;shall&#160;not&#160;be&#160;<br/>touched.&#160;<br/>
+The DaVinci&#160;tools&#160;support&#160;the product&#160;line approach&#160;with following concepts&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Platform&#160;functions,&#160;see section<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#9">&#160;4&#160;</a><br/>
+<b>&gt;&#160;</b><br/>
+Library&#160;mechanisms,&#160;see section<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">&#160;5&#160;</a><br/>
+Note:&#160;We assume that&#160;the&#160;BSW&#160;configuration cannot&#160;be completely&#160;derived from&#160;the&#160;SWCs,&#160;even&#160;if&#160;<br/>they&#160;are&#160;equipped&#160;with service needs.&#160;There is&#160;always&#160;an authoring&#160;step required to complete the&#160;<br/>BSW&#160;configuration.&#160;Therefore,&#160;it&#160;is&#160;not&#160;sufficient&#160;to&#160;just&#160;take over&#160;the&#160;SWCs&#160;and assume that&#160;the BSW&#160;<br/>configuration&#160;can be automatically&#160;completed&#160;in&#160;a deterministic&#160;way.&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Diff and&#160;Merge&#160;</b><br/>
+<b>3.1&#160;&#160;Concepts&#160;</b><br/>
+A&#160;<b>simple</b>&#160;solution&#160;for&#160;team&#160;collaboration&#160;would&#160;be&#160;the&#160;attempt&#160;to place the DaVinci&#160;project&#160;folder&#160;on a&#160;<br/>shared drive,&#160;where several&#160;persons&#160;remotely&#160;access&#160;the same project&#160;folder.&#160;This&#160;will&#160;lead&#160;to race&#160;<br/>conditions&#160;and&#160;uncontrolled&#160;changes&#160;with a&#160;high risk&#160;of&#160;inconsistencies&#160;or&#160;even&#160;data corruption.&#160;<br/>
+Instead,&#160;each&#160;user&#160;should&#160;have its&#160;own&#160;<b>private copy</b>&#160;of&#160;the DaVinci&#160;project.&#160;If&#160;several&#160;users&#160;modify&#160;<br/>the same AUTOSAR&#160;object&#160;in&#160;parallel&#160;in their&#160;respective&#160;working copy, a&#160;subsequent&#160;merge step&#160;is&#160;<br/>required to&#160;bring the modifications&#160;together.&#160;In contrast&#160;to e.g.&#160;C-&#160;or&#160;C-Files,&#160;a textual&#160;merge of&#160;<br/>ARXML files&#160;is&#160;not&#160;recommended.&#160;The preferred approach is&#160;a&#160;<b>model&#160;merge</b>,&#160;which is&#160;supported&#160;by&#160;<br/>the DaVinci&#160;tools.&#160;&#160;<br/>
+The DaVinci&#160;tools&#160;support&#160;the diff&#160;and merge of&#160;AUTOSAR&#160;models&#160;on&#160;SWC&#160;level&#160;(with DEV)&#160;and&#160;<br/>ECUC&#160;level&#160;(with&#160;CFG&#160;PRO).&#160;&#160;<br/>
+Note:&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+In general,&#160;the diff&#160;and merge features&#160;of&#160;the DaVinci&#160;tools&#160;support&#160;split-file projects&#160;as&#160;well&#160;as&#160;<br/>single-file projects&#160;<br/>
+<b>&gt;&#160;</b><br/>
+It&#160;is&#160;also supported to&#160;diff&#160;and merge projects&#160;that&#160;are&#160;based&#160;on different&#160;SIPs&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+4<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-5_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-5_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>3.2&#160;&#160;Project&#160;Merge&#160;</b><br/>
+The&#160;merge of&#160;a DaVinci&#160;project&#160;is&#160;controlled via&#160;an&#160;according project&#160;merge function of&#160;CFG&#160;PRO&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Load&#160;the&#160;<b>MINE</b>&#160;project&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Select&#160;the&#160;<b>OTHER</b>&#160;&#160;project&#160;<br/>The AUTOSAR&#160;model&#160;inside this&#160;project&#160;will&#160;not&#160;be changed.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Optional:&#160;Select&#160;the&#160;<b>BASE</b>&#160;project&#160;<br/>The AUTOSAR&#160;model&#160;inside this&#160;project&#160;will&#160;not&#160;be changed.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Launch&#160;DEV&#160;to merge the&#160;SWCs&#160;inside the DCF&#160;workspace.&#160;<br/>Save the DCF&#160;workspace when&#160;done.&#160;After&#160;saving,&#160;CFG&#160;PRO&#160;will&#160;automatically&#160;resynch.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Continue&#160;with CFG&#160;PRO&#160;to&#160;merge the ECUC&#160;<br/>Save the project&#160;when done.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;4&#160;-&#160;Project&#160;Merge Workflow&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Do not&#160;try&#160;to merge service&#160;SWCs&#160;with&#160;DEV&#160;–&#160;like BswM,&#160;Dem&#160;etc.&#160;or&#160;other&#160;SWCs&#160;<br/>
+&#160;<br/>
+generated&#160;by&#160;CFG&#160;PRO.&#160;This&#160;happens&#160;indirectly&#160;by&#160;merging according module&#160;<br/>configuration&#160;with CFG&#160;PRO.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>3.3&#160;&#160;Merge&#160;Approaches&#160;(2-way,&#160;3-way)&#160;</b><br/>
+The&#160;<b>two-way merge</b>&#160;is&#160;applied when importing any&#160;ARXML&#160;files&#160;or&#160;when&#160;merging&#160;two&#160;DaVinci&#160;<br/>projects&#160;that&#160;have no common ancestor.&#160;The loaded&#160;project&#160;(<b>MINE</b>)&#160;is&#160;compared to the imported&#160;<br/>model&#160;(<b>OTHER</b>).&#160;Differences&#160;are displayed like&#160;from&#160;the perspective of&#160;<b>MINE</b>:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Added&#160;(exists in&#160;<b>OTHER</b>&#160;but&#160;not&#160;in&#160;<b>MINE</b>)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Removed (exists&#160;in&#160;<b>MINE</b>&#160;but&#160;not&#160;in&#160;<b>OTHER</b>)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Modified (exists&#160;in both&#160;<b>MINE</b>&#160;and&#160;<b>OTHER</b>,&#160;but&#160;is&#160;not&#160;identical)&#160;<br/>
+Merge&#160;decisions&#160;have to&#160;be&#160;met&#160;by&#160;the&#160;user.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+5<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-6_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-6_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-6_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;5&#160;-&#160;Two-way&#160;Merge&#160;<br/>
+In the example in<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#6">&#160;Figure&#160;5&#160;</a>the differences&#160;are&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Modified:&#160;size of&#160;<b>DataType1</b>&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Removed:&#160;<b>SWC2</b>&#160;<br/>
+The&#160;<b>three-way merge</b>&#160;is&#160;applied&#160;when&#160;merging two DaVinci&#160;projects&#160;that&#160;have a&#160;common ancestor.&#160;<br/>The loaded&#160;project&#160;(<b>MINE</b>)&#160;is&#160;compared to the&#160;imported model&#160;(<b>OTHER</b>)&#160;and the common ancestor&#160;<br/>(<b>BASE</b>).&#160;Differences&#160;are displayed&#160;like&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Removed in MINE&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Added in&#160;MINE&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Changed in MINE&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Removed in OTHER&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Added&#160;in OTHER&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Changed&#160;in OTHER&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Changed&#160;in&#160;MINE&#160;and OTHER&#160;(conflict)&#160;<br/>
+Merge&#160;decisions&#160;can&#160;be&#160;made automatically.&#160;Only&#160;in case of&#160;conflict,&#160;the&#160;user&#160;has&#160;to decide.&#160;<br/>
+&#160;<br/>
+Figure&#160;6&#160;-&#160;Three-way&#160;Merge&#160;<br/>
+In the example in<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#6">&#160;Figure&#160;6&#160;</a>the differences&#160;are&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Changed&#160;in OTHER:&#160;size&#160;of&#160;<b>DataType1</b>&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+6<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-7_1.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Added in MINE:&#160;<b>SWC2</b>&#160;<br/>
+Auto-merge is&#160;possible.&#160;<br/>
+Limitation:&#160;DaVinci DEV&#160;4.1&#160;only&#160;supports&#160;the&#160;two-way&#160;merge.&#160;Three-way&#160;merge is&#160;not&#160;yet&#160;supported.&#160;<br/>DaVinci&#160;CFG&#160;PRO&#160;supports&#160;both merge approaches.&#160;Please refer&#160;to the&#160;online help for&#160;details.&#160;&#160;<br/>
+<b>3.4&#160;&#160;Object&#160;Identification&#160;</b><br/>
+A&#160;special&#160;topic&#160;when merging AUTOSAR&#160;models&#160;is&#160;the identification of&#160;objects.&#160;There are&#160;two&#160;ways&#160;<br/>
+<b>&gt;&#160;</b><br/>
+AUTOSAR&#160;path&#160;<br/>Objects&#160;are identified based on&#160;the&#160;AUTOSAR&#160;path consisting of&#160;the parent&#160;packages&#160;and the&#160;<br/>short&#160;name.&#160;If&#160;the short&#160;name or&#160;package is&#160;changed,&#160;the&#160;object&#160;will&#160;be considered as&#160;a&#160;different&#160;<br/>object.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+UUID&#160;<br/>Objects&#160;are identified based on&#160;their&#160;UUID&#160;independently&#160;of&#160;their&#160;short&#160;name or&#160;package.&#160;<br/>
+CFG&#160;PRO&#160;can&#160;identify&#160;objects&#160;during&#160;project&#160;merge based on&#160;their&#160;UUID.&#160;If&#160;UUIDs&#160;are missing,&#160;it&#160;uses&#160;<br/>the&#160;AUTOSAR&#160;path&#160;instead.&#160;By&#160;using an according&#160;option&#160;you may&#160;disable the usage&#160;of&#160;UUIDs&#160;and&#160;<br/>enforce the usage&#160;of&#160;the&#160;AUTOSAR&#160;path for&#160;object&#160;identification.&#160;<br/>
+Tip:&#160;The UUID&#160;mechanism&#160;only&#160;works&#160;if&#160;the two&#160;branches&#160;to merge&#160;have been&#160;created/copied out&#160;of&#160;<br/>the same basis.&#160;Only&#160;in&#160;this&#160;case,&#160;an&#160;object&#160;will&#160;have&#160;the same UUID&#160;in&#160;both branches&#160;<b>MINE</b>&#160;and&#160;<br/><b>OTHER</b>.&#160;If&#160;you&#160;would e.g.&#160;create a&#160;new&#160;ECUC&#160;container&#160;with&#160;same short&#160;name&#160;separately&#160;in both&#160;<br/>branches,&#160;the containers&#160;will&#160;have a&#160;different&#160;UUID.&#160;You should&#160;disable&#160;the&#160;UUID&#160;usage&#160;in this&#160;case.&#160;&#160;<br/>
+Limitation:&#160;DEV&#160;4.1&#160;does&#160;not&#160;yet&#160;support&#160;UUIDs&#160;during project&#160;merge.&#160;The tool&#160;identifies&#160;objects&#160;by&#160;<br/>their&#160;AUTOSAR&#160;path.&#160;<br/>
+<b>3.5&#160;&#160;Project&#160;Merge in&#160;a&#160;Multi-User&#160;Development&#160;Process&#160;</b><br/>
+The merge&#160;function&#160;of&#160;the&#160;DaVinci&#160;tools&#160;is&#160;not&#160;able&#160;to&#160;change&#160;those&#160;parts&#160;of&#160;the configuration,&#160;which&#160;<br/>are read-only&#160;(derived&#160;parameters,&#160;preconfigured&#160;parameters&#160;...).&#160;Consequently,&#160;if&#160;you try&#160;to merge&#160;<br/>two projects&#160;that&#160;are&#160;based&#160;on differing input&#160;files,&#160;many&#160;differences&#160;may&#160;exist&#160;that&#160;cannot&#160;be&#160;merged.&#160;<br/>This&#160;situation can be&#160;avoided by&#160;an appropriate development&#160;process.&#160;<br/>
+Let’s&#160;assume that&#160;a DaVinci&#160;project&#160;is&#160;being&#160;developed&#160;by&#160;an&#160;integrator&#160;and&#160;two&#160;domain experts&#160;(one&#160;<br/>for&#160;diagnostics,&#160;one for&#160;communication).&#160;There are two&#160;strategies:&#160;<br/>
+<b>Strategy&#160;“Central&#160;project&#160;update&#160;by&#160;integrator”&#160;</b><br/>
+The integrator&#160;runs&#160;the&#160;project&#160;update&#160;function&#160;with the&#160;new&#160;version&#160;<b>V2</b>&#160;of&#160;the diagnostic&#160;and&#160;<br/>communication&#160;input&#160;files.&#160;Note that&#160;the&#160;project&#160;will&#160;be&#160;up-to-date&#160;with&#160;respect&#160;to the input&#160;files&#160;now,&#160;<br/>but&#160;most&#160;likely&#160;not&#160;error&#160;free.&#160;&#160;<br/>
+The domain experts&#160;work&#160;now&#160;in parallel&#160;to fix&#160;the issues&#160;and complete the integration.&#160;They mainly&#160;<br/>take care about&#160;their&#160;own domain,&#160;but&#160;might&#160;need to make changes&#160;in the other&#160;domain&#160;as&#160;well&#160;as&#160;far&#160;<br/>as&#160;required to&#160;<b>get&#160;their&#160;own&#160;domain&#160;running</b>.&#160;<br/>
+Finally,&#160;the&#160;integrator&#160;merges&#160;the&#160;projects&#160;of&#160;the domain experts&#160;one-by-one.&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+7<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-8_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;7&#160;–&#160;Development&#160;Process with&#160;Central&#160;Project&#160;Update by&#160;Integrator&#160;<br/>
+This&#160;strategy&#160;requires&#160;only&#160;one&#160;project&#160;update&#160;step,&#160;but&#160;may&#160;increase the effort&#160;of&#160;the domain experts&#160;<br/>since they&#160;cannot&#160;fully&#160;focus&#160;on their&#160;own domain.&#160;&#160;<br/>
+<b>Strategy&#160;“Partial&#160;update&#160;by&#160;domain&#160;experts”</b>&#160;<br/>
+Basis&#160;for&#160;all&#160;is&#160;the&#160;integrated project&#160;based on a&#160;version&#160;<b>V1</b>&#160;of&#160;the&#160;diagnostic&#160;and&#160;communication&#160;input&#160;<br/>files.&#160;&#160;<br/>
+The diagnostic&#160;domain expert&#160;runs&#160;the project&#160;update with the new&#160;version&#160;<b>V2</b>&#160;of&#160;the diagnostic&#160;input&#160;<br/>file and the old&#160;version&#160;<b>V1</b>&#160;of&#160;the communication&#160;input&#160;file.&#160;After&#160;that,&#160;the&#160;diagnostic&#160;expert&#160;completes&#160;<br/>the integration,&#160;focusing on&#160;the&#160;diagnostic&#160;functionality.&#160;<br/>
+Vice&#160;versa,&#160;the communication&#160;domain expert&#160;runs&#160;the&#160;project&#160;update&#160;with the new&#160;version&#160;of&#160;the&#160;<br/>communication&#160;input&#160;file&#160;and the&#160;old&#160;version of&#160;the&#160;diagnostic&#160;input&#160;file.&#160;Both&#160;work&#160;in&#160;parallel.&#160;<br/>
+Before merging the projects&#160;of&#160;the domain experts,&#160;the integrator&#160;runs&#160;the project&#160;update to the new&#160;<br/>version&#160;<b>V2</b>&#160;of&#160;both input&#160;files.&#160;Note that&#160;the&#160;project&#160;will&#160;be up-to-date&#160;with respect&#160;to the&#160;input&#160;files&#160;now,&#160;<br/>but&#160;most&#160;likely&#160;not&#160;error&#160;free.&#160;The&#160;integrator&#160;merges&#160;now&#160;selectively&#160;the modifications&#160;done&#160;by&#160;the&#160;<br/>domain experts.&#160;When&#160;merging the project&#160;of&#160;the communication&#160;domain expert,&#160;any&#160;differences&#160;in&#160;the&#160;<br/>diagnostic&#160;part&#160;can be&#160;ignored.&#160;Vice&#160;versa,&#160;when&#160;merging&#160;the&#160;project&#160;of&#160;the&#160;diagnostic&#160;domain expert,&#160;<br/>any&#160;differences&#160;in the&#160;communication part&#160;can be ignored.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+8<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-9_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;8&#160;–&#160;Development&#160;Process with&#160;Partial&#160;Project&#160;Update&#160;by&#160;Domain&#160;Experts&#160;<br/>
+This&#160;strategy&#160;requires&#160;more&#160;project&#160;update&#160;steps,&#160;but&#160;may&#160;reduce&#160;the&#160;effort&#160;of&#160;the domain experts&#160;<br/>since they&#160;can focus&#160;on their&#160;own&#160;domain.&#160;<br/>
+Please see&#160;also&#160;sectio<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#18">n&#160;6.5&#160;</a>for&#160;further&#160;information how&#160;to run such&#160;development&#160;processes&#160;in&#160;<br/>combination&#160;with a&#160;CM system.&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Platform&#160;Functions&#160;</b><br/>
+<b>4.1&#160;&#160;Concepts&#160;</b><br/>
+A&#160;platform&#160;function&#160;can&#160;be&#160;defined&#160;as&#160;a&#160;logical&#160;partition of&#160;the&#160;ECU&#160;SW,&#160;which&#160;includes&#160;parts&#160;of&#160;the&#160;<br/>SWCs&#160;and the&#160;BSW&#160;configuration.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+9<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-10_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;9&#160;–&#160;Platform&#160;Functions&#160;<br/>
+In the example shown i<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#10">n&#160;Figure&#160;9,</a>&#160;the&#160;project&#160;consists&#160;of&#160;3 platform&#160;functions&#160;F1,&#160;F2,&#160;F3.&#160;The platform&#160;<br/>function&#160;F1&#160;e.g.&#160;consists&#160;of&#160;a SWC&#160;plus&#160;all&#160;related&#160;BSW&#160;configuration&#160;parts&#160;like the task&#160;mapping in&#160;<br/>the RTE&#160;configuration,&#160;the&#160;NV&#160;memory&#160;blocks&#160;in the&#160;NvM configuration&#160;and the OS&#160;alarms&#160;that&#160;finally&#160;<br/>trigger&#160;the runnable entities&#160;of&#160;the SWC.&#160;The platform&#160;function&#160;F3&#160;is&#160;only&#160;represented by&#160;certain&#160;<br/>configuration of&#160;the BSW&#160;like standard OS&#160;tasks&#160;–&#160;no SWCs&#160;involved.&#160;<b>Integration</b>&#160;represents&#160;the&#160;<br/>project-specific&#160;part&#160;that&#160;will&#160;never&#160;be taken-over&#160;to other&#160;projects.&#160;<br/>
+A&#160;platform&#160;function&#160;is&#160;mainly&#160;defined&#160;by&#160;a name,&#160;plus&#160;an additional&#160;description.&#160;Based on&#160;the&#160;name,&#160;<br/>the user&#160;is&#160;supposed to be&#160;able to&#160;identify&#160;the&#160;platform&#160;function.&#160;The user&#160;makes&#160;the initial&#160;decision&#160;<br/>about&#160;which objects&#160;belong&#160;to a&#160;particular&#160;function (explicit&#160;assignment).&#160;The DaVinci&#160;tools&#160;are able to&#160;<br/>find other&#160;related&#160;objects&#160;that&#160;would&#160;also&#160;belong to the&#160;same function (implicit&#160;assignment).&#160;This&#160;<br/>mechanism&#160;saves&#160;effort&#160;since the&#160;user&#160;does&#160;not&#160;have to make the assignment&#160;for&#160;each and every&#160;<br/>object&#160;or&#160;configuration&#160;parameter.&#160;<br/>
+The logical&#160;partitioning may&#160;bring&#160;benefits&#160;during&#160;diff&#160;and merge of&#160;DaVinci&#160;projects:&#160;instead of&#160;<br/>merging the&#160;whole&#160;project&#160;in one step,&#160;the&#160;user&#160;may&#160;decide&#160;to merge the&#160;individual&#160;functions&#160;one-by-<br/>one.&#160;This&#160;makes&#160;merge decisions&#160;much easier.&#160;<br/>
+<b>4.2&#160;&#160;Definition&#160;of&#160;Platform&#160;Functions&#160;</b><br/>
+Platform&#160;functions&#160;can be&#160;defined&#160;with&#160;the&#160;Project&#160;Settings&#160;Editor&#160;of&#160;CFG&#160;PRO.&#160;They&#160;are&#160;defined with&#160;<br/>a name and&#160;description.&#160;An&#160;UUID&#160;is&#160;automatically&#160;given.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+10<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-11_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-11_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-11_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;10&#160;–&#160;Definition&#160;of&#160;Platform&#160;Functions&#160;<br/>
+<b>4.3&#160;&#160;Function&#160;Assignment&#160;</b><br/>
+AUTOSAR&#160;objects&#160;on&#160;SWC-T&#160;level&#160;(e.g.&#160;SWC&#160;types,&#160;port&#160;interfaces&#160;...)&#160;and on ECU-C&#160;level&#160;(container&#160;<br/>values,&#160;parameter&#160;values,&#160;and&#160;reference&#160;values)&#160;may&#160;be assigned&#160;to functions.&#160;<br/>
+There are two kinds&#160;of&#160;function&#160;assignment:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Explicit&#160;assignment&#160;<br/>An object&#160;may&#160;be explicitly&#160;assigned to&#160;one&#160;of&#160;the&#160;platform&#160;functions.&#160;The explicit&#160;assignment&#160;<br/>is&#160;done by&#160;the user.&#160;Explicit&#160;assignment&#160;to more&#160;than&#160;one platform&#160;function&#160;is&#160;not&#160;supported.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Implicit&#160;assignment&#160;<br/>If&#160;an object&#160;has&#160;no&#160;explicit&#160;assignment,&#160;it&#160;may&#160;be implicitly&#160;assigned&#160;to one&#160;or&#160;more platform&#160;<br/>functions.&#160;The implicit&#160;assignment&#160;is&#160;automatically&#160;calculated&#160;by&#160;the&#160;DaVinci&#160;tools.&#160;Please&#160;<br/>refer&#160;to&#160;the&#160;Technical&#160;Reference&#160;DaVinci&#160;Platform&#160;Functions.&#160;&#160;<br/>
+DEV&#160;and CFG&#160;PRO&#160;provide according features&#160;to select&#160;the&#160;platform&#160;function of&#160;an object.&#160;Please&#160;<br/>refer&#160;to the&#160;online help for&#160;details.&#160;<br/>
+<b>4.4&#160;&#160;Selective&#160;Merge&#160;based&#160;on Platform&#160;Functions&#160;</b><br/>
+When starting the&#160;project&#160;merge&#160;with&#160;CFG&#160;PRO&#160;you have the&#160;option&#160;to merge either&#160;all&#160;objects,&#160;or&#160;<br/>only&#160;those objects&#160;which&#160;belong to certain platform&#160;functions.&#160;<br/>
+Following sequence gives&#160;an example:&#160;<br/>
+Initially,&#160;a&#160;platform&#160;project&#160;exists,&#160;partitioned&#160;into three functions&#160;F1,&#160;F2&#160;and&#160;F3.&#160;A&#160;new&#160;customer&#160;<br/>project&#160;for&#160;OEM A&#160;is&#160;being&#160;setup.&#160;Note&#160;that&#160;the&#160;customer&#160;project&#160;may&#160;base on&#160;a&#160;different&#160;SIP&#160;than the&#160;<br/>platform&#160;project.&#160;The customer&#160;project&#160;is&#160;being&#160;updated&#160;to&#160;the OEM-specific&#160;system&#160;description.&#160;<br/>
+&#160;<br/>
+Figure&#160;11&#160;–&#160;Setup a&#160;New&#160;Customer&#160;Project&#160;<br/>
+After&#160;setting-up the&#160;customer&#160;project,&#160;the&#160;platform&#160;functions&#160;F1,&#160;F2&#160;and&#160;F3&#160;are&#160;added.&#160;This&#160;happens&#160;<br/>via selective project&#160;merge,&#160;where&#160;only&#160;the&#160;platform&#160;functions&#160;are&#160;imported&#160;and&#160;the integration part&#160;is&#160;<br/>ignored.&#160;Note&#160;that&#160;the function&#160;definitions&#160;as&#160;well&#160;as&#160;the function&#160;assignment&#160;are&#160;automatically&#160;<br/>imported.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+11<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-12_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-12_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-12_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-12_4.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+Figure&#160;12&#160;–&#160;Derive&#160;from&#160;Platform&#160;<br/>
+In the next&#160;phase,&#160;the projects&#160;are developed&#160;independently.&#160;The customer&#160;project&#160;is&#160;extended&#160;by&#160;<br/>completing&#160;the integration&#160;part.&#160;Also&#160;F3&#160;had to&#160;be changed&#160;inside&#160;the customer&#160;project.&#160;Meanwhile,&#160;<br/>the&#160;platform&#160;functions&#160;F1, F2&#160;and F3&#160;are extended&#160;inside&#160;the platform&#160;project.&#160;&#160;<br/>
+&#160;<br/>
+Figure&#160;13&#160;–&#160;Independent&#160;Development&#160;<br/>
+Finally,&#160;the customer&#160;project&#160;is&#160;updated to the&#160;new&#160;version&#160;of&#160;the platform&#160;functions.&#160;Again,&#160;this&#160;<br/>happens&#160;via&#160;a selective&#160;project&#160;merge.&#160;It&#160;may&#160;happen&#160;either&#160;in&#160;one step&#160;by&#160;selecting all&#160;three&#160;platform&#160;<br/>functions, or&#160;step-by-step by&#160;first&#160;merging&#160;F1,&#160;then F2,&#160;then F3.&#160;Knowing that&#160;F1&#160;and F2&#160;have not&#160;<br/>been&#160;changed&#160;inside&#160;the customer&#160;project,&#160;the merge decision&#160;is&#160;easy:&#160;take-over&#160;all&#160;modifications.&#160;<br/>Only&#160;for F3&#160;an&#160;individual&#160;review/merge decision&#160;is&#160;required.&#160;<br/>
+&#160;<br/>
+Figure&#160;14&#160;–&#160;Update&#160;the Platform&#160;Functions&#160;<br/>
+The&#160;selective merge approach brings&#160;following benefits&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Less&#160;differences&#160;<br/>Since&#160;only&#160;a subset&#160;of&#160;the&#160;data&#160;is&#160;being diffed,&#160;the number&#160;of&#160;differences&#160;is&#160;smaller&#160;and easier&#160;<br/>to handle&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Easier&#160;merge decisions&#160;<br/>If&#160;only&#160;individual&#160;platform&#160;functions&#160;are selected for&#160;merge,&#160;it&#160;may&#160;be easier&#160;to make&#160;merge&#160;<br/>decisions&#160;as&#160;mass&#160;operation&#160;<br/>
+<b>4.5&#160;&#160;Tips&#160;and tricks&#160;</b><br/>
+Here are some tips&#160;about&#160;using the platform&#160;function concept&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Number&#160;of&#160;platform&#160;functions&#160;<br/>The number&#160;of&#160;function&#160;definitions&#160;is&#160;not&#160;limited.&#160;However,&#160;a&#160;balance&#160;must&#160;be found&#160;between&#160;<br/>the effort&#160;for&#160;making the function&#160;assignment&#160;and the expected saved&#160;effort&#160;during&#160;project&#160;<br/>merge.&#160;A&#160;reasonable number&#160;of&#160;platform&#160;functions&#160;may&#160;be 2-20.&#160;In some cases,&#160;it&#160;may&#160;be&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+12<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-13_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+even helpful&#160;to&#160;just&#160;have one single function&#160;<b>Design</b>&#160;to&#160;mark&#160;those parts&#160;of&#160;a project,&#160;which&#160;<br/>should be&#160;reused.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Do not&#160;create&#160;the same function&#160;definition in several&#160;projects&#160;manually&#160;<br/>The function definitions&#160;are&#160;automatically&#160;imported.&#160;You don’t&#160;need to&#160;define/copy&#160;them&#160;<br/>manually&#160;in several&#160;projects.&#160;This&#160;will&#160;even&#160;lead to problems:&#160;each function&#160;definition&#160;you&#160;<br/>create&#160;will&#160;get&#160;an&#160;own&#160;UUID,&#160;which is&#160;used for&#160;identification.&#160;The DaVinci&#160;tools&#160;will&#160;warn&#160;you&#160;if&#160;<br/>you&#160;try&#160;to merge two projects,&#160;where&#160;a function definition has&#160;the same name but&#160;different&#160;<br/>UUID.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Use case:&#160;take over&#160;a&#160;SWC&#160;including&#160;their&#160;task&#160;mapping&#160;<br/>This&#160;can be achieved by&#160;explicitly&#160;assigning the&#160;SWC&#160;type&#160;to&#160;a function via&#160;DEV.&#160;The&#160;<br/>associated&#160;<b>Rte/RteSwComponentInstance</b>&#160;containers,&#160;which contain the task&#160;mapping,&#160;will&#160;<br/>be implicitly&#160;assigned.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Use case:&#160;take over&#160;parts&#160;of&#160;the&#160;BswM configuration&#160;<br/>This&#160;can be achieved by&#160;explicitly&#160;assigning the mode&#160;rules&#160;via&#160;the&#160;BSW&#160;Management&#160;Editor&#160;<br/>of&#160;CFG&#160;PRO.&#160;The related&#160;mode request&#160;ports,&#160;expressions,&#160;actions&#160;etc.&#160;will&#160;be&#160;implicitly&#160;<br/>assigned.&#160;<br/>
+&#160;<br/>
+<b>5&#160;</b><br/>
+<b>Library&#160;Mechanisms&#160;</b><br/>
+<b>5.1&#160;&#160;Concepts&#160;</b><br/>
+A&#160;library&#160;in terms&#160;of&#160;the DaVinci&#160;tools&#160;is&#160;a set&#160;of&#160;ARXML files,&#160;which contribute read-only&#160;model&#160;parts&#160;<br/>to the DaVinci&#160;project.&#160;By&#160;using according&#160;tool&#160;features&#160;of&#160;CFG&#160;PRO&#160;and DEV&#160;you&#160;are guaranteed&#160;<br/>that&#160;the content&#160;is&#160;displayed read-only&#160;and that&#160;the files&#160;remain unchanged&#160;when&#160;saving the project.&#160;<br/>
+<b>5.2&#160;&#160;Sharing&#160;BSW&#160;Module&#160;Configurations&#160;</b><br/>
+The&#160;ECUC&#160;File&#160;Reference&#160;mechanism&#160;of&#160;CFG&#160;PRO&#160;enables&#160;the definition&#160;of&#160;module configurations&#160;<br/>that&#160;can be&#160;shared&#160;by&#160;other&#160;projects.&#160;The&#160;master&#160;project,&#160;which&#160;has&#160;to&#160;be configured as&#160;split-file&#160;<br/>project,&#160;is&#160;used for&#160;editing this&#160;module configuration.&#160;A&#160;slave project&#160;references&#160;individual&#160;ECUC&#160;split&#160;<br/>files&#160;of&#160;the master&#160;project.&#160;The content&#160;of&#160;these files&#160;are loaded&#160;with the project&#160;and displayed read-<br/>only.&#160;As&#160;a result,&#160;the module configurations&#160;in&#160;these&#160;files&#160;appear&#160;in the slave&#160;project&#160;and&#160;are part&#160;of&#160;<br/>the validation and generation&#160;process&#160;like any&#160;other&#160;<b>local</b>&#160;module configuration.&#160;<br/>
+In the example i<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">n&#160;Figure&#160;15&#160;</a>the&#160;MCU&#160;module&#160;configuration&#160;has&#160;to be&#160;identical&#160;in&#160;Project1 and&#160;<br/>Project2.&#160;Project1 is&#160;used for&#160;editing the MCU&#160;configuration,&#160;so&#160;it&#160;has&#160;the&#160;role of&#160;the master&#160;project.&#160;<br/>Project2 references&#160;the split-file&#160;with the MCU&#160;configuration.&#160;<br/>
+&#160;<br/>
+Figure&#160;15&#160;–&#160;ECUC File&#160;Reference&#160;in&#160;CFG&#160;PRO&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+13<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-14_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-14_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>5.3&#160;&#160;Sharing SWCs between DaVinci&#160;projects&#160;</b><br/>
+A&#160;DCF&#160;workspace&#160;may&#160;be built-up hierarchically&#160;by&#160;including other&#160;DCF&#160;workspaces.&#160;DaVinci&#160;DEV&#160;<br/>recursively&#160;loads&#160;the content&#160;of&#160;all&#160;included&#160;DCFs.&#160;This&#160;content&#160;will&#160;always&#160;be display&#160;read-only.&#160;<br/>
+To support&#160;a product&#160;line approach,&#160;the&#160;DCFs&#160;could be e.g.&#160;organized as&#160;shown&#160;i<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">n&#160;Figure&#160;16:</a>&#160;<br/>
+<b>&gt;&#160;</b><br/>
+A&#160;DCF&#160;workspace contains&#160;those&#160;design elements,&#160;which are&#160;very&#160;stable&#160;and&#160;shared by&#160;<br/>several&#160;product&#160;lines&#160;(company&#160;standards).&#160;This&#160;may&#160;include a&#160;harmonized set&#160;of&#160;data&#160;types&#160;<br/>or&#160;compu methods.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+For&#160;each product&#160;line,&#160;a specific&#160;DCF&#160;workspace exists&#160;that&#160;includes&#160;the company&#160;standards&#160;<br/>DCF&#160;workspace.&#160;The product&#160;line DCF&#160;contains&#160;e.g.&#160;SWCs&#160;that&#160;are common&#160;for&#160;all&#160;projects&#160;<br/>belonging&#160;to that&#160;product&#160;line.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+For&#160;each project,&#160;a specific&#160;DCF&#160;workspace exists&#160;that&#160;includes&#160;one of&#160;the product&#160;line DCF&#160;<br/>workspaces.&#160;The project&#160;DCF&#160;contains&#160;e.g.&#160;the&#160;ECU&#160;composition&#160;SWC&#160;and other&#160;integration-<br/>specific SWCs.&#160;<br/>Only&#160;the&#160;project&#160;DCF&#160;is&#160;directly&#160;part&#160;of&#160;a DPA&#160;project.&#160;<br/>
+&#160;<br/>
+Figure&#160;16&#160;–&#160;Library&#160;DCFs&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>The concept&#160;of&#160;library&#160;DCFs&#160;can be&#160;used&#160;in combination&#160;with the&#160;other&#160;concepts&#160;<br/>
+&#160;<br/>
+mentioned in this&#160;document.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Configuration management&#160;<br/>Depending&#160;on the features&#160;of&#160;the CM&#160;tool,&#160;the hierarchical&#160;DCF&#160;structure can&#160;be represented&#160;<br/>by&#160;an according&#160;folder&#160;structure,&#160;or&#160;as&#160;packages/components&#160;in terms&#160;of&#160;the CM&#160;system.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Diff&#160;and merge&#160;<br/>When&#160;using the&#160;project&#160;merge function for&#160;a DCF&#160;that&#160;includes&#160;library&#160;DCFs,&#160;the diff&#160;results&#160;<br/>will also&#160;cover&#160;diffs&#160;in the included DCFs.&#160;Please be aware that&#160;the content&#160;of&#160;an&#160;included&#160;<br/>DCF&#160;is&#160;read-only,&#160;so&#160;you&#160;will&#160;not&#160;be able to&#160;apply&#160;merge decisions.&#160;<br/>To merge&#160;an&#160;included DCF&#160;you have&#160;to&#160;open the according&#160;DCF&#160;directly&#160;and start&#160;the&#160;<br/>diff/merge.&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Platform&#160;Functions&#160;<br/>The usage of&#160;platform&#160;functions&#160;is&#160;only&#160;possible&#160;within&#160;the project&#160;DCF.&#160;The included DCFs&#160;<br/>are not&#160;directly&#160;linked to&#160;a&#160;DPA&#160;project&#160;and therefore&#160;have no access&#160;to the platform&#160;function&#160;<br/>definitions.&#160;This&#160;limitation&#160;may&#160;be&#160;overcome with&#160;a&#160;future version&#160;of&#160;DaVinci&#160;DEV.&#160;<br/>
+<b>5.4&#160;&#160;Sharing SWCs from&#160;a&#160;third-party&#160;tool&#160;</b><br/>
+CFG&#160;PRO&#160;can be used&#160;in combination&#160;with&#160;a third-party&#160;SWC&#160;tool&#160;with following approach:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The Application&#160;Components&#160;folder&#160;contains&#160;the&#160;SWC&#160;files&#160;created&#160;by&#160;the third-party SWC&#160;<br/>tool.&#160;CFG&#160;PRO&#160;loads&#160;the content&#160;of&#160;these&#160;files&#160;read-only.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+14<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-15_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-15_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-15_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;Service&#160;Components&#160;folder&#160;contains&#160;the&#160;SWCs&#160;created by&#160;CFG&#160;PRO&#160;(indirectly&#160;created&#160;<br/>by&#160;the module code&#160;generators).&#160;The third party&#160;tool&#160;may&#160;load the content&#160;of&#160;this&#160;folder&#160;but&#160;<br/>must&#160;not&#160;change the files.&#160;<br/>
+&#160;<br/>
+Figure&#160;17&#160;–&#160;Sharing SWCs&#160;Between a&#160;Third&#160;Party&#160;Tool&#160;and CFG&#160;PRO&#160;<br/>
+&#160;<br/>
+<b>6&#160;</b><br/>
+<b>Configuration Management&#160;</b><br/>
+<b>6.1&#160;&#160;Concepts&#160;</b><br/>
+As&#160;soon&#160;as&#160;several&#160;team&#160;members&#160;are involved&#160;or&#160;several&#160;projects&#160;have to&#160;be&#160;handled,&#160;the&#160;usage&#160;of&#160;a&#160;<br/>CM system&#160;is&#160;recommended.&#160;The DaVinci&#160;tools&#160;provide no&#160;own&#160;CM capabilities.&#160;Instead,&#160;they&#160;<br/>cooperate&#160;with third&#160;party&#160;CM tools&#160;based on a file&#160;interface.&#160;The&#160;CM operations&#160;are managed&#160;outside&#160;<br/>of&#160;the DaVinci&#160;tools&#160;via according features&#160;of&#160;the CM&#160;tool.&#160;<br/>
+It&#160;is&#160;essential&#160;to&#160;use the right&#160;strategy&#160;of&#160;branches&#160;and&#160;synchronization&#160;points&#160;to&#160;reduce the merge&#160;<br/>effort.&#160;&#160;<br/>
+<b>6.2&#160;&#160;DaVinci&#160;project&#160;files in CM&#160;repository&#160;</b><br/>
+When committing a&#160;DaVinci&#160;project&#160;to&#160;the&#160;CM repository,&#160;following files&#160;may&#160;be excluded because&#160;<br/>they&#160;are&#160;generated:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Module files&#160;folder&#160;(default:&#160;<b>.\Appl\GenData</b>)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+VTT&#160;module&#160;files&#160;folder&#160;(default:&#160;<b>.\Appl\GenDataVip</b>)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Backup files&#160;(<b>.\Backups</b>)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Measurement&#160;and Calibration Files&#160;folder&#160;(default:&#160;<b>.\Config\McData</b>)&#160;<br/>Note:&#160;Only&#160;the&#160;Master.a2l&#160;file,&#160;which&#160;is&#160;authored by&#160;the&#160;user,&#160;should&#160;be stored on&#160;CM&#160;<br/>
+<b>&gt;&#160;</b><br/>
+BSW&#160;Internal&#160;Behavior&#160;Files&#160;(default&#160;<b>.\Config\InternalBehavior</b>)&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Only&#160;those&#160;files&#160;should&#160;be stored,&#160;which&#160;are defined or&#160;adapted&#160;by&#160;the&#160;user.&#160;The files&#160;of&#160;<br/>
+&#160;<br/>
+the MICROSAR&#160;modules&#160;are normally&#160;generated and&#160;need&#160;not&#160;to&#160;be stored in CM.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+15<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-16_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-16_3.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+Furthermore,&#160;the file&#160;<b>&lt;Project&#160;name&gt;.&lt;User&#160;name&gt;.silent.dcuser</b>&#160;parallel&#160;to the&#160;.dpa&#160;file&#160;needs&#160;not&#160;<br/>
+to be&#160;committed. It&#160;contains&#160;user&#160;specific&#160;preferences&#160;like window&#160;sizes&#160;etc.&#160;<br/>
+<b>6.3&#160;&#160;Working&#160;Copy&#160;</b><br/>
+The DaVinci&#160;tools&#160;have&#160;no&#160;direct&#160;interface to&#160;the&#160;CM repository.&#160;Instead,&#160;each user&#160;should&#160;work&#160;on a&#160;<br/>private&#160;working copy&#160;of&#160;the&#160;DaVinci&#160;project.&#160;The DaVinci&#160;tools&#160;load/save&#160;the files&#160;from&#160;this&#160;working&#160;<br/>copy.&#160;<br/>
+&#160;<br/>
+Figure&#160;18&#160;–&#160;Working Copy&#160;of&#160;the&#160;Repository&#160;<br/>
+For&#160;performance reason&#160;it&#160;is&#160;recommended to&#160;have the&#160;working copy&#160;in the&#160;local&#160;file system.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>When working&#160;with&#160;several&#160;branches&#160;or&#160;revisions&#160;of&#160;the same project&#160;(see also section&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#18">6.5)</a>,&#160;a separate&#160;working copy&#160;for&#160;each&#160;branch should&#160;be used.&#160;This&#160;allows&#160;you&#160;to&#160;e.g.&#160;<br/>open&#160;one branch of&#160;the&#160;project&#160;with the DaVinci&#160;tools,&#160;and select&#160;other&#160;branches&#160;or&#160;<br/>revisions&#160;for&#160;diff/merge.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>6.4&#160;&#160;File&#160;Granularity&#160;</b><br/>
+The DaVinci&#160;tools&#160;support&#160;the AUTOSAR&#160;split-file&#160;concept,&#160;where the overall&#160;AUTOSAR&#160;model&#160;is&#160;<br/>distributed over&#160;several&#160;ARXML files.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+DEV&#160;supports&#160;the storage&#160;of&#160;a workspace in several&#160;split-files,&#160;e.g.&#160;one file per&#160;SWC&#160;type.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+CFG&#160;PRO&#160;supports&#160;the&#160;storage of&#160;an&#160;ECU&#160;configuration either&#160;as&#160;monolithic&#160;file,&#160;or&#160;split&#160;into&#160;<br/>one file per&#160;BSW&#160;module.&#160;<br/>
+Using the CM tool’s&#160;features&#160;you may&#160;control&#160;the&#160;access&#160;mode of&#160;the individual&#160;files&#160;(read-only vs.&#160;<br/>read-write).&#160;Following central&#160;files&#160;are most&#160;likely&#160;changed&#160;by&#160;all&#160;users.&#160;So they&#160;have&#160;to&#160;be r/w&#160;to&#160;<br/>enable changes:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+FlatExtract&#160;and&#160;FlatMap in the System&#160;folder&#160;<br/>
+<b>&gt;&#160;</b><br/>
+InitialEcuC&#160;in&#160;the&#160;ECUC&#160;folder&#160;<br/>&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+16<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-17_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-17_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-17_4.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;19&#160;-&#160;Split-file&#160;Project&#160;<br/>
+It&#160;is&#160;recommended to keep&#160;the file granularity&#160;stable&#160;over&#160;the&#160;lifetime of&#160;the&#160;project.&#160;This&#160;avoids&#160;rework&#160;<br/>of&#160;the CM repository&#160;structure.&#160;<br/>
+The file status&#160;of&#160;the&#160;ARXML files&#160;in the DaVinci&#160;project&#160;is&#160;reflected&#160;in&#160;the GUI&#160;of&#160;the DaVinci&#160;tools.&#160;<br/>
+&#160;<br/>
+Figure&#160;20&#160;–&#160;File&#160;Status&#160;Reflected&#160;in the DaVinci&#160;Tools&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Project&#160;merge works&#160;with any&#160;file granularity.&#160;Project&#160;merge is&#160;supported&#160;with monolithic&#160;<br/>
+&#160;<br/>
+files&#160;as&#160;well&#160;as&#160;split&#160;files.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+17<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-18_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>6.5&#160;&#160;Branches and Synchronization Points&#160;</b><br/>
+We&#160;use following terms&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Synch-Merge&#160;<br/>The&#160;synch-merge is&#160;a&#160;process&#160;where a&#160;branch&#160;is&#160;being prepared for&#160;being integrated&#160;into the&#160;<br/>trunk.&#160;The&#160;synch-merge consists&#160;of&#160;three parts:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Merge&#160;of&#160;the&#160;AUTOSAR&#160;model&#160;performed by&#160;the DaVinci&#160;tools&#160;using the three-way-merge&#160;<br/>approach,&#160;see section<a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4">&#160;3.</a>&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Registration of&#160;the&#160;merge by&#160;means&#160;of&#160;the CM&#160;system,&#160;without&#160;performing an actual&#160;merge on&#160;<br/>file level&#160;(this&#160;is&#160;done by&#160;the DaVinci&#160;tool&#160;instead).&#160;<br/>In SVN:&#160;Use&#160;<b>merge&#160;to&#160;head&#160;revision</b>&#160;with option&#160;<b>only&#160;record&#160; the&#160;merge</b>&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Commit&#160;the modified files&#160;to the&#160;branch&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Commit-Merge&#160;<br/>The commit-merge is&#160;a process&#160;where a&#160;branch&#160;is&#160;integrated&#160;into the trunk.&#160;The commit-merge&#160;<br/>consists&#160;of&#160;two parts:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Registration of&#160;the&#160;merge by&#160;means&#160;of&#160;the CM&#160;system,&#160;without&#160;performing an actual&#160;merge on&#160;<br/>file&#160;level.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Commit&#160;the files&#160;to the trunk&#160;<br/>
+Following&#160;diagrams&#160;show&#160;the possible branch/merge strategies.&#160;Legend:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Light&#160;grey&#160;dot:&#160;version/revision&#160;of&#160;the project&#160;without&#160;change&#160;of&#160;input&#160;files&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Dark&#160;grey&#160;dot:&#160;version/revision&#160;of&#160;the project&#160;including&#160;change&#160;of&#160;input&#160;files&#160;(project&#160;update)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Dot&#160;with&#160;<b>S</b>:&#160;synch-merged version/revision&#160;of&#160;the project&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Dot&#160;with&#160;<b>C</b>:&#160;commit-merged version/revision&#160;of&#160;the project&#160;<br/>
+<b>Strategy&#160;“Central&#160;Update&#160;on&#160;Trunk</b>”:&#160;<br/>
+Project&#160;updates&#160;are only&#160;performed in the trunk.&#160;After&#160;the project&#160;update,&#160;a branch&#160;for&#160;each user&#160;is&#160;<br/>created.&#160;Each&#160;user&#160;works&#160;in his&#160;branch&#160;and may&#160;create revisions.&#160;After&#160;finishing the development&#160;of&#160;<br/>the user&#160;branches,&#160;the&#160;branches&#160;are merged one-by-one:&#160;synch-merge,&#160;then commit-merge,&#160;then&#160;<br/>terminate the&#160;branch.&#160;After&#160;merging all&#160;branches,&#160;the next&#160;project&#160;update may&#160;be&#160;executed&#160;on the&#160;<br/>trunk.&#160;After&#160;the project&#160;update,&#160;new&#160;user&#160;branches&#160;are&#160;created.&#160;<br/>
+This&#160;strategy&#160;reduces&#160;the number&#160;of&#160;project&#160;updates,&#160;but&#160;blocks&#160;the users&#160;while their&#160;branches&#160;are&#160;<br/>“dead”&#160;during merge and&#160;project&#160;update&#160;on the trunk.&#160;<br/>
+&#160;<br/>
+Figure&#160;21&#160;-&#160;Strategy&#160;<b>Central&#160;Update&#160;on Trunk</b>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+18<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-19_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1208_DaVinciTeamAndPlatformSupport-19_2.png"/><br/>
+DaVinci&#160;Team&#160;and Platform&#160;Support&#160;<br/>
+<b>Strategy&#160;“Update&#160;Each&#160;Branch</b>”:&#160;<br/>
+Project&#160;updates&#160;are performed on the trunk&#160;<b>and</b>&#160;on each user&#160;branch.&#160;Each user&#160;works&#160;in his&#160;branch&#160;<br/>and may&#160;create&#160;revisions.&#160;After&#160;finishing the development&#160;for&#160;a particular&#160;release,&#160;the user&#160;branch is&#160;<br/>merged:&#160;synch-merge,&#160;then&#160;commit-merge.&#160;The user&#160;branch can “live one”.&#160;Immediately&#160;after&#160;making&#160;<br/>the&#160;commit-merge,&#160;the branch is&#160;ready&#160;for&#160;development&#160;for&#160;the next&#160;release,&#160;starting&#160;with the project&#160;<br/>update.&#160;Special&#160;care has&#160;to&#160;be taken:&#160;synch-merges&#160;and commit-merges&#160;are only&#160;allowed&#160;with&#160;<br/>branches&#160;on the same release level.&#160;&#160;<br/>
+Example:&#160;User1&#160;has&#160;only&#160;minor&#160;modifications&#160;for&#160;R1.&#160;He commits&#160;his&#160;changes&#160;early&#160;and starts&#160;with R2&#160;<br/>development&#160;with the project&#160;update on his&#160;branch.&#160;After&#160;that&#160;point,&#160;User1 must&#160;not&#160;make any&#160;synch-<br/>merges&#160;since the trunk&#160;is&#160;still&#160;on&#160;R1.&#160;The&#160;other&#160;users&#160;continue&#160;working on R1.&#160;Later&#160;on,&#160;User2 makes&#160;<br/>a synch-merge to get&#160;the modification&#160;of&#160;User1,&#160;and the commit-merge.&#160;Finally&#160;User3 makes&#160;the&#160;<br/>synch-merge to get&#160;modifications&#160;of&#160;User1 and User2,&#160;and the commit-merge.&#160;Now,&#160;the&#160;R1&#160;is&#160;being&#160;<br/>released.&#160;User2 may&#160;decide to make another&#160;synch-merge after&#160;that&#160;to get&#160;the modifications&#160;of&#160;User3&#160;<br/>for&#160;R1 before he starts&#160;with&#160;R2 development.&#160;The trunk&#160;is&#160;being&#160;updated&#160;to R2 meanwhile.&#160;After&#160;that&#160;<br/>point,&#160;User1&#160;is&#160;allowed&#160;to&#160;make synch-merges&#160;and commit-merges&#160;to the trunk&#160;again.&#160;<br/>
+This&#160;strategy&#160;does&#160;not&#160;block&#160;the users&#160;during&#160;the&#160;merge phase,&#160;but&#160;it&#160;may&#160;lead to&#160;more workload since&#160;<br/>the project&#160;update&#160;has&#160;to&#160;be repeated on&#160;the&#160;trunk&#160;and on&#160;each&#160;branch separately.&#160;Furthermore,&#160;more&#160;<br/>synch-merges&#160;may&#160;be required.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;22&#160;-&#160;Strategy&#160;<b>Update Each&#160;Branch</b>&#160;<br/>
+<b>7&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For&#160;a&#160;full&#160;list&#160;with&#160;all&#160;Vector&#160;locations&#160;and addresses&#160;worldwide,&#160;please visit<a href="http://vector.com/contact/">&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector&#160;Informatik&#160;GmbH<i>&#160;</i><br/>
+19<i>&#160;</i><br/>
+Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2">1 Overview</a>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2">1.1 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2">2 Background</a>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#2">2.1 Collaboration (multi-user)</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#3">2.2 Product Line Approach</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4">3 Diff and Merge</a>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#4">3.1 Concepts</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#5">3.2 Project Merge</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#5">3.3 Merge Approaches (2-way, 3-way)</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#7">3.4 Object Identification</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#7">3.5 Project Merge in a Multi-User Development Process</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#9">4 Platform Functions</a>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#9">4.1 Concepts</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#10">4.2 Definition of Platform Functions</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#11">4.3 Function Assignment</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#11">4.4 Selective Merge based on Platform Functions</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#12">4.5 Tips and tricks</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">5 Library Mechanisms</a>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">5.1 Concepts</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#13">5.2 Sharing BSW Module Configurations</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">5.3 Sharing SWCs between DaVinci projects</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#14">5.4 Sharing SWCs from a third-party tool</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">6 Configuration Management</a>
+<ul>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">6.1 Concepts</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#15">6.2 DaVinci project files in CM repository</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#16">6.3 Working Copy</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#16">6.4 File Granularity</a></li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#18">6.5 Branches and Synchronization Points</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1208_DaVinciTeamAndPlatformSupports.html#19">7 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

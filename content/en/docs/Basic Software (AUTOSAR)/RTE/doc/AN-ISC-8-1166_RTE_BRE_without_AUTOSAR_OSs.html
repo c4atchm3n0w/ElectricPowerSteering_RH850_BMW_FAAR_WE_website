@@ -1,0 +1,213 @@
+---
+title: AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs
+linkTitle: AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs
+weight: 5
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-1_1.png"/><br/>
+&#160;<br/>&#160;<br/>
+<b>Using&#160;RTE&#160;or&#160;BRE&#160;without&#160;AUTOSAR&#160;OS&#160;<br/></b>Version&#160;1.1.1&#160;<br/>2016-06-08&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1166&#160;<br/>
+<b>Author</b>&#160;<br/>
+Hannes&#160;Haas&#160;<br/>
+<b>Restrictions</b>&#160;&#160;Customer Confidential&#160;–&#160;Vector decides&#160;<br/><b>Abstract</b>&#160;<br/>
+This&#160;application&#160;note&#160;describes&#160;how to&#160;configure the&#160;MICROSAR BRE&#160;(Basic&#160;Runtime&#160;<br/>Environment)&#160;or a minimum&#160;RTE&#160;without&#160;using&#160;an&#160;AUTOSAR OS.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2"><b>Overview&#160;........................................................................................................................................&#160;2</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2">Limitations&#160;............................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2"><b>OS&#160;Configuration&#160;in DaVinci&#160;Configurator&#160;.................................................................................&#160;2</b>&#160;<br/></a><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">2.1&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">BRE&#160;Configuration&#160;Requirements&#160;for the&#160;OS&#160;......................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">Call&#160;Cycle&#160;of&#160;Tasks&#160;..............................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3"><b>Mandated&#160;OS&#160;APIs&#160;........................................................................................................................&#160;3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4"><b>Calling&#160;of&#160;Tasks&#160;.............................................................................................................................&#160;4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4"><b>5</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4"><b>Additional&#160;Resources&#160;...................................................................................................................&#160;4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4"><b>6</b>&#160;</a><br/>
+<a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4"><b>Contacts&#160;.........................................................................................................................................&#160;4</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-2_2.png"/><br/>
+Using&#160;RTE&#160;or&#160;BRE&#160;without&#160;AUTOSAR&#160;OS&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+The&#160;RTE&#160;and BRE&#160;implementation assume the&#160;existence of&#160;an&#160;AUTOSAR OS&#160;or&#160;an&#160;OSEK&#160;OS&#160;as&#160;it&#160;<br/>very&#160;much depends&#160;on&#160;it functionalities&#160;and configuration&#160;description. If&#160;a&#160;different OS or&#160;a&#160;basic&#160;<br/>scheduler (non-AUTOSAR&#160;OS)&#160;is&#160;used, the provided&#160;interfaces&#160;must be similar to&#160;the&#160;interfaces&#160;<br/>defined&#160;by&#160;AUTOSAR OS.&#160;Interfaces&#160;in this&#160;context include.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+C APIs&#160;and header files&#160;<br/>
+<b>&gt;&#160;</b><br/>
+ECUC configuration data&#160;exchange&#160;<br/>
+<b>&gt;&#160;</b><br/>
+API&#160;behavior&#160;<br/>
+The&#160;intention of&#160;this&#160;document&#160;is&#160;to&#160;provide&#160;an&#160;overview&#160;of&#160;the configuration&#160;process&#160;and the&#160;required&#160;<br/>APIs.&#160;An&#160;exact description&#160;of&#160;the API behavior&#160;is&#160;not scope of&#160;this&#160;document. Please refer to the&#160;<br/>AUTOSAR OS&#160;specification for details.&#160;<br/>
+The&#160;focus&#160;of&#160;this&#160;document is&#160;set&#160;on a&#160;minimum&#160;RTE&#160;feature set that&#160;is&#160;also&#160;provided&#160;by&#160;the&#160;BRE. For&#160;<br/>more advanced&#160;RTE&#160;features&#160;the&#160;usage&#160;of&#160;an&#160;AUTOSAR OS&#160;is&#160;highly&#160;recommended.&#160;<br/>
+<b>1.1&#160;&#160;Limitations&#160;</b><br/>
+This&#160;document describes&#160;a&#160;RTE/BRE&#160;configuration for an ECU project&#160;without&#160;enhanced&#160;functionality&#160;<br/>such as&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Multi-core&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Application partitioning using MPU&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Safety&#160;requirements&#160;<br/>
+These assumptions&#160;are&#160;vital&#160;as&#160;otherwise the dependency&#160;between&#160;BRE&#160;and operating system&#160;<br/>becomes&#160;too complex&#160;to&#160;be&#160;managed&#160;and&#160;documented&#160;in such&#160;an&#160;application note.&#160;<br/>
+<b>2&#160;</b><br/>
+<b>OS&#160;Configuration in&#160;DaVinci&#160;Configurator&#160;</b><br/>
+BRE&#160;requires&#160;the existence&#160;of&#160;an&#160;AUTOSAR OS&#160;in the&#160;ECUC&#160;project as&#160;it&#160;will&#160;e.g.&#160;read the&#160;tasks&#160;<br/>configuration&#160;from&#160;the OS configuration.&#160;<br/>
+In&#160;order&#160;to&#160;add&#160;an&#160;OS, launch DaVinci&#160;Configurator&#160;Pro and open&#160;the&#160;<b>Project&#160;Settings</b>&#160;page.&#160;Add&#160;the&#160;<br/>AUTOSAR OS&#160;as&#160;new BSW&#160;module.&#160;As&#160;the OS&#160;is&#160;not part of&#160;your delivery&#160;choose&#160;<b>Select&#160;from&#160;<br/>AUTOSAR&#160;Standard&#160;Definition</b>. Now&#160;you&#160;can&#160;add&#160;the OS to&#160;your project.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;<br/>
+Project&#160;Settings&#160;Editor&#160;in&#160;DaVinci&#160;Developer&#160;Pro&#160;<br/>
+It is&#160;not&#160;required to configure the&#160;OS&#160;completely,&#160;thus&#160;the&#160;OS&#160;configuration may&#160;contain&#160;validation&#160;<br/>errors&#160;as&#160;long as&#160;all&#160;information required for BRE&#160;is&#160;available.&#160;The&#160;AUTOSAR OS&#160;configuration&#160;must&#160;<br/>match with&#160;the&#160;behavior&#160;of&#160;your&#160;non-AUTOSAR OS&#160;with&#160;respect to the following&#160;aspects. Please&#160;<br/>configure&#160;these properties&#160;using&#160;DaVinci&#160;Configurator Pro:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+<b>Tasks</b>: Add&#160;a&#160;container for at least those tasks&#160;that&#160;are&#160;handled by&#160;BRE. The&#160;BRE&#160;will&#160;implement&#160;<br/>the&#160;tasks&#160;that&#160;are used&#160;to&#160;map&#160;BSW&#160;main functions&#160;to.&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+<b>TaskPriority</b>: Configure&#160;the task&#160;priority&#160;of&#160;the&#160;tasks&#160;implemented&#160;by&#160;BRE&#160;<br/>
+Copyright&#160;©&#160;2016&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-3_2.png"/><br/>
+Using&#160;RTE&#160;or&#160;BRE&#160;without&#160;AUTOSAR&#160;OS&#160;<br/>
+<b>&gt;&#160;</b><br/>
+<b>TaskSchedule</b>: Attribute&#160;defines&#160;the&#160;preempt&#160;ability&#160;of&#160;the task. If&#160;this&#160;Task&#160;cannot be&#160;preempted&#160;<br/>by&#160;other Tasks&#160;select NON.&#160;If&#160;this&#160;Task&#160;can&#160;be&#160;preempted by&#160;other Tasks&#160;with&#160;higher&#160;TaskPriority&#160;<br/>select FULL.&#160;<br/>
+Having&#160;set&#160;up the OS&#160;in&#160;this&#160;way, the&#160;BRE&#160;can&#160;now&#160;be&#160;configured&#160;by&#160;e.g.&#160;mapping BSW&#160;main&#160;<br/>functions&#160;(MainFunctions)&#160;to&#160;the&#160;tasks.&#160;<br/>
+If&#160;no&#160;OSEK&#160;OS&#160;is&#160;used,&#160;only&#160;basic&#160;tasks&#160;shall&#160;be&#160;used&#160;as&#160;otherwise the&#160;interface to the&#160;OS&#160;will&#160;get&#160;too&#160;<br/>complex. In&#160;contrast to&#160;extended&#160;tasks, basic&#160;tasks&#160;can&#160;be&#160;integrated&#160;with&#160;a non-AUTOSAR and&#160;non&#160;<br/>OSEK-OS&#160;scheduler&#160;with reasonable effort. This&#160;documentation&#160;is&#160;therefore&#160;limited&#160;to&#160;the&#160;usage of&#160;<br/>basic&#160;tasks.&#160;<br/>
+To cause the&#160;BRE&#160;to&#160;utilize&#160;basic&#160;tasks&#160;only,&#160;it&#160;is&#160;only&#160;allowed to map&#160;Runnables&#160;(BSW&#160;<br/>MainFunctions)&#160;with&#160;same trigger conditions&#160;to&#160;one&#160;task&#160;(cyclic&#160;with same cycle time and&#160;offset). If&#160;<br/>there are different cycle times&#160;to&#160;be used, one task&#160;for&#160;each cycle time has&#160;to&#160;be&#160;defined.&#160;The&#160;same&#160;<br/>applies&#160;if&#160;different offset&#160;times&#160;shall&#160;be&#160;used.&#160;Mixing&#160;different trigger conditions&#160;can cause the&#160;BRE&#160;to&#160;<br/>utilize complex&#160;OS&#160;features&#160;such as&#160;extended&#160;tasks&#160;and schedule tables.&#160;<br/>
+<b>2.1&#160;&#160;BRE&#160;Configuration&#160;Requirements&#160;for&#160;the&#160;OS&#160;</b><br/>
+Once the&#160;BRE&#160;is&#160;configured,&#160;click&#160;<b>Validate</b>&#160;or&#160;<b>Generate</b>&#160;in&#160;DaVinci&#160;Configurator&#160;Pro.&#160;Activate&#160;at&#160;least&#160;<br/>the&#160;<b>RTE</b>&#160;<b>generator</b>&#160;(which&#160;is&#160;also used to&#160;generate&#160;the&#160;BRE&#160;code). The&#160;BRE&#160;will&#160;now&#160;update parts&#160;of&#160;<br/>the&#160;OS&#160;configuration based&#160;on&#160;the&#160;current&#160;configuration.&#160;To verify&#160;that&#160;only&#160;basic&#160;tasks&#160;are required&#160;by&#160;<br/>the&#160;BRE, check&#160;that&#160;no&#160;events&#160;are created&#160;in&#160;‘Os/OsEvent’.&#160;<br/>
+If&#160;you do not&#160;use&#160;an&#160;OSEK&#160;configuration&#160;tool&#160;you&#160;will&#160;find&#160;the required OS configuration&#160;in&#160;the&#160;OS&#160;<br/>configuration&#160;within&#160;DaVinci&#160;Configurator Pro. The&#160;following&#160;OS&#160;configuration&#160;options&#160;added&#160;by&#160;the&#160;<br/>BRE&#160;are of&#160;importance for&#160;your&#160;non-AUTOSAR OS&#160;configuration.&#160;<br/>
+<b>2.2&#160;&#160;Call&#160;Cycle&#160;of&#160;Tasks&#160;</b><br/>
+For basic&#160;tasks&#160;the BRE&#160;implementation&#160;(see&#160;Rte.c)&#160;will&#160;invoke SetRelAlarm&#160;indicating the required&#160;<br/>cycle time (this&#160;is&#160;also&#160;the&#160;time configured&#160;for the main functions&#160;mapped to that&#160;task). Configure&#160;your&#160;<br/>non-AUTOSAR OS&#160;in&#160;a&#160;way&#160;that&#160;it invokes&#160;the task&#160;in&#160;that cycle time.&#160;<br/>
+&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Mandated&#160;OS&#160;APIs&#160;</b><br/>
+Assuming&#160;the&#160;BRE&#160;is&#160;configured&#160;as&#160;above,&#160;basic&#160;tasks&#160;will&#160;be&#160;used&#160;only.&#160;&#160;<br/>
+When&#160;using&#160;basic&#160;tasks, the following&#160;APIs&#160;are required by&#160;BRE&#160;and must be provided by&#160;the non-<br/>AUTOSAR OS. The&#160;BRE&#160;implementation assumes&#160;that&#160;these APIs&#160;match the&#160;AUTOSAR OS&#160;<br/>standard:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+<b>OS&#160;Tasks:</b>&#160;As&#160;defined by&#160;the&#160;AUTOSAR OS,&#160;the&#160;BRE&#160;will&#160;utilize the&#160;TASK(x)&#160;macro when&#160;<br/>implementing&#160;the task.&#160;x&#160;is&#160;thereby&#160;the&#160;function&#160;name as&#160;defined in the OS configuration.&#160;If&#160;your&#160;<br/>OS&#160;does&#160;not&#160;provide this&#160;macro,&#160;define&#160;this&#160;or a similar&#160;macro within&#160;Os.h.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Example&#160;<br/></b>#define&#160;TASK(x)&#160;void x##func(void)&#160;<br/>
+&#160;<br/>
+To invoke the&#160;task&#160;from&#160;your&#160;OS&#160;call: &#160;&lt;x&gt;func();&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Provision of&#160;SuspendAllInterrupts(void)&#160;and&#160;ResumeAllInterrupts(void)&#160;for critical&#160;<br/>section&#160;handling.&#160;These APIs&#160;shall&#160;support nested&#160;calls&#160;(i.e.&#160;lock&#160;interrupts&#160;the first time&#160;<br/>SuspendAllInterrupts&#160;is&#160;called, count&#160;the&#160;nesting&#160;and&#160;unlock&#160;interrupts&#160;the last&#160;time&#160;<br/>ResumeAllInterrupts&#160;is&#160;invoked). The&#160;API&#160;is&#160;used&#160;if&#160;<br/>Rte|RteBswModuleInstance|RteBswExclusiveAreaImpl|RteExclusiveAreaImplMechanism&#160;is&#160;set&#160;to&#160;<br/>&#34;ALL_INTERRUPT_BLOCKING&#34;.&#160;This&#160;is&#160;the&#160;recommended setting&#160;and the default choice.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Depending&#160;on&#160;the&#160;BRE&#160;configuration the&#160;APIs&#160;DisableAllInterrupts(void)&#160;and&#160;<br/>EnableAllInterrupts(void)&#160;are used&#160;that&#160;directly&#160;lock&#160;the interrupts&#160;without&#160;nesting.&#160;<br/>
+Copyright&#160;©&#160;2016&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-4_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-4_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rte/doc/AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS-4_4.png"/><br/>
+Using&#160;RTE&#160;or&#160;BRE&#160;without&#160;AUTOSAR&#160;OS&#160;<br/>
+<b>&gt;&#160;</b><br/>
+SetRelAlarm:&#160;Will&#160;be&#160;used&#160;to set&#160;up the cycle time and&#160;offset&#160;for (basic)&#160;tasks. You&#160;can&#160;use the&#160;<br/>API&#160;to&#160;enable&#160;the&#160;main function&#160;scheduling if&#160;required.&#160;If&#160;you&#160;have a&#160;simple scheduler that&#160;does&#160;<br/>not require&#160;dynamic&#160;alarm&#160;configuration,&#160;function&#160;may&#160;be&#160;defined&#160;to&#160;nothing&#160;within&#160;your&#160;Os.h&#160;<br/>implementation.&#160;Ensure the&#160;tasks&#160;are not called&#160;before&#160;the call&#160;of&#160;this&#160;API.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Example&#160;<br/></b>#define SetRelAlarm (x, y, z)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>CancelAlarm</b>:&#160;API&#160;will&#160;be&#160;used&#160;to&#160;disable calling the&#160;main&#160;functions&#160;during ECU shutdown.&#160;You&#160;<br/>can&#160;use the&#160;API&#160;to&#160;disable&#160;the&#160;main function scheduling if&#160;required.&#160;If&#160;you&#160;have&#160;a&#160;simple scheduler&#160;<br/>this&#160;function may&#160;be&#160;defined to&#160;nothing&#160;within&#160;your&#160;Os.h&#160;implementation.&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Example&#160;<br/></b>#define CancelAlarm (x)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;</b><br/>
+<b>TerminateTask</b>:&#160;Will&#160;be&#160;called&#160;at&#160;the&#160;end&#160;of&#160;a&#160;basic&#160;task. If&#160;you have a&#160;simple scheduler this&#160;<br/>function&#160;may&#160;be&#160;defined&#160;to&#160;nothing&#160;within&#160;your&#160;Os.h&#160;implementation.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Example&#160;<br/></b>#define TerminateTask()&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;</b><br/>
+OS&#160;Functionality&#160;used&#160;by&#160;BRE&#160;must be published&#160;in&#160;the header&#160;Os.h.&#160;<br/>
+&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Calling of&#160;Tasks&#160;</b><br/>
+After the&#160;stack&#160;has&#160;been initialized&#160;(earliest after&#160;SchM_Init&#160;calling&#160;the&#160;SetRelAlarm()&#160;API)&#160;the&#160;<br/>Tasks&#160;have to be called by&#160;the&#160;non-AUTOSAR OS&#160;according to&#160;the&#160;defined&#160;cycle time.&#160;<br/>
+<b>5&#160;</b><br/>
+<b>Additional&#160;Resources&#160;</b><br/>
+AUTOSAR&#160;STANDARD&#160;<br/>
+<b>AUTOSAR_SWS_OS.pdf</b>&#160;&#160;AUTOSAR&#160;specification&#160;of&#160;OS&#160;<br/>
+<b>AUTOSAR_SWS_RTE.pdf</b>&#160;&#160;AUTOSAR&#160;specification&#160;of&#160;RTE&#160;<br/>
+TECHNICAL&#160;REFERENCE&#160;<br/>
+<b>TechnicalReference_Bre.pdf</b>&#160;&#160;MICROSAR&#160;BRE&#160;technical&#160;reference&#160;(available in SIP&#160;if&#160;<br/>BRE&#160;is&#160;being&#160;used)&#160;<br/>
+<b>6&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For a full&#160;list&#160;with all&#160;Vector&#160;locations&#160;and&#160;addresses&#160;worldwide, please&#160;visi<a href="http://vector.com/contact/">t&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2016&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+4<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2">1 Overview</a>
+<ul>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2">1.1 Limitations</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#2">2 OS Configuration in DaVinci Configurator</a>
+<ul>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">2.1 BRE Configuration Requirements for the OS</a></li>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">2.2 Call Cycle of Tasks</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#3">3 Mandated OS APIs</a></li>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4">4 Calling of Tasks</a></li>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4">5 Additional Resources</a></li>
+<li><a href="AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OSs.html#4">6 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

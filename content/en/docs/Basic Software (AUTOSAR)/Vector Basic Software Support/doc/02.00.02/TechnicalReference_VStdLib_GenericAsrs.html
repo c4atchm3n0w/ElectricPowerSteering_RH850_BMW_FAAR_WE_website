@@ -1,0 +1,1011 @@
+---
+title: TechnicalReference_VStdLib_GenericAsrs
+linkTitle: TechnicalReference_VStdLib_GenericAsrs
+weight: 15
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR VStdLib&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Generic&#160;implementation of the Vector Standard Library&#160;<br/>Version&#160;1.00.01&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Torsten&#160;Kercher&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+&#160;<br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Torsten&#160;Kercher&#160;<br/>
+2015-05-04&#160;<br/>
+1.00.00&#160;<br/>
+Creation&#160;<br/>
+Torsten&#160;Kercher&#160;<br/>
+2016-04-12&#160;<br/>
+1.00.01&#160;<br/>
+Update&#160;to&#160;new&#160;CI,&#160;no&#160;changes&#160;in content&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+1.6.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DevelopmentErrorTracer.pdf&#160;<br/>
+3.2.0&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#5"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#5"><b>Component&#160;History&#160;......................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#6"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#6"><b>Introduction...................................................................................................................&#160;6</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#6">Architecture&#160;Overview&#160;........................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8"><b>Functional&#160;Description&#160;.................................................................................................&#160;8</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Features&#160;............................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Initialization and Main Functions&#160;........................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.3&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Error&#160;Handling&#160;....................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9"><b>Integration&#160;.....................................................................................................................&#160;9</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Scope of&#160;Delivery&#160;...............................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">4.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Include Structure&#160;................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">4.3&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Critical&#160;Sections&#160;.................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#10">4.4&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#10">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.....................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#11">4.5&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#11">Integration&#160;Hints&#160;...............................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12"><b>API&#160;Description&#160;...........................................................................................................&#160;12</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">Type&#160;Definitions&#160;...............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">5.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">Services provided by&#160;VStdLib&#160;..........................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#22">5.3&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#22">Services used by&#160;VStdLib&#160;................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#23"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#23"><b>Configuration&#160;..............................................................................................................&#160;23</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#23">Configuration Variants&#160;......................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#23">6.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#23">Manual&#160;Configuration&#160;in&#160;Header&#160;File&#160;................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#25"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#25"><b>Abbreviations&#160;..............................................................................................................&#160;25</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#26"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#26"><b>Contact&#160;........................................................................................................................&#160;26</b>&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>Illustrations&#160;<br/></b><a href="TechnicalReference_VStdLib_GenericAsrs.html#6">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#6">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#7">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#7">Interfaces&#160;to adjacent&#160;modules&#160;...................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Include Structure&#160;........................................................................................&#160;9&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_VStdLib_GenericAsrs.html#5">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#5">Component&#160;history......................................................................................&#160;5&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Service IDs&#160;.................................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#8">Errors&#160;reported&#160;to DET&#160;...............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#9">Static&#160;files&#160;...................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#10">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#10">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.............................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">VStdLib_GetVersionInfo&#160;...........................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#13">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#13">VStdLib_MemClr&#160;......................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#14">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#14">VStdLib_MemClrMacro&#160;.............................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#15">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#15">VStdLib_MemSet&#160;......................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#16">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#16">VStdLib_MemSetMacro&#160;............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#17">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#17">VStdLib_MemCpy&#160;.....................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#18">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#18">VStdLib_MemCpy16&#160;.................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#19">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#19">VStdLib_MemCpy32&#160;.................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#20">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#20">VStdLib_MemCpy_s&#160;.................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#21">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#21">VStdLib_MemCpyMacro&#160;...........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#22">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#22">VStdLib_MemCpyMacro_s&#160;.......................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#22">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#22">Services used by&#160;VStdLib&#160;.........................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#24">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#24">General&#160;configuration&#160;...............................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#25">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLib_GenericAsrs.html#25">Abbreviations&#160;............................................................................................&#160;25&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00&#160;<br/>
+Creation&#160;of&#160;the&#160;component.&#160;<br/>
+2.00&#160;<br/>
+Detach&#160;the&#160;component&#160;from&#160;core-based&#160;implementations,&#160;give optimized&#160;<br/>routines&#160;and&#160;support&#160;operations on&#160;large&#160;data&#160;(&gt;&#160;65535&#160;bytes).&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-6_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-6_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;&#160;generic&#160;&#160;Vector&#160;<br/>Standard&#160;Library&#160;(VStdLib).&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_VStdLib_GenericAsrs.html#6">elease*:</a></b><b>&#160;</b><br/>
+4.x&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+VSTDLIB_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+VSTDLIB_MODULE_ID&#160;<br/>
+255&#160;decimal&#160;<br/>(according&#160;t<a href="TechnicalReference_VStdLib_GenericAsrs.html#2">o&#160;[1])</a>&#160;<br/>
+*&#160;For the precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;<br/>&#160;<br/>The&#160;&#160;VStdLib&#160;&#160;provides&#160;&#160;a&#160;&#160;hardware&#160;&#160;independent&#160;&#160;implementation&#160;&#160;of&#160;&#160;memory&#160;&#160;manipulation&#160;<br/>services&#160;used&#160;by&#160;several MICROSAR&#160;BSW&#160;components.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;VStdLib&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;VStdLib.&#160;These&#160;interfaces&#160;<br/>are described&#160;in&#160;chapte<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;class&#160;Module&#160;Structure</b><br/>
+Module<br/>
+MICROSAR&#160;BSW<br/>
+module<br/>
+Module<br/>
+«use»<br/>
+Det<br/>
+«EmbeddedInterface»<br/>
+<b>VStdLib</b><br/>
+«realize»<br/>
++&#160;&#160;VStdLib_GetVersionInfo()<br/>+&#160;&#160;VStdLib_MemClr()<br/>+&#160;&#160;VStdLib_MemClrLarge()<br/>
+«EmbeddedInterface»<br/>
++&#160;&#160;VStdLib_MemClrMacro()<br/>
+<b>Det</b><br/>
++&#160;&#160;VStdLib_MemCpy()<br/>
+Module<br/>
++&#160;&#160;VStdLib_MemCpy_s()<br/>
++&#160;&#160;Det_ReportError()<br/>
+«use<br/>
++&#160;&#160;VStdLib_MemCpy16()<br/>
+optionally»<br/>
++&#160;&#160;VStdLib_MemCpy16Large()<br/>
+«realize»<br/>
+VStdLib<br/>
++&#160;&#160;VStdLib_MemCpy32()<br/>
+«EmbeddedInterface»<br/>
+«use<br/>
++&#160;&#160;VStdLib_MemCpy32Large()<br/>
+<b>(Compiler)&#160;Library</b><br/>
+optionally»<br/>
++&#160;&#160;VStdLib_MemCpyLarge()<br/>+&#160;&#160;VStdLib_MemCpyLarge_s()<br/>+&#160;&#160;VStdLib_MemCpyMacro()<br/>+&#160;&#160;VStdLib_MemCpyMacro_s()<br/>+&#160;&#160;VStdLib_MemSet()<br/>+&#160;&#160;VStdLib_MemSetLarge()<br/>
+«realize»<br/>
++&#160;&#160;VStdLib_MemSetMacro()<br/>
+Module<br/>
+(Compiler)&#160;Library<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+This chapter describes&#160;the&#160;general&#160;function&#160;of&#160;the&#160;component.&#160;<br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;Vector&#160;Standard&#160;Library&#160;gives&#160;a&#160;standard&#160;interface&#160;for&#160;memory&#160;initialization&#160;and&#160;copy&#160;<br/>services&#160;as&#160;described&#160;in&#160;&#160;section<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">&#160;5.2.&#160;</a>It&#160;provides&#160;a&#160;hardware&#160;independent&#160;implementation&#160;<br/>of&#160;&#160;this&#160;&#160;interface,&#160;&#160;but&#160;&#160;also&#160;&#160;allows&#160;&#160;the&#160;&#160;mapping&#160;&#160;to&#160;&#160;project&#160;&#160;specific&#160;&#160;implementations&#160;&#160;for&#160;<br/>optimization&#160;reasons.&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;and Main Functions&#160;</b><br/>
+No&#160;initialization&#160;is&#160;necessary&#160;and&#160;no&#160;main&#160;functions are&#160;provided.&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.3.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_VStdLib_GenericAsrs.html#2">&#160;&#160;[2],</a>&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;VSTDLIB_DEV_ERROR_REPORT&#160;==&#160;STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;VStdLib&#160;ID&#160;is&#160;255.&#160;The&#160;service&#160;IDs&#160;identify&#160;the&#160;services&#160;which&#160;are&#160;described&#160;<br/>in&#160;section<a href="TechnicalReference_VStdLib_GenericAsrs.html#12">&#160;5.2.&#160;</a>The&#160;following&#160;table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+VSTDLIB_SID_MEM_SET&#160;(0x00)&#160;<br/>
+VStdLib_MemClr(), VStdLib_MemSet()&#160;<br/>
+VSTDLIB_SID_MEM_COPY&#160;(0x01)&#160;<br/>
+VStdLib_MemCpy()&#160;<br/>
+VSTDLIB_SID_MEM_COPY_16&#160;(0x02)&#160;<br/>
+VStdLib_MemCpy16()&#160;<br/>
+VSTDLIB_SID_MEM_COPY_32&#160;(0x03)&#160;<br/>
+VStdLib_MemCpy32()&#160;<br/>
+VSTDLIB_SID_MEM_COPY_S&#160;(0x04)&#160;<br/>
+VStdLib_MemCpy_s()&#160;<br/>
+VSTDLIB_SID_GET_VERSION_INFO&#160;(0x05)&#160;<br/>
+VStdLib_GetVersionInfo()&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+VSTDLIB_E_PARAM_POINTER&#160;(0x01)&#160;<br/>
+API&#160;service used&#160;with&#160;NULL&#160;pointer&#160;parameter.&#160;<br/>
+VSTDLIB_E_PARAM_SIZE&#160;(0x02)&#160;<br/>
+VStdLib_MemCpy_s()&#160;used with invalid&#160;<br/>destination&#160;size parameter.&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+<b>3.3.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+No&#160;production&#160;code&#160;error reporting&#160;is&#160;supported.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;gives&#160;&#160;necessary&#160;&#160;information&#160;&#160;for&#160;&#160;the&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;VStdLib&#160;<br/>into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;VStdLib&#160;contains&#160;following&#160;static&#160;files.&#160;There&#160;are&#160;no&#160;dynamic&#160;files.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+vstdlib.c&#160;<br/>
+This&#160;is&#160;the&#160;source&#160;file of&#160;the&#160;VStdLib.&#160;<br/>
+vstdlib.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file&#160;that&#160;contains&#160;the&#160;public&#160;API.&#160;<br/>
+VStdLib_Cfg.h&#160;&#160;This&#160;is&#160;the&#160;configuration&#160;header&#160;file,&#160;see&#160;chapter<a href="TechnicalReference_VStdLib_GenericAsrs.html#23">&#160;6&#160;</a>for&#160;details.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Include&#160;Structure&#160;</b><br/>
+<b>&#160;class&#160;IncludeStructure</b><br/>
+MemMap.h<br/>
+Std_Types.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+vstdlib.c<br/>
+vstdlib.h<br/>
+VStdLib_Cfg.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+Det.h<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Include&#160;Structure&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+No&#160;critical sections&#160;are&#160;implemented.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-10_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;</b><br/>
+The&#160;&#160;objects&#160;&#160;(e.g.&#160;&#160;variables,&#160;&#160;functions,&#160;&#160;constants)&#160;&#160;are&#160;&#160;declared&#160;&#160;by&#160;&#160;compiler&#160;&#160;independent&#160;<br/>definitions&#160;&#160;–&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definitions.&#160;&#160;Each&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definition&#160;&#160;is&#160;<br/>assigned&#160;to&#160;a&#160;memory&#160;section.&#160;<br/>The&#160;&#160;following&#160;&#160;table&#160;&#160;contains&#160;&#160;the&#160;&#160;memory&#160;&#160;section&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;<br/>definitions of&#160;the&#160;VStdLib&#160;and&#160;illustrates their&#160;assignment&#160;among&#160;each&#160;other.&#160;<br/>
+&#160;<br/>
+<b>Compiler&#160;Abstraction&#160;</b><br/>
+<b>&#160;Definitions&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/><b>Memory&#160;Mapping&#160;&#160;<br/>Sections&#160;</b><br/>
+VSTDLIB_CODE<br/>
+VSTDLIB_APPL_VAR<br/>
+VSTDLIB_VAR_FAR<br/>
+VSTDLIB_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+VSTDLIB_STOP_SEC_CODE&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Compiler&#160;Abstraction&#160;and&#160;Memory&#160;Mapping&#160;<br/>
+The&#160;VStdLib&#160;declares&#160;no&#160;global&#160;variables&#160;or&#160;constants&#160;thus&#160;only&#160;a&#160;general&#160;CODE&#160;section&#160;<br/>is provided&#160;for&#160;the&#160;memory&#160;mapping&#160;that&#160;is abstracted&#160;by&#160;VSTDLIB_CODE.&#160;<br/>
+Due&#160;to&#160;the&#160;AUTOSAR&#160;compiler&#160;and&#160;memory&#160;abstraction&#160;the&#160;location&#160;of&#160;individual&#160;data&#160;and&#160;<br/>the&#160;&#160;width&#160;&#160;of&#160;&#160;pointers&#160;&#160;are&#160;&#160;not&#160;&#160;known&#160;&#160;during&#160;&#160;development&#160;&#160;time.&#160;&#160;Hence&#160;&#160;the&#160;&#160;compiler&#160;<br/>abstraction&#160;&#160;definition&#160;&#160;VSTDLIB_APPL_VAR&#160;&#160;refers&#160;&#160;to&#160;&#160;variables&#160;&#160;which&#160;&#160;are&#160;&#160;defined&#160;&#160;by&#160;&#160;the&#160;<br/>application&#160;and&#160;not&#160;handled&#160;by&#160;the&#160;VStdLib&#160;memory&#160;mapping.&#160;<br/>The&#160;function&#160;implementation&#160;of&#160;all&#160;memory&#160;manipulation&#160;services&#160;as&#160;described&#160;in&#160;section&#160;<br/><a href="TechnicalReference_VStdLib_GenericAsrs.html#12">5.2&#160;&#160;</a>abstracts&#160;&#160;all&#160;&#160;pointer&#160;&#160;arguments&#160;&#160;(independently&#160;&#160;of&#160;&#160;the&#160;&#160;target&#160;&#160;type)&#160;&#160;with&#160;<br/>VSTDLIB_VAR_FAR&#160;&#160;to&#160;&#160;allow&#160;&#160;that&#160;&#160;all&#160;&#160;data&#160;&#160;can&#160;&#160;be&#160;&#160;handled&#160;&#160;by&#160;&#160;far&#160;&#160;accesses.&#160;&#160;The&#160;&#160;macro&#160;<br/>implementation&#160;performs&#160;an&#160;in-place&#160;access,&#160;thus&#160;the&#160;unaltered&#160;pointer&#160;class&#160;of&#160;the&#160;caller&#160;<br/>is used.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>For&#160;most&#160;32bit&#160;MCUs&#160;it&#160;is&#160;not&#160;necessary&#160;to&#160;give&#160;any&#160;qualifiers&#160;with&#160;VSTDLIB_VAR_FAR&#160;<br/>
+&#160;&#160;to&#160;change&#160;the&#160;pointer&#160;class&#160;&#160;as&#160;these&#160;platforms&#160;commonly&#160;use&#160;32bit&#160;pointers&#160;that&#160;can&#160;<br/>
+address&#160;&#160;the&#160;&#160;whole&#160;&#160;memory&#160;&#160;by&#160;&#160;default.&#160;&#160;Please&#160;&#160;note&#160;&#160;that&#160;&#160;both&#160;&#160;RAM&#160;&#160;and&#160;&#160;ROM&#160;&#160;are&#160;<br/>accessed&#160;with&#160;this&#160;qualifier&#160;and&#160;an&#160;external&#160;implementation&#160;(see&#160;section<a href="TechnicalReference_VStdLib_GenericAsrs.html#23">&#160;6.2.1)</a>&#160;has&#160;to&#160;<br/>be&#160;used if&#160;distinct&#160;pointers&#160;have to&#160;be&#160;qualified&#160;individually&#160;on&#160;the&#160;used&#160;target&#160;platform.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>4.5&#160;</b><br/>
+<b>Integration Hints&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Avoid&#160;overlapping&#160;destination&#160;and&#160;source&#160;memory&#160;areas&#160;&#160;when&#160;using&#160;the&#160;copy&#160;services&#160;<br/>
+as this&#160;may&#160;lead&#160;to&#160;unexpected&#160;results.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Consider&#160;&#160;side&#160;&#160;effects&#160;&#160;if&#160;&#160;macros&#160;&#160;are&#160;&#160;used:&#160;&#160;If&#160;&#160;either&#160;&#160;destination&#160;&#160;or&#160;&#160;source&#160;&#160;pointer&#160;&#160;is&#160;<br/>
+retrieved&#160;using&#160;a&#160;call&#160;to&#160;a&#160;function,&#160;this&#160;function&#160;&#160;might&#160;&#160;be&#160;&#160;invoked&#160;for&#160;nCnt&#160;times.&#160;It&#160;&#160;is&#160;<br/>recommended&#160;to&#160;use&#160;temporary&#160;pointers to&#160;avoid&#160;any&#160;side&#160;effects.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;&#160;VStdLib&#160;&#160;is&#160;&#160;optimized&#160;&#160;for&#160;&#160;32-bit&#160;&#160;MCUs.&#160;&#160;When&#160;&#160;using&#160;&#160;a&#160;&#160;controller&#160;&#160;with&#160;&#160;a&#160;&#160;smaller&#160;&#160;bit&#160;<br/>
+width&#160;it&#160;is&#160;highly&#160;recommended&#160;to&#160;use&#160;an&#160;external&#160;implementation&#160;that&#160;is&#160;optimized&#160;for&#160;<br/>this&#160;&#160;architecture&#160;&#160;(see&#160;&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;&#160;in&#160;&#160;section<a href="TechnicalReference_VStdLib_GenericAsrs.html#23">&#160;&#160;6.2.1).</a>&#160;&#160;If&#160;&#160;large&#160;<br/>data&#160;&#160;support&#160;&#160;is&#160;&#160;not&#160;&#160;necessary&#160;&#160;define&#160;&#160;each&#160;&#160;VSTDLIB_RUNTIME_OPTIMIZATION&#160;&#160;and&#160;<br/>VSTDLIB_SUPPORT_LARGE_DATA&#160;to&#160;STD_OFF&#160;as an&#160;alternative.&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+S<a href="TechnicalReference_VStdLib_GenericAsrs.html#7">ee&#160;Figure&#160;2-2&#160;</a>for&#160;an&#160;interfaces overview.&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;&#160;nCnt&#160;&#160;parameter&#160;&#160;of&#160;&#160;all&#160;&#160;memory&#160;&#160;manipulation&#160;&#160;services&#160;&#160;is&#160;&#160;of&#160;&#160;type&#160;&#160;VStdLib_CntType&#160;<br/>that&#160;&#160;equals&#160;&#160;uint32_least&#160;&#160;if&#160;&#160;VSTDLIB_SUPPORT_LARGE_DATA&#160;&#160;is&#160;&#160;defined&#160;&#160;to&#160;&#160;STD_ON&#160;<br/>(default&#160;setting)&#160;or uint16_least&#160;if&#160;it&#160;is&#160;explicitly&#160;defined&#160;to&#160;STD_OFF.&#160;<br/>
+&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;VStdLib&#160;</b><br/>
+&#160;<br/>
+<b>5.2.1&#160;</b><br/>
+<b>VStdLib_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_GetVersionInfo&#160;</b>(Std_VersionInfoType&#160;*versioninfo)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo [out]&#160;<br/>
+Pointer&#160;to&#160;where to store the version&#160;information, must&#160;not&#160;be&#160;NULL.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Returns&#160;the&#160;version information of&#160;this&#160;module.&#160;<br/>Returns&#160;version information, vendor ID and&#160;AUTOSAR&#160;module ID of&#160;the&#160;component.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameter&#160;'versioninfo'&#160;has&#160;to&#160;be&#160;valid and reference an object of&#160;type Std_VersionInfoType.&#160;<br/>Configuration Variant(s):&#160;VSTDLIB_VERSION_INFO_API == STD_ON&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;VStdLib_GetVersionInfo&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>VStdLib_MemClr&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemClr&#160;</b>(void *pDst, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;be initialized,&#160;must not&#160;be&#160;NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;bytes&#160;to&#160;initialize,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;memory&#160;to&#160;zero.&#160;<br/>Sets&#160;nCnt&#160;bytes&#160;starting at&#160;pDst&#160;to&#160;zero.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Configuration Variant(s):&#160;This&#160;service&#160;is&#160;implemented&#160;externally&#160;if&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;<br/>== STD_ON, else&#160;it&#160;is&#160;realized&#160;by&#160;a&#160;call&#160;to&#160;VStdLib_MemSet()&#160;with&#160;'nPattern'&#160;==&#160;0.&#160;The&#160;compatible&#160;definition&#160;<br/>VStdLib_MemClrLarge()&#160;exists&#160;additionally&#160;(and&#160;solely)&#160;if&#160;VSTDLIB_SUPPORT_LARGE_DATA == STD_ON.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;VStdLib_MemClr&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>VStdLib_MemClrMacro&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemClrMacro&#160;</b>(AnyPtrType&#160;*pDst, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Any&#160;typed pointer to&#160;the&#160;memory&#160;location to&#160;be&#160;initialized, must&#160;be&#160;aligned&#160;<br/>corresponding&#160;to its&#160;type and&#160;not&#160;be NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;blocks&#160;to&#160;initialize,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;memory&#160;to&#160;zero&#160;(macro implementation).&#160;<br/>Sets&#160;nCnt&#160;blocks&#160;starting&#160;at&#160;pDst to&#160;zero&#160;(block-size&#160;is&#160;given&#160;by&#160;the&#160;type&#160;of&#160;pDst).&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;VStdLib_MemClrMacro&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>VStdLib_MemSet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemSet&#160;</b>(void *pDst, uint8 nPattern, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;be initialized,&#160;must not&#160;be&#160;NULL.&#160;<br/>
+nPattern [in]&#160;<br/>
+The&#160;character to be used to&#160;initialize the memory.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;bytes&#160;to&#160;initialize,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;memory&#160;to a&#160;specified&#160;pattern.&#160;<br/>Sets&#160;nCnt&#160;bytes&#160;starting at&#160;pDst to&#160;the&#160;character nPattern.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Configuration Variant(s):&#160;This&#160;service&#160;is&#160;implemented&#160;externally&#160;if&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;<br/>== STD_ON.&#160;The&#160;compatible definition&#160;VStdLib_MemSetLarge()&#160;exists&#160;additionally&#160;(and solely)&#160;if&#160;<br/>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON.&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;VStdLib_MemSet&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>VStdLib_MemSetMacro&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemSetMacro&#160;</b>(AnyPtrType *pDst, AnyIntType nPattern,&#160;<br/>VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Any&#160;typed pointer&#160;to&#160;the&#160;memory&#160;location to&#160;be&#160;initialized, must be aligned&#160;<br/>corresponding&#160;to its&#160;type and&#160;not&#160;be NULL.&#160;<br/>
+nPattern [in]&#160;<br/>
+The&#160;pattern&#160;to&#160;be used to&#160;initialize the memory&#160;(consider the&#160;correlation&#160;<br/>between&#160;its&#160;type&#160;and&#160;the&#160;type&#160;of&#160;pDst).&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;blocks&#160;to&#160;initialize,&#160;pDst must&#160;be&#160;valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;memory&#160;to a&#160;specified&#160;pattern (macro implementation).&#160;<br/>Sets&#160;nCnt&#160;blocks&#160;starting&#160;at&#160;pDst to&#160;nPattern&#160;(block-size is&#160;given&#160;by&#160;the&#160;type of&#160;pDst).&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;VStdLib_MemSetMacro&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>VStdLib_MemCpy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemCpy&#160;</b>(void *pDst, const void *pSrc, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;to,&#160;must not&#160;be&#160;NULL.&#160;<br/>
+pSrc&#160;[in]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;from,&#160;must not&#160;be&#160;NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;bytes&#160;to&#160;copy,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copies&#160;data from&#160;one&#160;memory&#160;location&#160;to another.&#160;<br/>Copies&#160;nCnt bytes&#160;starting&#160;at&#160;pSrc&#160;to&#160;another memory&#160;location&#160;starting at&#160;pDst.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Configuration Variant(s):&#160;This&#160;service&#160;is&#160;implemented&#160;externally&#160;if&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;<br/>== STD_ON.&#160;The&#160;compatible definition&#160;VStdLib_MemCpyLarge()&#160;exists&#160;additionally&#160;(and solely)&#160;if&#160;<br/>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON.&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;VStdLib_MemCpy&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>VStdLib_MemCpy16&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemCpy16&#160;</b>(uint16 *pDst, const uint16 *pSrc, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;to,&#160;16-bit aligned and not NULL.&#160;<br/>
+pSrc&#160;[in]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;from, 16-bit aligned&#160;and&#160;not&#160;NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;16-bit blocks&#160;to&#160;copy,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copies&#160;data from&#160;one&#160;memory&#160;location&#160;to another.&#160;<br/>Copies&#160;nCnt 16-bit&#160;blocks&#160;starting at&#160;pSrc&#160;to&#160;another memory&#160;location&#160;starting&#160;at&#160;pDst.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Configuration Variant(s):&#160;This&#160;service&#160;is&#160;implemented&#160;externally&#160;if&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;<br/>== STD_ON.&#160;The&#160;compatible definition&#160;VStdLib_MemCpy16Large()&#160;exists&#160;additionally&#160;(and&#160;solely)&#160;if&#160;<br/>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON.&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;VStdLib_MemCpy16&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.8&#160;</b><br/>
+<b>VStdLib_MemCpy32&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemCpy32&#160;</b>(uint32 *pDst, const uint32 *pSrc, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;to,&#160;32-bit aligned and not NULL.&#160;<br/>
+pSrc&#160;[in]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;from, 32-bit aligned&#160;and&#160;not&#160;NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;32-bit blocks&#160;to&#160;copy,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copies&#160;data from&#160;one&#160;memory&#160;location&#160;to another.&#160;<br/>Copies&#160;nCnt 32-bit&#160;blocks&#160;starting at&#160;pSrc&#160;to&#160;another memory&#160;location&#160;starting&#160;at&#160;pDst.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Configuration Variant(s):&#160;This&#160;service&#160;is&#160;implemented&#160;externally&#160;if&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;<br/>== STD_ON.&#160;The&#160;compatible definition&#160;VStdLib_MemCpy32Large()&#160;exists&#160;additionally&#160;(and&#160;solely)&#160;if&#160;<br/>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON.&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;VStdLib_MemCpy32&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.9&#160;</b><br/>
+<b>VStdLib_MemCpy_s&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemCpy_s&#160;</b>(void *pDst, VStdLib_CntType nDstSize, const void *pSrc,&#160;<br/>VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;to,&#160;must not&#160;be&#160;NULL.&#160;<br/>
+nDstSize&#160;[in]&#160;<br/>
+Maximum&#160;number&#160;of&#160;bytes&#160;to&#160;modify&#160;in the&#160;destination&#160;(typically&#160;the&#160;size of&#160;the&#160;<br/>destination&#160;object).&#160;<br/>
+pSrc&#160;[in]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;to&#160;copy&#160;from,&#160;must not&#160;be&#160;NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;bytes&#160;to&#160;copy.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Verifies&#160;the&#160;destination size&#160;and copies&#160;data from&#160;one&#160;memory&#160;location&#160;to&#160;another.&#160;<br/>Uses&#160;VStdLib_MemCpy()&#160;to copy&#160;nCnt&#160;bytes&#160;starting&#160;at&#160;pSrc&#160;to&#160;another memory&#160;location&#160;starting at&#160;pDst,&#160;if&#160;<br/>nDstSize&#160;is&#160;greater&#160;than&#160;or&#160;equal&#160;to nCnt.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nDstSize'&#160;have&#160;to&#160;define&#160;a&#160;valid&#160;memory&#160;area.&#160;<br/>Configuration Variant(s):&#160;The compatible definition&#160;VStdLib_MemCpyLarge_s()&#160;exists&#160;additionally&#160;(and&#160;<br/>solely)&#160;if&#160;VSTDLIB_SUPPORT_LARGE_DATA == STD_ON.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;VStdLib_MemCpy_s&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.10&#160;&#160;VStdLib_MemCpyMacro&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemCpyMacro&#160;</b>(AnyPtrType&#160;*pDst,&#160;AnyPtrType&#160;*pSrc, VStdLib_CntType&#160;<br/>nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Any&#160;typed pointer&#160;to&#160;the&#160;memory&#160;location to copy&#160;to,&#160;must be&#160;aligned&#160;<br/>corresponding&#160;to its&#160;type and&#160;not&#160;be NULL.&#160;<br/>
+pSrc&#160;[in]&#160;<br/>
+Any&#160;typed pointer to&#160;the&#160;memory&#160;location to copy&#160;from,&#160;must be aligned&#160;<br/>corresponding&#160;to its&#160;type and&#160;not&#160;be&#160;NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;blocks&#160;to&#160;copy,&#160;pDst must be valid for this&#160;amount.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copies&#160;data from&#160;one&#160;memory&#160;location&#160;to another&#160;(macro implementation).&#160;<br/>Copies&#160;nCnt blocks&#160;starting&#160;at&#160;pSrc&#160;to&#160;another&#160;memory&#160;location&#160;starting&#160;at pDst (block-size is&#160;given&#160;by&#160;the&#160;<br/>type of&#160;pDst).&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nCnt' have to&#160;define a&#160;valid&#160;memory&#160;area.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;VStdLib_MemCpyMacro&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>5.2.11&#160;&#160;VStdLib_MemCpyMacro_s&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>VStdLib_MemCpyMacro_s&#160;</b>(AnyPtrType&#160;*pDst, VStdLib_CntType nDstSize,&#160;<br/>AnyPtrType&#160;*pSrc, VStdLib_CntType nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDst [out]&#160;<br/>
+Any&#160;typed pointer to&#160;the&#160;memory&#160;location to copy&#160;to,&#160;must be&#160;aligned&#160;<br/>corresponding&#160;to its&#160;type and&#160;not&#160;be NULL.&#160;<br/>
+nDstSize&#160;[in]&#160;<br/>
+Maximum&#160;number&#160;of&#160;blocks&#160;to&#160;modify&#160;in&#160;the&#160;destination&#160;(typically&#160;the&#160;size of&#160;<br/>the&#160;destination&#160;object).&#160;<br/>
+pSrc&#160;[in]&#160;<br/>
+Any&#160;typed pointer to&#160;the&#160;memory&#160;location to copy&#160;from,&#160;must be aligned&#160;<br/>corresponding&#160;to its&#160;type and&#160;not&#160;be NULL.&#160;<br/>
+nCnt&#160;[in]&#160;<br/>
+Number&#160;of&#160;blocks&#160;to&#160;copy.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Verifies&#160;the&#160;destination size&#160;and copies&#160;data from&#160;one&#160;memory&#160;location&#160;to&#160;another&#160;(macro&#160;implementation).&#160;<br/>Uses&#160;VStdLib_MemCpyMacro()&#160;to&#160;copy&#160;nCnt&#160;blocks&#160;starting&#160;at&#160;pSrc&#160;to&#160;another memory&#160;location&#160;starting&#160;at&#160;<br/>pDst (block-size is&#160;given by&#160;the type of&#160;pDst), if&#160;nDstSize&#160;is&#160;greater than&#160;or&#160;equal&#160;to nCnt.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;parameters&#160;'pDst' and 'nDstSize'&#160;have&#160;to&#160;define&#160;a&#160;valid&#160;memory&#160;area.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;macro&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;VStdLib_MemCpyMacro_s&#160;<br/>
+&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;VStdLib&#160;</b><br/>
+The&#160;following&#160;table&#160;lists&#160;used&#160;services&#160;that&#160;are&#160;provided&#160;by&#160;other&#160;components.&#160;For&#160;details&#160;<br/>about&#160;prototypes&#160;and&#160;functionality&#160;refer to&#160;the&#160;documentation&#160;of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError()&#160;<br/>
+(Compiler)&#160;Library&#160;<br/>
+Refer&#160;to&#160;sectio<a href="TechnicalReference_VStdLib_GenericAsrs.html#24">n&#160;6.2.2&#160;</a><br/>
+Table&#160;5-12&#160;&#160;&#160;Services&#160;used&#160;by&#160;VStdLib&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+The&#160;Vector Standard Library&#160;is&#160;solely&#160;configured&#160;manually&#160;in&#160;a&#160;header&#160;file.&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;VStdLib&#160;supports&#160;following&#160;configuration&#160;variants:&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Manual&#160;Configuration in Header&#160;File&#160;</b><br/>
+The&#160;configuration&#160;of&#160;the&#160;VStdLib&#160;is done&#160;statically&#160;within&#160;the&#160;file&#160;“VStdLib_Cfg.h”.&#160;<br/>
+&#160;<br/>
+<b>6.2.1&#160;</b><br/>
+<b>General&#160;configuration&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;<br/>is&#160;typed&#160;bold<b>&#160;</b><br/>
+VSTDLIB_USE_LIBRARY_FUNCTIONS<b>&#160;&#160;</b>STD_ON&#160;<br/>
+If&#160;set&#160;to&#160;STD_ON&#160;all&#160;memory&#160;manipulation&#160;routines&#160;<br/>
+<b>STD_OFF&#160;</b><br/>
+are mapped to&#160;external&#160;functions&#160;(e.g. compiler&#160;<br/>libraries&#160;or&#160;other&#160;implementations&#160;that are&#160;<br/>optimized for the&#160;target&#160;platform).&#160;This&#160;requires&#160;<br/>additional&#160;configuration, refer to&#160;section<a href="TechnicalReference_VStdLib_GenericAsrs.html#24">&#160;6.2.2.</a>&#160;<br/>If&#160;set&#160;to&#160;STD_OFF&#160;generic&#160;functions&#160;provided&#160;by&#160;<br/>the&#160;VStdLib are used.&#160;<br/>
+VSTDLIB_RUNTIME_OPTIMIZATION&#160;<br/>
+<b>STD_ON&#160;</b><br/>
+If&#160;set&#160;to&#160;STD_ON&#160;optimized&#160;routines&#160;are&#160;used&#160;to&#160;<br/>
+STD_OFF&#160;<br/>
+increase the&#160;performance of&#160;the memory&#160;<br/>manipulation functions&#160;(increases&#160;code size).&#160;<br/>If&#160;set&#160;to&#160;STD_OFF&#160;code efficient routines&#160;are&#160;used&#160;<br/>that&#160;increase runtime.&#160;<br/>This&#160;setting&#160;is&#160;only&#160;relevant&#160;if&#160;VSTDLIB_USE_&#160;<br/>LIBRARY_FUNCTIONS ==&#160;STD_OFF.&#160;<br/>
+VSTDLIB_USE_JUMPTABLES&#160;<br/>
+<b>STD_ON&#160;</b><br/>
+If&#160;set&#160;to&#160;STD_ON&#160;jump tables&#160;are used&#160;to increase&#160;<br/>
+STD_OFF&#160;<br/>
+the&#160;performance of&#160;the memory&#160;manipulation&#160;<br/>functions&#160;(runtime efficient in general).&#160;<br/>If&#160;set&#160;to&#160;STD_OFF&#160;the&#160;jump&#160;tables&#160;are replaced by&#160;<br/>loops. Use this&#160;setting&#160;if&#160;the&#160;compiler generates&#160;no&#160;<br/>efficient code for the&#160;jump tables.&#160;<br/>This&#160;setting&#160;is&#160;only&#160;relevant&#160;if&#160;<br/>VSTDLIB_USE_LIBRARY_FUNCTIONS ==&#160;<br/>STD_OFF&#160;and&#160;VSTDLIB_RUNTIME_&#160;<br/>OPTIMIZATION == STD_ON.&#160;<br/>
+VSTDLIB_DEV_ERROR_DETECT&#160;<br/>
+STD_ON&#160;<br/>
+If&#160;set&#160;to&#160;STD_ON&#160;the&#160;development error detection&#160;is&#160;<br/>
+<b>STD_OFF&#160;</b><br/>
+enabled.&#160;In&#160;this&#160;case the&#160;pointer&#160;arguments&#160;of&#160;all&#160;<br/>global&#160;module functions&#160;provided&#160;by&#160;the&#160;VStdLib&#160;<br/>are checked. If&#160;any&#160;NULL_PTR&#160;is&#160;passed,&#160;these&#160;<br/>functions&#160;return&#160;without performing&#160;any&#160;action.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-24_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-24_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+VSTDLIB_DEV_ERROR_REPORT&#160;<br/>
+STD_ON&#160;<br/>
+If&#160;set&#160;to&#160;STD_ON&#160;the&#160;development error reporting is&#160;<br/>
+<b>STD_OFF&#160;</b><br/>
+enabled&#160;(requires&#160;VSTDLIB_DEV_ERROR_&#160;<br/>DETECT == STD_ON). In&#160;this&#160;case&#160;the function&#160;<br/>Det_ReportError()&#160;is&#160;called&#160;if&#160;any&#160;error is&#160;<br/>detected.&#160;<br/>
+VSTDLIB_VERSION_INFO_API&#160;<br/>
+STD_ON&#160;<br/>
+If&#160;set&#160;to&#160;STD_ON&#160;the&#160;function&#160;<br/>
+<b>STD_OFF&#160;</b><br/>
+VStdLib_GetVersionInfo()&#160;is&#160;provided.&#160;<br/>
+VSTDLIB_DUMMY_STATEMENT(v)&#160;<br/>
+e.g. (v)&#160;=&#160;(v)&#160;&#160;Expression&#160;that&#160;is&#160;used for dummy&#160;statements&#160;to&#160;<br/><b>(void)(v)</b>&#160;<br/>
+avoid compiler&#160;warnings&#160;about unused&#160;identifiers.&#160;<br/>Leave this&#160;definition empty&#160;to&#160;disable the usage&#160;of&#160;<br/>dummy&#160;statements.<b>&#160;</b><br/>
+Table&#160;6-1&#160;&#160;&#160;General&#160;configuration&#160;<br/>
+&#160;<br/>
+<b>6.2.2&#160;</b><br/>
+<b>Additional&#160;configuration&#160;when using&#160;library&#160;functions&#160;</b><br/>
+If&#160;&#160;VSTDLIB_USE_LIBRARY_FUNCTIONS&#160;&#160;==&#160;&#160;STD_ON&#160;&#160;it&#160;&#160;is&#160;&#160;necessary&#160;&#160;to&#160;&#160;specify&#160;&#160;library&#160;<br/>functions&#160;&#160;to&#160;&#160;be&#160;&#160;used&#160;&#160;for&#160;&#160;the&#160;&#160;memory&#160;&#160;manipulations.&#160;&#160;See&#160;&#160;the&#160;&#160;corresponding&#160;&#160;section&#160;&#160;in&#160;<br/>“VStdLib_Cfg.h”&#160;for&#160;details and&#160;an&#160;example&#160;mapping.&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>If&#160;the&#160;external&#160;functionality&#160;is&#160;not&#160;able&#160;to&#160;handle&#160;more&#160;than&#160;65535&#160;bytes&#160;it&#160;is&#160;necessary&#160;<br/>
+<b>&#160;&#160;</b>to define&#160;VSTDLIB_SUPPORT_LARGE_DATA to STD_OFF.&#160;<br/>
+&#160;<br/>It&#160;&#160;has&#160;&#160;to&#160;&#160;be&#160;&#160;ensured&#160;&#160;that&#160;&#160;the&#160;&#160;specified&#160;&#160;functions&#160;&#160;are&#160;&#160;able&#160;&#160;to&#160;&#160;copy&#160;&#160;from&#160;&#160;and&#160;&#160;to&#160;&#160;all&#160;<br/>memory&#160;&#160;locations&#160;&#160;independently&#160;&#160;of&#160;&#160;the&#160;&#160;pointer&#160;&#160;length.&#160;&#160;The&#160;&#160;specified&#160;&#160;functions&#160;&#160;must&#160;<br/>behave&#160;synchronously.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>7&#160;&#160;Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative&#160;Software&#160;<br/>
+MCU&#160;<br/>
+Microcontroller&#160;Unit&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;solution)&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+VStdLib&#160;<br/>
+Vector&#160;Standard Library&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/02.00.02/TechnicalReference_VStdLib_GenericAsr-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;VStdLib&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/><a href="http://www.vector.com/">www.vector.com&#160;<br/></a>&#160;<br/>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.00.01&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#5">1 Component History</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#6">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#6">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.1 Features</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.2 Initialization and Main Functions</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.3 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.3.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#8">3.3.2 Production Code Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#9">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#9">4.1 Scope of Delivery</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#9">4.2 Include Structure</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#9">4.3 Critical Sections</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#10">4.4 Compiler Abstraction and Memory Mapping</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#11">4.5 Integration Hints</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#12">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#12">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#12">5.2 Services provided by VStdLib</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#12">5.2.1 VStdLib_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#13">5.2.2 VStdLib_MemClr</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#14">5.2.3 VStdLib_MemClrMacro</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#15">5.2.4 VStdLib_MemSet</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#16">5.2.5 VStdLib_MemSetMacro</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#17">5.2.6 VStdLib_MemCpy</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#18">5.2.7 VStdLib_MemCpy16</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#19">5.2.8 VStdLib_MemCpy32</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#20">5.2.9 VStdLib_MemCpy_s</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#21">5.2.10 VStdLib_MemCpyMacro</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#22">5.2.11 VStdLib_MemCpyMacro_s</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#22">5.3 Services used by VStdLib</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#23">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#23">6.1 Configuration Variants</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#23">6.2 Manual Configuration in Header File</a>
+<ul>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#23">6.2.1 General configuration</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#24">6.2.2 Additional configuration when using library functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#25">7 Abbreviations</a></li>
+<li><a href="TechnicalReference_VStdLib_GenericAsrs.html#26">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,653 @@
+---
+title: DiagcMgr_IntegrationManual
+linkTitle: DiagcMgr_IntegrationManual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>Diagnostic Manager</strong></p>
+<p><strong>VERSION:</strong> <strong>7.0</strong></p>
+<p><strong>DATE:</strong> <strong>26-APR-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shruthi Raghavan,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 49%" />
+<col style="width: 17%" />
+<col style="width: 9%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Spandana Balani</td>
+<td>1.0</td>
+<td>23-Apr-2015</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updated to FDD version 2</td>
+<td>Spandana Balani</td>
+<td>2.0</td>
+<td>11-Mar-2016</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated to FDD version 3</td>
+<td>Spandana Balani</td>
+<td>3.0</td>
+<td>22-APR-2016</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Updated to FDD version 4</td>
+<td>Spandana Balani</td>
+<td>4.0</td>
+<td>22-Jun-2016</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Added new parameter in configurator</td>
+<td>Spandana Balani</td>
+<td>5.0</td>
+<td>30-Nov-2016</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Remove Nvm block id for SnpshtDataAry</td>
+<td>Spandana Balani</td>
+<td>6.0</td>
+<td>07-Dec-2016</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td><p>Add Nvm block id for new LtchCntrAry NVM</p>
+<p>Added runnable scheduling for added runnables</p></td>
+<td>Shruthi Raghavan</td>
+<td>7.0</td>
+<td>26-APR-2017</td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 4</a></p>
+<p><a href="#references">2 References 5</a></p>
+<p><a href="#dependencies">3 Dependencies 6</a></p>
+<p><a href="#swcs">3.1 SWCs 6</a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project 6</a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS 7</a></p>
+<p><a href="#build-time-config.">4.1 Build Time Config. 7</a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project 7</a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes 7</a></p>
+<p><a href="#davinci-interrupt-configuration-changes">4.4 DaVinci Interrupt Configuration Changes 8</a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes 8</a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS 9</a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs 9</a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs 9</a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present 9</a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling 10</a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS 11</a></p>
+<p><a href="#mapping">7.1 Mapping 11</a></p>
+<p><a href="#usage">7.2 Usage 11</a></p>
+<p><a href="#nvm-blocks">7.3 NvM Blocks 11</a></p>
+<p><a href="#compiler-settings">8 Compiler Settings 12</a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO 12</a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings 12</a></p>
+<p><a href="#appendix">9 Appendix 13</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Abbreviation</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sr. No.</strong></td>
+<td><strong>Title</strong></td>
+<td><strong>Version</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>MDD Guidelines</td>
+<td>See process v04.04.02 document from eRoom <a href="http://eroom.nexteer.com/eRoomReq/Files/Nexteer-ProductLineSystems/ProcessDocumentsSystemsElectronicSystems/0_35a47/MDD%20Guideline%20EA4%2001.00.01.docx">here</a></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>EA4 Software Naming Conventions</td>
+<td>See process v04.04.02 document from eRoom <a href="http://eroom.nexteer.com/eRoomReq/Files/Nexteer-ProductLineSystems/ProcessDocumentsSystemsElectronicSystems/0_35e15/EA4%20Software%20Naming%20Conventions%2001.01.00.docx">here</a></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Software Design And Coding standards</td>
+<td>See process v04.04.02 document from eRoom <a href="http://eroom.nexteer.com/eRoomReq/Files/Nexteer-ProductLineSystems/ProcessDocumentsSystemsElectronicSystems/0_35a2f/Software%20Design%20and%20Coding%20Standards%202.1.doc">here</a></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>FDD – ES101A Diagnostic Manager</td>
+<td>See Synergy Design Subproject Version</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Module</strong></td>
+<td><strong>Required Feature</strong></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p>DiagcMgrPwrDwn() –Non RTE Server Runnable, called from BswM.</p>
+<p>It calls "SetRamBlockSts" Non-RTE version (NvMProxy_SetRamBlockStatus).</p>
+<p>RestoreNtcFltAryDft() , RestoreSnpshtAryDft(), RestoreDiagcMgrLtchCntrAryDft () – Non RTE Server Runnables (callback functions), called from Nvm Manager if the Nvm Data is corrupted.</p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<p>Only proxies components that have active NTCs should be brought into developer worksace. Stub needs to be integrated for connection to the core's client ports for all the un-implemented applications. Proper .gpj fles needs to be selected for inclusion in the project’s .gpj file.</p>
+<p>The Integrator must configure one and only one “/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DTCEnaCndn” for configured DTC in the DEM</p>
+<h2 id="build-time-config.">Build Time Config.</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Modules</strong></td>
+<td><strong>Notes</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<p>DiagcMgr_Cfg.h</p>
+<p>DiagcMgr_Cfg.c</p>
+<p>Note: Include “DiagcMgr_Cfg.h” in the “Rte_UserTypes.h” header file</p>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 44%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Parameter</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr</strong></td>
+<td>Configuration of the DiagcMgr module</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR</strong></td>
+<td>Container with NTC number properties</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/NTCOsApplicationRef</strong></td>
+<td>NTC Os Application. This defines the application corresponding to a particular NTC</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/Debounce</strong></td>
+<td>Set to true if NTC is type debounce</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/LtchgEna</strong></td>
+<td>Set to true if NTC is latched. Currently only a maximum of 20 Latching NTCs are supported in a project.</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/LtchCntrThd</strong></td>
+<td>Set a value between 1-255 if NTC is latching. Else, the value is ignored &amp; written as 0XFF in the generated file by default when needed.</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/MfgNtcInhibInNonOper</strong></td>
+<td>Boolean Value of &lt;Mfg NTC Inhibit Non-Operate States&gt; column for corresponding NTC in the NTC Master List of the project.</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/MfgNtcInhibInOper</strong></td>
+<td>Boolean Value of &lt;Mfg NTC Inhibit Operate State&gt; column for corresponding NTC in the NTC Master List of the project.</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/NTCNR/NtcPwrCycLtch</strong></td>
+<td>Boolean Value of &lt;NTC Power Cycle Latch&gt; column for corresponding NTC in the NTC Master List of the project.</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DTCEnaCndn</strong></td>
+<td>Container with DTC ENABLE Criteria</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DTCEnaCndn/DTC</strong></td>
+<td>This defines the DEM DTC Class.</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DTCEnaCndn/Bit_X<sup>1</sup></strong></td>
+<td>Set to true if Enable Condition for Bit X<sup>1</sup> is applicable to configured DTC</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DTCEnaCndn/DiagcMgrDTCIdx</strong></td>
+<td>Value represents index value DiagcMgr uses internally for NTC mapping to DTCs to the Event ID that the Dem identifies for a particular DTC</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DiagcMgrGeneral</strong></td>
+<td>Container with General DiagcMgr configuration</td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="even">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DiagcMgrGeneral/DIAGCMGR_DEMCHK</strong></td>
+<td><p>Set to true to enable DET consistency check between DEM and DiagcMgr DTC configuration.</p>
+<p>This check assumes the Dem will generate the constant table named” Dem_C_DtcTable” that will be sized to the configured DTCs + 1. If this assumption is not true, turn this parameter OFF.</p></td>
+<td>DiagcMgr</td>
+</tr>
+<tr class="odd">
+<td><strong>/Nexteer/EcucDefs_DiagcMgr/DiagcMgr/DiagcMgrGeneral/DEMTOTNROFDTC</strong></td>
+<td>This needs to be configured to an expression that would result in the total number DTCs that are configured in the system based on generated Dem code</td>
+<td>DiagcMgr</td>
+</tr>
+</tbody>
+</table>
+<p><strong><sup>1</sup></strong> Note: X = _0 to 15</p>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 38%" />
+<col style="width: 34%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>ISR Name</strong></td>
+<td><strong>VIM #</strong></td>
+<td><strong>Priority Dependency</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Constant</strong></td>
+<td><strong>Notes</strong></td>
+<td><strong>SWC</strong></td>
+</tr>
+<tr class="even">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p>Refer DataDict.m file</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p>Refer DataDict.m file</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>Yes</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling. </p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 66%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Init</strong></td>
+<td><strong>Scheduling Requirements</strong></td>
+<td><strong>Trigger</strong></td>
+</tr>
+<tr class="even">
+<td><strong>DiagcMgProxyApplXInit1</strong></td>
+<td>Init function needs to run before any other init function that is trying to set an NTC and it therefore should be called early on in the initialization tasks.</td>
+<td>Rte_Init</td>
+</tr>
+<tr class="odd">
+<td><strong>DiagcMgrInit1</strong></td>
+<td>To be scheduled after CM102A init &amp; after DiagcMgrProxyApplXInit1<sup>1</sup></td>
+<td>RTE Init</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 41%" />
+<col style="width: 23%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Runnable</strong></td>
+<td><strong>Scheduling Requirements</strong></td>
+<td><strong>Trigger</strong></td>
+</tr>
+<tr class="even">
+<td><strong>DiagcMgrPer1</strong></td>
+<td>None</td>
+<td>RTE 2ms Task</td>
+</tr>
+<tr class="odd">
+<td><strong>DiagcMgrPer2</strong></td>
+<td>None</td>
+<td>RTE 100ms Task</td>
+</tr>
+<tr class="even">
+<td><strong>ClrAllDiagc_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>ClrLtchCntrData_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>ClrSnpshtData_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>CnvSnpshtData_&lt;Type&gt;<sup>3,5</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>DiagcMgrIninCore_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="odd">
+<td><strong>GetNtcActvCore_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="even">
+<td><strong>GetNtcQlfrStsCore_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="odd">
+<td><strong>GetNtcStsCore_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="even">
+<td><strong>ReadNtcFltAryCore_Oper<sup>3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>ReadNtcInfoAndDebCntr_Oper<sup>3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>ReadSnpshtData_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>SetNtcStsCore_Oper</strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="even">
+<td><strong>DiagcMgrPwrDwn</strong></td>
+<td>Non RTE Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>RestoreNtcFltAryDft</strong></td>
+<td>Non RTE Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>RestoreDiagcMgrLtchCntrAryDft</strong></td>
+<td>Non RTE Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>ReadLtchCntrData</strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>RestoreSnpshtAryDft</strong></td>
+<td>Non RTE Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>DiagcMgrProxyApplXInit1<sup>1</sup></strong></td>
+<td>Schedule before DiagcMgrInit1</td>
+<td>RTE Init</td>
+</tr>
+<tr class="even">
+<td><strong>DiagcMgrProxyApplXPer1<sup>1</sup></strong></td>
+<td>None</td>
+<td>RTE 10ms Task</td>
+</tr>
+<tr class="odd">
+<td><strong>GetDiagcDataApplX_Oper<sup>1</sup></strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="even">
+<td><strong>GetNtcActvX_Oper<sup>1,3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>GetNtcDebCntrAppl0_Oper<sup>1</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>GetNtcInfoApplX_Oper<sup>1</sup></strong></td>
+<td>Server Runnable</td>
+<td>Internal to DiagcMgr<sup>2</sup></td>
+</tr>
+<tr class="odd">
+<td><strong>GetNtcQlfrStsX_Oper<sup>1,3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>GetNtcStsX_Oper<sup>1,3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>SetNtcStsX_Oper<sup>1,3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="even">
+<td><strong>SetNtcStsAndSnpshtDataX_Oper<sup>1,3</sup></strong></td>
+<td>Server Runnable</td>
+<td>Client Call</td>
+</tr>
+<tr class="odd">
+<td><strong>UpdDtcEnaCdn<sup>4</sup></strong></td>
+<td>Non RTE Server Runnable</td>
+<td>Client Call</td>
+</tr>
+</tbody>
+</table>
+<p><sup>1</sup>X in the Runnable name represent the application number. There 11 applications (0 to 10) and each application has a ProxyDiagcMgr component. One set of these server runnables exist in each proxy component.</p>
+<p><sup>2</sup>Runnables with trigger ‘Internal to DiagcMgr’ are local to DiagcMgr main component and 11 proxy components, other components will not have access to these functions. Whenever a component inside an application calls one of the server runnables, the ProxyDiagcMgr of that application will make a client call to the DiagcMgr main component.</p>
+<p><sup>3</sup>These Server Runnables must be defined with “can be invoked concurrently” enabled in Developer.</p>
+<p><sup>4</sup>This function is assumed to be called by bswm providing periodic updates of DTC enable condition.</p>
+<p>DTC enable conditions should be defined by the fault code requirement. </p>
+<p><sup>5</sup>The &lt;Type&gt; in this function can be f32,logl,s08,s16,s32,u08 or u16</p>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Memory Section</strong></td>
+<td><strong>Contents</strong></td>
+<td><strong>Notes</strong></td>
+</tr>
+<tr class="even">
+<td><strong>GlobalShared_START_SEC_VAR_NOINIT_UNSPECIFIED</strong></td>
+<td>SnpshtDataAry_M</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Feature</strong></td>
+<td><strong>RAM</strong></td>
+<td><strong>ROM</strong></td>
+</tr>
+<tr class="even">
+<td><strong>&lt;Memmap usuage info&gt;</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: ARM Cortex R4 Memory Usage</p>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p>*See DataDict.m</p>
+<p>1. This component assumes that the integrator will keep the default NvM block name and the Block ID name will be "NvMConf_NvMBlockDescriptor_Rte_NvmBlock_DiagcMgr_DiagcMgrNtcFltAry” and “NvMConf_NvMBlockDescriptor_Rte_NvmBlock_DiagcMgr_DiagcMgrLtchCntrAry” 2. The shadow RAM for SnpshtDataAry NVM lives in the global variable SnpshtDataAry_M. This should be mapped appropriately.</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p>None</p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p>None</p>
+<h1 id="appendix">Appendix</h1>
+<ol type="1">
+<li><p>There is the following compiler warning shows up in the compilation of DiagcMgr.c.<br />
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:5.46736in;height:0.64722in" /><br />
+<strong><u>Justification:</u></strong> The intention of CnvSnpshtData_f32_Oper server runnable is to retain the bits of the single precision float input argument as is in the uint32 output. Typecasting the float32 input to uint32 will not preserve the bits as intended hence this type of casting is required.</p></li>
+</ol>
+<blockquote>
+<p><strong><u>Note:</u></strong> We are deviating from MISRA Rule 11.4 (refer static analysis guideline D 11.4.5)</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>The components that need to be integrated/ brought into the developer project are:</p>
+<ol type="a">
+<li><p>DiagcMgr</p></li>
+<li><p>DiagcMgrStub</p></li>
+<li><p>DiagcMgrProxyApplX for each application(#X) that exists in the project.</p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p><strong><u>Note:</u></strong> In DiagcMgr davinci component interface, only the client ports of applications that are present in the project will have server ports to connect to. All the client ports that do not have the corresponding application in the project need to be connected to the corresponding server port in DiagcMgr_Stub component.</p>
+</blockquote>

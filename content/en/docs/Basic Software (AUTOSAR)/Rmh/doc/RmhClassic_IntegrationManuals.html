@@ -1,0 +1,418 @@
+---
+title: RmhClassic_IntegrationManuals
+linkTitle: RmhClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-1_1.png"/><br/>
+Rmh&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.0.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.0.0<br/>
+2017-12-14<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;11<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#3"><b>1&#160;Introduction</b></a><br/>
+<b>3</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#3">1.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#3">General</a><br/>
+3<br/>
+<a href="RmhClassic_IntegrationManuals.html#3">1.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#3">Functional&#160;overview</a><br/>
+3<br/>
+<a href="RmhClassic_IntegrationManuals.html#3"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>3</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#4"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>4</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#5"><b>4&#160;Limitations</b></a><br/>
+<b>5</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#6"><b>5&#160;Software&#160;Architecture</b></a><br/>
+<b>6</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">5.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">Dependencies&#160;to&#160;other&#160;Modules</a><br/>
+6<br/>
+<a href="RmhClassic_IntegrationManuals.html#6">5.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">Dependencies&#160;to&#160;AUTOSAR&#160;modules</a><br/>
+6<br/>
+<a href="RmhClassic_IntegrationManuals.html#6">5.2.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">Com</a><br/>
+6<br/>
+<a href="RmhClassic_IntegrationManuals.html#6">5.2.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">RTE</a><br/>
+6<br/>
+<a href="RmhClassic_IntegrationManuals.html#6">5.2.3</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">Det</a><br/>
+6<br/>
+<a href="RmhClassic_IntegrationManuals.html#6">5.3</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#6">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+6<br/>
+<a href="RmhClassic_IntegrationManuals.html#7"><b>6&#160;Integration</b></a><br/>
+<b>7</b><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Configuration&#160;of&#160;other&#160;modules</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.1.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Com</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.1.1.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">ComSignal&#160;for&#160;Rmh&#160;data&#160;element&#160;requestedMsgID</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.1.1.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Optional&#160;ComSignal&#160;for&#160;Rmh&#160;data&#160;element&#160;dummySignal</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.1.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Det</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Configuration</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.2.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Operation&#160;Variants&#160;of&#160;Rmh</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#7">6.2.1.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#7">Use&#160;zero&#160;length&#160;dummy&#160;trigger&#160;signals</a><br/>
+7<br/>
+<a href="RmhClassic_IntegrationManuals.html#8">6.2.1.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#8">Use&#160;direct&#160;BSW&#160;call&#160;to&#160;Com_TriggerIPDUSend</a><br/>
+8<br/>
+<a href="RmhClassic_IntegrationManuals.html#8">6.2.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#8">Rmh&#160;General</a><br/>
+8<br/>
+<a href="RmhClassic_IntegrationManuals.html#9">6.2.2.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#9">RmhDevErrorDetect</a><br/>
+9<br/>
+<a href="RmhClassic_IntegrationManuals.html#9">6.2.2.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#9">RmhPduTriggerMode</a><br/>
+9<br/>
+<a href="RmhClassic_IntegrationManuals.html#9">6.2.2.3</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#9">RmhRequestPduMapping</a><br/>
+9<br/>
+<a href="RmhClassic_IntegrationManuals.html#9">6.3</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#9">Configuration&#160;of&#160;the&#160;RTE/SchM</a><br/>
+9<br/>
+<a href="RmhClassic_IntegrationManuals.html#10">6.3.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#10">Event&#160;Mapping</a><br/>
+10<br/>
+<a href="RmhClassic_IntegrationManuals.html#10">6.3.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#10">Data&#160;Mapping</a><br/>
+10<br/>
+<a href="RmhClassic_IntegrationManuals.html#10">6.3.3</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#10">Exclusive&#160;Areas</a><br/>
+10<br/>
+<a href="RmhClassic_IntegrationManuals.html#10">6.4</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#10">Software&#160;Integration</a><br/>
+10<br/>
+<a href="RmhClassic_IntegrationManuals.html#10">6.4.1</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#10">SWCD&#160;Adaption</a><br/>
+10<br/>
+<a href="RmhClassic_IntegrationManuals.html#11">6.4.2</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#11">Startup/Initialization</a><br/>
+11<br/>
+<a href="RmhClassic_IntegrationManuals.html#11">6.4.3</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#11">Normal&#160;Operation</a><br/>
+11<br/>
+<a href="RmhClassic_IntegrationManuals.html#11">6.4.4</a><br/>
+<a href="RmhClassic_IntegrationManuals.html#11">Shutdown/Deactivation</a><br/>
+11<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;11<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+<b>General</b><br/>
+For&#160;a&#160;general&#160;introduction&#160;to&#160;the&#160;BAC4&#160;Platform&#160;Modules&#160;please&#160;refer&#160;to&#160;<a href="RmhClassic_IntegrationManuals.html#4">[1].</a><br/>
+This&#160;document&#160;only&#160;describes&#160;topics&#160;related&#160;to&#160;the&#160;Rmh&#160;BAC4&#160;Module.<br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;of&#160;the&#160;BMW&#160;system<br/>function&#160;Rmh.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Request&#160;Message&#160;Handler&#160;(Rmh)&#160;functionality&#160;is&#160;to&#160;trigger&#160;the&#160;transmission&#160;of<br/>specific&#160;Com&#160;I-PDUs,&#160;when&#160;a&#160;certain&#160;(Com-)Signal&#160;is&#160;received&#160;embedded&#160;in&#160;a&#160;special&#160;so-called&#160;request<br/>message.&#160;The&#160;use&#160;case&#160;in&#160;the&#160;BMW&#160;bordnet&#160;is&#160;as&#160;follows:&#160;If&#160;certain&#160;TX-Pdus&#160;of&#160;an&#160;ECU&#160;are&#160;marked&#160;as<br/>being&#160;&#34;requestable&#34;&#160;in&#160;the&#160;bordnet&#160;database,&#160;the&#160;ECU&#160;has&#160;to&#160;support&#160;the&#160;reception&#160;of&#160;a&#160;specific&#160;request<br/>message.&#160;In&#160;the&#160;payload&#160;of&#160;the&#160;request&#160;message&#160;is&#160;defined,&#160;which&#160;of&#160;the&#160;ECUs&#160;configured&#160;requestable<br/>TX-Pdus&#160;shall&#160;be&#160;sent&#160;out&#160;once&#160;again.&#160;This&#160;feature&#160;is&#160;used&#160;for&#160;TX-Pdus,&#160;which&#160;are&#160;either&#160;sent&#160;out<br/>on-change/on-event&#160;only&#160;or&#160;if&#160;the&#160;cyclic&#160;frequency&#160;is&#160;very&#160;low.&#160;Other&#160;ECUs&#160;in&#160;the&#160;vehicle,&#160;which&#160;are<br/>interessted&#160;in&#160;the&#160;reception&#160;of&#160;such&#160;an&#160;TX-Pdu&#160;can&#160;then&#160;send&#160;a&#160;request&#160;message&#160;to&#160;this&#160;ECU,&#160;to&#160;get&#160;the<br/>current&#160;value&#160;instead&#160;of&#160;waiting&#160;for&#160;a&#160;long&#160;time&#160;until&#160;it&#160;is&#160;sent&#160;out&#160;again&#160;regularly.<br/>
+The&#160;Rmh&#160;module&#160;itself&#160;is&#160;modeled&#160;as&#160;an&#160;AUTOSAR&#160;software&#160;component&#160;(SWC)&#160;residing&#160;above&#160;the&#160;RTE.<br/>Depending&#160;on&#160;the&#160;configuration&#160;variant&#160;an&#160;additional&#160;CD&#160;(complex&#160;driver)&#160;may&#160;be&#160;part&#160;of&#160;the&#160;Rmh&#160;module.<br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+Abbreviation&#160;Acronym:&#160;Description:<br/>AUTOSAR<br/>
+Automotive&#160;Open&#160;Systems&#160;Architecture&#160;group<br/>
+BAC<br/>
+BMW&#160;AUTOSAR&#160;Core<br/>
+Com<br/>
+AUTOSAR&#160;Communication&#160;module<br/>
+Det<br/>
+AUTOSAR&#160;Default&#160;Error&#160;Tracer&#160;module<br/>
+ECU<br/>
+Electronical&#160;Control&#160;Unit<br/>
+PDU<br/>
+Protocol&#160;Data&#160;Unit<br/>
+Rmh<br/>
+BMW&#160;Request&#160;Message&#160;Handler&#160;system&#160;function&#160;(this&#160;module)<br/>
+RTE<br/>
+Runtime&#160;Environment<br/>
+SWC<br/>
+Software&#160;Component<br/>
+SWCD<br/>
+Software&#160;Component&#160;Description<br/>
+All&#160;abbreviations&#160;used&#160;throughout&#160;this&#160;document&#160;--&#160;except&#160;the&#160;ones&#160;listed&#160;here&#160;--&#160;can&#160;be&#160;found&#160;in&#160;the<br/>official&#160;AUTOSAR&#160;glossary&#160;TR-Glossary.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;11<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-4_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+[1]&#160;BAC4&#160;General&#160;Concept&#160;for&#160;the&#160;Module&#160;Integration<br/>
+BAC4_General_Concepts_for_the_Module_Integration.pdf<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;11<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-5_1.png"/><br/>
+<b>4</b><br/>
+<b>Limitations</b><br/>
+None.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;11<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-6_1.png"/><br/>
+<b>5</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;to&#160;other&#160;Modules</b><br/>
+The&#160;RmhClassic&#160;is&#160;a&#160;standalone&#160;module.&#160;I.e.&#160;there&#160;is&#160;no&#160;generic&#160;part&#160;of&#160;Rmh,&#160;since&#160;the&#160;functionality&#160;of<br/>Rmh&#160;is&#160;only&#160;applicable&#160;to&#160;AUTOSAR&#160;CP&#160;(Classic&#160;AUTOSAR)&#160;platform.<br/>
+<b>Dependencies&#160;to&#160;AUTOSAR&#160;modules</b><br/>
+<b>Com</b><br/>
+Rmh&#160;supports&#160;a&#160;configuration&#160;mode,&#160;where&#160;it&#160;partly&#160;takes&#160;the&#160;role&#160;as&#160;a&#160;complex&#160;driver,&#160;which&#160;directly&#160;calls<br/>BSW&#160;module&#160;Com&#160;(Com_TriggerIPDUSend).&#160;In&#160;the&#160;configuration&#160;mode&#160;as&#160;a&#160;pure&#160;AUTOSAR&#160;SWC&#160;it<br/>accesses&#160;Com&#160;indirectly&#160;via&#160;Rte_Read/Rte_Write.<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;Rmh&#160;module&#160;uses&#160;Rte&#160;client/server&#160;and&#160;sender/receiver&#160;communication&#160;to<br/>communicate&#160;with&#160;BSW&#160;modules.<br/>
+<b>Det</b><br/>
+Rmh&#160;optionally&#160;reports&#160;development&#160;errors&#160;to&#160;the&#160;Det.<br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+There&#160;are&#160;no&#160;such&#160;dependencies.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;11<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-7_1.png"/><br/>
+<b>6</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;the&#160;module&#160;Rmh&#160;is&#160;compiled&#160;and&#160;linked.<br/>
+<b>Com</b><br/>
+<b>ComSignal&#160;for&#160;Rmh&#160;data&#160;element&#160;requestedMsgID</b><br/>
+The&#160;ComSignal&#160;for&#160;the&#160;data&#160;element&#160;requestedMsgID&#160;shall&#160;be&#160;configured.&#160;This&#160;signal&#160;is&#160;currently&#160;named<br/>ID_FN_INQY&#160;in&#160;the&#160;BMW&#160;message&#160;catalog&#160;and&#160;is&#160;part&#160;of&#160;the&#160;multiplexed&#160;PDU&#160;ANFRAGE/Inquiry.<br/>
+<b>Optional&#160;ComSignal&#160;for&#160;Rmh&#160;data&#160;element&#160;dummySignal</b><br/>
+In&#160;case&#160;the&#160;integrator&#160;has&#160;decided&#160;to&#160;go&#160;for&#160;Rmh&#160;variant&#160;ZERO_LENGTH_SIGNAL&#160;(see&#160;below),&#160;then&#160;for<br/>each&#160;Com-PDU,&#160;that&#160;can&#160;be&#160;requested,&#160;a&#160;Com&#160;dummy&#160;trigger&#160;signal&#160;with&#160;ComBitSize&#160;0&#160;and<br/>ComTransferProperty&#160;TRIGGERED&#160;has&#160;to&#160;configured&#160;and&#160;mapped&#160;to&#160;the&#160;corresponding&#160;Com-PDU.<br/>
+<b>Det</b><br/>
+Configure&#160;the&#160;Det&#160;accordingly,&#160;that&#160;it&#160;provides&#160;the&#160;needed&#160;P-Port&#160;to&#160;the&#160;Rmh&#160;SWC.<br/>
+<b>Configuration</b><br/>
+The&#160;Rmh&#160;configuration&#160;is&#160;formally&#160;described&#160;in&#160;cfgdesc/RmhClassic_paramdef.arxml.<br/>
+Here&#160;the&#160;configuration&#160;values&#160;will&#160;be&#160;set&#160;in&#160;the&#160;right&#160;context.<br/>
+<b>Operation&#160;Variants&#160;of&#160;Rmh</b><br/>
+As&#160;roughly&#160;stated&#160;in&#160;<a href="RmhClassic_IntegrationManuals.html#7">subsection&#160;6.1.1,&#160;``Com''&#160;</a>the&#160;Rmh&#160;module&#160;can&#160;be&#160;used&#160;in&#160;two&#160;different&#160;modes.&#160;These<br/>two&#160;modes&#160;differ&#160;in&#160;the&#160;mechanism&#160;used,&#160;how&#160;to&#160;trigger&#160;the&#160;transmission&#160;of&#160;the&#160;requested&#160;Com-PDU.<br/>The&#160;integrator&#160;has&#160;to&#160;decide&#160;which&#160;variant&#160;fits&#160;best&#160;in&#160;his&#160;integration&#160;scenario.<br/>
+<b>Use&#160;zero&#160;length&#160;dummy&#160;trigger&#160;signals</b><br/>
+In&#160;this&#160;variant,&#160;the&#160;Rmh&#160;consists&#160;only&#160;of&#160;one&#160;pure&#160;AUTOSAR&#160;SWC&#160;communicating&#160;strictly&#160;over&#160;RTE.&#160;To<br/>allow&#160;the&#160;transmission&#160;of&#160;a&#160;Com-PDU,&#160;the&#160;following&#160;strategy&#160;is&#160;used:&#160;For&#160;each&#160;PDU,&#160;which&#160;is&#160;configured<br/>as&#160;&#34;can&#160;be&#160;requested&#34;,&#160;the&#160;Rmh&#160;module&#160;generates&#160;an&#160;S/R&#160;P-Port&#160;over&#160;which&#160;it&#160;sends&#160;a&#160;uint8&#160;dummy&#160;data<br/>element.&#160;The&#160;integrator&#160;now&#160;has&#160;to&#160;map&#160;each&#160;of&#160;these&#160;data&#160;elements&#160;to&#160;a&#160;dummy&#160;trigger&#160;Com&#160;signal,<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;11<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-8_1.png"/><br/>
+which&#160;is&#160;part&#160;of&#160;the&#160;PDU&#160;to&#160;be&#160;transmitted&#160;and&#160;which&#160;has&#160;the&#160;property&#160;ComTransferProperty&#160;set&#160;to<br/>TRIGGERED.&#160;Since&#160;the&#160;task&#160;of&#160;these&#160;dummy&#160;signals&#160;is&#160;solely&#160;to&#160;trigger&#160;the&#160;PDU&#160;transmission&#160;and&#160;the<br/>content&#160;of&#160;these&#160;signals&#160;shall&#160;NOT&#160;show&#160;up&#160;in&#160;the&#160;transmitted&#160;PDU&#160;on&#160;the&#160;network,&#160;the&#160;used&#160;Com&#160;stack<br/>has&#160;to&#160;support&#160;the&#160;concept&#160;of&#160;zero-length-signals.&#160;That&#160;means&#160;the&#160;Com&#160;dummy&#160;signal&#160;must&#160;support&#160;a<br/>configuration&#160;setting&#160;ComBitSize&#160;with&#160;value&#160;0.<br/>
+<b>Note</b>:&#160;This&#160;feature&#160;is&#160;currently&#160;marked&#160;as&#160;optional&#160;in&#160;AUTOSAR,&#160;so&#160;you&#160;have&#160;to&#160;check&#160;with&#160;your&#160;stack<br/>vendor,&#160;whether&#160;he&#160;truly&#160;supports&#160;this.<br/>
+<b>Pro</b>:&#160;This&#160;variant&#160;does&#160;not&#160;need&#160;any&#160;ComplexDeviceDriverSwComponent&#160;support.&#160;This&#160;might&#160;be&#160;a<br/>benefit&#160;in&#160;ASIL&#160;environments,&#160;where&#160;the&#160;usage&#160;of&#160;non&#160;ASIL&#160;qualified&#160;ComplexDrivers&#160;is&#160;critical.<br/>
+<b>Contra</b>:&#160;Depending&#160;on&#160;the&#160;number&#160;of&#160;PDUs&#160;that&#160;can&#160;be&#160;requested&#160;in&#160;your&#160;ECU,&#160;the&#160;Rmh&#160;has&#160;an<br/>equivalent&#160;number&#160;of&#160;ports,&#160;which&#160;consume&#160;resources.&#160;The&#160;additionally&#160;needed&#160;dummy&#160;Com&#160;signals&#160;also<br/>take&#160;up&#160;certain&#160;resources.&#160;Finally&#160;the&#160;configuration&#160;overhead&#160;for&#160;the&#160;integrator&#160;(data&#160;element&#160;mapping&#160;to<br/>Com&#160;signal&#160;mapping,&#160;creation&#160;of&#160;dummy&#160;Com&#160;signals)&#160;may&#160;be&#160;higher&#160;than&#160;in&#160;variant&#160;two.<br/>
+<b>Use&#160;direct&#160;BSW&#160;call&#160;to&#160;Com_TriggerIPDUSend</b><br/>
+With&#160;this&#160;Rmh&#160;variant,&#160;the&#160;module&#160;consists&#160;of&#160;two&#160;components:&#160;An&#160;ApplicationSwComponent&#160;and&#160;a<br/>ComplexDeviceDriverSwComponent.&#160;The&#160;ComplexDeviceDriverSwComponent&#160;is&#160;nothing&#160;more&#160;than&#160;a<br/>small&#160;wrapper&#160;around&#160;the&#160;BSW&#160;API&#160;Com_TriggerIPDUSend&#160;of&#160;the&#160;Com&#160;module,&#160;which&#160;is&#160;not<br/>accessible&#160;via&#160;RTE.&#160;In&#160;contrast&#160;to&#160;variant&#160;one,&#160;the&#160;ApplicationSwComponent&#160;part&#160;of&#160;Rmh&#160;does&#160;not&#160;write<br/>dummy&#160;data&#160;elements&#160;to&#160;the&#160;RTE,&#160;but&#160;calls&#160;a&#160;C/S&#160;operation&#160;of&#160;the&#160;Rmh<br/>ComplexDeviceDriverSwComponent,&#160;which&#160;basically&#160;directly&#160;calls&#160;Com_TriggerIPDUSend,&#160;to&#160;transmit<br/>the&#160;requested&#160;PDU.<br/>
+<b>Pro</b>:&#160;Lower&#160;resource&#160;footprint,&#160;less&#160;configuration&#160;overhead.&#160;<b>Contra</b>:&#160;Direct&#160;call&#160;to&#160;BSW&#160;code&#160;might&#160;be<br/>critical&#160;in&#160;ASIL&#160;environments.&#160;During&#160;generation&#160;of&#160;Rmh&#160;code/SWCD&#160;the&#160;configuration&#160;of&#160;the&#160;Com&#160;module<br/>must&#160;be&#160;read.&#160;This&#160;is&#160;an&#160;additional&#160;dependency&#160;that&#160;demands&#160;a&#160;real&#160;AUTOSAR&#160;compliant&#160;Com<br/>configuration&#160;(which&#160;should&#160;of&#160;course&#160;not&#160;be&#160;a&#160;big&#160;issue).<br/>
+The&#160;Rmh&#160;configuration&#160;allows&#160;configuring&#160;which&#160;requested&#160;message&#160;IDs&#160;are&#160;supported&#160;and&#160;which<br/>Com-PDUs&#160;shall&#160;be&#160;triggered&#160;by&#160;which&#160;request&#160;message&#160;ID.&#160;The&#160;Rmh&#160;configuration&#160;contains&#160;the<br/>following&#160;containers&#160;at&#160;root&#160;level:<br/>
+CommonPublishedInformation<br/>Rmh&#160;General<br/>
+<b>Rmh&#160;General</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;Rmh.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;11<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-9_1.png"/><br/>
+<b>RmhDevErrorDetect</b><br/>
+BOOLEAN&#160;parameter&#160;to&#160;enable/disable&#160;the&#160;reporting&#160;of&#160;development&#160;errors.&#160;This&#160;can&#160;be&#160;useful&#160;to&#160;detect<br/>errors&#160;in&#160;the&#160;Com/Rmh&#160;configuration,&#160;when&#160;Rmh&#160;tries&#160;to&#160;trigger&#160;non-existent&#160;Com-PDUs.<br/>
+<b>RmhPduTriggerMode</b><br/>
+This&#160;is&#160;a&#160;CHOICE-container,&#160;where&#160;the&#160;integrator&#160;can&#160;choose&#160;between&#160;Rmh&#160;variant&#160;one<br/>(RMH_MODE_ZERO_LENGTH_TRIGGER_SIGNAL)&#160;and&#160;two&#160;(RMH_MODE_TRIGGER_IPDU_SEND)<br/>(see&#160;<a href="RmhClassic_IntegrationManuals.html#7">subsection&#160;6.2.1,&#160;``Operation&#160;Variants&#160;of&#160;Rmh'').</a><br/>
+<b>RmhRequestPduMapping</b><br/>
+This&#160;container&#160;exists&#160;in&#160;variant&#160;one&#160;and&#160;variant&#160;two.&#160;Only&#160;the&#160;contents&#160;of&#160;this&#160;container&#160;slightly&#160;differ&#160;in<br/>both&#160;variants.&#160;For&#160;each&#160;PDU&#160;which&#160;can&#160;be&#160;requested&#160;in&#160;the&#160;ECU&#160;one&#160;container&#160;of&#160;this&#160;type&#160;has&#160;to&#160;be<br/>instantiated.<br/>
+<b>RmhRequestedMsgId</b><br/>
+In&#160;both&#160;variants,&#160;this&#160;INTEGER-parameter&#160;is&#160;needed&#160;to&#160;identify&#160;the&#160;requested&#160;message.&#160;(Note&#160;that&#160;the&#160;ID<br/>is&#160;taken&#160;from&#160;the&#160;CAN&#160;frame&#160;ID&#160;of&#160;the&#160;requested&#160;message).<br/>
+<b>RmhTriggerSignalPPortIdentifier</b><br/>
+Only&#160;in&#160;mode&#160;RMH_MODE_ZERO_LENGTH_TRIGGER_SIGNAL.&#160;This&#160;STRING-parameter&#160;describes<br/>the&#160;P-Port&#160;name&#160;of&#160;the&#160;Rmh&#160;module&#160;for&#160;sending&#160;the&#160;dummy&#160;data&#160;element&#160;to&#160;trigger&#160;the&#160;Com-PDU<br/>denoted&#160;by&#160;the&#160;RmhRequestMsgId.&#160;We&#160;suggest,&#160;that&#160;you&#160;name&#160;this&#160;parameter&#160;in&#160;a&#160;way&#160;that&#160;the<br/>correspondence&#160;to&#160;the&#160;requested&#160;Com-PDU&#160;is&#160;visible.<br/>
+<b>RmhRequestedComTxPdu</b><br/>
+Only&#160;in&#160;mode&#160;RMH_MODE_TRIGGER_IPDU_SEND.&#160;This&#160;is&#160;a&#160;reference&#160;to&#160;the&#160;Com-PDU&#160;that&#160;shall&#160;be<br/>sent/triggered,&#160;when&#160;RmhRequestMsgId&#160;is&#160;requested.<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE/SchM</b><br/>
+The&#160;R-Port&#160;Det&#160;of&#160;Rmh&#160;has&#160;to&#160;be&#160;connected&#160;with&#160;the&#160;corresponding&#160;P-Port&#160;of&#160;the&#160;BSW&#160;module&#160;Det.&#160;The<br/>R-Port&#160;TriggerIPDUSend&#160;of&#160;Rmh&#160;ApplicationSwComponent&#160;has&#160;to&#160;be&#160;connected&#160;to&#160;the&#160;corresponding<br/>P-Port&#160;TriggerIPDUSend&#160;of&#160;the&#160;Rmh_cdd&#160;ComplexDeviceDriverSwComponent&#160;in&#160;case&#160;variant<br/>RMH_MODE_TRIGGER_IPDU_SEND&#160;has&#160;been&#160;chosen.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;11<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-10_1.png"/><br/>
+<b>Event&#160;Mapping</b><br/>
+The&#160;Rmh&#160;ApplicationSwComponent&#160;has&#160;the&#160;following&#160;runnable&#160;(in&#160;brackets&#160;it&#160;is&#160;noted,&#160;whether&#160;it&#160;can&#160;be<br/>invoked&#160;concurrently):<br/>
+RxRequestMsg&#160;(false)<br/>
+Depending&#160;at&#160;your&#160;RTE&#160;tooling&#160;at&#160;least&#160;the&#160;runnables&#160;that&#160;cannot&#160;be&#160;invoked&#160;concurrently&#160;must&#160;be<br/>mapped&#160;to&#160;tasks.&#160;The&#160;Rmh&#160;ComplexDeviceDriverSwComponent&#160;(variant<br/>RMH_MODE_TRIGGER_IPDU_SEND&#160;only)&#160;has&#160;the&#160;following&#160;runnable&#160;(in&#160;brackets&#160;it&#160;is&#160;noted,&#160;whether&#160;it<br/>can&#160;be&#160;invoked&#160;concurrently):<br/>
+TriggerComIPDUSend&#160;(false)<br/>
+Depending&#160;at&#160;your&#160;RTE&#160;tooling&#160;at&#160;least&#160;the&#160;runnables&#160;that&#160;cannot&#160;be&#160;invoked&#160;concurrently&#160;must&#160;be<br/>mapped&#160;to&#160;tasks.<br/>
+<b>Data&#160;Mapping</b><br/>
+The&#160;following&#160;S/R&#160;data&#160;element&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;corresponding&#160;ComSignal&#160;(see&#160;<a href="RmhClassic_IntegrationManuals.html#7">subsection&#160;6.1.1,<br/>``Com''):</a><br/>
+requestedMsgID&#160;(R-Port&#160;RxRequestedMsgID)<br/>
+The&#160;following&#160;data&#160;element(s)&#160;mapping&#160;is&#160;only&#160;required&#160;if&#160;Rmh&#160;variant<br/>RMH_MODE_ZERO_LENGTH_TRIGGER_SIGNAL&#160;is&#160;used:&#160;The&#160;following&#160;S/R&#160;data&#160;element(s)&#160;shall&#160;be<br/>mapped&#160;to&#160;the&#160;corresponding&#160;ComSignal(s)&#160;(see&#160;<a href="RmhClassic_IntegrationManuals.html#7">subsection&#160;6.1.1,&#160;``Com''):</a><br/>
+dummySignal&#160;(R-Port&#160;Trigger&lt;RmhT&#160;riggerSignalP&#160;P&#160;ortIdentifier&#160;&gt;)<br/>
+<b>Exclusive&#160;Areas</b><br/>
+Rmh&#160;has&#160;concurrently&#160;NO&#160;exclusive&#160;area.<br/>
+<b>Software&#160;Integration</b><br/>
+<b>SWCD&#160;Adaption</b><br/>
+The&#160;file&#160;Rmh_ext_interfaces.arxml&#160;contains&#160;one&#160;external&#160;dependency,&#160;which&#160;is&#160;defined&#160;here&#160;to<br/>express&#160;the&#160;expectations&#160;of&#160;Rmh&#160;(see&#160;explanation&#160;in&#160;<a href="RmhClassic_IntegrationManuals.html#4">[1]):</a><br/>
+The&#160;ClientServer&#160;interface&#160;of&#160;Det&#160;module&#160;to&#160;report&#160;development&#160;errors&#160;via&#160;ReportError&#160;operation.<br/>
+In&#160;case&#160;the&#160;interface&#160;signature&#160;looks&#160;different&#160;in&#160;your&#160;Det&#160;implementation&#160;(which&#160;is&#160;very&#160;unlikely),&#160;you<br/>could&#160;adapt&#160;it&#160;here,&#160;at&#160;least&#160;to&#160;a&#160;extent&#160;that&#160;does&#160;not&#160;change&#160;the&#160;C-signature&#160;of&#160;the&#160;runnable,<br/>implementing&#160;the&#160;C/S&#160;call.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;11<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Rmh/doc/RmhClassic_IntegrationManual-11_1.png"/><br/>
+<b>Startup/Initialization</b><br/>
+Rmh&#160;does&#160;not&#160;need&#160;an&#160;explicit&#160;startup&#160;or&#160;initialization.&#160;It&#160;is&#160;triggered&#160;by&#160;data&#160;received&#160;events&#160;in&#160;case&#160;it&#160;is<br/>integrated.&#160;In&#160;case&#160;you&#160;do&#160;not&#160;want&#160;the&#160;Rmh&#160;to&#160;interact&#160;on&#160;data&#160;receive&#160;events&#160;you&#160;have&#160;to&#160;stop&#160;the<br/>corresponding&#160;ComPduGroup,&#160;which&#160;contains&#160;the&#160;request&#160;message/data&#160;element&#160;that&#160;triggers&#160;Rmh.<br/>
+<b>Normal&#160;Operation</b><br/>
+See&#160;above&#160;(startup/initialization).&#160;Not&#160;applicable.<br/>
+<b>Shutdown/Deactivation</b><br/>
+See&#160;above&#160;(startup/initialization).&#160;Not&#160;applicable.<br/>
+RmhClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;11<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#3">1 Introduction</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#3">1.1 General</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#3">1.2 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#3">2 Acronyms and Abbreviations</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#4">3 Related documentation</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#5">4 Limitations</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5 Software Architecture</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5.1 Dependencies to other Modules</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5.2 Dependencies to AUTOSAR modules</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5.2.1 Com</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5.2.2 RTE</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5.2.3 Det</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#6">5.3 Dependencies to other modules</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6 Integration</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.1 Configuration of other modules</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.1.1 Com</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.1.1.1 ComSignal for Rmh data element requestedMsgID</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.1.1.2 Optional ComSignal for Rmh data element dummySignal</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.1.2 Det</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.2 Configuration</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.2.1 Operation Variants of Rmh</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#7">6.2.1.1 Use zero length dummy trigger signals</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#8">6.2.1.2 Use direct BSW call to Com_TriggerIPDUSend</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#8">6.2.2 Rmh General</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#9">6.2.2.1 RmhDevErrorDetect</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#9">6.2.2.2 RmhPduTriggerMode</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#9">6.2.2.3 RmhRequestPduMapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#9">6.3 Configuration of the RTE/SchM</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#10">6.3.1 Event Mapping</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#10">6.3.2 Data Mapping</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#10">6.3.3 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="RmhClassic_IntegrationManuals.html#10">6.4 Software Integration</a>
+<ul>
+<li><a href="RmhClassic_IntegrationManuals.html#10">6.4.1 SWCD Adaption</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#11">6.4.2 Startup/Initialization</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#11">6.4.3 Normal Operation</a></li>
+<li><a href="RmhClassic_IntegrationManuals.html#11">6.4.4 Shutdown/Deactivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

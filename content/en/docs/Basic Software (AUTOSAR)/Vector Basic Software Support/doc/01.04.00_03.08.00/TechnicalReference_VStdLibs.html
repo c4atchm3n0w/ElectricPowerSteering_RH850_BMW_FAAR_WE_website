@@ -1,0 +1,724 @@
+---
+title: TechnicalReference_VStdLibs
+linkTitle: TechnicalReference_VStdLibs
+weight: 17
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>VStdLib&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Vector Standard&#160;Library&#160;<br/>Version&#160;1.6.2&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Patrick&#160;Markl,&#160;Timo Vanoni&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-2_2.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>1&#160;&#160;Document&#160;Information&#160;</b><br/>
+<b>1.1&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Patrick&#160;Markl&#160;<br/>
+2008-02-06&#160;<br/>
+1.0&#160;<br/>
+Creation,&#160;merge&#160;from&#160;Application Note&#160;<br/>
+Patrick&#160;Markl&#160;<br/>
+2008-10-31&#160;<br/>
+1.3&#160;<br/>
+Fixed&#160;document&#160;version&#160;<br/>
+Patrick&#160;Markl&#160;<br/>
+2008-11-07&#160;<br/>
+1.4&#160;<br/>
+Added&#160;information&#160;about&#160;mixed&#160;VStdLib versions&#160;<br/>
+Patrick&#160;Markl&#160;<br/>
+2009-07-02&#160;<br/>
+1.5&#160;<br/>
+Updated&#160;assertion&#160;codes&#160;<br/>Added&#160;chapter&#160;about&#160;QNX&#160;OS&#160;<br/>
+Patrick&#160;Markl&#160;<br/>
+2009-10-16&#160;<br/>
+1.6&#160;<br/>
+Described&#160;inclusion&#160;of&#160;OSEK&#160;OS&#160;header&#160;file&#160;<br/>
+Timo Vanoni&#160;<br/>
+2013-05-10&#160;<br/>
+1.6.2&#160;<br/>
+ESCAN00067020:&#160;The&#160;interrupt&#160;lock&#160;functions&#160;<br/>do&#160;not&#160;work&#160;correctly&#160;for&#160;the&#160;user&#160;mode&#160;at&#160;<br/>specific&#160;controller&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;History&#160;of&#160;the&#160;Document&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Please&#160;note&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+&#160;&#160;questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector’s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have&#160;specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+2&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-3_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_VStdLibs.html#2"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#2"><b>Document&#160;Information&#160;.................................................................................................&#160;2</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#2">History&#160;...............................................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#5"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#5"><b>Introduction...................................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#6"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#6"><b>Functional&#160;Description&#160;.................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8"><b>Integration&#160;.....................................................................................................................&#160;8</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8">CANbedded&#160;Particularities&#160;.................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8">4.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8">MICROSAR&#160;Particularities&#160;.................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8">4.3&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#8">Mixing&#160;VStdLib Versions&#160;....................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#9"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#9"><b>Configuration&#160;................................................................................................................&#160;9</b>&#160;<br/></a><a href="TechnicalReference_VStdLibs.html#11">5.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#11">Usage&#160;with&#160;OSEK&#160;OS&#160;......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#11">5.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#11">Usage&#160;with QNX&#160;OS&#160;........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#13"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#13"><b>API&#160;Description&#160;...........................................................................................................&#160;13</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#13">Initialization&#160;......................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#14">6.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#14">Interrupt&#160;Control&#160;...............................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#15">6.3&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#15">Memory&#160;Functions&#160;...........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#17">6.4&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#17">Callback&#160;Functions&#160;...........................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#18"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#18"><b>Assertions&#160;...................................................................................................................&#160;18</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#19"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#19"><b>Limitations&#160;..................................................................................................................&#160;19</b>&#160;<br/>8.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#19">Interrupt&#160;control&#160;does not&#160;work&#160;correctly&#160;in user&#160;mode&#160;.....................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#20"><b>9</b>&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#20"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;20</b>&#160;<br/>9.1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#20">Glossary&#160;..........................................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#20">9.2&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#20">Abbreviations&#160;...................................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#21"><b>10</b>&#160;&#160;<b>Contact&#160;........................................................................................................................&#160;21</b>&#160;<br/></a>&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+3&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-4_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_VStdLibs.html#9">Figure&#160;5-1&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#9">VStdLib configuration&#160;dialog&#160;in&#160;GENy&#160;.........................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#9">Figure&#160;5-2&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#9">VStdLib configuration&#160;dialog&#160;in CANGen&#160;....................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#11">Figure&#160;5-3&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#11">Locking configuration&#160;in&#160;case&#160;CAN&#160;events&#160;are handled&#160;in an&#160;interrupt&#160;<br/>thread&#160;.......................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#12">Figure&#160;5-4&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#12">Configuration&#160;of&#160;the&#160;VStdLib in&#160;case&#160;of&#160;handling&#160;CAN&#160;events&#160;on&#160;interrupt&#160;<br/>level&#160;..........................................................................................................&#160;12&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_VStdLibs.html#2">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_VStdLibs.html#2">History&#160;of&#160;the&#160;Document&#160;.............................................................................&#160;2&#160;</a><br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+4&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-5_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+The&#160;&#160;basic&#160;&#160;idea&#160;&#160;of&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;is&#160;&#160;to&#160;&#160;provide&#160;&#160;standard&#160;&#160;functionality&#160;&#160;to&#160;&#160;different&#160;&#160;Vector&#160;<br/>components.&#160;This&#160;&#160;includes&#160;&#160;memory&#160;&#160;copy&#160;&#160;and&#160;&#160;interrupt&#160;&#160;locking&#160;&#160;functions.&#160;The&#160;&#160;VStdLib&#160;&#160;is&#160;<br/>also&#160;&#160;a&#160;&#160;means&#160;&#160;to&#160;&#160;provide&#160;&#160;special&#160;&#160;memory&#160;&#160;copy&#160;&#160;functions,&#160;&#160;which&#160;&#160;are&#160;&#160;not&#160;&#160;available&#160;&#160;by&#160;<br/>compiler libraries&#160;to&#160;the&#160;communication&#160;components.&#160;&#160;<br/>The&#160;&#160;VStdLib&#160;&#160;is&#160;&#160;designed&#160;&#160;to&#160;&#160;be&#160;&#160;used&#160;&#160;by&#160;&#160;Vector&#160;&#160;communication&#160;&#160;components&#160;&#160;only.&#160;&#160;So&#160;&#160;the&#160;<br/>customer integrating&#160;the&#160;communication&#160;stack&#160;will probably&#160;not&#160;notice&#160;the&#160;VStdLib&#160;at&#160;all.&#160;<br/>The&#160;VStdLib&#160;is&#160;highly&#160;hardware&#160;specific.&#160;This&#160;means&#160;some&#160;functions&#160;are&#160;only&#160;available&#160;on&#160;<br/>certain&#160;&#160;platforms.&#160;&#160;This&#160;&#160;includes&#160;&#160;special&#160;&#160;copy&#160;&#160;functions&#160;&#160;for&#160;&#160;far,&#160;&#160;near&#160;&#160;or&#160;&#160;huge&#160;&#160;memory.&#160;&#160;A&#160;<br/>hardware&#160;&#160;specific&#160;&#160;VStdLib&#160;&#160;does&#160;&#160;not&#160;&#160;necessarily&#160;&#160;implement&#160;&#160;all&#160;&#160;possible&#160;&#160;copy&#160;&#160;function&#160;&#160;for&#160;<br/>the&#160;&#160;corresponding&#160;&#160;hardware&#160;&#160;platform,&#160;&#160;but&#160;&#160;only&#160;&#160;the&#160;&#160;functions&#160;&#160;required&#160;&#160;by&#160;&#160;the&#160;&#160;Vector&#160;<br/>software components.&#160;<br/>The&#160;&#160;VStdLib&#160;&#160;also&#160;&#160;provides&#160;&#160;interrupt&#160;&#160;lock&#160;&#160;functions.&#160;&#160;This&#160;&#160;feature&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;<br/>CANbedded&#160;CAN&#160;driver’s&#160;Reference&#160;Implementation&#160;(RI).&#160;The&#160;RI&#160;defines&#160;a&#160;certain&#160;feature&#160;<br/>set&#160;to&#160;be&#160;supported&#160;by&#160;the&#160;CAN&#160;driver.&#160;CAN&#160;drivers&#160;which&#160;implement&#160;RI1.5&#160;and&#160;higher&#160;do&#160;<br/>not&#160;&#160;provide&#160;&#160;an&#160;&#160;interrupt&#160;&#160;locking&#160;&#160;mechanism&#160;&#160;as&#160;&#160;previously&#160;&#160;implementations&#160;&#160;did&#160;<br/>(CanGlobalInterruptDisable/CanGlobalInterruptRestore).&#160;These&#160;driver&#160;require&#160;a&#160;VStdLib&#160;to&#160;<br/>provide&#160;&#160;this&#160;&#160;functionality,&#160;&#160;although&#160;&#160;the&#160;&#160;API&#160;&#160;CanGlobalInterruptDisable&#160;&#160;and&#160;<br/>CanGlobalInterruptRestore&#160;remains&#160;for&#160;compatibility.&#160;Please&#160;refer&#160;to&#160;the&#160;CANbedded&#160;CAN&#160;<br/>driver technical&#160;reference&#160;for&#160;more information&#160;about&#160;your specific CAN driver.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+5&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-6_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+The&#160;&#160;VStdLib&#160;&#160;provides&#160;&#160;basically&#160;&#160;two&#160;&#160;main&#160;&#160;functionalities&#160;&#160;to&#160;&#160;Vector&#160;&#160;communication&#160;&#160;stack&#160;<br/>components.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Functions&#160;to&#160;copy&#160;memory&#160;<br/>
+<b>&gt;&#160;&#160;</b>Functions&#160;to&#160;lock/unlock interrupts&#160;<br/>
+Interrupt&#160;locking&#160;functionality&#160;is&#160;required&#160;for&#160;CAN&#160;drivers&#160;with&#160;a&#160;reference&#160;&#160;implementation&#160;<br/>1.5&#160;or&#160;higher&#160;or&#160;MICROSAR&#160;stacks.&#160;Functions&#160;to&#160;copy&#160;memory&#160;are&#160;always&#160;provided.&#160;The&#160;<br/>following&#160;table&#160;describes the&#160;API&#160;of&#160;the&#160;VStdLib&#160;which&#160;is used&#160;internally.&#160;<br/>
+&#160;<br/>
+<b>API&#160;Function&#160;</b><br/>
+<b>Description&#160;</b><br/>
+VStdMemSet&#160;<br/>
+Initializes default&#160;RAM&#160;memory&#160;to&#160;a&#160;certain&#160;<br/>character.&#160;<br/>
+VStdMemNearSet&#160;<br/>
+Initializes near&#160;RAM&#160;memory&#160;to&#160;a&#160;certain character.&#160;&#160;<br/>
+VStdMemFarSet&#160;<br/>
+Initializes far&#160;RAM&#160;memory&#160;to a&#160;certain&#160;character.&#160;<br/>
+VStdMemClr&#160;<br/>
+Clears&#160;default&#160;RAM&#160;to zero.&#160;<br/>
+VStdMemNearClr&#160;<br/>
+Clears&#160;near&#160;RAM&#160;to zero.&#160;<br/>
+VStdMemFarClr&#160;<br/>
+Clears&#160;far&#160;RAM&#160;to zero.&#160;<br/>
+VStdMemCpyRamToRam&#160;<br/>
+Copies default&#160;RAM&#160;to default&#160;RAM.&#160;<br/>
+VStdMemCpyRomToRam&#160;<br/>
+Copies default&#160;ROM&#160;to default&#160;RAM.&#160;<br/>
+VStdMemCpyRamToNearRam&#160;<br/>
+Copies default&#160;RAM&#160;to near&#160;RAM.&#160;<br/>
+VStdMemCpyRomToNearRam&#160;<br/>
+Copies&#160;default&#160;ROM&#160;to near&#160;RAM.&#160;<br/>
+VStdMemCpyRamToFarRam&#160;<br/>
+Copies&#160;default&#160;RAM&#160;to&#160;far&#160;RAM.&#160;<br/>
+VStdMemCpyRomToFarRam&#160;<br/>
+Copies&#160;default&#160;ROM&#160;to&#160;far&#160;RAM.&#160;<br/>
+VStdMemCpy16RamToRam&#160;<br/>
+Copies&#160;default&#160;RAM&#160;to default&#160;RAM.&#160;The&#160;copying&#160;is&#160;<br/>performed&#160;16&#160;bit&#160;wise.&#160;<br/>
+VStdMemCpy16RamToFarRam&#160;<br/>
+Copies default&#160;RAM&#160;to&#160;far&#160;RAM.&#160;The&#160;copying&#160;is&#160;<br/>performed&#160;16&#160;bit&#160;wise.&#160;<br/>
+VStdMemCpy16FarRamToRam&#160;<br/>
+Copies&#160;far&#160;RAM&#160;to default&#160;RAM.&#160;The&#160;copying&#160;is&#160;<br/>performed&#160;16&#160;bit&#160;wise.&#160;<br/>
+VStdMemCpy32RamToRam&#160;<br/>
+Copies default&#160;RAM&#160;to default&#160;RAM.&#160;The&#160;copying&#160;is&#160;<br/>performed&#160;32&#160;bit&#160;wise.&#160;<br/>
+VStdMemCpy32RamToFarRam&#160;<br/>
+Copies default&#160;RAM&#160;to&#160;far&#160;RAM.&#160;The&#160;copying&#160;is&#160;<br/>performed&#160;32&#160;bit&#160;wise.&#160;<br/>
+VStdMemCpy32FarRamToRam&#160;<br/>
+Copies&#160;far&#160;RAM&#160;to default&#160;RAM.&#160;The&#160;copying&#160;is&#160;<br/>performed&#160;32&#160;bit&#160;wise.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+6&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-7_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-7_3.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>Info</b>&#160;<br/>The&#160;API&#160;functions&#160;described in&#160;the&#160;following&#160;table&#160;contain&#160;“near”&#160;and&#160;“far”&#160;as parts&#160;of&#160;<br/>
+&#160;&#160;the&#160;API&#160;names.&#160;The&#160;meaning&#160;of&#160;near&#160;and&#160;far&#160;depends on&#160;the&#160;platform&#160;and&#160;the&#160;functions&#160;<br/>
+are&#160;not&#160;necessarily&#160;implemented&#160;to&#160;work&#160;on&#160;near&#160;or&#160;far&#160;memory.&#160;<br/>The&#160;wording&#160;“default&#160;RAM”&#160;or&#160;“default&#160;ROM”&#160;means RAM&#160;or&#160;ROM&#160;data which is not&#160;<br/>explicitly&#160;declared&#160;to be&#160;near&#160;or&#160;far.&#160;These&#160;data&#160;inherit&#160;the&#160;current&#160;compiler&#160;memory&#160;<br/>model&#160;settings.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>One&#160;cannot&#160;be&#160;sure&#160;that&#160;a&#160;far&#160;to near&#160;copy&#160;routine&#160;(for&#160;instance)&#160;implements&#160;really&#160;a&#160;<br/>
+&#160;&#160;copying&#160;from&#160;far&#160;to near.&#160;This&#160;depends&#160;on&#160;the&#160;platform&#160;and&#160;the&#160;supported&#160;memory&#160;<br/>
+models&#160;of&#160;the&#160;communication stack!&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+7&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-8_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+The&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;is&#160;&#160;straightforward.&#160;&#160;As&#160;&#160;the&#160;&#160;other&#160;&#160;Vector&#160;&#160;components&#160;&#160;the&#160;<br/>VStdLib&#160;&#160;is&#160;&#160;to&#160;&#160;be&#160;&#160;configured&#160;&#160;by&#160;&#160;means&#160;&#160;of&#160;&#160;the&#160;&#160;configuration&#160;&#160;tool.&#160;&#160;The&#160;&#160;configuration&#160;&#160;is&#160;<br/>described&#160;in&#160;the&#160;next&#160;chapter.&#160;Chapte<a href="TechnicalReference_VStdLibs.html#13">r&#160;6&#160;</a>describes&#160;some&#160;callback&#160;function&#160;which&#160;have&#160;to&#160;<br/>be&#160;implemented&#160;by&#160;the&#160;application&#160;depending&#160;on&#160;the&#160;configuration.&#160;<br/>In&#160;order&#160;to&#160;integrate&#160;the&#160;VStdLib&#160;simply&#160;add&#160;the&#160;file&#160;vstdlib.c&#160;as&#160;the&#160;other&#160;Vector&#160;software&#160;<br/>components&#160;to&#160;the&#160;compile&#160;and&#160;link&#160;list.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>CANbedded Particularities&#160;</b><br/>
+If&#160;the&#160;VStdLib&#160;is&#160;integrated&#160;as part of&#160;a&#160;CANbedded&#160;stack&#160;the&#160;initialization&#160;of&#160;the&#160;VStdLib&#160;is&#160;<br/>performed&#160;by&#160;the&#160;CAN&#160;or LIN driver automatically.&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>MICROSAR&#160;Particularities&#160;</b><br/>
+If&#160;&#160;a&#160;&#160;MICROSAR&#160;&#160;stack&#160;&#160;is&#160;&#160;integrated&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;is&#160;&#160;not&#160;&#160;initialized&#160;&#160;by&#160;&#160;any&#160;&#160;of&#160;&#160;the&#160;&#160;software&#160;<br/>components.&#160;&#160;The&#160;&#160;application&#160;&#160;has&#160;&#160;to&#160;&#160;take&#160;&#160;care&#160;&#160;that&#160;&#160;the&#160;&#160;VStdLib’s&#160;&#160;initialization&#160;&#160;function&#160;&#160;is&#160;<br/>called&#160;&#160;before&#160;&#160;any&#160;&#160;other&#160;&#160;MICROSAR&#160;API&#160;&#160;function&#160;&#160;is&#160;&#160;called.&#160;&#160;The&#160;&#160;following&#160;&#160;code&#160;&#160;example&#160;<br/>shows how&#160;to&#160;initialize&#160;the&#160;VStdLib.&#160;<br/>
+&#160;<br/>
+void InitRoutine(void)&#160;<br/>{&#160;<br/>&#160;&#160;...&#160;<br/>&#160;<br/>&#160;&#160;/* Initialize the VstLib */&#160;<br/>&#160;&#160;VStdInitPowerOn();&#160;<br/>&#160;<br/>&#160;&#160;/* Perform initialization of the other software components */&#160;<br/>&#160;&#160;...&#160;<br/>&#160;&#160;&#160;<br/>}&#160;<br/>&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Mixing VStdLib Versions&#160;</b><br/>
+If&#160;you&#160;receive&#160;different&#160;software&#160;component&#160;packages&#160;from&#160;Vector,&#160;it&#160;is&#160;possible&#160;that&#160;these&#160;<br/>packages&#160;&#160;contain&#160;&#160;different&#160;&#160;VStdLib&#160;&#160;versions.&#160;A&#160;&#160;general&#160;&#160;rule&#160;&#160;is&#160;&#160;to&#160;&#160;use&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;which&#160;<br/>was&#160;received&#160;with&#160;the&#160;CAN&#160;driver&#160;package.&#160;In&#160;case&#160;you&#160;encounter&#160;any&#160;incompatibilities&#160;or&#160;<br/>have&#160;questions,&#160;please&#160;contact&#160;the&#160;Vector support.&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+8&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-9_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-9_3.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>5&#160;&#160;Configuration&#160;</b><br/>
+It&#160;depends&#160;on&#160;the&#160;used&#160;communication&#160;software&#160;&#160;if&#160;&#160;the&#160;VStdLib&#160;has&#160;configurable&#160;options.&#160;<br/>The&#160;&#160;configuration&#160;&#160;tool&#160;&#160;provides&#160;&#160;options&#160;&#160;for&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;if&#160;&#160;(as&#160;&#160;previously&#160;&#160;described)&#160;&#160;the&#160;<br/>used&#160;CAN&#160;driver has RI1.5&#160;or higher or&#160;a&#160;MICROSAR stack is&#160;used.&#160;&#160;<br/>The&#160;VStdLib&#160;is&#160;configured&#160;by&#160;means&#160;of&#160;the&#160;configuration&#160;tool.&#160;CANGen&#160;provides&#160;an&#160;own&#160;<br/>dialog&#160;named&#160;VStdLib&#160;to&#160;configure&#160;&#160;this&#160;component.&#160;In&#160;GENy&#160;these&#160;configuration&#160;options&#160;<br/>are&#160;&#160;found&#160;&#160;in&#160;&#160;the&#160;&#160;hardware&#160;&#160;options&#160;&#160;dialog.&#160;&#160;The&#160;&#160;following&#160;&#160;two&#160;&#160;pictures&#160;&#160;show&#160;&#160;the&#160;<br/>configuration&#160;dialogs in&#160;both&#160;tools.&#160;The&#160;first&#160;picture shows the&#160;dialog&#160;in&#160;GENy.&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-1&#160;&#160;VStdLib&#160;configuration&#160;dialog&#160;in&#160;GENy&#160;<br/>
+&#160;<br/>
+The&#160;next&#160;picture shows the&#160;configuration&#160;dialog&#160;of&#160;the&#160;VStdLib&#160;in&#160;the&#160;CANGen&#160;tool.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-2&#160;&#160;VStdLib&#160;configuration&#160;dialog&#160;in&#160;CANGen&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+9&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-10_2.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+The&#160;following&#160;table&#160;describes the&#160;different&#160;configuration&#160;items of&#160;the&#160;VStdLib&#160;dialogs.&#160;<br/>
+&#160;<br/>
+<b>Configuration&#160;Item&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Lock&#160;Mechanism&#160;<br/>
+One&#160;can&#160;select&#160;the&#160;interrupt&#160;lock&#160;mechanism&#160;<br/>used&#160;by&#160;the&#160;VStdLib.&#160;The VStdLib provides&#160;<br/>four&#160;different&#160;types:&#160;Default,&#160;LockLevel,&#160;OSEK&#160;<br/>and User.&#160;<br/>The&#160;setting&#160;“OSEK”&#160;covers&#160;OSEK&#160;OS&#160;and&#160;<br/>AUTOSAR&#160;OS.&#160;<br/>
+Lock&#160;Level&#160;<br/>
+If&#160;LockLevel&#160;was selected&#160;as Lock&#160;Mechanism&#160;<br/>one can&#160;select&#160;the&#160;interrupt&#160;lock&#160;level&#160;used&#160;for&#160;<br/>CANbedded components.&#160;The&#160;VStdLib will&#160;<br/>lock interrupts&#160;up&#160;to&#160;the&#160;specified&#160;level.&#160;Higher&#160;<br/>level&#160;interrupts&#160;remain unlocked.&#160;<br/>
+Nested&#160;Disable&#160;<br/>
+If&#160;“User”&#160;was selected&#160;as&#160;Lock&#160;Mechanism&#160;the&#160;<br/>user&#160;can&#160;type&#160;in&#160;the&#160;name of&#160;the&#160;user&#160;defined&#160;<br/>function&#160;which lock&#160;the&#160;interrupts.&#160;<br/>
+Nested&#160;Restore&#160;<br/>
+If&#160;“User”&#160;was selected&#160;as&#160;Lock&#160;Mechanism&#160;the&#160;<br/>user&#160;can&#160;type&#160;in&#160;the&#160;name of&#160;the&#160;user&#160;defined&#160;<br/>function&#160;which restores&#160;the&#160;interrupts&#160;to&#160;their&#160;<br/>previous&#160;state.&#160;<br/>
+Assertions&#160;<br/>
+If&#160;this&#160;checkbox&#160;is&#160;enabled&#160;the&#160;VStdLib will&#160;call&#160;<br/>an&#160;assertion&#160;function&#160;in case&#160;of&#160;a&#160;fatal&#160;error.&#160;<br/>
+&#160;<br/>
+&#160;<br/>If&#160;one&#160;configures&#160;the&#160;option&#160;Lock&#160;Mechanism&#160;as&#160;“User”&#160;two&#160;function&#160;have&#160;to&#160;be&#160;provided.&#160;<br/>The&#160;prototype&#160;of&#160;both&#160;functions&#160;is:&#160;<br/>
+&#160;<br/>
+<b>void UserFunction(void)&#160;</b><br/>
+&#160;<br/>
+The&#160;&#160;first&#160;&#160;function&#160;&#160;entered&#160;&#160;under&#160;&#160;the&#160;&#160;option&#160;&#160;“Nested&#160;&#160;Disable”&#160;&#160;is&#160;&#160;expected&#160;&#160;to&#160;&#160;disable&#160;<br/>interrupts&#160;&#160;and&#160;&#160;store&#160;&#160;the&#160;&#160;current&#160;&#160;context&#160;&#160;of&#160;&#160;the&#160;&#160;interrupt&#160;&#160;state&#160;&#160;(Current&#160;&#160;I-Flag,&#160;&#160;Current&#160;<br/>Interrupt&#160;Lock Level,&#160;etc.) to&#160;a&#160;global variable.&#160;<br/>The&#160;second&#160;function&#160;entered&#160;under&#160;“Nested&#160;Restore”&#160;is&#160;expected&#160;to&#160;restore&#160;the&#160;interrupts&#160;<br/>to&#160;the&#160;previous state&#160;using&#160;the&#160;value&#160;which&#160;was&#160;saved&#160;in&#160;the&#160;context&#160;of&#160;“Nested&#160;Disable”.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>The&#160;two&#160;functions&#160;must&#160;not&#160;implement&#160;a disable/enable mechanism&#160;but&#160;a&#160;<br/>
+&#160;&#160;disable/restore&#160;mechanism!&#160;Otherwise it&#160;may&#160;happen that&#160;interrupts&#160;remain locked&#160;until&#160;<br/>
+the&#160;next&#160;Power&#160;On&#160;reset.&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+10&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-11_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-11_2.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+The&#160;configuration&#160;option&#160;&#160;“User”&#160;can&#160;be&#160;used&#160;instead&#160;of&#160;the&#160;previously&#160;known&#160;CAN&#160;driver&#160;<br/>option&#160;“Interrupt&#160;Control&#160;by&#160;Application”.&#160;<br/>
+&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Usage&#160;with&#160;OSEK&#160;OS&#160;</b><br/>
+If&#160;OSEK&#160;OS&#160;is&#160;configured&#160;as&#160;lock&#160;mechanism&#160;the&#160;VStdLib&#160;needs&#160;to&#160;include&#160;the&#160;header&#160;of&#160;<br/>the&#160;OSEK&#160;OS.&#160;Since&#160;the&#160;header&#160;of&#160;the&#160;OSEK&#160;OS&#160;may&#160;have&#160;different&#160;names&#160;depending&#160;on&#160;<br/>the&#160;OS&#160;supplier&#160;the&#160;VStdLib&#160;includes&#160;always&#160;the&#160;same&#160;header&#160;file.&#160;This&#160;header&#160;file&#160;has&#160;to&#160;<br/>be&#160;provided&#160;by&#160;the&#160;user.&#160;The&#160;file’s&#160;name&#160;must&#160;be&#160;os.h.&#160;If&#160;the&#160;OSEK&#160;OS&#160;already&#160;provides&#160;a&#160;<br/>file&#160;named&#160;like&#160;this&#160;nothing&#160;needs&#160;to&#160;be&#160;done&#160;(as&#160;long&#160;it&#160;provides&#160;the&#160;required&#160;prototypes).&#160;<br/>Otherwise&#160;the&#160;user&#160;has&#160;to&#160;create&#160;a&#160;header&#160;file&#160;named&#160;os.h&#160;and&#160;include&#160;the&#160;corresponding&#160;<br/>OSEK&#160;OS&#160;file.&#160;<br/>If&#160;the&#160;VStdLib&#160;is&#160;configured&#160;to&#160;lock/unlock&#160;interrupts&#160;by&#160;means&#160;of&#160;OSEK&#160;OS&#160;the&#160;following&#160;<br/>OSEK&#160;functions&#160;are called&#160;to&#160;implement&#160;the&#160;lock:&#160;<br/>
+<b>&gt;&#160;&#160;</b>SuspendAllInterrupts&#160;<br/>
+<b>&gt;&#160;&#160;</b>ResumeAllInterrupts&#160;<br/>
+&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Usage&#160;with&#160;QNX&#160;OS&#160;</b><br/>
+In&#160;case&#160;the&#160;VStdLib&#160;is&#160;used&#160;in&#160;a&#160;QNX&#160;OS&#160;environment&#160;two&#160;options&#160;for&#160;interrupt&#160;locking&#160;are&#160;<br/>available.&#160;&#160;Depending&#160;&#160;on&#160;&#160;the&#160;&#160;way&#160;&#160;CAN&#160;&#160;interrupts&#160;&#160;are&#160;&#160;handled&#160;&#160;(ISR,&#160;&#160;Interrupt&#160;&#160;Thread)&#160;<br/>different&#160;locking&#160;mechanisms&#160;are needed.&#160;<br/>
+&#160;<br/>
+In&#160;&#160;case&#160;&#160;the&#160;&#160;CAN&#160;&#160;interrupts&#160;&#160;are&#160;&#160;handled&#160;&#160;by&#160;&#160;an&#160;&#160;interrupt&#160;&#160;thread&#160;&#160;the&#160;&#160;locking&#160;&#160;is&#160;&#160;done&#160;&#160;by&#160;<br/>means&#160;of&#160;mutexes.&#160;These&#160;are&#160;not&#160;implemented&#160;by&#160;the&#160;VStdLib&#160;but&#160;the&#160;QWrap&#160;component.&#160;<br/>Please&#160;refer to<a href="TechnicalReference_VStdLibs.html#11">&#160;Figure&#160;5-3&#160;</a>which&#160;shows the&#160;locking&#160;configuration&#160;in&#160;this case.&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-3&#160;&#160;Locking&#160;configuration&#160;in&#160;case&#160;CAN&#160;events&#160;are&#160;handled&#160;in&#160;an&#160;interrupt&#160;thread&#160;<br/>
+User defined&#160;locking&#160;is also&#160;required&#160;if&#160;the&#160;VStdLib&#160;is configured&#160;to&#160;run&#160;in&#160;the&#160;context&#160;of&#160;the&#160;<br/>QNX&#160;startup&#160;code&#160;(minidriver).&#160;The&#160;MdWrap&#160;component&#160;&#160;provides&#160;the&#160;same&#160;callbacks&#160;as&#160;<br/>shown&#160;<a href="TechnicalReference_VStdLibs.html#11">in&#160;Figure&#160;5-3&#160;</a>also&#160;in&#160;that&#160;case.&#160;QWrap&#160;and&#160;MdWrap&#160;implement&#160;the&#160;same&#160;callback&#160;<br/>names&#160;in&#160;case&#160;the&#160;same&#160;tool&#160;configuration&#160;is&#160;used&#160;to&#160;generate&#160;for&#160;the&#160;minidriver&#160;and&#160;the&#160;<br/>fulldriver.&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+11&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-12_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-12_2.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+In&#160;&#160;case&#160;&#160;CAN&#160;&#160;interrupts&#160;&#160;are&#160;&#160;handled&#160;&#160;by&#160;&#160;a&#160;&#160;CAN&#160;&#160;interrupt&#160;&#160;routine&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;locking&#160;<br/>functions&#160;disable/restore&#160;&#160;the&#160;global&#160;interrupt&#160;flag.&#160;&#160;Mutexes&#160;are&#160;not&#160;used.&#160;In&#160;this&#160;case&#160;the&#160;<br/>configuration&#160;of&#160;the&#160;VStdLib&#160;must&#160;be&#160;set&#160;to&#160;Default&#160;as shown&#160;in<a href="TechnicalReference_VStdLibs.html#12">&#160;Figure&#160;5-4.</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;5-4&#160;&#160;Configuration&#160;of&#160;the&#160;VStdLib&#160;in&#160;case&#160;of&#160;handling&#160;CAN&#160;events&#160;on&#160;interrupt&#160;level&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+12&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-13_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>6&#160;&#160;API&#160;Description&#160;</b><br/>
+This chapter describes&#160;the&#160;API&#160;of&#160;the&#160;VStdLib.&#160;<br/>&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+&#160;<br/>
+<b>VStdInitPowerOn&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>VStdInitPowerOn</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the&#160;VStdLib component.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;must&#160;be&#160;called&#160;once after&#160;PowerOn&#160;reset.&#160;This&#160;function&#160;must&#160;not&#160;be&#160;re-called&#160;<br/>
+later.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;application must&#160;not&#160;call&#160;any&#160;other&#160;Vector&#160;communication&#160;stack&#160;function&#160;before&#160;this&#160;<br/>
+function.&#160;This&#160;includes also the&#160;other&#160;VStdLib&#160;functions.&#160;In&#160;other&#160;words:&#160;The&#160;function&#160;<br/>VStdInitPowerOn&#160;must&#160;be the&#160;very&#160;first&#160;Vector&#160;function&#160;being&#160;called&#160;after&#160;startup.&#160;Depending&#160;<br/>on&#160;the&#160;architecture&#160;the&#160;caller&#160;must&#160;take&#160;care&#160;about&#160;interruptions&#160;of&#160;the&#160;init&#160;function&#160;which may&#160;<br/>violate&#160;this&#160;requirement&#160;(OS&#160;task&#160;which calls&#160;another&#160;Vector&#160;function).&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;the&#160;CANbedded&#160;stack&#160;is&#160;used&#160;this&#160;function&#160;is&#160;automatically&#160;called&#160;by&#160;the&#160;CAN&#160;or&#160;LIN&#160;driver.&#160;<br/>
+<b>&gt;&#160;&#160;</b>In a&#160;MICROSAR&#160;communication stack&#160;is&#160;integrated&#160;this&#160;function&#160;has&#160;to&#160;be&#160;called&#160;by&#160;the&#160;<br/>
+application before&#160;any&#160;other&#160;MICROSAR&#160;API&#160;function&#160;is&#160;called.&#160;<br/>
+&#160;<br/>Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Task&#160;context&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+13&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-14_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Interrupt&#160;Control&#160;</b><br/>
+&#160;<br/>
+<b>VStdSuspendAllInterrupts&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>VStdSuspendAllInterrupts</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Disables&#160;all&#160;interrupts&#160;or&#160;locks&#160;interrupts&#160;to&#160;a certain&#160;lock&#160;level.&#160;This&#160;depends&#160;on&#160;the&#160;hardware&#160;platform.&#160;<br/>The&#160;way&#160;interrupts&#160;are&#160;locked&#160;is&#160;to be configured&#160;in the configuration tool.&#160;&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;designed&#160;to&#160;be&#160;called&#160;in a&#160;nested&#160;way&#160;(except&#160;User&#160;Interrupt&#160;Control&#160;is&#160;<br/>
+configured).&#160;<br/>
+<b>&gt;&#160;&#160;</b>Every&#160;call&#160;to VStdSuspendAllInterrupts&#160;must&#160;have a&#160;corresponding call&#160;to&#160;<br/>
+VStdResumeAllInterrupts.&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;User&#160;Interrupt&#160;Control&#160;is&#160;configured&#160;this&#160;function&#160;is&#160;redirected&#160;to&#160;the&#160;functions&#160;specified&#160;by&#160;<br/>
+the&#160;user&#160;in&#160;the&#160;configuration&#160;tool.&#160;No&#160;nesting&#160;counter&#160;is&#160;implemented.&#160;The&#160;user&#160;may&#160;have to&#160;<br/>take special&#160;care&#160;to&#160;handle this&#160;behavior.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Depending&#160;on&#160;the&#160;used&#160;OS&#160;this&#160;function&#160;may&#160;use&#160;either&#160;a&#160;global&#160;lock&#160;or&#160;a&#160;mutex.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Default&#160;implementation&#160;only&#160;works&#160;if&#160;corresponding&#160;flags&#160;can&#160;be&#160;modified&#160;(e.g.&#160;in privileged&#160;<br/>
+mode).&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No limitation&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>VStdResumeAllInterrupts&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>VStdResumeAllInterrupts</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Resumes&#160;the&#160;interrupts&#160;which were locked&#160;using&#160;the&#160;API function&#160;VStdSuspendAllInterrupts.&#160;&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+14&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-15_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;must&#160;not&#160;be called&#160;without&#160;a corresponding&#160;call&#160;to VStdSuspendAllInterrupts.&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;User&#160;Interrupt&#160;Control&#160;is&#160;configured&#160;this&#160;function&#160;is&#160;redirected&#160;to&#160;the&#160;functions&#160;specified&#160;by&#160;<br/>
+the&#160;user&#160;in&#160;the&#160;configuration&#160;tool.&#160;No&#160;nesting&#160;counter&#160;is&#160;implemented.&#160;The&#160;user&#160;may&#160;have to&#160;<br/>take special&#160;care&#160;to&#160;handle this&#160;behavior.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Depending&#160;on&#160;the&#160;used&#160;OS&#160;this&#160;function&#160;may&#160;use&#160;either&#160;a&#160;global&#160;lock&#160;or&#160;a&#160;mutex.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Default&#160;implementation&#160;only&#160;works&#160;if&#160;corresponding&#160;flags&#160;can&#160;be&#160;modified&#160;(e.g.&#160;in privileged&#160;<br/>
+mode).&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No limitation&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>6.3&#160;</b><br/>
+<b>Memory&#160;Functions&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;describes&#160;&#160;not&#160;&#160;all&#160;functions,&#160;&#160;as&#160;they&#160;&#160;do&#160;&#160;all&#160;&#160;the&#160;&#160;same&#160;except&#160;&#160;for&#160;&#160;the&#160;memory&#160;<br/>qualifiers of&#160;the&#160;source&#160;and&#160;destination&#160;locations.&#160;<br/>
+&#160;<br/>
+<b>VStdMemSet&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>VStdMemSet&#160;</b>(void *pDest, vuint8 nPattern, vuint16 nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDest&#160;<br/>
+The&#160;start&#160;address&#160;in memory&#160;which&#160;is&#160;to&#160;be initialized using&#160;the&#160;given&#160;<br/>character.&#160;<br/>
+nPattern&#160;<br/>
+The&#160;character to be used to&#160;fill&#160;nCnt&#160;Bytes&#160;starting&#160;at&#160;address&#160;pDest.&#160;<br/>
+nCnt&#160;<br/>
+The&#160;number&#160;of&#160;Bytes&#160;to&#160;be&#160;filled&#160;using the given&#160;character.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;fills&#160;nCnt&#160;Bytes&#160;starting&#160;at&#160;address&#160;pDest&#160;in memory&#160;using&#160;the&#160;character nPattern.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;exists&#160;in&#160;three&#160;variants&#160;(default,&#160;near&#160;and&#160;far&#160;memory).&#160;Depending&#160;on&#160;the&#160;<br/>
+platform&#160;these&#160;function&#160;may&#160;be&#160;implemented&#160;differently&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No restriction&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>VStdMemSet&#160;</b><br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+15&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-16_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>VStdMemClr&#160;</b>(void *pDest,&#160;vuint16 nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDest&#160;<br/>
+The&#160;start address&#160;in memory&#160;which&#160;is&#160;to&#160;be initialized to&#160;zero.&#160;<br/>
+nCnt&#160;<br/>
+The&#160;number&#160;of&#160;Bytes&#160;to&#160;be&#160;set&#160;to&#160;zero.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;initializes&#160;nCnt Bytes&#160;starting&#160;at&#160;address&#160;pDest in memory&#160;to&#160;zero.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;exists&#160;in&#160;three&#160;variants&#160;(default,&#160;near&#160;and&#160;far&#160;memory).&#160;Depending&#160;on&#160;the&#160;<br/>
+platform&#160;these&#160;function&#160;may&#160;be&#160;implemented&#160;differently&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No restriction&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>VStdMemSet&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>VStdMemCpy&#160;</b>(void *pDest, void *pSrc, vuint16 nCnt)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pDest&#160;<br/>
+The&#160;destination&#160;address&#160;to&#160;which the&#160;data&#160;is&#160;copied.&#160;<br/>
+pSrc&#160;<br/>
+The&#160;source address&#160;from&#160;where the data&#160;is&#160;copied.&#160;<br/>
+nCnt&#160;<br/>
+The&#160;number&#160;of&#160;Bytes&#160;to&#160;be&#160;copied from&#160;start address&#160;pSrc&#160;to&#160;destination&#160;<br/>address&#160;pDest.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;copies&#160;a&#160;block&#160;of&#160;nCnt Bytes&#160;starting at&#160;memory&#160;location&#160;pSrc&#160;to another memory&#160;location&#160;<br/>starting&#160;at&#160;address&#160;pDest.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;exists&#160;in&#160;many&#160;variants.&#160;These variants&#160;implement&#160;different&#160;memory&#160;source&#160;and&#160;<br/>
+destination&#160;locations.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;implementation of&#160;these&#160;functions&#160;is&#160;highly&#160;platform&#160;dependent&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;memory&#160;blocks&#160;starting&#160;at&#160;pSrc&#160;and&#160;pDest&#160;must&#160;no&#160;overlap.&#160;<br/>Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No restriction&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+16&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-17_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>6.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+&#160;<br/>
+<b>ApplVStdFatalError&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>ApplVStdFatalError&#160;</b>(vuint8 nErrorNumber)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+nErrorNumber&#160;<br/>
+This&#160;parameter&#160;describes&#160;the&#160;reason&#160;which caused the assertion.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called by&#160;the VStdLib&#160;in&#160;case an&#160;assertion&#160;fails.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;to be&#160;implemented&#160;by&#160;the&#160;application.&#160;<br/>
+<b>&gt;&#160;&#160;</b>If&#160;this&#160;function&#160;returns&#160;to&#160;the&#160;caller,&#160;it&#160;is&#160;not&#160;ensured that&#160;the&#160;calling&#160;functions&#160;finished&#160;<br/>
+successfully.&#160;It&#160;has&#160;to be&#160;considered&#160;as&#160;a severe&#160;error&#160;if&#160;this&#160;function&#160;is&#160;called.&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>No restriction&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+17&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-18_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-18_3.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>7&#160;&#160;Assertions&#160;</b><br/>
+If&#160;&#160;the&#160;&#160;user&#160;&#160;enables&#160;&#160;the&#160;&#160;option&#160;&#160;“Assertions”&#160;&#160;the&#160;&#160;VStdLib&#160;&#160;component&#160;&#160;performs&#160;&#160;additional&#160;<br/>checks.&#160;&#160;If&#160;&#160;a&#160;&#160;checked&#160;&#160;condition&#160;&#160;fails&#160;&#160;the&#160;&#160;assertion&#160;&#160;function&#160;&#160;ApplVStdFatalError&#160;&#160;is&#160;&#160;called.&#160;<br/>The&#160;implementation&#160;of&#160;this&#160;function&#160;is&#160;to&#160;be&#160;provided&#160;by&#160;the&#160;application.&#160;This&#160;function&#160;has&#160;<br/>an&#160;&#160;errorcode&#160;&#160;parameter&#160;&#160;which&#160;&#160;describes&#160;&#160;the&#160;&#160;reason&#160;&#160;which&#160;&#160;caused&#160;&#160;the&#160;&#160;assertion.&#160;&#160;The&#160;<br/>following&#160;table&#160;describes these&#160;reasons.&#160;<br/>
+&#160;<br/>
+<b>Errorcode&#160;</b><br/>
+<b>Description&#160;</b><br/>
+kVStdErrorIntDisableTooOften&#160;<br/>
+The&#160;called&#160;VStdLib interrupt&#160;locking&#160;function&#160;<br/>exceeded a&#160;nesting&#160;call&#160;depth&#160;of&#160;127.&#160;<br/>
+kVStdErrorIntRestoreTooOften&#160;<br/>
+The&#160;number&#160;of&#160;calls&#160;of&#160;the VStdLib interrupt&#160;<br/>unlocking&#160;function&#160;was&#160;higher&#160;than&#160;the&#160;number&#160;of&#160;<br/>nested&#160;interrupt&#160;lock calls.&#160;<br/>
+kVStdErrorMemClrInvalidParameter&#160;&#160;<br/>
+A&#160;memclr&#160;function&#160;of&#160;the&#160;VStdLib was called&#160;with an&#160;<br/>invalid pointer&#160;parameter&#160;<br/>
+kVStdErrorMemCpyInvalidParameter&#160;<br/>
+A&#160;memcpy&#160;function&#160;of&#160;the VStdLib was called&#160;with an&#160;<br/>invalid&#160;pointer&#160;parameter&#160;<br/>
+kVStdErrorMemSetInvalidParameter&#160;<br/>
+A&#160;memset&#160;function&#160;of&#160;the&#160;VStdLib was called&#160;with an&#160;<br/>invalid pointer&#160;parameter&#160;<br/>
+kVStdErrorUnexpectedLockState&#160;<br/>
+A&#160;interrupt&#160;restore&#160;function&#160;of&#160;the&#160;VStdLib is&#160;called&#160;<br/>but&#160;the&#160;interrupts&#160;are&#160;already&#160;unlocked.&#160;This&#160;state is&#160;<br/>not&#160;expected&#160;and&#160;must&#160;never&#160;occur.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>Note&#160;that&#160;some&#160;of&#160;the assertions&#160;exist&#160;solely&#160;in case&#160;the&#160;VStdLib is&#160;configured&#160;to use&#160;<br/>
+&#160;&#160;no&#160;library&#160;functions.&#160;In&#160;that&#160;case&#160;the&#160;missing&#160;library&#160;functionality&#160;is&#160;implemented&#160;directly&#160;<br/>
+in the&#160;VStdLib source&#160;file.&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>Note&#160;<br/></b>Not&#160;every&#160;assertion&#160;code&#160;is&#160;implemented&#160;on&#160;each&#160;hardware.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+18&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-19_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>8&#160;&#160;Limitations&#160;</b><br/>
+<b>8.1&#160;</b><br/>
+<b>Interrupt&#160;control&#160;does&#160;not&#160;work&#160;correctly&#160;in user mode&#160;</b><br/>
+For&#160;&#160;proper&#160;&#160;functionality&#160;&#160;it&#160;&#160;is&#160;&#160;required&#160;&#160;that&#160;&#160;the&#160;&#160;interrupt&#160;&#160;lock&#160;&#160;functions&#160;&#160;can&#160;&#160;modify&#160;&#160;the&#160;<br/>relevant&#160;&#160;bits&#160;&#160;(e.g.&#160;&#160;Interrupt&#160;&#160;Level,&#160;&#160;Interrupt&#160;&#160;Enable)&#160;&#160;in&#160;&#160;the&#160;&#160;corresponding&#160;&#160;registers&#160;&#160;(e.g.&#160;<br/>processor status&#160;word).&#160;&#160;<br/>If&#160;the&#160;specific&#160;controller&#160;supports&#160;any&#160;non-privileged&#160;mode&#160;(e.g.&#160;user&#160;mode)&#160;that&#160;does&#160;not&#160;<br/>allow&#160;&#160;access&#160;&#160;to&#160;&#160;the&#160;&#160;relevant&#160;&#160;registers&#160;&#160;and&#160;&#160;the&#160;&#160;interrupt&#160;&#160;lock&#160;&#160;APIs&#160;&#160;are&#160;&#160;called&#160;&#160;within&#160;&#160;this&#160;<br/>context&#160;the&#160;interrupt&#160;lock may&#160;not&#160;work as&#160;expected.&#160;&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+19&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-20_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>9&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>9.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+User&#160;configuration&#160;file&#160;&#160;A&#160;text&#160;file&#160;which is appended&#160;by&#160;the&#160;configuration&#160;tool&#160;to&#160;the&#160;generated&#160;<br/>
+source&#160;files.&#160;If&#160;a&#160;user&#160;configuration&#160;file is&#160;required&#160;the&#160;technical&#160;reference&#160;<br/>describes&#160;it&#160;and&#160;the&#160;contents.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>9.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+RI&#160;<br/>
+Reference&#160;implementation of&#160;the&#160;CANbedded&#160;CAN&#160;driver.&#160;The&#160;reference&#160;<br/>implementation&#160;defines&#160;the&#160;features&#160;a CAN&#160;driver&#160;must&#160;provide.&#160;From&#160;<br/>Reference&#160;Implementation&#160;1.5&#160;(RI1.5)&#160;the&#160;interrupt&#160;locking&#160;functionality&#160;of&#160;<br/>each CAN&#160;driver&#160;is&#160;moved&#160;to&#160;the&#160;VStdLib&#160;for&#160;the&#160;specific&#160;platform.&#160;<br/>
+VStdLib&#160;<br/>
+Vector&#160;Standard Library&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+20&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/TechnicalReference_VStdLib-21_1.png"/><br/>
+Technical Reference&#160;VStdLib&#160;&#160;<br/>
+&#160;<br/>
+<b>10&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/>&gt;&#160; &#160;News&#160;<br/>&gt;&#160; &#160;Products&#160;<br/>&gt;&#160; &#160;Demo&#160;software&#160;<br/>&gt;&#160; &#160;Support&#160;<br/>&gt;&#160; &#160;Training&#160;data&#160;<br/>&gt;&#160; &#160;Addresses&#160;<br/>&#160;<br/><b>www.vector-informatik.com&#160;</b><br/>
+2013,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.6.2&#160;<br/>
+21&#160;/&#160;21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.7&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#2">1 Document Information</a>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#2">1.1 History</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLibs.html#5">2 Introduction</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#6">3 Functional Description</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#8">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#8">4.1 CANbedded Particularities</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#8">4.2 MICROSAR Particularities</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#8">4.3 Mixing VStdLib Versions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLibs.html#9">5 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#11">5.1 Usage with OSEK OS</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#11">5.2 Usage with QNX OS</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLibs.html#13">6 API Description</a>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#13">6.1 Initialization</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#14">6.2 &#160;Interrupt Control</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#15">6.3 Memory Functions</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#17">6.4 Callback Functions</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLibs.html#18">7 Assertions</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#19">8 Limitations</a>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#19">8.1 Interrupt control does not work correctly in user mode</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLibs.html#20">9 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_VStdLibs.html#20">9.1 Glossary</a></li>
+<li><a href="TechnicalReference_VStdLibs.html#20">9.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_VStdLibs.html#21">10 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

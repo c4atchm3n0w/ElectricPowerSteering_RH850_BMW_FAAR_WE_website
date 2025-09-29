@@ -1,0 +1,1753 @@
+---
+title: TechnicalReference_Asr_FrTps
+linkTitle: TechnicalReference_Asr_FrTps
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR FrTp&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;2.00.04&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Knut&#160;Winkelbach,&#160;Oliver&#160;Reineke&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-2_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;&#160;Remarks&#160;</b><br/>
+Knut&#160;Winkelbach&#160;&#160;2008-09-05&#160;&#160;0.1&#160;<br/>
+First&#160;version&#160;for&#160;Pre-Release.&#160;<br/>
+Klaus&#160;Bergdolt&#160;<br/>
+2008-09-16&#160;&#160;0.2&#160;<br/>
+Manual&#160;configuration when using&#160;ECUC&#160;files.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2009-01-26&#160;&#160;1.0&#160;<br/>
+Adapted&#160;to new&#160;features,&#160;explained limitations in&#160;<br/>more&#160;detail.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2009-03-28&#160;&#160;1.1&#160;<br/>
+Clarified&#160;interaction&#160;with FrIf.&#160;<br/>Removed&#160;feature overview.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2009-06-29&#160;&#160;1.2&#160;<br/>
+Added&#160;description&#160;of&#160;new&#160;features&#160;for&#160;code&#160;size&#160;<br/>optimization.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2009-07-07&#160;&#160;1.3&#160;<br/>
+Rework&#160;after&#160;review.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2009-11-20&#160;&#160;1.4&#160;<br/>
+Described&#160;new&#160;code optimizations in&#160;conjunction&#160;<br/>with their&#160;use&#160;cases.&#160;<br/>Adapted&#160;erroneous&#160;prototype&#160;of&#160;FrTp_Transmit()&#160;<br/>Extended description of&#160;GENy&#160;configurable options.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2009-12-01&#160;&#160;1.5&#160;<br/>
+Rework&#160;after&#160;review.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2010-04-22&#160;&#160;1.6&#160;<br/>
+Straightened&#160;description&#160;of&#160;&#34;Multi&#160;Purpose&#160;Tp&#34;&#160;<br/>Added&#160;error&#160;detection&#160;hints&#160;and&#160;support&#160;for&#160;&#34;Multiple&#160;<br/>Identity&#34;&#160;of&#160;Ecus..&#160;<br/>Added&#160;description&#160;of&#160;feature&#160;<br/>&#34;FrTp_ChangeParameterRequest&#34;_(extended&#160;<br/>parameter&#160;change)&#160;and&#160;<br/>&#34;FrTp_ReadParameterRequest&#34;.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2010-05-07&#160;&#160;1.7&#160;<br/>
+Rework&#160;after&#160;review.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2010-05-21&#160;&#160;1.8&#160;<br/>
+Corrected&#160;prototype&#160;of&#160;<br/>FrTp_ReadParameterRequest.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2010-08-20&#160;&#160;1.9&#160;<br/>
+Added&#160;description&#160;of&#160;optimizations&#160;for&#160;GW-<br/>operation.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2010-08-26&#160;&#160;1.10&#160;<br/>
+Rework&#160;after&#160;review.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2011-02-07&#160;&#160;1.11&#160;<br/>
+Clarified&#160;FrIf_Transmit(),&#160;FrTp_TriggerTransmit()&#160;and&#160;<br/>description of&#160;E_PENDING&#160;<br/>Optimizations&#160;for&#160;faster&#160;Rx-&#160;and&#160;Tx-Buffer-Retrieval&#160;<br/>now&#160;controlled&#160;by&#160;'FrTp&#160;Disable Fast&#160;Buf&#160;Retrieval'&#160;<br/>instead of&#160;'Have Fast&#160;Segm&#160;Stf&#160;Seg&#160;Rx:'&#160;and&#160;'Have&#160;<br/>Fast&#160;Unsegm&#160;Stf&#160;Unseg&#160;Rx'.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2011-02-21&#160;&#160;1.12&#160;<br/>
+Corrected&#160;description of&#160;'FrTp&#160;Disable Fast&#160;Buf&#160;<br/>Retrieval'.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2011-05-23&#160;&#160;1.13&#160;<br/>
+Corrected&#160;revision&#160;history&#160;(aligned version with&#160;ALM&#160;<br/>tool).&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2011-07-27&#160;&#160;1.14&#160;<br/>
+Removed&#160;description of&#160;FrIf_Transmit&#160;return&#160;code&#160;<br/>E_PENDING.&#160;<br/>Removed&#160;feature providing&#160;AUTOSAR&#160;4 prototypes&#160;<br/>&amp;&#160;corrected&#160;all&#160;features&#160;depending&#160;on&#160;the&#160;feature&#160;<br/>removed.&#160;<br/>Overworked&#160;chapter&#160;Multi&#160;Identity&#160;(new&#160;feature&#160;Multi&#160;<br/>Config added).&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2012-01-11&#160;&#160;1.15&#160;<br/>
+Added&#160;description&#160;of&#160;&#160;FrTp_CancelReceive,&#160;updated&#160;<br/>description of&#160;FrTp_CancelTransmit,&#160;<br/>FrTp_ChangeParameter,&#160;removed&#160;CancelReason&#160;<br/>Removed&#160;section&#160;“Configuration with *.GNY&#160;project&#160;<br/>files”&#160;because&#160;configuration&#160;with FIBEX&#160;files is&#160;no&#160;<br/>longer&#160;supported&#160;by&#160;GENy.&#160;Overworked&#160;section&#160;<br/>“Configuration”&#160;and&#160;“Important&#160;Hints”&#160;as&#160;a&#160;<br/>consequence of&#160;this.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2012-07-10&#160;&#160;1.16&#160;<br/>
+Corrected&#160;“Contents”.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2013-02-21&#160;&#160;1.17&#160;<br/>
+Update&#160;to&#160;single source&#160;concept&#160;to&#160;be&#160;able&#160;to&#160;<br/>generate&#160;separate&#160;AUTOSAR&#160;3 /&#160;4 documents.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2013-05-17&#160;&#160;1.18&#160;<br/>
+No support&#160;of&#160;Acknowledge&#160;or&#160;Acknowledge and&#160;<br/>Retry.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2014-01-20&#160;&#160;1.19&#160;<br/>
+1.&#160;No ChangeParameter&#160;Confirmation&#160;Callback&#160;<br/>2.&#160;AUTOSAR-compliant&#160;prototype&#160;of&#160;<br/>FrTp_ChangeParameter&#160;<br/>3.&#160;FrTp_Shutdown cancelling&#160;all&#160;transfers&#160;optionally&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2014-05-21&#160;&#160;1.20&#160;<br/>
+AUTOSAR&#160;4.1.2&#160;compliant&#160;PduR-API&#160;(Replacement&#160;<br/>of&#160;NotifResultType&#160;by&#160;Std_ReturnType)&#160;<br/>Check&#160;separation&#160;cycles&#160;in&#160;<br/>FrTp_ChangeParameter()&#160;vs.&#160;FrTpTimeoutCr.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2014-11-06&#160;&#160;2.00.00&#160;<br/>
+Separate development&#160;of&#160;AUTOSAR4 version.&#160;<br/>Support&#160;of&#160;postbuild selectable configurations.&#160;<br/>Support&#160;of&#160;runtime&#160;measurement.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2015-08-14&#160;&#160;2.00.01&#160;<br/>
+Added&#160;link&#160;to&#160;Technical&#160;Reference&#160;“Postbuild&#160;<br/>Selectable”,&#160;introduced&#160;new&#160;critical&#160;section.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2015-12-17&#160;&#160;2.00.02&#160;<br/>
+Updated&#160;Deviations Chapter.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2016-08-04&#160;&#160;2.00.03&#160;<br/>
+Re-creation&#160;based&#160;on&#160;newest&#160;Template.&#160;<br/>
+Knut&#160;Winkelbach&#160;&#160;2016-11-30&#160;&#160;2.00.04&#160;<br/>
+Added&#160;hint&#160;regarding&#160;unsupported&#160;config.&#160;variant&#160;“no&#160;<br/>Tx-Pdu-Pools&#160;at&#160;all”.&#160;<br/>
+<b>&#160;</b><br/>
+<b>Referenced&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+ISO_IS_10681-2_(E).doc&#160;<br/>
+2009-12-10&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_FlexRayISOTransportLayer.pdf&#160;<br/>
+V4.0.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DevelopmentErrorTracer.pdf&#160;<br/>
+V3.2.0&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-4_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+[4]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_PDURouter.pdf&#160;<br/>
+V3.2.0&#160;<br/>
+[5]&#160;&#160;&#160;Vector&#160;<br/>
+TechnicalReference_Asr_EcuM.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+[6]&#160;&#160;&#160;Vector&#160;<br/>
+TechnicalReference_Asr_Dbg.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+[7]&#160;&#160;&#160;Vector&#160;<br/>
+TechnicalReference_PostBuildLoadable.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+[8]&#160;&#160;&#160;Vector&#160;<br/>
+TechnicalReference_IdentityManager.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+[9]&#160;&#160;&#160;Vector&#160;<br/>
+TechnicalReference_Asr4Rtm.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+[10]&#160;&#160;Vector&#160;<br/>
+TechnicalReference_PostBuildSelectable.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+[11]&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+V1.6.0&#160;<br/>
+[12]&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CompilerAbstraction.pdf&#160;<br/>
+V3.2.0&#160;<br/>
+[13]&#160;&#160;Vector&#160;<br/>
+AN-ISC-8-1140_FrIf_JLE_Configuration.pdf&#160;<br/>
+See&#160;delivery&#160;<br/>
+Scope&#160;of&#160;the&#160;Document:<b>&#160;</b><br/>
+This technical reference&#160;describes the&#160;general use&#160;of&#160;the&#160;FrTp&#160;basis&#160;software.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Asr_FrTps.html#8"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#8"><b>Component&#160;History&#160;......................................................................................................&#160;8</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#9"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#9"><b>Introduction...................................................................................................................&#160;9</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#9">Architecture&#160;Overview&#160;........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#12"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#12"><b>Functional&#160;Description&#160;...............................................................................................&#160;12</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#12">Features&#160;..........................................................................................................&#160;12&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#12">Deviations&#160;........................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Additions/&#160;Extensions&#160;.......................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">3.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Error&#160;Handling&#160;..................................................................................................&#160;13&#160;<br/>3.2.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15"><b>Integration&#160;...................................................................................................................&#160;15</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Scope of&#160;Delivery&#160;.............................................................................................&#160;15&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Static Files&#160;.......................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Dynamic&#160;Files&#160;..................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">4.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Critical&#160;Sections&#160;...............................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#17">4.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#17">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.....................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">4.4&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">Compatibility&#160;Checks&#160;.......................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">4.5&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">Steps&#160;to Start&#160;Up..............................................................................................&#160;18&#160;<br/>4.5.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">Checklist&#160;..........................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#19">4.5.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#19">Transmission&#160;....................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#20">4.5.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#20">Reception&#160;.........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#20">4.5.4&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#20">Buffer&#160;Handling&#160;................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">4.6&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">Troubleshooting&#160;...............................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">4.7&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">Postbuild Variants&#160;............................................................................................&#160;21&#160;<br/>4.7.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">Post-build Selectable&#160;.......................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">4.7.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#21">Post-build loadable&#160;..........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#22">4.7.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#22">Post-build loadable selectable&#160;..........................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#22">4.7.4&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#22">Post-build deleteable&#160;........................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#22">4.8&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#22">Recommended&#160;compiler&#160;switches&#160;....................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23"><b>API&#160;Description&#160;...........................................................................................................&#160;23</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">Type&#160;Definitions&#160;...............................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">5.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">Services provided by&#160;FrTp&#160;...............................................................................&#160;23&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">FrTp_Init&#160;..........................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">FrTp_InitMemory&#160;..............................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#24">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#24">FrTp_Shutdown&#160;...............................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#25">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#25">FrTp_Transmit&#160;.................................................................................&#160;25&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<a href="TechnicalReference_Asr_FrTps.html#26">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#26">FrTp_CancelTransmit.......................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#27">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#27">FrTp_CancelReceive&#160;.......................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#28">5.2.7&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#28">FrTp_ChangeParameter&#160;..................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#29">5.2.8&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#29">FrTp_MainFunction&#160;..........................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#30">5.2.9&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#30">FrTp_GetVersionInfo&#160;........................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">5.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Services used by&#160;FrTp&#160;.....................................................................................&#160;31&#160;<br/>5.3.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Services with&#160;AUTOSAR&#160;compliant&#160;prototypes&#160;................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Services that&#160;are&#160;MICROSAR&#160;extensions&#160;........................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">5.4&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Callback&#160;Functions&#160;...........................................................................................&#160;31&#160;<br/></a><a href="TechnicalReference_Asr_FrTps.html#32">5.4.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#32">FrTp_TxConfirmation&#160;.......................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#32">5.4.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#32">FrTp_RxIndication&#160;............................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#33">5.4.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#33">FrTp_TriggerTransmit&#160;......................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;35</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">Glossary&#160;..........................................................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">6.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">Abbreviations&#160;...................................................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#36"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#36"><b>Contact&#160;........................................................................................................................&#160;36</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_Asr_FrTps.html#10">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#10">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.......................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#11">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#11">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;FrTp&#160;...............................................&#160;11&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Asr_FrTps.html#8">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#8">Component&#160;history......................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#12">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#12">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#13">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#14">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#14">Service IDs&#160;...............................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#14">Table&#160;3-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#14">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Static&#160;files&#160;.................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#15">Generated&#160;files&#160;.........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#18">Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;..............................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#23">FrTp_Init&#160;...................................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#24">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#24">FrTp_InitMemory&#160;......................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#25">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#25">FrTp_Shutdown&#160;........................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#26">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#26">FrTp_Transmit&#160;..........................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#27">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#27">FrTp_CancelTransmit&#160;...............................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#28">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#28">FrTp_CancelReceive&#160;................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#29">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#29">FrTp_ChangeParameter&#160;...........................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#29">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#29">FrTp_MainFunction...................................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">FrTp_GetVersionInfo&#160;................................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#31">Services used by&#160;the&#160;FrTp&#160;........................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#32">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#32">FrTp_TxConfirmation&#160;................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#33">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#33">FrTp_RxIndication&#160;....................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#34">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#34">FrTp_TriggerTransmit&#160;...............................................................................&#160;34&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">Glossary&#160;...................................................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">Table&#160;6-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_FrTps.html#35">Abbreviations&#160;............................................................................................&#160;35&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>FRTP_SW_MAJOR_&#160;SafeBSW&#160;<br/>VERSION: 2&#160;<br/>FRTP_SW_MINOR_&#160;<br/>VERSION: 4&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;FrTp&#160;as specified&#160;in&#160;[2]&#160;and&#160;[2].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_Asr_FrTps.html#9">elease*:</a></b><b>&#160;</b><br/>
+4.0.3&#160;(with deviations),&#160;4.2.1&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile,&#160;link-time,&#160;post-build&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+FrTp_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+FrTp_MODULE_ID &#160;&#160;<br/>
+36&#160;decimal&#160;<br/>(according&#160;to ref<a href="TechnicalReference_Asr_FrTps.html#4">.&#160;[11])</a>&#160;<br/>
+*&#160;For the detailed functional&#160;specification please also refer to the corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>The&#160;FrTp&#160;component&#160;implements&#160;a&#160;transport&#160;protocol&#160;according&#160;to&#160;ISO10681-2&#160;to&#160;be&#160;used&#160;<br/>in&#160;AUTOSAR communication&#160;stacks.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;FrTp&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-10_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+The&#160;next&#160;figure shows the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;FrTp.&#160;These&#160;interfaces are&#160;<br/>described&#160;in&#160;chapte<a href="TechnicalReference_Asr_FrTps.html#23">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;class&#160;Module&#160;Structure</b><br/>
+Module<br/>
+Module<br/>
+PduR<br/>
+FBL<br/>
+Module<br/>
+Module<br/>
+Module<br/>
+Module<br/>
+EcuM<br/>
+SDU&#160;User<br/>
+SchM<br/>
+Det<br/>
+«use»<br/>
+«use»<br/>
+«use»<br/>
+«use»&#160;«use»<br/>
+«use»<br/>
+«use»<br/>
+«use»<br/>
+«use»<br/>
+FrTp<br/>
+Fr&#160;a<br/>
+T&#160;r<br/>
+pea<br/>
+«EmbeddedInterface»<br/>
+«EmbeddedInterface»<br/>
+«EmbeddedInterface»<br/>
+«EmbeddedInterface»<br/>
+<b>FrTp_Common</b><br/>
+«EmbeddedInterface»<br/>
+<b>FrTp_General</b><br/>
+<b>FrTp_Rsrc</b><br/>
+<b>FrTp_Util</b><br/>
+«LocalFunction»<br/>
+<b>FrTp_XCfg</b><br/>
+«ServiceFunction»<br/>
+«LocalFunction»<br/>
+«LocalFunction»<br/>
++&#160;&#160;FrTp_CalcPduPayloadLen()&#160;&#160;:void<br/>
+«LocalFunction»<br/>
++&#160;&#160;FrTp_CancelReceive()<br/>
++&#160;&#160;FrTp_Rsrc_AllocateRxSm()<br/>
++&#160;&#160;FrTp_Util_AssemblePdu()<br/>
++&#160;&#160;FrTp_ConnGetRxPoolOffset()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_ConnCfg()<br/>
++&#160;&#160;FrTp_CancelTransmit()<br/>
++&#160;&#160;FrTp_Rsrc_AllocateTxSm()<br/>
++&#160;&#160;FrTp_Util_Make16Bit()<br/>
++&#160;&#160;FrTp_ConnGetTxPoolOffset()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_FrIfRxPdus()<br/>
++&#160;&#160;FrTp_ChangeParameter()<br/>
++&#160;&#160;FrTp_Rsrc_FindRxSm()<br/>
++&#160;&#160;FrTp_Util_ReadBC()<br/>
++&#160;&#160;FrTp_GetConnCtrlItem()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_FrIfTxPdus()<br/>
++&#160;&#160;FrTp_GetVersionInfo()<br/>
++&#160;&#160;FrTp_Rsrc_FindTxSm()<br/>
++&#160;&#160;FrTp_Util_ReadBfS()<br/>
++&#160;&#160;FrTp_GetFmtOffsetFromPci()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_MaxFrIfRxPduId()<br/>
+&#160;<br/>
++&#160;&#160;FrTp_Init()<br/>
++&#160;&#160;FrTp_Rsrc_InitAllConns()<br/>
++&#160;&#160;FrTp_Util_ReadFPL()<br/>
++&#160;&#160;FrTp_Max()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_MaxFrIfTxPduId()<br/>
++&#160;&#160;FrTp_InitMemory()<br/>
++&#160;&#160;FrTp_Rsrc_InitAllSms()<br/>
++&#160;&#160;FrTp_Util_ReadML()<br/>
++&#160;&#160;FrTp_Min()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_MaxRxSduId()<br/>
++&#160;&#160;FrTp_MainFunction()<br/>
++&#160;&#160;FrTp_Rsrc_ReleaseRxSm()<br/>
++&#160;&#160;FrTp_Util_ReadSA()<br/>
++&#160;&#160;FrTp_RxGetPduPayloadLen()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_MaxTxSduId()<br/>
++&#160;&#160;FrTp_RxIndication()<br/>
++&#160;&#160;FrTp_Rsrc_ReleaseTxSm()<br/>
++&#160;&#160;FrTp_Util_ReadTA()<br/>
++&#160;&#160;FrTp_RxSm_CalcRemainingBytes()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_NumConn()<br/>
++&#160;&#160;FrTp_Shutdown()<br/>
++&#160;&#160;FrTp_Util_WriteFPL()<br/>
++&#160;&#160;FrTp_RxSm_Item()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_NumDecoupPdus()<br/>
++&#160;&#160;FrTp_Transmit()<br/>
++&#160;&#160;FrTp_Util_WriteML()<br/>
++&#160;&#160;FrTp_SeqNumSubtract()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_NumFrIfRxPdus()<br/>
++&#160;&#160;FrTp_TriggerTransmit()<br/>
++&#160;&#160;FrTp_TxGetPduPayloadLen()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_NumFrIfTxPdus()<br/>
++&#160;&#160;FrTp_TxConfirmation()<br/>
++&#160;&#160;FrTp_TxSm_CalcRemainingBytes()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_NumRxChan()<br/>
++&#160;&#160;FrTp_TxSm_Item()&#160;&#160;:void<br/>
++&#160;&#160;FrTp_CCfg_NumTxChan()<br/>+&#160;&#160;FrTp_CCfg_NumTxPools()<br/>
+«u«se<br/>
+u&#160;»<br/>
+se»<br/>
+«use»<br/>
+«use»<br/>
+«use»<br/>
++&#160;&#160;FrTp_CCfg_RxPduPools()<br/>
+&#160;<br/>
+«use»<br/>
++&#160;&#160;FrTp_CCfg_RxPduSnv2RxPduIdx()<br/>
+«use»<br/>
+«use»<br/>
++&#160;&#160;FrTp_CCfg_RxSduSnv2ConnIdx()<br/>
+«use»<br/>
+«use»<br/>
+«use»«use»<br/>
+«use»<br/>
+«use»<br/>
++&#160;&#160;FrTp_CCfg_TxPduPools()<br/>
+«EmbeddedInterface»<br/>
++&#160;&#160;FrTp_CCfg_TxPduSnv2TxPduIdx()<br/>
+&#160;<b>FrTp_RxSm</b><br/>
++&#160;&#160;FrTp_CCfg_TxSduSnv2ConnIdx()<br/>+&#160;&#160;FrTp_LCfg_CfgPtr()<br/>
+«LocalFunction»<br/>
++&#160;&#160;FrTp_LCfg_InitState()<br/>
++&#160;&#160;FrTp_RxSm_ActionOf()<br/>
+«EmbeddedInterface»<br/>
++&#160;&#160;FrTp_LCfg_RxCurrRoundRobChan()<br/>
++&#160;&#160;FrTp_RxSm_CalcBfsValue()<br/>
+«use»<br/>
+<b>FrTp_TxSm</b><br/>
++&#160;&#160;FrTp_LCfg_RxSm_MaxIterations()<br/>
++&#160;&#160;FrTp_RxSm_CopyRxData()<br/>
++&#160;&#160;FrTp_LCfg_TxCurrRoundRobChan()<br/>
+«EmbeddedInterface»<br/>
++&#160;&#160;FrTp_RxSm_EvalBufReqRetVal()<br/>
+«LocalFunction»<br/>
++&#160;&#160;FrTp_LCfg_TxSm_MaxIterations()<br/>
+<b>FrTp_FrIf</b><br/>
++&#160;&#160;FrTp_RxSm_FrIfRxIndication()<br/>
++&#160;&#160;FrTp_TxSm_ActionOf()<br/>
++&#160;&#160;FrTp_VCfg_ConnState()<br/>
++&#160;&#160;FrTp_RxSm_FrIfTransmit()<br/>
++&#160;&#160;FrTp_TxSm_CFTxConfirmation()<br/>
+«LocalFunction»<br/>
++&#160;&#160;FrTp_VCfg_DecoupPduAdminData()<br/>
++&#160;&#160;FrTp_RxSm_FrIfTxConfirmation()<br/>
++&#160;&#160;FrTp_TxSm_CopyPayloadOnePdu()<br/>
++&#160;&#160;FrTp_FrIf_DecreaseNumFreePdusOverlapped()<br/>
++&#160;&#160;FrTp_VCfg_FrIfTxBuf()<br/>
++&#160;&#160;FrTp_RxSm_OperateAllSms()<br/>
++&#160;&#160;FrTp_TxSm_CopyTxData()<br/>
++&#160;&#160;FrTp_FrIf_FindFreeTxPdu()<br/>
++&#160;&#160;FrTp_VCfg_PoolData()<br/>
++&#160;&#160;FrTp_RxSm_PrepareAllSms()<br/>
++&#160;&#160;FrTp_TxSm_EvalBufReqRetVal()<br/>
+«use»<br/>
++&#160;&#160;FrTp_FrIf_IncreaseNumTxConfOverlapped()<br/>
++&#160;&#160;FrTp_VCfg_RxBuf()<br/>
++&#160;&#160;FrTp_RxSm_ReceivedLF()<br/>
++&#160;&#160;FrTp_TxSm_EvalFrIfTransmitRetVal()<br/>
++&#160;&#160;FrTp_FrIf_Init()<br/>
++&#160;&#160;FrTp_VCfg_RxFrIfPending()<br/>
++&#160;&#160;FrTp_RxSm_ReceivedSegmPdu()<br/>
++&#160;&#160;FrTp_TxSm_FrIfRxIndication()<br/>
++&#160;&#160;FrTp_FrIf_ProcessTxConfirmations()<br/>
++&#160;&#160;FrTp_VCfg_RxState()<br/>
++&#160;&#160;FrTp_RxSm_ReceivedSTF()<br/>
++&#160;&#160;FrTp_TxSm_FrIfTxConfirmation()<br/>
++&#160;&#160;FrTp_FrIf_ResetTxPduPending()<br/>
++&#160;&#160;FrTp_VCfg_TxBuf()<br/>
++&#160;&#160;FrTp_RxSm_RequestAvailRxBufAndTryToCopy()<br/>
++&#160;&#160;FrTp_TxSm_OperateAllSms()<br/>
++&#160;&#160;FrTp_FrIf_RxIndication()<br/>
++&#160;&#160;FrTp_VCfg_TxFrIfPending()<br/>
++&#160;&#160;FrTp_RxSm_TimeoutOf()<br/>
++&#160;&#160;FrTp_TxSm_PrepareAllSms()<br/>
++&#160;&#160;FrTp_FrIf_RxIndicationRxSm()<br/>
++&#160;&#160;FrTp_VCfg_TxState()<br/>
++&#160;&#160;FrTp_RxSm_TolerateRxIndEarlierThanTxConf()<br/>
++&#160;&#160;FrTp_TxSm_PrepareNxtCFaccordingBC()<br/>
++&#160;&#160;FrTp_FrIf_RxIndicationTxSm()<br/>
++&#160;&#160;FrTp_RxSm_TriggerTransmit()<br/>
++&#160;&#160;FrTp_TxSm_RequestAvailableTxData()<br/>
++&#160;&#160;FrTp_FrIf_TransmitPduForConn()<br/>
++&#160;&#160;FrTp_RxSm_WaitForBufferSegmRxn()<br/>
++&#160;&#160;FrTp_TxSm_TimeoutOf()<br/>
++&#160;&#160;FrTp_RxSm_WaitForBufferUnsegmRxn()<br/>
++&#160;&#160;FrTp_TxSm_TriggerTransmit()<br/>
+«use»<br/>
+<b>Legend</b><br/>
+SDU&#160;Flow<br/>
+PDU&#160;Flow<br/>
+Module<br/>
+Protocol&#160;Implementation<br/>
+Resource&#160;Management<br/>
+FrIf<br/>
+GenData&#160;Access<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;FrTp&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>FrTp.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Asr_FrTps.html#12">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Asr_FrTps.html#13">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+Vector&#160;Informatik&#160;provides&#160;further&#160;FrTp&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR&#160;standard.&#160;The&#160;<br/>corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_Asr_FrTps.html#13">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[2]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>AUTOSAR&#160;Debugging:&#160;Internal&#160;variables can&#160;be&#160;accessed&#160;through&#160;the&#160;Vector&#160;&#160;<br/>MICROSAR&#160;DBG&#160;module&#160;<br/>Postbuild Loadable:&#160;Configuration parameters&#160;can be&#160;changed&#160;and new&#160;connections&#160;can&#160;be&#160;<br/>added at&#160;post-build time.&#160;<br/>Postbuild Selectable:&#160;Support&#160;of&#160;multiple ECU&#160;variants;&#160;the&#160;currently&#160;active&#160;variant&#160;is&#160;selected&#160;<br/>during&#160;initialization.&#160;<br/>AUTOSAR&#160;Runtime Measurement:&#160;Runtime of&#160;functions FrTp_TxConfirmation,&#160;<br/>FrTp_RxIndication,&#160;FrTp_TriggerTransmit,&#160;FrTp_MainFunction&#160;can&#160;be&#160;measured&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;</b><br/>
+The&#160;following&#160;features&#160;are not&#160;supported&#160;or deviate&#160;from&#160;document&#160;[2]:&#160;<br/>
+<b>Category&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Version&#160;</b><br/>
+Functional&#160;&#160;“Acknowledgement&#160;and&#160;Retry”&#160;is&#160;not&#160;supported.&#160;<br/>
+4.0.3&#160;<br/>
+Functional&#160;&#160;“FrIf&#160;Retry”&#160;i.e.&#160;retry&#160;of&#160;calls&#160;to&#160;FrIf_Transmit()&#160;after&#160;FrIf&#160;errors&#160;is&#160;not&#160;&#160;4.0.3&#160;<br/>
+supported.&#160;<br/>
+Functional&#160;&#160;The&#160;FrTp&#160;does&#160;not&#160;implement&#160;the&#160;buffer&#160;handling&#160;of&#160;AUTOSAR&#160;SWS&#160;&#160;4.0.3&#160;&lt;&#160;<br/>
+FrTp&#160;4.0.3&#160;(Version&#160;4.0.3&#160;specifies&#160;using&#160;parameters&#160;FrTpTimeBuffer&#160;&#160;4.2.1&#160;<br/>and&#160;&#160;FrTpMaxFcWait&#160;&#160;as&#160;&#160;a&#160;&#160;timing&#160;&#160;basis&#160;&#160;for&#160;&#160;data&#160;&#160;exchange&#160;&#160;with&#160;&#160;the&#160;<br/>PduR.&#160;&#160;Instead&#160;&#160;the&#160;&#160;FrTp&#160;&#160;tries&#160;&#160;to&#160;&#160;copy&#160;&#160;Rx-&#160;&#160;or&#160;&#160;Tx-data&#160;&#160;for&#160;&#160;a&#160;&#160;duration&#160;<br/>defined&#160;by&#160;parameters&#160;FrTpTimeBr&#160;and&#160;FrTpTimeCs&#160;as&#160;specified&#160;by&#160;<br/>version 4.2.1).&#160;<br/>
+Config&#160;<br/>
+Parameter&#160;FrTpMaxFCWait&#160;of&#160;container&#160;FrTpConnectionControl:&#160;<br/>
+4.0.3&#160;<br/>
+The&#160;&#160;full&#160;&#160;range&#160;&#160;of&#160;&#160;values:&#160;&#160;[0..255]&#160;&#160;of&#160;&#160;that&#160;&#160;parameter&#160;&#160;is&#160;&#160;not&#160;&#160;supported&#160;&#160;<br/>(Instead&#160;the&#160;FrTp&#160;supports&#160;a&#160;range&#160;of&#160;[0..254]).&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Category&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Version&#160;</b><br/>
+Config&#160;<br/>
+Parameter&#160;FrTpTimeBuffer&#160;of&#160;container&#160;FrTpConnectionControl:&#160;<br/>
+4.0.3&#160;<br/>
+This&#160;&#160;parameter&#160;&#160;is&#160;&#160;ignored&#160;&#160;(Instead&#160;&#160;the&#160;&#160;FrTp&#160;&#160;supports&#160;&#160;the&#160;&#160;asking&#160;&#160;for&#160;<br/>Tx-data&#160;&#160;or&#160;&#160;Rx-buffer&#160;&#160;at&#160;&#160;each&#160;&#160;call&#160;&#160;to&#160;&#160;FrTp_MainFunction()&#160;&#160;as&#160;<br/>described in&#160;AUTOSAR&#160;SWS&#160;FrTp&#160;4.2.1).&#160;<br/>
+Config&#160;<br/>
+Parameter&#160;FrTpMaxFrIf&#160;of&#160;container&#160;FrTpConnectionControl:&#160;<br/>
+4.0.3&#160;<br/>
+This&#160;&#160;parameter&#160;&#160;is&#160;&#160;ignored&#160;&#160;because&#160;&#160;the&#160;&#160;related&#160;&#160;feature&#160;&#160;is&#160;&#160;not&#160;<br/>implemented.&#160;&#160;In&#160;&#160;addition&#160;&#160;the&#160;&#160;full&#160;&#160;range&#160;&#160;of&#160;&#160;values:&#160;&#160;[0..255]&#160;&#160;&#160;&#160;of&#160;&#160;that&#160;<br/>parameter&#160;&#160;is&#160;&#160;not&#160;&#160;supported&#160;&#160;(Instead&#160;&#160;the&#160;&#160;FrTp&#160;&#160;supports&#160;&#160;a&#160;&#160;range&#160;&#160;of&#160;<br/>[1..255]).&#160;<br/>
+Config&#160;<br/>
+FrTpTxPdu&#160;<br/>
+4.0.3&#160;<br/>
+The&#160;&#160;maximum&#160;&#160;number&#160;&#160;of&#160;&#160;containers&#160;&#160;of&#160;&#160;type&#160;&#160;FrTpTxPdu&#160;&#160;is&#160;&#160;not&#160;<br/>supported&#160;(Instead&#160;the&#160;FrTp&#160;supports&#160;254&#160;Tx-Pdus).&#160;<br/>
+Config&#160;<br/>
+FrTpTxPduPool&#160;<br/>
+4.0.3&#160;<br/>
+The&#160;&#160;maximum&#160;&#160;number&#160;&#160;of&#160;&#160;containers&#160;&#160;of&#160;&#160;type&#160;&#160;FrTpTxPduPool&#160;&#160;is&#160;&#160;not&#160;<br/>supported&#160;(Instead&#160;the&#160;FrTp&#160;supports&#160;254&#160;Tx-Pdu-Pools).&#160;<br/>
+Config&#160;<br/>
+FrTpRuntime&#160;<br/>
+4.0.3&#160;<br/>
+The&#160;maximum&#160;number&#160;of&#160;runtime&#160;ressources&#160;of&#160;type&#160;FrTpChannel&#160;is&#160;<br/>not&#160;supported&#160;(Instead&#160;the FrTp&#160;supports&#160;254 FrTpChannels).&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided&#160;Beyond&#160;The&#160;AUTOSAR&#160;Standard&#160;<br/></b>n/a&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.2.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[3],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;FrTp_DEV_ERROR_DETECT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;FrTp&#160;ID is&#160;36.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_Asr_FrTps.html#23">5.2.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x00&#160;<br/>
+FrTp_Init_ServiceId&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x01&#160;<br/>
+FrTp_Shutdown_ServiceId&#160;<br/>
+0x02&#160;<br/>
+FrTp_Transmit_ServiceId&#160;<br/>
+0x03&#160;<br/>
+FrTp_CancelTransmit_ServiceId&#160;(#if&#160;(FRTP_HAVE_TC&#160;==&#160;STD_ON))&#160;<br/>
+0x04&#160;<br/>
+FrTp_ChangeParameter_ServiceId&#160;<br/>
+0x08&#160;<br/>
+FrTp_CancelReceive_ServiceId&#160;<br/>
+0x10&#160;<br/>
+FrTp_MainFunction_ServiceId&#160;<br/>
+0x27&#160;<br/>
+FrTp_GetVersionInfo_ServiceId&#160;<br/>
+0x40&#160;<br/>
+FrTp_TxConfirmation_ServiceId&#160;<br/>
+0x41&#160;<br/>
+FrTp_TriggerTransmit_ServiceId&#160;<br/>
+0x42&#160;<br/>
+FrTp_RxIndication_ServiceId&#160;<br/>
+0x81&#160;<br/>
+FrTp_ReadParameter_ServiceId&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;<br/>
+FRTP_E_NOT_INIT&#160;<br/>
+0x02&#160;<br/>
+FRTP_E_NULL_PTR&#160;<br/>
+0x03&#160;<br/>
+FRTP_E_INVALID_PDU_SDU_ID&#160;<br/>
+0x04&#160;<br/>
+FRTP_E_INVALID_PARAMETER&#160;(FRTP_WRONG_PARAM_VAL)&#160;<br/>
+0x05&#160;<br/>
+FRTP_E_SEG_ERROR&#160;<br/>
+0x06&#160;<br/>
+FRTP_E_UMSG_LENGTH_ERROR&#160;<br/>
+0x07&#160;<br/>
+FRTP_E_NO_CHANNEL&#160;<br/>
+0xff&#160;<br/>
+FRTP_E_NO_ERROR&#160;<br/>
+Table&#160;3-5&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;&#160;FrTp&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;FrTp&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_Asr_FrTps.html#15">rs&#160;&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Asr_FrTps.html#15">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrTp.c,&#160;FrTp_Rscr.c,&#160;<br/>
+These&#160;are&#160;the&#160;source&#160;files&#160;of&#160;the&#160;FrTp&#160;<br/>
+FrTp_FrIf.c,&#160;FrTp_RxSm.c,&#160;<br/>FrTp_TxSm.c,&#160;FrTp_Util.c&#160;<br/>FrTp_Types.h&#160;<br/>
+This&#160;header&#160;file defines&#160;the&#160;data&#160;types&#160;used&#160;by&#160;the&#160;FrTp&#160;<br/>
+FrTp_Common.h&#160;<br/>
+This&#160;is&#160;an&#160;internal&#160;header&#160;file of&#160;the&#160;FrTp&#160;<br/>
+FrTp_Lcfg.h&#160;<br/>
+This&#160;header&#160;file declares&#160;the&#160;Link-Time configuration&#160;in case&#160;the&#160;<br/>variant&#160;Link-Time-configuration is&#160;selected&#160;<br/>
+FrTp_PBcfg.h&#160;<br/>
+This&#160;header&#160;file declares&#160;the&#160;PB&#160;configuration in&#160;case&#160;the&#160;variant&#160;PB&#160;<br/>is&#160;selected&#160;<br/>
+FrTp_Cbk.h&#160;<br/>
+This&#160;header&#160;declares&#160;callback&#160;functions.&#160;<br/>
+FrTp.h&#160;<br/>
+This&#160;header&#160;declares&#160;the&#160;FrTp&#160;function&#160;prototypes&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrTp_PBcfg.c&#160;&#160;This&#160;file contains&#160;generated&#160;data&#160;defining&#160;the&#160;PB&#160;configuration&#160;in case&#160;the&#160;<br/>
+variant&#160;PB&#160;is&#160;selected&#160;<br/>
+FrTp_Lcfg.c&#160;<br/>
+This&#160;file contains&#160;generated&#160;data&#160;defining&#160;the&#160;Link-Time&#160;configuration in&#160;case the&#160;<br/>variant&#160;Link-Time-configuration is&#160;selected&#160;<br/>
+FrTp_cfg.h&#160;<br/>
+This&#160;file is a&#160;generated&#160;header&#160;file defining&#160;the&#160;FrTp-specific&#160;settings&#160;of&#160;the FrTp&#160;<br/>
+FrTp_GlobCfg&#160;This&#160;file is a&#160;generated&#160;header&#160;file declaring the&#160;global&#160;configuration&#160;struct&#160;of&#160;the&#160;<br/>.h&#160;<br/>
+FrTp.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;FrTp&#160;uses the&#160;critical section&#160;FRTP_EXCLUSIVE_AREA_0.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;purpose&#160;of&#160;this critical section&#160;is&#160;to&#160;protect&#160;the&#160;rx-&#160;and&#160;tx-statemachines&#160;from&#160;<br/>
+inconsistencies&#160;during&#160;runtime.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;critical section&#160;FRTP_EXCLUSIVE_AREA_0&#160;is&#160;used&#160;by&#160;all&#160;API&#160;functions of&#160;the&#160;<br/>
+FrTp.&#160;In&#160;detail&#160;these&#160;are:&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_MainFunction():&#160;It&#160;is called&#160;synchronous&#160;to&#160;the&#160;FlexRay-bus,&#160;once&#160;each&#160;<br/>
+FlexRay-cycle.&#160;The&#160;locking&#160;time&#160;is long.&#160;<br/>
+In&#160;detail&#160;its&#160;runtime&#160;expands&#160;with&#160;the&#160;number of&#160;active&#160;TP&#160;message&#160;transfers&#160;and&#160;as&#160;<br/>the&#160;runtime&#160;of&#160;the&#160;functions PduR_FrTpCopyTxData()&#160;and&#160;PduR_FrTpCopyRxData()&#160;<br/>expands.&#160;Seldom,&#160;also&#160;calls to&#160;PduR_FrTpTxConfirmation()&#160;and&#160;<br/>PduR_FrTpRxIndication()&#160;are done.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_RxIndication():&#160;The&#160;locking&#160;time&#160;is short.&#160;<br/>
+This&#160;function&#160;incorporates callouts&#160;to&#160;the&#160;PduR. Its&#160;runtime&#160;expands,&#160;as the&#160;runtime&#160;<br/>of&#160;the&#160;functions PduR_FrTpStartOfReception()&#160;and&#160;PduR_FrTpCopyRxData()&#160;<br/>expands.&#160;Seldom,&#160;also&#160;a&#160;call&#160;to&#160;PduR_FrTpRxIndication()&#160;is done.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_TxConfirmation():The&#160;locking&#160;time&#160;is short.&#160;<br/>
+This&#160;function&#160;incorporates callouts&#160;to&#160;the&#160;PduR. Its&#160;runtime&#160;expands,&#160;as the&#160;runtime&#160;<br/>of&#160;the&#160;functions PduR_CopyTxData()&#160;expands.&#160;Seldom,&#160;also&#160;a&#160;call&#160;to&#160;<br/>PduR_FrTpTxConfirmation()&#160;is done.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_TriggerTransmit():The&#160;locking&#160;time&#160;is short.&#160;<br/>
+This&#160;function&#160;incorporates callouts&#160;to&#160;the&#160;PduR. Its&#160;runtime&#160;expands,&#160;as the&#160;runtime&#160;<br/>of&#160;the&#160;functions PduR_CopyTxData()&#160;expands.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Transmit():The&#160;locking&#160;time&#160;is short.&#160;<br/>
+This&#160;function&#160;solely&#160;allocates&#160;a&#160;tx-statemachine.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-17_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Implementation&#160;of&#160;the&#160;critical&#160;section&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+By&#160;default&#160;the&#160;demo application that&#160;is&#160;delivered&#160;with your&#160;software&#160;locks&#160;all&#160;interrupts&#160;<br/>of&#160;the&#160;processor&#160;in&#160;case&#160;the&#160;&#34;Enter&#34;&#160;macro&#160;/&#160;function&#160;is&#160;called&#160;and&#160;releases&#160;all&#160;<br/>interrupts&#160;of&#160;the&#160;processor&#160;in case&#160;the&#160;&#34;Exit&#34;&#160;macro is called:&#160;<br/>
+It&#160;is&#160;recommended&#160;to&#160;define&#160;the&#160;exclusive area&#160;in&#160;a way&#160;that&#160;it&#160;locks&#160;the&#160;communication&#160;<br/>interrupts&#160;of&#160;the&#160;bus&#160;systems&#160;affected.&#160;These depend on&#160;the&#160;use&#160;case&#160;the&#160;FrTp&#160;is&#160;used&#160;<br/>in:&#160;<br/>
+For&#160;use&#160;case&#160;“Standard&#160;Ecu”&#160;the&#160;critical&#160;sections&#160;should lock FlexRay-Timer&#160;interrupt&#160;<br/>because this&#160;interrupt&#160;drives the&#160;FlexRay-interfaces JobListExecution&#160;(JLE)&#160;which&#160;<br/>issues&#160;the&#160;FrTp-related&#160;communication&#160;events&#160;FrTp_RxIndication,&#160;<br/>FrTp_TxConfirmation&#160;and FrTp_TriggerTransmit.&#160;<br/>
+For&#160;use&#160;case&#160;“Gateway&#160;Ecu”&#160;the&#160;critical&#160;section&#160;should lock&#160;the&#160;interrupts&#160;of&#160;all&#160;bus-<br/>systems&#160;that&#160;affect&#160;the FrTp,&#160;e.g:&#160;<br/>
+In case&#160;there&#160;are&#160;CanTp-FrTp-Routings&#160;configured then&#160;the&#160;interrupts&#160;that&#160;lead to&#160;<br/>calls&#160;of&#160;CanTp_RxIndication,&#160;CanTp_TxConfirmation&#160;should also be&#160;locked&#160;(in&#160;<br/>addition&#160;to&#160;FlexRay-timer-interrupts).&#160;<br/>
+In case&#160;there&#160;are&#160;LinTp-FrTp-Routings&#160;configured then&#160;the&#160;interrupts&#160;that&#160;lead to&#160;<br/>calls&#160;of&#160;LinTp_RxIndication,&#160;LinTp_TxConfirmation&#160;should also be&#160;locked&#160;(in&#160;<br/>addition&#160;to FlexRay-timer-interrupts).&#160;<br/>
+This&#160;assures&#160;that&#160;no&#160;rx-&#160;or&#160;tx-events&#160;from&#160;busses&#160;that&#160;affect&#160;FrTp-communication&#160;<br/>bring the&#160;FrTp&#160;statemachine&#160;into&#160;an&#160;inconsistent&#160;state.&#160;<br/>
+&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;&#160;</b><br/>
+The&#160;&#160;objects&#160;&#160;(e.g.&#160;&#160;variables,&#160;&#160;functions,&#160;&#160;constants)&#160;&#160;are&#160;&#160;declared&#160;&#160;by&#160;&#160;compiler&#160;&#160;independent&#160;<br/>definitions&#160;&#160;–&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definitions.&#160;&#160;Each&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definition&#160;&#160;is&#160;<br/>assigned&#160;to&#160;a&#160;memory&#160;section.&#160;<br/>The&#160;&#160;following&#160;&#160;table&#160;&#160;contains&#160;&#160;the&#160;&#160;memory&#160;&#160;section&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;<br/>definitions&#160;of&#160;the&#160;FrTp,&#160;and&#160;illustrates their&#160;assignment&#160;among&#160;each&#160;other.&#160;<br/>
+<b>Compiler&#160;Abstraction&#160;</b><br/>
+&#160;<br/>
+<b>Definitions&#160;</b><br/>
+T&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+A<br/>
+_INIT<br/>
+G<br/>
+O<br/>
+T<br/>
+INIT<br/>
+&#160;<br/>
+RO<br/>
+CF<br/>
+&#160;<br/>
+_RO<br/>
+&#160;<br/>
+T&#160;<br/>
+DA<br/>
+B<br/>
+G<br/>
+G<br/>
+&#160;<br/>
+P<br/>
+DE<br/>
+NS<br/>
+L_<br/>P<br/>
+R_NO<br/>
+R_ZE<br/>
+R_<br/>
+CF<br/>
+CF<br/>
+&#160;<br/>
+P<br/>
+A<br/>
+A<br/>
+A<br/>
+B<br/>
+B<br/>
+<b>Memory&#160;Mapping</b><br/>
+_CO<br/>
+_CO<br/>
+_A<br/>
+_V<br/>
+_V<br/>
+_V<br/>
+_P<br/>
+_P<br/>
+<b>&#160;</b><br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+T<br/>
+T<br/>
+T<br/>
+T<br/>
+T<br/>
+T<br/>
+T<br/>
+T<br/>
+<b>Sections&#160;</b><br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+FRTP_START_SEC_CONST_32BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_CONST_16BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_CONST_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_PBCFG_ROOT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+FRTP_START_SEC_CONST_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_PBCFG&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_VAR_ZERO_INIT_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_VAR_NOINIT_32BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_VAR_NOINIT_16BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_VAR_NOINIT_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRTP_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;<br/>
+Please&#160;see&#160;the&#160;document&#160;[2]&#160;for details about&#160;how&#160;these&#160;definitions&#160;are&#160;being&#160;used.&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Compatibility&#160;Checks&#160;</b><br/>
+The&#160;&#160;FrTp&#160;&#160;component&#160;&#160;conducts&#160;&#160;a&#160;&#160;compatibility&#160;&#160;check&#160;&#160;during&#160;&#160;initialization&#160;&#160;in&#160;&#160;case&#160;&#160;the&#160;<br/>configuration&#160;variant&#160;is&#160;“postbuild”.&#160;A&#160;failure&#160;of&#160;this&#160;check&#160;is&#160;caused&#160;by&#160;generated&#160;data&#160;that&#160;<br/>does&#160;not&#160;fit&#160;to&#160;the&#160;FrTp&#160;implementation.&#160;In&#160;this&#160;case&#160;the&#160;function&#160;EcuM_BswErrorHook&#160;is&#160;<br/>called&#160;with&#160;error code&#160;“ECUM_BSWERROR_MAGICNUMBER”.&#160;<br/>
+<b>4.5&#160;</b><br/>
+<b>Steps&#160;to Start Up&#160;</b><br/>
+In&#160;&#160;case&#160;&#160;of&#160;&#160;problems&#160;&#160;during&#160;&#160;starting&#160;&#160;up&#160;&#160;the&#160;&#160;FrTp,&#160;&#160;please&#160;&#160;read&#160;&#160;the&#160;&#160;following&#160;&#160;two&#160;&#160;chapters&#160;<br/>and&#160;check&#160;the&#160;facts&#160;described&#160;there.&#160;<br/>
+<b>4.5.1&#160;</b><br/>
+<b>Checklist&#160;</b><br/>
+These&#160;steps&#160;are&#160;the&#160;&#34;must&#160;haves&#34;&#160;that&#160;have&#160;to&#160;be&#160;fulfilled&#160;in&#160;order&#160;to&#160;get&#160;the&#160;FrTp&#160;&#34;up&#160;and&#160;<br/>running&#34;:&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-19_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-19_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>“Must&#160;Haves”&#160;to&#160;get&#160;the&#160;FrTp&#160;“up&#160;and&#160;running”&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>In&#160;case&#160;no&#160;reception&#160;or&#160;transmission&#160;can&#160;be&#160;done&#160;using&#160;the&#160;FrTp&#160;the&#160;DET&#160;<br/>
+should&#160;be&#160;set&#160;active&#160;for the&#160;FrTp&#160;in&#160;the&#160;configuration&#160;tool.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;functions FrTp_InitMemory()&#160;and&#160;FrTp_Init() have&#160;to&#160;be&#160;called&#160;before&#160;<br/>
+operation&#160;of&#160;the&#160;FrTp.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;FrTp_MainFunction()&#160;has to&#160;be&#160;called:&#160;<br/>
+<b>&gt;&#160;&#160;</b>once&#160;per FlexRay&#160;cycle&#160;and&#160;also&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>synchronous&#160;to&#160;the&#160;FlexRay&#160;time.&#160;<br/>
+<b>&gt;&#160;&#160;</b>before&#160;or after the&#160;time&#160;of&#160;transmission&#160;or reception&#160;of&#160;the&#160;FrIf-Pdus&#160;used&#160;<br/>
+by&#160;the&#160;FrTp&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is&#160;<b>not</b>&#160;possible&#160;to&#160;mix&#160;transmission&#160;types (immediate/decoupled) of&#160;FrIf-<br/>
+Tx-Pdus&#160;&#160;that&#160;are contained&#160;within&#160;one&#160;Tx-Pdu-Pool.&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is&#160;<b>mandatory&#160;</b>to&#160;configure&#160;<b>at least one&#160;</b>Tx-Pdu-Pool, even&#160;though&#160;there&#160;<br/>
+might&#160;be&#160;(currently&#160;unsupported) use&#160;cases where&#160;the&#160;DCM&#160;uses&#160;the&#160;<br/>FrIf_Transmit()&#160;API&#160;directly&#160;(e.g.&#160;the&#160;so&#160;called&#160;“periodic transmission” used&#160;<br/>by&#160;some&#160;OEMs).&#160;<br/>
+<b>4.5.2&#160;</b><br/>
+<b>Transmission&#160;</b><br/>
+In&#160;&#160;case&#160;&#160;of&#160;&#160;problems&#160;&#160;transmitting&#160;&#160;a&#160;&#160;FrTp&#160;&#160;message&#160;&#160;please&#160;&#160;check&#160;&#160;that&#160;&#160;these&#160;&#160;facts&#160;&#160;are&#160;<br/>fulfilled:&#160;<br/>
+1.&#160;&#160;FrTp_Transmit() should&#160;return&#160;E_OK&#160;(‘0’).&#160;<br/>
+2.&#160;&#160;During&#160;the&#160;next&#160;scheduling&#160;of&#160;the&#160;FrTp_MainFunction()&#160;the&#160;FrTp&#160;should&#160;request&#160;the&#160;<br/>
+upper layer (typically&#160;the&#160;“PduR”) to&#160;copy&#160;the&#160;Tx-data&#160;into&#160;the&#160;TP&#160;buffer by&#160;a&#160;call&#160;to&#160;<br/>PduR_FrTpCopyTxData().&#160;<br/>
+3.&#160;&#160;After the&#160;successful provision&#160;of&#160;Tx-data&#160;in&#160;that&#160;function&#160;the&#160;transmission&#160;should&#160;begin.&#160;<br/>
+You&#160;can&#160;verify&#160;the&#160;start&#160;of&#160;the&#160;transmission&#160;of&#160;TP-Tx-frames&#160;by&#160;assuring&#160;that&#160;the&#160;<br/>function&#160;FrIf_Transmit() is called&#160;by&#160;the&#160;FrTp&#160;and&#160;the&#160;functions return&#160;value&#160;is E_OK..&#160;<br/>
+4.&#160;&#160;After that&#160;(i.e.&#160;after the&#160;successfull&#160;call&#160;to&#160;FrTp_TriggerTransmit&#160;for decoupled&#160;Pdus)&#160;<br/>
+the&#160;function&#160;FrTp_TxConfirmation()&#160;is called&#160;by&#160;the&#160;FrIf-component&#160;that&#160;is&#160;used.&#160;There&#160;<br/>is only&#160;one&#160;location&#160;in&#160;FrTp.c&#160;where FrIf_Transmit() is called.&#160;<br/>
+5.&#160;&#160;Each&#160;call&#160;to&#160;FrIf_Transmit() of&#160;the&#160;FrTp&#160;should&#160;be&#160;acknowledged&#160;by&#160;a&#160;call&#160;to&#160;<br/>
+FrTp_TxConfirmation()&#160;done&#160;by&#160;the&#160;FrIf&#160;component.&#160;<br/>
+6.&#160;&#160;In&#160;any&#160;case&#160;the&#160;callback &lt;Owner&gt;_FrTpTxConfirmation()&#160;should&#160;be&#160;called&#160;after the&#160;<br/>
+transmission&#160;request&#160;via&#160;FrTp_Transmit() was&#160;accepted&#160;by&#160;the&#160;FrTp&#160;by&#160;returning&#160;<br/>E_OK.&#160;The&#160;notification-code&#160;given&#160;to&#160;&lt;Owner&gt;_FrTpTxConfirmation()&#160;will provide&#160;<br/>additional information&#160;about&#160;success or&#160;failure of&#160;the&#160;transmission.&#160;<br/>
+Please&#160;refer&#160;to&#160;document&#160;[2]&#160;on&#160;how&#160;to&#160;interpret&#160;parameters&#160;and&#160;notification-codes&#160;of&#160;the&#160;<br/>functions&#160;mentioned.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-20_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-20_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>4.5.3&#160;</b><br/>
+<b>Reception&#160;</b><br/>
+In&#160;case&#160;of&#160;problems receiving&#160;a&#160;FrTp&#160;message,&#160;please&#160;check&#160;that&#160;these&#160;facts&#160;are&#160;fulfilled:&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;After the&#160;first&#160;FrTp&#160;-frame&#160;has&#160;been&#160;“detected” on&#160;the&#160;bus by&#160;an&#160;appropriate&#160;analyser-<br/>
+tool, the&#160;function&#160;FrTp_RxIndication()&#160;should&#160;be&#160;called&#160;by&#160;the&#160;FrIf-component&#160;that&#160;is&#160;<br/>used.&#160;<br/>
+2.&#160;&#160;During&#160;the&#160;next&#160;scheduling&#160;of&#160;the&#160;FrTp_MainFunction()&#160;the&#160;FrTp&#160;should&#160;indicate&#160;to&#160;the&#160;<br/>
+upper layer that&#160;new&#160;Rx-data&#160;is&#160;available&#160;by&#160;calling&#160;PduR_FrTpStartOfReception().&#160;<br/>Afterwards&#160;FrTp&#160;calls&#160;PduR_FrTpCopyRxData()&#160;in&#160;order&#160;to&#160;store the&#160;Rx-data.&#160;<br/>
+3.&#160;&#160;After the&#160;successful provision&#160;of&#160;Rx-buffer-space&#160;the&#160;reception&#160;should&#160;begin,&#160;e.g.&#160;by&#160;<br/>
+the&#160;transmission&#160;of&#160;a&#160;flow&#160;control&#160;frame&#160;using&#160;FrIf_Transmit() in&#160;case&#160;of&#160;an&#160;1:1&#160;<br/>connection.&#160;You&#160;can&#160;verify&#160;the&#160;transmission&#160;of&#160;flow&#160;control&#160;frames&#160;by&#160;assuring&#160;that&#160;the&#160;<br/>function&#160;FrIf_Transmit() is called&#160;by&#160;the&#160;FrTp&#160;and&#160;the&#160;function&#160;FrTp_TxConfirmation()&#160;<br/>is called&#160;by&#160;the&#160;FrIf-component&#160;that&#160;is&#160;used.&#160;There is&#160;only&#160;one&#160;location&#160;in&#160;FrTp.c&#160;where&#160;<br/>FrIf_Transmit() is called.&#160;<br/>
+4.&#160;&#160;Each&#160;call&#160;to&#160;FrIf_Transmit() of&#160;the&#160;FrTp&#160;should&#160;be&#160;acknowledged&#160;by&#160;a&#160;call&#160;to&#160;<br/>
+FrTp_TxConfirmation()&#160;done&#160;by&#160;the&#160;FrIf&#160;component.&#160;<br/>
+5.&#160;&#160;In&#160;any&#160;case&#160;the&#160;callback &lt;Owner&gt;_FrTp_RxIndication()&#160;should&#160;be&#160;called&#160;after the&#160;<br/>
+successful reception&#160;of&#160;at&#160;least&#160;one&#160;Iso10681-frame.&#160;The&#160;notification-code&#160;given&#160;to&#160;<br/>&lt;Owner&gt;_FrTp_RxIndication()&#160;will provide&#160;additional information&#160;about&#160;success&#160;or&#160;<br/>failure of&#160;the&#160;reception.&#160;<br/>
+Please&#160;refer&#160;to&#160;document&#160;[2]&#160;on&#160;how&#160;to&#160;interpret&#160;parameters&#160;and&#160;notification-codes&#160;of&#160;the&#160;<br/>functions&#160;mentioned.&#160;<br/>
+&#160;<br/>
+<b>4.5.4&#160;</b><br/>
+<b>Buffer&#160;Handling&#160;</b><br/>
+During&#160;one&#160;call&#160;of&#160;&#160;the&#160;FrTp_MainFunction()&#160;the&#160;retrieval&#160;of&#160;Tx-data&#160;or&#160;Rx-buffer-space&#160;is&#160;<br/>done.&#160;For&#160;Rx-buffer-retrieval&#160;no&#160;limitations&#160;apply,&#160;because&#160;the&#160;ISO&#160;10681-2&#160;protocol&#160;allows&#160;<br/>the&#160;&#160;FrTp&#160;&#160;to&#160;&#160;communicate&#160;&#160;to&#160;&#160;the&#160;&#160;sender&#160;&#160;the&#160;&#160;exact&#160;&#160;buffer&#160;&#160;size&#160;&#160;available&#160;&#160;at&#160;&#160;the&#160;&#160;receiving&#160;<br/>application.&#160;However for&#160;Tx-buffer-retrieval the&#160;following&#160;restriction&#160;applies:&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Rx-Buffer&#160;and&#160;Tx-data handling&#160;for&#160;functional&#160;communication&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+Please note,&#160;that&#160;the&#160;FrTp&#160;does not&#160;support&#160;multiple&#160;calls&#160;to PduR_FrTpCopyTxData&#160;/&#160;<br/>PduR_FrTpCopyRxData&#160;in case&#160;the&#160;application does&#160;not&#160;supply&#160;the&#160;Tx-data&#160;/&#160;Rx-<br/>buffer-space of&#160;<b>functional</b>&#160;connections&#160;<b>in one&#160;piece</b>.&#160;I.e.&#160;in&#160;case&#160;of&#160;a&#160;246&#160;byte&#160;<br/>unsegmented&#160;functional&#160;STF&#160;the&#160;application has&#160;to process&#160;the&#160;complete&#160;payload&#160;<br/>within exactly&#160;one call&#160;to&#160;PduR_FrTpCopyTxData&#160;/&#160;PduR_FrTpCopyRxData.&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>4.6&#160;</b><br/>
+<b>Troubleshooting&#160;</b><br/>
+<b>Symptom&#160;</b><br/>
+<b>Solution&#160;</b><br/>
+An FrTp&#160;transmission&#160;/&#160;reception stops&#160;that&#160;<br/>
+Check&#160;the&#160;exchanging&#160;of&#160;Rx-&#160;or&#160;Tx-buffer-on&#160;<br/>
+comes&#160;from&#160;or&#160;goes&#160;to&#160;a&#160;Gateway-ECU&#160;before&#160;&#160;the&#160;Gateway-ECU.&#160;Often&#160;the&#160;PduR&#160;or&#160;the&#160;<br/>the&#160;data is&#160;transferred&#160;completely.&#160;<br/>
+transport-layer&#160;on&#160;the&#160;other&#160;bus-system&#160;has&#160;<br/>configurative problems&#160;(e.g.&#160;timing)&#160;that&#160;lead to&#160;<br/>the&#160;stopping&#160;of&#160;the&#160;Rx&#160;or&#160;Tx&#160;processes on&#160;the&#160;<br/>particular&#160;other&#160;bus-system.&#160;<br/>
+The&#160;FrTp&#160;on&#160;a&#160;gateway&#160;Ecu stops&#160;transmitting&#160;<br/>
+Check&#160;the&#160;Std_ReturnType&#160;code of&#160;the&#160;<br/>callback&#160;PduR_FrTpTxConfirmation()&#160;or&#160;<br/>(better:)&#160;the&#160;FrTp-internal&#160;result&#160;of&#160;type&#160;<br/>FrTp_NotifResultType&#160;that&#160;is&#160;used&#160;in FrTp-<br/>function&#160;FrTpIso_TxInit().&#160;<br/>
+The&#160;FrTp&#160;on&#160;a&#160;gateway&#160;Ecu stops&#160;receiving&#160;(i.e.&#160;&#160;Check&#160;the&#160;Std_ReturnType&#160;code of&#160;the&#160;<br/>another&#160;&lt;Bus&gt;Tp stops&#160;sending&#160;(e.g.&#160;CanTp)&#160;<br/>
+callback&#160;PduR_FrTpRxIndication()&#160;or&#160;(better:)&#160;<br/>the&#160;FrTp-internal&#160;result&#160;of&#160;type&#160;<br/>FrTp_NotifResultType&#160;that&#160;is&#160;used&#160;in FrTp-<br/>function&#160;FrTpIso_RxInit().&#160;<br/>
+FrTp_GlobCfg.h&#160;<br/>
+This&#160;file is a&#160;generated&#160;header&#160;file declaring the&#160;<br/>global&#160;configuration&#160;struct&#160;of&#160;the&#160;FrTp.&#160;<br/>
+&#160;<br/>
+<b>4.7&#160;</b><br/>
+<b>Postbuild&#160;Variants&#160;</b><br/>
+<b>4.7.1&#160;</b><br/>
+<b>Post-build&#160;Selectable&#160;</b><br/>
+The&#160;MICROSAR&#160;Identity&#160;Manager&#160;(refer&#160;to&#160;&#160;[2])&#160;is&#160;an&#160;implementation&#160;of&#160;&#160;the&#160;AUTOSAR&#160;4&#160;<br/>post-build&#160;&#160;selectable&#160;&#160;concept.&#160;&#160;It&#160;&#160;allows&#160;&#160;the&#160;&#160;ECU&#160;&#160;manufacturer&#160;&#160;to&#160;&#160;include&#160;&#160;several&#160;&#160;FrTp&#160;<br/>configurations&#160;&#160;within&#160;&#160;one&#160;&#160;ECU.&#160;&#160;With&#160;&#160;post-build&#160;&#160;selectable&#160;&#160;and&#160;&#160;the&#160;&#160;Identity&#160;&#160;Manager&#160;&#160;the&#160;<br/>ECU&#160;&#160;variants&#160;&#160;are&#160;&#160;downloaded&#160;&#160;within&#160;&#160;the&#160;&#160;ECUs&#160;&#160;non-volatile&#160;&#160;memory&#160;&#160;(e.g.&#160;&#160;flash)&#160;&#160;at&#160;&#160;ECU&#160;<br/>build&#160;&#160;time.&#160;&#160;Post-build&#160;&#160;selectable&#160;&#160;does&#160;&#160;not&#160;&#160;allow&#160;&#160;modification&#160;&#160;of&#160;&#160;FrTp&#160;&#160;&#160;&#160;aspects&#160;&#160;after&#160;&#160;ECU&#160;<br/>build&#160;time.&#160;At&#160;the&#160;same&#160;time,&#160;this&#160;limitation&#160;allows&#160;some&#160;of&#160;the&#160;optimization&#160;strategies&#160;still&#160;<br/>to&#160;&#160;be&#160;&#160;effective&#160;&#160;-&#160;&#160;FrTp&#160;&#160;static&#160;&#160;code&#160;&#160;part&#160;&#160;will&#160;&#160;be&#160;&#160;optimized&#160;&#160;for&#160;&#160;the&#160;&#160;variant&#160;&#160;with&#160;&#160;maximum&#160;<br/>configuration&#160;&#160;size.&#160;&#160;The&#160;&#160;variant&#160;&#160;selection&#160;&#160;is&#160;&#160;performed&#160;&#160;at&#160;&#160;runtime&#160;&#160;by&#160;&#160;passing&#160;&#160;the&#160;<br/>corresponding&#160;configuration&#160;root&#160;during&#160;the&#160;module&#160;initialization&#160;(refer to&#160;chapte<a href="TechnicalReference_Asr_FrTps.html#23">r&#160;5.2.1).</a>&#160;<br/>
+<b>4.7.2&#160;</b><br/>
+<b>Post-build&#160;loadable&#160;</b><br/>
+All&#160;FrTp&#160;configuration&#160;parameters,&#160;that&#160;are&#160;&#160;classified&#160;to&#160;be&#160;post-build&#160;selectable,&#160;also&#160;do&#160;<br/>support&#160;&#160;post-build&#160;&#160;loadable&#160;&#160;variant.&#160;&#160;The&#160;&#160;differences&#160;&#160;to&#160;&#160;the&#160;&#160;post-build-selectable&#160;&#160;case&#160;<br/>relisted&#160;upon&#160;their&#160;qualification:&#160;<br/>
+<b>&gt;&#160;&#160;</b>advantages:&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;module’s configuration&#160;can&#160;be&#160;updated&#160;after the&#160;module’s compile&#160;time&#160;without&#160;<br/>
+reprogramming&#160;the&#160;whole&#160;ECU&#160;software.&#160;<br/>
+<b>&gt;&#160;&#160;</b>disadvantages:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Since&#160;all&#160;of&#160;the&#160;affected&#160;configuration-parameters&#160;may&#160;change&#160;after&#160;modules&#160;compile&#160;<br/>
+time,&#160;the&#160;optimization&#160;level of&#160;the&#160;source&#160;code&#160;is very&#160;low.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-22_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-22_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>&gt;&#160;&#160;</b>Since&#160;no&#160;maximum&#160;configuration&#160;size&#160;can&#160;be&#160;pre-calculated,&#160;some&#160;scalable&#160;RAM&#160;<br/>
+blocks&#160;are referred&#160;not&#160;by&#160;a&#160;direct&#160;linker symbol, but&#160;through&#160;a&#160;pointer.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only&#160;one&#160;configuration&#160;variant&#160;is supported&#160;at&#160;a&#160;time&#160;(no&#160;variant&#160;selection&#160;at&#160;runtime&#160;<br/>
+possible).&#160;This&#160;disadvantage&#160;is avoided&#160;if&#160;the&#160;post&#160;-build&#160;loadable&#160;selectable&#160;variant&#160;is&#160;<br/>chosen&#160;instead&#160;(refer to&#160;chapte<a href="TechnicalReference_Asr_FrTps.html#22">r&#160;4.7.3).</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>Greater risks of&#160;passing&#160;an&#160;invalid&#160;pointer during&#160;module&#160;initialization&#160;time.&#160;For&#160;details&#160;<br/>
+about&#160;the&#160;post-build&#160;loadable&#160;feature,&#160;please&#160;refer to&#160;[2].&#160;<br/>
+<b>4.7.3&#160;</b><br/>
+<b>Post-build&#160;loadable&#160;selectable&#160;</b><br/>
+This&#160;variant&#160;actually&#160;combines&#160;both&#160;post-build&#160;selectable&#160;and&#160;loadable&#160;variants,&#160;allowing&#160;a&#160;<br/>variant&#160;selection&#160;at&#160;runtime&#160;and&#160;at&#160;the&#160;same&#160;time&#160;post-build&#160;calibration&#160;of&#160;parameters.&#160;For&#160;<br/>details&#160;on&#160;the&#160;two&#160;mentioned&#160;variants,&#160;please&#160;refer&#160;correspondingly&#160;to&#160;chapters<a href="TechnicalReference_Asr_FrTps.html#21">&#160;&#160;4.7.1&#160;</a>and&#160;<br/><a href="TechnicalReference_Asr_FrTps.html#21">4.7.2.</a>&#160;<br/>
+<b>4.7.4&#160;</b><br/>
+<b>Post-build&#160;deleteable&#160;</b><br/>
+This&#160;variant&#160;is&#160;actually&#160;a&#160;specific&#160;sub-variant&#160;of&#160;the&#160;post-build&#160;loadable&#160;variants.&#160;It&#160;allows&#160;<br/>deleting&#160;of&#160;containers&#160;that&#160;were&#160;created&#160;at&#160;link&#160;time,&#160;by&#160;guaranteeing&#160;at&#160;the&#160;same&#160;time&#160;the&#160;<br/>preservation&#160;of&#160;other&#160;post-build&#160;capable&#160;parameters’&#160;values.&#160;For&#160;details&#160;about&#160;this&#160;feature,&#160;<br/>refer to&#160;document&#160;[2].&#160;<br/>
+<b>4.8&#160;</b><br/>
+<b>Recommended&#160;compiler switches&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Here&#160;you&#160;can&#160;obtain supplemental&#160;information.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+In case&#160;you&#160;want&#160;to&#160;use&#160;the&#160;configuration&#160;variant&#160;post&#160;build&#160;together&#160;with a&#160;Greenhills®&#160;<br/>compiler&#160;on&#160;platform&#160;NEC®&#160;V850™&#160;and compatible then you&#160;should&#160;take&#160;attention&#160;on&#160;<br/>the&#160;following&#160;compiler&#160;switch combination:&#160;<br/>
+In case&#160;you&#160;want&#160;to&#160;use&#160;option&#160;-pack=1&#160;to&#160;reduce code&#160;size you&#160;should always&#160;use&#160;<br/>-misalign_pack&#160;at&#160;the same&#160;time in&#160;order&#160;to&#160;prevent&#160;a strong increase&#160;of&#160;the&#160;size&#160;<br/>of&#160;the&#160;static&#160;code of&#160;the&#160;FrTp.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_Asr_FrTps.html#11">&#160;Figure&#160;2-2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+There&#160;&#160;are&#160;&#160;no&#160;&#160;FrTp-specific&#160;&#160;type-definitions&#160;&#160;that&#160;&#160;go&#160;&#160;beyond&#160;&#160;the&#160;&#160;types&#160;&#160;offered&#160;&#160;by&#160;&#160;the&#160;<br/>AUTOSAR&#160;&#160;header&#160;&#160;files&#160;&#160;Std_Types.h&#160;&#160;and&#160;&#160;ComStack_Types.h&#160;&#160;that&#160;&#160;would&#160;&#160;affect&#160;&#160;the&#160;&#160;user-<br/>application.&#160;Thus there&#160;are no&#160;further types&#160;described&#160;in&#160;this chapter.&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;FrTp&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>FrTp_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+retCode&#160;<b>FrTp_Init</b>&#160;(FrTp_ConfigType&#160;*CfgPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+CfgPtr&#160;<br/>
+Pointer&#160;to the configuration&#160;structure of&#160;the FrTp.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Void&#160;<br/>
+n/a&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;initializes&#160;all&#160;administration-data&#160;of&#160;the&#160;FrTp&#160;and prepares&#160;the&#160;FrTp&#160;component&#160;for operation.&#160;<br/>It has&#160;to&#160;be&#160;called&#160;prior&#160;to any&#160;other function-call&#160;to a&#160;FrTp&#160;-API.&#160;Otherwise the respective&#160;other&#160;API-call&#160;will&#160;<br/>report an error to&#160;the&#160;DET.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;This&#160;is&#160;because&#160;this&#160;function&#160;reuses&#160;internal&#160;functions&#160;of&#160;the&#160;FrTp&#160;<br/>that&#160;are&#160;also used&#160;during runtime and&#160;that&#160;require&#160;interrupt-locking.&#160;<br/>
+<b>&gt;&#160;&#160;</b>In case&#160;of&#160;post&#160;build configuration&#160;this&#160;method&#160;checks&#160;the&#160;validity&#160;of&#160;the&#160;given&#160;configuration&#160;<br/>
+versus&#160;the&#160;version of&#160;the&#160;embedded&#160;code&#160;of&#160;the&#160;FrTp&#160;component.&#160;In&#160;case&#160;the&#160;given&#160;<br/>configuration&#160;is&#160;invalid or&#160;not&#160;suitable&#160;for&#160;the&#160;embedded code&#160;then&#160;the&#160;callout&#160;function&#160;<br/>EcuM_BswErrorHook()&#160;is&#160;called.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context..&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;FrTp_Init&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>FrTp_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrTp_InitMemory</b>&#160;(&#160;void&#160;)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;initializes&#160;all&#160;administration-data&#160;of&#160;the&#160;FrTp that has&#160;to be&#160;set&#160;to&#160;zero before FrTp_Init()&#160;is&#160;<br/>called.&#160;FrTp_InitMemory()&#160;has&#160;to&#160;be called&#160;in&#160;case the&#160;startup&#160;code does&#160;not set&#160;the&#160;RAM&#160;used&#160;by&#160;FrTp&#160;to&#160;<br/>zero.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;n/a&#160;(not&#160;an&#160;AUTOSAR&#160;compliant&#160;method)&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;has&#160;to&#160;be&#160;called&#160;during&#160;the&#160;initialization&#160;of&#160;the&#160;FlexRay-Stack,&#160;i.e.&#160;during&#160;ECU-<br/>
+startup&#160;in&#160;case&#160;the&#160;startup code does&#160;not&#160;initialize&#160;the&#160;RAM.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;FrTp_InitMemory&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>FrTp_Shutdown&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrTp_Shutdown</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;shuts&#160;down&#160;the&#160;FrTp and&#160;prevents&#160;the&#160;initiation&#160;of&#160;transmissions&#160;in future.&#160;After the&#160;call&#160;the&#160;<br/>FrTp&#160;is&#160;in a&#160;non-initialized state.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;solely&#160;changes&#160;a&#160;FrTp&#160;-internal&#160;status-variable.&#160;It&#160;does&#160;not&#160;cancel&#160;or&#160;stop&#160;any&#160;<br/>
+ongoing&#160;transmissions.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;FrTp_Shutdown&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>FrTp_Transmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrTp_Transmit</b>&#160;(&#160;PduIdType FrTpTxSduId, const PduInfoType*&#160;<br/>FrTpTxSduInfoPtr&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrTpTxSduId&#160;<br/>
+This&#160;parameter&#160;identifies&#160;the&#160;FrTpTxSdu&#160;to&#160;be used for transmission.&#160;<br/>
+FrTpTxSduInfoPtr&#160;<br/>
+This&#160;is&#160;a&#160;pointer to a&#160;struct of&#160;type&#160;PduInfoType&#160;whereas&#160;the structs&#160;parameter&#160;<br/>PduLength&#160;states&#160;the length of&#160;the&#160;data&#160;to&#160;be&#160;transmitted.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK:&#160;This&#160;value&#160;is&#160;returned in&#160;case the transmission&#160;request&#160;is&#160;going to&#160;be&#160;<br/>executed&#160;by&#160;the&#160;FrTp&#160;component.&#160;<br/>E_NOT_OK:&#160;This&#160;value&#160;is&#160;returned in case the&#160;transmission&#160;request is&#160;not&#160;<br/>going&#160;to be&#160;executed by&#160;the&#160;FrTp&#160;component.&#160;<br/>This&#160;can&#160;happen&#160;under these conditions:&#160;<br/>
+1.&#160;&#160;The&#160;length-value given&#160;in&#160;the&#160;struct-parameter&#160;is&#160;invalid,&#160;i.e.&#160;either&#160;<br/>
+larger&#160;than&#160;64&#160;kBytes&#160;or,&#160;in&#160;case of&#160;a&#160;1:n&#160;connection, it&#160;might be larger&#160;<br/>than&#160;the&#160;payload&#160;of&#160;the smallest FrIf-Pdu that&#160;is&#160;assigned to the&#160;<br/>affected&#160;connection.&#160;<br/>
+2.&#160;&#160;A&#160;connection&#160;identifier is&#160;provided that&#160;is&#160;invalid.&#160;Then the&#160;value&#160;<br/>
+usually&#160;is&#160;larger&#160;or&#160;equal&#160;than&#160;the overall&#160;number&#160;of&#160;connections&#160;<br/>configured&#160;in&#160;the&#160;current&#160;FrTp&#160;instance.&#160;<br/>
+3.&#160;&#160;In&#160;case 1.&#160;or 2.&#160;are not&#160;applicable then&#160;typically&#160;all&#160;channels&#160;of&#160;the&#160;<br/>
+FrTp&#160;are busy&#160;at&#160;the&#160;moment&#160;of&#160;the call.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;initiates&#160;a&#160;transmission&#160;in case&#160;the&#160;given&#160;parameters&#160;are valid (see&#160;section&#160;“Return&#160;code”&#160;<br/>above). In this&#160;case a&#160;free&#160;channel&#160;of&#160;the&#160;FrTp&#160;is&#160;reserved&#160;to&#160;conduct the&#160;transmission&#160;requested.&#160;Within&#160;<br/>the&#160;next call&#160;to&#160;the&#160;FrTp_MainFunction()&#160;the&#160;steps&#160;required&#160;for the transmission&#160;will&#160;be&#160;taken, i.e.&#160;a&#160;buffer&#160;<br/>with&#160;Tx-Data&#160;is&#160;written&#160;by&#160;the application&#160;via PduR_ FrTpCopyTxData()&#160;and&#160;after successful&#160;transmission&#160;<br/>of&#160;the provided&#160;data a&#160;PduR_FrTpTxConfirmation()-callback&#160;is&#160;called.&#160;These steps&#160;are conducted&#160;in the&#160;<br/>same way&#160;as&#160;described&#160;in&#160;document&#160;[2].&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp&#160;has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is&#160;not&#160;required&#160;that&#160;the&#160;physical&#160;layer&#160;is&#160;in sync&#160;with the&#160;networks&#160;since&#160;this&#160;function&#160;does&#160;not&#160;<br/>
+check&#160;the&#160;status&#160;of&#160;the&#160;physical&#160;FlexRay&#160;bus.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;PduR&#160;/&#160;caller&#160;should be&#160;prepared&#160;to&#160;receive a&#160;call&#160;to&#160;the&#160;callback-function&#160;<br/>
+PduR_FrTpCopyTxData()&#160;afterwards,&#160;in order&#160;to&#160;provide&#160;the&#160;Tx-data&#160;to be&#160;transmitted.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;FrTp_Transmit&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>FrTp_CancelTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrTp_CancelTransmit</b>&#160;(PduIdType FrTpTxPduId&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrTpTxPduId&#160;<br/>
+This&#160;parameter&#160;identifies&#160;the connection a&#160;cancellation&#160;request shall&#160;be&#160;<br/>applied to.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK:&#160;This&#160;value&#160;is&#160;returned in&#160;case the request for&#160;transmission-cancellation&#160;<br/>is&#160;going&#160;to&#160;be executed&#160;by&#160;the&#160;component.&#160;<br/>E_NOT_OK:&#160;This&#160;value&#160;is&#160;returned in case the&#160;request&#160;for transmission-<br/>cancellation&#160;is&#160;invalid.&#160;This&#160;can&#160;happen in case the affected&#160;connection is&#160;not&#160;<br/>active at&#160;all.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;requests&#160;the&#160;cancellation&#160;of&#160;an&#160;active transmission.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is&#160;not&#160;required&#160;that&#160;the&#160;physical&#160;layer&#160;is&#160;in sync&#160;with the&#160;networks&#160;since&#160;this&#160;function&#160;does&#160;not&#160;<br/>
+check&#160;the&#160;status&#160;of&#160;the&#160;physical&#160;FlexRay&#160;bus.&#160;<br/>
+<b>&gt;&#160;&#160;</b>After&#160;successful&#160;cancellation of&#160;the&#160;transmission&#160;no additional&#160;calls&#160;to&#160;<br/>
+PduR_FrTp_TxConfirmation()&#160;&#160;are done&#160;by&#160;the&#160;FrTp&#160;in order&#160;to&#160;finish&#160;the&#160;transmission.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;API&#160;is&#160;optional.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;FrTp_CancelTransmit&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>FrTp_CancelReceive&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrTp_CancelReceive</b>&#160;(PduIdType&#160;FrTpRxPduId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrTpRxPduId&#160;<br/>
+This&#160;parameter&#160;identifies&#160;the connection&#160;a&#160;cancellation&#160;request shall&#160;be&#160;<br/>applied to.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK:&#160;This&#160;value&#160;is&#160;returned in&#160;case the request for reception-cancellation is&#160;<br/>going&#160;to be&#160;executed by&#160;the component.&#160;<br/>E_NOT_OK:&#160;This&#160;value&#160;is&#160;returned in case the&#160;request&#160;for&#160;reception-<br/>cancellation&#160;is&#160;invalid e.g.&#160;because the affected&#160;connection&#160;is&#160;not&#160;active at&#160;all.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;requests&#160;the&#160;cancellation&#160;of&#160;an&#160;active reception.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp&#160;has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is&#160;not&#160;required&#160;that&#160;the&#160;physical&#160;layer&#160;is&#160;in sync&#160;with the&#160;networks&#160;since&#160;this&#160;function&#160;does&#160;not&#160;<br/>
+check&#160;the&#160;status&#160;of&#160;the&#160;physical&#160;FlexRay&#160;bus.&#160;<br/>
+<b>&gt;&#160;&#160;</b>After&#160;successful&#160;cancellation of&#160;the&#160;reception&#160;no&#160;additional&#160;calls&#160;to PduR_FrTp_RxIndication()&#160;<br/>
+or&#160;&lt;Owner&gt;_FrTp_RxIndication()&#160;are&#160;done&#160;by&#160;the&#160;FrTp&#160;in order&#160;to&#160;finish&#160;the reception.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;API&#160;is&#160;optional.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;FrTp_CancelReceive&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>FrTp_ChangeParameter&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrTp_ChangeParameter</b>(PduIdType FrTpSduId,&#160;TPParameterType&#160;<br/>FrTpParameterType, unit16 FrTpParameterValue&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrTpSduId&#160;<br/>
+This&#160;parameter&#160;identifies&#160;the connection a&#160;request&#160;to&#160;change parameters&#160;shall&#160;<br/>be&#160;applied to&#160;<br/>
+FrTpParameterType&#160;<br/>
+This&#160;parameter&#160;contains&#160;the information&#160;about&#160;which&#160;parameter&#160;of&#160;the given&#160;<br/>connection&#160;shall&#160;be changed.&#160;<br/>
+FrTpParameterValue&#160;<br/>
+This&#160;parameter&#160;contains&#160;the new value to&#160;be&#160;set as&#160;new&#160;parameter-value.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+retCode&#160;<br/>
+E_OK: Request&#160;was&#160;accepted&#160;&#160;<br/>E_NOT_OK: Request&#160;was&#160;not accepted&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;changes&#160;the parameter&#160;of&#160;a&#160;FrTp connection&#160;identified&#160;by&#160;the&#160;type-parameter&#160;using&#160;the given&#160;<br/>value-parameter&#160;as&#160;value.&#160;<br/>In&#160;case the SCexp&#160;part of&#160;the&#160;given&#160;BC-parameter&#160;leads&#160;to&#160;a&#160;larger inter-pdu-gap&#160;than&#160;configured in the&#160;<br/>FrTpTimeoutCr-parameter&#160;of&#160;the affected&#160;connection&#160;the&#160;parameter&#160;will&#160;not be&#160;changed and&#160;E_NOT_OK&#160;<br/>will&#160;be returned.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Other&#160;particularities,&#160;limitations,&#160;post-conditions,&#160;pre-conditions&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;FrTp_ChangeParameter&#160;<br/>
+<b>5.2.8&#160;</b><br/>
+<b>FrTp_MainFunction&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrTp_MainFunction</b>&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;conducts&#160;these actions:&#160;<br/>
+-&#160;&#160;It supervises&#160;the timers&#160;of&#160;each&#160;TP-channel.&#160;<br/>
+-&#160;&#160;It evaluates&#160;the&#160;actions&#160;that&#160;have happened since the last call&#160;to&#160;FrTp_MainFunction(), i.e.&#160;callbacks&#160;to&#160;<br/>the&#160;methods&#160;FrTp_RxIndication(), FrTp_TxConfirmation().&#160;<br/>
+-&#160;&#160;It conducts&#160;all&#160;calls&#160;to&#160;FrIf_Transmit()&#160;required&#160;by&#160;a&#160;FrTp communication.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;has&#160;to&#160;be&#160;called&#160;synchronous&#160;to&#160;the&#160;FlexRay&#160;bus-time.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;might&#160;not&#160;be&#160;called&#160;in postbuild loadable /&#160;selectable use-cases.&#160;Therefore&#160;no&#160;DET&#160;<br/>
+errror&#160;FRTP_E_NOT_INIT&#160;is&#160;issued by&#160;the&#160;FrTp_MainFunction().&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;has&#160;to&#160;be&#160;called&#160;at&#160;a different&#160;time&#160;than the&#160;execution-time of&#160;the&#160;FrIf-job-<br/>
+execution&#160;(Both&#160;Rx&#160;and&#160;Tx&#160;!!!).&#160;Both&#160;points&#160;in time are&#160;possible:&#160;Prior&#160;or&#160;after&#160;the&#160;point&#160;of&#160;time&#160;<br/>of&#160;the&#160;FrIf-job-execution.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;FrTp_MainFunction&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-30_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-30_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-30_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Rules to call&#160;FrTp_MainFunction()&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+The&#160;FrTp_MainFunction()&#160;has&#160;to&#160;be&#160;called:&#160;<br/>
+<b>&gt;&#160;&#160;</b>once&#160;per FlexRay&#160;cycle&#160;and&#160;also&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>synchronous to&#160;the&#160;FlexRay&#160;time.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;should&#160;be&#160;called&#160;at&#160;a&#160;different&#160;time&#160;than&#160;the&#160;execution-time&#160;of&#160;<br/>
+the&#160;FrIf-job-execution&#160;that&#160;operates the&#160;FrIf-Rx-&#160;and&#160;FrIf-Tx-Pdus,&#160;used&#160;by&#160;<br/>the&#160;FrTp.&#160;Otherwise&#160;this will result in&#160;poor performance&#160;of&#160;the&#160;FrTp.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Refer to&#160;documen<a href="TechnicalReference_Asr_FrTps.html#4">t&#160;[13]&#160;</a>for more details&#160;about&#160;FrIf-JLE.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Example&#160;<br/></b>Call&#160;schedule of&#160;FrTp_MainFunction()&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+In case&#160;of&#160;5&#160;ms&#160;FlexRay&#160;cycle length and&#160;all&#160;FrIf-Tx-Pdus&#160;assigned&#160;to&#160;the&#160;FrTp&#160;being&#160;in&#160;<br/>the&#160;dynamic&#160;segment&#160;then&#160;the&#160;FrTp_MainFunction()&#160;should be&#160;executed&#160;in the&#160;static&#160;<br/>segment.&#160;&#160;<br/>
+The&#160;offset&#160;within the&#160;cycle should be:&#160;<br/>
+<b>&gt;&#160;&#160;</b>earlier than&#160;the&#160;Tx-Job&#160;of&#160;the&#160;FrIf&#160;responsible&#160;for&#160;FrTp&#160;FrIf-Tx-Pdus&#160;<br/>
+<b>&gt;&#160;&#160;</b>later than&#160;the&#160;Rx-Job&#160;of&#160;the&#160;FrIf&#160;responsible&#160;for&#160;FrTp&#160;FrIf-Rx-Pdus&#160;<br/>
+Other offsets&#160;are&#160;possible&#160;but&#160;will result in&#160;poor performance&#160;of&#160;the&#160;FrTp.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>5.2.9&#160;</b><br/>
+<b>FrTp_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Frtp_GetVersionInfo</b>&#160;(Std_VersionInfoType *pVersionInfo)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+pVersionInfo&#160;<br/>
+The&#160;version-info-struct the&#160;parameter&#160;“pVersionInfo” points&#160;to is&#160;filled&#160;with&#160;the&#160;<br/>version-information&#160;by&#160;this&#160;method.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+retCode&#160;<br/>
+description&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+FrTp_GetVersionInfo()&#160;returns&#160;version information,&#160;vendor ID&#160;and&#160;AUTOSAR module ID&#160;of&#160;the&#160;component.&#160;<br/>The&#160;versions&#160;are BCD-coded.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp&#160;has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;is&#160;not&#160;required&#160;that&#160;the&#160;physical&#160;layer&#160;is&#160;in sync&#160;with the&#160;networks&#160;since&#160;this&#160;function&#160;does&#160;not&#160;<br/>
+check&#160;the&#160;status&#160;of&#160;the&#160;physical&#160;FlexRay&#160;bus.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;FrTp_GetVersionInfo&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;FrTp&#160;</b><br/>
+<b>5.3.1&#160;</b><br/>
+<b>Services&#160;with&#160;AUTOSAR&#160;compliant&#160;prototypes&#160;&#160;&#160;&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other&#160;components,&#160;which&#160;are&#160;used&#160;by&#160;the&#160;FrTp&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+Det&#160;<br/>
+Det_ReportError&#160;<br/>
+PduR&#160;<br/>
+PduR_FrTpStartOfReception&#160;<br/>
+PduR&#160;<br/>
+PduR_FrTpCopyRxData&#160;<br/>
+PduR&#160;<br/>
+PduR_FrTpCopyTxData&#160;<br/>
+PduR&#160;<br/>
+PduR_FrTpRxIndication&#160;<br/>
+PduR&#160;<br/>
+PduR_FrTpTxConfirmation&#160;<br/>
+SchM&#160;<br/>
+SCHM_ENTER_EXCLUSIVE&#160;<br/>
+SchM&#160;<br/>
+SCHM_EXIT_EXCLUSIVE&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;FrTp&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>Services&#160;that are&#160;MICROSAR extensions&#160;</b><br/>
+n&#160;&#160;case&#160;&#160;of&#160;&#160;incompatibilities&#160;&#160;of&#160;&#160;configuration&#160;&#160;and&#160;&#160;embedded&#160;&#160;code&#160;&#160;then&#160;&#160;the&#160;&#160;function&#160;<br/>EcuM_BswErrorHook()is called&#160;in&#160;the&#160;context&#160;of&#160;FrTp_Init():&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+EcuM&#160;<br/>
+EcuM_BswErrorHook&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback&#160;functions&#160;that&#160;are&#160;implemented&#160;by&#160;the&#160;&#160;FrTp&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;FrTp_Cbk.h&#160;by&#160;the&#160;FrTp.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-32_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>5.4.1&#160;</b><br/>
+<b>FrTp_TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;&#160;<b>FrTp_TxConfirmation</b>&#160;(PduIdType&#160;FrIfTxPduId&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrIfTxPduId&#160;<br/>
+This&#160;parameter&#160;identifies&#160;the FrIf-Tx-Pdu&#160;assigned to&#160;the&#160;FrTp&#160;that has&#160;been&#160;<br/>transmitted successfully&#160;on&#160;the FlexRay-bus&#160;by&#160;the&#160;FrIf.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;has&#160;to be called after the&#160;transmission&#160;of&#160;all&#160;FrIf-Tx-Pdus&#160;assigned&#160;to&#160;the&#160;FrTp.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp&#160;has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>After&#160;the&#160;call&#160;to&#160;this&#160;method&#160;the&#160;FrTp&#160;regards all&#160;other&#160;Tx-Pdus&#160;of&#160;the&#160;affected&#160;channel&#160;as&#160;<br/>
+transmitted.&#160;Of&#160;course&#160;only&#160;these&#160;Tx-Pdus&#160;are&#160;affected&#160;that&#160;have been&#160;requested&#160;by&#160;the&#160;FrTp&#160;<br/>to be&#160;transmitted&#160;by&#160;the&#160;FrIf&#160;in&#160;the&#160;current&#160;FlexRay-cycle or&#160;this.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;FrTp_TxConfirmation&#160;<br/>
+<b>5.4.2&#160;</b><br/>
+<b>FrTp_RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrTp_RxIndication</b>&#160;(PduIdType FrRxPduId,&#160;const PduInfoType*&#160;FrIf_PduInfoPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrRxPduId&#160;<br/>
+This&#160;parameter&#160;indicates&#160;to&#160;the&#160;FrTp&#160;which&#160;Rx-Pdu&#160;has&#160;been&#160;received&#160;<br/>successfully&#160;by&#160;the&#160;underlying&#160;FlexRay-Interface component.&#160;<br/>
+FrIf_PduInfoPtr&#160;<br/>
+This&#160;parameter&#160;points&#160;to a&#160;C-struct of&#160;type&#160;PduInfoType.&#160;The&#160;C-struct contains&#160;<br/>a pointer to the&#160;Rx-Pdu&#160;received&#160;and&#160;a&#160;value&#160;of&#160;type PduLengthType&#160;that&#160;<br/>indicates&#160;the&#160;length&#160;of&#160;the&#160;Pdus&#160;payload.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+n/a&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;is&#160;a&#160;callback&#160;that&#160;is&#160;called&#160;by&#160;the&#160;FrIf&#160;in&#160;case an&#160;Rx-Pdu&#160;assigned&#160;to&#160;the&#160;FrTp&#160;has&#160;been&#160;<br/>received&#160;successfully&#160;by&#160;the FrIf.&#160;The&#160;method&#160;copies&#160;the&#160;data&#160;pointed to&#160;by&#160;the&#160;member&#160;DataPtr&#160;of&#160;the&#160;<br/>PduInfoStruct to a&#160;FrTp-internal&#160;buffer or&#160;directly&#160;to the Rx-buffer of&#160;the application.&#160;For this&#160;the member&#160;<br/>PduLength&#160;of&#160;the&#160;PduInfoStruct is&#160;used.&#160;This&#160;is&#160;done&#160;depending&#160;on the frame-type&#160;received.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-33_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp&#160;has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;FrTp_RxIndication&#160;<br/>
+<b>5.4.3&#160;</b><br/>
+<b>FrTp_TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrTp_TriggerTransmit</b>&#160;(PduIdType FrIfTxPduId, PduInfoType*&#160;<br/>FrTpTxPduInfoPtr&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrIfTxPduId&#160;&#160;<br/>
+This&#160;parameter&#160;contains&#160;the Id&#160;of&#160;the&#160;Tx-Pdu&#160;(FrIf-L-PduId&#160;of&#160;the FrIf)&#160;whose&#160;<br/>transmission&#160;was&#160;requested and&#160;whose payload-data&#160;shall&#160;be&#160;provided&#160;by&#160;the&#160;<br/>FrTp&#160;to the FrIf.&#160;<br/>
+FrTpTxPduInfoPtr&#160;&#160;<br/>
+Pointer&#160;to PduInfoType-structure containing&#160;a&#160;pointer&#160;to memory&#160;of&#160;the FrIf&#160;(or&#160;<br/>of&#160;the Fr-driver)&#160;the&#160;FrTp&#160;shall&#160;copy&#160;the payload and&#160;containing&#160;the&#160;<br/>information&#160;about&#160;the&#160;length of&#160;the&#160;FrTp-frame.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK:&#160;The&#160;request has&#160;been&#160;accepted&#160;<br/>E_NOT_OK:&#160;The&#160;request&#160;has&#160;not&#160;been accepted,&#160;e.&#160;g.&#160;parameter&#160;check&#160;has&#160;<br/>failed&#160;or cancellation is&#160;requested.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;method&#160;is&#160;called by&#160;the FrIf-Job-Execution&#160;in&#160;order to retrieve the payload-data&#160;of&#160;a&#160;FrIf-Tx-Pdu&#160;<br/>assigned to&#160;and&#160;previously&#160;transmitted by&#160;the&#160;FrTp&#160;via&#160;FrIf_Transmit().&#160;This&#160;function copies&#160;the&#160;complete&#160;<br/>FlexRay&#160;TP-frame to a&#160;memory-area pointed&#160;to&#160;by&#160;the&#160;FrIf.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-34_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Service ID:&#160;see&#160;tabl<a href="TechnicalReference_Asr_FrTps.html#14">e 'Service IDs'</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_Init()&#160;has&#160;to&#160;be&#160;called&#160;prior&#160;to&#160;any&#160;calls&#160;to&#160;this&#160;method,&#160;i.e.&#160;the&#160;FrTp&#160;has to&#160;be&#160;initialized.&#160;<br/>
+Otherwise an&#160;error&#160;will&#160;be&#160;indicated&#160;to&#160;the&#160;DET.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;transmission&#160;of&#160;the&#160;Tx-Pdu&#160;indicated&#160;by&#160;parameter&#160;FrIfTxPduId&#160;must&#160;have been&#160;<br/>
+requested&#160;by&#160;the&#160;FrTp&#160;in a&#160;preceding&#160;call&#160;to&#160;the&#160;FrIf-method&#160;FrIf_Transmit()&#160;whereas&#160;the&#160;latter&#160;<br/>call&#160;has&#160;to&#160;return&#160;E_OK&#160;in this&#160;case.&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrTp_TxConfirmation()&#160;has to&#160;be&#160;called&#160;by&#160;the&#160;FrIf&#160;in order&#160;to&#160;finalize the&#160;transmission&#160;of&#160;the&#160;<br/>
+affected&#160;FrIf-Tx-Pdu&#160;assigned&#160;to&#160;the&#160;FrTp.&#160;<br/>
+<b>&gt;&#160;&#160;</b>During&#160;its&#160;runtime&#160;this&#160;method&#160;temporarily&#160;locks&#160;interrupts&#160;using&#160;the&#160;API-calls&#160;of&#160;the&#160;AUTOSAR&#160;<br/>
+BSW&#160;Scheduler&#160;(SchM).&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;method is optional.&#160;It&#160;can&#160;be&#160;disabled&#160;by&#160;GUI&#160;switch ‘Disable Decoupled&#160;Transmit’&#160;in case&#160;<br/>
+you&#160;plan&#160;to solely&#160;use&#160;FrIf-Pdus&#160;with transmission&#160;type&#160;‘immediate’&#160;in&#160;future.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>May&#160;be&#160;called&#160;from&#160;interrupt&#160;context.&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;FrTp_TriggerTransmit&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-35_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>6&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer;&#160;generation&#160;tool&#160;for&#160;MICROSAR&#160;<br/>components&#160;<br/>
+GENy&#160;<br/>
+Generation&#160;tool&#160;for&#160;CANbedded&#160;and MICROSAR&#160;components&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+35&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTp/doc/TechnicalReference_Asr_FrTp-36_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FrTp&#160;<br/>
+<b>7&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.04&#160;<br/>
+36&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+</body>
+</html>

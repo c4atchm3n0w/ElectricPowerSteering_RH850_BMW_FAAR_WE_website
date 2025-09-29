@@ -1,0 +1,329 @@
+---
+title: StdDiagClassic_ReleaseNotess
+linkTitle: StdDiagClassic_ReleaseNotess
+weight: 10
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_ReleaseNotes-1_1.png"/><br/>
+Release&#160;Notes&#160;StdDiagClassic<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.4.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Issues</b><br/>
+5.4.0<br/>
+2017-12-14<br/>
+BAC-6630,&#160;BAC-6257,&#160;BAC-6699,&#160;BAC-6248<br/>
+5.3.0<br/>
+2017-11-09<br/>
+BAC-6506,&#160;BAC-6249<br/>
+5.2.0<br/>
+2017-10-12<br/>
+BAC-6413,&#160;BAC-6347,&#160;BAC-5176,&#160;BAC-6339,&#160;BAC-6433,<br/>BAC-6230<br/>
+5.1.0<br/>
+2017-08-10<br/>
+BAC-6162,&#160;BAC-6148<br/>
+5.0.0<br/>
+2017-06-29<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+ReleaseNotes_StdDiagClassic,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;6<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_ReleaseNotes-2_1.png"/><br/>
+<b>1</b><br/>
+<b>Module&#160;Description</b><br/>
+This&#160;package&#160;contains&#160;the&#160;adapter&#160;for&#160;a&#160;classic&#160;AUTOSAR&#160;platform&#160;for&#160;the&#160;StdDiagGeneric&#160;package.&#160;The<br/>StdDiag&#160;module&#160;is&#160;modeled&#160;as&#160;an&#160;AUTOSAR&#160;software&#160;component&#160;residing&#160;above&#160;the&#160;RTE.<br/>
+<b>2</b><br/>
+<b>Revisions&#160;and&#160;Modifications</b><br/>
+<b>Revision&#160;5.4.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6630<br/>
+CR&#160;Headline:<br/>
+StdDiagClassic&#160;-&#160;*.pgen&#160;templates&#160;inconsistent&#160;with&#160;paramdef<br/>
+Description&#160;of&#160;Issues:<br/>
+Optional&#160;configuration&#160;container&#160;&#34;StdDiagUserDefinedMemory&#34;&#160;is<br/>treated&#160;as&#160;mandatory&#160;if&#160;parameter<br/>&#34;StdDiagClearSecondaryErrorMemory&#34;&#160;is&#160;enabled,&#160;which&#160;may<br/>cause&#160;misleading&#160;error&#160;messages.<br/>
+Description&#160;of&#160;Changes:<br/>
+Create&#160;proper&#160;error&#160;message&#160;if&#160;configuration&#160;dependencies&#160;are<br/>violated.<br/>
+Changed&#160;Files:<br/>
+generate/meta/StdDiag_ext_interfaces.arxml.pgen<br/>generate/pageinclude/StdDiag_GetIdrlConfig.pgen<br/>generate/include/StdDiagClassic_Cfg.h.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6257<br/>
+CR&#160;Headline:<br/>
+Provide&#160;feature&#160;&#34;Application&#160;Data&#160;Transfer&#160;(ADT)&#34;<br/>
+Description&#160;of&#160;Issues:<br/>
+Provide&#160;dispatcher&#160;for&#160;common&#160;diagnostic&#160;requests&#160;of&#160;functionality<br/>&#34;Application&#160;Data&#160;Transfer&#34;&#160;(ADT)&#160;(german:<br/>&#34;Applikationsdatenübertragung&#34;,&#160;ADÜ).<br/>
+Description&#160;of&#160;Changes:<br/>
+Provided&#160;dispatcher&#160;for&#160;RoutineControl&#160;&#34;Upload/Download<br/>Pre/Post-Processing&#34;&#160;(RID&#160;0x7000)&#160;and&#160;diagnostic&#160;services<br/>&#34;RequestDownload&#34;&#160;(0x34),&#160;&#34;RequestUpload&#34;&#160;(0x35),<br/>&#34;TransferData&#34;&#160;(0x36)&#160;and&#160;&#34;RequestTransferExit&#34;&#160;(0x37).&#160;Provided<br/>configuration&#160;parameters&#160;for&#160;ADT&#160;memory&#160;objects.<br/>
+Changed&#160;Files:<br/>
+CMakeLists.txt<br/>cfgdesc/StdDiagClassic_paramdef.arxml<br/>doc/StdDiagClassic_IntegrationManual.pdf<br/>generate/include/StdDiagClassic_Cfg.h.pgen<br/>generate/meta/StdDiag_bswmd.arxml.pgen<br/>generate/meta/StdDiag_ext_interfaces.arxml.pgen<br/>generate/meta/StdDiag_internal.arxml.pgen<br/>generate/meta/StdDiag_interfaces.arxml.pgen<br/>generate/pageinclude/StdDiag_GetAdtConfig.pgen<br/>generate/src/StdDiagClassic_Cfg.c.pgen<br/>include/StdDiag_AdtTypes.h<br/>
+ReleaseNotes_StdDiagClassic,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;6<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_ReleaseNotes-3_1.png"/><br/>
+include/StdDiag_DcmTypes.h<br/>src/StdDiag_Adt.c<br/>src/StdDiag_AdtInternal.h<br/>src/StdDiag_AdtUploadDownload.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6699<br/>
+CR&#160;Headline:<br/>
+Remove&#160;compiler&#160;abstraction&#160;from&#160;source&#160;code<br/>
+Description&#160;of&#160;Issues:<br/>
+Remove&#160;AUTOSAR&#160;compiler&#160;abstraction&#160;from&#160;source&#160;code.<br/>
+Description&#160;of&#160;Changes:<br/>
+Removed&#160;compiler&#160;abstraction.<br/>
+Changed&#160;Files:<br/>
+generate/src/StdDiagClassic_Cfg.c.pgen<br/>src/StdDiag_IDRLAdapter.c<br/>include/StdDiag_IDRLAdapter.h<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6248<br/>
+CR&#160;Headline:<br/>
+Provide&#160;callback&#160;mechanism&#160;to&#160;establish&#160;intrinsic&#160;safety<br/>
+Description&#160;of&#160;Issues:<br/>
+Provide&#160;an&#160;asynchronous&#160;callback&#160;mechanism&#160;to&#160;establish&#160;intrinsic<br/>safety&#160;for&#160;long&#160;running&#160;user&#160;callouts.<br/>
+Description&#160;of&#160;Changes:<br/>
+Provided&#160;callback&#160;interfaces&#160;for&#160;long&#160;running&#160;applications.<br/>
+Changed&#160;Files:<br/>
+src/StdDiagClassic.c<br/>src/StdDiag_AppAdapter.c<br/>generate/meta/StdDiag_ext_interfaces.arxml.pgen<br/>generate/meta/StdDiag_interfaces.arxml.pgen<br/>doc/StdDiagClassic_IntegrationManual.pdf<br/>generate/meta/StdDiag_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.3.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6506<br/>
+CR&#160;Headline:<br/>
+Adapt&#160;pgen&#160;templates&#160;to&#160;PAGe&#160;v1.1.0<br/>
+Description&#160;of&#160;Issues:<br/>
+Adapt&#160;pgen&#160;files&#160;to&#160;PAGe&#160;v1.1.0.<br/>
+Description&#160;of&#160;Changes:<br/>
+Adapted&#160;pgen&#160;files&#160;to&#160;PAGe&#160;v1.1.0.<br/>
+Changed&#160;Files:<br/>
+generate/meta/StdDiag_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6249<br/>
+CR&#160;Headline:<br/>
+Provide&#160;PostBuild&#160;configuration&#160;of&#160;SGBD-Index<br/>
+Description&#160;of&#160;Issues:<br/>
+Parameter&#160;&#34;StdDiagSgbdIndex&#34;&#160;shall&#160;be&#160;post&#160;build&#160;selectable.<br/>
+Description&#160;of&#160;Changes:<br/>
+Moved&#160;parameter&#160;&#34;StdDiagSgbdIndex&#34;&#160;to&#160;adapter&#160;part&#160;and&#160;add<br/>post&#160;build&#160;support.<br/>
+ReleaseNotes_StdDiagClassic,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;6<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_ReleaseNotes-4_1.png"/><br/>
+Changed&#160;Files:<br/>
+src/StdDiagClassic.c<br/>generate/include/StdDiagClassic_PBCfg.h.pgen<br/>cfgdesc/StdDiagClassic_paramdef.arxml<br/>generate/src/StdDiagClassic_PBCfg.c.pgen<br/>CMakeLists.txt<br/>doc/StdDiagClassic_IntegrationManual.pdf<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.2.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6413<br/>
+CR&#160;Headline:<br/>
+StdDiag:&#160;Remove&#160;SP2015/2015&#160;suffixes&#160;from&#160;VEHICLE&#160;STATE<br/>
+Description&#160;of&#160;Issues:<br/>
+Remove&#160;suffixes&#160;&#34;SP2015&#34;&#160;from&#160;interfaces&#160;provided&#160;by&#160;Stm&#160;to&#160;be<br/>compatible&#160;with&#160;current&#160;Stm&#160;release.<br/>
+Description&#160;of&#160;Changes:<br/>
+Removed&#160;suffixes&#160;&#34;SP2015&#34;&#160;from&#160;all&#160;Stm&#160;interfaces&#160;and&#160;types.<br/>
+Changed&#160;Files:<br/>
+src/StdDiag_StmAdapter.c<br/>generate/meta/StdDiag_ext_interfaces.arxml.pgen<br/>generate/meta/StdDiag_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6347<br/>
+CR&#160;Headline:<br/>
+StdDiag:&#160;Use&#160;of&#160;DcmGetSecurityLevel<br/>
+Description&#160;of&#160;Issues:<br/>
+Remove&#160;unused&#160;server&#160;call&#160;point&#160;to&#160;operation&#160;&#34;GetSecurityLevel&#34;<br/>
+Description&#160;of&#160;Changes:<br/>
+Removed&#160;all&#160;fragments&#160;from&#160;SWCD&#160;related&#160;to&#160;operation<br/>&#34;GetSecurityLevel&#34;.<br/>
+Changed&#160;Files:<br/>
+generate/meta/StdDiag_ext_interfaces.arxml.pgen<br/>generate/meta/StdDiag_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-5176<br/>
+CR&#160;Headline:<br/>
+BAC&#160;modules&#160;paramdef&#160;violate&#160;TPS_ECUC_06004<br/>
+Description&#160;of&#160;Issues:<br/>
+According&#160;to&#160;AUTOSAR_TPS_ECUConfiguration<br/>TPS_ECUC_06004&#160;an&#160;AdminData&#160;field&#160;is&#160;required&#160;at&#160;the<br/>beginning&#160;of&#160;every&#160;ECU&#160;Configuration&#160;Parameter&#160;Definition&#160;XML<br/>file.<br/>
+Description&#160;of&#160;Changes:<br/>
+Added&#160;AdminData&#160;field&#160;containing&#160;module&#160;version&#160;and&#160;release<br/>date.<br/>
+Changed&#160;Files:<br/>
+cfgdesc/StdDiagClassic_paramdef.arxml<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6339<br/>
+CR&#160;Headline:<br/>
+Compiler&#160;warning&#160;due&#160;to&#160;undefined&#160;identifier<br/>
+ReleaseNotes_StdDiagClassic,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;6<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_ReleaseNotes-5_1.png"/><br/>
+Description&#160;of&#160;Issues:<br/>
+Compiler&#160;raises&#160;warning&#160;due&#160;to&#160;undefined&#160;identifier<br/>'STDDIAG_DEV_ERROR_DETECT'<br/>
+Description&#160;of&#160;Changes:<br/>
+Fixed&#160;compiler&#160;warning.<br/>
+Changed&#160;Files:<br/>
+src/StdDiagClassic.c<br/>include/StdDiag_AssertAdapter.h<br/>src/StdDiag_ErrMemAdapter.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6433<br/>
+CR&#160;Headline:<br/>
+Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen&#160;should&#160;be<br/>AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Issues:<br/>
+Schema&#160;of&#160;parameter&#160;definition&#160;files&#160;and&#160;SWCDs&#160;should&#160;be<br/>conform&#160;to&#160;AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Changes:<br/>
+Adapted&#160;parameter&#160;definition&#160;files&#160;and&#160;SWCDs&#160;to&#160;schema<br/>AUTOSAR_4-3-0_STRICT_COMPACT.<br/>
+Changed&#160;Files:<br/>
+generate/meta/StdDiag_interfaces.arxml.pgen<br/>cfgdesc/StdDiagClassic_paramdef.arxml<br/>generate/meta/StdDiag_ext_interfaces.arxml.pgen<br/>generate/meta/StdDiag_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6230<br/>
+CR&#160;Headline:<br/>
+Usage&#160;of&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;in&#160;BMW<br/>modules&#160;is&#160;invalid&#160;according&#160;to&#160;ASR4.2.2<br/>
+Description&#160;of&#160;Issues:<br/>
+Elements&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;containing<br/>ECUC-IMPLEMENTATION-CONFIGURATION-CLASS&#160;are<br/>deprecated.They&#160;shall&#160;be&#160;replaced&#160;by&#160;VALUE-CONFIG-<br/>CLASSES/ECUC-VALUE-CONFIGURATION-CLASS&#160;and/or<br/>MULTIPLICITY-CONFIG-CLASSES/ECUC-MULTIPLICITY-<br/>CONFIGURATION-CLASS<br/>
+Description&#160;of&#160;Changes:<br/>
+Replaced&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;by<br/>VALUE-CONFIG-CLASSES,&#160;added<br/>MULTIPLICITY-CONFIG-CLASSES&#160;where&#160;necessary.<br/>
+Changed&#160;Files:<br/>
+cfgdesc/StdDiagClassic_paramdef.arxml<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.1.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6162<br/>
+CR&#160;Headline:<br/>
+StdDiag:&#160;Wrong&#160;cross&#160;version&#160;check&#160;for&#160;classic&#160;adapter<br/>
+Description&#160;of&#160;Issues:<br/>
+StdDiagClassic_Version.h&#160;uses&#160;wrong&#160;cross&#160;version&#160;check&#160;of<br/>generic&#160;part.<br/>
+Description&#160;of&#160;Changes:<br/>
+Correct&#160;cross&#160;version&#160;check&#160;in&#160;classic&#160;adapter.<br/>
+ReleaseNotes_StdDiagClassic,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;6<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_ReleaseNotes-6_1.png"/><br/>
+Changed&#160;Files:<br/>
+generate/include/StdDiagClassic_Version.h.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6148<br/>
+CR&#160;Headline:<br/>
+StdDiag:&#160;Programming&#160;Precondition&#160;Check&#160;shall&#160;not&#160;fail&#160;in&#160;case&#160;of<br/>missing&#160;PWF&#160;status<br/>
+Description&#160;of&#160;Issues:<br/>
+Programming&#160;Precondition&#160;Check&#160;fails&#160;if&#160;no&#160;PWF&#160;signal&#160;is&#160;available.<br/>
+Description&#160;of&#160;Changes:<br/>
+Accept&#160;unknown&#160;PWF&#160;state&#160;as&#160;valid&#160;Programming&#160;Precondition.<br/>
+Changed&#160;Files:<br/>
+src/StdDiagClassic.c<br/>src/StdDiag_StmAdapter.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>CR&#160;Headline:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Issues:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Changes:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Changed&#160;Files:<br/>Compatibility:<br/>
+ReleaseNotes_StdDiagClassic,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;6<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="StdDiagClassic_ReleaseNotess.html#2">1 Module Description</a></li>
+<li><a href="StdDiagClassic_ReleaseNotess.html#2">2 Revisions and Modifications</a>
+<ul>
+<li><a href="StdDiagClassic_ReleaseNotess.html#2">2.1 Revision 5.4.0 [Released]</a></li>
+<li><a href="StdDiagClassic_ReleaseNotess.html#3">2.2 Revision 5.3.0 [Released]</a></li>
+<li><a href="StdDiagClassic_ReleaseNotess.html#4">2.3 Revision 5.2.0 [Released]</a></li>
+<li><a href="StdDiagClassic_ReleaseNotess.html#5">2.4 Revision 5.1.0 [Released]</a></li>
+<li><a href="StdDiagClassic_ReleaseNotess.html#6">2.5 Revision 5.0.0 [Released]</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

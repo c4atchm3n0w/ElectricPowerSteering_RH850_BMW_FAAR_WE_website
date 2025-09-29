@@ -1,0 +1,286 @@
+---
+title: BmwTunSetHndlr_MDD
+linkTitle: BmwTunSetHndlr_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>BmwTunSetHndlr</strong></p>
+<p><strong>May 17, 2018</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 25%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial version</td>
+<td>Krzysztof Byrski</td>
+<td>1</td>
+<td>27-Mar-2018</td>
+</tr>
+<tr class="odd">
+<td>Updates per design 2.0.0</td>
+<td>Marek Brykczyński</td>
+<td>2</td>
+<td>10-Apr-2018</td>
+</tr>
+<tr class="even">
+<td>Updates per design 3.0.0</td>
+<td>Krzysztof Byrski</td>
+<td>3</td>
+<td>17-May-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p>1 Introduction 4</p>
+<p>1.1 Purpose 4</p>
+<p>1.2 Scope 4</p>
+<p>2 BmwTunSetHndlr &amp; High-Level Description 5</p>
+<p>3 Design details of software module 6</p>
+<p>3.1 Graphical representation of BmwTunSetHndlr 6</p>
+<p>3.2 Data Flow Diagram 6</p>
+<p>3.2.1 Component level DFD 6</p>
+<p>3.2.2 Function level DFD 6</p>
+<p>4 Constant Data Dictionary 7</p>
+<p>4.1 Program (fixed) Constants 7</p>
+<p>4.1.1 Embedded Constants 7</p>
+<p>5 Software Component Implementation 8</p>
+<p>5.1 Sub-Module Functions 8</p>
+<p>5.1.1 Init: BmwTunSetHndlrInit1 8</p>
+<p>5.1.2 Per: BmwTunSetHndlrPer1 8</p>
+<p>5.2 Server Runables 9</p>
+<p>5.2.1 TunVrntRead_Oper 9</p>
+<p>5.2.2 TunVrntWr_Oper 9</p>
+<p>5.2.3 MotVrntRead_Oper 9</p>
+<p>5.2.4 MotVrntWr_Oper 9</p>
+<p>5.3 Interrupt Functions 10</p>
+<p>5.4 Module Internal (Local) Functions 10</p>
+<p>5.5 GLOBAL Function/Macro Definitions 10</p>
+<p>6 Known Limitations with Design 11</p>
+<p>7 UNIT TEST CONSIDERATION 12</p>
+<p>Appendix A Abbreviations and Acronyms 13</p>
+<p>Appendix B Glossary 14</p>
+<p>Appendix C References 15</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module Design Document for CF081A_BmwTunSetHndlr_Impl.</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="bmwtunsethndlr-high-level-description">BmwTunSetHndlr &amp; High-Level Description</h1>
+<p>The BMW Tuning Set Handler provides a desired Runtime Index of an integer type. As the input, the function receives the desired Runtime Index. If a received value is valid then the function maps it to one of three defined values. If the proper calibration is set then the function allows overriding the output to a calibratable value. The function provides two server runnables in order to write to and to read from the NVM. During the initialization, it evaluates if the NVM is valid, if the NVM is detected invalid then it stores a predefined constant.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-bmwtunsethndlr">Graphical representation of BmwTunSetHndlr</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:3.45114in;height:4.00154in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Refer FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Refer FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Refer FDD for local constants.</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>The sub-module functions are grouped based on similar functionality that needs to be executed in a given “State” of the system (refer States and Modes). For a given module, the MDD will identify the type and number of sub-modules required. The sub-module types are described below.</p>
+<h3 id="init-bmwtunsethndlrinit1">Init: BmwTunSetHndlrInit1</h3>
+<h4 id="design-rationale">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="module-outputs">Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="per-bmwtunsethndlrper1">Per: BmwTunSetHndlrPer1</h3>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h2 id="server-runables">Server Runables </h2>
+<h3 id="tunvrntread_oper">TunVrntRead_Oper</h3>
+<h4 id="design-rationale-2">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-1"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="tunvrntwr_oper">TunVrntWr_Oper</h3>
+<h4 id="design-rationale-3">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-2"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="motvrntread_oper">MotVrntRead_Oper</h3>
+<h4 id="design-rationale-4">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-3"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="motvrntwr_oper">MotVrntWr_Oper</h3>
+<h4 id="design-rationale-5">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-4"> (Processing of function)………</h4>
+<p>Refer FDD</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p> None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<p>None</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<h1 id="abbreviations-and-acronyms">Abbreviations and Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document. (See references)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="glossary">Glossary</h1>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="https://www.autosar.org/fileadmin/files/standards/classic/4-0/software-architecture/implementation-integration/standard/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.4.0 R4.0 Rev 3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline EA4</td>
+<td>1.02</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>EA4 Software Naming Conventions</td>
+<td>1.01</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards</td>
+<td>2.01</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CF081A_BmwTunSetHndlr_Design</td>
+<td>See Synergy Sub Project Version</td>
+</tr>
+</tbody>
+</table>

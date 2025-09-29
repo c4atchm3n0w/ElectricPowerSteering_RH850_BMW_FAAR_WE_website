@@ -1,0 +1,231 @@
+---
+title: AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s
+linkTitle: AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s
+weight: 55
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1170_Use_AR3_SWCs_in_AR4-1_1.png"/><br/>
+<b>&#160;</b><br/>
+<b>Use&#160;AR3&#160;SWCs&#160;in&#160;AR4&#160;</b><br/>
+<b>Version&#160;1.02.00&#160;</b><br/>
+<b>2015-01-16&#160;</b><br/>
+<b>Application NoteAN-ISC-8-1170&#160;</b><br/>
+&#160;<br/>&#160;<i>&#160;<br/></i>Author(s)&#160;<br/>
+Alexander&#160;Zeeb&#160;<br/>
+Restrictions&#160;<br/>
+Customer&#160;confidential&#160;-&#160;Vector&#160;decides&#160;<br/>
+Abstract&#160;<br/>
+This&#160;application&#160;note&#160;describes&#160;how&#160;to&#160;use SWC&#160;developed&#160;for&#160;AR3&#160;in&#160;pure&#160;AR4&#160;<br/>
+environment.&#160;<br/>
+<i><b>&#160;<br/>Table&#160;of Contents&#160;</b></i><br/>
+<i><b>&#160;<br/></b></i><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">1.0&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">Overview&#160;..........................................................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">2.0&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">WdgM&#160;Wrapper&#160;Service Component&#160;for&#160;AR3&#160;Legacy&#160;SWC&#160;............................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">2.1&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">DaVinci&#160;Developer&#160;.........................................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">DaVinci&#160;Configurator&#160;Pro...............................................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">2.3&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">Mode&#160;Port&#160;WdgM_GlobalMode&#160;/&#160;WdgM_IndividualMode&#160;.............................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">3.0&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">NVM&#160;Wrapper&#160;Service Component&#160;for&#160;AR3&#160;Legacy&#160;SWC&#160;..............................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">3.1&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">DaVinci&#160;Developer&#160;.........................................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">3.1.1&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">Port:&#160;NvMAdministration&#160;.............................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">3.1.2&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">Port:&#160;NvMService&#160;........................................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">4.0&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">Adaptation for&#160;ECUM&#160;and&#160;COMM&#160;...................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">4.1&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">ECUM&#160;............................................................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">4.2&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">COMM&#160;...........................................................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">5.0&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">Additional&#160;Resources&#160;.......................................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">6.0&#160;</a><br/>
+<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">Contacts&#160;...........................................................................................................................................................&#160;4&#160;</a><br/>
+<b>&#160;1&#160;&#160;</b><br/>
+<i>Copyright&#160;©&#160;2015&#160;-&#160;Vector&#160;Informatik&#160;GmbH&#160;</i><br/>
+<b>Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0&#160;</b><br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1170_Use_AR3_SWCs_in_AR4-2_1.png"/><br/>
+<i><b>&#160;<br/></b></i>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>1.0&#160;&#160;Overview&#160;<br/></b>This&#160;application&#160;note&#160;describes&#160;what&#160;has&#160;to be done&#160;to&#160;integrate&#160;AR3&#160;SWC&#160;in&#160;an&#160;AR4 environment&#160;(BSW)&#160;with&#160;as&#160;<br/>
+little&#160;adaptations&#160;as&#160;possible.&#160;Adaptations&#160;are&#160;mainly&#160;necessary&#160;if&#160;the&#160;AR3 SWC&#160;has&#160;dependencies&#160;to the&#160;<br/>
+interfaces&#160;of&#160;the modules&#160;<b>NVM</b>&#160;and&#160;<b>WDGM</b>.&#160;These modules&#160;in contrast&#160;to&#160;<b>ECUM</b>&#160;and&#160;<b>COMM</b>&#160;do not&#160;provide&#160;an&#160;<br/>
+AR3 legacy&#160;interface&#160;and hence&#160;need a wrapper&#160;component&#160;which translates&#160;between&#160;AR3 and AR4&#160;interfaces.&#160;&#160;<br/>
+<b>2.0&#160;&#160;WdgM&#160;Wrapper&#160;Service Component&#160;for&#160;AR3 Legacy&#160;SWC&#160;<br/></b>The wrapper&#160;has&#160;to&#160;be designed&#160;and implemented manually&#160;and&#160;is&#160;realized&#160;by&#160;a&#160;Service Component&#160;Type&#160;in&#160;<br/>
+DaVinci&#160;Developer.&#160;This&#160;wrapper&#160;for&#160;the&#160;AR4 WDGM&#160;Service&#160;Component&#160;has&#160;to&#160;translate between the&#160;AR4&#160;Port&#160;<br/>
+Interfaces&#160;of&#160;WDGM and the&#160;AR3&#160;Port&#160;Interfaces&#160;of&#160;the SWC.&#160;<br/>
+Note:&#160;<br/>
+The&#160;AR4&#160;Port&#160;Interface&#160;WdgM_AliveSupervision&#160;has&#160;a&#160;different&#160;and&#160;reduced set&#160;of&#160;Operations&#160;<br/>
+compared to&#160;AR3.&#160;AR4 does&#160;not&#160;support&#160;the de-/activation&#160;of&#160;Supervised&#160;Entities&#160;any&#160;more.&#160;&#160;<br/>
+Instead&#160;of&#160;the&#160;de/activation&#160;of&#160;Supervised&#160;Entities&#160;separately&#160;like in&#160;AR3,&#160;WDGM modes&#160;have to&#160;<br/>
+be&#160;requested-&#160;and&#160;released&#160;by&#160;the&#160;wrapper&#160;to change the state of&#160;the&#160;Supervised&#160;Entities.&#160;The&#160;<br/>
+description&#160;of&#160;these modes&#160;however&#160;is&#160;not&#160;part&#160;of&#160;this&#160;document.&#160;<br/>
+&#160;<br/>The wrapper&#160;component&#160;provides&#160;<b>twice</b>&#160;the&#160;set&#160;of&#160;Port&#160;Interfaces&#160;required by&#160;the&#160;AR3&#160;legacy&#160;SWC:&#160;<br/>
+•&#160;&#160;Compliant&#160;to&#160;AR3&#160;(towards&#160;the SWC)&#160;<br/>
+•&#160;&#160;Compliant&#160;to&#160;AR4&#160;(towards&#160;the WDGM)&#160;<br/>
+&#160;<br/>Both&#160;sets&#160;have&#160;to be connected appropriately&#160;in DaVinci&#160;Configurator&#160;Pro.&#160;All&#160;necessary&#160;steps&#160;are&#160;explained&#160;in the&#160;<br/>
+following chapters.&#160;<br/>
+<b>2.1&#160;&#160;DaVinci&#160;Developer&#160;</b><br/>
+•&#160;&#160;Create a&#160;<b>Service&#160;C/S&#160;Port&#160;Interface&#160;</b>WdgM_AliveSupervision with&#160;Operations&#160;according to AR3&#160;like&#160;<br/>
+shown&#160;in&#160;the screenshot&#160;below.<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+Figure 1&#160;–&#160;AR3&#160;C/S&#160;Port&#160;Interface&#160;WdgM_AliveSupervision&#160;<br/>&#160;<br/>Create the&#160;<b>Service&#160;Component&#160;Type</b>&#160;of&#160;the&#160;wrapper&#160;component:&#160;<b>WdgM_AR3_Wrapper</b>&#160;and&#160;assign&#160;the following&#160;<br/>
+two&#160;Port&#160;Interfaces:&#160;&#160;<br/>
+•&#160;&#160;WdgM_AliveSupervision (AR4)&#160;Client&#160;(DWN_CS_AliveSupervision)&#160;<br/>
+•&#160;&#160;WdgM_AliveSupervision (AR3)&#160;Server&#160;(UP_CS_AliveSupervision)&#160;<br/>
+&#160;<br/>Each&#160;Operation&#160;of&#160;the WdgM_AliveSupervision&#160;Server&#160;Port&#160;Prototype&#160;requires&#160;a&#160;Runnable,&#160;which&#160;is&#160;triggered on&#160;<br/>
+the corresponding&#160;Operation invocation.&#160;The&#160;Runnable&#160;of&#160;the&#160;Operation&#160;CheckpointReached&#160;can directly&#160;call&#160;the&#160;<br/>
+Operation&#160;UpdateAliveCounter.&#160;&#160;<br/>
+<b>&#160;2&#160;&#160;</b><br/>
+<i>Copyright&#160;©&#160;2015&#160;-&#160;Vector&#160;Informatik&#160;GmbH&#160;</i><br/>
+<b>Contact&#160;Information:&#160; &#160;www.vector.com&#160; &#160;or&#160;+49-711-80&#160;670-0&#160;</b><br/>
+<hr/>
+<a name=3></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1170_Use_AR3_SWCs_in_AR4-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1170_Use_AR3_SWCs_in_AR4-3_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Use AR3 SWCs&#160;in AR4&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>Note:&#160;<br/>
+When using the&#160;<b>UpdateAliveCounter</b>&#160;interface,&#160;each&#160;call&#160;will&#160;trigger&#160;the report&#160;of&#160;a development&#160;<br/>
+error&#160;in case the&#160;development&#160;checks&#160;are activated&#160;within&#160;the WDGM.&#160;This&#160;is&#160;an&#160;AR&#160;feature&#160;used&#160;<br/>
+to notify&#160;the&#160;user&#160;that&#160;a&#160;deprecated functionality&#160;is used.&#160;<br/>
+&#160;<br/>
+<b>2.2&#160;&#160;DaVinci&#160;Configurator&#160;Pro&#160;<br/></b>The WDGM&#160;wrapper&#160;is&#160;connected between&#160;WDGM and application&#160;SWC.&#160;The SWC’s&#160;remaining&#160;WDGM Interfaces&#160;<br/>
+are connected&#160;directly&#160;with the&#160;WDGM.&#160;<br/>
+&#160;<br/>
+Figure 4&#160;–&#160;Port&#160;Mapping&#160;in&#160;DaVinci&#160;Configurator&#160;Pro&#160;<br/>
+<b>2.3&#160;&#160;Mode Port&#160;WdgM_GlobalMode&#160;/&#160;WdgM_IndividualMode&#160;<br/></b>Both&#160;Mode&#160;Ports&#160;semantically&#160;describe&#160;the same modes&#160;in&#160;AR3 and&#160;AR4.&#160;The only&#160;difference is&#160;the name&#160;of&#160;those&#160;<br/>
+modes.&#160;<br/>
+<b>AR3&#160;</b><br/>
+<b>AR4&#160;</b><br/>
+<b>Value&#160;</b><br/>
+ALIVE_OK&#160;<br/>
+SUPERVISION_OK&#160;<br/>
+0&#160;<br/>
+ALIVE_FAILED&#160;<br/>
+SUPERVISION_FAILED&#160;<br/>
+1&#160;<br/>
+ALIVE_EXPIRED&#160;<br/>
+SUPERVISION_EXPIRED&#160;<br/>
+2&#160;<br/>
+ALIVE_STOPPED&#160;<br/>
+SUPERVISION_STOPPED&#160;<br/>
+3&#160;<br/>
+ALIVE_DEACTIVATED&#160;<br/>
+SUPERVISION_DEACTIVATED&#160;&#160;4&#160;<br/>
+Table&#160;1&#160;–&#160;Differences&#160;in&#160;Mode WdgM_GlobalMode&#160;and&#160;WdgM_IndividualMode&#160;<br/>Since&#160;the&#160;modes&#160;are in&#160;the&#160;correct&#160;order,&#160;AR3-&#160;and AR4&#160;Mode&#160;Ports&#160;are compatible from&#160;a functional&#160;point&#160;of&#160;view.&#160;&#160;<br/>
+Note:&#160;<br/>
+The different&#160;naming can also be a&#160;reason&#160;for&#160;using the&#160;wrapper.&#160;<br/>
+<b>3.0&#160;&#160;NVM&#160;Wrapper&#160;Service&#160;Component&#160;for&#160;AR3&#160;Legacy&#160;SWC&#160;<br/></b>The&#160;Port&#160;Interface&#160;of&#160;AR4 NVM is&#160;not&#160;compatible with&#160;Port&#160;Interface of&#160;AR3.&#160;Especially&#160;the&#160;return&#160;types&#160;have&#160;<br/>
+changed.&#160;&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>3<i>&#160;</i></b><br/>
+<i>Application NoteAN-ISC-8-1170<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name=4></a><img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1170_Use_AR3_SWCs_in_AR4-4_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Use AR3 SWCs&#160;in AR4&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>The wrapper&#160;has&#160;to&#160;be designed-&#160;and&#160;implemented manually&#160;and&#160;is&#160;realized&#160;by&#160;a&#160;Service Component&#160;Type&#160;in&#160;<br/>
+DaVinci&#160;Developer.&#160;This&#160;wrapper&#160;for&#160;the&#160;AR4 NVM&#160;Service&#160;Component&#160;translates&#160;between&#160;the&#160;AR4&#160;Port&#160;Interfaces&#160;<br/>
+of&#160;NVM and the&#160;AR3&#160;Port&#160;Interfaces&#160;of&#160;the SWC.&#160;<br/>
+<b>3.1&#160;&#160;DaVinci&#160;Developer&#160;</b><br/>
+<b>3.1.1&#160;&#160;Port:&#160;NvMAdministration&#160;<br/></b>The only&#160;Operation of&#160;this&#160;Port&#160;Interface&#160;(SetBlockProtection)&#160;changed&#160;its&#160;return&#160;value&#160;from&#160;POSSIBLE-<br/>
+ERRORS(&lt;none&gt;)&#160;to&#160;POSSIBLE-ERRORS(E_NOT_OK).&#160;<br/>To meet&#160;the&#160;AR4 return&#160;value,&#160;this&#160;definition&#160;can be adapted&#160;at&#160;the require-port&#160;instance of&#160;the&#160;AR3&#160;SWC.&#160;&#160;<br/>
+<b>3.1.2&#160;&#160;Port:&#160;NvMService&#160;<br/></b>Return types&#160;(POSSIBLE-ERRORS)&#160;of&#160;following&#160;Operations&#160;changed:&#160;<br/>
+•&#160;&#160;GetErrorStatus&#160;<br/>•&#160;&#160;GetDataIndex&#160;<br/>•&#160;&#160;SetDataIndex&#160;<br/>•&#160;&#160;SetRamBlockStatus&#160;<br/>
+&#160;<br/>Analog&#160;to NvMAdministration&#160;Port&#160;Interface,&#160;the SWC&#160;Port&#160;Interfaces&#160;have to&#160;be&#160;adapted&#160;to provide&#160;the&#160;new&#160;error&#160;<br/>
+codes.&#160;&#160;<br/>
+Note:&#160;In&#160;contrast to&#160;AR3,&#160;NvM_SetDataIndex&#160;can return&#160;an error&#160;in AR4&#160;which has&#160;to be&#160;handled by&#160;the&#160;<br/>
+application.&#160;This&#160;can&#160;only&#160;happen if&#160;‘Development&#160;Error&#160;Detection’ is&#160;enabled.&#160;<br/>
+<b>4.0&#160;&#160;Adaptation for&#160;ECUM&#160;and COMM&#160;<br/></b>As&#160;mentioned in&#160;chapter<a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">&#160;1.0,</a>&#160;ECUM and COMM&#160;both provide legacy&#160;AR3&#160;interfaces&#160;which&#160;which&#160;has&#160;to be&#160;<br/>
+activated.&#160;Further&#160;adaptations&#160;are not&#160;required..&#160;&#160;<br/>
+<b>4.1&#160;&#160;ECUM&#160;<br/></b>Configure&#160;fixed-behaviour&#160;of&#160;ECUM (refer&#160;to&#160;ECUM&#160;Technical&#160;Reference:&#160;<b>Support of EcuM&#160;fixed</b>).&#160;<br/>&#160;<br/>
+<b>4.2&#160;&#160;COMM&#160;<br/></b>Instantiate&#160;the&#160;parameter&#160;‘<b>Operation&#160;GetInhibition&#160;Status&#160;Enabled’&#160;</b>and set&#160;this&#160;parameter&#160;to&#160;<b>FALSE</b>&#160;<br/>(/MICROSAR/ComM/ComMGeneral/ComMOperationGetInhibitionStatusEnabled).&#160;<br/>&#160;<br/>
+<b>5.0&#160;&#160;Additional&#160;Resources&#160;<br/></b>VECTOR TECHNICAL&#160;REFERENCES&#160;<br/>
+<b>TechnicalReference_Asr_EcuM.pdf</b>&#160;<br/>
+Technical&#160;Reference EcuM&#160;<b>&#160;</b><br/>
+&#160;<br/>
+<b>6.0&#160;&#160;Contacts&#160;<br/></b>For&#160;a&#160;full&#160;list&#160;with&#160;all&#160;Vector&#160;locations&#160;and addresses&#160;worldwide,&#160;please visit<a href="http://vector.com/contact/">&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>4<i>&#160;</i></b><br/>
+<i>Application NoteAN-ISC-8-1170<b>&#160;</b></i><br/>
+&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">1.0 Overview</a></li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">2.0 WdgM Wrapper Service Component for AR3 Legacy SWC</a>
+<ul>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#2">2.1 DaVinci Developer</a></li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">2.2 DaVinci Configurator Pro</a></li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">2.3 Mode Port WdgM_GlobalMode / WdgM_IndividualMode</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#3">3.0 NVM Wrapper Service Component for AR3 Legacy SWC</a>
+<ul>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">3.1 DaVinci Developer</a>
+<ul>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">3.1.1 Port: NvMAdministration</a></li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">3.1.2 Port: NvMService</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">4.0 Adaptation for ECUM and COMM</a>
+<ul>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">4.1 ECUM</a></li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">4.2 COMM</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">5.0 Additional Resources</a></li>
+<li><a href="AN-ISC-8-1170_Use_AR3_SWCs_in_AR4s.html#4">6.0 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

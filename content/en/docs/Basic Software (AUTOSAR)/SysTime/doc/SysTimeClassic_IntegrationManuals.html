@@ -1,0 +1,451 @@
+---
+title: SysTimeClassic_IntegrationManuals
+linkTitle: SysTimeClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-1_1.png"/><br/>
+SysTime&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.0.3<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.0.3<br/>
+2017-12-14<br/>
+Version&#160;Update<br/>
+5.0.2<br/>
+2017-10-12<br/>
+Version&#160;Update<br/>
+5.0.1<br/>
+2017-08-10<br/>
+Version&#160;update,&#160;no&#160;change&#160;of&#160;content.<br/>
+5.0.0<br/>
+2017-06-08<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;11<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#3"><b>1&#160;Introduction</b></a><br/>
+<b>3</b><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#3">1.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#3">Functional&#160;overview</a><br/>
+3<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#4"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>4</b><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#5"><b>3&#160;Limitations</b></a><br/>
+<b>5</b><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6"><b>4&#160;Software&#160;Architecture</b></a><br/>
+<b>6</b><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">RTE</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">Det</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">Dcm</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1.4</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">Dem</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1.5</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">Com</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.1.6</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">BswM</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">4.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#6">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+6<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7"><b>5&#160;Integration</b></a><br/>
+<b>7</b><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">5.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+7<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">5.1.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">Dcm</a><br/>
+7<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">5.1.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">Com</a><br/>
+7<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">5.1.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#7">Dem</a><br/>
+7<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">5.1.4</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">BswM</a><br/>
+8<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">5.1.5</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">Det</a><br/>
+8<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">5.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">Configuration&#160;of&#160;generic&#160;part</a><br/>
+8<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">5.2.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">SysTimeGeneral</a><br/>
+8<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">5.2.1.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#8">SysTimeDevErrorDetect</a><br/>
+8<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.2.1.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">SysTimeMainTaskCycle</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.2.1.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">SysTimeInitialTimeout</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">Configuration&#160;of&#160;adapter&#160;part</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.3.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">SysTimeGeneral</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.3.1.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">SysTimeEnableServiceInterface</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.4</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">5.4.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#9">Assembly&#160;Software&#160;Connectors</a><br/>
+9<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">Dcm</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">Dem</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">Det</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.4</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">BswM</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.5</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">Other&#160;Application&#160;SWC</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">Event&#160;Mapping</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">5.4.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#10">Data&#160;Mapping</a><br/>
+10<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">5.4.4</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">Exclusive&#160;Areas</a><br/>
+11<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">5.5</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">Software&#160;Integration</a><br/>
+11<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">5.5.1</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">Startup/Initialization</a><br/>
+11<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">5.5.2</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">Normal&#160;Operation</a><br/>
+11<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">5.5.3</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">Shutdown/Deactivation</a><br/>
+11<br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">5.5.4</a><br/>
+<a href="SysTimeClassic_IntegrationManuals.html#11">SWCD</a><br/>
+11<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;11<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basic&#160;functionality&#160;of&#160;the&#160;BMW&#160;system&#160;function&#160;&#34;System&#160;Time<br/>Client&#34;,&#160;the&#160;configuration&#160;of&#160;the&#160;SysTime&#160;module&#160;and&#160;of&#160;dependant&#160;modules,&#160;and&#160;the&#160;integration&#160;of&#160;the<br/>SysTime&#160;module&#160;into&#160;the&#160;BAC4.<br/>
+<b>[IM_SysTime_0001]&#160;</b>dThe&#160;SysTime&#160;module&#160;shall&#160;be&#160;integrated&#160;in&#160;every&#160;diagnosable&#160;ECU.<br/>c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_9033)</i></a><br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;system&#160;time&#160;represents&#160;the&#160;time,&#160;which&#160;has&#160;passed&#160;since&#160;the&#160;initialization&#160;of&#160;the&#160;System&#160;Time<br/>Master.&#160;The&#160;main&#160;objective&#160;of&#160;the&#160;System&#160;Time&#160;Client&#160;functionality&#160;is&#160;to&#160;maintain&#160;the&#160;current&#160;system&#160;time<br/>for&#160;the&#160;local&#160;ECU.&#160;This&#160;means:<br/>
+Receiving&#160;the&#160;system&#160;time&#160;from&#160;the&#160;System&#160;Time&#160;Master<br/>Interpolation&#160;of&#160;the&#160;system&#160;time&#160;if&#160;no&#160;system&#160;time&#160;signal&#160;was&#160;received&#160;from&#160;the&#160;System&#160;Time&#160;Master<br/>Providing&#160;the&#160;system&#160;time&#160;to&#160;the&#160;Dem&#160;and&#160;to&#160;other&#160;software&#160;components<br/>Providing&#160;the&#160;system&#160;time&#160;for&#160;diagnostic&#160;requests<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;11<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-4_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;11<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-5_1.png"/><br/>
+<b>3</b><br/>
+<b>Limitations</b><br/>
+No&#160;limitations&#160;are&#160;known.<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;11<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-6_1.png"/><br/>
+<b>4</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Module&#160;SysTime&#160;depends&#160;on&#160;the&#160;following&#160;BSW&#160;modules:<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;SysTime&#160;module&#160;uses&#160;Rte&#160;client/server&#160;communication&#160;as&#160;well&#160;as<br/>sender/receiver&#160;communication&#160;to&#160;communicate&#160;with&#160;other&#160;SWCs&#160;and&#160;BSW&#160;modules.&#160;Additionally&#160;the<br/>scheduling&#160;is&#160;done&#160;by&#160;the&#160;Rte.<br/>
+<b>Det</b><br/>
+The&#160;System&#160;Time&#160;Client&#160;optionally&#160;reports&#160;development&#160;errors&#160;to&#160;the&#160;Det.<br/>
+<b>Dcm</b><br/>
+The&#160;System&#160;Time&#160;Client&#160;implements&#160;a&#160;ReadDataByIdentifier&#160;service.&#160;Dcm&#160;shall&#160;be&#160;configured&#160;in&#160;a&#160;way,<br/>that&#160;it&#160;dispatches&#160;the&#160;job&#160;0x22&#160;0x17&#160;0x01&#160;to&#160;the&#160;SysTime&#160;SWC.<br/>
+<b>Dem</b><br/>
+The&#160;System&#160;Time&#160;Client&#160;provides&#160;a&#160;port&#160;interface&#160;for&#160;the&#160;Dem&#160;to&#160;get&#160;the&#160;current&#160;system&#160;time,&#160;which&#160;will<br/>be&#160;attached&#160;to&#160;an&#160;event&#160;as&#160;event&#160;related&#160;data.<br/>
+<b>Com</b><br/>
+The&#160;System&#160;Time&#160;Client&#160;receives&#160;the&#160;signal&#160;containing&#160;the&#160;current&#160;system&#160;time&#160;from&#160;the&#160;Com&#160;module.<br/>
+<b>BswM</b><br/>
+The&#160;System&#160;Time&#160;Client&#160;receives&#160;and&#160;requests&#160;mode&#160;switches&#160;from&#160;the&#160;BswM.<br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+SysTime&#160;does&#160;not&#160;have&#160;dependencies&#160;to&#160;other&#160;modules.<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;11<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-7_1.png"/><br/>
+<b>5</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;this&#160;module&#160;can&#160;be&#160;generated,&#160;compiled&#160;and&#160;linked.<br/>
+<b>Dcm</b><br/>
+<b>[IM_SysTimeClassic_0003]&#160;</b>dThe&#160;ReadDataByIdentifier&#160;request&#160;0x22&#160;0x17&#160;0x01&#160;shall&#160;be&#160;configured<br/>in&#160;the&#160;Dcm&#160;module&#160;with&#160;the&#160;following&#160;settings:<br/>
+a&#160;container&#160;&#34;DcmDspData&#34;&#160;with<br/>
+a&#160;&#34;DcmDspDataSize&#34;&#160;of&#160;32&#160;bit&#160;(4&#160;bytes)<br/>&#34;DcmDspDataType&#34;&#160;=<br/>UINT8N”DcmDspDataUseP&#160;ort”&#160;=&#160;USE_DAT&#160;A_SY&#160;NCH_CLIENT&#160;_SERV&#160;ER<br/>
+&#34;DcmDspDataConditionCheckReadFncUsed&#34;&#160;=&#160;FALSE<br/>
+a&#160;container&#160;&#34;DcmDspDid&#34;&#160;with<br/>
+&#34;DcmDspDidIdentifier&#34;&#160;=&#160;0x1701<br/>only&#160;read-access,&#160;without&#160;session&#160;or&#160;security&#160;restrictions<br/>one&#160;DID&#160;Signal&#160;&#34;DcmDspDidSignal&#34;&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;DcmDspData&#34;&#160;container&#160;configured&#160;before.<br/>
+c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_8550,&#160;DMA_PA_8551,&#160;DMA_PA_8552)</i></a><br/>
+<b>Com</b><br/>
+In&#160;the&#160;Com&#160;module,&#160;a&#160;signal&#160;has&#160;to&#160;be&#160;configured,&#160;that&#160;receives&#160;the&#160;message&#160;containing&#160;the&#160;32-bit<br/>system&#160;time&#160;from&#160;the&#160;bus.<br/>
+<b>Note</b>:&#160;In&#160;a&#160;Can&#160;or&#160;FlexRay&#160;environment,&#160;the&#160;system&#160;time&#160;is&#160;received&#160;within&#160;the&#160;signal&#160;named<br/>T_SEC_COU_REL.&#160;In&#160;an&#160;Ethernet&#160;environment,&#160;the&#160;system&#160;time&#160;is&#160;received&#160;within&#160;the&#160;Parameter<br/>&#34;timeSecondCounterRelative&#34;&#160;of&#160;the&#160;Event&#160;&#34;RelativeTimeBN2020&#34;.<br/>
+<b>Dem</b><br/>
+<b>[IM_SysTimeClassic_0006]&#160;</b>dTo&#160;attach&#160;the&#160;system&#160;time&#160;to&#160;a&#160;freeze&#160;frame&#160;of&#160;a&#160;Dem&#160;entry,&#160;the<br/>following&#160;has&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;Dem&#160;module:<br/>
+a&#160;Data&#160;Element&#160;Class&#160;&#34;DemDataElementClass&#34;<br/>
+of&#160;type&#160;&#34;DemExternalCSDataElementClass&#34;<br/>with&#160;a&#160;size&#160;&#34;DemDataElementDataSize&#34;&#160;of&#160;4&#160;byte<br/>with&#160;port&#160;usage&#160;&#34;DemDataElementUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;Data&#160;Id&#160;&#34;DemDidClass&#34;&#160;with&#160;reference&#160;to&#160;the&#160;Data&#160;Element&#160;Class&#160;mentioned&#160;above<br/>
+with&#160;reference&#160;to&#160;the&#160;Data&#160;Element&#160;Class&#160;mentioned&#160;above<br/>with&#160;&#34;DemDidIdentifier&#34;&#160;=&#160;0x1701<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;11<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-8_1.png"/><br/>
+a&#160;Freeze&#160;Frame&#160;Class&#160;&#34;DemFreezeFrameClass&#34;&#160;with&#160;reference&#160;to&#160;the&#160;Data&#160;Id&#160;above<br/>
+This&#160;DemFreezeFrameClass&#160;has&#160;to&#160;be&#160;referenced&#160;in&#160;the&#160;&#34;DemDTCAttributes&#34;&#160;of&#160;every&#160;DTC.<br/>c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DK_T3_1374,&#160;DK_T3_452,&#160;DK_T3_453)</i></a><br/>
+<b>BswM</b><br/>
+The&#160;BswM&#160;has&#160;to&#160;provide&#160;one&#160;BswMModeRequestPort&#160;to&#160;receive&#160;mode&#160;switches&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;SysTime_LifeCycle&#34;&#160;from&#160;the&#160;SysTime&#160;module,&#160;and&#160;one&#160;RteModeRequestPort<br/>to&#160;request&#160;modes&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;SysTime_LifeCycle&#34;.<br/>
+To&#160;initialize&#160;the&#160;SysTime&#160;module&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results&#160;in&#160;an&#160;action&#160;that&#160;requests<br/>the&#160;mode&#160;&#34;SYSTIME_INITIALIZED&#34;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;SysTime_LifeCycle&#34;.<br/>
+To&#160;set&#160;the&#160;SysTime&#160;module&#160;to&#160;normal&#160;operation&#160;mode&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results&#160;in&#160;an<br/>action&#160;that&#160;requests&#160;the&#160;mode&#160;&#34;SYSTIME_RUNNING&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group<br/>&#34;SysTime_LifeCycle&#34;.&#160;This&#160;rule&#160;shall&#160;be&#160;triggered,&#160;if&#160;the&#160;mode&#160;has&#160;been&#160;switched&#160;to<br/>&#34;SYSTIME_INITIALIZED&#34;&#160;by&#160;the&#160;SysTime&#160;module&#160;itself,&#160;AND&#160;it&#160;is&#160;technically&#160;possible&#160;to&#160;receive&#160;the<br/>system&#160;time&#160;on&#160;the&#160;bus.&#160;When&#160;the&#160;SysTime&#160;module&#160;is&#160;in&#160;normal&#160;operation&#160;mode,&#160;the&#160;SysTime&#160;module<br/>switches&#160;the&#160;mode&#160;to&#160;&#34;SYSTIME_RUNNING&#34;.<br/>
+To&#160;deactivate&#160;the&#160;SysTime&#160;module&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results&#160;in&#160;an&#160;action&#160;that&#160;requests<br/>the&#160;mode&#160;&#34;SYSTIME_STOPPED&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;SysTime_LifeCycle&#34;.<br/>
+For&#160;details&#160;on&#160;how&#160;to&#160;initialize&#160;/&#160;deactivate&#160;the&#160;SysTime&#160;module,&#160;please&#160;refer&#160;to&#160;chapter&#160;6.4.<br/>
+<b>Det</b><br/>
+A&#160;SysTime&#160;entry&#160;shall&#160;be&#160;added&#160;to&#160;the&#160;Software&#160;Component&#160;List&#160;from&#160;Det.&#160;This&#160;is&#160;only&#160;necessary,&#160;if&#160;the<br/>parameter&#160;&#34;SysTimeDevErrorDetect&#34;&#160;is&#160;set&#160;to&#160;&#34;true&#34;&#160;(see&#160;chapter&#160;6.2).<br/>
+<b>Configuration&#160;of&#160;generic&#160;part</b><br/>
+<b>SysTimeGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;generic&#160;part&#160;of&#160;the&#160;SysTime&#160;module<br/>
+<b>SysTimeDevErrorDetect</b><br/>
+This&#160;parameter&#160;activates/deactivates&#160;the&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification.<br/>
+If&#160;set&#160;to&#160;true:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;is&#160;activated.&#160;If&#160;set&#160;to&#160;false:&#160;Development&#160;Error<br/>Detection&#160;and&#160;Notification&#160;is&#160;deactivated.<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;11<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-9_1.png"/><br/>
+<b>SysTimeMainTaskCycle</b><br/>
+This&#160;parameter&#160;describes&#160;the&#160;cycle&#160;rate,&#160;in&#160;which&#160;the&#160;function&#160;&#34;SysTime_MainFunction&#34;&#160;is&#160;called.&#160;This<br/>value&#160;has&#160;to&#160;be&#160;configured&#160;according&#160;to&#160;the&#160;cycle&#160;time&#160;of&#160;the&#160;task,&#160;which&#160;the&#160;Timing&#160;Event&#160;&#34;TimingEvent&#34;<br/>is&#160;mapped&#160;to&#160;(see&#160;chapter&#160;6.3.1).&#160;Allowed&#160;values&#160;are&#160;0.01s&#160;(10ms)&#160;to&#160;0.10s&#160;(100ms).<br/>
+The&#160;function&#160;&#34;SysTime_MainFunction&#34;&#160;is&#160;mapped&#160;to&#160;the&#160;Runnable&#160;Entity&#160;&#34;MainFunction&#34;,&#160;which&#160;is<br/>triggered&#160;by&#160;the&#160;Timing&#160;Event&#160;&#34;TimingEvent&#34;.<br/>
+<b>SysTimeInitialTimeout</b><br/>
+<b>[IM_SysTime_0002]&#160;</b>dThis&#160;parameter&#160;describes&#160;the&#160;initial&#160;timeout&#160;value&#160;for&#160;the&#160;system&#160;time&#160;signal.&#160;The<br/>System&#160;Time&#160;Client&#160;will&#160;set&#160;the&#160;system&#160;time&#160;to&#160;0xFFFFFFFF,&#160;if&#160;no&#160;valid&#160;system&#160;time&#160;has&#160;been&#160;received<br/>until&#160;this&#160;timeout&#160;has&#160;expired.&#160;If&#160;the&#160;system&#160;time&#160;signal&#160;is&#160;received&#160;via&#160;Can,&#160;FlexRay&#160;or&#160;Ethernet,&#160;this<br/>parameter&#160;has&#160;to&#160;be&#160;set&#160;to&#160;5.0&#160;seconds.&#160;c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_8471)</i></a><br/>
+<b>Configuration&#160;of&#160;adapter&#160;part</b><br/>
+<b>SysTimeGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;classic&#160;adapter&#160;of&#160;the&#160;SysTime&#160;module.<br/>
+<b>SysTimeEnableServiceInterface</b><br/>
+This&#160;parameter&#160;describes&#160;whether&#160;the&#160;system&#160;time&#160;is&#160;received&#160;via&#160;Service&#160;Interface&#160;or&#160;via&#160;a&#160;plain&#160;signal.<br/>On&#160;Ethernet&#160;the&#160;system&#160;time&#160;is&#160;transmitted&#160;via&#160;Parameter&#160;&#34;timeSecondCounterRelative&#34;&#160;of&#160;Event<br/>&#34;RelativeTimeBN2020&#34;&#160;of&#160;Service&#160;Interface&#160;&#34;VehicleInformation&#34;.&#160;On&#160;Can&#160;and&#160;Flexray&#160;the&#160;system&#160;time&#160;is<br/>transmitted&#160;via&#160;Signal&#160;T_SEC_COU_REL.<br/>
+true:&#160;system&#160;time&#160;is&#160;received&#160;via&#160;Service&#160;Interface&#160;(needed&#160;for&#160;Ethernet&#160;communication)<br/>
+false:&#160;System&#160;time&#160;is&#160;received&#160;via&#160;plain&#160;signal&#160;(needed&#160;for&#160;Can&#160;and&#160;Flexray&#160;communication)<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE</b><br/>
+After&#160;performing&#160;the&#160;steps&#160;indicated&#160;in&#160;chapter&#160;6.1&#160;and&#160;6.2,&#160;the&#160;RTE&#160;configuration&#160;can&#160;be&#160;started.&#160;In&#160;other<br/>way,&#160;the&#160;RTE&#160;will&#160;report&#160;an&#160;interface&#160;incompatibility&#160;error.<br/>
+<b>Assembly&#160;Software&#160;Connectors</b><br/>
+The&#160;ports&#160;of&#160;the&#160;SysTime&#160;module&#160;have&#160;to&#160;be&#160;connected&#160;with&#160;ports&#160;of&#160;other&#160;modules&#160;as&#160;follows:<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;11<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-10_1.png"/><br/>
+<b>Dcm</b><br/>
+<b>[IM_SysTimeClassic_0002]&#160;</b>dSystemTime&#160;&lt;-&gt;&#160;DataServices_&lt;Data&gt;&#160;where&#160;&lt;Data&gt;&#160;is&#160;the&#160;name&#160;of<br/>the&#160;corresponding&#160;container&#160;&#34;DcmDspData&#34;&#160;configured&#160;in&#160;the&#160;Dcm&#160;module.&#160;c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_8552)</i></a><br/>
+<b>Dem</b><br/>
+<b>[IM_SysTimeClassic_0007]&#160;</b>dSystemTime&#160;&lt;-&gt;&#160;CBReadData_&lt;SyncDataElement&gt;&#160;where<br/>&lt;SyncDataElement&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DemDataElementClass&#34;&#160;configured&#160;in<br/>the&#160;Dem&#160;module.&#160;c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DK_T3_1374)</i></a><br/>
+<b>Det</b><br/>
+SysTimeReportError&#160;&lt;-&gt;&#160;DS&lt;xxx&gt;&#160;where&#160;&lt;xxx&gt;&#160;is&#160;an&#160;identifier&#160;of&#160;the&#160;module&#160;id&#160;of&#160;the&#160;SysTime<br/>configured&#160;in&#160;the&#160;Det&#160;module.<br/>
+<b>BswM</b><br/>
+LifeCycle&#160;&lt;-&gt;&#160;BswMModeRequestPort_xxx&#160;where&#160;BswMModeRequestPort_xxx&#160;means&#160;the&#160;R-Port&#160;of&#160;the<br/>BswM&#160;that&#160;receives&#160;a&#160;mode&#160;switch&#160;from&#160;the&#160;SysTime&#160;module.&#160;LifeCycleRequest&#160;&lt;-&gt;<br/>RteModeRequestPort_xxx&#160;where&#160;RteModeRequestPort_xxx&#160;means&#160;the&#160;P-Port&#160;of&#160;the&#160;BswM&#160;that&#160;provides<br/>a&#160;mode&#160;request&#160;to&#160;the&#160;SysTime&#160;module.<br/>
+<b>Other&#160;Application&#160;SWC</b><br/>
+SysTime&#160;&lt;-&gt;&#160;ApplicationPort&#160;where&#160;ApplicationPort&#160;means&#160;the&#160;R-Port&#160;of&#160;an&#160;Application&#160;SWC&#160;that&#160;wants<br/>to&#160;read&#160;the&#160;current&#160;system&#160;time&#160;from&#160;the&#160;SysTime&#160;module.<br/>
+<b>Event&#160;Mapping</b><br/>
+The&#160;timing&#160;event&#160;&#34;TimingEvent&#34;&#160;of&#160;the&#160;SysTime&#160;module&#160;has&#160;to&#160;be&#160;mapped&#160;to&#160;a&#160;cyclic&#160;task&#160;with&#160;a&#160;cycle<br/>time&#160;according&#160;to&#160;parameter&#160;&#34;SysTimeMainTaskCycle&#34;&#160;in&#160;chapter&#160;6.2.&#160;The&#160;data&#160;received&#160;event<br/>&#34;SysTimeRx&#34;&#160;has&#160;to&#160;be&#160;mapped&#160;to&#160;an&#160;os-task.<br/>
+<b>Data&#160;Mapping</b><br/>
+<b>[IM_SysTimeClassic_0001]&#160;</b>dIf&#160;the&#160;system&#160;time&#160;is&#160;received&#160;via&#160;Can&#160;or&#160;FlexRay,&#160;the&#160;data&#160;element<br/>&#34;timeSignal&#34;&#160;of&#160;the&#160;sender-receiver-interface&#160;&#34;SysTimeRx&#34;&#160;has&#160;to&#160;be&#160;mapped&#160;to&#160;the&#160;signal&#160;in&#160;the&#160;Com<br/>configuration&#160;mentioned&#160;in&#160;chapter&#160;6.1.&#160;In&#160;the&#160;BNE&#160;export&#160;this&#160;signal&#160;is&#160;named&#160;T_SEC_COU_REL.<br/>c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_8471)</i></a><br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;11<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_IntegrationManual-11_1.png"/><br/>
+If&#160;the&#160;system&#160;time&#160;is&#160;received&#160;via&#160;Ethernet,&#160;the&#160;data&#160;element&#160;&#34;RelativeTimeBN2020&#34;&#160;of&#160;the<br/>sender-receiver-interface&#160;&#34;SysTimeEventRx&#34;&#160;has&#160;to&#160;be&#160;mapped&#160;to&#160;the&#160;signal&#160;group&#160;in&#160;the&#160;Com<br/>configuration,&#160;which&#160;represents&#160;the&#160;Event&#160;&#34;RelativeTimeBN2020&#34;.<br/>
+<b>Exclusive&#160;Areas</b><br/>
+The&#160;exclusive&#160;area&#160;&#34;SysTimeGetTimeArea&#34;&#160;has&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;RTE.<br/>
+<b>Software&#160;Integration</b><br/>
+<b>Startup/Initialization</b><br/>
+Before&#160;initialization&#160;of&#160;the&#160;SysTime&#160;module,&#160;the&#160;Det&#160;module&#160;and&#160;the&#160;RTE&#160;have&#160;to&#160;be&#160;initialized.<br/>
+<b>[IM_SysTimeClassic_0004]&#160;</b>dTo&#160;initialize&#160;the&#160;SysTime&#160;module,&#160;the&#160;BswM&#160;shall&#160;request&#160;the&#160;mode<br/>&#34;SYSTIME_INITIALIZED&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;SysTime_LifeCycle&#34;.&#160;This&#160;shall&#160;be&#160;done&#160;before<br/>any&#160;monitoring&#160;function&#160;is&#160;active&#160;which&#160;could&#160;lead&#160;to&#160;error&#160;memory&#160;entries.&#160;c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_8300)</i></a><br/>
+When&#160;initialization&#160;of&#160;the&#160;SysTime&#160;has&#160;been&#160;finished&#160;successfully,&#160;the&#160;SysTime&#160;module&#160;switches&#160;the<br/>mode&#160;to&#160;&#34;SYSTIME_INITIALIZED&#34;.<br/>
+<b>Normal&#160;Operation</b><br/>
+When&#160;the&#160;SysTime&#160;module&#160;switches&#160;the&#160;mode&#160;to&#160;&#34;SYSTIME_INITIALIZED&#34;,&#160;AND&#160;it&#160;is&#160;technically<br/>possible&#160;to&#160;receive&#160;the&#160;system&#160;time&#160;on&#160;the&#160;bus,&#160;the&#160;BswM&#160;shall&#160;request&#160;the&#160;mode<br/>&#34;SYSTIME_RUNNING&#34;.&#160;When&#160;the&#160;SysTime&#160;module&#160;switches&#160;the&#160;mode&#160;to&#160;&#34;SYSTIME_RUNNING&#34;,&#160;the<br/>module&#160;is&#160;in&#160;normal&#160;operation&#160;mode.<br/>
+<b>Shutdown/Deactivation</b><br/>
+<b>[IM_SysTimeClassic_0005]&#160;</b>dTo&#160;deactivate&#160;the&#160;SysTime&#160;module,&#160;the&#160;BswM&#160;has&#160;to&#160;request&#160;the&#160;mode<br/>&#34;SYSTIME_STOPPED&#34;.&#160;When&#160;the&#160;SysTime&#160;module&#160;switches&#160;the&#160;mode&#160;to&#160;&#34;SYSTIME_STOPPED&#34;,&#160;the<br/>module&#160;is&#160;deactivated.&#160;This&#160;shall&#160;not&#160;be&#160;done&#160;as&#160;long&#160;as&#160;any&#160;monitoring&#160;function&#160;is&#160;active&#160;which&#160;could<br/>lead&#160;to&#160;error&#160;memory&#160;entries.&#160;c<a href="SysTimeClassic_IntegrationManuals.html#1"><i>(DMA_PA_8300)</i></a><br/>
+<b>SWCD</b><br/>
+If&#160;the&#160;modules&#160;Dem&#160;and&#160;Dcm&#160;are&#160;configured&#160;correctly,&#160;there&#160;should&#160;be&#160;no&#160;changes&#160;necessary&#160;in&#160;the&#160;file<br/>SysTime_ext_interfaces.arxml.&#160;If&#160;the&#160;RTE&#160;importer&#160;complains&#160;about&#160;incompatible&#160;interfaces,&#160;please<br/>check&#160;the&#160;Dem&#160;and&#160;Dcm&#160;configuration,&#160;or&#160;adapt&#160;the&#160;interfaces&#160;in&#160;SysTime_ext_interfaces.arxml&#160;according<br/>to&#160;the&#160;generated&#160;Software&#160;Component&#160;Description&#160;files&#160;of&#160;Dcm&#160;and&#160;Dem.<br/>
+SysTimeClassic_IntegrationManual.pdf,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;11<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#3">1 Introduction</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#3">1.1 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#4">2 Related documentation</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#5">3 Limitations</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4 Software Architecture</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1.1 RTE</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1.2 Det</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1.3 Dcm</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1.4 Dem</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1.5 Com</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.1.6 BswM</a></li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#6">4.2 Dependencies to other modules</a></li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#7">5 Integration</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#7">5.1 Configuration of other Modules</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#7">5.1.1 Dcm</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#7">5.1.2 Com</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#7">5.1.3 Dem</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#8">5.1.4 BswM</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#8">5.1.5 Det</a></li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#8">5.2 Configuration of generic part</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#8">5.2.1 SysTimeGeneral</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#8">5.2.1.1 SysTimeDevErrorDetect</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.2.1.2 SysTimeMainTaskCycle</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.2.1.3 SysTimeInitialTimeout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.3 Configuration of adapter part</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.3.1 SysTimeGeneral</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.3.1.1 SysTimeEnableServiceInterface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.4 Configuration of the RTE</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#9">5.4.1 Assembly Software Connectors</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.1 Dcm</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.2 Dem</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.3 Det</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.4 BswM</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.1.5 Other Application SWC</a></li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.2 Event Mapping</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#10">5.4.3 Data Mapping</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#11">5.4.4 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#11">5.5 Software Integration</a>
+<ul>
+<li><a href="SysTimeClassic_IntegrationManuals.html#11">5.5.1 Startup/Initialization</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#11">5.5.2 Normal Operation</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#11">5.5.3 Shutdown/Deactivation</a></li>
+<li><a href="SysTimeClassic_IntegrationManuals.html#11">5.5.4 SWCD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

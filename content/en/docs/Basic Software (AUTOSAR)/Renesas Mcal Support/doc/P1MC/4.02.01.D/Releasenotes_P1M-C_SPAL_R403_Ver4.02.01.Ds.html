@@ -1,0 +1,633 @@
+---
+title: Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds
+linkTitle: Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds
+weight: 57
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+Release&#160;Notes&#160;for&#160;RENESAS&#160;RH850/P1M-C&#160;<br/>
+RENESAS_SW-AUTOSAR-P1M-C:&#160;MCAL&#160;Ver4.02.01.D&#160;<br/>
+Beta&#160;Quality&#160;<br/>
+1.1&#160;&#160;Purpose&#160;<br/>
+To deliver AUTOSAR&#160;R4.0.3 MCAL&#160;software&#160;for P1M-C&#160;Ver4.02.01.D&#160;release&#160;using&#160;the&#160;<br/>
+following&#160;inputs.&#160;<br/>
+Device&#160;Manual:&#160;&#160;<br/>
+r01uh0517ej0121-rh850p1x-c_Open.pdf&#160;<br/>
+Device&#160;File:&#160;<br/>
+&#160;<br/>
+DF-RH850P1x-C-EE_V121_1.zip&#160;<br/>
+Operating&#160;Precautions:&#160;&#160;&#160;R01TU0087ED0103_RH850P1M-C.pdf&#160;<br/>
+Modules supported:&#160;<br/>
+DIO&#160;and PORT&#160;<br/>
+1.2&#160;&#160;Package information&#160;<br/>
+<b>Product&#160;</b><br/>
+RH850/P1x-C&#160;<br/>
+<b>Variant&#160;</b><br/>
+P1M-C&#160;<br/>
+<b>Product&#160;Release&#160;Version&#160;</b><br/>
+Ver4.02.01.D&#160;<br/>
+<b>AUTOSAR&#160;Specification Version&#160;</b><br/>
+R4.0.3&#160;<br/>
+<b>Device&#160;tested on&#160;</b><br/>
+R7F701372&#160;<br/>
+<b>Devices supported&#160;</b><br/>
+R7F701373,&#160;R7F701374&#160;<br/>
+<b>Release&#160;Date&#160;</b><br/>
+30-June-2017&#160;<br/>
+&#160;<br/>
+1.3&#160;&#160;Tools&#160;<br/>
+1.3.1&#160;&#160;GHS&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+Green&#160;Hills&#160;Multi&#160;<br/>
+multi_616&#160;<br/>
+X1X/common_platform/generic/compiler/4.0.3/gh<br/>
+Compiler: 2015.1.7&#160;<br/>
+s/make/ghs_rh850_r4.0.3_defs.mak&#160;<br/>
+Executor&#160;Version:&#160;<br/>V2.21.00.06&#160;&#160;<br/>
+Page&#160;1&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=2></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+850eserv2&#160;Version: V2.030&#160;<br/>
+1.3.2&#160;&#160;Configuration code&#160;generator&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+ECU&#160;Spectrum&#160;<br/>
+4.0.14&#160;<br/>
+-<i>&#160;</i><br/>
+1.3.3&#160;&#160;Additional software&#160;<br/>
+<b>Tool&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Options&#160;</b><br/>
+AMDC&#160;<br/>
+1.0.13&#160;<br/>
+-&#160;<br/>
+MCAL&#160;Gen&#160;<br/>
+2.06.03&#160;<br/>
+-&#160;<br/>
+QAC&#160;source&#160;code&#160;Analyser&#160;<br/>
+8.1.1-R&#160;<br/>
+-&#160;<br/>
+1.4&#160;&#160;Generic Information&#160;<br/>
+1.4.1&#160;&#160;Release&#160;Target&#160;<br/>
+<b>Processor&#160;</b><br/>
+R7F701373,&#160;R7F701374&#160;<br/>
+<b>Module&#160;</b><br/>
+Generic&#160;<br/>
+<b>Getting&#160;Started&#160;Document&#160;for&#160;P1x-C&#160;MCAL Driver&#160;</b><br/>
+R20UT3828EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.3&#160;<br/>
+<b>AUTOSAR&#160;Modules&#160;Overview&#160;</b><br/>
+R20UT3827EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.3&#160;<br/>
+<b>Date&#160;</b><br/>
+30-June-2017&#160;<br/>
+1.4.2&#160;&#160;Release&#160;Items&#160;<br/>
+<b>Filename&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>Common Files&#160;</b><br/>
+ComStack_Types.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Std_Types.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Platform_Types.h&#160;<br/>
+1.0.0&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+rh850_Types.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>Compiler&#160;Files&#160;</b><br/>
+Following&#160;changes are&#160;made&#160;in&#160;Ver4.02.01.D:&#160;<br/>
+MemMap.h&#160;<br/>
+1.0.4&#160;<br/>
+1.&#160;&#160;As per&#160;ARDAAAF-2059,&#160;<br/>
+Page&#160;2&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=3></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+PREFIX&#160;and&#160;INIT&#160;POLICY&#160;are&#160;modified&#160;for&#160;the&#160;<br/>
+memory&#160;sections&#160;of&#160;RAMTST&#160;module.&#160;<br/>
+2.&#160;&#160;As per&#160;ARDAAAF-2175,&#160;Removed&#160;unwanted&#160;memory&#160;section&#160;<br/>
+RAMTST_START_SEC_CODE_FAST&#160;and&#160;added&#160;memory&#160;section&#160;<br/>
+RAMTST_59_RENESAS_START_SEC_APPL_CODE&#160;for&#160;<br/>RAMTST&#160;<br/>
+module.&#160;<br/>
+3.&#160;&#160;As per&#160;ARDAAAF-2053,&#160;NOININT&#160;sections&#160;are&#160;changed&#160;as&#160;<br/>
+NO_INIT&#160;and&#160;FR_59_RENESAS_START_SEC_DBTOC_DATA_&#160;<br/>
+UNSPECIFIED&#160;has been&#160;changed&#160;as FR_59_RENESAS_START_&#160;<br/>
+SEC_DBTOC_DATA_UNSPECIFIED.&#160;<br/>
+4.&#160;&#160;As per&#160;ARDAAAF-2177,&#160;following&#160;sections&#160;are&#160;removed&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_NO_INIT_BOOLEAN&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_NO_INIT_BOOLEAN&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_FAST_BOOLEAN&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_FAST_BOOLEAN&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_8&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_8&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_NO_INIT_8&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_NO_INIT_8&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_FAST_8&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_FAST_8&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_16&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_16&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_FAST_16&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_FAST_16&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_32&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_32&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_FAST_32&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_FAST_32&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_NO_INIT_UNSPECIFIED&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_NO_INIT_UNSPECIFIED&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_POWER_ON_INIT_UNSP<br/>ECIFIED&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_POWER_ON_INIT_UNSPE<br/>CIFIED&#160;<br/>
+Page&#160;3&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=4></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+FR_59_RENESAS_START_SEC_VAR_FAST_UNSPECIFIED&#160;<br/>
+FR_59_RENESAS_STOP_SEC_VAR_FAST_UNSPECIFIED&#160;<br/>
+FR_59_RENESAS_START_SEC_CONFIG_VAR_NO_INIT_UNS<br/>PECIFIED&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CONFIG_VAR_NO_INIT_UNSP<br/>ECIFIED&#160;<br/>
+FR_59_RENESAS_START_SEC_CONST_BOOLEAN&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CONST_BOOLEAN&#160;<br/>
+FR_59_RENESAS_START_SEC_CONST_8&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CONST_8&#160;<br/>
+FR_59_RENESAS_START_SEC_CONST_16&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CONST_16&#160;<br/>
+FR_59_RENESAS_START_SEC_CONFIG_CONST_UNSPECIFI<br/>ED&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CONFIG_CONST_UNSPECIFIE<br/>D&#160;<br/>
+FR_59_RENESAS_START_SEC_DBTOC_CONFIG_CONST_UN<br/>SPECIFIED&#160;<br/>
+FR_59_RENESAS_STOP_SEC_DBTOC_CONFIG_CONST_UNS<br/>PECIFIED&#160;<br/>
+FR_59_RENESAS_START_SEC_CODE&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CODE&#160;<br/>
+FR_59_RENESAS_START_SEC_STATIC_CODE&#160;<br/>
+FR_59_RENESAS_STOP_SEC_STATIC_CODE&#160;<br/>
+FR_59_RENESAS_START_SEC_CODE_FAST&#160;<br/>
+FR_59_RENESAS_STOP_SEC_CODE_FAST&#160;<br/>
+5.&#160;&#160;As per&#160;ARDAAAF-2050,&#160;NOINIT&#160;sections&#160;are&#160;changed&#160;as&#160;<br/>
+NO_INIT,&#160;PREFIX&#160;are&#160;added,&#160;<br/>
+ETH_59_RENESAS_START_SEC_DBTOC_DATA_UNSPECIFIE<br/>D&#160;<br/>
+has been&#160;changed&#160;as&#160;ETH_59_RENESAS_START_SEC_DATA_&#160;<br/>
+UNSPECIFIED,&#160;ETH_59_START_SEC_APPL_CODE&#160;to&#160;<br/>
+ETH_59_RENESAS_START_SEC_CODE_FAST&#160;and&#160;following&#160;<br/>ROM&#160;<br/>
+memory&#160;tag&#160;updated:&#160;<br/>
+ETH_PUBLIC_CODE_ROM&#160;<br/>
+ETH_PRIVATE_CODE_ROM&#160;<br/>
+ETH_BUFFER_CODE_ROM&#160;<br/>
+Page&#160;4&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=5></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+6.&#160;&#160;As per&#160;ARDAAAF-2174,&#160;following&#160;sections&#160;are&#160;removed&#160;<br/>
+ETH_59_START_SEC_VAR_NOINIT_BOOLEAN&#160;<br/>
+ETH_59_START_SEC_VAR_FAST_BOOLEAN&#160;<br/>
+ETH_59_START_SEC_VAR_8&#160;<br/>
+ETH_59_START_SEC_VAR_FAST_8&#160;<br/>
+ETH_59_START_SEC_VAR_NOINIT_16&#160;<br/>
+ETH_59_START_SEC_VAR_FAST_16&#160;<br/>
+ETH_59_START_SEC_VAR_NOINIT_32&#160;<br/>
+ETH_59_START_SEC_VAR_FAST_32&#160;<br/>
+ETH_59_START_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+ETH_59_START_SEC_CONST_BOOLEAN&#160;<br/>
+ETH_59_START_SEC_CONST_8&#160;<br/>
+ETH_59_START_SEC_CONST_16&#160;<br/>
+ETH_59_START_SEC_CONST_32&#160;<br/>
+ETH_59_START_SEC_SCHEDULER_CODE&#160;<br/>
+ETH_59_STOP_SEC_VAR_NOINIT_BOOLEAN&#160;<br/>
+ETH_59_STOP_SEC_VAR_FAST_BOOLEAN&#160;<br/>
+ETH_59_STOP_SEC_VAR_8&#160;<br/>
+ETH_59_STOP_SEC_VAR_FAST_8&#160;<br/>
+ETH_59_STOP_SEC_VAR_NOINIT_16&#160;<br/>
+ETH_59_STOP_SEC_VAR_FAST_16&#160;<br/>
+ETH_59_STOP_SEC_VAR_NOINIT_32&#160;<br/>
+ETH_59_STOP_SEC_VAR_FAST_32&#160;<br/>
+ETH_59_STOP_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+ETH_59_STOP_SEC_CONST_BOOLEAN&#160;<br/>
+ETH_59_STOP_SEC_CONST_8&#160;<br/>
+ETH_59_STOP_SEC_CONST_16&#160;<br/>
+ETH_59_STOP_SEC_CONST_32&#160;<br/>
+ETH_59_STOP_SEC_SCHEDULER_CODE&#160;<br/>
+7.&#160;&#160;As per&#160;ARDAAAF-2178,&#160;following&#160;sections&#160;are&#160;removed&#160;<br/>
+FLSTST_START_SEC_VAR_BOOLEAN&#160;<br/>
+FLSTST_START_SEC_VAR_NOINIT_BOOLEAN&#160;<br/>
+FLSTST_START_SEC_VAR_FAST_BOOLEAN&#160;<br/>
+FLSTST_START_SEC_VAR_8&#160;<br/>
+FLSTST_START_SEC_VAR_NOINIT_8&#160;<br/>
+Page&#160;5&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=6></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+FLSTST_START_SEC_VAR_FAST_8&#160;<br/>
+FLSTST_START_SEC_VAR_16&#160;<br/>
+FLSTST_START_SEC_VAR_NOINIT_16&#160;<br/>
+FLSTST_START_SEC_VAR_FAST_16&#160;<br/>
+FLSTST_START_SEC_VAR_NOINIT_32&#160;<br/>
+FLSTST_START_SEC_VAR_FAST_32&#160;<br/>
+FLSTST_START_SEC_VAR_FAST_UNSPECIFIED&#160;<br/>
+FLSTST_START_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+FLSTST_START_SEC_SCHEDULER_CODE&#160;<br/>
+FLSTST_START_SEC_BUFFER_CODE&#160;<br/>
+FLSTST_STOP_SEC_VAR_BOOLEAN&#160;<br/>
+FLSTST_STOP_SEC_VAR_NOINIT_BOOLEAN&#160;<br/>
+FLSTST_STOP_SEC_VAR_FAST_BOOLEAN&#160;<br/>
+FLSTST_STOP_SEC_VAR_8&#160;<br/>
+FLSTST_STOP_SEC_VAR_NOINIT_8&#160;<br/>
+FLSTST_STOP_SEC_VAR_FAST_8&#160;<br/>
+FLSTST_STOP_SEC_VAR_16&#160;<br/>
+FLSTST_STOP_SEC_VAR_NOINIT_16&#160;<br/>
+FLSTST_STOP_SEC_VAR_FAST_16&#160;<br/>
+FLSTST_STOP_SEC_VAR_NOINIT_32&#160;<br/>
+FLSTST_STOP_SEC_VAR_FAST_32&#160;<br/>
+FLSTST_STOP_SEC_VAR_FAST_UNSPECIFIED&#160;<br/>
+FLSTST_STOP_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+FLSTST_STOP_SEC_SCHEDULER_CODE&#160;<br/>
+FLSTST_STOP_SEC_BUFFER_CODE&#160;<br/>
+8.&#160;&#160;As per&#160;ARDAAAF-2052,&#160;<br/>
+PREFIX&#160;and&#160;INIT&#160;POLICY&#160;are&#160;modified&#160;for&#160;the&#160;<br/>
+memory&#160;sections&#160;of&#160;FLSTST&#160;module.&#160;<br/>
+9.&#160;&#160;As per&#160;ARDAAAF-2055,&#160;<br/>
+PREFIX&#160;and&#160;INIT&#160;POLICY&#160;are&#160;modified&#160;for&#160;the&#160;<br/>
+memory&#160;sections&#160;of&#160;LIN&#160;module.&#160;<br/>
+10.&#160;&#160;As per&#160;ARDAAAF-2176,&#160;<br/>
+LIN_START_SEC_DBTOC_DATA_UNSPECIFIED&#160;<br/>
+LIN_STOP_SEC_DBTOC_DATA_UNSPECIFIED&#160;was&#160;removed.&#160;<br/>
+11.&#160;&#160;As per&#160;ARDAAAF-2473,&#160;<br/>
+Page&#160;6&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=7></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+SPI_59_RENESAS_START_SEC_PUBLIC_CODE,&#160;<br/>
+SPI_59_RENESAS_START_SEC_PRIVATE_CODE&#160;and&#160;<br/>
+SPI_59_RENESAS_START_SEC_CODE_FAST&#160;were&#160;updated.&#160;<br/>
+Compiler.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Compiler_Cfg.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Common&#160;Stubs&#160;<br/>
+-&#160;<br/>
+Stub&#160;files&#160;required&#160;to&#160;run&#160;the&#160;sample&#160;application&#160;of&#160;the&#160;driver.&#160;<br/>
+<b>Getting&#160;Started&#160;MCAL Driver&#160;User&#160;Manual&#160;</b><br/>
+R20UT3828EJ0101-<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+AUTOSAR.pdf&#160;<br/>
+<b>Module&#160;Overview&#160;User&#160;Manual&#160;</b><br/>
+R20UT3827EJ0101-<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+AUTOSAR.pdf&#160;<br/>
+1.4.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;Fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1xC_FixedIssues_Ver4.02.01.D.xlsx&#160;<br/>
+1.4.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;Known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1xC_OpenMarket_KnownIssues_CW26_2017.xlsx&#160;<br/>
+Page&#160;7&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=8></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+1.5&#160;&#160;Module&#160;Index&#160;<br/>
+<a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#9">DIO&#160;</a><br/>
+&#160;<br/>
+<a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#13">PORT&#160;</a><br/>
+&#160;<br/>
+Page&#160;8&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1MC/4.02.01.D/Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.D-9_1.png"/><br/>
+Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+&#160;&#160;DIO&#160;<br/>
+2.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+R7F701373,&#160;R7F701374.&#160;<br/>
+<b>Module&#160;</b><br/>
+DIO&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+1.0.4&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3639EJ0102-AUTOSAR.pdf&#160;–&#160;V1.0.4&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3640EJ0102-AUTOSAR.pdf&#160;–&#160;V1.0.4&#160;<br/>
+<b>Date&#160;</b><br/>
+30-June-2017&#160;<br/>
+2.2&#160;&#160;Release Items&#160;<br/>
+<b>File&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>Configuration Files&#160;</b><br/>
+R403_DIO_P1X-C_73.arxml&#160;<br/>
+1.0.1&#160;<br/>
+1.&#160;As&#160;per&#160;ARDAAAF-2241,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>&#160; &#160;DioChannelId&#160;and&#160;DioPortOffset&#160;ranges corrected.&#160;<br/>2.&#160;As&#160;per&#160;ARDAAAF-2475,&#160;updated&#160;description&#160;for&#160;&#160;&#160;&#160;&#160;<br/>&#160; &#160;DioMaskedWritePortApi and&#160;DioPortName&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+R403_DIO_P1X-C_74.arxml&#160;<br/>
+1.0.1&#160;<br/>
+1.&#160;As&#160;per&#160;ARDAAAF-2241,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>&#160; &#160;DioChannelId&#160;and&#160;DioPortOffset&#160;ranges corrected.&#160;<br/>2.&#160;As&#160;per&#160;ARDAAAF-2475,&#160;updated&#160;description&#160;for&#160;&#160;&#160;&#160;&#160;<br/>&#160; &#160;DioMaskedWritePortApi and&#160;DioPortName&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>Generation Files</b>&#160;<br/>
+R403_DIO_P1x-C_BSWMDT.arxml&#160;<br/>
+1.0.4&#160;<br/>
+SW-PATCH-VERSION&#160;is&#160;updated.&#160;<br/>
+<b>Source&#160;Files&#160;</b><br/>
+Dio.c&#160;<br/>
+2.0.2&#160;<br/>
+1.&#160;As&#160;per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Added&#160;access&#160;direction(Read/Write)&#160;for&#160;global&#160;<br/>variables&#160;&#160; &#160;in&#160;the&#160;function&#160;banner&#160;of&#160;all&#160;API's.&#160;<br/>b.&#160;Added&#160;one&#160;space&#160;between&#160;if&#160;and&#160;opening&#160;parenthesis&#160;<br/>and&#160;added&#160;a&#160;space&#160;after&#160;comma&#160;in&#160;the&#160;argument list of&#160;<br/>the&#160;&#160;macro&#160;<br/>DIO_CHECK_WRITE_VERIFY_RUNTIME&#160;inside&#160;<br/>the&#160;Dio_FlipChannel&#160;API&#160;to&#160;correct the&#160;style&#160;format.&#160;<br/>c.&#160;Corrected&#160;the&#160;alignment in&#160;Dio_WritePort API&#160;and&#160;<br/>in&#160;&#160;revision&#160;history&#160;banner.&#160;<br/>d.&#160;Renamed&#160;Dio_SpConfigPtr&#160;to&#160;Dio_GpConfigPtr.&#160;<br/>e.&#160;Requirement IDs EAAR_PN0061_FR_0018&#160;and&#160;&#160;<br/>EAAR_PN0061_FR_0020&#160;renamed&#160;as per&#160;new&#160; &#160; &#160; &#160; &#160; &#160;&#160;<br/>MRS&#160;tag&#160;1.7.&#160;<br/>
+Page&#160;9&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=10></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+f.&#160;Unwanted&#160;QAC&#160;messages removed.&#160;<br/>2.&#160;As&#160;per&#160;ARDAAAF-2510,&#160;UT&#160;Tag&#160;&#34;DIO_UT_001&#34;&#160;<br/>added&#160;for&#160;the&#160;uncovered&#160;parts&#160;of&#160;the&#160;code.&#160;<br/>
+Dio_Ram.c&#160;<br/>
+1.0.4&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Updated&#160;the&#160;QAC&#160;justification&#160;message&#160;for&#160;<br/>&#160; &#160;Msg(2:3211).&#160;<br/>b.&#160;Corrected&#160;the&#160;alignment&#160;in&#160;revision&#160;history&#160;banner.&#160;<br/>c.&#160;Renamed&#160;Dio_SpConfigPtr&#160;to&#160;Dio_GpConfigPtr.&#160;<br/>
+Dio_Version.c&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;Corrected&#160;the&#160;alignment in&#160;<br/>revision&#160;history&#160;banner.&#160;<br/>
+Dio.h&#160;<br/>
+1.0.4&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;Corrected&#160;the&#160;alignment in&#160;<br/>revision&#160;history&#160;banner.&#160;<br/>
+Dio_Debug.h&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;Corrected&#160;the&#160;alignment in&#160;<br/>revision&#160;history&#160;banner.&#160;<br/>
+Dio_RegWrite.h&#160;<br/>
+1.0.2&#160;<br/>
+&#160;As&#160;per&#160;ARDAAAF-2475,&#160;<br/>&#160;a.&#160;Unused&#160;macro&#160;DIO_WV_DISABLE&#160;is&#160;removed.&#160;<br/>
+b.&#160;Added&#160;one&#160;space&#160;after&#160;if&#160;condition&#160;to&#160;correct&#160;the&#160;<br/>
+style&#160;format.&#160;<br/>
+&#160;c.&#160;Corrected&#160;the&#160;alignment of&#160;revision&#160;history&#160;banner.&#160;<br/>
+Dio_PBTypes.h&#160;<br/>
+1.0.4&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Added&#160;one&#160;space&#160;after&#160;the&#160;closing&#160;brace&#160;of&#160;structure&#160;<br/>inside&#160;the&#160;union&#160;Dio_PortData.&#160;<br/>b.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;banner.&#160;<br/>
+Dio_Ram.h&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;banner.&#160;<br/>b.&#160;Renamed&#160;Dio_SpConfigPtr&#160;to&#160;Dio_GpConfigPtr.&#160;<br/>
+Dio_Version.h&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;Corrected&#160;the&#160;alignment in&#160;<br/>revision&#160;history&#160;banner.&#160;<br/>
+Dio_Hardware_c&#160;<br/>
+1.0.4&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Updated&#160;the&#160;QAC&#160;justification&#160;message&#160;for&#160;<br/>Msg(2:3211).&#160;<br/>b.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;banner.&#160;<br/>
+Dio_Hardware_h&#160;<br/>
+1.0.4&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;Corrected&#160;the&#160;alignment in&#160;<br/>
+revision&#160;history&#160;banner.&#160;<br/>
+Dio_Cfg_h&#160;<br/>
+1.0.4&#160;<br/>
+1.&#160;As&#160;per&#160;ARDAAAF-2414,&#160;unwanted&#160;macros&#160;<br/>&#160; &#160;DIO_MAXNOOFPORT,&#160;<br/>DIO_MAXNOOFCHANNEL,&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;and&#160;<br/>&#160; &#160;DIO_INVALID_CHANNEL_GROUP&#160;are&#160;removed.&#160;<br/>2.&#160;As&#160;per&#160;ARDAAAF-2475,&#160;<br/>&#160; &#160;a.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;banner.&#160;<br/>&#160; &#160;b.&#160;Removed&#160;the&#160;unused&#160;macro&#160;<br/>&#160; &#160;DIO_PNOT_OFFSET_NONJTAG.&#160;<br/>
+Dio_Cbk_h&#160;<br/>
+1.0.2&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;Corrected&#160;the&#160;alignment in&#160;<br/>revision&#160;history&#160;banner.&#160;<br/>
+Page&#160;10&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=11></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+Dio_Lcfg_c&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Updated&#160;the&#160;QAC&#160;justification&#160;message&#160;<br/>&#160; &#160;for&#160;Msg(2:3211).&#160;<br/>b.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;<br/>&#160; &#160;banner.&#160;<br/>
+Dio_PBcfg_c&#160;<br/>
+1.0.4&#160;<br/>
+1.&#160;As&#160;per&#160;ARDAAAF-2414,&#160;unwanted&#160;macro&#160;<br/>&#160; &#160;DIO_INVALID_CHANNEL_GROUP&#160;are&#160;removed.&#160;<br/>2.&#160;As&#160;per&#160;ARDAAAF-2475,&#160;<br/>&#160; &#160;a.&#160;Updated&#160;the&#160;QAC justification&#160;message&#160;<br/>&#160; &#160; &#160;&#160;for&#160;Msg(2:3211).&#160;<br/>&#160; &#160;b.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;<br/>&#160; &#160; &#160;&#160;banner.&#160;<br/>
+Dio_Validate&#160;<br/>
+1.0.3&#160;<br/>
+As per&#160;ARDAAAF-2475,&#160;<br/>a.&#160;Corrected&#160;the&#160;alignment in&#160;revision&#160;history&#160;banner.&#160;<br/>b.&#160;Corrected&#160;the&#160;description&#160;of&#160;error&#160;message&#160;<br/>&#160; &#160;ERR_59_120_023.&#160;<br/>
+<b>Sample Application Files</b>&#160;<br/>
+App_DIO_P1x-C_Sample.c&#160;<br/>
+1.0.2&#160;<br/>
+&#160;No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D.&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+App_DIO_Device_Sample.h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D.&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+<b>User&#160;Manual Files</b>&#160;<br/>
+R20UT3639EJ0102-AUTOSAR.pdf&#160;<br/>
+1.0.4&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>1.&#160;Path&#160;of&#160;the&#160;PDF and&#160;Sample&#160;Application&#160;is&#160;updated&#160;<br/>in&#160;&#160;&#160;&#160;&#160;<br/>section&#160;13.2.&#160;<br/>2.&#160;Updated&#160;section&#160;13.3&#160;with&#160;latest&#160;memory&#160;<br/>consumption,&#160;stack&#160;&#160;depth&#160;and&#160;throughput details.&#160;<br/>3.&#160;Updated&#160;the&#160;R&#160;number&#160;of&#160;the&#160;Tool User&#160;Manual&#160;in&#160;<br/>Chapter&#160;3&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>and&#160;Chapter&#160;9.&#160;<br/>
+4.&#160;Software&#160;version&#160;in&#160;the&#160;chapter&#160;14&#160;is&#160;updated.&#160;<br/>
+R20UT3640EJ0102-AUTOSAR.pdf&#160;<br/>
+1.0.4&#160;<br/>
+1.&#160;Updated&#160;Table&#160;8&#160;1&#160;to&#160;change&#160;the&#160;parameter&#160;type&#160;and&#160;&#160;<br/>parameter&#160;range&#160;of&#160;the&#160;parameter&#160;DioWriteVerify'.&#160;<br/>2.&#160;Updated&#160;R&#160;number&#160;of&#160;the&#160;Component User&#160;Manual&#160;<br/>in&#160;Chapter&#160;6&#160;<br/>
+2.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;Fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1xC_FixedIssues_Ver4.02.01.D.xlsx&#160;<br/>
+&#160;<br/>
+Page&#160;11&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=12></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+2.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;Known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1xC_OpenMarket_KnownIssues_CW26_2017.xlsx&#160;<br/>
+&#160;<br/>
+Page&#160;12&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/RenesasMcalSuprt/doc/P1MC/4.02.01.D/Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.D-13_1.png"/><br/>
+Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+&#160;&#160;PORT&#160;<br/>
+3.1&#160;&#160;Target&#160;Info&#160;<br/>
+<b>Processor&#160;</b><br/>
+R7F701373,&#160;R7F701374.&#160;<br/>
+<b>Module&#160;</b><br/>
+PORT&#160;<br/>
+<b>Software&#160;Version&#160;</b><br/>
+1.0.4&#160;<br/>
+<b>Embedded&#160;User&#160;Manual&#160;</b><br/>
+R20UT3653EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.4&#160;<br/>
+<b>Tool User&#160;Manual&#160;</b><br/>
+R20UT3654EJ0101-AUTOSAR.pdf&#160;–&#160;V1.0.4&#160;<br/>
+<b>Date&#160;</b><br/>
+30-June-2017&#160;<br/>
+3.2&#160;&#160;Release Items&#160;<br/>
+<b>File&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Change&#160;Description&#160;</b><br/>
+<b>Configuration&#160;Files&#160;</b><br/>
+R403_PORT_P1X-C_73.arxml&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+R403_PORT_P1X-C_74.arxml&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D.&#160;<br/>
+<b>Generation Files</b>&#160;<br/>
+R403_PORT_P1x-C_BSWMDT.arxml&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;change&#160;made&#160;<br/>1.&#160;SW-VERSION&#160;tag&#160;is&#160;updated.&#160;<br/>
+<b>Source&#160;Files&#160;</b><br/>
+Port.c&#160;<br/>
+1.0.4&#160;<br/>
+As part of&#160;ARDAAAF-2484,&#160;following&#160;changes&#160;are&#160;<br/>made:&#160;1.&#160;Alignment and&#160;Spacing&#160;updated&#160;as per&#160;coding&#160;<br/>guidelines.&#160;<br/>2.&#160;LucReturnValue&#160;is&#160;initialized&#160;in&#160;<br/>Port_SetPinDirection,&#160;Port_SetPinMode,&#160;<br/>Port_SetPinDefaultMode,&#160;<br/>Port_SetPinDefaultDirection.&#160;<br/>3.&#160;LulPortDirectionLucMid,&#160;LucDnfaIndex,&#160;<br/>LucNoOfRegs,&#160;LucFclaIndex,&#160;LucFclaCTLindex&#160;<br/>initialized&#160;with&#160;PORT_ZERO.&#160;<br/>4.&#160;MISRA&#160;warning&#160;(4:2962)&#160;removed.&#160;<br/>5.&#160;Lucsize&#160;variable&#160;name&#160;changed&#160;to&#160;LucSize.&#160;<br/>
+Port_Ram.c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+Port_Version.c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port.h&#160;<br/>
+1.0.4&#160;<br/>
+As part of&#160;ARDAAAF-2484,&#160;following&#160;change&#160;made:&#160;<br/>1.&#160;Alignment and&#160;spacing&#160;corrected..&#160;<br/>
+Page&#160;13&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=14></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+Port_Debug.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_PBTypes.h&#160;<br/>
+1.0.4&#160;<br/>
+As&#160;part of&#160;ARDAAAF-2484,&#160;following&#160;changes&#160;are&#160;<br/>made:&#160;<br/>1.&#160;Unused&#160;macros&#160;removed.&#160;<br/>2.&#160;Alignment and&#160;spacing&#160;corrected.&#160;<br/>3.&#160;Filter&#160;switch&#160;added&#160;for&#160;Port_GstFCLARegs&#160;and&#160;<br/>Port_GstDNFARegs.&#160;<br/>4.&#160;Removed&#160;array&#160;index&#160;from&#160;Port_HardwareReg&#160;<br/>array.&#160;<br/>
+Port_Ram.h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Types.h&#160;<br/>
+1.0.3&#160;<br/>
+As part of&#160;ARDAAAF-2484,&#160;following&#160;change&#160;made:&#160;<br/>1.PORT_ESDD_UD_113&#160;added&#160;for&#160;<br/>Port_Pin_Direction&#160;union&#160;<br/>
+Port_Version.h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_RegWrite.h&#160;<br/>
+1.0.2&#160;<br/>
+As part of&#160;ARDAAAF-2484,&#160;following&#160;change&#160;made:&#160;<br/>1.&#160;Spelling&#160;of&#160;replaced&#160;corrected&#160;in&#160;Msg(4:3453).&#160;<br/>
+CommonHelper&#160;<br/>
+0.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Hardware_c&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Hardware_h&#160;<br/>
+1.0.2&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Cfg_h&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Cbk_h&#160;<br/>
+1.0.1&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_PBcfg_c&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+Port_Validate&#160;<br/>
+1.0.3&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+config.xml&#160;<br/>
+-&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>Sample Application Files</b>&#160;<br/>
+App_PORT_P1x-C_Sample.c&#160;<br/>
+2.0.0&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+App_PORT_Device_Sample.h&#160;<br/>
+2.0.0&#160;<br/>
+No&#160;change&#160;for&#160;release&#160;Ver4.02.01.D&#160;<br/>
+<b>User&#160;Manual Files</b>&#160;<br/>
+R20UT3653EJ0102-AUTOSAR.pdf&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;<br/>1.&#160;Memory&#160;and&#160;Throughput details updated&#160;in&#160;chapter&#160;<br/>13.&#160;<br/>2. R-Number&#160;updated.&#160;<br/>
+R20UT3654EJ0102-AUTOSAR.pdf&#160;<br/>
+1.0.4&#160;<br/>
+Following&#160;changes are&#160;made&#160;<br/>1.&#160;R-Number&#160;updated.&#160;<br/>
+3.3&#160;&#160;Fixed&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Page&#160;14&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name=15></a>Renesas&#160;Electronics&#160;<br/>
+Release&#160;Date:&#160;30/June/2017&#160;<br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;Fixed&#160;issues&#160;list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1xC_FixedIssues_Ver4.02.01.D.xlsx&#160;<br/>
+3.4&#160;&#160;Known&#160;Issues&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Description&#160;</b><br/>
+NA&#160;<br/>
+Please&#160;refer&#160;to&#160;the&#160;Known&#160;issues list as&#160;shared&#160;from&#160;Renesas&#160;<br/>
+Ref.&#160;P1xC_OpenMarket_KnownIssues_CW26_2017.xlsx&#160;<br/>
+&#160;<br/>
+Page&#160;15&#160;of&#160;15&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#1">Release Notes for RENESAS RH850/P1M-C</a>
+<ul>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#1">1.1 Purpose</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#1">1.2 Package information</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#1">1.3 Tools</a>
+<ul>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#1">1.3.1 GHS</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#2">1.3.2 Configuration code generator</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#2">1.3.3 Additional software</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#2">1.4 Generic Information</a>
+<ul>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#2">1.4.1 Release Target</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#2">1.4.2 Release Items</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#7">1.4.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#7">1.4.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#8">1.5 &#160;Module Index</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#9">2 DIO</a>
+<ul>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#9">2.1 Target Info</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#9">2.2 Release Items</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#11">2.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#12">2.4 Known Issues</a></li>
+</ul>
+</li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#13">3 PORT</a>
+<ul>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#13">3.1 Target Info</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#13">3.2 Release Items</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#14">3.3 Fixed Issues</a></li>
+<li><a href="Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.Ds.html#15">3.4 Known Issues</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

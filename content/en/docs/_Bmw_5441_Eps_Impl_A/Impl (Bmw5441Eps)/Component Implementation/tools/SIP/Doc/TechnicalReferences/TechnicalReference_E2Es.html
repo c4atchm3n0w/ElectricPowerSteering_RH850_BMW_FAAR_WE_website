@@ -1,0 +1,1364 @@
+---
+title: TechnicalReference_E2Es
+linkTitle: TechnicalReference_E2Es
+weight: 208
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR E2E&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.02.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Michael&#160;Goß&#160;<br/>
+2015-07-03&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;version&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2015-10-21&#160;<br/>
+1.01.00&#160;<br/>
+Support&#160;of&#160;JLR&#160;E2E&#160;profile&#160;<br/>
+Michael&#160;Goß&#160;<br/>
+2016-11-25&#160;<br/>
+1.02.00&#160;<br/>
+Support&#160;of&#160;E2E&#160;profile&#160;7&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_E2ELibrary.pdf&#160;<br/>
+V4.2.1&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_E2ELibrary.pdf&#160;<br/>
+V4.3.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+V4.2.1&#160;<br/>
+<b>Scope&#160;of&#160;the&#160;Document</b>&#160;&#160;<br/>
+This&#160;technical&#160;reference&#160;describes&#160;the&#160;general&#160;use&#160;of&#160;the&#160;E2E&#160;library&#160;basis&#160;software.&#160;The&#160;<br/>E2E&#160;Library&#160;was&#160;developed&#160;according&#160;to&#160;ISO&#160;26262&#160;for&#160;use&#160;in&#160;safety-related&#160;items.&#160;There&#160;<br/>are no&#160;aspects&#160;which&#160;are controller specific.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_E2Es.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/></a><a href="TechnicalReference_E2Es.html#8">2.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#8">Architecture&#160;Overview&#160;........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10"><b>Functional&#160;Description&#160;...............................................................................................&#160;10</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">Features&#160;..........................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">E2E&#160;Communication&#160;Protection&#160;.......................................................................&#160;10&#160;<br/>3.2.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">Communication&#160;Faults&#160;.....................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#11">3.2.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#11">Fault&#160;Model&#160;......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#11">3.2.3&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#11">Protection&#160;mechanisms&#160;....................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">3.2.4&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">Detected&#160;Communication Faults&#160;......................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">3.3&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">Initialization&#160;......................................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">3.4&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">States&#160;..............................................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#13">3.5&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#13">Main Functions&#160;................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#13">3.6&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#13">Error&#160;Handling&#160;..................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14"><b>Integration&#160;...................................................................................................................&#160;14</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14">Scope of&#160;Delivery&#160;.............................................................................................&#160;14&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14">Static Files&#160;.......................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14">Dynamic&#160;Files&#160;..................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#15">4.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#15">Include Structure&#160;..............................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#15">4.3&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#15">Make&#160;................................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#16">4.4&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#16">Critical&#160;Sections&#160;...............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#16">4.5&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#16">Invocation&#160;of&#160;Protect&#160;and&#160;Check&#160;service&#160;..........................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#17"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#17"><b>API&#160;Description&#160;...........................................................................................................&#160;17</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#17">Type&#160;Definitions&#160;...............................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#18">5.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#18">Services provided by&#160;E2E&#160;................................................................................&#160;18&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#18">E2E_PXXProtect&#160;..............................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#19">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#19">E2E_PXXProtectInit&#160;.........................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#20">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#20">E2E_PXXCheck&#160;...............................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#20">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#20">E2E_PXXCheckInit&#160;..........................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">E2E_PXXMapStatusToSM&#160;...............................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">E2E_SMCheck&#160;.................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#22">5.2.7&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#22">E2E_SMCheckInit&#160;............................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">5.3&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">Services used by&#160;E2E&#160;......................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">5.4&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">Callback&#160;Functions&#160;...........................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">5.5&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">Configurable Interfaces&#160;....................................................................................&#160;23&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<a href="TechnicalReference_E2Es.html#24"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#24"><b>Configuration&#160;..............................................................................................................&#160;24</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;25</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">Glossary&#160;..........................................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">7.2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">Abbreviations&#160;...................................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#26"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#26"><b>Contact&#160;........................................................................................................................&#160;26</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_E2Es.html#8">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#8">AUTOSAR&#160;4.2&#160;Architecture&#160;Overview&#160;.........................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#9">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#9">Interfaces&#160;to adjacent&#160;modules of&#160;E2E&#160;component&#160;.....................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#13">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#13">E2E&#160;State&#160;Machine&#160;...................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#15">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#15">Include structure&#160;containing&#160;all&#160;possible E2E&#160;profiles&#160;................................&#160;15&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_E2Es.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#10">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">Provided E2E&#160;protection&#160;mechanisms&#160;......................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#12">Detected&#160;communication&#160;faults&#160;.................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#14">Static&#160;files&#160;.................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#16">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#16">Example for&#160;setting&#160;E2E&#160;Profile 1&#160;in E2E_cfg.mak&#160;....................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#18">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#18">Type&#160;definitions&#160;.........................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#19">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#19">E2E_PXXProtect&#160;......................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#19">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#19">E2E_PXXProtectInit&#160;..................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#20">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#20">E2E_PXXCheck&#160;.......................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">E2E_PXXCheckInit&#160;...................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#21">E2E_PXXMapStatusToSM&#160;........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#22">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#22">E2E_SMCheck&#160;.........................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#22">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#22">E2E_SMCheck&#160;.........................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#23">Services used by&#160;the&#160;E2E&#160;.........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">Glossary&#160;...................................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#25">Abbreviations&#160;............................................................................................&#160;25&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+Initial&#160;creation&#160;of&#160;E2E&#160;Library&#160;documentation&#160;summarizing&#160;all&#160;supported&#160;<br/>E2E&#160;profiles.&#160;<br/>
+1.01.00&#160;<br/>
+Documentation&#160;was updated&#160;according&#160;to additional&#160;E2E&#160;profile&#160;for&#160;JLR&#160;<br/>
+1.02.00&#160;<br/>
+Documentation&#160;was updated&#160;according&#160;to additional&#160;E2E&#160;profile 7&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;document&#160;describes&#160;the&#160;functionality&#160;and&#160;API&#160;of&#160;the&#160;AUTOSAR&#160;BSW&#160;module&#160;E2E&#160;as&#160;<br/>specified&#160;i<a href="TechnicalReference_E2Es.html#2">n&#160;[1].&#160;</a>&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_E2Es.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+-&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+E2E_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+E2E_MODULE_ID &#160;&#160;<br/>
+207&#160;decimal&#160;<br/>(according&#160;to ref<a href="TechnicalReference_E2Es.html#2">.&#160;[3])</a>&#160;<br/>
+*&#160;For the detailed functional&#160;specification please also refer to the corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>E2E&#160;&#160;Library&#160;&#160;provides&#160;&#160;mechanisms&#160;&#160;to&#160;&#160;protect&#160;&#160;safety-related&#160;&#160;data&#160;&#160;exchange&#160;&#160;at&#160;&#160;runtime&#160;<br/>against&#160;the&#160;effects&#160;of&#160;faults within&#160;the&#160;communication&#160;link.&#160;<br/>To&#160;&#160;provide&#160;&#160;appropriate&#160;&#160;solution&#160;&#160;addressing&#160;&#160;flexibility&#160;&#160;and&#160;&#160;standardization,&#160;&#160;AUTOSAR&#160;<br/>specifies&#160;&#160;a&#160;&#160;set&#160;&#160;of&#160;&#160;flexible&#160;&#160;E2E&#160;&#160;profiles&#160;&#160;that&#160;&#160;implement&#160;&#160;a&#160;&#160;combination&#160;&#160;of&#160;&#160;E2E&#160;&#160;protection&#160;<br/>mechanisms,&#160;&#160;i.e.&#160;&#160;Profile&#160;&#160;1,&#160;&#160;2,&#160;&#160;4,&#160;&#160;5,&#160;&#160;6&#160;&#160;and&#160;&#160;7.&#160;&#160;Additionally,&#160;&#160;an&#160;&#160;E2E&#160;&#160;profile&#160;&#160;for&#160;&#160;JLR&#160;&#160;is&#160;<br/>supported,&#160;which&#160;is&#160;based&#160;on&#160;AUTOSAR&#160;Profile&#160;1.Each&#160;specified&#160;E2E&#160;profile&#160;has&#160;a&#160;fixed&#160;<br/>behavior,&#160;but&#160;it&#160;has&#160;some&#160;configuration&#160;options&#160;by&#160;function&#160;parameters&#160;(e.g.&#160;the&#160;location&#160;of&#160;<br/>the&#160;CRC&#160;in&#160;relation&#160;to&#160;the&#160;data,&#160;which&#160;are&#160;to&#160;be&#160;protected).&#160;This&#160;document&#160;illustrates&#160;the&#160;<br/>functional&#160;principle&#160;of&#160;E2E&#160;without&#160;&#160;getting&#160;&#160;too&#160;&#160;deep&#160;&#160;into&#160;&#160;details&#160;&#160;about&#160;any&#160;&#160;particular&#160;E2E&#160;<br/>profile.&#160;&#160;For&#160;&#160;information&#160;&#160;about&#160;&#160;the&#160;&#160;used&#160;&#160;E2E&#160;&#160;profile&#160;&#160;(e.g.&#160;&#160;data&#160;&#160;layout,&#160;&#160;CRC&#160;&#160;computation),&#160;<br/>refer to<a href="TechnicalReference_E2Es.html#2">&#160;[1]&#160;</a>and<a href="TechnicalReference_E2Es.html#2">&#160;[2].</a>&#160;<br/>The&#160;E2E&#160;protection&#160;allows the&#160;following:&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;protects&#160;the&#160;safety-related&#160;data&#160;elements&#160;to&#160;be&#160;sent&#160;over the&#160;RTE&#160;by&#160;attaching&#160;<br/>
+control data&#160;(E2E&#160;Header)&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;verifies&#160;the&#160;safety-related&#160;data&#160;elements&#160;received&#160;from&#160;the&#160;RTE&#160;using&#160;the&#160;control&#160;<br/>
+data&#160;(E2E&#160;Header)&#160;<br/>
+<b>&gt;&#160;&#160;</b>It&#160;indicates that&#160;received&#160;safety-related&#160;data&#160;elements&#160;are&#160;faulty,&#160;so&#160;that&#160;the&#160;caller of&#160;<br/>
+E2E&#160;library&#160;can&#160;respond&#160;in&#160;a&#160;proper way&#160;<br/>
+E2E&#160;Library&#160;provides a&#160;state&#160;machine&#160;to&#160;signalize&#160;the&#160;state&#160;of&#160;communication&#160;link&#160;over&#160;<br/>several message&#160;cycles.&#160;<br/>
+The&#160;E2E&#160;Profile&#160;check-functions verify&#160;data&#160;in&#160;one&#160;cycle.&#160;In&#160;contrary,&#160;the&#160;state&#160;machine&#160;<br/>builds up&#160;a&#160;state&#160;out&#160;of&#160;several results of&#160;check-functions&#160;within&#160;a&#160;reception&#160;window,&#160;which&#160;<br/>is then&#160;provided&#160;to&#160;the&#160;consumer (RTE/SWC/COM).&#160;<br/>
+E2E&#160;State&#160;Machine&#160;should&#160;be&#160;interpreted&#160;more like&#160;an&#160;aggregator of&#160;several check-results&#160;<br/>than&#160;as&#160;a&#160;real state&#160;machine.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;E2E&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.2&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;E2E.&#160;These&#160;interfaces&#160;are&#160;<br/>described&#160;in&#160;chapte<a href="TechnicalReference_E2Es.html#17">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;composite&#160;structure&#160;Interfaces</b><br/>
+<b>SW-C&#160;/&#160;RTE&#160;/&#160;E2E&#160;Transformer&#160;/&#160;E2E&#160;Protection&#160;Wrapper</b><br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+2<br/>
+2<br/>
+2<br/>
+2<br/>
+2<br/>
+2<br/>
+2<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+E<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+_<br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+P<br/>
+S<br/>
+S<br/>
+X<br/>
+X<br/>
+X<br/>
+X<br/>
+X<br/>
+M<br/>
+M<br/>
+X<br/>
+X<br/>
+X<br/>
+X<br/>
+X<br/>
+C<br/>
+C<br/>
+P<br/>
+P<br/>
+C<br/>
+C<br/>
+M<br/>
+h<br/>
+h<br/>
+r<br/>
+r<br/>
+h<br/>
+h<br/>
+o<br/>
+<b>E2E</b><br/>
+a<br/>
+e<br/>
+e<br/>
+o<br/>
+e<br/>
+e<br/>
+t<br/>
+p<br/>
+ck<br/>
+ck<br/>
+t<br/>
+e<br/>
+e<br/>
+ck<br/>
+ck<br/>
+S<br/>
+ct<br/>
+I<br/>
+ct<br/>
+I<br/>
+t<br/>
+n<br/>
+I<br/>
+n<br/>
+a<br/>
+i<br/>
+n<br/>
+i<br/>
+t<br/>
+t<br/>
+t<br/>
+u<br/>
+it<br/>
+sT<br/>o<br/>S<br/>M<br/>
+C<br/>
+C<br/>
+C<br/>
+C<br/>
+C<br/>
+rc_<br/>
+rc_<br/>
+rc_<br/>
+rc_<br/>
+rc_<br/>
+C<br/>
+C<br/>
+C<br/>
+C<br/>
+C<br/>
+a<br/>
+a<br/>
+a<br/>
+a<br/>
+a<br/>
+lcu<br/>
+lcu<br/>
+lcu<br/>
+lcu<br/>
+lcu<br/>
+la<br/>
+la<br/>
+la<br/>
+la<br/>
+la<br/>
+te<br/>
+te<br/>
+te<br/>
+te<br/>
+te<br/>
+C<br/>
+C<br/>
+<b>Crc</b><br/>
+C<br/>
+C<br/>
+C<br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+R<br/>
+C<br/>
+C<br/>
+C<br/>
+C<br/>
+C<br/>
+6<br/>
+3<br/>
+1<br/>
+8<br/>
+8<br/>
+4<br/>
+2<br/>
+6<br/>
+H<br/>
+P<br/>
+2<br/>
+4<br/>
+F<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;E2E&#160;component<b>&#160;</b><br/>
+<b>PXX</b>&#160;&#160;is&#160;&#160;used&#160;&#160;as&#160;&#160;placeholder&#160;&#160;for&#160;&#160;services,&#160;&#160;which&#160;&#160;are&#160;&#160;implemented&#160;&#160;in&#160;&#160;each&#160;&#160;Profile.&#160;&#160;For&#160;<br/>example&#160;&#160;E2E_<b>PXX</b>Protect()&#160;&#160;develops&#160;&#160;to&#160;&#160;the&#160;&#160;following&#160;&#160;six&#160;&#160;E2E_<b>P01</b>Protect(),&#160;<br/>E2E_<b>P02</b>Protect(),&#160;<br/>
+E2E_<b>P04</b>Protect(),&#160;<br/>
+E2E_<b>P05</b>Protect(),&#160;<br/>
+E2E_<b>P06</b>Protect(),&#160;<br/>
+E2E_<b>P07</b>Protect()&#160;and&#160;E2E_<b>PJLR</b>Protect().&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>E2E.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_E2Es.html#2">&#160;&#160;[1],</a>&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_E2Es.html#10">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+Vector Informatik provides&#160;further E2E&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR standard.&#160;The&#160;<br/>corresponding&#160;features&#160;are listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_E2Es.html#10">Table&#160;3-2&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR standard&#160;</a><br/>
+The&#160;following&#160;features&#160;specified&#160;<a href="TechnicalReference_E2Es.html#2">in&#160;[1]&#160;</a>are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>E2E&#160;Protection&#160;mechanisms&#160;via Profile&#160;1,&#160;2,&#160;4,&#160;5,&#160;6&#160;and&#160;7&#160;<br/>State&#160;machine&#160;for&#160;communication status&#160;within reception window&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided Beyond the&#160;AUTOSAR&#160;Standard&#160;<br/></b>E2E&#160;Protection&#160;mechanism&#160;via Profile&#160;JLR&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>E2E&#160;Communication&#160;Protection&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;an&#160;overview&#160;over&#160;E2E&#160;communication&#160;protection&#160;and&#160;provides&#160;a&#160;short&#160;<br/>summary&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;architecture&#160;&#160;for&#160;&#160;E2E&#160;&#160;communication&#160;&#160;protection.&#160;&#160;Please&#160;&#160;note&#160;<br/>that&#160;this&#160;chapter&#160;is&#160;not&#160;intended&#160;to&#160;provide&#160;a&#160;full&#160;description&#160;(or&#160;even&#160;a&#160;specification)&#160;of&#160;the&#160;<br/>AUTOSAR architecture&#160;for E2E&#160;communication&#160;protection.&#160;&#160;<br/>
+<b>3.2.1&#160;</b><br/>
+<b>Communication Faults&#160;</b><br/>
+To&#160;&#160;ensure&#160;&#160;freedom&#160;&#160;from&#160;&#160;interference&#160;&#160;by&#160;&#160;software&#160;&#160;partitioning,&#160;&#160;ISO&#160;&#160;26262&#160;&#160;takes&#160;&#160;the&#160;<br/>following&#160;faults into&#160;account:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Loss of&#160;peer-to-peer communication&#160;<br/>
+<b>&gt;&#160;&#160;</b>Unintended&#160;message&#160;repetition&#160;due&#160;to&#160;the&#160;same&#160;message&#160;being&#160;sent&#160;again&#160;<br/>
+unintentionally&#160;<br/>
+<b>&gt;&#160;&#160;</b>Message&#160;loss during&#160;transmission&#160;<br/>
+<b>&gt;&#160;&#160;</b>Insertion&#160;of&#160;messages&#160;due&#160;to&#160;receiver unintentionally&#160;receiving&#160;an&#160;additional&#160;message,&#160;<br/>
+which&#160;is interpreted&#160;to&#160;have&#160;correct&#160;source&#160;and&#160;destination&#160;addresses&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>&gt;&#160;&#160;</b>Re-sequencing&#160;due&#160;to&#160;the&#160;order of&#160;data&#160;being&#160;changed&#160;during&#160;transmission,&#160;i.e.,&#160;the&#160;<br/>
+data&#160;is not&#160;received&#160;in&#160;the&#160;same&#160;order as&#160;it was sent&#160;<br/>
+<b>&gt;&#160;&#160;</b>Message&#160;corruption&#160;due&#160;to&#160;one&#160;or&#160;more&#160;data&#160;bits in&#160;the&#160;message&#160;begin&#160;changed&#160;<br/>
+during&#160;transmission&#160;<br/>
+<b>&gt;&#160;&#160;</b>Message&#160;delay&#160;due&#160;to&#160;the&#160;message&#160;being&#160;received&#160;correctly,&#160;but&#160;not&#160;in&#160;time&#160;<br/>
+<b>&gt;&#160;&#160;</b>Blocking&#160;access to&#160;the&#160;data&#160;bus&#160;due&#160;to&#160;a&#160;faulty&#160;node&#160;not&#160;adhering&#160;to&#160;the&#160;expected&#160;<br/>
+patterns&#160;of&#160;use&#160;and&#160;making&#160;excessive&#160;demands&#160;for service,&#160;thereby&#160;reducing&#160;its&#160;<br/>availability&#160;to&#160;other nodes,&#160;e.g.&#160;while&#160;wrongly&#160;waiting&#160;for non-existent&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Constant&#160;transmission&#160;of&#160;messages&#160;by&#160;a&#160;faulty&#160;node,&#160;thereby&#160;compromising&#160;the&#160;<br/>
+operation&#160;of&#160;the&#160;entire&#160;bus&#160;<br/>
+These&#160;communication&#160;faults&#160;may&#160;arise&#160;due&#160;to&#160;(systematic) software&#160;faults,&#160;(random)&#160;<br/>hardware&#160;faults&#160;and&#160;transient&#160;faults&#160;caused&#160;by&#160;external influences.&#160;<br/>
+&#160;<br/>
+<b>3.2.2&#160;</b><br/>
+<b>Fault Model&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;communication&#160;&#160;faults&#160;&#160;can&#160;&#160;be&#160;&#160;addressed&#160;&#160;by&#160;&#160;the&#160;&#160;E2E&#160;&#160;communication&#160;<br/>protection:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Repetition:&#160;The&#160;same&#160;message&#160;is received&#160;more&#160;than&#160;once&#160;<br/>
+<b>&gt;&#160;&#160;</b>Deletion:&#160;The&#160;message&#160;or parts of&#160;it have&#160;been&#160;removed&#160;from&#160;the&#160;communication&#160;<br/>
+stream&#160;<br/>
+<b>&gt;&#160;&#160;</b>Insertion:&#160;An&#160;additional&#160;message&#160;or parts of&#160;it&#160;have&#160;been&#160;inserted&#160;into&#160;the&#160;<br/>
+communication&#160;stream&#160;<br/>
+<b>&gt;&#160;&#160;</b>Incorrect&#160;sequence:&#160;Messages of&#160;a&#160;communication&#160;stream&#160;are&#160;received&#160;in&#160;an&#160;incorrect&#160;<br/>
+order&#160;<br/>
+<b>&gt;&#160;&#160;</b>Corruption:&#160;A&#160;message&#160;or parts&#160;of&#160;it&#160;are&#160;modified&#160;<br/>
+<b>&gt;&#160;&#160;</b>Timing&#160;faults (delay):&#160;The&#160;timing&#160;constraints&#160;of&#160;a&#160;message&#160;are violated&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addressing&#160;faults:&#160;A&#160;message&#160;is sent&#160;to&#160;the&#160;wrong&#160;destination&#160;<br/>
+<b>&gt;&#160;&#160;</b>Inconsistency:&#160;Communicating&#160;nodes&#160;have&#160;different&#160;views of&#160;the&#160;network status of&#160;<br/>
+data&#160;being&#160;transferred&#160;<br/>
+<b>&gt;&#160;&#160;</b>Masquerading:&#160;The&#160;design&#160;of&#160;a&#160;received&#160;message&#160;with&#160;non-authentic content&#160;appears&#160;<br/>
+authentic,&#160;as if&#160;sent&#160;by&#160;the&#160;correct&#160;sender&#160;<br/>
+The&#160;specific&#160;features&#160;of&#160;the&#160;E2E&#160;communication&#160;protection&#160;depend&#160;on&#160;the&#160;implementation&#160;<br/>of&#160;the&#160;protection&#160;mechanisms.&#160;&#160;<br/>
+<b>3.2.3&#160;</b><br/>
+<b>Protection mechanisms&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;mechanisms&#160;&#160;are&#160;&#160;provided&#160;&#160;by&#160;&#160;E2E&#160;&#160;profiles.&#160;&#160;Note&#160;&#160;that&#160;&#160;combination&#160;&#160;and&#160;<br/>implementation&#160;of&#160;protection&#160;mechanisms&#160;differ&#160;in&#160;each&#160;E2E&#160;Profile.<a href="TechnicalReference_E2Es.html#12">&#160;Table&#160;3-3&#160;</a>summarizes&#160;<br/>the&#160;&#160;possible&#160;&#160;mechanisms.&#160;&#160;For&#160;&#160;details&#160;&#160;about&#160;&#160;the&#160;&#160;protection&#160;&#160;mechanisms&#160;&#160;in&#160;&#160;any&#160;&#160;specific&#160;<br/>E2E&#160;Profile,&#160;refer to<a href="TechnicalReference_E2Es.html#2">&#160;[1].</a>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>E2E&#160;Mechanism&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Counter&#160;<br/>
+Representing&#160;sequence&#160;number,&#160;which is incremented&#160;on&#160;every&#160;send&#160;<br/>request.&#160;Counter&#160;is&#160;either&#160;transmitted&#160;implicitly&#160;by including&#160;in&#160;the&#160;<br/>CRC&#160;calculation or&#160;it&#160;is&#160;transmitted&#160;explicitly&#160;as well&#160;as covered&#160;by&#160;<br/>CRC&#160;calculation.&#160;<br/>
+Timeout&#160;monitoring&#160;<br/>
+Timeout&#160;is&#160;determined by&#160;E2E&#160;Library&#160;by&#160;means&#160;of&#160;evaluation&#160;of&#160;the&#160;<br/>Counter,&#160;by&#160;a&#160;non-blocking&#160;read&#160;at&#160;the&#160;receiver.&#160;Timeout&#160;is&#160;reported&#160;<br/>by&#160;E2E&#160;Library&#160;to&#160;the&#160;caller&#160;by&#160;means&#160;of&#160;the&#160;status&#160;flags&#160;in&#160;<br/>E2E_PXXCheckStatusType.&#160;<br/>
+Data&#160;ID&#160;<br/>
+Unique&#160;number&#160;which is transmitted&#160;either&#160;implicitly&#160;(only&#160;included&#160;in&#160;<br/>CRC&#160;computation)&#160;or&#160;explicitly&#160;and covered&#160;by&#160;CRC&#160;calculation.&#160;<br/>
+Length&#160;<br/>
+Length of&#160;data being transmitted&#160;is&#160;sent&#160;explicitly&#160;by&#160;some&#160;E2E&#160;<br/>profiles.&#160;<br/>
+CRC&#160;<br/>
+The&#160;CRC&#160;routines&#160;are&#160;provided by&#160;CRC&#160;library.&#160;Entire&#160;E2E&#160;Header&#160;<br/>and data&#160;to&#160;be&#160;transmitted is included&#160;in CRC&#160;calculation.&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Provided&#160;E2E&#160;protection&#160;mechanisms&#160;<br/>
+<b>3.2.4&#160;</b><br/>
+<b>Detected Communication Faults&#160;</b><br/>
+The&#160;E2E&#160;mechanisms&#160;can&#160;detect&#160;the&#160;following&#160;faults or effects&#160;of&#160;faults:&#160;<br/>
+<b>E2E&#160;Mechanism&#160;</b><br/>
+<b>Detected&#160;communication&#160;faults&#160;</b><br/>
+Counter&#160;<br/>
+Repetition,&#160;Loss,&#160;Insertion,&#160;Incorrect&#160;sequence,&#160;Blocking&#160;<br/>
+Transmission&#160;on&#160;a&#160;regular&#160;basis&#160;and&#160;<br/>
+Loss,&#160;Delay,&#160;Blocking&#160;<br/>
+timeout&#160;monitoring&#160;using&#160;E2E-Library&#160;<br/>Data&#160;ID&#160;+&#160;CRC&#160;<br/>
+Masquerade and incorrect&#160;addressing,&#160;Insertion&#160;<br/>
+CRC&#160;<br/>
+Corruption,&#160;Asymmetric&#160;information&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Detected&#160;communication&#160;faults&#160;<br/>
+&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+The&#160;&#160;caller&#160;&#160;of&#160;&#160;E2E&#160;&#160;Library&#160;&#160;has&#160;&#160;to&#160;&#160;provide&#160;&#160;configuration&#160;&#160;parameters&#160;&#160;according&#160;&#160;to&#160;&#160;type&#160;<br/>definitions,&#160;which&#160;are&#160;defined&#160;in&#160;section<a href="TechnicalReference_E2Es.html#17">&#160;5.1.&#160;</a>E2E&#160;Protection&#160;and&#160;check&#160;services&#160;do&#160;require&#160;<br/>state&#160;&#160;parameters&#160;&#160;which&#160;&#160;are&#160;&#160;to&#160;&#160;be&#160;&#160;initialized&#160;&#160;before&#160;&#160;first&#160;&#160;protect/check&#160;&#160;cycle.&#160;&#160;The&#160;&#160;state&#160;<br/>machine&#160;&#160;also&#160;&#160;requests&#160;&#160;a&#160;&#160;state&#160;&#160;parameter&#160;&#160;which&#160;&#160;requires&#160;&#160;initialization.&#160;&#160;Therefore&#160;&#160;E2E&#160;<br/>provides&#160;&#160;several&#160;&#160;initialization&#160;&#160;services,&#160;&#160;which&#160;&#160;are&#160;&#160;responsible&#160;&#160;for&#160;&#160;resetting&#160;&#160;state&#160;<br/>parameters.&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_PXXProtectInit&#160;has to&#160;be&#160;called&#160;before&#160;first&#160;protection&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_PXXCheckInit has to&#160;be&#160;called&#160;before&#160;first&#160;check&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_SMCheckInit&#160;has&#160;to&#160;be&#160;called&#160;to&#160;initialized&#160;the&#160;state&#160;machine&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>States&#160;</b><br/>
+E2E&#160;state&#160;machine&#160;indicates the&#160;communication&#160;status&#160;over several protect/check cycles.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+According&#160;&#160;to&#160;&#160;state&#160;&#160;machine&#160;&#160;configuration&#160;&#160;which&#160;&#160;is&#160;&#160;passed&#160;&#160;to&#160;&#160;E2E_SMCheck&#160;&#160;service&#160;&#160;via&#160;<br/>input&#160;&#160;parameter,&#160;&#160;communication&#160;&#160;link&#160;&#160;is&#160;&#160;trustworthy&#160;&#160;as&#160;&#160;long&#160;&#160;as&#160;&#160;state&#160;&#160;machine&#160;&#160;is&#160;&#160;in&#160;&#160;state&#160;<br/>E2E_SM_VALID.&#160;Received&#160;data&#160;is&#160;ok to&#160;use&#160;then.&#160;<br/>
+<b>&#160;stm&#160;State&#160;Machine</b><br/>
+<b>E2E_SM_VALID</b><br/>
+[NOT&#160;(too&#160;many&#160;ERRORs&#160;or&#160;too&#160;few&#160;OKs)]<br/>
+<b>E2E_SM_NODATA</b><br/>
+<b>E2E_SM_INIT</b><br/>
+[E2E_SMCheckInit()]<br/>
+[too&#160;many&#160;ERRORs&#160;or<br/>
+[1st&#160;Data&#160;with&#160;no&#160;ERROR]<br/>
+too&#160;few&#160;OKs]<br/>
+E2E_SM_DEINIT<br/>
+[NOT&#160;(too&#160;many&#160;ERRORs&#160;or<br/>too&#160;few&#160;OKs)]<br/>
+[too&#160;many&#160;ERRORs]<br/>
+<b>E2E_SM_INVALID</b><br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;E2E&#160;State&#160;Machine&#160;<br/>
+E2E&#160;Profile&#160;services&#160;are stateless.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+E2E&#160;does&#160;not&#160;contain&#160;any&#160;scheduled&#160;services such&#160;as&#160;a&#160;main&#160;function.&#160;<br/>
+&#160;<br/>
+<b>3.6&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+E2E&#160;&#160;does&#160;&#160;not&#160;&#160;support&#160;&#160;error&#160;&#160;reporting&#160;&#160;via&#160;&#160;DET&#160;&#160;or&#160;&#160;DEM&#160;&#160;modules.&#160;&#160;Errors&#160;&#160;are&#160;&#160;reported&#160;<br/>synchronously&#160;upon&#160;call&#160;of&#160;services&#160;via&#160;return values and&#160;status within&#160;state&#160;parameters.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This chapter gives necessary&#160;information&#160;for the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;E2E&#160;into&#160;an&#160;<br/>application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;&#160;the&#160;&#160;E2E&#160;&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_E2Es.html#14">rs&#160;&#160;4.1.1&#160;&#160;</a>and&#160;<br/><a href="TechnicalReference_E2Es.html#14">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+E2E.c&#160;<br/>
+This&#160;is&#160;the&#160;common&#160;source&#160;file of&#160;E2E&#160;Library.&#160;<br/>
+E2E.h&#160;<br/>
+This&#160;is&#160;the&#160;common&#160;header&#160;file of&#160;E2E&#160;Library.&#160;<br/>
+E2E_PXX.c&#160;<br/>
+This&#160;is&#160;the&#160;specific&#160;source&#160;file&#160;for&#160;E2E&#160;Profile PXX.&#160;<br/>
+E2E_PXX.h&#160;<br/>
+This&#160;is&#160;the&#160;specific&#160;header&#160;file&#160;for&#160;E2E&#160;Profile PXX.&#160;<br/>
+E2E_SM.c&#160;<br/>
+This&#160;is&#160;the&#160;source&#160;file&#160;for&#160;E2E&#160;State&#160;Machine.&#160;<br/>
+E2E_SM.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file&#160;for&#160;E2E&#160;State Machine.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+PXX&#160;&#160;is&#160;&#160;a&#160;&#160;placeholder&#160;&#160;for&#160;&#160;all&#160;&#160;supported&#160;&#160;profiles.&#160;&#160;Upon&#160;&#160;delivery&#160;&#160;of&#160;&#160;E2E&#160;&#160;Library&#160;&#160;only&#160;&#160;one&#160;<br/>particular profile&#160;is supported.&#160;&#160;<br/>It&#160;is&#160;important&#160;to&#160;note&#160;that&#160;only&#160;the&#160;header&#160;file&#160;E2E_PXX.h&#160;has&#160;to&#160;be&#160;included&#160;to&#160;the&#160;caller&#160;<br/>of&#160;E2E&#160;Library.&#160;See&#160;chapte<a href="TechnicalReference_E2Es.html#15">r&#160;4.2&#160;</a>for include&#160;structure&#160;of&#160;E2E&#160;Library.&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+E2E&#160;Library&#160;does not&#160;contain&#160;any&#160;generated&#160;files.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Include&#160;Structure&#160;</b><br/>
+&#160;<br/>
+<b>&#160;class&#160;IncludeStructure</b><br/>
+Source<br/>
+Header<br/>
+IncContainer<br/>
+Static<br/>
+E2E_P01.c<br/>
+E2E_P01.h<br/>
+«include»<br/>
+E2E_MemMap.inc<br/>
+E2E_P02.c<br/>
+E2E_P02.h<br/>
+Crc.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+E2E_Compiler_Cfg.inc<br/>
+E2E_P04.c<br/>
+E2E_P04.h<br/>
+E2E.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+Std_Types.h<br/>
+E2E_P05.c<br/>
+E2E_P05.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+E2E_P06.c<br/>
+E2E_P06.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+E2E_P07.c<br/>
+E2E_P07.h<br/>
+«include»<br/>
+«include»<br/>
+E2E_PJLR.c<br/>
+E2E_PJLR.h<br/>
+«include»<br/>
+E2E_SM.c<br/>
+E2E_SM.h<br/>
+«include»<br/>
+E2E.c<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Include&#160;structure&#160;containing&#160;all&#160;possible&#160;E2E&#160;profiles&#160;<br/>
+According&#160;to<a href="TechnicalReference_E2Es.html#15">&#160;Figure&#160;4-1&#160;Include&#160;structure&#160;containing&#160;all&#160;possible&#160;E2E&#160;profiles&#160;</a>it&#160;is&#160;sufficient&#160;<br/>to&#160;&#160;include&#160;&#160;the&#160;&#160;E2E_PXX.h&#160;&#160;header&#160;&#160;file,&#160;&#160;e.g.&#160;&#160;E2E_P01.h&#160;&#160;if&#160;&#160;E2E&#160;&#160;Profile&#160;&#160;1&#160;&#160;is&#160;&#160;used&#160;&#160;and&#160;&#160;to&#160;<br/>include&#160;E2E_SM.h&#160;if&#160;the&#160;state&#160;machine&#160;is&#160;used.&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Make&#160;</b><br/>
+The&#160;content&#160;of&#160;make&#160;sub-package&#160;has&#160;to&#160;be&#160;adapted&#160;according&#160;to&#160;the&#160;E2E&#160;Profile,&#160;which&#160;<br/>is&#160;used&#160;in&#160;a&#160;delivery.&#160;Therefore&#160;set&#160;parameter&#160;E2E_USE_PROFILEX&#160;to&#160;1&#160;in&#160;E2E_cfg.mak&#160;<br/>file.&#160;For example,&#160;if&#160;E2E&#160;Profile&#160;1&#160;is used:&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Setting&#160;Profile 1&#160;in&#160;E2E_cfg.mak&#160;<br/></b>###############################################################&#160;<br/>#&#160;Use&#160;PROFIL1&#160;<br/>#&#160;<br/>#&#160;Possible&#160;Values:&#160;<br/>#&#160;0&#160;-&#160;No&#160;PROFIL1&#160;used&#160;<br/>#&#160;1&#160;-&#160;PROFIL1&#160;used&#160;<br/>###############################################################&#160;<br/>E2E_USE_PROFIL1 = 1&#160;<br/>
+&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Example&#160;for&#160;setting&#160;E2E&#160;Profile&#160;1&#160;in&#160;E2E_cfg.mak&#160;<br/>
+&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Critical&#160;Sections&#160;&#160;&#160;</b><br/>
+E2E&#160;Library&#160;does not&#160;contain&#160;critical sections.&#160;<br/>
+&#160;<br/>
+<b>4.5&#160;</b><br/>
+<b>Invocation of&#160;Protect&#160;and Check&#160;service&#160;</b><br/>
+&#160;<br/><b>&gt;&#160;&#160;</b>The&#160;service&#160;to&#160;protect&#160;E2E_PXXProtect&#160;(e.g.&#160;E2E_P01Protect)&#160;shall&#160;be&#160;called&#160;<br/>
+exactly&#160;once&#160;before sending&#160;the&#160;data.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;service&#160;to&#160;check&#160;E2E_PXXCheck&#160;(e.g.&#160;E2E_P01Check) shall&#160;be&#160;called&#160;exactly&#160;<br/>
+once&#160;for reception&#160;of&#160;data.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For&#160;an&#160;interfaces&#160;overview&#160;please&#160;see&#160;<br/>
+<a href="TechnicalReference_E2Es.html#9"><b>&#160;composite&#160;structure&#160;Interfaces</b></a><br/>
+<a href="TechnicalReference_E2Es.html#9"><b>SW-C&#160;/&#160;RTE&#160;/&#160;E2E&#160;Transformer&#160;/&#160;E2E&#160;Protection&#160;Wrapper</b></a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">E</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">S</a><br/>
+<a href="TechnicalReference_E2Es.html#9">S</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">M</a><br/>
+<a href="TechnicalReference_E2Es.html#9">M</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">X</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">M</a><br/>
+<a href="TechnicalReference_E2Es.html#9">h</a><br/>
+<a href="TechnicalReference_E2Es.html#9">h</a><br/>
+<a href="TechnicalReference_E2Es.html#9">r</a><br/>
+<a href="TechnicalReference_E2Es.html#9">r</a><br/>
+<a href="TechnicalReference_E2Es.html#9">h</a><br/>
+<a href="TechnicalReference_E2Es.html#9">h</a><br/>
+<a href="TechnicalReference_E2Es.html#9">o</a><br/>
+<a href="TechnicalReference_E2Es.html#9"><b>E2E</b></a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">e</a><br/>
+<a href="TechnicalReference_E2Es.html#9">e</a><br/>
+<a href="TechnicalReference_E2Es.html#9">o</a><br/>
+<a href="TechnicalReference_E2Es.html#9">e</a><br/>
+<a href="TechnicalReference_E2Es.html#9">e</a><br/>
+<a href="TechnicalReference_E2Es.html#9">t</a><br/>
+<a href="TechnicalReference_E2Es.html#9">p</a><br/>
+<a href="TechnicalReference_E2Es.html#9">ck</a><br/>
+<a href="TechnicalReference_E2Es.html#9">ck</a><br/>
+<a href="TechnicalReference_E2Es.html#9">t</a><br/>
+<a href="TechnicalReference_E2Es.html#9">e</a><br/>
+<a href="TechnicalReference_E2Es.html#9">e</a><br/>
+<a href="TechnicalReference_E2Es.html#9">ck</a><br/>
+<a href="TechnicalReference_E2Es.html#9">ck</a><br/>
+<a href="TechnicalReference_E2Es.html#9">S</a><br/>
+<a href="TechnicalReference_E2Es.html#9">ct</a><br/>
+<a href="TechnicalReference_E2Es.html#9">I</a><br/>
+<a href="TechnicalReference_E2Es.html#9">ct</a><br/>
+<a href="TechnicalReference_E2Es.html#9">I</a><br/>
+<a href="TechnicalReference_E2Es.html#9">t</a><br/>
+<a href="TechnicalReference_E2Es.html#9">n</a><br/>
+<a href="TechnicalReference_E2Es.html#9">I</a><br/>
+<a href="TechnicalReference_E2Es.html#9">n</a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">i</a><br/>
+<a href="TechnicalReference_E2Es.html#9">n</a><br/>
+<a href="TechnicalReference_E2Es.html#9">i</a><br/>
+<a href="TechnicalReference_E2Es.html#9">t</a><br/>
+<a href="TechnicalReference_E2Es.html#9">t</a><br/>
+<a href="TechnicalReference_E2Es.html#9">t</a><br/>
+<a href="TechnicalReference_E2Es.html#9">u</a><br/>
+<a href="TechnicalReference_E2Es.html#9">it</a><br/>
+<a href="TechnicalReference_E2Es.html#9">sT<br/>o<br/>S<br/>M</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">rc_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">rc_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">rc_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">rc_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">rc_</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">a</a><br/>
+<a href="TechnicalReference_E2Es.html#9">lcu</a><br/>
+<a href="TechnicalReference_E2Es.html#9">lcu</a><br/>
+<a href="TechnicalReference_E2Es.html#9">lcu</a><br/>
+<a href="TechnicalReference_E2Es.html#9">lcu</a><br/>
+<a href="TechnicalReference_E2Es.html#9">lcu</a><br/>
+<a href="TechnicalReference_E2Es.html#9">la</a><br/>
+<a href="TechnicalReference_E2Es.html#9">la</a><br/>
+<a href="TechnicalReference_E2Es.html#9">la</a><br/>
+<a href="TechnicalReference_E2Es.html#9">la</a><br/>
+<a href="TechnicalReference_E2Es.html#9">la</a><br/>
+<a href="TechnicalReference_E2Es.html#9">te</a><br/>
+<a href="TechnicalReference_E2Es.html#9">te</a><br/>
+<a href="TechnicalReference_E2Es.html#9">te</a><br/>
+<a href="TechnicalReference_E2Es.html#9">te</a><br/>
+<a href="TechnicalReference_E2Es.html#9">te</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9"><b>Crc</b></a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">R</a><br/>
+<a href="TechnicalReference_E2Es.html#9">R</a><br/>
+<a href="TechnicalReference_E2Es.html#9">R</a><br/>
+<a href="TechnicalReference_E2Es.html#9">R</a><br/>
+<a href="TechnicalReference_E2Es.html#9">R</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">C</a><br/>
+<a href="TechnicalReference_E2Es.html#9">6</a><br/>
+<a href="TechnicalReference_E2Es.html#9">3</a><br/>
+<a href="TechnicalReference_E2Es.html#9">1</a><br/>
+<a href="TechnicalReference_E2Es.html#9">8</a><br/>
+<a href="TechnicalReference_E2Es.html#9">8</a><br/>
+<a href="TechnicalReference_E2Es.html#9">4</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">6</a><br/>
+<a href="TechnicalReference_E2Es.html#9">H</a><br/>
+<a href="TechnicalReference_E2Es.html#9">P</a><br/>
+<a href="TechnicalReference_E2Es.html#9">2</a><br/>
+<a href="TechnicalReference_E2Es.html#9">4</a><br/>
+<a href="TechnicalReference_E2Es.html#9">F</a><br/>
+<a href="TechnicalReference_E2Es.html#9">&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#9">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_E2Es.html#9">Interfaces to&#160;adjacent&#160;modules&#160;of&#160;E2E&#160;component.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;&#160;types&#160;&#160;defined&#160;&#160;by&#160;&#160;the&#160;&#160;E2E&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;this&#160;&#160;chapter.&#160;&#160;Content&#160;&#160;of&#160;&#160;structure&#160;&#160;types&#160;<br/>varies from profile&#160;to&#160;profile.&#160;Hence,&#160;profile&#160;types are&#160;described&#160;in&#160;general.&#160;&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+E2E_PXXConfigType&#160;<br/>
+Structure&#160;<br/>
+Configuration of&#160;transmitted&#160;data.&#160;In&#160;detail,&#160;configuration&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;</b><br/>
+<b>Description&#160;<br/></b>of&#160;E2E&#160;Header&#160;including&#160;protection&#160;mechanisms,&#160;which&#160;<br/>are&#160;transmitted&#160;explicitly.&#160;For&#160;each&#160;transmitted&#160;data,&#160;<br/>there&#160;is&#160;an&#160;instance&#160;of&#160;this&#160;structure.&#160;<br/>
+E2E_PXXProtectState&#160;Structure&#160;<br/>
+State&#160;of&#160;the&#160;sender&#160;for&#160;a&#160;data&#160;protected&#160;with E2E&#160;Profile&#160;<br/>
+Type&#160;<br/>
+X.&#160;In&#160;all&#160;E2E&#160;profiles&#160;the&#160;Counter&#160;is&#160;contained&#160;in&#160;<br/>ProtectState structure.&#160;<br/>
+E2E_PXXCheckStateT&#160;Structure&#160;<br/>
+State&#160;of&#160;the&#160;receiver&#160;for&#160;single&#160;data protected&#160;with&#160;E2E&#160;<br/>
+ype&#160;<br/>
+Profile&#160;X.&#160;<br/>
+E2E_PXXCheckStatus&#160;Enumeration&#160;<br/>
+Status&#160;of&#160;the&#160;receiver&#160;for&#160;single&#160;data&#160;in one&#160;cycle,&#160;<br/>
+Type&#160;<br/>
+protected&#160;with E2E&#160;Profile X.&#160;<br/>E2E_PXXCheckStatusType&#160;is&#160;part&#160;of&#160;<br/>E2E_PXXCheckStateType.&#160;<br/>
+E2E_PCheckStatusTy&#160;Enumeration&#160;<br/>
+Profile-independent&#160;status&#160;of&#160;the&#160;receiver&#160;for&#160;single&#160;data&#160;<br/>
+pe&#160;<br/>
+in once cycle.&#160;Result&#160;and&#160;status of&#160;most&#160;recent&#160;check is&#160;<br/>mapped&#160;(by&#160;E2E_PXXMapStatusToSM&#160;service)&#160;to this&#160;<br/>type,&#160;which is compatible to&#160;E2E&#160;state&#160;machine.&#160;<br/>
+E2E_SMConfigType&#160;<br/>
+Structure&#160;<br/>
+Configuration of&#160;a&#160;communication channel&#160;for&#160;<br/>exchanging&#160;data.&#160;Number&#160;of&#160;considered&#160;messages&#160;<br/>(window&#160;size)&#160;can&#160;be&#160;configured,&#160;which is used&#160;to&#160;<br/>indicate&#160;state of&#160;communication link over&#160;several&#160;<br/>transmission&#160;cycles.&#160;<br/>
+E2E_SMCheckStateTy&#160;Structure&#160;<br/>
+State&#160;of&#160;the&#160;protection&#160;of&#160;a communication channel.&#160;<br/>
+pe&#160;<br/>
+State&#160;machine&#160;state is&#160;contained in&#160;this&#160;type.&#160;<br/>
+E2E_SMStateType&#160;<br/>
+Enumeration&#160;<br/>
+Status&#160;of&#160;the&#160;communication&#160;channel&#160;exchanging&#160;the&#160;<br/>data.&#160;If&#160;the&#160;status is&#160;E2E_SM_VALID,&#160;then&#160;the&#160;data&#160;may&#160;<br/>be&#160;used.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Type&#160;definitions&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;E2E&#160;</b><br/>
+The&#160;services&#160;provided&#160;by&#160;E2E&#160;library&#160;are&#160;described&#160;in&#160;this&#160;chapter.&#160;Signature&#160;of&#160;services&#160;<br/>may&#160;vary&#160;from&#160;profile&#160;to&#160;profile.&#160;Thus,&#160;profile&#160;specific parameters&#160;are marked&#160;appropriately.&#160;<br/>
+<b>5.2.1&#160;</b><br/>
+<b>E2E_PXXProtect&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>E2E_PXXProtect</b>&#160;(&#160;E2E_PXXConfigType* ConfigPtr,&#160;<br/>E2E_PXXProtectStateType* StatePtr, uint8* DataPtr, uint16 Length)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+ConfigPtr&#160;<br/>
+Pointer&#160;to profile configuration&#160;<br/>
+StatePtr&#160;<br/>
+Pointer&#160;to communication&#160;state&#160;of&#160;sender&#160;<br/>
+DataPtr&#160;<br/>
+Pointer&#160;to data&#160;to be protected&#160;<br/>
+Length&#160;<br/>
+Length&#160;of&#160;data&#160;in bytes&#160;<b>(only&#160;supported in&#160;Profile 4,&#160;5&#160;and&#160;6)</b>.&#160;<br/>Type of&#160;Length&#160;parameter&#160;in&#160;<b>Profile&#160;7</b>&#160;is&#160;uint32.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_NULL:&#160;At&#160;least one pointer parameter&#160;is&#160;NULL&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_WRONG: One&#160;parameter&#160;is&#160;erroneous&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INTERR: Internal&#160;library&#160;error&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_OK:&#160;Protection successful&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Protects&#160;the array/buffer to be transmitted&#160;using&#160;the&#160;E2E&#160;Profile X.&#160;This&#160;includes&#160;checksum&#160;calculation,&#160;<br/>handling&#160;of&#160;counter&#160;and&#160;Data&#160;ID. Depending&#160;on&#160;the&#160;used&#160;profile,&#160;also&#160;data&#160;length&#160;can&#160;be&#160;included in&#160;E2E&#160;<br/>Header.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Identical&#160;ConfigPtr&#160;should be&#160;used&#160;for&#160;both&#160;protection&#160;on&#160;sender&#160;side&#160;and&#160;check&#160;on&#160;receiver&#160;<br/>
+side.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only&#160;relevant&#160;for&#160;Profile&#160;5:&#160;Value&#160;of&#160;parameter&#160;Length&#160;must&#160;match&#160;length,&#160;which is configured&#160;<br/>
+in ConfigPtr.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;E2E_PXXProtect&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>E2E_PXXProtectInit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>E2E_PXXProtectInit</b>&#160;(E2E_PXXProtectStateType* StatePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+StatePtr&#160;<br/>
+Pointer&#160;to communication&#160;state&#160;of&#160;sender&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_NULL:&#160;Pointer&#160;parameter&#160;is&#160;NULL&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_OK:&#160;Initialization&#160;successful&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the protection&#160;state&#160;by&#160;resetting&#160;the&#160;counter.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;E2E_PXXProtectInit&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>E2E_PXXCheck&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>E2E_PXXCheck</b>&#160;(&#160;E2E_PXXConfigType* ConfigPtr,&#160;<br/>E2E_PXXProtectStateType* StatePtr, uint8* DataPtr, uint16 Length)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+ConfigPtr&#160;<br/>
+Pointer&#160;to profile configuration&#160;<br/>
+StatePtr&#160;<br/>
+Pointer&#160;to communication&#160;state&#160;of&#160;sender&#160;<br/>
+DataPtr&#160;<br/>
+Pointer&#160;to data&#160;to be protected&#160;<br/>
+Length&#160;<br/>
+Length&#160;of&#160;data&#160;in bytes&#160;<b>(only&#160;supported&#160;in&#160;Profile 4,&#160;5&#160;and&#160;6)</b>.&#160;<br/>Type of&#160;Length&#160;parameter&#160;in&#160;<b>Profile&#160;7</b>&#160;is&#160;uint32.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_NULL:&#160;At&#160;least one pointer parameter&#160;is&#160;NULL&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_WRONG: One&#160;parameter&#160;is&#160;erroneous&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INTERR: Internal&#160;library&#160;error&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_OK:&#160;Check&#160;successful&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Checks&#160;the&#160;received&#160;data&#160;using&#160;the&#160;E2E&#160;Profile X.&#160;This&#160;includes&#160;CRC calculation,&#160;handling&#160;of&#160;the counter&#160;<br/>and Data&#160;ID. Depending&#160;on&#160;the&#160;used&#160;profile,&#160;also&#160;data length can&#160;be&#160;used for checking&#160;received&#160;data.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Identical&#160;ConfigPtr&#160;should be&#160;used&#160;for&#160;both&#160;protection&#160;on&#160;sender&#160;side&#160;and&#160;checking&#160;on&#160;receiver&#160;<br/>
+side.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only&#160;relevant&#160;for&#160;Profile&#160;5:&#160;Value&#160;of&#160;parameter&#160;Length&#160;must&#160;match&#160;length,&#160;which is configured&#160;<br/>
+in ConfigPtr.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;E2E_PXXCheck&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>E2E_PXXCheckInit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>E2E_PXXCheckInit</b>&#160;(E2E_PXXCheckStateType* StatePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+StatePtr&#160;<br/>
+Pointer&#160;to communication&#160;state&#160;of&#160;sender&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_NULL:&#160;Input&#160;pointer parameter&#160;is&#160;NULL&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_OK:&#160;Initialization&#160;successful&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;the check&#160;state by&#160;resetting&#160;the&#160;parameters&#160;contained&#160;in&#160;StatePtr.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;E2E_PXXCheckInit&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>E2E_PXXMapStatusToSM&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+E2E_PCheckStatusType&#160;<b>E2E_PXXMapStatusToSM</b>&#160;(&#160;Std_ReturnType CheckReturn,&#160;<br/>E2E_PXXCheckStatusType* Status, Boolean profileBehavior)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+CheckReturn&#160;<br/>
+Return&#160;value of&#160;E2E_PXXCheck&#160;service&#160;<br/>
+Status&#160;<br/>
+Status&#160;of&#160;received&#160;and checked&#160;data&#160;in&#160;single cycle. Status&#160;is&#160;part of&#160;<br/>E2E_PXXCheckStateType.&#160;<br/>
+profileBehavior&#160;<br/>
+<b>&gt;&#160;&#160;</b>TRUE:&#160;profile&#160;behavior&#160;as&#160;introduced in&#160;ASR4.2&#160;<br/>
+<b>&gt;&#160;&#160;</b>FALSE: profile behavior&#160;as&#160;before&#160;ASR4.2&#160;<br/>
+<b>This&#160;parameter&#160;is&#160;only supported&#160;in Profile&#160;1,&#160;2&#160;and&#160;JLR.&#160;</b><br/>
+<b>Return&#160;code&#160;</b><br/>
+E2E_PCheckStatusType&#160;&#160;Standard state&#160;value&#160;to&#160;be&#160;used&#160;in E2E&#160;Library&#160;state&#160;machine.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Maps&#160;the check&#160;status&#160;of&#160;Profile X&#160;to&#160;a generic&#160;check&#160;status,&#160;which can&#160;be&#160;used&#160;by&#160;E2E&#160;state machine&#160;<br/>check&#160;function.&#160;The&#160;E2E&#160;Profile X&#160;delivers&#160;a&#160;more fine-grained&#160;status&#160;than&#160;it is&#160;necessary&#160;for E2E&#160;state&#160;<br/>machine.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;E2E_PXXMapStatusToSM&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>E2E_SMCheck&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>E2E_SMCheck</b>&#160;(&#160;E2E_PCheckStatusType ProfileStatus,&#160;<br/>E2E_SMConfigType* ConfigPtr, E2E_SMCheckStateType* StatePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+ProfileStatus&#160;<br/>
+Profile&#160;independent status&#160;of&#160;the reception on&#160;one single&#160;data in one cycle.&#160;<br/>This&#160;is&#160;the mapped return&#160;value of&#160;E2E_PXXMapStatusToSM service.&#160;<br/>
+ConfigPtr&#160;<br/>
+Pointer&#160;to static&#160;configuration&#160;of&#160;E2E&#160;State Machine&#160;<br/>
+StatePtr&#160;<br/>
+Pointer&#160;to state of&#160;the communication&#160;channel&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_NULL:&#160;At&#160;least one pointer parameter&#160;is&#160;NULL&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_WRONG: One&#160;parameter&#160;is&#160;erroneous&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INTERR: Internal&#160;library&#160;error&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_OK:&#160;State&#160;machine&#160;check&#160;successful&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_WRONGSTATE: Invalid&#160;ProfileStatus&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Processes&#160;E2E&#160;State&#160;Machine&#160;and&#160;checks&#160;the communication&#160;channel.&#160;It&#160;determines&#160;if&#160;the&#160;data can&#160;be&#160;<br/>used&#160;for safety-related&#160;application,&#160;based&#160;on&#160;history&#160;of&#160;checks&#160;performed&#160;by&#160;a&#160;corresponding&#160;<br/>E2E_PXXCheck&#160;function.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;E2E_SMCheck&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>E2E_SMCheckInit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>E2E_SMCheckInit</b>&#160;(E2E_SMCheckStateType* StatePtr,&#160;<br/>E2E_SMConfigType* ConfigPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+StatePtr&#160;<br/>
+Pointer&#160;to state of&#160;the communication&#160;channel&#160;<br/>
+ConfigPtr&#160;<br/>
+Pointer&#160;to static&#160;configuration&#160;of&#160;E2E&#160;State Machine&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_INPUTERR_NULL:&#160;At&#160;least one&#160;pointer parameter&#160;is&#160;NULL&#160;<br/>
+<b>&gt;&#160;&#160;</b>E2E_E_OK:&#160;Initialization&#160;successful&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initializes&#160;state of&#160;the communication&#160;channel&#160;by&#160;resetting all&#160;parameters&#160;in state&#160;structure.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>There is&#160;no&#160;specific&#160;caller.&#160;E2E&#160;can&#160;be&#160;called&#160;from&#160;anywhere.&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;E2E_SMCheck&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;E2E&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other&#160;components,&#160;which&#160;are&#160;used&#160;by&#160;the&#160;&#160;E2E&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+CRC&#160;<br/>
+<b>&gt;&#160;&#160;</b>Crc_CalculateCRC8&#160;<br/>
+<b>&gt;&#160;&#160;</b>Crc_CalculateCRC8H2F&#160;<br/>
+<b>&gt;&#160;&#160;</b>Crc_CalculateCRC16&#160;<br/>
+<b>&gt;&#160;&#160;</b>Crc_CalculateCRC32P4&#160;<br/>
+<b>&gt;&#160;&#160;</b>Crc_CalculateCRC64&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;E2E&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+E2E&#160;Library&#160;does not&#160;provide&#160;any&#160;callback&#160;functions.&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+E2E&#160;Library&#160;does not&#160;provide&#160;any&#160;configurable&#160;interfaces.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-24_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-24_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+E2E&#160;Library&#160;is non-generated,&#160;deterministic software code,&#160;where all inputs&#160;and&#160;settings&#160;<br/>are passed&#160;by&#160;function&#160;parameters.&#160;<br/>
+For both&#160;protection&#160;on&#160;sender side&#160;and&#160;checking&#160;on&#160;receiver side&#160;a&#160;state&#160;structure&#160;has&#160;to&#160;<br/>be&#160;provided&#160;to&#160;the&#160;services&#160;E2E_PXXProtect&#160;(sender)&#160;and&#160;E2E_PXXCheck (receiver).&#160;<br/>Additionally,&#160;both&#160;sender and&#160;receiver require&#160;a&#160;configuration&#160;structure&#160;of&#160;type&#160;<br/>E2E_PXXConfigType,&#160;which&#160;specifies&#160;details&#160;about&#160;the&#160;E2E&#160;Header&#160;and&#160;its&#160;containing&#160;<br/>protection&#160;mechanisms.&#160;The&#160;content&#160;of&#160;configuration&#160;structure is&#160;static and&#160;needs&#160;to&#160;be&#160;<br/>specified&#160;by&#160;the&#160;caller&#160;of&#160;E2E&#160;Library.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Static configuration&#160;for&#160;data&#160;(e.g.&#160;DataID,&#160;position&#160;of&#160;CRC&#160;in data&#160;array)&#160;has&#160;to&#160;be&#160;<br/>
+<b>&#160;&#160;</b>identical&#160;on&#160;sender&#160;and&#160;receiver&#160;side.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;configuration&#160;of&#160;E2E&#160;State&#160;Machine&#160;is&#160;static&#160;as&#160;well&#160;and&#160;has&#160;to&#160;be&#160;provided&#160;by&#160;caller&#160;<br/>via&#160;function&#160;parameter.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+E2E&#160;<br/>
+End&#160;to&#160;end protection&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+CRC&#160;<br/>
+Cyclic&#160;Redundancy&#160;Check&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_E2E-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;E2E&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.02.00&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_E2Es.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#8">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#10">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#10">3.1 Features</a></li>
+<li><a href="TechnicalReference_E2Es.html#10">3.2 E2E Communication Protection</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#10">3.2.1 Communication Faults</a></li>
+<li><a href="TechnicalReference_E2Es.html#11">3.2.2 Fault Model</a></li>
+<li><a href="TechnicalReference_E2Es.html#11">3.2.3 Protection mechanisms</a></li>
+<li><a href="TechnicalReference_E2Es.html#12">3.2.4 Detected Communication Faults</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#12">3.3 Initialization</a></li>
+<li><a href="TechnicalReference_E2Es.html#12">3.4 States</a></li>
+<li><a href="TechnicalReference_E2Es.html#13">3.5 Main Functions</a></li>
+<li><a href="TechnicalReference_E2Es.html#13">3.6 Error Handling</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#14">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#14">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#14">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_E2Es.html#14">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#15">4.2 Include Structure</a></li>
+<li><a href="TechnicalReference_E2Es.html#15">4.3 Make</a></li>
+<li><a href="TechnicalReference_E2Es.html#16">4.4 Critical Sections</a></li>
+<li><a href="TechnicalReference_E2Es.html#16">4.5 Invocation of Protect and Check service</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#17">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#17">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_E2Es.html#18">5.2 Services provided by E2E</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#18">5.2.1 E2E_PXXProtect</a></li>
+<li><a href="TechnicalReference_E2Es.html#19">5.2.2 E2E_PXXProtectInit</a></li>
+<li><a href="TechnicalReference_E2Es.html#20">5.2.3 E2E_PXXCheck</a></li>
+<li><a href="TechnicalReference_E2Es.html#20">5.2.4 E2E_PXXCheckInit</a></li>
+<li><a href="TechnicalReference_E2Es.html#21">5.2.5 E2E_PXXMapStatusToSM</a></li>
+<li><a href="TechnicalReference_E2Es.html#21">5.2.6 E2E_SMCheck</a></li>
+<li><a href="TechnicalReference_E2Es.html#22">5.2.7 E2E_SMCheckInit</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#23">5.3 Services used by E2E</a></li>
+<li><a href="TechnicalReference_E2Es.html#23">5.4 Callback Functions</a></li>
+<li><a href="TechnicalReference_E2Es.html#23">5.5 Configurable Interfaces</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#24">6 Configuration</a></li>
+<li><a href="TechnicalReference_E2Es.html#25">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_E2Es.html#25">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_E2Es.html#25">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_E2Es.html#26">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

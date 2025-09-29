@@ -1,0 +1,220 @@
+---
+title: CryptoGeneric_ReleaseNotess
+linkTitle: CryptoGeneric_ReleaseNotess
+weight: 14
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoGeneric_ReleaseNotes-1_1.png"/><br/>
+Release&#160;Notes&#160;CryptoGeneric<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;3&#160;and&#160;adaptive&#160;BMW&#160;AUTOSAR&#160;Core&#160;Rel.&#160;1<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233&#160;(classic)&#160;/&#160;+49&#160;89&#160;382&#160;-&#160;22522&#160;(adaptive)<br/>
+Contact<br/>
+bac@bmw.de&#160;(classic)&#160;/&#160;abac@bmw.de&#160;(adaptive)<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Issues</b><br/>
+5.2.0<br/>
+2017-12-14<br/>
+BAC-6720,&#160;BAC-6588,&#160;BAC-6681,&#160;BAC-6671<br/>
+5.1.0<br/>
+2017-11-09<br/>
+BAC-6548,&#160;BAC-6508,&#160;BAC-6451<br/>
+5.0.0<br/>
+2017-10-12<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+ReleaseNotes_CryptoGeneric,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;6<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoGeneric_ReleaseNotes-2_1.png"/><br/>
+<b>1</b><br/>
+<b>Module&#160;Description</b><br/>
+TODO<br/>
+<b>2</b><br/>
+<b>Revisions&#160;and&#160;Modifications</b><br/>
+<b>Revision&#160;5.2.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6720<br/>
+CR&#160;Headline:<br/>
+Clean&#160;up&#160;Crypto<br/>
+Description&#160;of&#160;Issues:<br/>
+Clean&#160;up&#160;:&#160;-&#160;Removed&#160;pieces&#160;of&#160;unused&#160;code.&#160;-&#160;Fix&#160;warnings.<br/>
+Description&#160;of&#160;Changes:<br/>
+Removed&#160;unused&#160;code&#160;and&#160;comments.&#160;Fixed&#160;some&#160;warnings.<br/>
+Changed&#160;Files:<br/>
+src/Crypto_Keys.c<br/>src/Crypto_SHA256.c<br/>src/fp_mul.c<br/>src/fp_sqr.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6588<br/>
+CR&#160;Headline:<br/>
+Use&#160;tomfastmath&#160;for&#160;Crypto&#160;Math&#160;functions<br/>
+Description&#160;of&#160;Issues:<br/>
+Changed&#160;Big&#160;Number&#160;Math&#160;functions&#160;to&#160;gain&#160;speed.<br/>
+Description&#160;of&#160;Changes:<br/>
+Switched&#160;to&#160;Tomfastmath&#160;based&#160;functions.&#160;(Internal&#160;functions<br/>change&#160;only).<br/>
+Changed&#160;Files:<br/>
+src/fp_cmp_d.c<br/>generate/include/Crypto_Cfg.h.pgen<br/>src/fp_add.c<br/>cfgdesc/Crypto_paramdef.arxml<br/>src/fp_sqr_comba_20.c<br/>src/Crypto_Math.c<br/>src/fp_mod_2d.c<br/>src/fp_cmp.c<br/>CMakeLists.txt<br/>src/fp_lshd.c<br/>src/fp_mulmod.c<br/>src/fp_rshd.c<br/>src/s_fp_sub.c<br/>src/fp_montgomery_calc_normalization.c<br/>src/fp_mul_comba.c<br/>src/fp_mul_2d.c<br/>src/fp_mul_comba.h<br/>src/fp_2expt.c<br/>src/fp_mul_comba_small_set.c<br/>
+ReleaseNotes_CryptoGeneric,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;6<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoGeneric_ReleaseNotes-3_1.png"/><br/>
+src/fp_sqr.c<br/>src/s_fp_add.c<br/>src/fp_div.c<br/>src/Crypto_Math_Intern.h<br/>src/Crypto_EccOperations.c<br/>src/fp_montgomery_setup.c<br/>src/fp_montgomery_reduce.c<br/>src/fp_reverse.c<br/>src/fp_invmod.c<br/>src/fp_mul_comba_20.c<br/>src/fp_sqr_comba_small_set.c<br/>src/Crypto_Common_Intern.h<br/>src/fp_sqr_comba_generic.c<br/>src/fp_div_2d.c<br/>src/fp_mod.c<br/>src/fp_mul_2.c<br/>src/fp_sqr_comba.h<br/>src/fp_set.c<br/>src/fp_count_bits.c<br/>src/mp_read_unsigned_bin.c<br/>src/fp_sqr_comba.c<br/>src/fp_mul.c<br/>src/fp_div_2.c<br/>src/Crypto_ECDSA.c<br/>src/Crypto_ECDSA_Intern.h<br/>src/fp_mul_d.c<br/>src/fp_cmp_mag.c<br/>src/fp_sub.c<br/>src/fp_to_unsigned_bin.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6681<br/>
+CR&#160;Headline:<br/>
+Fix&#160;or&#160;justify&#160;Misra&#160;warnings/errors<br/>
+Description&#160;of&#160;Issues:<br/>
+Some&#160;Misra&#160;warnings&#160;have&#160;to&#160;be&#160;corrected<br/>
+Description&#160;of&#160;Changes:<br/>
+Correct&#160;some&#160;MISRA&#160;warnings&#160;when&#160;possible.<br/>
+Changed&#160;Files:<br/>
+Corrected&#160;code&#160;to&#160;reduce&#160;number&#160;of&#160;MISRA&#160;warnings.<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6671<br/>
+CR&#160;Headline:<br/>
+Add&#160;functionalities&#160;for&#160;RSA&#160;Verifiy&#160;(PKCS1&#160;V2)<br/>
+Description&#160;of&#160;Issues:<br/>
+RSA&#160;verification&#160;feature&#160;(PKCS1&#160;V2)&#160;needs&#160;to&#160;be&#160;implemented<br/>
+Description&#160;of&#160;Changes:<br/>
+RSA&#160;verification&#160;feature&#160;is&#160;implemented.&#160;The&#160;corresponding<br/>interface&#160;has&#160;been&#160;added&#160;to&#160;the&#160;jumptable&#160;and&#160;the&#160;corresponding<br/>parameters&#160;are&#160;now&#160;present&#160;in&#160;the&#160;paramconf<br/>
+ReleaseNotes_CryptoGeneric,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;6<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoGeneric_ReleaseNotes-4_1.png"/><br/>
+Changed&#160;Files:<br/>
+generate/include/Crypto_Cfg.h.pgen<br/>src/Crypto_HashDescriptor.c<br/>include/Crypto_KeyManagement.h<br/>CMakeLists.txt<br/>src/zeromem.c<br/>include/Crypto_RSA.h<br/>src/Crypto_EccOperations.c<br/>cfgdesc/Crypto_paramdef.arxml<br/>src/Crypto_RSA.c<br/>src/Crypto_Math_Intern.h<br/>src/Crypto_KeyManagement_Intern.h<br/>include/Crypto_Hash.h<br/>src/Crypto_Keys.c<br/>include/Crypto_Common.h<br/>src/Crypto_Common_Intern.h<br/>include/Crypto.h<br/>src/fp_unsigned_bin_size.c<br/>src/Crypto_RSA_Intern.h<br/>src/mem_neq.c<br/>include/Crypto_ECDSA.h<br/>src/Crypto_ECDSA.c<br/>src/Crypto_ECDSA_Intern.h<br/>src/fp_exptmod.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.1.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6548<br/>
+CR&#160;Headline:<br/>
+Improve&#160;math&#160;functions&#160;performance&#160;by&#160;allowing&#160;inlining<br/>
+Description&#160;of&#160;Issues:<br/>
+BMW&#160;Math&#160;functions&#160;allow&#160;inlining&#160;(as&#160;defined&#160;in&#160;AUTOSAR)&#160;in<br/>order&#160;to&#160;improve&#160;performance.<br/>
+Description&#160;of&#160;Changes:<br/>
+Grouped&#160;Math&#160;functions&#160;in&#160;a&#160;file&#160;and&#160;declared&#160;the&#160;relevant&#160;as<br/>LOCAL_INLINE&#160;to&#160;allow&#160;optimization&#160;from&#160;the&#160;integrator.<br/>
+Changed&#160;Files:<br/>
+src/bn_mp_copy.c<br/>src/bn_mp_mul_d.c<br/>src/bn_mp_div_2.c<br/>src/bn_s_mp_add.c<br/>src/bn_mp_count_bits.c<br/>src/Crypto_Math.c<br/>src/bn_mp_2expt.c<br/>src/bn_mp_init_copy.c<br/>src/bn_mp_read_unsigned_bin.c.c<br/>src/bn_fast_mp_montgomery_reduce.c<br/>src/bn_mp_cmp_mag.c<br/>src/bn_mp_div.c<br/>
+ReleaseNotes_CryptoGeneric,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;6<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoGeneric_ReleaseNotes-5_1.png"/><br/>
+src/bn_mp_montgomery_reduce.c<br/>src/bn_mp_montgomery_setup.c<br/>src/bn_mp_zero.c<br/>src/bn_mp_mod_2d.c<br/>src/bn_s_mp_sub.c<br/>src/bn_fast_s_mp_mul_digs.c<br/>src/bn_mp_invmod.c<br/>src/bn_mp_mod.c<br/>src/bn_fast_mp_invmod.c<br/>src/bn_s_mp_sqr.c<br/>src/bn_mp_cmp_d.c<br/>src/bn_mp_sqr.c<br/>src/bn_mp_set.c<br/>src/bn_mp_invmod_slow.c<br/>src/bn_mp_mul.c<br/>src/bn_mp_montgomery_calc_normalization.c<br/>src/bn_mp_mul_2.c<br/>src/bn_mp_exch.c<br/>src/bn_mp_sub.c<br/>src/bn_mp_rshd.c<br/>src/bn_mp_clamp.c<br/>src/bn_mp_lshd.c<br/>src/bn_mp_add.c<br/>src/bn_mp_mul_2d.c<br/>src/bn_mp_div_2d.c<br/>src/Crypto_Math_Intern.h<br/>src/bn_mp_mulmod.c<br/>src/bn_s_mp_mul_digs.c<br/>src/bn_mp_cmp.c<br/>CMakeLists.txt<br/>src/bn_mp_init_size.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6508<br/>
+CR&#160;Headline:<br/>
+Update&#160;jumptable&#160;generation&#160;to&#160;new&#160;Page&#160;version<br/>
+Description&#160;of&#160;Issues:<br/>
+Pgen&#160;files&#160;used&#160;to&#160;generate&#160;Crypto&#160;jumptable&#160;don't&#160;work&#160;with&#160;the<br/>new&#160;version&#160;of&#160;page.<br/>
+Description&#160;of&#160;Changes:<br/>
+Updated&#160;the&#160;files&#160;so&#160;the&#160;jumptable&#160;can&#160;be&#160;generated&#160;again.<br/>
+Changed&#160;Files:<br/>
+include/Crypto_Certificate.h<br/>src/Crypto_CertificateHandling.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6451<br/>
+CR&#160;Headline:<br/>
+Add&#160;functionalities&#160;Hashes&#160;SHA&#160;384&#160;and&#160;SHA512<br/>
+ReleaseNotes_CryptoGeneric,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;6<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Crypto/doc/CryptoGeneric_ReleaseNotes-6_1.png"/><br/>
+Description&#160;of&#160;Issues:<br/>
+The&#160;hashes&#160;SHA&#160;384&#160;and&#160;SHA&#160;512&#160;are&#160;missing&#160;from&#160;the&#160;BMW<br/>Crypto&#160;library.<br/>
+Description&#160;of&#160;Changes:<br/>
+Functionalities&#160;have&#160;been&#160;added&#160;to&#160;the&#160;generic&#160;part.&#160;Jumptables<br/>have&#160;been&#160;adapted&#160;with&#160;new&#160;functions&#160;to&#160;allow&#160;access&#160;to&#160;said<br/>functionalities.<br/>
+Changed&#160;Files:<br/>
+template/include/Crypto_MemMap.h.sample<br/>include/Crypto_Hash.h<br/>src/Crypto_SHA256.c<br/>src/Crypto_BitOperations.h<br/>CMakeLists.txt<br/>src/Crypto_SHA512.c<br/>src/Crypto_SHA384.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.0&#160;[Released]</b><br/>
+ReleaseNotes_CryptoGeneric,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;6<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="CryptoGeneric_ReleaseNotess.html#2">1 Module Description</a></li>
+<li><a href="CryptoGeneric_ReleaseNotess.html#2">2 Revisions and Modifications</a>
+<ul>
+<li><a href="CryptoGeneric_ReleaseNotess.html#2">2.1 Revision 5.2.0 [Released]</a></li>
+<li><a href="CryptoGeneric_ReleaseNotess.html#4">2.2 Revision 5.1.0 [Released]</a></li>
+<li><a href="CryptoGeneric_ReleaseNotess.html#6">2.3 Revision 5.0.0 [Released]</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

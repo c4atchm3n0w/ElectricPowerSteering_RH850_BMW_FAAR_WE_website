@@ -1,0 +1,269 @@
+---
+title: StmClassic_ReleaseNotess
+linkTitle: StmClassic_ReleaseNotess
+weight: 10
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_ReleaseNotes-1_1.png"/><br/>
+Release&#160;Notes&#160;StmClassic<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Issues</b><br/>
+5.2.0<br/>
+2017-12-14<br/>
+BAC-6522,&#160;BAC-6523,&#160;BAC-6524,&#160;BAC-6255,&#160;BAC-6307<br/>
+5.1.1<br/>
+2017-11-09<br/>
+BAC-6246,&#160;BAC-6436<br/>
+5.1.0<br/>
+2017-10-12<br/>
+BAC-6247,&#160;BAC-6202,&#160;BAC-6429<br/>
+5.0.0<br/>
+2017-06-29<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+ReleaseNotes_StmClassic,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;5<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_ReleaseNotes-2_1.png"/><br/>
+<b>1</b><br/>
+<b>Module&#160;Description</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;STM&#160;functionality&#160;is&#160;to&#160;listen&#160;to&#160;certain&#160;vehicle&#160;wide&#160;states&#160;that&#160;are<br/>communicated&#160;on&#160;the&#160;system&#160;busses&#160;and&#160;maintain&#160;these&#160;states&#160;for&#160;the&#160;local&#160;ECU.&#160;This&#160;means:&#160;-&#160;Make<br/>these&#160;states&#160;available&#160;as&#160;modes&#160;to&#160;other&#160;software&#160;components&#160;-&#160;React&#160;on&#160;some&#160;changes&#160;of&#160;these&#160;states<br/>(for&#160;instance&#160;setting&#160;Dem&#160;enableconditions)&#160;-&#160;React&#160;on&#160;timeouts&#160;of&#160;these&#160;communicated&#160;states&#160;(set<br/>default&#160;values,&#160;reporterror&#160;events&#160;accordingly)&#160;The&#160;STM&#160;module&#160;is&#160;modeled&#160;as&#160;an&#160;AUTOSAR&#160;software<br/>component&#160;(SWC)&#160;residing&#160;above&#160;the&#160;RTE.<br/>
+<b>2</b><br/>
+<b>Revisions&#160;and&#160;Modifications</b><br/>
+<b>Revision&#160;5.2.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6522<br/>
+CR&#160;Headline:<br/>
+Add&#160;AdminData&#160;field&#160;to&#160;paramdef<br/>
+Description&#160;of&#160;Issues:<br/>
+AdminData&#160;field&#160;is&#160;missing&#160;in&#160;the&#160;paramdef&#160;files.<br/>
+Description&#160;of&#160;Changes:<br/>
+Adding&#160;AdminData&#160;field&#160;to&#160;paramdef&#160;files.<br/>
+Changed&#160;Files:<br/>
+cfgdesc/StmClassic_paramdef.arxml<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6523<br/>
+CR&#160;Headline:<br/>
+Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen&#160;should&#160;be<br/>AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Issues:<br/>
+Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen&#160;should&#160;be<br/>AUTOSAR_4-3-0_STRICT_COMPACT.xsd.<br/>
+Description&#160;of&#160;Changes:<br/>
+Assuring&#160;that&#160;the&#160;Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen<br/>is&#160;compatible&#160;with&#160;AUTOSAR_4-3-0_STRICT_COMPACT.xsd.<br/>
+Changed&#160;Files:<br/>
+generate/meta/Stm_interfaces.arxml.pgen<br/>meta/Stm_ext_interfaces.arxml<br/>cfgdesc/StmClassic_paramdef.arxml<br/>generate/meta/Stm_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6524<br/>
+CR&#160;Headline:<br/>
+Separate&#160;parameter&#160;definition&#160;from&#160;generic&#160;into&#160;classic/adaptive<br/>
+Description&#160;of&#160;Issues:<br/>
+Separate&#160;parameter&#160;definition&#160;from&#160;generic&#160;into&#160;classic/adaptive.<br/>
+Description&#160;of&#160;Changes:<br/>
+Separating&#160;the&#160;parameter&#160;definition&#160;from&#160;the&#160;Stm&#160;generic&#160;into&#160;the<br/>Stm&#160;classic/adaptive&#160;adapter.<br/>
+Changed&#160;Files:<br/>
+generate/include/StmClassic_Cfg.h.pgen<br/>generate/src/StmClassic_PBCfg.c.pgen<br/>generate/include/StmClassic_Version.h.pgen<br/>generate/meta/Stm_internal.arxml.pgen<br/>
+ReleaseNotes_StmClassic,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;5<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_ReleaseNotes-3_1.png"/><br/>
+CMakeLists.txt<br/>generate/meta/Stm_interfaces.arxml.pgen<br/>generate/include/Stm_Cfg.h.pgen<br/>cfgdesc/StmClassic_paramdef.arxml<br/>generate/include/StmClassic_PBCfg.h.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6255<br/>
+CR&#160;Headline:<br/>
+Create&#160;TEX&#160;based&#160;integration&#160;manuals<br/>
+Description&#160;of&#160;Issues:<br/>
+Create&#160;TEX&#160;based&#160;integration&#160;manuals.<br/>
+Description&#160;of&#160;Changes:<br/>
+Creating&#160;TEX&#160;based&#160;integration&#160;manuals.<br/>
+Changed&#160;Files:<br/>
+CMakeLists.txt<br/>doc/StmClassic_IntegrationManual.pdf<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6307<br/>
+CR&#160;Headline:<br/>
+StmClassic:&#160;Compiler&#160;warnings&#160;-&#160;Stm_v5.0.0&#160;-&#160;mgcc_v4.5.1<br/>
+Description&#160;of&#160;Issues:<br/>
+Compiler&#160;warnings&#160;-&#160;Stm_v5.0.0&#160;-&#160;mgcc_v4.5.1<br/>
+Description&#160;of&#160;Changes:<br/>
+Fixing&#160;Compiler&#160;warnings.<br/>
+Changed&#160;Files:<br/>
+generate/include/StmClassic_Cfg.h.pgen<br/>src/Stm_TimerAdapter.c<br/>include/Stm_Timer.h<br/>src/Stm_ComAdapter.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.1.1&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6246<br/>
+CR&#160;Headline:<br/>
+Add&#160;Requirement&#160;Traceability<br/>
+Description&#160;of&#160;Issues:<br/>
+Requirements&#160;Tracing&#160;incomplete<br/>
+Description&#160;of&#160;Changes:<br/>
+Added&#160;Requirements&#160;Traceability<br/>
+Changed&#160;Files:<br/>
+src/Stm_ErrMemAdapter.c<br/>src/Stm_MgmtAdapter.c<br/>generate/include/StmClassic_Cfg.h.pgen<br/>src/Stm_ComAdapter.c<br/>doc/StmClassic_RequirementsTable.pdf<br/>src/Stm_TimerAdapter.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6436<br/>
+CR&#160;Headline:<br/>
+Stm&#160;version&#160;checks&#160;incorrect<br/>
+Description&#160;of&#160;Issues:<br/>
+Incorrect&#160;version&#160;check&#160;macro&#160;usage.<br/>
+ReleaseNotes_StmClassic,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;5<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_ReleaseNotes-4_1.png"/><br/>
+Description&#160;of&#160;Changes:<br/>
+Corrected&#160;usage.<br/>
+Changed&#160;Files:<br/>
+include/StmClassic_Version.h<br/>src/Stm_ErrMemAdapter.c<br/>src/Stm_MgmtAdapter.c<br/>generate/include/StmClassic_Cfg.h.pgen<br/>generate/src/StmClassic_PBCfg.c.pgen<br/>include/Stm_Com.h<br/>src/Stm_ComAdapter.c<br/>src/Stm_TimerAdapter.c<br/>include/Stm_Timer.h<br/>include/Stm_Mgmt.h<br/>generate/include/StmClassic_PBCfg.h.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.1.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6247<br/>
+CR&#160;Headline:<br/>
+Wrong&#160;file&#160;header&#160;in&#160;Stm_ext_interfaces.arxml<br/>
+Description&#160;of&#160;Issues:<br/>
+File&#160;Headers&#160;were&#160;in&#160;wrong&#160;format.<br/>
+Description&#160;of&#160;Changes:<br/>
+Corrected&#160;all&#160;file&#160;headers<br/>
+Changed&#160;Files:<br/>
+src/Stm_ErrMemAdapter.c<br/>generate/include/StmClassic_Cfg.h.pgen<br/>generate/src/StmClassic_PBCfg.c.pgen<br/>include/Stm_Com.h<br/>src/Stm_TimerAdapter.c<br/>meta/Stm_ext_interfaces.arxml<br/>generate/meta/Stm_internal.arxml.pgen<br/>include/Stm_Timer.h<br/>generate/meta/Stm_interfaces.arxml.pgen<br/>generate/include/StmClassic_PBCfg.h.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6202<br/>
+CR&#160;Headline:<br/>
+Remove&#160;SP2015/2015&#160;suffixes&#160;from&#160;VEHICLE&#160;STATE<br/>
+Description&#160;of&#160;Issues:<br/>
+Editorial&#160;changes.<br/>
+Description&#160;of&#160;Changes:<br/>
+Removing&#160;the&#160;SP2015/2015&#160;suffixes&#160;from&#160;VEHICLE&#160;STATE.<br/>
+Changed&#160;Files:<br/>
+src/Stm_MgmtAdapter.c<br/>generate/include/StmClassic_Cfg.h.pgen<br/>generate/src/StmClassic_PBCfg.c.pgen<br/>src/Stm_ComAdapter.c<br/>generate/meta/Stm_internal.arxml.pgen<br/>generate/meta/Stm_interfaces.arxml.pgen<br/>include/Stm_Mgmt.h<br/>
+ReleaseNotes_StmClassic,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;5<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Stm/doc/StmClassic_ReleaseNotes-5_1.png"/><br/>
+generate/include/StmClassic_PBCfg.h.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6429<br/>
+CR&#160;Headline:<br/>
+Stm&#160;references&#160;parameters&#160;with&#160;wrong&#160;names&#160;in&#160;pgen&#160;files<br/>
+Description&#160;of&#160;Issues:<br/>
+Stm&#160;references&#160;parameter&#160;&#34;stmVehicleStateEnabled&#34;&#160;with&#160;lower<br/>case&#160;first&#160;letter,&#160;which&#160;is&#160;wrong,&#160;in&#160;several&#160;*.pgen&#160;files.<br/>
+Description&#160;of&#160;Changes:<br/>
+Fixed&#160;parameter&#160;name.<br/>
+Changed&#160;Files:<br/>
+generate/include/StmClassic_Cfg.h.pgen<br/>generate/meta/Stm_internal.arxml.pgen<br/>generate/src/StmClassic_PBCfg.c.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>CR&#160;Headline:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Issues:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Changes:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Changed&#160;Files:<br/>Compatibility:<br/>
+ReleaseNotes_StmClassic,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;5<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="StmClassic_ReleaseNotess.html#2">1 Module Description</a></li>
+<li><a href="StmClassic_ReleaseNotess.html#2">2 Revisions and Modifications</a>
+<ul>
+<li><a href="StmClassic_ReleaseNotess.html#2">2.1 Revision 5.2.0 [Released]</a></li>
+<li><a href="StmClassic_ReleaseNotess.html#3">2.2 Revision 5.1.1 [Released]</a></li>
+<li><a href="StmClassic_ReleaseNotess.html#4">2.3 Revision 5.1.0 [Released]</a></li>
+<li><a href="StmClassic_ReleaseNotess.html#5">2.4 Revision 5.0.0 [Released]</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

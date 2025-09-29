@@ -1,0 +1,305 @@
+---
+title: MotAg3Meas_MDD
+linkTitle: MotAg3Meas_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>MotAg3Meas</strong></p>
+<p><strong>23-Mar-2018</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Tata Elxsi,</strong></p>
+<p><strong>Trivandrum, INDIA</strong></p>
+<p><strong><u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Shruthi Raghavan</td>
+<td>1.0</td>
+<td>7-Nov-16</td>
+</tr>
+<tr class="odd">
+<td>Updated unit test considerations</td>
+<td>Tata</td>
+<td>2.0</td>
+<td>23-Mar-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+</u></strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p><a href="#introduction">1 Introduction <span>4</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>4</span></a></p>
+<p><a href="#motag3meas-high-level-description">2 MotAg3Meas &amp; High-Level Description <span>5</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>6</span></a></p>
+<p><a href="#graphical-representation-of-motag3meas">3.1 Graphical representation of MotAg3Meas <span>6</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>6</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>6</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>6</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>7</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>7</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>7</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>8</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>8</span></a></p>
+<p><a href="#init-motag3measinit1">5.1.1 Init: MotAg3MeasInit1 <span>8</span></a></p>
+<p><a href="#per-none">5.1.2 Per: None <span>8</span></a></p>
+<p><a href="#server-runables">5.2 Server Runables <span>8</span></a></p>
+<p><a href="#getmotag3mecl_oper">5.2.1 GetMotAg3Mecl_Oper <span>8</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>8</span></a></p>
+<p><a href="#interrupt-function-name">5.3.1 Interrupt Function Name <span>8</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>9</span></a></p>
+<p><a href="#local-function-1">5.4.1 Local Function #1 <span>9</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>9</span></a></p>
+<p><a href="#global-function-1">5.5.1 GLOBAL Function #1 <span>9</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>10</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>11</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>12</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>13</span></a></p>
+<p><a href="#references">Appendix C References <span>14</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module design document for MotAg3Meas SWC.</p>
+<h1 id="motag3meas-high-level-description">MotAg3Meas &amp; High-Level Description</h1>
+<p><em>Refer to design.</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-motag3meas">Graphical representation of MotAg3Meas</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:4.46667in;height:2.15833in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>N/A</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>N/A</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<p>Refer DataDict.m file for rest of the constants.</p>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 19%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>REGENCA0CTLINITVAL_CNT_U16</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x03U</td>
+</tr>
+<tr class="even">
+<td>REGENCA0IOC1INITVAL_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x04U</td>
+</tr>
+<tr class="odd">
+<td>REGENCA0TTINITVAL_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x01U</td>
+</tr>
+<tr class="even">
+<td>REGENCA0TSINITVAL_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x01U</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-motag3measinit1">Init: MotAg3MeasInit1</h2>
+<h4 id="design-rationale">Design Rationale</h4>
+<p>Initialization of registers according to CM510A_MotAg3Meas_RegisterConfiguration.xlsm</p>
+<h4 id="module-outputs">Module Outputs</h4>
+<p>None</p>
+<h2 id="per-none">Per: None</h2>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<h4 id="module-outputs-1">Module Outputs</h4>
+<h2 id="server-runables">Server Runables </h2>
+<h3 id="getmotag3mecl_oper">GetMotAg3Mecl_Oper</h3>
+<h4 id="design-rationale-2">Design Rationale</h4>
+<p>Refer to FDD</p>
+<h4 id="processing-of-function"> (Processing of function)………</h4>
+<blockquote>
+<p>Refer to FDD</p>
+</blockquote>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h3 id="interrupt-function-name">Interrupt Function Name</h3>
+<h4 id="design-rationale-3">Design Rationale</h4>
+<h4 id="processing-of-the-isr-function.."> (Processing of the ISR function)…..</h4>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<p>None</p>
+<h3 id="local-function-1">Local Function #1</h3>
+<h4 id="design-rationale-4">Design Rationale</h4>
+<h4 id="processing">Processing</h4>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h3 id="global-function-1">GLOBAL Function #1</h3>
+<h4 id="design-rationale-5">Design Rationale</h4>
+<h4 id="processing-1">Processing</h4>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>MOTAG3_SNSRRLVBITWIDTHEXP_CNT_U08 is a config param which is defined as an extern. This is defined in “CDD_MotAg3Meas_Cfg.h” tools/local/include folder. The range of this config param shall be tested.</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 57%" />
+<col style="width: 34%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td> Ref. #</td>
+<td>Title</td>
+<td>Version</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:AUTOSAR_SWS_MemoryMapping.pdf)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Naming Conventions.doc</td>
+<td>EA4 01.02</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards.doc</td>
+<td>EA4 2.01</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>CM510A_MotAg3Meas_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,1228 @@
+---
+title: TechnicalReference_CryIfs
+linkTitle: TechnicalReference_CryIfs
+weight: 184
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR CryIf&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Crypto Interface&#160;<br/>Version&#160;1.2.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Markus Schneider,&#160;Philipp&#160;Ritter&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-2_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Schneider,&#160;Markus&#160;<br/>
+2017-03-07&#160;<br/>
+1.01.00&#160;<br/>
+Initial&#160;creation&#160;of&#160;Technical&#160;Reference&#160;<br/>
+Ritter,&#160;Philipp&#160;<br/>
+2017-05-08&#160;<br/>
+1.02.00&#160;<br/>
+Changed&#160;chapter<a href="TechnicalReference_CryIfs.html#15">&#160;5.1.6,&#160;5.1.7,&#160;</a><a href="TechnicalReference_CryIfs.html#16">5.1.8,</a><a href="TechnicalReference_CryIfs.html#18">&#160;5.1.11&#160;</a><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CryptoInterface.pdf&#160;<br/>
+4.3.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DET.pdf&#160;<br/>
+4.3.0&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_CryIfs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#7">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;9</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Features&#160;............................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">3.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Initialization&#160;........................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">3.3&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">States&#160;................................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">3.4&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Main Functions&#160;..................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">3.5&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Error&#160;Handling&#160;....................................................................................................&#160;9&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Development&#160;Error&#160;Reporting&#160;.............................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11"><b>Integration&#160;...................................................................................................................&#160;11</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Scope of&#160;Delivery&#160;.............................................................................................&#160;11&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Static Files&#160;.......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Dynamic&#160;Files&#160;..................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12"><b>API&#160;Description&#160;...........................................................................................................&#160;12</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12">Services provided by&#160;CRYIF&#160;............................................................................&#160;12&#160;<br/>5.1.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12">CryIf_InitMemory&#160;..............................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12">5.1.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12">CryIf_Init&#160;..........................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">5.1.3&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">CryIf_GetVersionInfo&#160;........................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">5.1.4&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">CryIf_ProcessJob&#160;.............................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#14">5.1.5&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#14">CryIf_CancelJob&#160;..............................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#15">5.1.6&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#15">CryIf_KeyElementSet&#160;.......................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#15">5.1.7&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#15">CryIf_KeySetValid&#160;............................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#16">5.1.8&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#16">CryIf_KeyElementGet&#160;......................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#17">5.1.9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#17">CryIf_KeyElementCopy&#160;....................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#17">5.1.10&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#17">CryIf_KeyCopy&#160;.................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#18">5.1.11&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#18">CryIf_RandomSeed..........................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">5.1.12&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">CryIf_KeyGenerate&#160;..........................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">5.1.13&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">CryIf_KeyDerive&#160;...............................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#20">5.1.14&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#20">CryIf_KeyExchangeCalcPubVal&#160;.......................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">5.1.15&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">CryIf_KeyExchangeCalcSecret&#160;........................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">5.1.16&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">CryIf_CertificateParse&#160;......................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#22">5.1.17&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#22">CryIf_CertificateVerify&#160;......................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">5.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">Services used by&#160;CRYIF&#160;..................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">5.3&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">Callback&#160;Functions&#160;...........................................................................................&#160;23&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<a href="TechnicalReference_CryIfs.html#23">5.3.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">CryIf_CallbackNotification&#160;................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24"><b>Configuration&#160;..............................................................................................................&#160;24</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">Configuration Variants&#160;......................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">6.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">Configuration with DaVinci&#160;Configurator&#160;5&#160;Pro&#160;.................................................&#160;24&#160;<br/>6.2.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">General&#160;Properties&#160;...........................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">6.2.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">Channel&#160;Properties&#160;..........................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#25">6.2.3&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#25">Key&#160;Properties&#160;.................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;26</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">Glossary&#160;..........................................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">7.2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">Abbreviations&#160;...................................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#27"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#27"><b>Contact&#160;........................................................................................................................&#160;27</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_CryIfs.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#7">AUTOSAR&#160;4.3&#160;Architecture&#160;Overview&#160;.........................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#8">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#8">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;CRYIF&#160;..............................................&#160;8&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_CryIfs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#9">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.......................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#10">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#10">Service IDs&#160;...............................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#10">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#10">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Static&#160;files&#160;.................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#11">Generated&#160;files&#160;.........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#12">CryIf_InitMemory&#160;......................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">CryIf_Init&#160;...................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#13">CryIf_GetVersionInfo&#160;................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#14">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#14">CryIf_ProcessJob&#160;.....................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#14">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#14">CryIf_CancelJob&#160;.......................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#15">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#15">CryIf_KeyElementSet&#160;...............................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#16">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#16">CryIf_KeySetValid&#160;.....................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#16">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#16">CryIf_KeyElementGet&#160;...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#17">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#17">CryIf_KeyElementCopy&#160;............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#18">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#18">CryIf_KeyCopy&#160;.........................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">CryIf_RandomSeed&#160;..................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#19">CryIf_KeyGenerate&#160;...................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#20">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#20">CryIf_KeyDerive&#160;.......................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">Table&#160;5-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">CryIf_KeyExchangeCalcPubVal&#160;................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">Table&#160;5-15&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#21">CryIf_KeyExchangeCalcSecret&#160;.................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#22">Table&#160;5-16&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#22">CryIf_CertificateParse&#160;...............................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">Table&#160;5-17&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">CryIf_CertificateVerify&#160;...............................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">Table&#160;5-18&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">Services used by&#160;the&#160;CRYIF&#160;.....................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">Table&#160;5-19&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#23">CryIf_CallbackNotification&#160;.........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">General&#160;Properties....................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">Table&#160;6-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#24">Channel&#160;Properties&#160;...................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#25">Table&#160;6-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#25">Key&#160;Properties&#160;..........................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">Glossary&#160;...................................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_CryIfs.html#26">Abbreviations&#160;............................................................................................&#160;26&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+Initial&#160;beta&#160;release&#160;<br/>
+1.01.00&#160;<br/>
+Adaptions to&#160;the&#160;specification;&#160;several&#160;improvements&#160;and&#160;bug&#160;fixes&#160;<br/>
+1.02.00&#160;<br/>
+Release of&#160;component&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-7_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;CRYIF&#160;as specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_CryIfs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4.3&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+CRYIF_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+CRYIF_MODULE_ID &#160;&#160;<br/>
+112&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[1])&#160;<br/>
+*&#160;For the detailed functional&#160;specification please&#160;also refer to the corresponding&#160;AUTOSAR&#160;SWS.&#160;<br/>&#160;<br/>&#160;<br/>The&#160;&#160;Crypto&#160;&#160;Interface&#160;&#160;(CRYIF)&#160;&#160;is&#160;&#160;called&#160;&#160;by&#160;&#160;the&#160;&#160;Cryptographic&#160;&#160;Service&#160;&#160;Manager&#160;&#160;(CSM)&#160;&#160;to&#160;<br/>forward&#160;its&#160;service&#160;requests&#160;to&#160;the&#160;underlying&#160;Crypto&#160;Drivers&#160;(CRYPTO).&#160;The&#160;CRYIF&#160;has&#160;<br/>access&#160;to&#160;the&#160;CRYPTO&#160;to&#160;calculate&#160;results&#160;with&#160;their&#160;cryptographic&#160;services.&#160;These&#160;results&#160;<br/>are returned&#160;to&#160;the&#160;CSM&#160;by&#160;the&#160;CRYIF.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;CRYIF&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.3&#160;Architecture&#160;Overview&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+&#160;&#160;<br/>The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;CRYIF.&#160;These&#160;interfaces&#160;<br/>are described&#160;in&#160;chapte<a href="TechnicalReference_CryIfs.html#12">r&#160;5.&#160;</a>&#160;<br/>
+<b>&#160;cmp&#160;Architecture</b><br/>
+<b>CSM</b><br/>
+Csm_&lt;KeyManagement&gt;<br/>
+Csm_CallbackNotification<br/>
+Csm_&lt;Service&gt;<br/>
+Csm_CancelJob<br/>
+«optional»<br/>
+Det_ReportError<br/>
+CryIf_Init<br/>
+<b>Bsw&#160;M</b><br/>
+<b>CRYIF</b><br/>
+<b>Det</b><br/>
+«optional»<br/>
+Crypto_&lt;KeyManagement&gt;<br/>
+CryIf_CallbackNotification<br/>
+Crypto_ProcessJob<br/>
+Crypto_CancelJob<br/>
+«optional»<br/>
+<b>CRYPTO</b><br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;CRYIF&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>CRYIF.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_CryIfs.html#9">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Dispatching&#160;jobs&#160;to&#160;the&#160;configured&#160;Crypto&#160;Driver&#160;<br/>Dispatching&#160;key&#160;management&#160;functionalities&#160;<br/>Forward&#160;Callback&#160;Notification&#160;&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+Before&#160;any&#160;other&#160;functionality&#160;of&#160;the&#160;CRYIF&#160;module&#160;can&#160;be&#160;called&#160;the&#160;initialization&#160;function&#160;<br/>CryIf_Init()&#160;has to&#160;be&#160;called&#160;by&#160;the&#160;BSWM.&#160;<br/>
+For&#160;&#160;manual&#160;&#160;null&#160;&#160;initialization&#160;&#160;of&#160;&#160;RAM&#160;&#160;variables&#160;&#160;the&#160;&#160;CRYIF&#160;&#160;offers&#160;&#160;the&#160;&#160;function&#160;<br/>CryIf_InitMemory()which&#160;can&#160;be&#160;called&#160;before the&#160;CryIf_Init().&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+The&#160;CRYIF&#160;does&#160;not&#160;have&#160;a&#160;state&#160;machine.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+CRYIF&#160;does&#160;not&#160;provide&#160;a&#160;main&#160;function.&#160;All&#160;calls are&#160;synchronous.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;CRYIF_DEV_ERROR_REPORT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;CRYIF&#160;ID is&#160;112.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_CryIfs.html#12">5.1.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x00&#160;<br/>
+CryIf_Init&#160;<br/>
+0x01&#160;<br/>
+CryIf_GetVersionInfo&#160;<br/>
+0x02&#160;<br/>
+CryIf_ProcessJob&#160;<br/>
+0x03&#160;<br/>
+CryIf_CancelJob&#160;<br/>
+0x04&#160;<br/>
+CryIf_KeyElementSet&#160;<br/>
+0x05&#160;<br/>
+CryIf_KeySetValid&#160;<br/>
+0x06&#160;<br/>
+CryIf_KeyElementGet&#160;<br/>
+0x0f&#160;<br/>
+CryIf_KeyElementCopy&#160;<br/>
+0x10&#160;<br/>
+CryIf_KeyCopy&#160;<br/>
+0x07&#160;<br/>
+CryIf_RandomSeed&#160;<br/>
+0x08&#160;<br/>
+CryIf_KeyGenerate&#160;<br/>
+0x09&#160;<br/>
+CryIf_KeyDerive&#160;<br/>
+0x0A&#160;<br/>
+CryIf_KeyExchangeCalcPubVal&#160;<br/>
+0x0B&#160;<br/>
+CryIf_KeyExchangeCalcSecret&#160;<br/>
+0x0C&#160;<br/>
+CryIf_CertificateParse&#160;<br/>
+0x11&#160;<br/>
+CryIf_CertificateVerify&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x00&#160;<br/>
+API&#160;service used&#160;without&#160;module initialization&#160;<br/>
+0x01&#160;<br/>
+Initialization of&#160;CRYIF module&#160;failed&#160;<br/>
+0x02&#160;<br/>
+API&#160;request&#160;called&#160;with invalid parameter&#160;(null&#160;pointer)&#160;<br/>
+0x03&#160;<br/>
+API&#160;request&#160;called&#160;with invalid parameter&#160;(out&#160;of&#160;range)&#160;<br/>
+0x04&#160;<br/>
+API&#160;request&#160;called&#160;with invalid parameter&#160;(invalid&#160;value)&#160;<br/>
+0x11&#160;<br/>
+The&#160;service CryIf_Init()&#160;is&#160;called&#160;while the&#160;module&#160;is&#160;already&#160;<br/>initialized&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;CRYIF&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;CRYIF&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_CryIfs.html#11">rs&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_CryIfs.html#11">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+CryIf.c&#160;<br/>
+This&#160;file contains&#160;the&#160;CRYIF&#160;source&#160;code.&#160;<br/>
+CryIf.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file of&#160;the&#160;CRYIF.&#160;<br/>
+CryIf_Cbk.h&#160;<br/>
+This&#160;is&#160;the&#160;callback&#160;header&#160;file of&#160;CRYIF.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator 5&#160;Pro&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+CryIf_Cfg.c&#160;<br/>
+This&#160;is&#160;configuration source&#160;file.&#160;<br/>
+CryIf_Cfg.h&#160;<br/>
+This&#160;is&#160;configuration header&#160;file.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_CryIfs.html#8">&#160;Figure&#160;2-2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Services&#160;provided by&#160;CRYIF&#160;</b><br/>
+<b>5.1.1&#160;</b><br/>
+<b>CryIf_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>CryIf_InitMemory&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Power-up&#160;memory&#160;initialization.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Use this&#160;function&#160;in case&#160;these variables&#160;are not&#160;initialized&#160;by&#160;the startup&#160;code.&#160;<br/>Module&#160;is&#160;uninitialized.&#160;<br/>Initialize component variables&#160;at&#160;power up.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;CryIf_InitMemory&#160;<br/>
+&#160;<br/>
+<b>5.1.2&#160;</b><br/>
+<b>CryIf_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>CryIf_Init&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+ConfigPtr&#160;[in]&#160;<br/>
+Configuration structure for initializing the module&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialization&#160;function.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Specification of&#160;module initialization&#160;<br/>
+&gt;&#160;&#160;Interrupts&#160;are disabled.Module&#160;is&#160;uninitialized.CryIf_InitMemory&#160;has&#160;been&#160;called&#160;unless&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+CryIf_ModuleInitialized&#160;is&#160;initialized&#160;by&#160;start-up&#160;code.&#160;<br/>
+This&#160;function&#160;initializes&#160;the&#160;module CryIf. It&#160;initializes&#160;all&#160;variables&#160;and&#160;sets&#160;the&#160;module state&#160;to&#160;initialized.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;CryIf_Init&#160;<br/>
+&#160;<br/>
+<b>5.1.3&#160;</b><br/>
+<b>CryIf_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>CryIf_GetVersionInfo&#160;</b>(Std_VersionInfoType *versioninfo)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo [out]&#160;<br/>
+Pointer to&#160;where to store the version&#160;information. Parameter&#160;must not&#160;be&#160;<br/>NULL.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Returns&#160;the&#160;version information.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>CryIf_GetVersionInfo()&#160;returns&#160;version information,&#160;vendor ID&#160;and&#160;AUTOSAR module ID&#160;of&#160;the component.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK|ISR2&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;CryIf_GetVersionInfo&#160;<br/>
+&#160;<br/>
+<b>5.1.4&#160;</b><br/>
+<b>CryIf_ProcessJob&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_ProcessJob&#160;</b>(uint32 channelId, Crypto_JobType *job)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+channelId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the crypto channel.&#160;<br/>
+job&#160;[in,out]&#160;<br/>
+Pointer&#160;to the configuration&#160;of&#160;the job. Contains&#160;structures&#160;with&#160;user and&#160;<br/>primitive relevant&#160;information.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_NOT_VALID&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;valid.&#160;<br/>
+CRYPTO_E_QUEUE_FULL&#160;Request failed,&#160;the&#160;queue&#160;is&#160;full.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Process&#160;the received&#160;job.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;interface dispatches&#160;the received jobs&#160;to&#160;the&#160;configured&#160;crypto&#160;driver object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;CryIf_ProcessJob&#160;<br/>
+&#160;<br/>
+<b>5.1.5&#160;</b><br/>
+<b>CryIf_CancelJob&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_CancelJob&#160;</b>(uint32 channelId, Crypto_JobType *job)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+channelId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the crypto channel.&#160;<br/>
+job&#160;[in,out]&#160;<br/>
+Pointer&#160;to the configuration&#160;of&#160;the job. Contains&#160;structures&#160;with&#160;user and&#160;<br/>primitive relevant&#160;information.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful, job&#160;has&#160;been removed.&#160;<br/>
+Std_ReturnType&#160;<br/>
+E_NOT_OK&#160;Request failed, job&#160;could not&#160;be removed.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Cancels&#160;the&#160;received&#160;job.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;interface removes&#160;the&#160;provided job&#160;from&#160;the underlying&#160;Crypto&#160;Driver Object queue.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;CryIf_CancelJob&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>5.1.6&#160;</b><br/>
+<b>CryIf_KeyElementSet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyElementSet&#160;</b>(uint32 cryIfKeyId, uint32 keyElementId,&#160;<br/>const uint8 *keyPtr, uint32 keyLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;set.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;set.&#160;<br/>
+keyPtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the key&#160;data&#160;which shall&#160;be&#160;set&#160;as&#160;key&#160;element.&#160;<br/>
+keyLength [in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the key&#160;element in bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed,&#160;write access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed,&#160;the&#160;key&#160;element size&#160;<br/>does&#160;not&#160;match size&#160;of&#160;provided data.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;a&#160;key&#160;element.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the&#160;key&#160;element set&#160;function to the&#160;configured&#160;crypto&#160;driver&#160;object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;CryIf_KeyElementSet&#160;<br/>
+&#160;<br/>
+<b>5.1.7&#160;</b><br/>
+<b>CryIf_KeySetValid&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeySetValid&#160;</b>(uint32 cryIfKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;elements&#160;shall&#160;be&#160;set to&#160;valid.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;the key&#160;to&#160;valid.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the&#160;key&#160;set&#160;valid&#160;function to the&#160;configured crypto driver object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;CryIf_KeySetValid&#160;<br/>
+&#160;<br/>
+<b>5.1.8&#160;</b><br/>
+<b>CryIf_KeyElementGet&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyElementGet&#160;</b>(uint32 cryIfKeyId, uint32 keyElementId,&#160;<br/>uint8 *resultPtr, uint32 *resultLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;set.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;set.&#160;<br/>
+keyPtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the key&#160;data&#160;which shall&#160;be&#160;set&#160;as&#160;key&#160;element.&#160;<br/>
+keyLength [in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the key&#160;element in bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed,&#160;read&#160;access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER&#160;Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Exports&#160;the key&#160;element&#160;&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the&#160;get key&#160;element function to the&#160;configured&#160;crypto&#160;driver&#160;object.&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;CryIf_KeyElementGet&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+&#160;<br/>
+<b>5.1.9&#160;</b><br/>
+<b>CryIf_KeyElementCopy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyElementCopy&#160;</b>(uint32 cryIfKeyId, uint32 keyElementId,&#160;<br/>uint32 targetCryIfKeyId, uint32 targetKeyElementId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;source&#160;element.&#160;<br/>
+keyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;the&#160;source for the&#160;copy&#160;<br/>operation.&#160;<br/>
+targetCryIfKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;destination&#160;<br/>element.&#160;<br/>
+targetKeyElementId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;element&#160;which shall&#160;be&#160;the&#160;destination&#160;for the&#160;<br/>copy&#160;operation.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed,&#160;read&#160;access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed,&#160;write access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_EXTRACT_DENIED&#160;Request failed,&#160;not allowed&#160;to&#160;extract&#160;<br/>key&#160;material.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed,&#160;the&#160;key&#160;element sizes&#160;<br/>are not&#160;compatible.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copy&#160;key&#160;element.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;copy&#160;a key&#160;elements&#160;from&#160;one key&#160;to a&#160;target key.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;CryIf_KeyElementCopy&#160;<br/>
+&#160;<br/>
+<b>5.1.10&#160;&#160;CryIf_KeyCopy&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyCopy&#160;</b>(uint32 cryIfKeyId, uint32 targetCryIfKeyId)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the&#160;key&#160;whose key&#160;element shall&#160;be&#160;the&#160;source&#160;element.&#160;<br/>
+targetCryIfKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;whose key&#160;element shall&#160;be&#160;the&#160;destination&#160;<br/>element.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_KEY_READ_FAIL&#160;Request failed,&#160;read&#160;access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_WRITE_FAIL&#160;Request failed,&#160;write access&#160;was&#160;denied.&#160;<br/>
+CRYPTO_E_KEY_NOT_AVAILABLE&#160;Request failed,&#160;the&#160;key&#160;is&#160;not&#160;available.&#160;<br/>
+CRYPTO_E_KEY_SIZE_MISMATCH Request failed,&#160;the&#160;key&#160;element sizes&#160;<br/>are not&#160;compatible.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Copy&#160;the key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;copy&#160;all&#160;key&#160;elements&#160;from&#160;the source key&#160;to a&#160;target key.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;CryIf_KeyCopy&#160;<br/>
+&#160;<br/>
+<b>5.1.11&#160;&#160;CryIf_RandomSeed&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_RandomSeed&#160;</b>(uint32 cryIfKeyId, const uint8 *seedPtr,&#160;<br/>uint32 seedLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;for&#160;which a&#160;new&#160;material&#160;shall&#160;be&#160;generated.&#160;<br/>
+seedPtr&#160;[in]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;contains&#160;the&#160;data&#160;to&#160;feed&#160;the&#160;<br/>seed.&#160;<br/>
+seedLength [in]&#160;<br/>
+Contains&#160;the&#160;length&#160;of&#160;the seed&#160;in&#160;bytes.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialize the&#160;seed.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the random&#160;seed function to the&#160;configured crypto driver object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;CryIf_RandomSeed&#160;<br/>
+&#160;<br/>
+<b>5.1.12&#160;&#160;CryIf_KeyGenerate&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyGenerate&#160;</b>(uint32 cryIfKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;to&#160;be&#160;updated&#160;with&#160;the&#160;generated&#160;value.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Generates&#160;a key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the key&#160;generate&#160;function&#160;to the&#160;configured crypto driver object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;CryIf_KeyGenerate&#160;<br/>
+&#160;<br/>
+<b>5.1.13&#160;&#160;CryIf_KeyDerive&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyDerive&#160;</b>(uint32 cryIfKeyId, uint32 targetCryIfKeyId)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;used&#160;for key&#160;derivation.&#160;<br/>
+targetCryIfKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which&#160;is&#160;used&#160;to&#160;store the derived key.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Derives&#160;a&#160;key.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the key&#160;derive function&#160;to the&#160;configured crypto&#160;driver&#160;object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;CryIf_KeyDerive&#160;<br/>
+&#160;<br/>
+<b>5.1.14&#160;&#160;CryIf_KeyExchangeCalcPubVal&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyExchangeCalcPubVal&#160;</b>(uint32 cryIfKeyId, uint8&#160;<br/>*publicValuePtr, uint32 *publicValueLengthPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which shall&#160;be used for the&#160;key&#160;exchange&#160;<br/>protocol.&#160;<br/>
+publicValuePtr&#160;[out]&#160;<br/>
+Contains&#160;the&#160;pointer&#160;to the&#160;data&#160;where&#160;the&#160;public&#160;value&#160;shall&#160;be&#160;stored.&#160;<br/>
+publicValueLengthPtr&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;in&#160;which&#160;the&#160;public&#160;value&#160;length&#160;<br/>
+[in,out]&#160;<br/>
+information&#160;is&#160;stored. On calling&#160;this&#160;function,&#160;this&#160;parameter&#160;shall&#160;contain&#160;the&#160;<br/>size&#160;of&#160;the buffer provided&#160;by&#160;publicValuePtr.&#160;When the&#160;request has&#160;finished,&#160;<br/>the&#160;actual&#160;length of&#160;the returned&#160;value&#160;shall&#160;be stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calculation&#160;of&#160;the public&#160;value.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the key&#160;exchange&#160;public&#160;value calculation function to&#160;the&#160;configured crypto&#160;<br/>driver object.&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;CryIf_KeyExchangeCalcPubVal&#160;<br/>
+&#160;<br/>
+<b>5.1.15&#160;&#160;CryIf_KeyExchangeCalcSecret&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_KeyExchangeCalcSecret&#160;</b>(uint32 cryIfKeyId, const uint8&#160;<br/>*partnerPublicValuePtr, uint32 partnerPublicValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which shall&#160;be used for the&#160;key&#160;exchange&#160;<br/>protocol.&#160;<br/>
+partnerPublicValuePtr&#160;[in]&#160;<br/>
+Holds&#160;the&#160;pointer&#160;to the memory&#160;location&#160;which contains&#160;the&#160;partners&#160;public&#160;<br/>value.&#160;<br/>
+partnerPublicValueLength&#160;&#160;Contains&#160;the&#160;length&#160;of&#160;the partners&#160;public&#160;value in bytes.&#160;<br/>[in]&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+CRYPTO_E_SMALL_BUFFER Request failed,&#160;the provided buffer is&#160;too small&#160;<br/>to&#160;store the&#160;result.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calculation&#160;of&#160;the secret.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the key&#160;exchange&#160;common&#160;shared&#160;secret&#160;calculation&#160;function to&#160;the&#160;configured&#160;<br/>crypto&#160;driver object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;CryIf_KeyExchangeCalcSecret&#160;<br/>
+&#160;<br/>
+<b>5.1.16&#160;&#160;CryIf_CertificateParse&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_CertificateParse&#160;</b>(uint32 cryIfKeyId)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId [in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;slot&#160;in&#160;which the&#160;certificate&#160;has&#160;been stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Parse stored&#160;certificate.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>This&#160;function&#160;shall&#160;dispatch&#160;the certificate&#160;parse function to the&#160;configured&#160;crypto&#160;driver&#160;object.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-16&#160;&#160;&#160;CryIf_CertificateParse&#160;<br/>
+&#160;<br/>
+<b>5.1.17&#160;&#160;CryIf_CertificateVerify&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>CryIf_CertificateVerify&#160;</b>(uint32 cryIfKeyId, uint32&#160;<br/>verifyCryIfKeyId, Crypto_VerifyResultType *verifyPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+cryIfKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;which shall&#160;be used to&#160;validate the certificate.&#160;<br/>
+verifyCryIfKeyId&#160;[in]&#160;<br/>
+Holds&#160;the&#160;identifier&#160;of&#160;the key&#160;containing&#160;the&#160;certificate, which&#160;shall&#160;be&#160;verified.&#160;<br/>
+verifyPtr&#160;[out]&#160;<br/>
+Holds&#160;a pointer to&#160;the&#160;memory&#160;location&#160;which&#160;will&#160;contain&#160;the&#160;result&#160;of&#160;the&#160;<br/>certificate&#160;verification.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request successful.&#160;<br/>
+E_NOT_OK&#160;Request failed.&#160;<br/>
+CRYPTO_E_BUSY&#160;Request failed,&#160;Crypto&#160;Driver Object is&#160;busy.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Certificate&#160;verification.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+none&#160;<br/>Verifies&#160;the certificate&#160;stored in&#160;the&#160;key&#160;referenced by&#160;verifyCryptoKeyId&#160;with&#160;the&#160;certificate&#160;stored&#160;in&#160;the&#160;key&#160;<br/>referenced&#160;by&#160;cryIfKeyId.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-17&#160;&#160;&#160;CryIf_CertificateVerify&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;CRYIF&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>CRYIF&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError&#160;<br/>
+Table&#160;5-18&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;CRYIF&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback&#160;function&#160;that&#160;is&#160;implemented&#160;by&#160;the&#160;CRYIF&#160;and&#160;can&#160;be&#160;<br/>invoked&#160;&#160;by&#160;&#160;other&#160;&#160;modules.&#160;&#160;The&#160;&#160;prototypes&#160;&#160;of&#160;&#160;the&#160;&#160;callback&#160;&#160;functions&#160;&#160;are&#160;&#160;provided&#160;&#160;in&#160;&#160;the&#160;<br/>header&#160;file&#160;CryIf_Cbk.h&#160;by&#160;the&#160;CRYIF.&#160;<br/>
+<b>5.3.1&#160;</b><br/>
+<b>CryIf_CallbackNotification&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>CryIf_CallbackNotification&#160;</b>(&#160;Crypto_JobType&#160;*job, Std_ReturnType result&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+job&#160;<br/>
+Points&#160;to&#160;the&#160;completed&#160;job's&#160;information&#160;structure. It&#160;contains&#160;a&#160;callbackID to&#160;<br/>identify&#160;which job is&#160;finished.&#160;<br/>
+result&#160;<br/>
+Contains&#160;the&#160;result of&#160;the cryptographic&#160;operation.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Notifies&#160;the&#160;CRYIF about&#160;the completion of&#160;the request with&#160;the&#160;result&#160;of&#160;the cryptographic&#160;operation.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;synchronous.&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>This&#160;function&#160;is&#160;non-reentrant.&#160;<br/>
+Table&#160;5-19&#160;&#160;&#160;CryIf_CallbackNotification&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;CRYIF&#160;the&#160;attributes can&#160;be&#160;configured&#160;with&#160;the&#160;following&#160;tools:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator 5&#160;Pro&#160;for a&#160;detailed&#160;description&#160;see<a href="TechnicalReference_CryIfs.html#24">&#160;6.2&#160;</a>&#160;&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;CRYIF&#160;supports&#160;the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+The&#160;configuration&#160;classes&#160;of&#160;the&#160;CRYIF&#160;parameters&#160;depend&#160;on&#160;the&#160;supported&#160;configuration&#160;<br/>variants.&#160;For their&#160;definitions please&#160;see&#160;the&#160;CryIf_bswmd.arxml&#160;file.&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Configuration&#160;with&#160;DaVinci&#160;Configurator 5&#160;Pro&#160;&#160;</b><br/>
+<b>6.2.1&#160;</b><br/>
+<b>General&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;<br/>typed&#160;bold<b>&#160;</b><br/>
+CryIfVersionInfoApi&#160;<br/>
+TRUE&#160;<br/>
+Pre-processor switch to enable and disable&#160;availability&#160;<br/>
+<b>FALSE</b><br/>
+of&#160;the&#160;API&#160;Crypto_GetVersionInfo(). &#160;<br/>
+&#160;<br/>
+&#160;<br/>
+-&#160;True:&#160;API CryIf_GetVersionInfo()&#160;is&#160;available&#160;&#160;<br/>
+-&#160;False:&#160;API CryIf_GetVersionInfo()&#160;is&#160;not available.&#160;<br/>
+CryIfDevErrorDetect&#160;<br/>
+<b>TRUE&#160;</b><br/>
+Switches&#160;the&#160;development error detection&#160;and&#160;<br/>
+FALSE&#160;<br/>
+notification&#160;on&#160;or off.&#160;&#160;<br/>
+-&#160;True: detection&#160;and&#160;notification is&#160;enabled.&#160;&#160;<br/>
+-&#160;False: detection&#160;and&#160;notification&#160;is&#160;disabled.&#160;<br/>
+CryIfMaxNumberOfKeyElements&#160;&#160;<b>10&#160;</b><br/>
+Size&#160;of&#160;the maximal&#160;amount&#160;of&#160;element&#160;within an key&#160;<br/>type of&#160;all&#160;referenced&#160;Crypto Drivers&#160;<br/>
+CryIfMaxSizeOfKeyElement&#160;<br/>
+<b>512&#160;</b><br/>
+Size&#160;of&#160;the largest key&#160;element of&#160;all&#160;referenced&#160;Crypto&#160;<br/>Drivers&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;General&#160;Properties&#160;<br/>
+<b>6.2.2&#160;</b><br/>
+<b>Channel&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;<br/>typed&#160;bold<b>&#160;</b><br/>
+CryIfChannelId&#160;<br/>
+<b>&#160;</b><br/>
+Identifier of&#160;the crypto&#160;channel&#160;<br/>
+CryIfDriverObjectRef&#160;<br/>
+&#160;<br/>
+Reference to&#160;a Crypto&#160;Driver Object&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;Channel&#160;Properties&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>6.2.3&#160;</b><br/>
+<b>Key&#160;Properties&#160;</b><br/>
+<b>Attribute Name&#160;</b><br/>
+<b>Values&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Default&#160;value&#160;is&#160;<br/>typed&#160;bold<b>&#160;</b><br/>
+CryIfKeyId&#160;<br/>
+<b>&#160;</b><br/>
+Identifier of&#160;the key.&#160;<br/>
+CryIfKeyRef&#160;<br/>
+&#160;<br/>
+This&#160;parameter&#160;refers&#160;to&#160;a&#160;crypto&#160;driver key.&#160;<br/>
+Table&#160;6-3&#160;&#160;&#160;Key&#160;Properties&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+CSM&#160;<br/>
+Crypto&#160;Service Manager&#160;<br/>
+CRYIF&#160;<br/>
+Crypto&#160;Interface&#160;<br/>
+CRYPTO&#160;<br/>
+Crypto&#160;Driver&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_CryIf-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;CryIf&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;6.0.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_CryIfs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#7">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#9">3.1 Features</a></li>
+<li><a href="TechnicalReference_CryIfs.html#9">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_CryIfs.html#9">3.3 States</a></li>
+<li><a href="TechnicalReference_CryIfs.html#9">3.4 Main Functions</a></li>
+<li><a href="TechnicalReference_CryIfs.html#9">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#9">3.5.1 Development Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#11">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#11">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#11">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_CryIfs.html#11">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#12">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#12">5.1 Services provided by CRYIF</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#12">5.1.1 CryIf_InitMemory</a></li>
+<li><a href="TechnicalReference_CryIfs.html#12">5.1.2 CryIf_Init</a></li>
+<li><a href="TechnicalReference_CryIfs.html#13">5.1.3 CryIf_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_CryIfs.html#13">5.1.4 CryIf_ProcessJob</a></li>
+<li><a href="TechnicalReference_CryIfs.html#14">5.1.5 CryIf_CancelJob</a></li>
+<li><a href="TechnicalReference_CryIfs.html#15">5.1.6 CryIf_KeyElementSet</a></li>
+<li><a href="TechnicalReference_CryIfs.html#15">5.1.7 CryIf_KeySetValid</a></li>
+<li><a href="TechnicalReference_CryIfs.html#16">5.1.8 CryIf_KeyElementGet</a></li>
+<li><a href="TechnicalReference_CryIfs.html#17">5.1.9 CryIf_KeyElementCopy</a></li>
+<li><a href="TechnicalReference_CryIfs.html#17">5.1.10 CryIf_KeyCopy</a></li>
+<li><a href="TechnicalReference_CryIfs.html#18">5.1.11 CryIf_RandomSeed</a></li>
+<li><a href="TechnicalReference_CryIfs.html#19">5.1.12 CryIf_KeyGenerate</a></li>
+<li><a href="TechnicalReference_CryIfs.html#19">5.1.13 CryIf_KeyDerive</a></li>
+<li><a href="TechnicalReference_CryIfs.html#20">5.1.14 CryIf_KeyExchangeCalcPubVal</a></li>
+<li><a href="TechnicalReference_CryIfs.html#21">5.1.15 CryIf_KeyExchangeCalcSecret</a></li>
+<li><a href="TechnicalReference_CryIfs.html#21">5.1.16 CryIf_CertificateParse</a></li>
+<li><a href="TechnicalReference_CryIfs.html#22">5.1.17 CryIf_CertificateVerify</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#23">5.2 Services used by CRYIF</a></li>
+<li><a href="TechnicalReference_CryIfs.html#23">5.3 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#23">5.3.1 CryIf_CallbackNotification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#24">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#24">6.1 Configuration Variants</a></li>
+<li><a href="TechnicalReference_CryIfs.html#24">6.2 Configuration with DaVinci Configurator 5 Pro</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#24">6.2.1 General Properties</a></li>
+<li><a href="TechnicalReference_CryIfs.html#24">6.2.2 Channel Properties</a></li>
+<li><a href="TechnicalReference_CryIfs.html#25">6.2.3 Key Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#26">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_CryIfs.html#26">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_CryIfs.html#26">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_CryIfs.html#27">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

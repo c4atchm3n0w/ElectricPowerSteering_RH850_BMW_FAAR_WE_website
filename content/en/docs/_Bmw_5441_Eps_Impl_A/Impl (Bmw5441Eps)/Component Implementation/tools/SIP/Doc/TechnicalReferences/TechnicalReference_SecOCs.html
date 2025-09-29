@@ -1,0 +1,1499 @@
+---
+title: TechnicalReference_SecOCs
+linkTitle: TechnicalReference_SecOCs
+weight: 288
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Secure&#160;Onboard&#160;<br/>Communication&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;3.0.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Heiko Hübler,&#160;Markus Bart,&#160;Gunnar&#160;Meiss&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Heiko Hübler&#160;<br/>
+2014-10-02&#160;<br/>
+1.00.00&#160;<br/>
+ESCAN00078719:&#160;AR4-667:&#160;<br/>CONC_607_SecureOnboardCommunicati<br/>on&#160;<br/>
+Heiko Hübler&#160;<br/>
+2015-07-20&#160;<br/>
+1.01.00&#160;<br/>
+ESCAN00084099:&#160;FEAT-1475:&#160;SecOC-<br/>Extensions,&#160;TP,&#160;CSM&#160;and encryption&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2016-02-25&#160;<br/>
+1.02.00&#160;<br/>
+ESCAN00088549:&#160;FEAT-1631:&#160;Trigger&#160;<br/>Transmit&#160;API&#160;with SduLength&#160;In/Out&#160;<br/>according&#160;to&#160;ASR4.2.2&#160;<br/>
+Heiko Hübler&#160;<br/>
+2016-11-11&#160;<br/>
+1.03.00&#160;<br/>
+FEATC-379:&#160;SecOC&#160;Release&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2017-02-27&#160;<br/>
+2.00.00&#160;<br/>
+FEATC-852:&#160;FEAT-2365:&#160;Support&#160;<br/>standalone distribution&#160;of&#160;AR4.3&#160;SecOC&#160;<br/>
+Heiko Hübler&#160;<br/>
+2017-03-13&#160;<br/>
+2.01.00&#160;<br/>
+ESCAN00094184:&#160;BETA&#160;version&#160;-&#160;the&#160;<br/>BSW&#160;module&#160;is&#160;in BETA&#160;state&#160;<br/>
+Heiko Hübler&#160;<br/>
+2017-07-26&#160;<br/>
+3.00.00&#160;<br/>
+STORYC-919:&#160;Development&#160;Mode&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_SecureOnboardCommunication.pdf&#160;<br/>
+V4.3.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DET.pdf&#160;<br/>
+V4.3.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_BasicSoftwareModules.pdf&#160;<br/>
+V1.0.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_SecOCs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#7">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8"><b>Functional&#160;Description&#160;.................................................................................................&#160;8</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Features&#160;............................................................................................................&#160;8&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Deviations&#160;..........................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Secured&#160;PDUs&#160;...................................................................................&#160;8&#160;<br/></a><a href="TechnicalReference_SecOCs.html#9">3.1.2.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">Reception of&#160;Secured&#160;PDUs&#160;............................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">3.1.2.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">Transmission&#160;of&#160;Secured&#160;PDUs&#160;.......................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">3.1.2.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">Secured&#160;PDU&#160;Collections.................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">3.1.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#9">Generic&#160;Freshness&#160;value&#160;interface&#160;.....................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">Development&#160;Mode&#160;..........................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">3.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">Initialization&#160;......................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">3.4&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">Main Functions&#160;................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">3.5&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">Error&#160;Handling&#160;..................................................................................................&#160;10&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#10">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12"><b>Integration&#160;...................................................................................................................&#160;12</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12">Scope of&#160;Delivery&#160;.............................................................................................&#160;12&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12">Static Files&#160;.......................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12">Dynamic&#160;Files&#160;..................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#13">4.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#13">Critical&#160;Sections&#160;...............................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15"><b>API&#160;Description&#160;...........................................................................................................&#160;15</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">Services provided by&#160;SecOC&#160;...........................................................................&#160;15&#160;<br/>5.1.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">SecOC_InitMemory&#160;..........................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">5.1.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">SecOC_Init&#160;......................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">5.1.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">SecOC_DeInit&#160;..................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">5.1.4&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">SecOC_GetVersionInfo&#160;....................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#17">5.1.5&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#17">SecOC_Transmit&#160;..............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#17">5.1.6&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#17">SecOC_VerifyStatusOverride&#160;...........................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">5.1.7&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">SecOC_SetDevelopmentMode&#160;........................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">5.1.8&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">SecOC_MainFunctionRx&#160;..................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">5.1.9&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">SecOC_MainFunctionTx&#160;..................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">5.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">Services used by&#160;SecOC&#160;.................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">5.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">Callback&#160;Functions&#160;...........................................................................................&#160;20&#160;<br/>5.3.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">SecOC_RxIndication&#160;........................................................................&#160;20&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<a href="TechnicalReference_SecOCs.html#20">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">SecOC_TxConfirmation&#160;...................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#21">5.3.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#21">SecOC_TriggerTransmit...................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#21">5.3.4&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#21">SecOC_TpRxIndication&#160;....................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">5.3.5&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">SecOC_TpTxConfirmation&#160;...............................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">5.3.6&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">SecOC_CopyRxData&#160;.......................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#23">5.3.7&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#23">SecOC_CopyTxData&#160;........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">5.3.8&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">SecOC_StartOfReception&#160;................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">5.4&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">Configurable Interfaces&#160;....................................................................................&#160;24&#160;<br/>5.4.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">Notifications&#160;.....................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">5.4.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">Callout&#160;Functions&#160;.............................................................................&#160;24&#160;<br/></a><a href="TechnicalReference_SecOCs.html#25">5.4.2.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#25">SecOC_VerificationStatusCallout&#160;...................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#25">5.4.2.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#25">SecOC_GetTxFreshnessTruncData&#160;...............................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#26">5.4.2.3&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#26">SecOC_GetTxFreshness&#160;...............................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#27">5.4.2.4&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#27">SecOC_SPduTxConfirmation&#160;........................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#27">5.4.2.5&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#27">SecOC_GetRxFreshnessAuthData&#160;................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#28">5.4.2.6&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#28">SecOC_GetRxFreshness...............................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">5.5&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">Service Ports&#160;...................................................................................................&#160;30&#160;<br/>5.5.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">Client&#160;Server&#160;Interface&#160;.....................................................................&#160;30&#160;<br/>5.5.1.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">Provide&#160;Ports&#160;on&#160;SecOC&#160;Side&#160;........................................&#160;30&#160;<br/>5.5.1.1.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">[Provide&#160;Port]&#160;.............................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">5.5.1.2&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">Require Ports&#160;on&#160;SecOC&#160;Side&#160;.......................................&#160;30&#160;<br/>5.5.1.2.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">[Require&#160;Port]&#160;.............................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#32"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#32"><b>Configuration&#160;..............................................................................................................&#160;32</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#32">Configuration Variants&#160;......................................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#33"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#33"><b>Glossary&#160;......................................................................................................................&#160;33</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#33">Abbreviations&#160;...................................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#34"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#34"><b>Contact&#160;........................................................................................................................&#160;34</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_SecOCs.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#7">AUTOSAR&#160;4.3&#160;Architecture&#160;Overview&#160;.........................................................&#160;7&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_SecOCs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.......................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#8">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#11">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#11">Service IDs&#160;...............................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#11">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#11">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#12">Static&#160;files&#160;.................................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#13">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#13">Generated&#160;files&#160;.........................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">SecOC_InitMemory&#160;..................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#15">SecOC_Init&#160;...............................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">SecOC_DeInit&#160;...........................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#16">SecOC_GetVersionInfo&#160;............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#17">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#17">SecOC_Transmit&#160;......................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">SecOC_VerifyStatusOverride&#160;...................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">SecOC_SetDevelopmentMode&#160;.................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#18">SecOC_&#160;MainFunctionRx&#160;.........................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">SecOC_&#160;MainFunctionTx&#160;..........................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#19">Services used by&#160;the&#160;SecOC&#160;....................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">SecOC_RxIndication&#160;................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#20">SecOC_TxConfirmation&#160;............................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#21">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#21">SecOC_TriggerTransmit&#160;...........................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">SecOC_TpRxIndication&#160;............................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">Table&#160;5-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#22">SecOC_TpTxConfirmation&#160;........................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#23">Table&#160;5-15&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#23">SecOC_CopyRxData&#160;................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#23">Table&#160;5-16&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#23">SecOC_CopyTxData&#160;................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">Table&#160;5-17&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#24">SecOC_StartOfReception&#160;.........................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#25">Table&#160;5-18&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#25">[SecOC_VerificationStatusCallout]&#160;............................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#26">Table&#160;5-19&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#26">[SecOC_GetTxFreshnessTruncData]&#160;.......................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#26">Table&#160;5-20&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#26">[SecOC_GetTxFreshness]&#160;........................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#27">Table&#160;5-21&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#27">[SecOC_SPduTxConfirmation]&#160;.................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#28">Table&#160;5-22&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#28">[SecOC_GetRxFreshnessAuthData]&#160;.........................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#29">Table&#160;5-23&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#29">[SecOC_GetRxFreshness]&#160;.......................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">Table&#160;5-24&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#30">[Provide&#160;Port]&#160;............................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#31">Table&#160;5-25&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#31">[Require&#160;Port]&#160;...........................................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#33">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SecOCs.html#33">Abbreviations&#160;............................................................................................&#160;33&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Authentication&#160;of&#160;interface&#160;PDUs&#160;<br/><b>&gt;&#160;&#160;</b>Verification of&#160;interface&#160;PDUs&#160;<br/>
+2.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;of&#160;lower&#160;layer&#160;Tp&#160;interface&#160;&#160;<br/><b>&gt;&#160;&#160;</b>Support&#160;of&#160;CSM&#160;4.2&#160;<br/>
+3.01.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Trigger&#160;Transmit&#160;API&#160;with SduLength&#160;as in/out&#160;parameter&#160;<br/>
+4.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Generic&#160;Freshness&#160;value&#160;interface&#160;<br/><b>&gt;&#160;&#160;</b>Verification status&#160;override&#160;api&#160;<br/>
+5.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>QM&#160;release&#160;<br/><b>&gt;&#160;&#160;</b>Support&#160;of&#160;splitting&#160;a&#160;Secured&#160;Message&#160;into&#160;an&#160;Authentic and&#160;an&#160;<br/>
+Cryptographic&#160;PDU&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;of&#160;Autosar&#160;4.3&#160;CSM&#160;<br/><b>&gt;&#160;&#160;</b>Post&#160;Build Loadable and&#160;Post&#160;Build Selectable&#160;<br/>
+6.00.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;standalone distribution&#160;of&#160;AR4.3&#160;SecOC&#160;<br/>
+7.01.00&#160;<br/>
+<b>&gt;&#160;&#160;</b>Removed&#160;support&#160;of&#160;CAL&#160;and&#160;CSM&#160;4.2&#160;&#160;<br/><b>&gt;&#160;&#160;</b>Removed&#160;SecOC internal&#160;Freshness&#160;Counter&#160;Support&#160;<br/><b>&gt;&#160;&#160;</b>SafeBSW&#160;release&#160;&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-7_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;SecOC&#160;as&#160;specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_SecOCs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+SecOC_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+SecOC_MODULE_ID &#160;&#160;<br/>
+150&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[3])&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;3.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>The&#160;AUTOSAR SecOC module provides&#160;a&#160;mechanism&#160;to&#160;authenticate&#160;and&#160;verify&#160;I-PDUs.&#160;<br/>The&#160;SecOC module aims&#160;for resource-efficient and&#160;practicable authentication&#160;&#160;<br/>mechanisms&#160;for critical&#160;data on&#160;the&#160;level&#160;of&#160;PDUs.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;SecOC&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.3&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>SecOC.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_SecOCs.html#8">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_SecOCs.html#8">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a><br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Authentication&#160;during&#160;direct&#160;transmission&#160;<br/>Authentication&#160;during&#160;triggered&#160;transmission&#160;<br/>Verification during&#160;bus&#160;interface&#160;reception&#160;<br/>Authentication&#160;during&#160;transport&#160;protocol&#160;transmission&#160;<br/>Verification during&#160;transport&#160;protocol&#160;reception&#160;<br/>Use of&#160;CSM&#160;4.3&#160;<br/>RTE&#160;Service Interface:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Verification Status&#160;Service&#160;<br/><b>&gt;&#160;&#160;</b>Counter&#160;Management&#160;Service&#160;<br/><b>&gt;&#160;&#160;</b>Generic&#160;Freshness&#160;Value&#160;interface&#160;<br/><b>&gt;&#160;&#160;</b>Verification Status&#160;Configuration Service&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;of&#160;splitting&#160;a&#160;Secured&#160;Message&#160;into&#160;an&#160;Authentic and&#160;an&#160;Cryptographic&#160;PDU&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;&#160;</b><br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>PduR&#160;APIs&#160;according&#160;to&#160;Autosar&#160;4.3&#160;<br/>Authentic PDUs&#160;with dynamic&#160;length&#160;<br/>DataId as&#160;part&#160;of&#160;SecOC_VerificationStatusType&#160;<br/>Reception Overflow&#160;Strategies&#160;&#160;<br/>Tp&#160;Interface&#160;to Upper&#160;Layer&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Secured&#160;PDUs&#160;</b><br/>
+A&#160;Secured&#160;PDU&#160;is the&#160;combination&#160;of:&#160;<br/>Authentic&#160;PDU&#160;|&#160;Truncated&#160;Freshness&#160;Value&#160;|&#160;Truncated&#160;Authenticator (Big&#160;Endian&#160;Style)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+To&#160;generate&#160;the&#160;Authenticator&#160;following&#160;data&#160;is used:&#160;<br/>Data&#160;Id&#160;|&#160;Authentic&#160;PDU&#160;| Complete&#160;Freshness value&#160;<br/>
+<b>3.1.2.1&#160;</b><br/>
+<b>Reception of Secured&#160;PDUs&#160;&#160;</b><br/>
+The&#160;SecOC&#160;is&#160;used&#160;to&#160;verify&#160;received&#160;Secured&#160;&#160;PDUs.&#160;If&#160;the&#160;verification&#160;is&#160;successful&#160;the&#160;<br/>Authentic&#160;PDU&#160;is passed&#160;to&#160;the&#160;upper layer.&#160;<br/>
+<b>3.1.2.2&#160;</b><br/>
+<b>Transmission of Secured&#160;PDUs&#160;</b><br/>
+The&#160;SecOC&#160;adds&#160;to&#160;an&#160;Authentic&#160;PDU&#160;the&#160;truncated&#160;Freshness&#160;Value&#160;and&#160;the&#160;Truncated&#160;<br/>Authenticator and&#160;passes the&#160;build&#160;Secured&#160;PDU&#160;to&#160;the&#160;Lower Layer.&#160;<br/>
+<b>3.1.2.3&#160;</b><br/>
+<b>Secured&#160;PDU&#160;Collections&#160;</b><br/>
+A&#160;&#160;Secured&#160;&#160;PDU&#160;&#160;Collection&#160;&#160;splits&#160;&#160;a&#160;Secured&#160;&#160;PDU&#160;&#160;into&#160;&#160;two&#160;&#160;separate&#160;&#160;PDUs,&#160;&#160;the&#160;Authentic&#160;<br/>PDU&#160;and&#160;the&#160;Cryptographic&#160;PDU.&#160;The&#160;Authentic&#160;PDU&#160;contatins&#160;the&#160;Payload&#160;passed&#160;from&#160;<br/>the&#160;Upper&#160;Layer&#160;and&#160;the&#160;Cryptographic&#160;PDU&#160;contains&#160;the&#160;truncated&#160;freshness&#160;value&#160;and&#160;<br/>the&#160;truncated&#160;authenticator.&#160;<br/>To&#160;&#160;improve&#160;&#160;the&#160;&#160;reliability,&#160;&#160;the&#160;&#160;two&#160;&#160;messages&#160;&#160;can&#160;&#160;be&#160;&#160;linked&#160;&#160;by&#160;&#160;a&#160;&#160;Message&#160;&#160;Linker.&#160;&#160;The&#160;<br/>message&#160;&#160;linker&#160;&#160;is&#160;&#160;a&#160;&#160;byte&#160;&#160;from&#160;&#160;the&#160;Authentic&#160;&#160;PDU&#160;&#160;that&#160;&#160;is&#160;&#160;attached&#160;&#160;to&#160;&#160;the&#160;&#160;Cryptographic&#160;<br/>PDU.&#160;&#160;On&#160;&#160;Reception&#160;&#160;side&#160;&#160;the&#160;&#160;verification&#160;&#160;is&#160;&#160;only&#160;&#160;started&#160;&#160;if&#160;&#160;the&#160;&#160;message&#160;&#160;linker&#160;&#160;of&#160;&#160;the&#160;<br/>authentic&#160;and&#160;the&#160;cryptographic&#160;PDU&#160;are&#160;equal.&#160;&#160;<br/>
+<b>3.1.3&#160;</b><br/>
+<b>Generic&#160;Freshness&#160;value&#160;interface&#160;</b><br/>
+The&#160;Generic&#160;Freshness&#160;value&#160;interface&#160;is&#160;used&#160;by&#160;the&#160;SecOC&#160;to&#160;get&#160;a&#160;Freshness&#160;value&#160;to&#160;<br/>verify&#160;or generate&#160;a&#160;MAC.&#160;<br/>On&#160;Reception&#160;side&#160;the&#160;SecOC&#160;can&#160;use&#160;two&#160;different&#160;generic&#160;freshness&#160;value&#160;interfaces&#160;to&#160;<br/>get&#160;the&#160;freshness&#160;verify&#160;value.&#160;Which&#160;callout&#160;is&#160;used&#160;by&#160;the&#160;SecOC&#160;can&#160;be&#160;configured&#160;per&#160;<br/>Rx&#160;Processing.&#160;<br/>SecOC_GetRxFreshnessAuthData&#160;&#160;this&#160;&#160;callout&#160;&#160;is&#160;&#160;used&#160;&#160;if&#160;&#160;the&#160;&#160;Freshness&#160;&#160;Management&#160;<br/>Component&#160;&#160;needs&#160;&#160;additional&#160;&#160;information&#160;&#160;from&#160;&#160;the&#160;&#160;Authentic&#160;&#160;PDU&#160;&#160;to&#160;&#160;generate&#160;&#160;the&#160;<br/>freshness&#160;verify&#160;value.&#160;(For details see<a href="TechnicalReference_SecOCs.html#27">&#160;5.4.2.5)</a>&#160;<br/>SecOC_GetRxFreshness&#160;&#160;this&#160;&#160;callout&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;for&#160;&#160;all&#160;&#160;common&#160;&#160;freshness&#160;&#160;value&#160;&#160;use&#160;<br/>cases,&#160;e.g.&#160;Freshness&#160;Counter and&#160;Freshness&#160;Timestamp.&#160;(For details see<a href="TechnicalReference_SecOCs.html#28">&#160;5.4.2.6)</a>&#160;<br/>On&#160;Transmission&#160;side&#160;the&#160;SecOC&#160;can&#160;use&#160;two&#160;different&#160;generic&#160;freshness&#160;value&#160;interfaces&#160;<br/>to&#160;get&#160;the&#160;freshness&#160;verify&#160;value.&#160;Which&#160;callout&#160;is&#160;used&#160;by&#160;the&#160;SecOC&#160;can&#160;be&#160;configured&#160;<br/>per&#160;Tx&#160;Processing.&#160;<br/>SecOC_GetTxFreshnessTruncData&#160;&#160;this&#160;&#160;callout&#160;&#160;is&#160;&#160;used&#160;&#160;if&#160;&#160;the&#160;&#160;Freshness&#160;&#160;Management&#160;<br/>Component&#160;&#160;provides&#160;&#160;the&#160;&#160;complete&#160;&#160;freshness&#160;&#160;value&#160;&#160;and&#160;&#160;the&#160;&#160;truncated&#160;&#160;freshness&#160;&#160;value.&#160;<br/>(For details see<a href="TechnicalReference_SecOCs.html#25">&#160;5.4.2.2)</a>&#160;<br/>SecOC_GetTxFreshness&#160;&#160;this&#160;&#160;callout&#160;&#160;is&#160;&#160;used&#160;&#160;if&#160;&#160;the&#160;&#160;Freshness&#160;&#160;Management&#160;&#160;Component&#160;<br/>provides&#160;only&#160;the&#160;complete&#160;freshness&#160;value.&#160;(For details see<a href="TechnicalReference_SecOCs.html#26">&#160;5.4.2.3)</a>&#160;<br/>After&#160;&#160;a&#160;&#160;transmit&#160;&#160;request&#160;&#160;is&#160;&#160;passed&#160;&#160;successful&#160;&#160;to&#160;&#160;the&#160;&#160;lower&#160;&#160;layer&#160;&#160;component&#160;&#160;the&#160;&#160;callout&#160;<br/>SecOC_SPduTxConfirmation&#160;is&#160;called,&#160;this&#160;callout&#160;can&#160;be&#160;used&#160;to&#160;increment&#160;the&#160;freshness&#160;<br/>value&#160;within&#160;the&#160;Freshness Management&#160;Component.&#160;(For&#160;details see<a href="TechnicalReference_SecOCs.html#27">&#160;5.4.2.4)</a>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Development&#160;Mode&#160;</b><br/>
+If&#160;&#160;the&#160;&#160;development&#160;&#160;mode&#160;&#160;is&#160;&#160;active&#160;&#160;during&#160;&#160;runtime&#160;&#160;all&#160;&#160;PDUs&#160;&#160;will&#160;&#160;be&#160;&#160;passed&#160;&#160;to&#160;&#160;the&#160;&#160;Upper&#160;<br/>Layer,&#160;even&#160;if&#160;the&#160;verification&#160;fails.&#160;&#160;<br/>The&#160;development&#160;mode&#160;must&#160;be&#160;enabled&#160;in&#160;the&#160;configuration&#160;with&#160;the&#160;configuration&#160;switch&#160;<br/>/MICROSAR/SecOC/SecOCGeneral/SecOCEnableDevelopmentMode.&#160;<br/>To&#160;&#160;enable&#160;&#160;the&#160;&#160;development&#160;&#160;mode&#160;&#160;during&#160;&#160;runtime&#160;&#160;the&#160;API&#160;&#160;SecOC_SetDevelopmentMode&#160;<br/>must&#160;be&#160;called.<b>&#160;</b><br/>
+<b>3.3&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+If&#160;&#160;not&#160;&#160;already&#160;&#160;done&#160;&#160;by&#160;&#160;the&#160;&#160;startup&#160;&#160;code,&#160;&#160;the&#160;&#160;statically&#160;&#160;initialized&#160;&#160;RAM &#160;variables&#160;&#160;&#160;<br/>must&#160;be&#160;initialized&#160;by&#160;calling&#160;SecOC_InitMemory().&#160;<br/>The&#160;SecOC itself&#160;is initialized&#160;by&#160;calling&#160;SecOC_Init().The&#160;module&#160;can&#160;be&#160;reset&#160;with&#160;&#160;&#160;<br/>SecOC_DeInit().&#160;&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+The&#160;<br/>
+SecOC&#160;<br/>
+has&#160;<br/>
+the&#160;<br/>
+main&#160;<br/>
+functions&#160;<br/>
+SecOC_MainFunctionRx()&#160;<br/>
+and&#160;<br/>
+SecOC_MainFunctionTx().&#160;<br/>The&#160;authentication&#160;or verification&#160;of&#160;a&#160;PDU&#160;will always take&#160;place&#160;within&#160;the&#160;main&#160;function.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;SecOC_DEV_ERROR_DETECT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;SecOC&#160;ID is&#160;150.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;<a href="TechnicalReference_SecOCs.html#15">in&#160;&#160;5.1.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x01&#160;<br/>
+SECOC_SID_INIT&#160;<br/>
+0x02&#160;<br/>
+SECOC_SID_GET_VERSION_INFO&#160;<br/>
+0x03&#160;<br/>
+SECOC_SID_TRANSMIT&#160;<br/>
+0x04&#160;<br/>
+SECOC_SID_CANCEL_TRANSMIT&#160;<br/>
+0x05&#160;<br/>
+SECOC_SID_DE_INIT&#160;<br/>
+0x08&#160;<br/>
+SECOC_SID_FRESHNESS_VALUE_READ&#160;<br/>
+0x09&#160;<br/>
+SECOC_SID_FRESHNESS_VALUE_WRITE&#160;<br/>
+0x0B&#160;<br/>
+SECOC_SID_VERIFY_STATUS_OVERRIDE&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x0C&#160;<br/>
+SECOC_SID_RX_INDICATION&#160;<br/>
+0x0E&#160;<br/>
+SECOC_SID_TX_CONFIRMATION&#160;<br/>
+0x0F&#160;<br/>
+SECOC_SID_TRIGGER_TRANSMIT&#160;<br/>
+0x14&#160;<br/>
+SECOC_SID_MAIN_FUNCTION_RX&#160;<br/>
+0x15&#160;<br/>
+SECOC_SID_MAIN_FUNCTION_TX&#160;<br/>
+0x43&#160;<br/>
+SECOC_SID_COPY_TX_DATA&#160;<br/>
+0x44&#160;<br/>
+SECOC_SID_COPY_RX_DATA&#160;<br/>
+0x45&#160;<br/>
+SECOC_SID_TP_RX_INDICATION&#160;<br/>
+0x46&#160;<br/>
+SECOC_SID_START_OF_RECEPTION&#160;<br/>
+0x48&#160;<br/>
+SECOC_SID_TP_TX_CONFIRMATION&#160;<br/>
+0x50&#160;<br/>
+SECOC_SID_SET_DEVELOPMENT_MODE&#160;<br/>
+0x80&#160;<br/>
+SECOC_SID_INTERNAL&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;<br/>
+An&#160;API&#160;service was called with a&#160;NULL&#160;pointer&#160;<br/>
+0x02&#160;<br/>
+API&#160;service used&#160;without&#160;module initialization or&#160;PduR_Init&#160;called&#160;<br/>
+0x03&#160;<br/>
+Invalid I-PDU&#160;identifier&#160;<br/>
+0x04&#160;<br/>
+Crypto&#160;service&#160;failed&#160;<br/>
+0x05&#160;<br/>
+Unable to&#160;get&#160;Freshness&#160;Value&#160;<br/>
+0x06&#160;<br/>
+Freshness&#160;Value&#160;at&#160;limit&#160;<br/>
+0x07&#160;<br/>
+An&#160;API&#160;service was called with an&#160;invalid parameter&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;SecOC&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;SecOC&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_SecOCs.html#12">rs&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_SecOCs.html#12">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+SecOC.c&#160;<br/>
+Source&#160;file of&#160;the&#160;SecOC&#160;module&#160;<br/>
+SecOC.h&#160;<br/>
+Main header&#160;file which shall&#160;be&#160;included&#160;by&#160;modules using&#160;the&#160;SecOC&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool [config&#160;tool].&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+SecOC_Cfg.h&#160;<br/>
+This&#160;file contains:&#160;&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;&#160;<br/>
+of&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;data.&#160;<br/>
+SecOC_Cbk.h&#160;<br/>
+This&#160;is&#160;the&#160;generated&#160;header&#160;file of&#160;SecOC&#160;containing&#160;prototypes&#160;for&#160;lower&#160;<br/>layers.&#160;<br/>
+SecOC_Cot.h&#160;<br/>
+This&#160;is&#160;the&#160;generated&#160;header&#160;file of&#160;SecOC&#160;containing&#160;callout&#160;prototypes.&#160;<br/>
+SecOC_Lcfg.h&#160;<br/>
+This&#160;file contains:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;&#160;&#160;<br/>
+of&#160;CONFIG-CLASS&#160;LINK&#160;data.&#160;<br/>
+SecOC_Lcfg.c&#160;<br/>
+This&#160;file contains:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;data&#160;&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;&#160;<br/>
+of&#160;CONFIG-CLASS&#160;LINK&#160;data.&#160;<br/>
+SecOC_PBcfg.h&#160;&#160;This&#160;file contains:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;&#160;<br/>
+of&#160;CONFIG-CLASS&#160;POST-BUILD&#160;data.&#160;<br/>
+SecOC_PBcfg.c&#160;&#160;This&#160;file contains:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;&#160;<br/><b>&gt;&#160;&#160;</b>local&#160;data&#160;&#160;<br/><b>&gt;&#160;&#160;</b>global&#160;data&#160;&#160;<br/>
+of&#160;CONFIG-CLASS&#160;POST-BUILD&#160;data.&#160;<br/>
+SecOC_Types.h&#160;&#160;This&#160;file contains&#160;the&#160;static&#160;type&#160;definitions.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+The&#160;handling&#160;of&#160;entering&#160;and&#160;leaving&#160;critical sections is&#160;provided&#160;by&#160;the&#160;RTE.&#160;<br/>Following&#160;critical sections are&#160;offered:&#160;<br/>
+<b>&gt;&#160;&#160;</b>SECOC_EXCLUSIVE_AREA_TXSTATE&#160;<br/>
+Used&#160;to&#160;provide&#160;exclusive&#160;access to&#160;the&#160;Tx&#160;state&#160;value.&#160;<br/>Used&#160;in&#160;following&#160;functions:&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_MainFunctionRx&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_MainFunctionTx&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_Transmit&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_TxConfirmation&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_TriggerTransmit&#160;<br/>
+<b>&gt;&#160;&#160;</b>SECOC_EXCLUSIVE_AREA_RXSTATE&#160;<br/>
+Used&#160;to&#160;provide&#160;exclusive&#160;access to&#160;the&#160;Rx&#160;state&#160;value.&#160;<br/>Used&#160;in&#160;following&#160;functions:&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_MainFunctionRx&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_MainFunctionTx&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>&gt;&#160;&#160;</b>SecOC_RxIndication&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>Services&#160;provided by&#160;SecOC&#160;</b><br/>
+<b>5.1.1&#160;</b><br/>
+<b>SecOC_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_InitMemory&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Function for *_INIT_*-variable&#160;initialization.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&gt;&#160;&#160;Module must not&#160;be&#160;initializedFunction&#160;shall&#160;be called from&#160;task&#160;level&#160;<br/>Service to initialize module&#160;global&#160;variables&#160;at&#160;power up.&#160;This&#160;function&#160;can&#160;be&#160;used to&#160;initialize the variables&#160;<br/>in *_INIT_*&#160;sections&#160;in case&#160;they&#160;are&#160;not&#160;initialized&#160;by&#160;the&#160;startup code.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;SecOC_InitMemory&#160;<br/>
+&#160;<br/>
+<b>5.1.2&#160;</b><br/>
+<b>SecOC_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_Init&#160;</b>(const SecOC_ConfigType *config)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+config [in]&#160;<br/>
+Configuration structure for initializing the module&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialization&#160;function.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Specification of&#160;module initialization&#160;<br/>
+&gt;&#160;&#160;Interrupts&#160;have to be&#160;disabled.The&#160;module has&#160;to&#160;be&#160;uninitialized.&#160;<br/>This&#160;function&#160;initializes&#160;the&#160;module SecOC.&#160;It initializes&#160;all&#160;variables&#160;and&#160;sets&#160;the&#160;module state to initialized.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;SecOC_Init&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+&#160;<br/>
+<b>5.1.3&#160;</b><br/>
+<b>SecOC_DeInit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_DeInit&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Deinitialization&#160;function.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Specification of&#160;module initialization&#160;<br/>
+&gt;&#160;&#160;Interrupts&#160;have to be&#160;disabled.The&#160;module has&#160;to&#160;be&#160;uninitialized.&#160;<br/>This&#160;function&#160;stops&#160;the secure onboard&#160;communication.&#160;All&#160;buffered I-PDU&#160;are removed&#160;and&#160;have&#160;to&#160;be&#160;<br/>optained again,&#160;if&#160;needed,&#160;after SecOC_Init&#160;has&#160;been&#160;called.&#160;By&#160;a call&#160;to SecOC_DeInit the&#160;AUTOSAR&#160;<br/>SecOC module&#160;is&#160;put&#160;into&#160;an not&#160;initialized&#160;state&#160;(SecOC_UNINIT).&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;SecOC_DeInit&#160;<br/>
+&#160;<br/>
+<b>5.1.4&#160;</b><br/>
+<b>SecOC_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_GetVersionInfo&#160;</b>(Std_VersionInfoType *versioninfo)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo [out]&#160;<br/>
+Pointer&#160;to&#160;where to store the version&#160;information&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Returns&#160;the&#160;version information.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&gt;&#160;&#160;Input&#160;parameter&#160;must not&#160;be NULL.Function&#160;shall&#160;be called&#160;from&#160;task&#160;level&#160;<br/>SecOC_GetVersionInfo()&#160;returns&#160;version&#160;information, vendor&#160;ID and&#160;AUTOSAR module ID&#160;of&#160;the&#160;<br/>component.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;SecOC_GetVersionInfo&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.1.5&#160;</b><br/>
+<b>SecOC_Transmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_Transmit&#160;</b>(PduIdType id, const&#160;PduInfoType *info)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+ID of&#160;the&#160;Authentic&#160;I-PDU to be&#160;transmitted.&#160;<br/>
+info [in]&#160;<br/>
+A&#160;pointer&#160;to a&#160;structure&#160;with&#160;Authentic&#160;I-PDU related&#160;data&#160;that&#160;shall&#160;be&#160;<br/>transmitted:&#160;data length&#160;and pointer to I-SDU&#160;buffer&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+Std_ReturnType&#160;E_OK: request is&#160;accepted&#160;by&#160;the&#160;SecOC module.&#160;<br/>transmission&#160;is&#160;continued.&#160;E_NOT_OK: request&#160;is&#160;not&#160;accepted&#160;by&#160;the&#160;SecOC&#160;<br/>module.&#160;transmission&#160;is&#160;aborted.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Transmits&#160;an&#160;Authentic&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Function is&#160;called&#160;by&#160;the&#160;PDUR to&#160;request authentication&#160;and&#160;transmission&#160;of&#160;an&#160;Authentic&#160;I-PDU.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;SecOC_Transmit&#160;<br/>
+<b>5.1.6&#160;</b><br/>
+<b>SecOC_VerifyStatusOverride&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_VerifyStatusOverride&#160;</b>(uint16 freshnessValueID, uint8&#160;<br/>overrideStatus, uint8 numberOfMessagesToOverride)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+freshnessValueID [in]&#160;<br/>
+ID of&#160;the Freshness&#160;Value&#160;which&#160;when&#160;used&#160;to&#160;authenticate&#160;data,&#160;results&#160;in&#160;<br/>SecOC_VerifyStatus&#160;equal&#160;to&#160;OverrideStatus&#160;independent of&#160;the actual&#160;<br/>authentication&#160;status.&#160;<br/>
+overrideStatus&#160;[in]&#160;<br/>
+0 =&#160;Override&#160;VerifyStatus&#160;to&#160;&#34;Fail&#34;&#160;until&#160;further notice&#160;1&#160;=&#160;Override&#160;<br/>VerifyStatus&#160;to&#160;&#34;Fail&#34;&#160;until&#160;NumberOfMessagesToOverride&#160;is&#160;reached&#160;2&#160;=&#160;<br/>Cancel&#160;Override&#160;of&#160;VerifyStatus&#160;41&#160;=&#160;Override&#160;VerifyStatus&#160;to&#160;&#34;Pass&#34;&#160;until&#160;<br/>NumberOfMessagesToOverride&#160;is&#160;reached; only&#160;available&#160;if&#160;<br/>SecOCEnableForcedPassOverride is&#160;set&#160;to&#160;TRUE&#160;<br/>
+numberOfMessagesToOverride&#160;&#160;Number&#160;of&#160;sequential&#160;VerifyStatus&#160;to override&#160;when&#160;using&#160;a&#160;specific&#160;<br/>[in]&#160;<br/>
+counter&#160;for authentication verification.&#160;This&#160;is&#160;only&#160;considered&#160;when&#160;<br/>OverrideStatus&#160;is&#160;equal&#160;to&#160;1 or&#160;41.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+Std_ReturnType&#160;E_OK: request successful&#160;E_NOT_OK: request failed&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Sets&#160;verification&#160;status&#160;override.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+This&#160;service provides&#160;the ability&#160;to&#160;override the&#160;VerifyStatus&#160;with&#160;&#34;Fail&#34;&#160;or&#160;&#34;Pass&#34;&#160;when&#160;using&#160;a&#160;specific&#160;<br/>Freshness&#160;Value&#160;to&#160;verify&#160;authenticity&#160;of&#160;data&#160;making&#160;up an&#160;I-PDU.&#160;Using this&#160;interface, VerifyStatus&#160;may&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+be&#160;overridden 1.&#160;Indefinitely&#160;for received&#160;I-PDUs&#160;which use the&#160;specific&#160;Freshness&#160;Value for authentication&#160;<br/>verification&#160;2.&#160;For&#160;a number&#160;of&#160;sequentially&#160;received&#160;I-PDUs&#160;which use&#160;the&#160;specific&#160;Freshness&#160;Value&#160;for&#160;<br/>authentication&#160;verification.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;SecOC_VerifyStatusOverride&#160;<br/>
+<b>5.1.7&#160;</b><br/>
+<b>SecOC_SetDevelopmentMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_SetDevelopmentMode&#160;</b>(boolean enableDevMode)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+enableDevMode&#160;[in]&#160;<br/>
+TRUE&#160;&#160;-&#160;Development Mode is&#160;enabled.&#160;<br/>FALSE&#160;-&#160;Development Mode is&#160;disabled&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+None&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Enables/Disables&#160;the&#160;development mode.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;SecOC_SetDevelopmentMode&#160;<br/>
+&#160;<br/>
+<b>5.1.8&#160;</b><br/>
+<b>SecOC_MainFunctionRx&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>SecOC_</b>&#160;<b>MainFunctionRx&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Void&#160;<br/>
+None&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Void&#160;<br/>
+None&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;verifies&#160;the received&#160;Secured&#160;PDUs.&#160;&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;by&#160;the BSW&#160;Scheduler.&#160;<br/>Call&#160;Context&#160;<br/>
+This&#160;function&#160;must be called on&#160;task&#160;level.&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;SecOC_&#160;MainFunctionRx&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.1.9&#160;</b><br/>
+<b>SecOC_MainFunctionTx&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>SecOC_</b>&#160;<b>MainFunctionTx&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+Void&#160;<br/>
+None&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Void&#160;<br/>
+None&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Authenticates&#160;the&#160;Authentic&#160;PDUs&#160;before transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;by&#160;the BSW&#160;Scheduler.&#160;<br/>Call&#160;Context&#160;<br/>
+This&#160;function&#160;must be called on&#160;task&#160;level.&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;SecOC_&#160;MainFunctionTx&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;SecOC&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>SecOC&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;<br/>
+Det_ReportError&#160;<br/>
+PDUR&#160;<br/>
+PduR_SecOCTransmit&#160;<br/>
+PDUR&#160;<br/>
+PduR_SecOCRxIndication&#160;<br/>
+PDUR&#160;<br/>
+PduR_SecOCTxConfirmation&#160;<br/>
+CSM&#160;<br/>
+Csm_MacGenerateStart&#160;<br/>
+CSM&#160;<br/>
+Csm_MacGenerateUpdate&#160;<br/>
+CSM&#160;<br/>
+Csm_MacGenerateFinish&#160;<br/>
+CSM&#160;<br/>
+Csm_MacVerifyStart&#160;<br/>
+CSM&#160;<br/>
+Csm_MacVerifyUpdate&#160;<br/>
+CSM&#160;<br/>
+Csm_MacVerifyFinish&#160;<br/>
+CSM&#160;<br/>
+Csm_MacGenerate&#160;<br/>
+CSM&#160;<br/>
+Csm_MacVerify&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;SecOC&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback&#160;functions&#160;that&#160;are&#160;implemented&#160;by&#160;the&#160;SecOC&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;SecOC_Cbk.h&#160;by&#160;the&#160;SecOC.&#160;<br/>
+<b>5.3.1&#160;</b><br/>
+<b>SecOC_RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_RxIndication&#160;</b>(PduIdType&#160;id, const&#160;PduInfoType&#160;*info)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+ID of&#160;the received&#160;Secured&#160;I-PDU.&#160;<br/>
+info [in]&#160;<br/>
+A&#160;pointer&#160;to a&#160;structure&#160;with&#160;Secured I-PDU related data:&#160;data&#160;length&#160;and&#160;<br/>pointer&#160;to&#160;I-SDU buffer.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Callback&#160;is&#160;called&#160;when&#160;a Secured I-PDU&#160;is&#160;received.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Called&#160;by&#160;the&#160;PDUR to&#160;indicate&#160;direct reception&#160;of&#160;a&#160;Secured I-PDU from&#160;a&#160;lower&#160;layer communication&#160;<br/>interface.&#160;This&#160;call&#160;triggers&#160;the&#160;verification&#160;of&#160;the received&#160;Secured&#160;I-PDU.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;SecOC_RxIndication&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>SecOC_TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_TxConfirmation&#160;</b>(PduIdType&#160;id)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+ID of&#160;the transmitted Secured&#160;I-PDU.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Callback&#160;is&#160;called to confirm&#160;a&#160;transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;lower&#160;layer communication&#160;interface module confirms&#160;the transmission&#160;of&#160;a&#160;Secured I-PDU&#160;via&#160;PDUR.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;SecOC_TxConfirmation&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.3.3&#160;</b><br/>
+<b>SecOC_TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_TriggerTransmit&#160;</b>(PduIdType&#160;id,&#160;PduInfoType&#160;*info)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+ID of&#160;the&#160;Authentic&#160;I-PDU to be&#160;transmitted.&#160;<br/>
+info [in,out]&#160;<br/>
+Contains&#160;a&#160;pointer to&#160;a buffer (SduDataPtr)&#160;where the&#160;SDU data&#160;shall&#160;be&#160;<br/>copied to,&#160;and the available&#160;buffer size&#160;in&#160;SduLengh.&#160;On return,&#160;the&#160;service&#160;will&#160;<br/>indicate&#160;the&#160;length&#160;of&#160;the copied SDU data&#160;in&#160;SduLength.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;SDU&#160;has&#160;been copied and SduLength&#160;indicates&#160;the&#160;number&#160;of&#160;copied&#160;<br/>bytes.&#160;<br/>
+Std_ReturnType&#160;<br/>
+E_NOT_OK&#160;No&#160;data has&#160;been copied,&#160;because&#160;SecOC is&#160;not initialized&#160;or&#160;<br/>TxPDUId&#160;is&#160;not&#160;valid or&#160;PDUInfoPtr&#160;is&#160;NULL_PTR or SduDataPtr&#160;is&#160;<br/>NULL_PTR or SduLength is&#160;too small&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Callback&#160;is&#160;called ba the Lower&#160;Layer to get a&#160;Secured&#160;I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;when&#160;a&#160;lower layer communication&#160;module&#160;expects&#160;a&#160;Secured&#160;I-PDU to&#160;be&#160;<br/>transmitted.&#160;The&#160;SecOC&#160;module copies&#160;the&#160;Secured I-PDU&#160;into&#160;the&#160;buffer of&#160;the lower layer&#160;communication&#160;<br/>module.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;SecOC_TriggerTransmit&#160;<br/>
+&#160;<br/>
+<b>5.3.4&#160;</b><br/>
+<b>SecOC_TpRxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_TpRxIndication&#160;</b>(PduIdType&#160;id, Std_ReturnType result)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+Identification&#160;of&#160;the received I-PDU.&#160;<br/>
+result [in]&#160;<br/>
+Result&#160;of&#160;the reception.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Callback&#160;is&#160;called to indicate a&#160;completed reception.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+The&#160;function&#160;is&#160;called&#160;after&#160;an&#160;I-PDU has&#160;been received via the&#160;TP&#160;API, the result&#160;indicates&#160;whether the&#160;<br/>transmission&#160;was&#160;successful&#160;or&#160;not.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;SecOC_TpRxIndication&#160;<br/>
+&#160;<br/>
+<b>5.3.5&#160;</b><br/>
+<b>SecOC_TpTxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_TpTxConfirmation&#160;</b>(PduIdType&#160;id, Std_ReturnType result)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+Identification&#160;of&#160;the transmitted I-PDU.&#160;<br/>
+result [in]&#160;<br/>
+Result&#160;of&#160;the transmission&#160;of&#160;the I-PDU.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Callback&#160;is&#160;called to indicate a&#160;completed transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+This&#160;function&#160;is&#160;called after&#160;the&#160;I-PDU has&#160;been&#160;transmitted on&#160;its&#160;network, the result&#160;indicates&#160;whether&#160;the&#160;<br/>transmission&#160;was&#160;successful&#160;or&#160;not.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;SecOC_TpTxConfirmation&#160;<br/>
+&#160;<br/>
+<b>5.3.6&#160;</b><br/>
+<b>SecOC_CopyRxData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>SecOC_CopyRxData&#160;</b>(PduIdType&#160;id, const&#160;PduInfoType&#160;*info,&#160;<br/>PduLengthType&#160;*bufferSizePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+Identification&#160;of&#160;the received I-PDU.&#160;<br/>
+info [in]&#160;<br/>
+Provides&#160;the source buffer (SduDataPtr)&#160;and the number of&#160;bytes&#160;to be copied&#160;<br/>(SduLength).&#160;An&#160;SduLength of&#160;0&#160;can&#160;be&#160;used to&#160;query&#160;the current amount&#160;of&#160;<br/>available buffer in the upper&#160;layer&#160;module.&#160;In this&#160;case,&#160;the&#160;SduDataPtr&#160;may&#160;be&#160;<br/>a NULL_PTR.&#160;<br/>
+bufferSizePtr&#160;[out]&#160;<br/>
+Available receive buffer after data&#160;has&#160;been copied.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+BufReq_ReturnType&#160;BUFREQ_OK:&#160;Data copied&#160;successfully.&#160;<br/>BUFREQ_E_NOT_OK: Data&#160;was&#160;not&#160;copied&#160;because&#160;an&#160;error occurred.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;callback&#160;copies&#160;the received&#160;I-PDU segment.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+This&#160;function&#160;is&#160;called to&#160;provide&#160;the&#160;received&#160;data of&#160;an&#160;I-PDU segment (N-PDU)&#160;to&#160;the&#160;upper&#160;layer.&#160;Each&#160;<br/>call&#160;to this&#160;function provides&#160;the next part&#160;of&#160;the I-PDU&#160;data.&#160;The&#160;size&#160;of&#160;the remaining data&#160;is&#160;written&#160;to the&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+position&#160;indicated&#160;by&#160;bufferSizePtr.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-16&#160;&#160;&#160;SecOC_CopyRxData&#160;<br/>
+&#160;<br/>
+<b>5.3.7&#160;</b><br/>
+<b>SecOC_CopyTxData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>SecOC_CopyTxData&#160;</b>(PduIdType&#160;id, const&#160;PduInfoType&#160;*info,&#160;<br/>RetryInfoType *retry,&#160;PduLengthType&#160;*availableDataPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+Identification&#160;of&#160;the transmitted I-PDU.&#160;<br/>
+info [in]&#160;<br/>
+Provides&#160;the&#160;destination buffer (SduDataPtr)&#160;and the number&#160;of&#160;bytes&#160;to&#160;be&#160;<br/>copied (SduLength). If&#160;not&#160;enough&#160;transmit data&#160;is&#160;available,&#160;no&#160;data&#160;is&#160;copied&#160;<br/>by&#160;the&#160;upper layer module&#160;and&#160;BUFREQ_E_BUSY&#160;is&#160;returned.&#160;The&#160;lower&#160;layer&#160;<br/>module may&#160;retry&#160;the call.&#160;An&#160;SduLength&#160;of&#160;0&#160;can&#160;be&#160;used&#160;to&#160;indicate state&#160;<br/>changes&#160;in the&#160;retry&#160;parameter&#160;or to query&#160;the&#160;current&#160;amount&#160;of&#160;available&#160;<br/>data&#160;in&#160;the&#160;upper layer module.&#160;In&#160;this&#160;case,&#160;the&#160;SduDataPtr&#160;may&#160;be&#160;a&#160;<br/>NULL_PTR.&#160;<br/>
+retry&#160;[in]&#160;<br/>
+This&#160;parameter&#160;is&#160;used&#160;to&#160;acknowledge&#160;transmitted data or&#160;to&#160;retransmit data&#160;<br/>after transmission&#160;problems.&#160;<br/>
+availableDataPtr&#160;[out]&#160;<br/>
+Indicates&#160;the remaining number&#160;of&#160;bytes&#160;that&#160;are available in the upper&#160;layer&#160;<br/>module's&#160;Tx&#160;buffer. availableDataPtr&#160;can&#160;be&#160;used&#160;by&#160;TP&#160;modules&#160;that&#160;support&#160;<br/>dynamic&#160;payload&#160;lengths&#160;(e.g.&#160;FrIsoTp) to determine&#160;the size of&#160;the&#160;following&#160;<br/>CFs.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+BufReq_ReturnType&#160;BUFREQ_OK:&#160;Data has&#160;been copied to&#160;the&#160;transmit&#160;<br/>buffer&#160;completely&#160;as&#160;requested.&#160;BUFREQ_E_BUSY:&#160;Request could not be&#160;<br/>fulfilled, because the required&#160;amount&#160;of&#160;Tx&#160;data&#160;is&#160;not&#160;available.&#160;The&#160;lower&#160;<br/>layer module may&#160;retry&#160;this&#160;call&#160;later on.&#160;No&#160;data has&#160;been copied.&#160;<br/>BUFREQ_E_NOT_OK: Data has&#160;not&#160;been&#160;copied.&#160;Request failed.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;callback&#160;copies&#160;the transmitted I-PDU segment.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+This&#160;function&#160;is&#160;called to&#160;acquire&#160;the&#160;transmit data&#160;of&#160;an&#160;I-PDU&#160;segment (N-PDU).&#160;Each call&#160;to&#160;this&#160;function&#160;<br/>provides&#160;the&#160;next part of&#160;the I-PDU&#160;data unless&#160;retry-&gt;TpDataState&#160;is&#160;TP_DATARETRY. In this&#160;case the&#160;<br/>function&#160;restarts&#160;to copy&#160;the data beginning&#160;at&#160;the&#160;offset&#160;from&#160;the current position&#160;indicated by&#160;retry-<br/>&gt;TxTpDataCnt.&#160;The&#160;size&#160;of&#160;the remaining&#160;data&#160;is&#160;written to the&#160;position&#160;indicated&#160;by&#160;availableDataPtr.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-17&#160;&#160;&#160;SecOC_CopyTxData&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.3.8&#160;</b><br/>
+<b>SecOC_StartOfReception&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+BufReq_ReturnType&#160;<b>SecOC_StartOfReception&#160;</b>(PduIdType&#160;id, const&#160;PduInfoType&#160;<br/>*info,&#160;PduLengthType&#160;TpSduLength,&#160;PduLengthType&#160;*bufferSizePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+id [in]&#160;<br/>
+Identification&#160;of&#160;the I-PDU.&#160;<br/>
+info [in]&#160;<br/>
+Pointer&#160;to a&#160;PduInfoType&#160;structure containing&#160;the&#160;payload&#160;data&#160;(without&#160;<br/>protocol&#160;information)&#160;and&#160;payload length of&#160;the&#160;first frame or&#160;single frame of&#160;a&#160;<br/>transport protocol&#160;I-PDU reception.&#160;Depending&#160;on&#160;the&#160;global&#160;parameter&#160;<br/>MetaDataLength,&#160;additional&#160;bytes&#160;containing&#160;MetaData&#160;(e.g. the&#160;CAN ID)&#160;are&#160;<br/>appended after the payload&#160;data, increasing the length&#160;accordingly. If&#160;neither&#160;<br/>first/single frame data&#160;nor MetaData&#160;are available,&#160;this&#160;parameter&#160;is&#160;set&#160;to&#160;<br/>NULL_PTR.&#160;<br/>
+TpSduLength&#160;[in]&#160;<br/>
+Total&#160;length&#160;of&#160;the N-SDU to be received.&#160;<br/>
+bufferSizePtr&#160;[out]&#160;<br/>
+Available receive buffer in the&#160;receiving&#160;module.&#160;This&#160;parameter&#160;will&#160;be&#160;used&#160;to&#160;<br/>compute&#160;the Block&#160;Size (BS)&#160;in&#160;the&#160;transport&#160;protocol&#160;module.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+BufReq_ReturnType&#160;<br/>
+BufReq_ReturnType&#160;BUFREQ_OK:&#160;Connection&#160;has&#160;been&#160;accepted.&#160;<br/>bufferSizePtr&#160;indicates&#160;the&#160;available receive buffer; reception&#160;is&#160;continued. If&#160;<br/>no&#160;buffer of&#160;the requested&#160;size is&#160;available,&#160;a receive&#160;buffer size of&#160;0&#160;shall&#160;be&#160;<br/>indicated by&#160;bufferSizePtr.&#160;BUFREQ_E_NOT_OK: Connection&#160;has&#160;been&#160;<br/>rejected; reception is&#160;aborted. bufferSizePtr&#160;remains&#160;unchanged.&#160;<br/>BUFREQ_E_OVFL:&#160;No&#160;buffer of&#160;the required&#160;length&#160;can be&#160;provided;&#160;<br/>reception&#160;is&#160;aborted.&#160;bufferSizePtr&#160;remains&#160;unchanged.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;callback&#160;is&#160;called&#160;to indicate&#160;the&#160;start of&#160;a&#160;segmented&#160;reception.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+This&#160;function&#160;is&#160;called at&#160;the start of&#160;receiving&#160;an N-SDU.&#160;The&#160;N-SDU might be fragmented&#160;into&#160;multiple N-<br/>PDUs&#160;(FF&#160;with one&#160;or more following&#160;CFs)&#160;or might consist of&#160;a&#160;single&#160;N-PDU (SF).&#160;&#160;<br/>Call&#160;context&#160;<br/>
+FunctionCallcontext&#160;<br/>
+Table&#160;5-18&#160;&#160;&#160;SecOC_StartOfReception&#160;<br/>
+&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>5.4.1&#160;</b><br/>
+<b>Notifications&#160;</b><br/>
+<b>5.4.2&#160;</b><br/>
+<b>Callout Functions&#160;&#160;</b><br/>
+At&#160;its&#160;configurable&#160;interfaces&#160;the&#160;SecOC&#160;defines&#160;callout&#160;functions.&#160;The&#160;declarations&#160;of&#160;the&#160;<br/>callout&#160;&#160;functions&#160;&#160;are&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;&#160;BSW&#160;&#160;module,&#160;&#160;i.e.&#160;&#160;the&#160;&#160;SecOC.&#160;&#160;It&#160;&#160;is&#160;&#160;the&#160;&#160;integrator's&#160;<br/>task to&#160;provide&#160;the&#160;corresponding&#160;function&#160;definitions.&#160;The&#160;definitions&#160;of&#160;the&#160;callouts&#160;can&#160;be&#160;<br/>adjusted&#160;to&#160;the&#160;system's&#160;needs.&#160;The&#160;SecOC&#160;callout&#160;function&#160;declarations&#160;are&#160;described&#160;in&#160;<br/>the&#160;following&#160;tables:&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.4.2.1&#160;</b><br/>
+<b>SecOC_VerificationStatusCallout&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_VerificationStatusCallout&#160;</b>&#160;(SecOC_VerificationStatusType&#160;<br/>verificationStatus&#160;)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+SecOC_VerificationSt&#160;verificationStatus&#160;<br/>atusType&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Service&#160;is&#160;used&#160;to propagate the&#160;status&#160;of&#160;each&#160;verification&#160;attempt&#160;from&#160;the SecOC&#160;&#160;<br/>module to other&#160;modules.&#160;This&#160;service can&#160;be&#160;configured&#160;such that:&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Only:&#160;“False”&#160;Verification&#160;Status&#160;is&#160;propagated to&#160;modules&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Both: “True”&#160;and “False”&#160;Verification&#160;Status&#160;is&#160;propagated&#160;to&#160;modules&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>None:&#160;“No&#160;Verification Status&#160;is&#160;propagated“&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>none&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>task&#160;context&#160;<br/>
+Table&#160;5-19&#160;&#160;&#160;[SecOC_VerificationStatusCallout]&#160;<br/>
+<b>5.4.2.2&#160;</b><br/>
+<b>SecOC_GetTxFreshnessTruncData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_GetTxFreshnessTruncData&#160;</b>&#160;(uint16 SecOCFreshnessValueID, &#160;<br/>uint8* SecOCFreshnessValue,&#160;uint32*&#160;SecOCFreshnessValueLength,&#160;uint8*&#160;<br/>SecOCTruncatedFreshnessValue, uint32*&#160;SecOCTruncatedFreshnessValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+SecOCFreshnessValueI&#160;Holds the identifier of the freshness value.&#160;<br/>D&#160;<br/>
+SecOCFreshnessValueL&#160;Holds the&#160;length of the provided freshness in bits.&#160;<br/>
+ength&#160;<br/>
+SecOCTruncatedFreshn&#160;Provides the truncated freshness length configured for&#160;<br/>
+essValueLength&#160;<br/>
+this freshness. The function may adapt the value if&#160;<br/>needed or can leave it unchanged if the configured length&#160;<br/>and provided&#160;length is the same.&#160;<br/>
+SecOCFreshnessValue&#160;&#160;Holds the current freshness value&#160;<br/>
+SecOCTruncatedFreshn&#160;Holds the truncated freshness to be included into the&#160;<br/>
+essValue&#160;<br/>
+Secured I-PDU. The parameter is optional.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK: request successful&#160;<br/>E_NOT_OK: request failed,&#160;a&#160;freshness&#160;value&#160;cannot&#160;be provided&#160;due&#160;to&#160;<br/>general&#160;issues&#160;for freshness&#160;or this&#160;FreshnessValueId.&#160;&#160;<br/>E_BUSY:&#160;The&#160;freshness&#160;information&#160;can&#160;temporarily&#160;not&#160;be&#160;provided&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to obtain the&#160;current freshness&#160;value.&#160;The&#160;interface function&#160;provides&#160;<br/>also the&#160;truncated freshness&#160;transmitted in the&#160;secured I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>none&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>task&#160;context&#160;<br/>
+Table&#160;5-20&#160;&#160;&#160;[SecOC_GetTxFreshnessTruncData]&#160;<br/>
+<b>5.4.2.3&#160;</b><br/>
+<b>SecOC_GetTxFreshness&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_GetTxFreshness&#160;</b>&#160;(uint16 SecOCFreshnessValueID, &#160;uint8*&#160;<br/>SecOCFreshnessValue,&#160;uint32*&#160;SecOCFreshnessValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+SecOCFreshnessValueI&#160;Holds the identifier of the freshness value.&#160;<br/>D&#160;<br/>
+SecOCFreshnessValueL&#160;Holds the length of the provided freshness in bits.&#160;<br/>
+ength&#160;<br/>
+SecOCFreshnessValue&#160;&#160;Holds the current freshness value&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK: request successful&#160;<br/>E_NOT_OK: request failed,&#160;a&#160;freshness&#160;value&#160;cannot&#160;be provided&#160;due&#160;to&#160;<br/>general&#160;issues&#160;for freshness&#160;or this&#160;FreshnessValueId.&#160;&#160;<br/>E_BUSY:&#160;The&#160;freshness&#160;information&#160;can&#160;temporarily&#160;not&#160;be&#160;provided&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to obtain the&#160;current freshness&#160;value.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>none&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>task&#160;context&#160;<br/>
+Table&#160;5-21&#160;&#160;&#160;[SecOC_GetTxFreshness]&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.4.2.4&#160;</b><br/>
+<b>SecOC_SPduTxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>SecOC_SPduTxConfirmation&#160;</b>&#160;(uint16 SecOCFreshnessValueID)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+SecOCFreshnessValueI&#160;Holds the identifier of the freshness value.&#160;<br/>D&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to indicate&#160;that&#160;the Secured&#160;I-PDU has&#160;been&#160;initiated&#160;for transmission.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>none&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>task&#160;context&#160;<br/>
+Table&#160;5-22&#160;&#160;&#160;[SecOC_SPduTxConfirmation]&#160;<br/>
+<b>5.4.2.5&#160;</b><br/>
+<b>SecOC_GetRxFreshnessAuthData&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_GetRxFreshnessAuthData&#160;</b>&#160;(uint16&#160;SecOCFreshnessValueID,&#160;<br/>
+&#160; &#160;&#160;const uint8 *SecOCTruncatedFreshnessValue,&#160;&#160;<br/>
+&#160; &#160;&#160;uint32&#160;SecOCTruncatedFreshnessValueLength,&#160;<br/>
+&#160; &#160;&#160;const uint8&#160;*SecOCAuthDataFreshnessValue,&#160;<br/>
+&#160; &#160;&#160;uint16&#160;SecOCAuthDataFreshnessValueLength&#160;<br/>
+&#160; &#160;&#160;uint16&#160;SecOCAuthVerifyAttempts,&#160;<br/>&#160; &#160;&#160;uint8&#160;*SecOCFreshnessValue,&#160;<br/>
+&#160; &#160;&#160;uint32 *SecOCFreshnessValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+SecOCFreshnessValueI&#160;Holds the identifier of the freshness value.&#160;<br/>D&#160;<br/>
+SecOCTruncatedFreshn&#160;Holds the truncated freshness value that was contained in&#160;<br/>
+essValue&#160;<br/>
+the Secured I-PDU.&#160;<br/>
+SecOCTruncatedFreshn&#160;Holds the length in&#160;bits of the truncated freshness&#160;<br/>
+essValueLength&#160;<br/>
+value.&#160;<br/>
+SecOCAuthDataFreshne&#160;The parameter holds a part of the received, not yet&#160;<br/>
+ssValue&#160;<br/>
+authenticated PDU.&#160;<br/>
+SecOCAuthDataFreshne&#160;This is the length value in bits that holds the freshness&#160;<br/>
+ssValueLength&#160;<br/>
+from the authentic PDU.&#160;The parameter is optional (see&#160;<br/>description).&#160;<br/>
+SecOCAuthVerifyAttem&#160;Holds the number of authentication verify attempts of&#160;<br/>
+pts&#160;<br/>
+this PDU since the last reception. The value is&#160;0&#160;for the&#160;<br/>first attempt and incremented on every unsuccessful&#160;<br/>verification attempt.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+SecOCFreshnessValue&#160;&#160;Holds the length in bits of the freshness value.&#160;<br/>
+SecOCFreshnessValueL&#160;Holds the freshness value to be used for the calculation&#160;<br/>
+ength&#160;<br/>
+of the authenticator.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK: request successful&#160;<br/>E_NOT_OK: request failed,&#160;a freshness&#160;value&#160;cannot&#160;be provided&#160;due&#160;to&#160;<br/>general&#160;issues&#160;for freshness&#160;or this&#160;FreshnessValueId.&#160;&#160;<br/>E_BUSY:&#160;The&#160;freshness&#160;information&#160;can&#160;temporarily&#160;not&#160;be&#160;provided.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to obtain the&#160;current freshness&#160;value.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>task&#160;context&#160;<br/>
+Table&#160;5-23&#160;&#160;&#160;[SecOC_GetRxFreshnessAuthData]&#160;<br/>
+<b>5.4.2.6&#160;</b><br/>
+<b>SecOC_GetRxFreshness&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>SecOC_GetRxFreshness</b>&#160;(uint16 SecOCFreshnessValueID,&#160;<br/>
+&#160; &#160;&#160;const uint8&#160;*SecOCTruncatedFreshnessValue,&#160;&#160;<br/>
+&#160; &#160;&#160;uint32&#160;SecOCTruncatedFreshnessValueLength,&#160;<br/>&#160; &#160;&#160;uint16&#160;SecOCAuthVerifyAttempts,&#160;<br/>
+&#160; &#160;&#160;uint8&#160;*SecOCFreshnessValue,&#160;<br/>
+&#160; &#160;&#160;uint32 *SecOCFreshnessValueLength)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+SecOCFreshnessValueI&#160;Holds the identifier of the freshness value.&#160;<br/>D&#160;<br/>
+SecOCTruncatedFreshn&#160;Holds the truncated freshness value that was contained in&#160;<br/>
+essValue&#160;<br/>
+the Secured I-PDU.&#160;<br/>
+SecOCTruncatedFreshn&#160;Holds the length in bits of the truncated freshness&#160;<br/>
+essValueLength&#160;<br/>
+value.&#160;<br/>
+SecOCAuthVerifyAttem&#160;Holds the number of authentication verify attempts of&#160;<br/>
+pts&#160;<br/>
+this PDU since the last reception. The value is&#160;0&#160;for the&#160;<br/>first attempt and incremented on every unsuccessful&#160;<br/>verification attempt.&#160;<br/>
+SecOCFreshnessValue&#160;&#160;Holds the length in bits of the freshness value.&#160;<br/>
+SecOCFreshnessValueL&#160;Holds the freshness value to be used for the calculation&#160;<br/>
+ength&#160;<br/>
+of the authenticator.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK: request successful&#160;<br/>E_NOT_OK: request failed,&#160;a&#160;freshness&#160;value&#160;cannot&#160;be provided&#160;due&#160;to&#160;<br/>general&#160;issues&#160;for&#160;freshness&#160;or this&#160;FreshnessValueId.&#160;&#160;<br/>E_BUSY:&#160;The&#160;freshness&#160;information&#160;can&#160;temporarily&#160;not&#160;be&#160;provided.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to obtain the&#160;current freshness&#160;value.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>None&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>task&#160;context&#160;<br/>
+Table&#160;5-24&#160;&#160;&#160;[SecOC_GetRxFreshness]&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-30_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Service&#160;Ports&#160;&#160;</b><br/>
+<b>5.5.1&#160;</b><br/>
+<b>Client&#160;Server Interface&#160;</b><br/>
+A&#160;client&#160;server&#160;interface&#160;is&#160;related&#160;to&#160;a&#160;Provide&#160;Port&#160;at&#160;the&#160;server&#160;side&#160;and&#160;a&#160;Require&#160;Port&#160;<br/>at&#160;client&#160;side.&#160;&#160;<br/>
+<b>5.5.1.1&#160;</b><br/>
+<b>Provide&#160;Ports&#160;on&#160;SecOC&#160;Side&#160;</b><br/>
+At&#160;&#160;the&#160;&#160;Provide&#160;&#160;Ports&#160;&#160;of&#160;&#160;the&#160;&#160;SecOC&#160;&#160;the&#160;API&#160;&#160;functions&#160;&#160;described&#160;&#160;in<a href="TechnicalReference_SecOCs.html#15">&#160;&#160;5.1&#160;&#160;</a>are&#160;&#160;available&#160;&#160;as&#160;<br/>Runnable&#160;Entities.&#160;The&#160;Runnable&#160;Entities&#160;are&#160;invoked&#160;via&#160;Operations.&#160;The&#160;mapping&#160;from&#160;a&#160;<br/>SWC&#160;client&#160;call&#160;to&#160;an&#160;Operation&#160;is&#160;performed&#160;by&#160;the&#160;RTE.&#160;In&#160;this&#160;mapping&#160;the&#160;RTE&#160;adds&#160;<br/>Port Defined&#160;Argument&#160;Values to&#160;the&#160;client&#160;call of&#160;the&#160;SWC,&#160;if&#160;configured.&#160;<br/>The&#160;&#160;following&#160;&#160;sub-chapters&#160;&#160;present&#160;&#160;the&#160;&#160;Provide&#160;&#160;Ports&#160;&#160;defined&#160;&#160;for&#160;&#160;the&#160;&#160;SecOC&#160;&#160;and&#160;&#160;the&#160;<br/>Operations&#160;defined&#160;for&#160;the&#160;Provide&#160;Ports,&#160;the&#160;API&#160;functions&#160;related&#160;to&#160;the&#160;Operations&#160;to&#160;be&#160;<br/>added&#160;by&#160;the&#160;RTE.&#160;<br/>
+<b>5.5.1.1.1&#160;</b><br/>
+<b>[Provide&#160;Port]&#160;</b><br/>
+<b>Operation&#160;</b><br/>
+<b>API&#160;Function&#160;</b><br/>
+<b>Port&#160;Defined&#160;Argument&#160;Values&#160;</b><br/>
+SecOCVerifyStatusOverride&#160;<br/>
+SecOC_VerifyStatusOverride&#160;<br/>
+uint16&#160;freshnessValueId,&#160;uint8&#160;<br/>overrideStatus, uint8&#160;<br/>numberOfMessagesToOverride&#160;<br/>
+Table&#160;5-25&#160;&#160;&#160;[Provide&#160;Port]&#160;<br/>
+<b>5.5.1.2&#160;</b><br/>
+<b>Require&#160;Ports&#160;on&#160;SecOC&#160;Side&#160;</b><br/>
+At&#160;its Require&#160;Ports the&#160;SecOC&#160;calls Operations.&#160;These&#160;Operations&#160;have&#160;to&#160;be&#160;provided&#160;by&#160;<br/>the&#160;&#160;SWCs&#160;&#160;by&#160;&#160;means&#160;&#160;of&#160;&#160;Runnable&#160;&#160;Entities.&#160;&#160;These&#160;&#160;Runnable&#160;&#160;Entities&#160;&#160;implement&#160;&#160;the&#160;<br/>callback&#160;functions expected&#160;by&#160;the&#160;SecOC.&#160;<br/>The&#160;&#160;following&#160;&#160;sub-chapters&#160;&#160;present&#160;&#160;the&#160;&#160;Require&#160;&#160;Ports&#160;&#160;defined&#160;&#160;for&#160;&#160;the&#160;&#160;SecOC,&#160;&#160;the&#160;<br/>Operations&#160;&#160;that&#160;&#160;are&#160;&#160;called&#160;&#160;from&#160;&#160;the&#160;&#160;SecOC&#160;&#160;and&#160;&#160;the&#160;&#160;related&#160;&#160;Notifications,&#160;&#160;which&#160;&#160;are&#160;<br/>described&#160;in&#160;chapte<a href="TechnicalReference_SecOCs.html#24">r&#160;5.4.</a>&#160;<br/>
+<b>5.5.1.2.1&#160;</b><br/>
+<b>[Require&#160;Port]&#160;</b><br/>
+<b>Operation&#160;</b><br/>
+<b>Notification&#160;</b><br/>
+{SecOC_VerificationStatusService}&#160;<br/>
+Is&#160;used&#160;to&#160;propagate&#160;the&#160;status&#160;of&#160;each&#160;authentication&#160;attempt.&#160;<br/>
+{SecOC_GetTxFreshnessTruncData}&#160;<br/>
+This&#160;operation&#160;is&#160;used&#160;by&#160;the SecOC to obtain the&#160;freshness&#160;that&#160;<br/>corresponds&#160;to&#160;the&#160;freshnessValueId.&#160;The&#160;operation&#160;provides&#160;the&#160;<br/>freshness&#160;and also the truncated freshness&#160;that shall&#160;be placed&#160;<br/>into&#160;the&#160;Secured-IPDU.&#160;<br/>
+{GetTxFreshness}&#160;<br/>
+This&#160;operation&#160;is&#160;used&#160;by&#160;the SecOC to obtain the&#160;freshness&#160;that&#160;<br/>corresponds&#160;to&#160;the&#160;freshnessValueId.&#160;<br/>
+{SPduTxConfirmation}&#160;<br/>
+This&#160;operation&#160;is&#160;used&#160;by&#160;the SecOC to indicate&#160;that&#160;the Secured&#160;<br/>I-PDU has&#160;been&#160;initiated&#160;for transmission.&#160;<br/>
+{GetRxFreshness}&#160;<br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to obtain the&#160;current&#160;<br/>freshness&#160;value.&#160;This&#160;operation&#160;provides&#160;also a&#160;part of&#160;the&#160;<br/>Authentic-PDU&#160;data if&#160;configured.&#160;<br/>
+{GetRxFreshnessAuthData}&#160;<br/>
+This&#160;interface is&#160;used&#160;by&#160;the SecOC to obtain the&#160;current&#160;<br/>freshness&#160;value.&#160;This&#160;operation&#160;provides&#160;also a&#160;part of&#160;the&#160;<br/>Authentic-PDU&#160;data if&#160;configured.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+Table&#160;5-26&#160;&#160;&#160;[Require&#160;Port]&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-32_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration&#160;Variants&#160;</b><br/>
+The&#160;SecOC&#160;supports&#160;the&#160;configuration&#160;variants&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-PRE-COMPILE&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-POST-BUILD-LOADABLE&#160;<br/>
+<b>&gt;&#160;&#160;</b>VARIANT-&#160;POST-BUILD-SELECTABLE&#160;<br/>
+The&#160;&#160;configuration&#160;&#160;classes&#160;&#160;of&#160;&#160;the&#160;&#160;SecOC&#160;&#160;parameters&#160;&#160;depend&#160;&#160;on&#160;&#160;the&#160;&#160;supported&#160;<br/>configuration&#160;variants.&#160;For their&#160;definitions please&#160;see&#160;the&#160;SecOC_bswmd.arxml file.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-33_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+PDU&#160;<br/>
+Protocol&#160;data unit&#160;<br/>
+I-PDU&#160;<br/>
+Interface&#160;protocol&#160;data unit&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+33&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SecOC-34_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Secure&#160;Onboard Communication&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;3.0.0&#160;<br/>
+34&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.9.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_SecOCs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#7">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#8">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#8">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#8">3.1.1 Deviations</a></li>
+<li><a href="TechnicalReference_SecOCs.html#8">3.1.2 Secured PDUs</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#9">3.1.2.1 Reception of Secured PDUs</a></li>
+<li><a href="TechnicalReference_SecOCs.html#9">3.1.2.2 Transmission of Secured PDUs</a></li>
+<li><a href="TechnicalReference_SecOCs.html#9">3.1.2.3 Secured PDU Collections</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#9">3.1.3 Generic Freshness value interface</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#10">3.2 Development Mode</a></li>
+<li><a href="TechnicalReference_SecOCs.html#10">3.3 Initialization</a></li>
+<li><a href="TechnicalReference_SecOCs.html#10">3.4 Main Functions</a></li>
+<li><a href="TechnicalReference_SecOCs.html#10">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#10">3.5.1 Development Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#12">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#12">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#12">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_SecOCs.html#12">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#13">4.2 Critical Sections</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#15">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#15">5.1 Services provided by SecOC</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#15">5.1.1 SecOC_InitMemory</a></li>
+<li><a href="TechnicalReference_SecOCs.html#15">5.1.2 SecOC_Init</a></li>
+<li><a href="TechnicalReference_SecOCs.html#16">5.1.3 SecOC_DeInit</a></li>
+<li><a href="TechnicalReference_SecOCs.html#16">5.1.4 SecOC_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_SecOCs.html#17">5.1.5 SecOC_Transmit</a></li>
+<li><a href="TechnicalReference_SecOCs.html#17">5.1.6 SecOC_VerifyStatusOverride</a></li>
+<li><a href="TechnicalReference_SecOCs.html#18">5.1.7 SecOC_SetDevelopmentMode</a></li>
+<li><a href="TechnicalReference_SecOCs.html#18">5.1.8 SecOC_MainFunctionRx</a></li>
+<li><a href="TechnicalReference_SecOCs.html#19">5.1.9 SecOC_MainFunctionTx</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#19">5.2 Services used by SecOC</a></li>
+<li><a href="TechnicalReference_SecOCs.html#20">5.3 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#20">5.3.1 SecOC_RxIndication</a></li>
+<li><a href="TechnicalReference_SecOCs.html#20">5.3.2 SecOC_TxConfirmation</a></li>
+<li><a href="TechnicalReference_SecOCs.html#21">5.3.3 SecOC_TriggerTransmit</a></li>
+<li><a href="TechnicalReference_SecOCs.html#21">5.3.4 SecOC_TpRxIndication</a></li>
+<li><a href="TechnicalReference_SecOCs.html#22">5.3.5 SecOC_TpTxConfirmation</a></li>
+<li><a href="TechnicalReference_SecOCs.html#22">5.3.6 SecOC_CopyRxData</a></li>
+<li><a href="TechnicalReference_SecOCs.html#23">5.3.7 SecOC_CopyTxData</a></li>
+<li><a href="TechnicalReference_SecOCs.html#24">5.3.8 SecOC_StartOfReception</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#24">5.4 Configurable Interfaces</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#24">5.4.1 Notifications</a></li>
+<li><a href="TechnicalReference_SecOCs.html#24">5.4.2 Callout Functions</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#25">5.4.2.1 SecOC_VerificationStatusCallout</a></li>
+<li><a href="TechnicalReference_SecOCs.html#25">5.4.2.2 SecOC_GetTxFreshnessTruncData</a></li>
+<li><a href="TechnicalReference_SecOCs.html#26">5.4.2.3 SecOC_GetTxFreshness</a></li>
+<li><a href="TechnicalReference_SecOCs.html#27">5.4.2.4 SecOC_SPduTxConfirmation</a></li>
+<li><a href="TechnicalReference_SecOCs.html#27">5.4.2.5 SecOC_GetRxFreshnessAuthData</a></li>
+<li><a href="TechnicalReference_SecOCs.html#28">5.4.2.6 SecOC_GetRxFreshness</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#30">5.5 Service Ports</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#30">5.5.1 Client Server Interface</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#30">5.5.1.1 Provide Ports on SecOC Side</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#30">5.5.1.1.1 [Provide Port]</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#30">5.5.1.2 Require Ports on SecOC Side</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#30">5.5.1.2.1 [Require Port]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#32">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#32">6.1 Configuration Variants</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#33">7 Glossary</a>
+<ul>
+<li><a href="TechnicalReference_SecOCs.html#33">7.1 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_SecOCs.html#34">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

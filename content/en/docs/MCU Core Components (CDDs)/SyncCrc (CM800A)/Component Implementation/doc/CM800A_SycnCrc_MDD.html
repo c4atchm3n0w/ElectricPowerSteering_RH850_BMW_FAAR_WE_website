@@ -1,0 +1,716 @@
+---
+title: CM800A_SycnCrc_MDD
+linkTitle: CM800A_SycnCrc_MDD
+weight: 2
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>SyncCrc</strong></p>
+<p><strong>July 5, 2017</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Kevin Smith,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 24%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+<td><strong>Approved By</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>K. Smith</td>
+<td>1</td>
+<td>07-Oct-15</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Updates to meet the Rev1 of the FDD</td>
+<td>K. Smith</td>
+<td>2</td>
+<td>11-Jan-16</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Updates to support OS version and hardware differences</td>
+<td>K. Smith</td>
+<td>3</td>
+<td>14-Jun-17</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Updates for anomaly EA4#13207</td>
+<td>K. Smith</td>
+<td>4</td>
+<td>05-Jul-17</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+</u></strong></p>
+<p><u>Table of Contents</u></p>
+<p><a href="#introduction">1 Introduction <span>5</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>5</span></a></p>
+<p><a href="#scope">1.2 Scope <span>5</span></a></p>
+<p><a href="#synccrc-high-level-description">2 SyncCrc &amp; High-Level Description <span>6</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>7</span></a></p>
+<p><a href="#graphical-representation-of-synccrc">3.1 Graphical representation of SyncCrc <span>7</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>7</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>7</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>7</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>8</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>8</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>8</span></a></p>
+<p><a href="#variable-data-dictionary">4.2 Variable Data Dictionary <span>8</span></a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">4.2.1 User Defined Typedef Definition/Declaration <span>8</span></a></p>
+<p><a href="#user-defined-enumerated-types">4.2.2 User Defined Enumerated Types <span>9</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>10</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>10</span></a></p>
+<p><a href="#init-synccrcinit0">5.1.1 Init: SyncCrcInit0 <span>10</span></a></p>
+<p><a href="#design-rationale">5.1.1.1 Design Rationale <span>10</span></a></p>
+<p><a href="#processing">5.1.1.2 Processing <span>10</span></a></p>
+<p><a href="#module-outputs">5.1.1.3 Module Outputs <span>10</span></a></p>
+<p><a href="#init-synccrcinit1">5.1.2 Init: SyncCrcInit1 <span>10</span></a></p>
+<p><a href="#design-rationale-1">5.1.2.1 Design Rationale <span>10</span></a></p>
+<p><a href="#processing-1">5.1.2.2 Processing <span>10</span></a></p>
+<p><a href="#module-outputs-1">5.1.2.3 Module Outputs <span>10</span></a></p>
+<p><a href="#server-runnables">5.2 Server Runnables <span>11</span></a></p>
+<p><a href="#resvcrchwunit">5.2.1 ResvCrcHwUnit <span>11</span></a></p>
+<p><a href="#design-rationale-2">5.2.1.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing-of-function">5.2.1.2 (Processing of function)……… <span>11</span></a></p>
+<p><a href="#module-outputs-2">5.2.1.3 Module Outputs <span>13</span></a></p>
+<p><a href="#crc-api-server-runnables">5.2.2 CRC API Server Runnables <span>14</span></a></p>
+<p><a href="#api-design-rationale">5.2.2.1 API Design Rationale <span>14</span></a></p>
+<p><a href="#api-processing">5.2.2.2 API Processing <span>14</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>17</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>17</span></a></p>
+<p><a href="#relscrchwunit">5.4.1 RelsCrcHwUnit <span>17</span></a></p>
+<p><a href="#design-rationale-3">5.4.1.1 Design Rationale <span>17</span></a></p>
+<p><a href="#processing-2">5.4.1.2 Processing <span>17</span></a></p>
+<p><a href="#nontrusted_ntwraps_synccrc_relscrchwunit">5.4.2 NONTRUSTED_NtWrapS_SyncCrc_RelsCrcHwUnit <span>18</span></a></p>
+<p><a href="#design-rationale-4">5.4.2.1 Design Rationale <span>18</span></a></p>
+<p><a href="#processing-3">5.4.2.2 Processing <span>18</span></a></p>
+<p><a href="#getavlcrchwunit">5.4.3 GetAvlCrcHwUnit <span>19</span></a></p>
+<p><a href="#design-rationale-5">5.4.3.1 Design Rationale <span>19</span></a></p>
+<p><a href="#processing-4">5.4.3.2 Processing <span>19</span></a></p>
+<p><a href="#nontrusted_ntwraps_synccrc_getavlcrchwunit">5.4.4 NONTRUSTED_NtWrapS_SyncCrc_GetAvlCrcHwUnit <span>20</span></a></p>
+<p><a href="#design-rationale-6">5.4.4.1 Design Rationale <span>20</span></a></p>
+<p><a href="#processing-5">5.4.4.2 Processing <span>20</span></a></p>
+<p><a href="#crcregcfg">5.4.5 CrcRegCfg <span>21</span></a></p>
+<p><a href="#design-rationale-7">5.4.5.1 Design Rationale <span>21</span></a></p>
+<p><a href="#processing-6">5.4.5.2 Processing <span>21</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>23</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>24</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>25</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>26</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>27</span></a></p>
+<p><a href="#references">Appendix C References <span>28</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This MDD aids in documenting the implementation of CM800A for the synchronous CRC API with the EA4 hardware CRC units.</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="synccrc-high-level-description">SyncCrc &amp; High-Level Description</h1>
+<p>Provides an API interface for other BSW and application level software components to calculate a synchronous CRC calculation using the EA4 hardware peripherals.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-synccrc">Graphical representation of SyncCrc</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.jpg" style="width:2.67164in;height:2.63602in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<p>Values between the brackets [] are the ranges that the configurable constants could be defined as for a given integration. These values are generated by Configurator before the software build.</p>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CRCININVAL8BIT_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>0xFF</td>
+</tr>
+<tr class="even">
+<td>CRCININVAL16BIT_CNT_U16</td>
+<td>Uint16</td>
+<td>Cnt</td>
+<td>0xFFFF</td>
+</tr>
+<tr class="odd">
+<td>CRCININVAL32BIT_CNT_U32</td>
+<td>Uint32</td>
+<td>Cnt</td>
+<td>0xFFFFFFFF</td>
+</tr>
+<tr class="even">
+<td>CRCERRVAL_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>CRCHWRESVCFGRNG_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>INVLDTASKID_CNT_U16</td>
+<td>Uint16</td>
+<td>Cnt</td>
+<td>0xFFFF</td>
+</tr>
+<tr class="odd">
+<td>NROFCRCHWUNIT_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>[0 – 8]*</td>
+</tr>
+<tr class="even">
+<td>NROFACTVCRCHWUNIT_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>[0 – 8]†</td>
+</tr>
+<tr class="odd">
+<td>ARWRPRENAD_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>[STD_OFF – STD_ON]**</td>
+</tr>
+<tr class="even">
+<td>CRCOSREF_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>[0-255]***</td>
+</tr>
+<tr class="odd">
+<td>MAXNROFCRCHWUNIT_CNT_U08</td>
+<td>Uint8</td>
+<td>Cnt</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>* Based on the value of “Device Type” as defined in Configurator.<br />
+** Based on the value of “Autosar Wrapper Enable” as defined in Configurator.<br />
+***Based on the value of “Crc Os Application Reference” as defined in Configurator.<br />
+† The number is calculated by NROFCRCHWUNIT_CNT_U08 – “Reserved CRC Hardware Units” as defined in Configurator.</p>
+<h2 id="variable-data-dictionary">Variable Data Dictionary</h2>
+<p>The following type definitions are found in the private header of this component.</p>
+<h3 id="user-defined-typedef-definitiondeclaration">User Defined Typedef Definition/Declaration</h3>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typedef Name</th>
+<th>Element Name</th>
+<th>User Defined Type</th>
+<th><p>Legal Range</p>
+<p>(min)</p></th>
+<th><p>Legal Range</p>
+<p>(max)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NtCrcIdRec</td>
+<td>CrcHwIdx</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td>NtResvCallRec</td>
+<td>ResvCall</td>
+<td>Boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="user-defined-enumerated-types">User Defined Enumerated Types </h3>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enum Name</th>
+<th>Element Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CrcDataAcsWidth1</td>
+<td>CRCDATAACSWIDTH_32BIT</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>CRCDATAACSWIDTH_16BIT</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CRCDATAACSWIDTH_8BIT</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>CrcAlg1</td>
+<td>CRCALG_32BITETH</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CRCALG_16BIT</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>CRCALG_8BIT</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CRCALG_8BITH2F</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-synccrcinit0">Init: SyncCrcInit0</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p>This function initializes the PIM with the proper status for the CRC hardware units for use by the application components. This function is defined in the CDD_SyncCrcNonRte.c file as it shall be called prior to the RTE Init functions.</p>
+<h2 id="processing">Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.emf" /></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p>None</p>
+<h2 id="init-synccrcinit1">Init: SyncCrcInit1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>Stub function for mapping the server runnable functions within a memory region.</p>
+<h2 id="processing-1">Processing</h2>
+<p>None</p>
+<h2 id="module-outputs-1">Module Outputs</h2>
+<p>None</p>
+<h2 id="server-runnables">Server Runnables </h2>
+<h2 id="resvcrchwunit">ResvCrcHwUnit</h2>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p>This function allows the caller to reserve a single CRC hardware unit until it is released. This will allow features such as the DMA to perform a CRC calculation over a large portion of data and does not need to permanently reserve a CRC hardware unit. This function can be called from within or outside a task. This server runnables must be defined with “can be invoked concurrently” enabled in Developer.</p>
+<h2 id="processing-of-function"> (Processing of function)………</h2>
+<h5 id="top-level-logic">Top Level Logic</h5>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image3.emf" /></p>
+<h5 id="reserve-crc">Reserve CRC</h5>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image4.emf" /></p>
+<h5 id="release-crc">Release CRC</h5>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image5.emf" /></p>
+<h2 id="module-outputs-2">Module Outputs</h2>
+<p>None</p>
+<h2 id="crc-api-server-runnables">CRC API Server Runnables</h2>
+<h2 id="api-design-rationale">API Design Rationale</h2>
+<p>The following flow chart is applicable to all CRC API functions in this document. However, the highlighted green squares vary by the API. These differences will be pointed out in each sub-function section. All API client calls must be called from within a task. These server runnables must be defined with “can be invoked concurrently” enabled in Developer.</p>
+<h2 id="api-processing"> API Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image6.emf" /></p>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image7.emf" /></p>
+<h5 id="calc8bitcrc_oper">Calc8BitCrc_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH_8BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_8BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL8BIT_CNT_U16;</p>
+<h5 id="calc8bitcrc0x2f_oper">Calc8BitCrc0X2F_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH_8BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_8BITH2F;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL8BIT_CNT_U16;</p>
+<h5 id="calc16bitcrc_u08_oper">Calc16BitCrc_u08_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_16BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL16BIT_CNT_U16;</p>
+<h5 id="calc16bitcrc_u16_oper">Calc16BitCrc_u16_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH_16BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_16BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL16BIT_CNT_U16;</p>
+<h5 id="calc32bitcrc_u08_oper">Calc32BitCrc_u08_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_32BITETH;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL32BIT_CNT_U16;</p>
+<h5 id="calc32bitcrc_u16_oper">Calc32BitCrc_u16_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH_16BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_32BITETH;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL32BIT_CNT_U16;</p>
+<h5 id="calc32bitcrc_u32_oper">Calc32BitCrc_u32_Oper</h5>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.ISZ = CRCDATAACSWIDTH_32BIT;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Ctrl_rec.Bit_b08.POL = CRCALG_32BITETH;</p>
+<p>CRCREG_REC[CrcHwIdx_Cnt_T_u08].Reg_rec-&gt;Outp_u32 = CRCININVAL32BIT_CNT_U16;</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="relscrchwunit">RelsCrcHwUnit</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RelsCrcHwUnit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CrcHwIdx_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p>To minimize time in Exclusive areas, the Enter and Exit calls were placed within this function. All API server runnables that use this function are defined in Developer to have access to the exclusive area.</p>
+<h2 id="processing-2">Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image8.emf" /></p>
+<h2 id="nontrusted_ntwraps_synccrc_relscrchwunit">NONTRUSTED_NtWrapS_SyncCrc_RelsCrcHwUnit</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>NONTRUSTED_NtWrapS_SyncCrc_RelsCrcHwUnit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>FunctionIndex</td>
+<td>Uint16</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>FunctionParams</td>
+<td>Void*</td>
+<td>0</td>
+<td>2^32-1</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p>Function is required to prevent MPU violations when the API modifies the per-instance-memory used by all API functions.</p>
+<h2 id="processing-3">Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image9.emf" /></p>
+<h2 id="getavlcrchwunit">GetAvlCrcHwUnit</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GetAvlCrcHwUnit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<h2 id="processing-4">Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image10.emf" /></p>
+<h2 id="nontrusted_ntwraps_synccrc_getavlcrchwunit">NONTRUSTED_NtWrapS_SyncCrc_GetAvlCrcHwUnit</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>NONTRUSTED_NtWrapS_SyncCrc_GetAvlCrcHwUnit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>FunctionIndex</td>
+<td>Uint16</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>FunctionParams</td>
+<td>Void*</td>
+<td>0</td>
+<td>2^32-1</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p>Function is required to prevent MPU violations when the API modifies the per-instance-memory used by all API functions.</p>
+<h2 id="processing-5">Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image11.emf" /></p>
+<h2 id="crcregcfg">CrcRegCfg</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 44%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CrcRegCfg</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CrcHwIdx_Arg</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CrcCfg_Arg</td>
+<td>CrcHwResvCfg1</td>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>StrtVal_Arg</td>
+<td>Uint32</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-7">Design Rationale</h2>
+<p>Function created to reduce the complexity of the ResvCrcHwUnit_Oper function.</p>
+<h2 id="processing-6">Processing</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image12.emf" /></p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<ol type="1">
+<li><p>API client calls, except ResvCrcHwUnit, must be called from within a task.</p></li>
+<li><p>To meet design and coding standards, ‘For’ loops called out by the FDD were implemented with ‘While’ loops to break out of the loops without using the ‘break’ keyword.</p></li>
+<li><p>The GetTaskID function call provided by the OS between different versions have different arguments. One version, the argument is a uint16, where another is a pointer to an enumerated type. The design simply casts the function call to a uint16. There are no expectations that there are going to be more than 65,535 tasks, so the uint16 width should provide adequate room for growth.</p></li>
+<li><p>In the function ResvCrcHwUnit, the else condition in the main logic path is considered dead code by Polyspace. This is because it is limiting the function to the bounds of the input of the Mod and configuration argument. However, the code is present to provide error handling in the event of an invalid input being passed into the function.</p></li>
+</ol>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>The constants NROFACTVCRCHWUNIT_CNT_U08, ARWRPRENAD_CNT_U08, and CRCOSREF_CNT_U08, and NROFCRCHWUNIT_CNT_U08 shall be tested to their full range as defined in the constant section.</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+</tbody>
+</table>

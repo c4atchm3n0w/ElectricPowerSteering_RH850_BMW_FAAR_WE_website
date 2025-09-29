@@ -1,0 +1,794 @@
+---
+title: DlogClassic_IntegrationManuals
+linkTitle: DlogClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-1_1.png"/><br/>
+Dlog&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.3.1<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.3.1<br/>
+2017-12-14<br/>
+Update&#160;NvM&#160;configuration<br/>
+5.3.0<br/>
+2017-11-09<br/>
+Version&#160;Update<br/>
+5.2.1<br/>
+2017-10-12<br/>
+Fix&#160;RDBI&#160;commands<br/>
+5.2.0<br/>
+2017-09-14<br/>
+Fix&#160;RDBI&#160;commands<br/>
+5.1.0<br/>
+2017-08-10<br/>
+Remove&#160;deprecated&#160;stuff,&#160;change&#160;FirstStartFlag&#160;to&#160;ProgId<br/>
+5.0.0<br/>
+2017-06-29<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;17<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#4"><b>1&#160;Introduction</b></a><br/>
+<b>4</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#4">1.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#4">General</a><br/>
+4<br/>
+<a href="DlogClassic_IntegrationManuals.html#4">1.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#4">Functional&#160;overview</a><br/>
+4<br/>
+<a href="DlogClassic_IntegrationManuals.html#5"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>5</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#6"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>6</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#7"><b>4&#160;Limitations</b></a><br/>
+<b>7</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#8"><b>5&#160;Software&#160;Architecture</b></a><br/>
+<b>8</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.1.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">CRC&#160;Library</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.1.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">DCM</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.1.3</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">MemIf</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.1.4</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">NvM</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.1.5</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">RTE</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">Dependencies&#160;on&#160;BMW&#160;modules</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.2.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">Bootmanager</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#8">5.2.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#8">BUtil</a><br/>
+8<br/>
+<a href="DlogClassic_IntegrationManuals.html#9">5.2.3</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#9">Coding</a><br/>
+9<br/>
+<a href="DlogClassic_IntegrationManuals.html#9">5.2.4</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#9">DlogUser</a><br/>
+9<br/>
+<a href="DlogClassic_IntegrationManuals.html#10"><b>6&#160;Integration</b></a><br/>
+<b>10</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#10">6.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#10">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+10<br/>
+<a href="DlogClassic_IntegrationManuals.html#10">6.1.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#10">Dcm</a><br/>
+10<br/>
+<a href="DlogClassic_IntegrationManuals.html#10">6.1.1.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#10">Read&#160;Data&#160;By&#160;Identifier</a><br/>
+10<br/>
+<a href="DlogClassic_IntegrationManuals.html#10">6.1.1.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#10">Routine&#160;Control</a><br/>
+10<br/>
+<a href="DlogClassic_IntegrationManuals.html#11">6.1.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#11">Nvm</a><br/>
+11<br/>
+<a href="DlogClassic_IntegrationManuals.html#12">6.1.3</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#12">MemIf</a><br/>
+12<br/>
+<a href="DlogClassic_IntegrationManuals.html#12">6.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#12">Configuration</a><br/>
+12<br/>
+<a href="DlogClassic_IntegrationManuals.html#12">6.2.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#12">DlogGeneral</a><br/>
+12<br/>
+<a href="DlogClassic_IntegrationManuals.html#13">6.2.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#13">DlogFeatures</a><br/>
+13<br/>
+<a href="DlogClassic_IntegrationManuals.html#13">6.2.3</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#13">DlogUser</a><br/>
+13<br/>
+<a href="DlogClassic_IntegrationManuals.html#13">6.2.4</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#13">DlogSharedGeneral</a><br/>
+13<br/>
+<a href="DlogClassic_IntegrationManuals.html#13">6.2.4.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#13">Logistic</a><br/>
+13<br/>
+<a href="DlogClassic_IntegrationManuals.html#13">6.2.5</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#13">DlogSharedInterface</a><br/>
+13<br/>
+<a href="DlogClassic_IntegrationManuals.html#13">6.2.6</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#13">DlogSharedPlatform</a><br/>
+13<br/>
+<a href="DlogClassic_IntegrationManuals.html#14">6.3</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#14">ECC&#160;error&#160;handling</a><br/>
+14<br/>
+<a href="DlogClassic_IntegrationManuals.html#14">6.4</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#14">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+14<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Software&#160;Integration</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Startup/Initialisation</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.1.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Preconditions</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.1.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Postconditions</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Normal&#160;Operation</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.3</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Shutdown/Deactivation</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.3.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Preconditions</a><br/>
+15<br/>
+<a href="DlogClassic_IntegrationManuals.html#15">6.5.3.2</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#15">Postconditions</a><br/>
+15<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;17<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-3_1.png"/><br/>
+<a href="DlogClassic_IntegrationManuals.html#16">6.5.4</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#16">Memory&#160;Mapping</a><br/>
+16<br/>
+<a href="DlogClassic_IntegrationManuals.html#17"><b>7&#160;Post&#160;Integration</b></a><br/>
+<b>17</b><br/>
+<a href="DlogClassic_IntegrationManuals.html#17">7.1</a><br/>
+<a href="DlogClassic_IntegrationManuals.html#17">SWE&#160;Generator&#160;Config&#160;File</a><br/>
+17<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;17<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+<b>General</b><br/>
+For&#160;a&#160;general&#160;introduction&#160;to&#160;the&#160;BAC4/aBAC&#160;Modules&#160;please&#160;refer&#160;to&#160;<a href="DlogClassic_IntegrationManuals.html#6">[1].</a><br/>
+This&#160;document&#160;only&#160;describes&#160;topics&#160;related&#160;to&#160;the&#160;Dlog&#160;BAC4/aBAC&#160;Module.<br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;of&#160;the&#160;BMW&#160;system<br/>function&#160;Dlog.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;Data&#160;Logistic&#160;is&#160;part&#160;of&#160;the&#160;BootManager,&#160;Bootloader&#160;and&#160;Application.&#160;It&#160;is&#160;needed&#160;for&#160;every&#160;ECU&#160;to<br/>
+get&#160;production&#160;information<br/>identify&#160;software&#160;and&#160;hardware<br/>check&#160;compatibility&#160;of&#160;hardware&#160;and&#160;software<br/>check&#160;compatibility&#160;of&#160;all&#160;software&#160;units&#160;(SWEs)<br/>check&#160;at&#160;startup&#160;if&#160;the&#160;software&#160;is&#160;valid&#160;and&#160;may&#160;be&#160;started.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;17<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-5_1.png"/><br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+API<br/>
+Application&#160;Programming&#160;Interface<br/>
+Application<br/>
+Application&#160;stands&#160;for&#160;the&#160;high-level&#160;part&#160;of&#160;software&#160;that&#160;uses&#160;the&#160;APIs<br/>provided&#160;by&#160;the&#160;modules.&#160;It&#160;can&#160;also&#160;mean&#160;the&#160;driving&#160;application&#160;that&#160;does<br/>not&#160;belong&#160;to&#160;the&#160;Bootloader.<br/>
+AUTOSAR<br/>
+Automotive&#160;Open&#160;System&#160;Architecture<br/>
+CCC<br/>
+Car&#160;Communication&#160;Computer<br/>
+Central&#160;Pia&#160;Master&#160;Central&#160;instance&#160;controlling&#160;and&#160;managing&#160;Pia&#160;functionality&#160;(PIA-<br/>
+Zentralinstanz).<br/>
+Coding<br/>
+Coding&#160;Client<br/>
+DTC<br/>
+Diagnostic&#160;Trouble&#160;Code&#160;-&gt;&#160;Fehlercode&#160;des&#160;Fehlerspeichereintrages<br/>
+ECU<br/>
+Electronic&#160;Control&#160;Unit<br/>
+FAT<br/>
+Flash-Absicherungs-Tool<br/>
+FZG<br/>
+Fahrzeug<br/>
+HO<br/>
+Handelsorganisation&#160;(BMW)<br/>
+HW<br/>
+Hardware<br/>
+IDRL<br/>
+Individual&#160;Data&#160;Recovery&#160;-&#160;light<br/>
+OS<br/>
+Operating&#160;System<br/>
+Pia<br/>
+Personalisierung,&#160;Individualisierung,&#160;Adaption&#160;(Personalization,&#160;Individualiza-<br/>tion,&#160;Adaptation)<br/>
+Pia&#160;value<br/>
+Scalar&#160;setting&#160;used&#160;by&#160;a&#160;Pia&#160;function.<br/>
+PiaClient<br/>
+Basic&#160;software&#160;module&#160;providing&#160;services&#160;for&#160;Pia&#160;functions.<br/>
+Profile<br/>
+Union&#160;of&#160;all&#160;personal&#160;Pia&#160;values.<br/>
+RAM&#160;Block<br/>
+The&#160;part&#160;of&#160;an&#160;NVRAM&#160;Block&#160;that&#160;resides&#160;in&#160;the&#160;RAM.&#160;A&#160;RAM&#160;block&#160;is<br/>used&#160;as&#160;shared&#160;memory&#160;interface&#160;between&#160;the&#160;NVRAM&#160;manager&#160;and&#160;the<br/>PiaClient.<br/>
+RTE<br/>
+Runtime&#160;Environment<br/>
+SG<br/>
+Steuergerät<br/>
+SGID<br/>
+Steuergeräte-ID,&#160;Diagnoseadresse,&#160;Steuergeräte-Adresse<br/>
+SID<br/>
+Service&#160;Identifier<br/>
+SW<br/>
+Software<br/>
+SW-C<br/>
+Software&#160;Component<br/>
+UDS<br/>
+Universal&#160;Diagnostic&#160;Services<br/>
+VIN<br/>
+Vehicle&#160;Identification&#160;Number<br/>
+VIN7<br/>
+The&#160;last&#160;7&#160;digits&#160;of&#160;the&#160;17-digit&#160;VIN<br/>
+All&#160;abbreviations&#160;used&#160;throughout&#160;this&#160;document&#160;--&#160;except&#160;the&#160;ones&#160;listed&#160;here&#160;--&#160;can&#160;be&#160;found&#160;in&#160;the<br/>official&#160;AUTOSAR&#160;glossary&#160;<a href="DlogClassic_IntegrationManuals.html#6">[2].</a><br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;17<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-6_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+[1]&#160;BAC4&#160;General&#160;Concept&#160;for&#160;the&#160;Module&#160;Integration<br/>
+BAC4_General_Concepts_for_the_Module_Integration.pdf<br/>
+[2]&#160;Glossary<br/>
+AUTOSAR_TR_Glossary<br/>
+[3]&#160;Specification&#160;of&#160;CRC&#160;Routines<br/>
+AUTOSAR_SWS_CRCLibrary<br/>
+[4]&#160;Specification&#160;of&#160;Diagnostic&#160;Communication&#160;Manager<br/>
+AUTOSAR_SWS_DiagnosticCommunicationManager<br/>
+[5]&#160;Specification&#160;of&#160;Memory&#160;Abstraction&#160;Interface<br/>
+AUTOSAR_SWS_MemoryAbstractionInterface<br/>
+[6]&#160;Specification&#160;of&#160;NVRAM&#160;Manager<br/>
+AUTOSAR_SWS_NVRAMManager<br/>
+[7]&#160;Specification&#160;of&#160;RTE&#160;Software<br/>
+AUTOSAR_SWS_RTE<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;17<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-7_1.png"/><br/>
+<b>4</b><br/>
+<b>Limitations</b><br/>
+Dlog&#160;has&#160;been&#160;validated&#160;on&#160;HWs&#160;where&#160;erased&#160;flash&#160;cells&#160;can&#160;be&#160;read&#160;without&#160;triggering&#160;a&#160;ECC&#160;exception.<br/>Nevertheless&#160;it&#160;should&#160;also&#160;run&#160;on&#160;other&#160;types&#160;of&#160;HWs,&#160;see&#160;<a href="DlogClassic_IntegrationManuals.html#14">section&#160;6.3,&#160;``ECC&#160;error&#160;handling''&#160;</a>for&#160;details.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;17<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-8_1.png"/><br/>
+<b>5</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+<b>CRC&#160;Library</b><br/>
+In&#160;the&#160;Bootmanager,&#160;the&#160;CRC&#160;Library&#160;<a href="DlogClassic_IntegrationManuals.html#6">[3]&#160;</a>is&#160;used&#160;for&#160;checking&#160;the&#160;SWEs&#160;against&#160;data&#160;corruption.<br/>
+<b>DCM</b><br/>
+The&#160;module&#160;Dcm&#160;<a href="DlogClassic_IntegrationManuals.html#6">[4]&#160;</a>will&#160;call&#160;functionality&#160;of&#160;the&#160;module&#160;DataLogistic&#160;when&#160;a&#160;ReadDataByIdentifier,<br/>WriteDataByIdentifier&#160;or&#160;RoutineControl&#160;has&#160;been&#160;received&#160;for&#160;an&#160;logistic&#160;operation.&#160;In&#160;Application&#160;the<br/>corresponding&#160;R-ports&#160;of&#160;the&#160;Dcm&#160;for&#160;these&#160;operations&#160;shall&#160;be&#160;connected&#160;with&#160;the&#160;corresponding<br/>P-ports&#160;of&#160;the&#160;module&#160;DataLogistic.&#160;In&#160;Bootloader&#160;the&#160;Dcm&#160;calls&#160;the&#160;C-Api&#160;of&#160;DataLogistic.<br/>
+<b>MemIf</b><br/>
+In&#160;Bootloader,&#160;the&#160;NV-RAM&#160;blocks&#160;are&#160;initialized&#160;via&#160;MemIf&#160;<a href="DlogClassic_IntegrationManuals.html#6">[5].</a><br/>
+<b>NvM</b><br/>
+In&#160;Application,&#160;the&#160;NV-RAM&#160;blocks&#160;are&#160;initialized&#160;through&#160;the&#160;NvM&#160;<a href="DlogClassic_IntegrationManuals.html#6">[6].</a><br/>
+<b>RTE</b><br/>
+Only&#160;in&#160;Application&#160;the&#160;module&#160;DataLogistic&#160;is&#160;realized&#160;as&#160;a&#160;software&#160;component&#160;and&#160;is&#160;using&#160;RTE<br/>services&#160;<a href="DlogClassic_IntegrationManuals.html#6">[7]&#160;</a>for&#160;client/server&#160;as&#160;well&#160;as&#160;sender/receiver&#160;communication&#160;to&#160;communicate&#160;with&#160;other&#160;SWCs.<br/>
+<b>Dependencies&#160;on&#160;BMW&#160;modules</b><br/>
+<b>Bootmanager</b><br/>
+In&#160;Bootmanager,&#160;the&#160;file&#160;Bmhw_Platform_Cfg.h&#160;is&#160;#included.&#160;It&#160;must&#160;define&#160;the&#160;function<br/>BM_CLEAR_HARDWARE_ECC_ERROR_FLAG().<br/>
+<b>BUtil</b><br/>
+The&#160;BUtil&#160;library&#160;provides&#160;utility&#160;functions&#160;used&#160;by&#160;Dlog.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;17<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-9_1.png"/><br/>
+<b>Coding</b><br/>
+The&#160;connection&#160;to&#160;the&#160;module&#160;Coding&#160;is&#160;used&#160;in&#160;Application.&#160;There&#160;are&#160;two&#160;connections&#160;between&#160;Coding<br/>and&#160;DataLogistic.&#160;The&#160;module&#160;Coding&#160;provides&#160;functions&#160;to&#160;get&#160;the&#160;CAF-IDs.&#160;The&#160;module&#160;DataLogistic<br/>provides&#160;the&#160;current&#160;programming&#160;ID&#160;for&#160;the&#160;Coding&#160;and&#160;other&#160;concerned&#160;modules.<br/>
+The&#160;corresponding&#160;P-/R-ports&#160;of&#160;the&#160;module&#160;DataLogistic&#160;shall&#160;be&#160;connected&#160;with&#160;the&#160;corresponding<br/>R-/P-ports&#160;of&#160;the&#160;module&#160;Coding.<br/>
+<b>DlogUser</b><br/>
+If&#160;the&#160;configuration&#160;parameter&#160;DlogShared/DlogSharedPlatform/MultiCpuEnable&#160;is&#160;set&#160;to&#160;true,<br/>the&#160;multi&#160;cpu&#160;features&#160;of&#160;the&#160;Dlog&#160;module&#160;are&#160;enabled.&#160;In&#160;this&#160;case,&#160;the&#160;user/integrator&#160;needs&#160;to<br/>implement&#160;the&#160;functions&#160;declared&#160;in&#160;DlogUser.h.&#160;In&#160;the&#160;application,&#160;where&#160;the&#160;RTE&#160;is&#160;enabled,&#160;the&#160;C/S<br/>interfaces&#160;DlogUser_Svk,&#160;DlogUser_DevelopmentInfo&#160;and<br/>DlogUser_SweProgrammingStatus&#160;need&#160;to&#160;be&#160;provided.<br/>
+If&#160;the&#160;configuration&#160;parameters&#160;Dlog/Dlog_Features/ExceptionHandlerHandleSWEErrors&#160;and<br/>DlogShared/DlogSharedPlatform/HandleEccRom&#160;are&#160;set&#160;to&#160;TRUE,&#160;the&#160;user/integrator&#160;needs&#160;to<br/>implement&#160;the&#160;function&#160;Dlog_UserTriggerEccCheck()&#160;(see&#160;<a href="DlogClassic_IntegrationManuals.html#14">section&#160;6.3,&#160;``ECC&#160;error&#160;handling''&#160;</a>for<br/>details).<br/>
+The&#160;API&#160;documentation&#160;can&#160;be&#160;found&#160;in&#160;the&#160;Dlog_User.h&#160;header&#160;file&#160;in&#160;doxygen&#160;format.<br/>
+<b>ProgId</b><br/>
+In&#160;the&#160;Application,&#160;there&#160;is&#160;a&#160;special&#160;P-Port&#160;ProgId&#160;(see&#160;<a href="DlogClassic_IntegrationManuals.html#14">section&#160;6.4,&#160;``Configuration&#160;of&#160;the&#160;RTE'').&#160;</a>It&#160;can<br/>be&#160;used&#160;by&#160;the&#160;user/integrator&#160;to&#160;retrieve&#160;the&#160;Programming&#160;Id,&#160;which&#160;changes&#160;after&#160;each&#160;reprogramming.<br/>So&#160;it&#160;can&#160;be&#160;used&#160;to&#160;determine&#160;whether&#160;the&#160;ECU&#160;has&#160;been&#160;reprogrammed&#160;since&#160;the&#160;last&#160;check&#160;of&#160;this&#160;Id.<br/>The&#160;Id&#160;can&#160;then&#160;be&#160;saved&#160;to&#160;NvM&#160;to&#160;check&#160;for&#160;the&#160;next&#160;reprogramming.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;17<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-10_1.png"/><br/>
+<b>6</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;the&#160;module&#160;Dlog&#160;is&#160;compiled&#160;and&#160;linked.<br/>
+<b>Dcm</b><br/>
+<b>Read&#160;Data&#160;By&#160;Identifier</b><br/>
+The&#160;following&#160;RDBI&#160;commands&#160;shall&#160;be&#160;configured&#160;within&#160;Dcm.<br/>
+<b>Id</b><br/>
+<b>Length&#160;(bytes)</b><br/>
+<b>Connect&#160;to&#160;(RTE&#160;interface)</b><br/>
+0x2504<br/>
+12<br/>
+TimingParameters<br/>
+0x8000<br/>
+16<br/>
+EcuUid<br/>
+0xf101<br/>
+Variable,&#160;<a href="DlogClassic_IntegrationManuals.html#10">max=RteSvkArrayMaxSize1</a><br/>
+SvkCurrent<br/>
+0xf102<br/>
+4&#160;+&#160;f&#160;+&#160;8&#160;∗&#160;(ns&#160;+&#160;nh<a href="DlogClassic_IntegrationManuals.html#10">)2</a><br/>
+SvkSystemSupplier<br/>
+0xf103<br/>
+4&#160;+&#160;f&#160;+&#160;8&#160;∗&#160;(ns&#160;+&#160;nh)2<br/>
+SvkPlant<br/>
+0xf10[i+4]&#160;4&#160;+&#160;f&#160;+&#160;8&#160;∗&#160;(ns&#160;+&#160;nh)2<br/>
+SvkBackup[i]<br/>
+0xf152<br/>
+2<br/>
+HWModificationIndex<br/>
+0xf18b<br/>
+3<br/>
+EcuManufacturingDate<br/>
+0xf18c<br/>
+<a href="DlogClassic_IntegrationManuals.html#10">EcuSerialNumberLength3</a><br/>
+EcuSerialNumber<br/>
+0xf190<br/>
+17<br/>
+Vin<br/>
+<b>Routine&#160;Control</b><br/>
+The&#160;following&#160;RC&#160;command&#160;shall&#160;be&#160;configured&#160;within&#160;Dcm.<br/>
+<b>ReadDevelopmentInfoField<br/>Id</b><br/>
+0x205<br/>
+<b>Fixed&#160;Length</b><br/>
+False<br/>
+<b>Start&#160;Routine</b><br/>
+Dlog_RoutineControlStartReadDevelopmentInfoField<br/>
+<b>Id&#160;Pos&#160;Length&#160;(bytes)</b><br/>
+<b>Input&#160;Signals</b><br/>
+0<br/>
+0<br/>
+8&#160;(variable)<br/>
+<b>Id&#160;Pos&#160;Length&#160;(bytes)</b><br/>
+<b>Output&#160;Signals</b><br/>
+0<br/>
+0<br/>
+DevelopmentInfoLength&#160;(variable)<br/>
+<b>Stop&#160;Routine</b><br/>
+&lt;None&gt;<br/>
+<b>Info&#160;Routine</b><br/>
+&lt;None&gt;<br/>
+1Configuration&#160;parameter,&#160;see&#160;DlogClassic_paramef.arxml.<br/>
+2Where&#160;ns&#160;the&#160;number&#160;of&#160;SWEs,&#160;nh&#160;the&#160;number&#160;of&#160;HWEs&#160;and&#160;f&#160;the&#160;length&#160;of&#160;the&#160;fingerprint.<br/>
+3Configuration&#160;parameter,&#160;see&#160;DlogShared_paramef.arxml.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;17<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-11_1.png"/><br/>
+<b>Nvm</b><br/>
+The&#160;Dlog&#160;needs&#160;the&#160;following&#160;Nvm&#160;blocks&#160;to&#160;store&#160;the&#160;logistic&#160;data.<br/>
+<b>NVM_BLOCK_BOOT_PROG_DATA<br/></b>NvMBlockHeaderInclude<br/>
+Dlog_Nvm.h<br/>
+NvMBlockJobPriority<br/>
+0<br/>
+NvMBlockManagementType<br/>
+NVM_BLOCK_NATIVE<br/>
+NvMBlockWriteProt<br/>
+True<br/>
+NvMInitBlockCallback<br/>
+-<br/>
+NvMNvBlockLength<br/>
+<a href="DlogClassic_IntegrationManuals.html#11">484</a><br/>
+NvMNvBlockNum<br/>
+1<br/>
+NvMRamBlockDataAddress<br/>
+Dlog_ProgData<br/>
+NvMResistantToChangedSw&#160;true,&#160;if&#160;NvMDynamicConfiguration&#160;=&#160;true<br/>NvMRomBlockDataAddress<br/>
+-<br/>
+NvMRomBlockNum<br/>
+0<br/>
+NvMSelectBlockForReadall<br/>
+true<br/>
+NvMSelectBlockForWriteAll<br/>
+false<br/>
+NvMSingleBlockCallback<br/>
+-<br/>
+NvMWriteBlockOnce<br/>
+False<br/>
+<b>Write&#160;Frequency:&#160;</b>This&#160;block&#160;will&#160;be&#160;written&#160;on<br/>
+authentication<br/>Write&#160;Data&#160;By&#160;Identifier&#160;VIN<br/>programming&#160;the&#160;ECU<br/>first&#160;start&#160;up&#160;after&#160;programming&#160;the&#160;ECU.<br/>
+<b>NVM_BLOCK_BOOT_SVK_HISTORY<br/></b>NvMBlockHeaderInclude<br/>
+Dlog_Nvm.h<br/>
+NvMBlockJobPriority<br/>
+0<br/>
+NvMBlockManagementType<br/>
+NVM_BLOCK_NATIVE<br/>
+NvMBlockWriteProt<br/>
+False<br/>
+NvMInitBlockCallback<br/>
+-<br/>
+NvMNvBlockLength<br/>
+<a href="DlogClassic_IntegrationManuals.html#11">104</a><br/>
+NvMNvBlockNum<br/>
+1<br/>
+NvMRamBlockDataAddress<br/>
+Dlog_SvkHistory<br/>
+NvMResistantToChangedSw&#160;true,&#160;if&#160;NvMDynamicConfiguration&#160;=&#160;true<br/>NvMRomBlockDataAddress<br/>
+-<br/>
+NvMRomBlockNum<br/>
+0<br/>
+NvMSelectBlockForReadall<br/>
+true<br/>
+NvMSelectBlockForWriteAll<br/>
+false<br/>
+NvMSingleBlockCallback<br/>
+-<br/>
+NvMWriteBlockOnce<br/>
+False<br/>
+4block&#160;length&#160;might&#160;differ&#160;depending&#160;on&#160;the&#160;used&#160;compiler&#160;and&#160;compiler&#160;settings<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;17<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-12_1.png"/><br/>
+<b>Write&#160;Frequency:&#160;</b>This&#160;block&#160;will&#160;be&#160;written&#160;after&#160;programming&#160;the&#160;ECU&#160;with&#160;a&#160;valid&#160;application.<br/>
+<b>NVM_BLOCK_DLOG_SVK_ENTRY<br/></b>NvMBlockHeaderInclude<br/>
+Dlog_Nvm.h<br/>
+NvMBlockJobPriority<br/>
+0<br/>
+NvMBlockManagementType<br/>
+NVM_BLOCK_DATASET<br/>
+NvMBlockWriteProt<br/>
+False<br/>
+NvMInitBlockCallback<br/>
+-<br/>
+NvMNvBlockLength<br/>
+8&#160;+&#160;8&#160;∗&#160;MaxNumberOfHistorySgbmIds<br/>
+NvMNvBlockNum<br/>
+2&#160;+&#160;DlogNumberOfSvkBackups<br/>
+NvMRamBlockDataAddress<br/>
+-<br/>
+NvMResistantToChangedSw&#160;true,&#160;if&#160;NvMDynamicConfiguration&#160;=&#160;true<br/>NvMRomBlockDataAddress<br/>
+-<br/>
+NvMRomBlockNum<br/>
+0<br/>
+NvMSelectBlockForReadall<br/>
+false<br/>
+NvMSelectBlockForWriteAll<br/>
+false<br/>
+NvMSingleBlockCallback<br/>
+-<br/>
+NvMWriteBlockOnce<br/>
+False<br/>
+<b>Write&#160;Frequency:&#160;</b>This&#160;block&#160;will&#160;be&#160;written&#160;after&#160;programming&#160;the&#160;ECU&#160;with&#160;a&#160;valid&#160;application.<br/>
+<b>MemIf</b><br/>
+When&#160;not&#160;using&#160;the&#160;Nvm,&#160;Dlog_InitNvm()&#160;shall&#160;be&#160;called&#160;at&#160;startup&#160;in&#160;order&#160;to&#160;read&#160;the&#160;NV&#160;blocks&#160;via<br/>MemIf.&#160;All&#160;blocks&#160;described&#160;in&#160;0&#160;must&#160;be&#160;configured&#160;to&#160;be&#160;used&#160;via&#160;the&#160;MemIf&#160;module.<br/>
+<b>Configuration</b><br/>
+For&#160;details&#160;about&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;module&#160;Dlog&#160;please&#160;refer&#160;to&#160;the&#160;description&#160;in&#160;the<br/>Dlog*_paramdef.arxml&#160;files.<br/>
+The&#160;Dlog&#160;configuration&#160;contains&#160;the&#160;following&#160;containers:<br/>
+DlogGeneral<br/>DlogFeatures<br/>DlogUser<br/>DlogSharedGeneral<br/>DlogSharedInterface<br/>DlogSharedPlatform<br/>
+<b>DlogGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;general&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;Dlog&#160;module.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;17<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-13_1.png"/><br/>
+<b>DlogFeatures</b><br/>
+This&#160;container&#160;contains&#160;the&#160;switches&#160;for&#160;enabling&#160;and&#160;disabling&#160;certain&#160;features&#160;of&#160;the&#160;Dlog&#160;module.<br/>Depending&#160;on&#160;whether&#160;the&#160;Dlog&#160;module&#160;is&#160;used&#160;in&#160;Application,&#160;Bootloader&#160;or&#160;Bootmanager,&#160;different<br/>features&#160;need&#160;to&#160;be&#160;enabled&#160;or&#160;disabled.<br/>
+<b>DlogUser</b><br/>
+This&#160;Container&#160;contains&#160;user&#160;defined&#160;callbacks.<br/>
+<b>DlogSharedGeneral</b><br/>
+This&#160;container&#160;can&#160;be&#160;found&#160;in&#160;the&#160;DlogShared&#160;module,&#160;which&#160;contains&#160;the&#160;configuration&#160;parameters&#160;that<br/>are&#160;shared&#160;between&#160;Application,&#160;Bootloader&#160;and&#160;Bootmanager.&#160;Therefore,&#160;there&#160;shall&#160;be&#160;only&#160;one<br/>parameter&#160;configuration&#160;file,&#160;which&#160;is&#160;then&#160;used&#160;during&#160;the&#160;generation&#160;of&#160;the&#160;Dlog&#160;module&#160;in&#160;Application,<br/>Bootloader&#160;and&#160;Bootmanager.&#160;For&#160;details&#160;on&#160;the&#160;&lt;Module&gt;Shared&#160;concept,&#160;please&#160;refer&#160;to&#160;<a href="DlogClassic_IntegrationManuals.html#6">[1].</a><br/>
+For&#160;this&#160;container,&#160;the&#160;make&#160;verify&#160;rule&#160;not&#160;only&#160;verifies&#160;the&#160;configuration&#160;but&#160;also&#160;outputs&#160;information<br/>about&#160;the&#160;SWE&#160;configuration&#160;in&#160;a&#160;human&#160;readable&#160;format.<br/>
+<b>Logistic</b><br/>
+This&#160;container&#160;contains&#160;the&#160;general&#160;logistic&#160;parameters.&#160;Special&#160;attention&#160;should&#160;be&#160;given&#160;to&#160;the&#160;choice&#160;of<br/>DlogHweTableLocation.&#160;The&#160;default&#160;is&#160;DLOG_HWE_LOC_ROM&#160;which&#160;puts&#160;the&#160;HWE&#160;table&#160;into&#160;a&#160;read-only<br/>memory&#160;section&#160;and&#160;should&#160;be&#160;ok&#160;in&#160;most&#160;cases.&#160;This&#160;memory&#160;section&#160;shall&#160;be&#160;placed&#160;somewhere,<br/>where&#160;it&#160;cannot&#160;be&#160;overwritten&#160;by&#160;an&#160;application&#160;or&#160;bootloader&#160;update.&#160;Note&#160;that&#160;the&#160;HWE&#160;table&#160;is&#160;read<br/>during&#160;normal&#160;operation&#160;in&#160;bootloader&#160;and&#160;application.&#160;Depending&#160;on&#160;your&#160;hardware&#160;this&#160;may&#160;interfere<br/>with&#160;the&#160;garbage&#160;collection&#160;of&#160;the&#160;Flash&#160;EEPROM&#160;Emulation&#160;for&#160;example.&#160;In&#160;such&#160;a&#160;case,&#160;the&#160;HWE&#160;table<br/>should&#160;be&#160;placed&#160;in&#160;RAM&#160;(DLOG_HWE_LOC_RAM).&#160;Then&#160;it&#160;is&#160;the&#160;responsibility&#160;of&#160;the&#160;integrator&#160;initialize<br/>this&#160;RAM&#160;location&#160;with&#160;the&#160;corresponding&#160;values&#160;in&#160;ROM&#160;during&#160;ECU&#160;startup.<br/>
+<b>DlogSharedInterface</b><br/>
+This&#160;container&#160;contains&#160;options&#160;for&#160;interfaces&#160;to&#160;other&#160;modules.<br/>
+<b>DlogSharedPlatform</b><br/>
+This&#160;container&#160;contains&#160;platform&#160;dependent&#160;functions.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;17<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-14_1.png"/><br/>
+<b>ECC&#160;error&#160;handling</b><br/>
+If&#160;the&#160;hardware&#160;supports&#160;ECC&#160;error&#160;detection,&#160;DlogShared/DlogSharedPlatform/HandleEccRom<br/>should&#160;be&#160;set&#160;to&#160;TRUE.<br/>
+Whenever&#160;ROM&#160;(Flash)&#160;ECC&#160;errors&#160;occur,&#160;it&#160;is&#160;expected,&#160;that&#160;either<br/>
+Dlog_RomAccessExceptionHandler()&#160;is&#160;called&#160;directly&#160;in&#160;the&#160;context&#160;of&#160;the&#160;CPU&#160;exception,&#160;or<br/>the&#160;ECC&#160;error&#160;is&#160;registered&#160;and&#160;Dlog_RomAccessExceptionHandler()&#160;is&#160;called&#160;later&#160;but&#160;must<br/>return&#160;before&#160;the&#160;function&#160;Dlog_UserTriggerEccCheck()&#160;returns.<br/>
+If&#160;the&#160;ECC&#160;error&#160;is&#160;not&#160;handled&#160;by&#160;Dlog_RomAccessExceptionHandler(),&#160;i.e.&#160;if<br/>ExceptionHandlerHandleSWEErrors&#160;is&#160;set&#160;to&#160;FALSE&#160;or&#160;the&#160;exception&#160;did&#160;not&#160;occur&#160;on&#160;a&#160;flash<br/>segment&#160;containing&#160;the&#160;valid&#160;flags&#160;of&#160;an&#160;SWE,&#160;Dlog_UserRomAccessExceptionHandler()&#160;is&#160;called.<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE</b><br/>
+After&#160;performing&#160;the&#160;steps&#160;indicated&#160;in&#160;<a href="DlogClassic_IntegrationManuals.html#10">section&#160;6.1,&#160;``Configuration&#160;of&#160;other&#160;Modules''&#160;</a>and&#160;<a href="DlogClassic_IntegrationManuals.html#12">section&#160;6.2,<br/>``Configuration'',&#160;</a>the&#160;RTE&#160;configuration&#160;can&#160;be&#160;started.&#160;Except&#160;for&#160;connecting&#160;the&#160;ports&#160;according&#160;to&#160;the<br/>table&#160;below,&#160;no&#160;special&#160;Rte&#160;configuration&#160;is&#160;needed&#160;for&#160;Dlog.<br/>
+<a href="DlogClassic_IntegrationManuals.html#15"><b>Port</b>5</a><br/>
+<b>SWC&#160;/&#160;BSW</b><br/>
+Coding_Svk<br/>
+Coding<br/>
+DETService<br/>
+DET<br/>
+DevelopmentInfoField<br/>
+DCM<br/>
+DlogUser_DevelopmentInfo<br/>
+User&#160;defined&#160;SWC<br/>
+DlogUser_SvkCurrent<br/>
+User&#160;defined&#160;SWC<br/>
+DlogUser_SvkHistory<br/>
+User&#160;defined&#160;SWC<br/>
+DlogUser_SweProgrammingStatus<br/>
+User&#160;defined&#160;SWC<br/>
+EcuInfo<br/>
+Any&#160;SWC&#160;who&#160;needs&#160;it<br/>
+EcuSerialNumber<br/>
+DCM<br/>
+FlashTimingParameter<br/>
+DCM<br/>
+HWModificationIndex<br/>
+DCM<br/>
+InitBlockProgData<br/>
+NvM<br/>
+InitBlockSvkBackup&lt;x&gt;<br/>
+NvM<br/>
+InitBlockSvkHistory<br/>
+NvM<br/>
+InitBlockSvkPlant<br/>
+NvM<br/>
+InitBlockSvkSysSupp<br/>
+NvM<br/>
+LifeCycle<br/>
+BswM<br/>
+LifeCycleRequest<br/>
+BswM<br/>
+ManufacturingDate<br/>
+DCM<br/>
+NvMAdmin_DlogProgData<br/>
+NvM<br/>
+NvMNotifyJobFinished_DlogProgData&#160;NvM<br/>NvMService_DlogProgData<br/>
+NvM<br/>
+NvMService_DlogSvkEntry<br/>
+NvM<br/>
+NvMService_DlogSvkHistory<br/>
+NvM<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;14&#160;of&#160;17<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-15_1.png"/><br/>
+ProgId<br/>
+Any&#160;SWC&#160;who&#160;needs&#160;it&#160;(e.g.&#160;Coding)<br/>
+SgbdIdx<br/>
+DCM<br/>
+SvkBackup&lt;x&gt;<br/>
+DCM<br/>
+SvkCurrent<br/>
+DCM<br/>
+SvkPlant<br/>
+DCM<br/>
+SvkSysSupplier<br/>
+DCM<br/>
+SweInfo<br/>
+Any&#160;SWC&#160;who&#160;needs&#160;it<br/>
+SweSignatureAccess<br/>
+Any&#160;SWC&#160;who&#160;needs&#160;it<br/>
+SwfkDeleteSupported<br/>
+DCM<br/>
+Vin<br/>
+DCM<br/>
+<b>Software&#160;Integration</b><br/>
+<b>Startup/Initialisation</b><br/>
+<b>Preconditions</b><br/>
+Before&#160;the&#160;INIT-Mode&#160;is&#160;requested,&#160;the&#160;following&#160;preconditions&#160;shall&#160;be&#160;satisfied:<br/>
+NvM_ReadAll&#160;must&#160;be&#160;finished<br/>
+<b>Postconditions</b><br/>
+The&#160;Dlog&#160;module&#160;switches&#160;to&#160;INITIALIZED-Mode&#160;and&#160;then&#160;to&#160;RUNNING-Mode.<br/>The&#160;FirstStartMode&#160;switches&#160;according&#160;to&#160;the&#160;FristStartFlag<br/>
+<b>Normal&#160;Operation</b><br/>
+Nothing&#160;to&#160;be&#160;done&#160;here.<br/>
+<b>Shutdown/Deactivation</b><br/>
+<b>Preconditions</b><br/>
+Before&#160;the&#160;STOPPED-Mode&#160;is&#160;requested,&#160;the&#160;Dlog&#160;module&#160;must&#160;be&#160;in&#160;RUNNING-Mode.<br/>
+<b>Postconditions</b><br/>
+The&#160;Dlog&#160;module&#160;switches&#160;to&#160;STOPPED-Mode.<br/>
+5Some&#160;of&#160;these&#160;ports&#160;might&#160;be&#160;not&#160;available&#160;depending&#160;on&#160;the&#160;specific&#160;configuration&#160;of&#160;the&#160;Dlog&#160;module<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;15&#160;of&#160;17<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-16_1.png"/><br/>
+<b>Memory&#160;Mapping</b><br/>
+The&#160;following&#160;memory&#160;sections&#160;shall&#160;be&#160;defined&#160;in&#160;their&#160;corresponding&#160;application&#160;SWEs&#160;and&#160;marked&#160;as<br/>overlay&#160;in&#160;all&#160;other&#160;SWEs:<br/>
+APPL_&lt;START|STOP&gt;_SEC_CONST_SWE&lt;x&gt;_DESCRIPTION_TABLE<br/>The&#160;description&#160;table,&#160;i.e.&#160;SGBM-ID&#160;and&#160;optional&#160;Development&#160;Info&#160;Field&#160;of&#160;SWE&#160;&lt;x&gt;.<br/>
+APPL_&lt;START|STOP&gt;_SEC_CONST_SWE&lt;x&gt;_FLASH_STATUS<br/>The&#160;flash&#160;status,&#160;i.e.&#160;CRC,&#160;Valid&#160;Flags,&#160;and&#160;Programming&#160;Dependency&#160;Flags&#160;of&#160;SWE&#160;&lt;x&gt;.<br/>
+APPL_&lt;START|STOP&gt;_SEC_CONST_SWE&lt;x&gt;_SIGNATURE<br/>The&#160;signature&#160;of&#160;SWE&#160;&lt;x&gt;.<br/>
+The&#160;following&#160;memory&#160;sections&#160;shall&#160;be&#160;defined&#160;in&#160;the&#160;bootloader&#160;SWEs&#160;and&#160;marked&#160;as&#160;overlay&#160;in&#160;all<br/>other&#160;SWEs:<br/>
+BL_&lt;START|STOP&gt;_SEC_CONST_BOOTSWE_DESCRIPTION_TABLE<br/>The&#160;description&#160;table,&#160;i.e.&#160;SGBM-ID&#160;and&#160;optional&#160;Development&#160;Info&#160;Field&#160;of&#160;the&#160;boot&#160;SWE.<br/>
+BL_&lt;START|STOP&gt;_SEC_CONST_BOOTSWE_FLASH_STATUS<br/>The&#160;flash&#160;status,&#160;i.e.&#160;CRC,&#160;Valid&#160;Flags,&#160;and&#160;Programming&#160;Dependency&#160;Flags&#160;of&#160;the&#160;boot&#160;SWE.<br/>
+BL_&lt;START|STOP&gt;_SEC_CONST_BOOTSWE_SIGNATURE<br/>The&#160;signature&#160;of&#160;the&#160;boot&#160;SWE.<br/>
+Dlog_&lt;START|STOP&gt;_SEC_CONST_SHARED_SWE_DATA<br/>Shared&#160;Data,&#160;that&#160;is&#160;located&#160;in&#160;the&#160;Bootloader&#160;and&#160;also&#160;accessd&#160;from&#160;Bootmanager&#160;and&#160;Application.<br/>
+Dlog_&lt;START|STOP&gt;_SEC_CONST_SHARED_MEMSEGTBL_DATA<br/>The&#160;memory&#160;segmentation&#160;table.<br/>
+The&#160;following&#160;memory&#160;sections&#160;shall&#160;be&#160;defined&#160;in&#160;the&#160;bootmanager&#160;and&#160;marked&#160;as&#160;overlay&#160;in&#160;all&#160;SWEs:<br/>
+Dlog_&lt;START|STOP&gt;_SEC_CONST_BM_HW_DESCRIPTION_TABLE<br/>The&#160;hardware&#160;description&#160;table,&#160;i.e.&#160;the&#160;SGBM-IDs&#160;of&#160;the&#160;HWEs,&#160;the&#160;ECU&#160;serial&#160;number&#160;and&#160;the<br/>manufacturing&#160;data.<br/>
+Dlog_&lt;START|STOP&gt;_SEC_VAR_SHARED_SWESTATUS<br/>The&#160;SWE&#160;status,&#160;i.e.&#160;the&#160;error&#160;flags&#160;for&#160;the&#160;SWEs<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;16&#160;of&#160;17<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogClassic_IntegrationManual-17_1.png"/><br/>
+<b>7</b><br/>
+<b>Post&#160;Integration</b><br/>
+<b>SWE&#160;Generator&#160;Config&#160;File</b><br/>
+After&#160;the&#160;Dlog/DlogShared&#160;module&#160;is&#160;fully&#160;configured,&#160;it&#160;is&#160;possible&#160;to&#160;generate&#160;a&#160;template&#160;configuration<br/>file&#160;for&#160;the&#160;SWE&#160;Generator.&#160;This&#160;is&#160;done&#160;by<br/>
+make&#160;generate_Dlog_sweconfig&#160;[&#160;Dlog_SWE_CONFIG_FILE=&lt;SweConfigFile&#160;&gt;]<br/>
+[&#160;Dlog_SWE_CFG_OUTPUT_FILE=&lt;SweCfgOutputFile&#160;&gt;]<br/>
+The&#160;optional&#160;parameter&#160;Dlog_SWE_CONFIG_FILE&#160;defines&#160;the&#160;SWE&#160;configuration&#160;file.&#160;By&#160;default,<br/>sample/swecfg/DlogSweCfg_1.arxml&#160;is&#160;chosen,&#160;which&#160;is&#160;a&#160;sample&#160;configuration&#160;for&#160;the&#160;SWE<br/>number&#160;1.<br/>
+The&#160;optional&#160;parameter&#160;Dlog_SWE_CFG_OUTPUT_FILE&#160;defines&#160;the&#160;output&#160;file&#160;name.&#160;By&#160;default,&#160;this&#160;is<br/>swegenerator_1.cfg.&#160;Note,&#160;that&#160;this&#160;is&#160;only&#160;the&#160;file&#160;name,&#160;not&#160;the&#160;full&#160;path.&#160;The&#160;output&#160;path&#160;will&#160;always<br/>be&#160;$(Dlog_OUTPUT_PATH).<br/>
+The&#160;SWE&#160;configuration&#160;file&#160;(don't&#160;confuse&#160;it&#160;with&#160;the&#160;SWE&#160;Generator&#160;configuration&#160;file)&#160;is&#160;a&#160;simple<br/>ARXML&#160;parameter&#160;configuration&#160;file&#160;containing&#160;the&#160;following&#160;3&#160;parameters:<br/>
+<b>Parameter</b><br/>
+<b>Description</b><br/>
+SweNr<br/>
+Integer&#160;containing&#160;the&#160;SWE&#160;number&#160;for&#160;which&#160;the&#160;SWE&#160;Generator&#160;configuration&#160;file&#160;shall&#160;be<br/>written.<br/>
+SgbmId<br/>
+String&#160;containing&#160;the&#160;SgbmId&#160;of&#160;the&#160;SWE.<br/>
+SweStatusAtEnd<br/>
+Boolean&#160;defining&#160;whether&#160;the&#160;SWE&#160;Flash&#160;Status&#160;shall&#160;be&#160;placed&#160;at&#160;the&#160;end&#160;(TRUE)&#160;or&#160;at&#160;the<br/>beginning&#160;(FALSE)&#160;of&#160;the&#160;SWE.<br/>
+DlogClassic_IntegrationManual.pdf,&#160;Version&#160;5.3.1,&#160;Software&#160;Platforms<br/>
+Page&#160;17&#160;of&#160;17<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#4">1 Introduction</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#4">1.1 General</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#4">1.2 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#5">2 Acronyms and Abbreviations</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#6">3 Related documentation</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#7">4 Limitations</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5 Software Architecture</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.1.1 CRC Library</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.1.2 DCM</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.1.3 MemIf</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.1.4 NvM</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.1.5 RTE</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.2 Dependencies on BMW modules</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.2.1 Bootmanager</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#8">5.2.2 BUtil</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#9">5.2.3 Coding</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#9">5.2.4 DlogUser</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#10">6 Integration</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#10">6.1 Configuration of other Modules</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#10">6.1.1 Dcm</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#10">6.1.1.1 Read Data By Identifier</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#10">6.1.1.2 Routine Control</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#11">6.1.2 Nvm</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#12">6.1.3 MemIf</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#12">6.2 Configuration</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#12">6.2.1 DlogGeneral</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#13">6.2.2 DlogFeatures</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#13">6.2.3 DlogUser</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#13">6.2.4 DlogSharedGeneral</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#13">6.2.4.1 Logistic</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#13">6.2.5 DlogSharedInterface</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#13">6.2.6 DlogSharedPlatform</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#14">6.3 ECC error handling</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#14">6.4 Configuration of the RTE</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5 Software Integration</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.1 Startup/Initialisation</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.1.1 Preconditions</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.1.2 Postconditions</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.2 Normal Operation</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.3 Shutdown/Deactivation</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.3.1 Preconditions</a></li>
+<li><a href="DlogClassic_IntegrationManuals.html#15">6.5.3.2 Postconditions</a></li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#16">6.5.4 Memory Mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="DlogClassic_IntegrationManuals.html#17">7 Post Integration</a>
+<ul>
+<li><a href="DlogClassic_IntegrationManuals.html#17">7.1 SWE Generator Config File</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

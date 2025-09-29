@@ -1,0 +1,898 @@
+---
+title: CM020A_Bmw5441McuCfg_DigitalNoiseFilterConfig
+linkTitle: CM020A_Bmw5441McuCfg_DigitalNoiseFilterConfig
+weight: 5
+---
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.2.6.2 (Linux)"/>
+	<meta name="author" content="Wybranczyk, Dominik"/>
+	<meta name="created" content="2018-01-05T12:45:33"/>
+	<meta name="changedby" content="Wybranczyk, Dominik"/>
+	<meta name="changed" content="2018-01-05T13:52:18"/>
+	<meta name="AppVersion" content="16.0300"/>
+	
+	<style type="text/css">
+		body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:x-small }
+		a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
+		a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
+		comment { display:none;  } 
+	</style>
+	
+</head>
+
+<body>
+<table cellspacing="0" border="0">
+	<colgroup width="88"></colgroup>
+	<colgroup width="317"></colgroup>
+	<colgroup width="125"></colgroup>
+	<colgroup width="123"></colgroup>
+	<colgroup width="175"></colgroup>
+	<colgroup width="155"></colgroup>
+	<colgroup width="274"></colgroup>
+	<colgroup width="290"></colgroup>
+	<colgroup width="79"></colgroup>
+	<colgroup width="263"></colgroup>
+	<tr>
+		<td height="20" align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Order&quot;}"><font face="Arial">Order</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Feature\/Function&quot;}"><font face="Arial">Feature/Function</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register&quot;}"><font face="Arial">Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Field&quot;}"><font face="Arial">Field</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Header File Definition&quot;}"><font face="Arial">Header File Definition</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Value (Decimal)&quot;}"><font face="Arial">Value (Decimal)</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Notes&quot;}"><font face="Arial">Notes</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Write Constraint&quot;}"><font face="Arial">Write Constraint</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Module&quot;}"><font face="Arial">Module</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Notes - Detail&quot;}"><font face="Arial">Notes - Detail</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Input Selection&quot;}"><font face="Arial">ENCA Input Selection</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;PIC1AREG30&quot;}"><font face="Arial">PIC1AREG30</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT32 (All Fields)&quot;}"><font face="Arial">UINT32 (All Fields)</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;PIC1AREG30&quot;}"><font face="Arial">PIC1AREG30</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Input pin selection for ENCA0 and ENCA1 &quot;}"><font face="Arial">Input pin selection for ENCA0 and ENCA1 </font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA&quot;}"><font face="Arial">ENCA</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Pin Selection&quot;}"><font face="Arial">ENCA Pin Selection</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="2" sdnum="1033;"><font face="Arial">2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT16&quot;}"><font face="Arial">UINT16</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL&quot;}"><font face="Arial">DNFA32NFENL</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;N\/A&quot;}"><font face="Arial">N/A</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="3" sdnum="1033;"><font face="Arial">3</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL0&quot;}"><font face="Arial">DNFA32NFENL0</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="4" sdnum="1033;"><font face="Arial">4</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL1&quot;}"><font face="Arial">DNFA32NFENL1</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="5" sdnum="1033;"><font face="Arial">5</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL2&quot;}"><font face="Arial">DNFA32NFENL2</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="6" sdnum="1033;"><font face="Arial">6</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL3&quot;}"><font face="Arial">DNFA32NFENL3</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="7" sdnum="1033;"><font face="Arial">7</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL4&quot;}"><font face="Arial">DNFA32NFENL4</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="8" sdnum="1033;"><font face="Arial">8</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL5&quot;}"><font face="Arial">DNFA32NFENL5</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="9" sdnum="1033;"><font face="Arial">9</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL6&quot;}"><font face="Arial">DNFA32NFENL6</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="10" sdnum="1033;"><font face="Arial">10</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32EN&quot;}"><font face="Arial">DNFA32EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA32NFENL7&quot;}"><font face="Arial">DNFA32NFENL7</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="11" sdnum="1033;"><font face="Arial">11</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT16&quot;}"><font face="Arial">UINT16</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL&quot;}"><font face="Arial">DNFA35NFENL</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;N\/A&quot;}"><font face="Arial">N/A</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="12" sdnum="1033;"><font face="Arial">12</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL0&quot;}"><font face="Arial">DNFA35NFENL0</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="13" sdnum="1033;"><font face="Arial">13</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL1&quot;}"><font face="Arial">DNFA35NFENL1</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="14" sdnum="1033;"><font face="Arial">14</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL2&quot;}"><font face="Arial">DNFA35NFENL2</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="15" sdnum="1033;"><font face="Arial">15</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL3&quot;}"><font face="Arial">DNFA35NFENL3</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="16" sdnum="1033;"><font face="Arial">16</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL4&quot;}"><font face="Arial">DNFA35NFENL4</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="17" sdnum="1033;"><font face="Arial">17</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL5&quot;}"><font face="Arial">DNFA35NFENL5</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="18" sdnum="1033;"><font face="Arial">18</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL6&quot;}"><font face="Arial">DNFA35NFENL6</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="19" sdnum="1033;"><font face="Arial">19</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35EN&quot;}"><font face="Arial">DNFA35EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA35NFENL7&quot;}"><font face="Arial">DNFA35NFENL7</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA DNF&quot;}"><font face="Arial">ENCA DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ENCA Digital Noise Filter&quot;}"><font face="Arial">ENCA Digital Noise Filter</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="20" sdnum="1033;"><font face="Arial">20</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Sampling Clock Source&quot;}"><font face="Arial">Digital Noise Elimination Sampling Clock Source</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFCKS112C&quot;}"><font face="Arial">DNFCKS112C</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT32&quot;}"><font face="Arial">UINT32</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SYSDNFCKS112C&quot;}"><font face="Arial">SYSDNFCKS112C</font></td>
+		<td align="center" valign=bottom sdval="2" sdnum="1033;"><font face="Arial">2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ Digital Noise Filter Clock Selection&quot;}"><font face="Arial">TAUJ Digital Noise Filter Clock Selection</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="21" sdnum="1033;"><font face="Arial">21</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Sampling Clock Source &quot;}"><font face="Arial">Digital Noise Elimination Sampling Clock Source </font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFCKS112C&quot;}"><font face="Arial">DNFCKS112C</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CKSC0&quot;}"><font face="Arial">CKSC0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SYSCKSC112&quot;}"><font face="Arial">SYSCKSC112</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;High-speed peripheral clock CLK_HSB&quot;}"><font face="Arial">High-speed peripheral clock CLK_HSB</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ Digital Noise Filter Clock Selection&quot;}"><font face="Arial">TAUJ Digital Noise Filter Clock Selection</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="22" sdnum="1033;"><font face="Arial">22</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Sampling Clock Source &quot;}"><font face="Arial">Digital Noise Elimination Sampling Clock Source </font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFCKS112C&quot;}"><font face="Arial">DNFCKS112C</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CKSC1&quot;}"><font face="Arial">CKSC1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SYSCKSC112&quot;}"><font face="Arial">SYSCKSC112</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;High-speed peripheral clock CLK_HSB&quot;}"><font face="Arial">High-speed peripheral clock CLK_HSB</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ Digital Noise Filter Clock Selection&quot;}"><font face="Arial">TAUJ Digital Noise Filter Clock Selection</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="23" sdnum="1033;"><font face="Arial">23</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT8&quot;}"><font face="Arial">UINT8</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Control Register&quot;}"><font face="Arial">DNFA20 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="24" sdnum="1033;"><font face="Arial">24</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20PRS&quot;}"><font face="Arial">DNFA20PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20PRS0&quot;}"><font face="Arial">DNFA20PRS0</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Control Register&quot;}"><font face="Arial">DNFA20 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="25" sdnum="1033;"><font face="Arial">25</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20PRS&quot;}"><font face="Arial">DNFA20PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20PRS1&quot;}"><font face="Arial">DNFA20PRS1</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Control Register&quot;}"><font face="Arial">DNFA20 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="26" sdnum="1033;"><font face="Arial">26</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20PRS&quot;}"><font face="Arial">DNFA20PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20PRS2&quot;}"><font face="Arial">DNFA20PRS2</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Control Register&quot;}"><font face="Arial">DNFA20 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="27" sdnum="1033;"><font face="Arial">27</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFSTS&quot;}"><font face="Arial">DNFA20NFSTS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFSTS0&quot;}"><font face="Arial">DNFA20NFSTS0</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Number of samples 2&quot;}"><font face="Arial">Number of samples 2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Control Register&quot;}"><font face="Arial">DNFA20 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="28" sdnum="1033;"><font face="Arial">28</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20CTL&quot;}"><font face="Arial">DNFA20CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFSTS&quot;}"><font face="Arial">DNFA20NFSTS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFSTS1&quot;}"><font face="Arial">DNFA20NFSTS1</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Number of samples 2&quot;}"><font face="Arial">Number of samples 2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Control Register&quot;}"><font face="Arial">DNFA20 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="29" sdnum="1033;"><font face="Arial">29</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT8&quot;}"><font face="Arial">UINT8</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Control Register&quot;}"><font face="Arial">DNFA21 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="30" sdnum="1033;"><font face="Arial">30</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21PRS&quot;}"><font face="Arial">DNFA21PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21PRS0&quot;}"><font face="Arial">DNFA21PRS0</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Control Register&quot;}"><font face="Arial">DNFA21 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="31" sdnum="1033;"><font face="Arial">31</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21PRS&quot;}"><font face="Arial">DNFA21PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21PRS1&quot;}"><font face="Arial">DNFA21PRS1</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Control Register&quot;}"><font face="Arial">DNFA21 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="32" sdnum="1033;"><font face="Arial">32</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21PRS&quot;}"><font face="Arial">DNFA21PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21PRS2&quot;}"><font face="Arial">DNFA21PRS2</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Control Register&quot;}"><font face="Arial">DNFA21 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="33" sdnum="1033;"><font face="Arial">33</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFSTS&quot;}"><font face="Arial">DNFA21NFSTS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFSTS0&quot;}"><font face="Arial">DNFA21NFSTS0</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Number of samples 2&quot;}"><font face="Arial">Number of samples 2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Control Register&quot;}"><font face="Arial">DNFA21 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="34" sdnum="1033;"><font face="Arial">34</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21CTL&quot;}"><font face="Arial">DNFA21CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFSTS&quot;}"><font face="Arial">DNFA21NFSTS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFSTS1&quot;}"><font face="Arial">DNFA21NFSTS1</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Number of samples 2&quot;}"><font face="Arial">Number of samples 2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Control Register&quot;}"><font face="Arial">DNFA21 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="35" sdnum="1033;"><font face="Arial">35</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT8&quot;}"><font face="Arial">UINT8</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Control Register&quot;}"><font face="Arial">DNFA23 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="36" sdnum="1033;"><font face="Arial">36</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23PRS&quot;}"><font face="Arial">DNFA23PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNF23PRS0&quot;}"><font face="Arial">DNF23PRS0</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Control Register&quot;}"><font face="Arial">DNFA23 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="37" sdnum="1033;"><font face="Arial">37</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23PRS&quot;}"><font face="Arial">DNFA23PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNF23PRS1&quot;}"><font face="Arial">DNF23PRS1</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Control Register&quot;}"><font face="Arial">DNFA23 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="38" sdnum="1033;"><font face="Arial">38</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23PRS&quot;}"><font face="Arial">DNFA23PRS</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNF23PRS2&quot;}"><font face="Arial">DNF23PRS2</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sampling Frequency DNFATCKI \/ 1&quot;}"><font face="Arial">Sampling Frequency DNFATCKI / 1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Control Register&quot;}"><font face="Arial">DNFA23 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="39" sdnum="1033;"><font face="Arial">39</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFSTS0&quot;}"><font face="Arial">DNFA23NFSTS0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFSTS0&quot;}"><font face="Arial">DNFA23NFSTS0</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Number of samples 2&quot;}"><font face="Arial">Number of samples 2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Control Register&quot;}"><font face="Arial">DNFA23 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="40" sdnum="1033;"><font face="Arial">40</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Control Register&quot;}"><font face="Arial">Digital Noise Elimination Control Register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23CTL&quot;}"><font face="Arial">DNFA23CTL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFSTS1&quot;}"><font face="Arial">DNFA23NFSTS1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFSTS1&quot;}"><font face="Arial">DNFA23NFSTS1</font></td>
+		<td align="center" valign=bottom sdval="0" sdnum="1033;"><font face="Arial">0</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Number of samples 2&quot;}"><font face="Arial">Number of samples 2</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Control Register&quot;}"><font face="Arial">DNFA23 Control Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="41" sdnum="1033;"><font face="Arial">41</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT16&quot;}"><font face="Arial">UINT16</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL&quot;}"><font face="Arial">DNFA20NFENL</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;N\/A&quot;}"><font face="Arial">N/A</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="42" sdnum="1033;"><font face="Arial">42</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL0&quot;}"><font face="Arial">DNFA20NFENL0</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="43" sdnum="1033;"><font face="Arial">43</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL1&quot;}"><font face="Arial">DNFA20NFENL1</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="44" sdnum="1033;"><font face="Arial">44</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL2&quot;}"><font face="Arial">DNFA20NFENL2</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="45" sdnum="1033;"><font face="Arial">45</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL3&quot;}"><font face="Arial">DNFA20NFENL3</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="46" sdnum="1033;"><font face="Arial">46</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL4&quot;}"><font face="Arial">DNFA20NFENL4</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="47" sdnum="1033;"><font face="Arial">47</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL5&quot;}"><font face="Arial">DNFA20NFENL5</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="48" sdnum="1033;"><font face="Arial">48</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL6&quot;}"><font face="Arial">DNFA20NFENL6</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="49" sdnum="1033;"><font face="Arial">49</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20EN&quot;}"><font face="Arial">DNFA20EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20NFENL7&quot;}"><font face="Arial">DNFA20NFENL7</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA20 Enable Register&quot;}"><font face="Arial">DNFA20 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="50" sdnum="1033;"><font face="Arial">50</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DELAY AT LEAST 12 CYCLES&quot;}"><b><font face="Arial">DELAY AT LEAST 12 CYCLES</font></b></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DELAY&quot;}">DELAY</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="51" sdnum="1033;"><font face="Arial">51</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT16&quot;}"><font face="Arial">UINT16</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL&quot;}"><font face="Arial">DNFA21NFENL</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;N\/A&quot;}"><font face="Arial">N/A</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="52" sdnum="1033;"><font face="Arial">52</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL0&quot;}"><font face="Arial">DNFA21NFENL0</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="53" sdnum="1033;"><font face="Arial">53</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL1&quot;}"><font face="Arial">DNFA21NFENL1</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="54" sdnum="1033;"><font face="Arial">54</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL2&quot;}"><font face="Arial">DNFA21NFENL2</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="55" sdnum="1033;"><font face="Arial">55</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL3&quot;}"><font face="Arial">DNFA21NFENL3</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="56" sdnum="1033;"><font face="Arial">56</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL4&quot;}"><font face="Arial">DNFA21NFENL4</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="57" sdnum="1033;"><font face="Arial">57</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL5&quot;}"><font face="Arial">DNFA21NFENL5</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="58" sdnum="1033;"><font face="Arial">58</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL6&quot;}"><font face="Arial">DNFA21NFENL6</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="59" sdnum="1033;"><font face="Arial">59</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21EN&quot;}"><font face="Arial">DNFA21EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21NFENL7&quot;}"><font face="Arial">DNFA21NFENL7</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA21 Enable Register&quot;}"><font face="Arial">DNFA21 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="60" sdnum="1033;"><font face="Arial">60</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DELAY AT LEAST 12 CYCLES&quot;}"><b><font face="Arial">DELAY AT LEAST 12 CYCLES</font></b></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DELAY&quot;}">DELAY</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="61" sdnum="1033;"><font face="Arial">61</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UINT16&quot;}"><font face="Arial">UINT16</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL&quot;}"><font face="Arial">DNFA23NFENL</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;N\/A&quot;}"><font face="Arial">N/A</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Register level access&quot;}"><font face="Arial">Register level access</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="62" sdnum="1033;"><font face="Arial">62</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL0&quot;}"><font face="Arial">DNFA23NFENL0</font></td>
+		<td align="center" valign=bottom sdval="1" sdnum="1033;"><font face="Arial">1</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital noise elimination enabled&quot;}"><font face="Arial">Digital noise elimination enabled</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="63" sdnum="1033;"><font face="Arial">63</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL1&quot;}"><font face="Arial">DNFA23NFENL1</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="64" sdnum="1033;"><font face="Arial">64</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL2&quot;}"><font face="Arial">DNFA23NFENL2</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="65" sdnum="1033;"><font face="Arial">65</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL3&quot;}"><font face="Arial">DNFA23NFENL3</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="66" sdnum="1033;"><font face="Arial">66</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL4&quot;}"><font face="Arial">DNFA23NFENL4</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="67" sdnum="1033;"><font face="Arial">67</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL5&quot;}"><font face="Arial">DNFA23NFENL5</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="68" sdnum="1033;"><font face="Arial">68</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL6&quot;}"><font face="Arial">DNFA23NFENL6</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="69" sdnum="1033;"><font face="Arial">69</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Digital Noise Elimination Enable&quot;}"><font face="Arial">Digital Noise Elimination Enable</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23EN&quot;}"><font face="Arial">DNFA23EN</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;NFENL&quot;}"><font face="Arial">NFENL</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23NFENL7&quot;}"><font face="Arial">DNFA23NFENL7</font></td>
+		<td align="center" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused&quot;}"><font face="Arial">Unused</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unused field of parent register&quot;}"><font face="Arial">Unused field of parent register</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None - Can be written at register or field level&quot;}"><font face="Arial">None - Can be written at register or field level</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TAUJ DNF&quot;}"><font face="Arial">TAUJ DNF</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DNFA23 Enable Register&quot;}"><font face="Arial">DNFA23 Enable Register</font></td>
+	</tr>
+	<tr>
+		<td height="20" align="center" valign=bottom sdval="70" sdnum="1033;"><font face="Arial">70</font></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DELAY AT LEAST 12 CYCLES&quot;}"><b><font face="Arial">DELAY AT LEAST 12 CYCLES</font></b></td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DELAY&quot;}">DELAY</td>
+		<td align="left" valign=bottom data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;None&quot;}">None</td>
+	</tr>
+</table>
+<!-- ************************************************************************** -->
+</body>
+
+</html>

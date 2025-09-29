@@ -1,0 +1,954 @@
+---
+title: StdDiagClassic_IntegrationManuals
+linkTitle: StdDiagClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-1_1.png"/><br/>
+StdDiag&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.4.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.4.0<br/>
+2017-12-14<br/>
+BAC-6257:&#160;Add&#160;integration&#160;of&#160;functionality&#160;&#34;Application&#160;Data<br/>Transfer&#34;&#160;(ADT)<br/>
+5.3.0<br/>
+2017-11-09<br/>
+BAC-6249:&#160;Move&#160;SgbdIndex&#160;to&#160;adapter&#160;part&#160;and&#160;add&#160;post&#160;build<br/>support<br/>
+5.2.0<br/>
+2017-10-12<br/>
+Version&#160;Update<br/>
+5.1.0<br/>
+2017-08-10<br/>
+Version&#160;Update<br/>
+<b>Company</b><br/>
+5.0.0<br/>
+2017-06-08<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;30<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#4"><b>1&#160;Introduction</b></a><br/>
+<b>4</b><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#4">1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#4">Functional&#160;overview</a><br/>
+4<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#5"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#6"><b>3&#160;Limitations</b></a><br/>
+<b>6</b><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#6">3.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#6">Unreleased&#160;Dlt&#160;specification&#160;in&#160;AUTOSAR</a><br/>
+6<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7"><b>4&#160;Software&#160;Architecture</b></a><br/>
+<b>7</b><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">RTE</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">Det</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">Dcm</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">Dem</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">BswM</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">4.1.6</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#7">Dlt</a><br/>
+7<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">4.1.7</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">EcuC</a><br/>
+8<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">4.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+8<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">4.2.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">Darh</a><br/>
+8<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">4.2.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">Omc</a><br/>
+8<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">4.2.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">Stm</a><br/>
+8<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">4.2.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#8">Other&#160;SWC</a><br/>
+8<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9"><b>5&#160;Integration</b></a><br/>
+<b>9</b><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9">5.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+9<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9">Dcm</a><br/>
+9<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#9">Read&#160;Data&#160;By&#160;Identifier</a><br/>
+9<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#11">5.1.1.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#11">RoutineControl</a><br/>
+11<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#16">5.1.1.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#16">Service&#160;Request&#160;Manufacturer&#160;Notification</a><br/>
+16<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#16">5.1.1.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#16">Service&#160;Handler&#160;for&#160;Upload&#160;Download&#160;Services</a><br/>
+16<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#17">Det</a><br/>
+17<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#17">Dem</a><br/>
+17<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#17">BswM</a><br/>
+17<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">5.1.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">EcuC</a><br/>
+20<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">5.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">Configuration&#160;of&#160;generic&#160;part</a><br/>
+20<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">StdDiagGeneral</a><br/>
+20<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">StdDiagDevErrorDetect</a><br/>
+20<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.1.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#20">StdDiagUserEstablishIntrinsicSafety</a><br/>
+20<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">5.2.1.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">StdDiagUserActiveSessionState</a><br/>
+21<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">5.2.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">StdDiagUserProgrammingPreconditionsCheck</a><br/>
+21<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">5.2.2.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">MaxNumberUserProgrammingPrecondition</a><br/>
+21<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">5.2.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#21">StdDiagProvideIDRL</a><br/>
+21<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">5.2.3.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">DIDTableFormatIdentifier</a><br/>
+22<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">5.2.3.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">IDRLClient</a><br/>
+22<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">5.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">Configuration&#160;of&#160;adapter&#160;part</a><br/>
+22<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">5.3.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">StdDiagGeneral</a><br/>
+22<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">5.3.1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#22">StdDiagClearSecondaryErrorMemory</a><br/>
+22<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;30<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-3_1.png"/><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">5.3.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">StdDiagUserDefinedMemory</a><br/>
+23<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">5.3.2.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">StdDiagUserDefinedMemoryName</a><br/>
+23<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">5.3.2.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">StdDiagUserDefinedMemoryId</a><br/>
+23<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">5.3.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">StdDiagSgbdIndex</a><br/>
+23<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">5.3.3.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#23">SgbdIndex</a><br/>
+23<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">StdDiagApplicationDataTransfer</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">ApplicationRoutineControlIdentifier</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">RoutineIdentifierValue</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">ApplicationSubRoutineControlIdentifier</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">SubRoutineIdentifierValue</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">controlIDs</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">5.3.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#24">StdDiagProvideDLTSupport</a><br/>
+24<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">5.3.5.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">StdDiagNumberSupportedDLTLogChannels</a><br/>
+25<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">5.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+25<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">5.4.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">Assembly&#160;Software&#160;Connectors</a><br/>
+25<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">5.4.1.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#25">Dcm</a><br/>
+25<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#26">5.4.1.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#26">Dem</a><br/>
+26<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">Det</a><br/>
+27<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">Darh</a><br/>
+27<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">Omc</a><br/>
+27<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.6</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">Stm</a><br/>
+27<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.7</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#27">BswM</a><br/>
+27<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#28">5.4.1.8</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#28">Other&#160;Application&#160;SWC</a><br/>
+28<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.4.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Event&#160;Mapping</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.4.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Data&#160;Mapping</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.4.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Exclusive&#160;Areas</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Software&#160;Integration</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.5.1</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Startup/Initialization</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.5.2</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Normal&#160;Operation</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.5.3</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Shutdown/Deactivation</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">5.5.4</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#29">Select&#160;Post&#160;Build&#160;Configuration</a><br/>
+29<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#30">5.5.5</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#30">SWCD</a><br/>
+30<br/>
+<a href="StdDiagClassic_IntegrationManuals.html#30">5.5.6</a><br/>
+<a href="StdDiagClassic_IntegrationManuals.html#30">Prevent&#160;sleep&#160;mode</a><br/>
+30<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;30<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basic&#160;functionality&#160;of&#160;the&#160;BMW&#160;system&#160;function&#160;&#34;Standard<br/>Diagnostics&#34;&#160;(StdDiag),&#160;the&#160;configuration&#160;of&#160;the&#160;StdDiag&#160;module&#160;and&#160;of&#160;dependant&#160;modules,&#160;and&#160;the<br/>integration&#160;of&#160;the&#160;StdDiag&#160;module&#160;into&#160;BAC4&#160;or&#160;aBAC.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;main&#160;functionality&#160;of&#160;the&#160;StdDiag&#160;module&#160;is&#160;to&#160;handling&#160;the&#160;active&#160;session&#160;states&#160;(&#34;subsessions&#34;)&#160;of<br/>the&#160;default&#160;diagnostic&#160;session&#160;and&#160;the&#160;extended&#160;diagnostic&#160;session.&#160;It&#160;ensures&#160;that&#160;the&#160;programming<br/>preparation&#160;process&#160;(i.e.&#160;the&#160;transition&#160;from&#160;the&#160;diagnostic&#160;default&#160;session&#160;via&#160;the&#160;extended&#160;diagnostic<br/>session&#160;to&#160;the&#160;programming&#160;session)&#160;is&#160;only&#160;successful,&#160;if&#160;the&#160;diagnostic&#160;requests&#160;are&#160;received&#160;in&#160;the<br/>correct&#160;sequence&#160;and&#160;all&#160;necessary&#160;preconditions&#160;are&#160;fulfilled.&#160;It&#160;also&#160;checks&#160;whether&#160;diagnostic&#160;requests<br/>shall&#160;be&#160;rejected&#160;or&#160;allowed&#160;in&#160;the&#160;different&#160;session&#160;states.<br/>
+The&#160;StdDiag&#160;module&#160;also&#160;provides&#160;diagnostic&#160;service&#160;handlers&#160;for<br/>
+clearing&#160;the&#160;secondary&#160;error&#160;memory<br/>reading&#160;the&#160;active&#160;session&#160;state<br/>reading&#160;the&#160;programming&#160;preconditions<br/>reading&#160;the&#160;SGBD-Index<br/>diagnostic&#160;communication&#160;loopback&#160;functionality<br/>handling&#160;Diagnostic&#160;Log&#160;and&#160;Trace&#160;settings<br/>handling&#160;IDRL&#160;basic&#160;functionality<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;30<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-5_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;30<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-6_1.png"/><br/>
+<b>3</b><br/>
+<b>Limitations</b><br/>
+<b>Unreleased&#160;Dlt&#160;specification&#160;in&#160;AUTOSAR</b><br/>
+StdDiag&#160;optionally&#160;uses&#160;services&#160;of&#160;the&#160;AUTOSAR&#160;BSW&#160;module&#160;Dlt&#160;(Diagnostic&#160;Log&#160;and&#160;Trace).&#160;The<br/>specification&#160;of&#160;the&#160;ClientServer-Interface&#160;&#34;DLTService&#34;,&#160;which&#160;provides&#160;the&#160;services&#160;used&#160;by&#160;StdDiag,&#160;is<br/>released&#160;with&#160;AUTOSAR&#160;4.3.0.&#160;As&#160;required&#160;in&#160;the&#160;document&#160;&#34;AUTOSAR&#160;features&#160;for&#160;SP2021&#34;,&#160;projects<br/>using&#160;Dlt&#160;shall&#160;support&#160;Dlt&#160;based&#160;on&#160;AUTOSAR&#160;4.3.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;30<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-7_1.png"/><br/>
+<b>4</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Module&#160;StdDiag&#160;depends&#160;on&#160;the&#160;following&#160;BSW&#160;modules:<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;StdDiag&#160;module&#160;uses&#160;Rte&#160;client/server&#160;and&#160;sender/receiver&#160;communication<br/>to&#160;communicate&#160;with&#160;other&#160;SWCs&#160;and&#160;BSW&#160;modules.<br/>
+<b>Det</b><br/>
+StdDiag&#160;optionally&#160;reports&#160;development&#160;errors&#160;to&#160;the&#160;Det.<br/>
+<b>Dcm</b><br/>
+StdDiag&#160;is&#160;tightly&#160;coupled&#160;with&#160;the&#160;Dcm.&#160;The&#160;StdDiag&#160;implements&#160;several&#160;RDBI/WDBI&#160;and&#160;RC&#160;services,<br/>as&#160;well&#160;as&#160;services&#160;for&#160;upload&#160;download&#160;functionality.&#160;Dcm&#160;shall&#160;be&#160;configured&#160;in&#160;a&#160;way,&#160;that&#160;it&#160;dispatches<br/>theses&#160;jobs&#160;to&#160;the&#160;StdDiag&#160;SWC.&#160;In&#160;addition,&#160;the&#160;StdDiag&#160;requests&#160;information&#160;about&#160;the&#160;current<br/>diagnostic&#160;session.<br/>
+Moreover&#160;the&#160;StdDiag&#160;receives&#160;information&#160;about&#160;incoming&#160;requests&#160;and&#160;the&#160;corresponding&#160;result&#160;of&#160;the<br/>request&#160;via&#160;a&#160;Manufacturer&#160;Notification.&#160;The&#160;StdDiag&#160;uses&#160;this&#160;feature&#160;to&#160;accept&#160;/&#160;deny&#160;a&#160;number&#160;of<br/>requests,&#160;and&#160;to&#160;handle&#160;the&#160;active&#160;session&#160;state.<br/>
+<b>Dem</b><br/>
+StdDiag&#160;sets&#160;an&#160;EnableCondition&#160;to&#160;allow&#160;/&#160;deny&#160;writing&#160;of&#160;error&#160;entries&#160;and&#160;clears&#160;DTCs&#160;in&#160;the&#160;secondary<br/>error&#160;memory.<br/>
+<b>BswM</b><br/>
+StdDiag&#160;receives&#160;and&#160;requests&#160;mode&#160;switches&#160;from&#160;the&#160;BswM&#160;to&#160;switch&#160;the&#160;current&#160;StdDiag&#160;operational<br/>mode.&#160;It&#160;further&#160;requests&#160;Communication&#160;Control&#160;mode&#160;switches,&#160;and&#160;receives&#160;a&#160;mode&#160;switch&#160;from&#160;the<br/>BswM&#160;when&#160;the&#160;active&#160;diagnostic&#160;session&#160;has&#160;changed.<br/>
+<b>Dlt</b><br/>
+StdDiag&#160;optionally&#160;receives&#160;diagnostic&#160;requests&#160;for&#160;Diagnostic&#160;Log&#160;and&#160;Trace&#160;control&#160;and&#160;forwards&#160;them<br/>to&#160;the&#160;Dlt&#160;service&#160;interface.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;30<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-8_1.png"/><br/>
+<b>EcuC</b><br/>
+StdDiag&#160;provides&#160;post&#160;build&#160;configurable&#160;parameters.&#160;If&#160;post&#160;build&#160;support&#160;is&#160;used,&#160;an&#160;EcuC&#160;configuration<br/>is&#160;needed&#160;to&#160;evaluate&#160;available&#160;variants.<br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+<b>Darh</b><br/>
+The&#160;StdDiag&#160;suspends&#160;/&#160;resumes&#160;sending&#160;Response&#160;on&#160;Events.<br/>
+<b>Omc</b><br/>
+The&#160;StdDiag&#160;needs&#160;the&#160;current&#160;operating&#160;mode&#160;and&#160;extended&#160;operating&#160;mode&#160;from&#160;the&#160;Omc&#160;module.&#160;In<br/>addition,&#160;StdDiag&#160;provides&#160;a&#160;handler&#160;to&#160;allow&#160;/&#160;deny&#160;changing&#160;the&#160;operating&#160;mode.<br/>
+<b>Stm</b><br/>
+The&#160;StdDiag&#160;reads&#160;the&#160;current&#160;PWF&#160;state&#160;from&#160;the&#160;Stm.<br/>
+<b>Other&#160;SWC</b><br/>
+The&#160;StdDiag&#160;optionally&#160;calls&#160;another&#160;Application&#160;Software&#160;Component&#160;to&#160;establish&#160;intrinsic&#160;safety&#160;and&#160;to<br/>check&#160;the&#160;users&#160;programming&#160;preconditions.<br/>
+The&#160;StdDiag&#160;optionally&#160;calls&#160;another&#160;Application&#160;Software&#160;Component&#160;to&#160;get&#160;the&#160;active&#160;session&#160;state&#160;in<br/>Sessions&#160;that&#160;have&#160;their&#160;own&#160;active&#160;session&#160;handling.<br/>
+The&#160;StdDiag&#160;calls&#160;another&#160;Application&#160;Software&#160;Component&#160;(e.g.&#160;PiaClient)&#160;to&#160;read,&#160;write&#160;or&#160;reset&#160;the<br/>individual&#160;data,&#160;if&#160;the&#160;feature&#160;&#34;Individual&#160;Data&#160;Recovery&#160;Light&#34;&#160;(IDRL)&#160;is&#160;activated.<br/>
+The&#160;StdDiag&#160;calls&#160;another&#160;Application&#160;Software&#160;Component&#160;(e.g.&#160;Bs)&#160;to&#160;upload&#160;or&#160;download&#160;application<br/>data,&#160;if&#160;the&#160;feature&#160;&#34;Application&#160;Data&#160;Transfer&#34;&#160;(ADT)&#160;is&#160;activated.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;30<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-9_1.png"/><br/>
+<b>5</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;this&#160;module&#160;can&#160;be&#160;generated,&#160;compiled&#160;and&#160;linked.<br/>
+<b>Dcm</b><br/>
+<b>Read&#160;Data&#160;By&#160;Identifier</b><br/>
+The&#160;following&#160;RDBI-requests&#160;shall&#160;be&#160;configured&#160;in&#160;the&#160;Dcm&#160;module:<br/>
+<b>Read&#160;Active&#160;Session&#160;State&#160;(0x22&#160;0xF1&#160;0x00)</b><br/>
+<b>[IM_StdDiagClassic_0007]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL896,&#160;FL897,<br/>FL898,&#160;FL899)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspData&#34;&#160;with<br/>
+a&#160;&#34;DcmDspDataSize&#34;&#160;of&#160;32&#160;bit&#160;(4&#160;bytes)<br/>&#34;DcmDspDataType&#34;&#160;=&#160;UINT8_N<br/>&#34;DcmDspDataUsePort&#34;&#160;=&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>&#34;DcmDspDataConditionCheckReadFncUsed&#34;&#160;=&#160;TRUE<br/>
+a&#160;container&#160;&#34;DcmDspDid&#34;&#160;with<br/>
+&#34;DcmDspDidIdentifier&#34;&#160;=&#160;0xF100<br/>only&#160;read-access,&#160;without&#160;session&#160;or&#160;security&#160;restrictions<br/>one&#160;DID&#160;Signal&#160;&#34;DcmDspDidSignal&#34;&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;DcmDspData&#34;&#160;container&#160;configured&#160;before.<br/>
+<b>Read&#160;SGBD&#160;Index&#160;(0x22&#160;0xF1&#160;0x50)</b><br/>
+<b>[IM_StdDiagClassic_0006]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_318)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspData&#34;&#160;with<br/>
+a&#160;&#34;DcmDspDataSize&#34;&#160;of&#160;24&#160;bit&#160;(3&#160;bytes)<br/>&#34;DcmDspDataType&#34;&#160;=&#160;UINT8_N<br/>&#34;DcmDspDataUsePort&#34;&#160;=&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>&#34;DcmDspDataConditionCheckReadFncUsed&#34;&#160;=&#160;FALSE<br/>
+a&#160;container&#160;&#34;DcmDspDid&#34;&#160;with<br/>
+&#34;DcmDspDidIdentifier&#34;&#160;=&#160;0xF150<br/>only&#160;read-access,&#160;without&#160;session&#160;or&#160;security&#160;restrictions<br/>one&#160;DID&#160;Signal&#160;&#34;DcmDspDidSignal&#34;&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;DcmDspData&#34;&#160;container&#160;configured&#160;before.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;30<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-10_1.png"/><br/>
+<b>Read&#160;Individual&#160;Data&#160;Identifier&#160;Table&#160;(0x22&#160;0x17&#160;0x34)</b><br/>
+This&#160;request&#160;is&#160;needed,&#160;if&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagProvideIDRL&#34;&#160;is&#160;available.&#160;The&#160;response&#160;to<br/>this&#160;request&#160;contains&#160;the&#160;table&#160;format&#160;identifier&#160;(2&#160;byte)&#160;and&#160;the&#160;individual&#160;data&#160;IDs&#160;that&#160;are&#160;configured&#160;in<br/>the&#160;parameter&#160;&#34;DIDValue&#34;&#160;of&#160;the&#160;StdDiag&#160;configuration.&#160;The&#160;response&#160;has&#160;a&#160;fixed&#160;length&#160;that&#160;is&#160;calculated<br/>with&#160;the&#160;lengths&#160;of&#160;the&#160;table&#160;format&#160;and&#160;of&#160;the&#160;individual&#160;data&#160;IDs.<br/>
+<b>[IM_StdDiagClassic_0008]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(ADUE_3927,<br/>ADUE_3929)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspData&#34;&#160;with<br/>
+a&#160;&#34;DcmDspDataSize&#34;:&#160;16&#160;bit&#160;for&#160;the&#160;format&#160;identifier&#160;plus&#160;16&#160;bit&#160;for&#160;each&#160;configured&#160;individual&#160;data&#160;ID.<br/>&#34;DcmDspDataType&#34;&#160;=&#160;UINT8_N<br/>&#34;DcmDspDataUsePort&#34;&#160;=&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>&#34;DcmDspDataConditionCheckReadFncUsed&#34;&#160;=&#160;FALSE<br/>
+a&#160;container&#160;&#34;DcmDspDid&#34;&#160;with<br/>
+&#34;DcmDspDidIdentifier&#34;&#160;=&#160;0x1734<br/>only&#160;read-access,&#160;only&#160;allowed&#160;in&#160;extended&#160;diagnostic&#160;session<br/>one&#160;DID&#160;Signal&#160;&#34;DcmDspDidSignal&#34;&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;DcmDspData&#34;&#160;container&#160;configured&#160;before.<br/>
+Note:&#160;If&#160;IDRL&#160;clients&#160;with&#160;individual&#160;data&#160;IDs&#160;are&#160;configured&#160;(see&#160;parameter&#160;&#34;DIDValue&#34;),&#160;the&#160;user&#160;shall<br/>configure&#160;the&#160;following&#160;for&#160;each&#160;individual&#160;data&#160;ID:<br/>
+a&#160;container&#160;&#34;DcmDspData&#34;&#160;describing&#160;the&#160;individual&#160;data&#160;with<br/>
+a&#160;&#34;DcmDspDataSize&#34;:&#160;the&#160;maximum&#160;length&#160;of&#160;the&#160;individual&#160;data&#160;in&#160;bit&#160;(see&#160;parameter<br/>&#34;MaxDataSize&#34;).<br/>&#34;DcmDspDataType&#34;&#160;=&#160;UINT8_DYN<br/>&#34;DcmDspDataUsePort&#34;&#160;=&#160;USE_DATA_ASYNCH_CLIENT_SERVER<br/>&#34;DcmDspDataConditionCheckReadFncUsed&#34;&#160;=&#160;TRUE<br/>
+a&#160;container&#160;&#34;DcmDspDid&#34;&#160;with<br/>
+&#34;DcmDspDidIdentifier&#34;&#160;is&#160;the&#160;individual&#160;data&#160;ID&#160;&#34;DIDValue&#34;&#160;configured&#160;in&#160;the&#160;DID&#160;table&#160;of&#160;the&#160;StdDiag.<br/>read/write-access,&#160;only&#160;allowed&#160;in&#160;extended&#160;diagnostic&#160;session<br/>one&#160;DID&#160;Signal&#160;&#34;DcmDspDidSignal&#34;&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;DcmDspData&#34;&#160;container&#160;configured&#160;before.<br/>
+<b>Read&#160;log&#160;channel&#160;names&#160;for&#160;Dlt&#160;(0x22&#160;0x18&#160;0x28)</b><br/>
+<b>[IM_StdDiagClassic_0017]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;needed,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;response&#160;to&#160;this&#160;request&#160;contains&#160;the&#160;log&#160;channel&#160;names<br/>supported&#160;by&#160;Dlt&#160;module.&#160;The&#160;response&#160;has&#160;a&#160;fix&#160;length&#160;that&#160;is&#160;derived&#160;from&#160;the&#160;number&#160;of&#160;configured&#160;log<br/>channels&#160;in&#160;the&#160;Dlt.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1637,&#160;DK_T3_1639)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspData&#34;&#160;with<br/>
+a&#160;&#34;DcmDspDataSize&#34;:&#160;32&#160;bit&#160;for&#160;each&#160;configured&#160;DLT&#160;Log&#160;Channel.<br/>&#34;DcmDspDataType&#34;&#160;=&#160;UINT8_N<br/>&#34;DcmDspDataUsePort&#34;&#160;=&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;30<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-11_1.png"/><br/>
+&#34;DcmDspDataConditionCheckReadFncUsed&#34;&#160;=&#160;FALSE<br/>
+a&#160;container&#160;&#34;DcmDspDid&#34;&#160;with<br/>
+&#34;DcmDspDidIdentifier&#34;&#160;=&#160;0x1828<br/>only&#160;read-access,&#160;without&#160;session&#160;or&#160;security&#160;restrictions<br/>one&#160;DID&#160;Signal&#160;&#34;DcmDspDidSignal&#34;&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;DcmDspData&#34;&#160;container&#160;configured&#160;before.<br/>
+<b>RoutineControl</b><br/>
+The&#160;following&#160;RoutineControl-requests&#160;shall&#160;be&#160;configured&#160;in&#160;the&#160;Dcm&#160;module:<br/>
+<b>Diagnostic&#160;Communication&#160;Loopback&#160;(0x31&#160;0x01&#160;0x03&#160;0x03)</b><br/>
+<b>[IM_StdDiagClassic_0004]&#160;</b>dThis&#160;request&#160;has&#160;a&#160;variable&#160;request&#160;length&#160;and&#160;a&#160;variable&#160;response&#160;length.<br/>The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_792,&#160;DK_T3_799,&#160;DK_T3_800)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x0303<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalLength&#34;&#160;=&#160;max.&#160;diagnostic&#160;buffer&#160;size&#160;(e.g.&#160;8192&#160;bits)<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;VARIABLE_LENGTH<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineOut&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineOutSignal&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalLength&#34;&#160;=&#160;max.&#160;diagnostic&#160;buffer&#160;size&#160;(e.g.&#160;8192&#160;bits)<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;VARIABLE_LENGTH<br/>
+<b>[IM_StdDiagClassic_0003]&#160;</b>dNote:&#160;According&#160;to&#160;the&#160;&#34;LH&#160;Diagnose&#160;Part&#160;3&#34;&#160;this&#160;request&#160;shall&#160;handle&#160;a<br/>variable&#160;data&#160;length&#160;in&#160;a&#160;range&#160;from&#160;0&#160;bytes&#160;up&#160;to&#160;the&#160;maximum&#160;length&#160;that&#160;the&#160;diagnostic&#160;buffer&#160;can<br/>handle.&#160;In&#160;this&#160;example&#160;configuration&#160;the&#160;value&#160;is&#160;set&#160;to&#160;1024&#160;bytes&#160;(8192&#160;bits).&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_794)</i></a><br/>
+<b>Check&#160;Programming&#160;Preconditions&#160;(0x31&#160;0x01&#160;0x02&#160;0x03)</b><br/>
+<b>[IM_StdDiagClassic_0019]&#160;</b>dThis&#160;request&#160;has&#160;no&#160;input&#160;signals,&#160;and&#160;a&#160;variable&#160;response&#160;length.<br/>Therefore,&#160;it&#160;is&#160;sufficient&#160;to&#160;configure&#160;only&#160;an&#160;Out-Signal,&#160;but&#160;no&#160;In-Signal:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL1082,&#160;FL1083)<br/></i></a><b>[IM_StdDiagClassic_0001]&#160;</b>dThis&#160;request&#160;shall&#160;be&#160;available&#160;in&#160;all&#160;sessions.&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL194)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x0203<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>a&#160;reference&#160;to&#160;&#34;DcmDspCommonAuthorization&#34;&#160;which&#160;references&#160;all&#160;(or&#160;none)&#160;diagnostic&#160;sessions<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineOut&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineOutSignal&#34;&#160;with<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;30<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-12_1.png"/><br/>
+∗&#160;&#34;DcmDspRoutineSignalLength&#34;&#160;=&#160;8&#160;bit&#160;for&#160;each&#160;programming&#160;precondition&#160;specified&#160;for&#160;the&#160;ECU<br/>
+(max.&#160;255&#160;preconditions,&#160;i.e.&#160;2048&#160;bits)<br/>
+∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;VARIABLE_LENGTH<br/>
+<b>Reset&#160;individual&#160;data&#160;(0x31&#160;0x01&#160;0x10&#160;0x1A)</b><br/>
+<b>[IM_StdDiagClassic_0009]&#160;</b>dThis&#160;request&#160;is&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideIDRL&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;no&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;response&#160;length.&#160;The<br/>response&#160;contains&#160;the&#160;routine&#160;result&#160;(1&#160;byte).&#160;If&#160;all&#160;resets&#160;of&#160;individual&#160;data&#160;are&#160;successful,&#160;the&#160;routine<br/>result&#160;is&#160;0x00.&#160;Otherwise,&#160;the&#160;routine&#160;result&#160;is&#160;0x01.&#160;Therefore,&#160;it&#160;is&#160;sufficient&#160;to&#160;configure&#160;only&#160;an<br/>Out-Signal,&#160;but&#160;no&#160;In-Signal:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(ADUE_3981,&#160;ADUE_3982)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x101A<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>a&#160;reference&#160;to&#160;&#34;DcmDspCommonAuthorization&#34;&#160;with&#160;a&#160;reference&#160;to&#160;the&#160;extended&#160;diagnostic&#160;session<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineOut&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineOutSignal&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+<b>Clear&#160;DTCs&#160;Secondary&#160;Error&#160;Memory&#160;(0x31&#160;0x01&#160;0x0F&#160;0x06)</b><br/>
+<b>[IM_StdDiagClassic_0005]&#160;</b>dThis&#160;diagnostic&#160;request&#160;has&#160;to&#160;be&#160;configured&#160;only,&#160;if&#160;the&#160;ECU&#160;supports<br/>DTCs&#160;in&#160;the&#160;secondary&#160;error&#160;memory.&#160;The&#160;configuration&#160;container&#160;StdDiagClearSecondaryErrorMemory<br/>has&#160;to&#160;be&#160;available.&#160;This&#160;request&#160;has&#160;no&#160;input&#160;signals&#160;and&#160;no&#160;output&#160;signals.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_862,&#160;DK_T3_863,&#160;DK_T3_864,&#160;DK_T3_865)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x0F06<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>no&#160;further&#160;sub-containers&#160;configured<br/>
+<b>Upload/Download&#160;Pre/Post-Processing&#160;(0x31&#160;0x01&#160;0x70&#160;0x00)</b><br/>
+<b>[IM_StdDiagClassic_0023]&#160;</b>dThis&#160;request&#160;is&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagApplicationDataTransfer&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;a&#160;variable&#160;request&#160;length,&#160;and&#160;a&#160;fixed<br/>response&#160;length.&#160;The&#160;response&#160;contains&#160;the&#160;routine&#160;result&#160;(1&#160;byte):&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(ADUE_2773,&#160;ADUE_2774,<br/>ADUE_3618)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x7000<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;30<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-13_1.png"/><br/>
+a&#160;reference&#160;to&#160;&#34;DcmDspCommonAuthorization&#34;&#160;with&#160;a&#160;reference&#160;to&#160;the&#160;extended&#160;diagnostic&#160;session,<br/>but&#160;no&#160;reference&#160;to&#160;default&#160;or&#160;programming&#160;session<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;Data&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalLength&#34;&#160;=&#160;64&#160;bit&#160;-&#160;2184&#160;bit&#160;(see&#160;note&#160;below)<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;VARIABLE_LENGTH<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineOut&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineOutSignal&#34;&#160;named&#160;&#34;Result&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+<b>Note:&#160;</b>Request&#160;data&#160;consists&#160;of&#160;3&#160;byte&#160;fix&#160;+&#160;size&#160;of&#160;memoryObjectIdentifier&#160;+&#160;size&#160;of<br/>applicationSpecificParameter.&#160;According&#160;to&#160;&#34;LH&#160;Applikationsdatenuebertragung&#34;&#160;the<br/>memoryObjectIdentifier&#160;size&#160;is&#160;in&#160;range&#160;5&#160;byte&#160;to&#160;15&#160;byte,&#160;applicationSpecificParameter&#160;size&#160;is&#160;in&#160;range&#160;0<br/>byte&#160;to&#160;255&#160;byte.&#160;So&#160;minimum&#160;value&#160;for&#160;&#34;DcmDspRoutineSignalLength&#34;&#160;is&#160;64&#160;bit&#160;(8&#160;byte),&#160;maximum&#160;value<br/>is&#160;2184&#160;bit&#160;(273&#160;byte).<br/>
+<b>Note:&#160;</b>This&#160;RoutineControl&#160;(RID&#160;0x7000)&#160;is&#160;a&#160;common&#160;job&#160;for&#160;all&#160;ADT&#160;clients.&#160;&#34;LH<br/>Applikationsdatenuebertragung&#34;&#160;requires&#160;further&#160;Routine&#160;Control&#160;jobs&#160;for&#160;each&#160;application&#160;specific<br/>routine&#160;control&#160;identifier.&#160;These&#160;jobs&#160;are&#160;not&#160;part&#160;of&#160;StdDiag.<br/>
+<b>Set&#160;log&#160;level&#160;for&#160;Dlt&#160;(0x31&#160;0x01&#160;0x10&#160;0x90)</b><br/>
+<b>[IM_StdDiagClassic_0010]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;only&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;request&#160;length.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1583,&#160;DK_T3_1586)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1090<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;applicationId&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT32<br/>a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;contextId&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;32<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT32<br/>a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newLogLevel&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;64<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+<b>Reset&#160;Dlt&#160;to&#160;default&#160;configuration&#160;(0x31&#160;0x01&#160;0x10&#160;0x91)</b><br/>
+<b>[IM_StdDiagClassic_0011]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;neither&#160;input&#160;nor&#160;output&#160;signals.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;30<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-14_1.png"/><br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1590,&#160;DK_T3_1592)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1091<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>no&#160;further&#160;sub-containers&#160;configured<br/>
+<b>Set&#160;message&#160;filtering&#160;state&#160;for&#160;Dlt&#160;(0x31&#160;0x01&#160;0x10&#160;0x92)</b><br/>
+<b>[IM_StdDiagClassic_0012]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;only&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;request&#160;length.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1596,&#160;DK_T3_1599)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1092<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newFilterStatus&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+<b>Set&#160;log&#160;channel&#160;threshold&#160;for&#160;Dlt&#160;(0x31&#160;0x01&#160;0x10&#160;0x93)</b><br/>
+<b>[IM_StdDiagClassic_0022]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;only&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;request&#160;length.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1603,&#160;DK_T3_1606)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1093<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;logChannelName&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT32<br/>a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newLogLevelThreshold&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;32<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newTraceStatus&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;40<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;14&#160;of&#160;30<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-15_1.png"/><br/>
+<b>Store&#160;Dlt&#160;configuration&#160;persistently&#160;(0x31&#160;0x01&#160;0x10&#160;0x94)</b><br/>
+<b>[IM_StdDiagClassic_0013]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;neither&#160;input&#160;nor&#160;output&#160;signals.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1610,&#160;DK_T3_1612)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1094<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>no&#160;further&#160;sub-containers&#160;configured<br/>
+<b>Set&#160;trace&#160;state&#160;for&#160;Dlt&#160;(0x31&#160;0x01&#160;0x10&#160;0x95)</b><br/>
+<b>[IM_StdDiagClassic_0014]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;only&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;request&#160;length.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1616,&#160;DK_T3_1619)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1095<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;applicationId&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT32<br/>a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;contextId&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;32<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT32<br/>a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newTraceStatus&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;64<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+<b>Set&#160;default&#160;log&#160;level&#160;for&#160;Dlt&#160;(0x31&#160;0x01&#160;0x10&#160;0x96)</b><br/>
+<b>[IM_StdDiagClassic_0015]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;only&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;request&#160;length.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1623,&#160;DK_T3_1626)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1096<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newDefaultLogLevel&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;15&#160;of&#160;30<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-16_1.png"/><br/>
+<b>Set&#160;default&#160;trace&#160;state&#160;for&#160;Dlt&#160;(0x31&#160;0x01&#160;0x10&#160;0x97)</b><br/>
+<b>[IM_StdDiagClassic_0016]&#160;</b>dThis&#160;request&#160;is&#160;only&#160;supported,&#160;if&#160;the&#160;configuration&#160;container<br/>&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available.&#160;The&#160;request&#160;has&#160;only&#160;input&#160;signals,&#160;and&#160;a&#160;fixed&#160;request&#160;length.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_1630,&#160;DK_T3_1633)</i></a><br/>
+a&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;with<br/>
+&#34;DcmDspRoutineIdentifier&#34;&#160;=&#160;0x1097<br/>&#34;DcmDspRoutineUsePort&#34;&#160;=&#160;TRUE<br/>
+a&#160;subcontainer&#160;&#34;DcmDspStartRoutine&#34;&#160;and&#160;&#34;DcmDspStartRoutineIn&#34;&#160;with<br/>
+a&#160;&#34;StartRoutineInSignal&#34;&#160;named&#160;&#34;newDefaultTraceStatus&#34;&#160;with<br/>∗&#160;&#34;DcmDspRoutineSignalPos&#34;&#160;=&#160;0<br/>∗&#160;&#34;DcmDspRoutineSignalType&#34;&#160;=&#160;UINT8<br/>
+<b>Service&#160;Request&#160;Manufacturer&#160;Notification</b><br/>
+A&#160;StdDiag&#160;Service&#160;Request&#160;Manufacturer&#160;Notification&#160;shall&#160;be&#160;configured&#160;in&#160;the&#160;container<br/>&#34;DcmDsdServiceRequestManufacturerNotification&#34;.&#160;The&#160;Mapping&#160;to&#160;the&#160;StdDiag&#160;module&#160;is&#160;done&#160;by<br/>connecting&#160;the&#160;corresponding&#160;ports.<br/>
+<b>Service&#160;Handler&#160;for&#160;Upload&#160;Download&#160;Services</b><br/>
+To&#160;implement&#160;the&#160;functionality&#160;&#34;Application&#160;Data&#160;Transfer&#34;&#160;(ADT,&#160;german<br/>&#34;Applikationsdatenuebertragung,&#160;ADUE)&#160;(see&#160;LH&#160;&#34;Applikationsdatenuebertragung&#34;),&#160;the&#160;UDS&#160;Services<br/>0x34&#160;(RequestDownload),&#160;0x35&#160;(RequestUpload),&#160;0x36&#160;(TransferData)&#160;and&#160;0x37&#160;(RequestTransferExit)<br/>are&#160;necessary.&#160;For&#160;these&#160;services&#160;AUTOSAR&#160;Dcm&#160;basically&#160;provides&#160;callouts&#160;like<br/>&#34;Dcm_ProcessRequestDownload&#34;&#160;and&#160;&#34;Dcm_WriteMemory&#34;,&#160;which&#160;has&#160;two&#160;constraints:&#160;The&#160;parameter<br/>MemoryAddress&#160;within&#160;these&#160;APIs&#160;is&#160;of&#160;type&#160;uint32,&#160;i.e.&#160;values&#160;are&#160;restricted&#160;to&#160;4&#160;bytes.&#160;ADT&#160;needs&#160;at<br/>least&#160;5&#160;byte&#160;for&#160;the&#160;memory&#160;object&#160;identifier,&#160;which&#160;is&#160;ISO-14229&#160;compliant.&#160;Furthermore&#160;Dcm&#160;currently<br/>only&#160;provides&#160;C-API&#160;callouts,&#160;but&#160;no&#160;Service&#160;Interface.&#160;For&#160;these&#160;reasons&#160;StdDiag&#160;requires&#160;the&#160;following<br/>configuration:<br/>
+configure&#160;container&#160;&#34;DcmDspService&#34;&#160;for&#160;service&#160;&#34;RequestDownload&#34;&#160;with<br/>
+&#34;DcmDsdSidTabServiceId&#34;&#160;=&#160;0x34<br/>&#34;DcmDsdSidTabSubfuncAvail&#34;&#160;=&#160;0<br/>&#34;DcmDsdSidTabFnc&#34;&#160;=&#160;StdDiag_RequestDownload<br/>
+configure&#160;container&#160;&#34;DcmDspService&#34;&#160;for&#160;service&#160;&#34;RequestUpload&#34;&#160;with<br/>
+&#34;DcmDsdSidTabServiceId&#34;&#160;=&#160;0x35<br/>&#34;DcmDsdSidTabSubfuncAvail&#34;&#160;=&#160;0<br/>&#34;DcmDsdSidTabFnc&#34;&#160;=&#160;StdDiag_RequestUpload<br/>
+configure&#160;container&#160;&#34;DcmDspService&#34;&#160;for&#160;service&#160;&#34;TransferData&#34;&#160;with<br/>
+&#34;DcmDsdSidTabServiceId&#34;&#160;=&#160;0x36<br/>&#34;DcmDsdSidTabSubfuncAvail&#34;&#160;=&#160;0<br/>&#34;DcmDsdSidTabFnc&#34;&#160;=&#160;StdDiag_TransferData<br/>
+configure&#160;container&#160;&#34;DcmDspService&#34;&#160;for&#160;service&#160;&#34;RequestTransferExit&#34;&#160;with<br/>
+&#34;DcmDsdSidTabServiceId&#34;&#160;=&#160;0x37<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;16&#160;of&#160;30<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-17_1.png"/><br/>
+&#34;DcmDsdSidTabSubfuncAvail&#34;&#160;=&#160;0<br/>&#34;DcmDsdSidTabFnc&#34;&#160;=&#160;StdDiag_RequestTransferExit<br/>
+<b>Det</b><br/>
+A&#160;StdDiag&#160;entry&#160;shall&#160;be&#160;added&#160;to&#160;the&#160;Software&#160;Component&#160;List&#160;from&#160;Det.&#160;This&#160;is&#160;only&#160;necessary,&#160;if&#160;the<br/>parameter&#160;&#34;StdDiagDevErrorDetect&#34;&#160;is&#160;set&#160;to&#160;&#34;true&#34;.<br/>
+<b>Dem</b><br/>
+<b>[IM_StdDiagClassic_0002]&#160;</b>dIn&#160;the&#160;container&#160;&#34;DemEnableCondition&#34;&#160;a&#160;new&#160;Enable&#160;Condition&#160;has&#160;to<br/>be&#160;configured&#160;(StdDiag&#160;Enable&#160;Condition).&#160;This&#160;Enable&#160;condition&#160;has&#160;to&#160;be&#160;referenced&#160;by&#160;each&#160;Enable<br/>Condition&#160;Group&#160;configured&#160;in&#160;the&#160;container&#160;&#34;DemEnableConditionGroup&#34;.&#160;In&#160;addition,&#160;each&#160;configured<br/>Event&#160;(&#34;DemEventParameter&#34;)&#160;has&#160;to&#160;refer&#160;to&#160;an&#160;Enable&#160;Condition&#160;Group<br/>(&#34;DemEnableConditionGroupRef&#34;)&#160;in&#160;its&#160;Event&#160;Class&#160;(&#34;DemEventClass&#34;).&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL257)</i></a><br/>
+Exceptions:&#160;The&#160;Events&#160;related&#160;to&#160;the&#160;DTCs&#160;&#34;CODING_EVENT_NOT_CODED&#34;&#160;(see<br/>IntegrationManual_Coding.pdf)&#160;and&#160;&#34;Energy&#160;saving&#160;mode&#160;active&#34;&#160;(see&#160;IntegrationManual_Omc.pdf)&#160;shall<br/>not&#160;be&#160;locked&#160;by&#160;the&#160;StdDiag&#160;Enable&#160;Condition.&#160;These&#160;Events&#160;shall&#160;refer&#160;to&#160;either&#160;no&#160;Enable&#160;Condition<br/>Group,&#160;or&#160;to&#160;an&#160;Enable&#160;Condition&#160;Group&#160;that&#160;does&#160;not&#160;include&#160;the&#160;StdDiag&#160;Enable&#160;Condition.<br/>
+<b>BswM</b><br/>
+The&#160;following&#160;<b>BswMModeRequestPorts&#160;</b>have&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;BswM:<br/>
+<b>Port_StdDiag_LifeCycle<br/></b>This&#160;port&#160;shall&#160;have&#160;a&#160;BswMModeRequestSource&#160;of&#160;type&#160;&#34;BswMSwcModeNotification&#34;,&#160;and&#160;receives<br/>mode&#160;switch&#160;notifications&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;StdDiag_LifeCycle&#34;&#160;from&#160;the&#160;StdDiag&#160;module.<br/>
+<b>Port_StdDiag_ComControlModeRequest<br/></b>This&#160;port&#160;shall&#160;have&#160;a&#160;BswMModeRequestSource&#160;of&#160;type&#160;&#34;BswMSwcModeRequest&#34;,&#160;and&#160;receives&#160;mode<br/>requests&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;StdDiag_NormalCommunicationModeGroup&#34;&#160;from&#160;the&#160;StdDiag<br/>module.<br/>
+<b>Port_Dcm_CommunicationControl<br/></b>This&#160;port&#160;shall&#160;have&#160;a&#160;BswMModeRequestSource&#160;of&#160;type&#160;&#34;BswMDcmComModeRequest&#34;,&#160;and&#160;shall<br/>receive&#160;the&#160;current&#160;communication&#160;mode&#160;of&#160;the&#160;ModeDeclarationGroup<br/>&#34;Dcm_CommunicationControl_&lt;Channel&gt;&#34;&#160;defined&#160;by&#160;the&#160;Dcm.<br/>
+<b>Port_Dcm_SessionControl<br/></b>This&#160;port&#160;shall&#160;have&#160;a&#160;BswMModeRequestSource&#160;of&#160;type&#160;&#34;BswMSwcModeNotification&#34;,&#160;and&#160;shall&#160;receive<br/>the&#160;current&#160;diagnostic&#160;session&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;Dcm_DiagnosticSessionControl&#34;&#160;defined<br/>by&#160;the&#160;Dcm.<br/>
+The&#160;following&#160;<b>BswMRteModeRequestPort&#160;</b>have&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;BswM:<br/>
+<b>StdDiagLifeCycleRequestPort</b><br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;17&#160;of&#160;30<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-18_1.png"/><br/>
+To&#160;request&#160;modes&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;StdDiag_LifeCycle&#34;,&#160;this&#160;port&#160;shall&#160;have&#160;a<br/>BswMRteModeRequestPortInterfaceRef&#160;to&#160;the&#160;variable&#160;data&#160;prototype&#160;&#34;requestMode&#34;&#160;related&#160;to&#160;the&#160;Port<br/>&#34;LifeCycle&#34;&#160;of&#160;the&#160;StdDiag&#160;module.<br/>
+The&#160;following&#160;<b>BswMSwitchPorts&#160;</b>have&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;BswM:<br/>
+<b>StdDiagSessionChangeIndicationPort<br/></b>To&#160;switch&#160;modes&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;StdDiag_SessionModeGroup&#34;,&#160;this&#160;port&#160;shall&#160;have&#160;a<br/>BswMModeSwitchInterfaceRef&#160;to&#160;the&#160;ModeSwitchInterface&#160;&#34;SessionChangeIndicationInterface&#34;&#160;of&#160;the<br/>StdDiag&#160;module.<br/>
+<b>StdDiagComControlNormalNotificationPort<br/></b>To&#160;switch&#160;modes&#160;of&#160;the&#160;ModeDeclarationGroup&#160;&#34;StdDiag_NormalCommunicationModeGroup&#34;,&#160;this&#160;port<br/>shall&#160;have&#160;a&#160;BswMModeSwitchInterfaceRef&#160;to&#160;the&#160;ModeSwitchInterface<br/>&#34;ComControlNormalNotificationInterface&#34;&#160;of&#160;the&#160;StdDiag&#160;module.<br/>
+The&#160;following&#160;<b>Rules&#160;</b>have&#160;to&#160;be&#160;configured&#160;in&#160;the&#160;BswM:<br/>
+<b>LifeCycle&#160;handling</b>:<br/>To&#160;initialize&#160;the&#160;StdDiag&#160;module&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results&#160;in&#160;an&#160;action&#160;that&#160;requests&#160;the<br/>mode&#160;&#34;STDDIAG_INITIALIZED&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;StdDiag_LifeCycle&#34;.<br/>
+To&#160;set&#160;the&#160;StdDiag&#160;module&#160;to&#160;normal&#160;operation&#160;mode&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results&#160;in&#160;an<br/>action&#160;that&#160;requests&#160;the&#160;mode&#160;&#34;STDDIAG_RUNNING&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group<br/>&#34;StdDiag_LifeCycle&#34;.&#160;This&#160;rule&#160;is&#160;triggered&#160;by&#160;a&#160;mode&#160;switch&#160;to&#160;the&#160;mode&#160;&#34;STDDIAG_INITIALIZED&#34;&#160;by<br/>the&#160;StdDiag&#160;module&#160;itself.&#160;When&#160;the&#160;StdDiag&#160;module&#160;is&#160;in&#160;normal&#160;operation&#160;mode,&#160;the&#160;StdDiag&#160;module<br/>switches&#160;the&#160;mode&#160;to&#160;&#34;STDDIAG_RUNNING&#34;.<br/>
+To&#160;deactivate&#160;the&#160;StdDiag&#160;module&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results&#160;in&#160;an&#160;action&#160;that&#160;requests<br/>the&#160;mode&#160;&#34;STDDIAG_STOPPED&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;StdDiag_LifeCycle&#34;.<br/>
+For&#160;details&#160;on&#160;how&#160;to&#160;initialize&#160;/&#160;deactivate&#160;the&#160;StdDiag&#160;module,&#160;please&#160;refer&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#29">5.5.</a><br/>
+<b>Diagnostic&#160;Session&#160;handling:<br/></b>To&#160;notify&#160;the&#160;StdDiag&#160;module&#160;when&#160;the&#160;DefaultSession&#160;is&#160;entered,&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that<br/>results&#160;in&#160;an&#160;action&#160;that&#160;switches&#160;the&#160;mode&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;StdDiag_SessionModeGroup&#34;<br/>to&#160;&#34;STDDIAG_DEFAULT_SESSION&#34;&#160;via&#160;BswMSwitchPort&#160;&#34;StdDiagSessionChangeIndicationPort&#34;&#160;(see<br/>above),&#160;when&#160;the&#160;Dcm&#160;module&#160;indicates&#160;a&#160;mode&#160;switch&#160;of&#160;the&#160;mode&#160;declaration&#160;group<br/>&#34;DcmDiagnosticSessionControl&#34;&#160;to&#160;&#34;DefaultSession&#34;&#160;via&#160;BswMModeRequestPort<br/>&#34;Port_Dcm_SessionControl&#34;.<br/>
+To&#160;notify&#160;the&#160;StdDiag&#160;module&#160;when&#160;the&#160;DefaultSession&#160;is&#160;left,&#160;the&#160;BswM&#160;has&#160;to&#160;provide&#160;a&#160;rule,&#160;that&#160;results<br/>in&#160;an&#160;action&#160;that&#160;switches&#160;the&#160;mode&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;StdDiag_SessionModeGroup&#34;&#160;to<br/>&#34;STDDIAG_OTHER_SESSION&#34;&#160;via&#160;BswMSwitchPort&#160;&#34;StdDiagSessionChangeIndicationPort&#34;&#160;(see<br/>above),&#160;when&#160;the&#160;Dcm&#160;module&#160;indicates&#160;a&#160;mode&#160;switch&#160;of&#160;the&#160;mode&#160;declaration&#160;group<br/>&#34;DcmDiagnosticSessionControl&#34;&#160;to&#160;any&#160;other&#160;than&#160;the&#160;&#34;DefaultSession&#34;&#160;via&#160;BswMModeRequestPort<br/>&#34;Port_Dcm_SessionControl&#34;.<br/>
+<b>Communication&#160;Control&#160;handling:<br/></b>To&#160;notify&#160;the&#160;StdDiag&#160;module&#160;about&#160;a&#160;change&#160;of&#160;the&#160;normal&#160;communication&#160;mode,&#160;the&#160;BswM&#160;has&#160;to<br/>provide&#160;rules&#160;that&#160;result&#160;in&#160;actions&#160;that&#160;switch&#160;the&#160;corresponding&#160;mode&#160;of&#160;the&#160;mode&#160;declaration&#160;group<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;18&#160;of&#160;30<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-19_1.png"/><br/>
+&#34;StdDiag_NormalCommunicationModeGroup&#34;&#160;via&#160;BswMSwitchPort<br/>&#34;StdDiagComControlNormalNotificationPort&#34;&#160;(see&#160;above).<br/>
+These&#160;rules&#160;have&#160;to&#160;be&#160;triggered&#160;either&#160;when&#160;the&#160;Dcm&#160;switches&#160;the&#160;mode&#160;of&#160;the&#160;mode&#160;declaration&#160;group<br/>&#34;DcmCommunicationControl_&lt;Channel&gt;&#34;,&#160;or&#160;when&#160;the&#160;StdDiag&#160;module&#160;itself&#160;requests&#160;a&#160;mode&#160;of&#160;the<br/>mode&#160;declaration&#160;group&#160;&#34;StdDiag_NormalCommunicationModeGroup&#34;.<br/>
+(<b>Note:&#160;</b>These&#160;rules&#160;also&#160;have&#160;to&#160;result&#160;in&#160;actions&#160;that&#160;enable&#160;/&#160;disable&#160;the&#160;corresponding&#160;Pdu-Groups)<br/>
+To&#160;achieve&#160;a&#160;correct&#160;combination&#160;of&#160;the&#160;two&#160;request&#160;sources&#160;StdDiag&#160;and&#160;Dcm,&#160;the&#160;following&#160;four&#160;rules<br/>should&#160;be&#160;configured:<br/>
+<b>BswMRule_ComControl_Enable_Rx_Enable_Tx<br/></b>if&#160;(&#160;(LogEx_Enable_Rx&#160;==&#160;TRUE)&#160;&amp;&amp;&#160;(LogEx_Enable_Tx&#160;==&#160;TRUE))<br/>{<br/>Switch&#160;StdDiagComControlNormalNotificationPort&#160;to&#160;ENABLE_RX_AND_TX_NORMAL<br/>}<br/>
+<b>BswMRule_ComControl_Enable_Rx_Disable_Tx<br/></b>if&#160;(&#160;(LogEx_Enable_Rx&#160;==&#160;TRUE)&#160;&amp;&amp;&#160;(LogEx_Disable_Tx&#160;==&#160;TRUE))<br/>{<br/>Switch&#160;StdDiagComControlNormalNotificationPort&#160;to&#160;ENABLE_RX_DISABLE_TX_NORMAL<br/>}<br/>
+<b>BswMRule_ComControl_Disable_Rx_Enable_Tx<br/></b>if&#160;(&#160;(LogEx_Disable_Rx&#160;==&#160;TRUE)&#160;&amp;&amp;&#160;(LogEx_Enable_Tx&#160;==&#160;TRUE))<br/>{<br/>Switch&#160;StdDiagComControlNormalNotificationPort&#160;to&#160;DISABLE_RX_ENABLE_TX_NORMAL<br/>}<br/>
+<b>BswMRule_ComControl_Disable_Rx_Disable_Tx<br/></b>if&#160;(&#160;(LogEx_Disable_Rx&#160;==&#160;TRUE)&#160;&amp;&amp;&#160;(LogEx_Disable_Tx&#160;==&#160;TRUE))<br/>{<br/>Switch&#160;StdDiagComControlNormalNotificationPort&#160;to&#160;DISABLE_RX_AND_TX_NORMAL<br/>}<br/>
+The&#160;corresponding&#160;<b>locigal&#160;expressions&#160;</b>are&#160;defined&#160;as&#160;follows:<br/>
+Both&#160;StdDiag&#160;and&#160;Dcm&#160;allow&#160;to&#160;enable&#160;Rx:<br/><b>LogEx_Enable_Rx&#160;</b>=&#160;(LogEx_Enable_Rx_StdDiag)&#160;&amp;&amp;&#160;(LogEx_Enable_Rx_Dcm)<br/>
+Both&#160;StdDiag&#160;and&#160;Dcm&#160;allow&#160;to&#160;enable&#160;Tx:<br/><b>LogEx_Enable_Tx&#160;</b>=&#160;(LogEx_Enable_Tx_StdDiag)&#160;&amp;&amp;&#160;(LogEx_Enable_Tx_Dcm)<br/>
+Either&#160;StdDiag&#160;or&#160;Dcm&#160;want&#160;to&#160;disable&#160;Rx:<br/><b>LogEx_Disable_Rx&#160;</b>=&#160;!((LogEx_Enable_Rx_StdDiag)&#160;&amp;&amp;&#160;(LogEx_Enable_Rx_Dcm))<br/>
+Either&#160;StdDiag&#160;or&#160;Dcm&#160;want&#160;to&#160;disable&#160;Tx:<br/><b>LogEx_Disable_Tx&#160;</b>=&#160;!((LogEx_Enable_Tx_StdDiag)&#160;&amp;&amp;&#160;(LogEx_Enable_Tx_Dcm))<br/>
+<b>LogEx_Enable_Rx_StdDiag&#160;</b>=<br/>Port_StdDiag_ComControlModeRequest&#160;==&#160;ENABLE_RX_AND_TX_NORMAL&#160;||<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;19&#160;of&#160;30<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-20_1.png"/><br/>
+Port_StdDiag_ComControlModeRequest&#160;==&#160;ENABLE_RX_DISABLE_TX_NORMAL<br/>
+<b>LogEx_Enable_Rx_Dcm&#160;</b>=<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_ENABLE_RX_TX_NORM&#160;||<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_ENABLE_RX_DISABLE_TX_NORM&#160;||<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_ENABLE_RX_TX_NORM_NM&#160;||<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_ENABLE_RX_DISABLE_TX_NORM_NM<br/>
+<b>LogEx_Enable_Tx_StdDiag&#160;</b>=<br/>Port_StdDiag_ComControlModeRequest&#160;==&#160;ENABLE_RX_AND_TX_NORMAL&#160;||<br/>Port_StdDiag_ComControlModeRequest&#160;==&#160;DISABLE_RX_ENABLE_TX_NORMAL<br/>
+<b>LogEx_Enable_Tx_Dcm&#160;</b>=<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_ENABLE_RX_TX_NORM&#160;||<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_DISABLE_RX_ENABLE_TX_NORM&#160;||<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_ENABLE_RX_TX_NORM_NM&#160;||<br/>Port_Dcm_CommunicationControl&#160;==&#160;DCM_DISABLE_RX_ENABLE_TX_NORM_NM<br/>
+<b>EcuC</b><br/>
+If&#160;post&#160;build&#160;support&#160;is&#160;needed,&#160;the&#160;EcuC&#160;configuration&#160;shall&#160;provide&#160;a&#160;collection&#160;of&#160;toplevel<br/>PostBuildSelectable&#160;variants&#160;in&#160;containers&#160;&#34;EcucPostBuildVariants&#34;.&#160;These&#160;containers&#160;shall&#160;refer&#160;to<br/>predefined&#160;variants,&#160;which&#160;in&#160;turn&#160;refer&#160;to&#160;post&#160;build&#160;variant&#160;criterion&#160;value&#160;sets.&#160;During&#160;the&#160;generation<br/>process,&#160;PAGe&#160;evaluates&#160;all&#160;available&#160;variants&#160;whether&#160;the&#160;criterion&#160;value&#160;matches&#160;the&#160;value&#160;given&#160;in&#160;the<br/>variation&#160;point&#160;of&#160;the&#160;post&#160;build&#160;selectable&#160;configuration&#160;parameter.<br/>
+<b>Configuration&#160;of&#160;generic&#160;part</b><br/>
+<b>StdDiagGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;generic&#160;part&#160;of&#160;the&#160;StdDiag&#160;module<br/>
+<b>StdDiagDevErrorDetect</b><br/>
+This&#160;parameter&#160;activates/deactivates&#160;the&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification.<br/>
+If&#160;set&#160;to&#160;true:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;is&#160;activated.<br/>If&#160;set&#160;to&#160;false:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;is&#160;deactivated.<br/>
+<b>StdDiagUserEstablishIntrinsicSafety</b><br/>
+<b>[IM_StdDiag_0001]&#160;</b>dDuring&#160;UDS&#160;Routine&#160;Service&#160;0x31&#160;01&#160;0F&#160;0C&#160;03&#160;(set&#160;EnergyMode&#160;=&#160;Flash)&#160;an<br/>ECU&#160;shall&#160;establish&#160;intrinsic&#160;safety.&#160;StdDiag&#160;checks&#160;whether&#160;the&#160;PWF&#160;status&#160;is<br/>&#34;PruefenAnalyseDiagnose&#34;,&#160;which&#160;is&#160;mandatory&#160;for&#160;all&#160;ECUs.&#160;During&#160;UDS&#160;Routine&#160;Service&#160;0x31&#160;01&#160;0F&#160;0C<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;20&#160;of&#160;30<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-21_1.png"/><br/>
+00&#160;(set&#160;EnergyMode&#160;=&#160;Normal),&#160;if&#160;flash&#160;mode&#160;was&#160;active&#160;before,&#160;an&#160;ECU&#160;shall&#160;revert&#160;all&#160;actions&#160;taken&#160;to<br/>establish&#160;intrinsic&#160;safety.&#160;If&#160;there&#160;are&#160;more&#160;actions&#160;to&#160;be&#160;taken&#160;by&#160;the&#160;ECU&#160;to&#160;establish&#160;or&#160;revert&#160;intrinsic<br/>safety,&#160;this&#160;parameter&#160;has&#160;to&#160;be&#160;set&#160;to&#160;&#34;true&#34;.&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL215,&#160;FL216,&#160;FL217,&#160;FL283,&#160;FL284,&#160;FL285)</i></a><br/>
+If&#160;set&#160;to&#160;true:&#160;StdDiag&#160;calls&#160;a&#160;user&#160;specific&#160;function&#160;to&#160;establish&#160;or&#160;revert&#160;intrinsic&#160;safety.<br/>If&#160;set&#160;to&#160;false:&#160;StdDiag&#160;only&#160;checks&#160;for&#160;correct&#160;PWF&#160;state.<br/>
+<b>StdDiagUserActiveSessionState</b><br/>
+The&#160;positive&#160;response&#160;on&#160;UDS&#160;service&#160;0x22&#160;F1&#160;00&#160;provides&#160;the&#160;active&#160;session&#160;state&#160;in&#160;its&#160;second&#160;byte.<br/>StdDiag&#160;provides&#160;the&#160;active&#160;session&#160;state&#160;within&#160;the&#160;application&#160;default&#160;session&#160;and&#160;the&#160;application<br/>extended&#160;diagnostic&#160;session.&#160;For&#160;all&#160;other&#160;sessions&#160;StdDiag&#160;sets&#160;the&#160;active&#160;session&#160;state&#160;to&#160;&#34;0&#34;,&#160;or<br/>optionally&#160;calls&#160;a&#160;user&#160;specific&#160;application&#160;that&#160;provides&#160;this&#160;information.<br/>
+If&#160;set&#160;to&#160;true:&#160;StdDiag&#160;call&#160;a&#160;user&#160;specific&#160;function&#160;that&#160;provides&#160;the&#160;active&#160;session&#160;state.<br/>If&#160;set&#160;to&#160;false:&#160;StdDiag&#160;uses&#160;the&#160;default&#160;value&#160;&#34;0&#34;&#160;for&#160;the&#160;active&#160;session&#160;state.<br/>
+<b>StdDiagUserProgrammingPreconditionsCheck</b><br/>
+<b>[IM_StdDiag_0002]&#160;</b>dTo&#160;evaluate&#160;EUC&#160;specific&#160;programming&#160;preconditions,&#160;StdDiag&#160;optionally<br/>provides&#160;a&#160;callout&#160;to&#160;a&#160;user&#160;specific&#160;application.&#160;If&#160;an&#160;ECU&#160;has&#160;to&#160;evaluate&#160;programming&#160;preconditions,&#160;the<br/>integrator&#160;shall&#160;provide&#160;this&#160;configuration&#160;container&#160;and&#160;configure&#160;its&#160;parameters.&#160;This&#160;container&#160;defines<br/>whether&#160;a&#160;user&#160;specific&#160;function&#160;for&#160;checking&#160;additional&#160;programming&#160;preconditions&#160;is&#160;used.&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL191,<br/>FL193)</i></a><br/>
+<b>MaxNumberUserProgrammingPrecondition</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;maximum&#160;number&#160;of&#160;failed&#160;user&#160;programming&#160;preconditions.<br/>
+<b>StdDiagProvideIDRL</b><br/>
+This&#160;configuration&#160;container&#160;defines&#160;if&#160;the&#160;StdDiag&#160;module&#160;shall&#160;provide&#160;the&#160;IDRL&#160;feature.<br/>
+Container&#160;is&#160;available:&#160;StdDiag&#160;provides&#160;the&#160;IDRL&#160;feature&#160;Container&#160;is&#160;not&#160;available:&#160;StdDiag&#160;does&#160;not<br/>provide&#160;the&#160;IDRL&#160;feature<br/>
+If&#160;this&#160;container&#160;is&#160;available,&#160;the&#160;following&#160;parameters&#160;and&#160;subcontainers,&#160;which&#160;are&#160;part&#160;of&#160;this&#160;container,<br/>shall&#160;be&#160;configured.<br/>
+The&#160;user&#160;has&#160;at&#160;least&#160;to&#160;configure&#160;the&#160;format&#160;identifier&#160;of&#160;the&#160;DID&#160;table.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;21&#160;of&#160;30<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-22_1.png"/><br/>
+<b>DIDTableFormatIdentifier</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;format&#160;identifier&#160;of&#160;the&#160;individual&#160;DID&#160;table.&#160;According&#160;to&#160;LH&#160;ADUE&#160;this<br/>parameter&#160;has&#160;to&#160;be&#160;set&#160;to&#160;0x0001.<br/>
+<b>IDRLClient</b><br/>
+This&#160;container&#160;defines&#160;the&#160;name&#160;of&#160;an&#160;application&#160;software&#160;component&#160;that&#160;implements&#160;an&#160;IDRL&#160;client,<br/>i.e.&#160;that&#160;provides&#160;individual&#160;data.&#160;This&#160;container&#160;has&#160;a&#160;subcontainer&#160;IndivData.&#160;This&#160;container&#160;shall&#160;be<br/>configured&#160;once&#160;for&#160;each&#160;application&#160;component&#160;implementing&#160;an&#160;IDRL&#160;client.<br/>
+<b>IndivData</b><br/>
+The&#160;container&#160;IndivData&#160;defines&#160;the&#160;individual&#160;data&#160;of&#160;an&#160;IDRL&#160;client.&#160;The&#160;configured&#160;name&#160;of&#160;this<br/>container&#160;represents&#160;a&#160;symbolic&#160;name&#160;for&#160;the&#160;individual&#160;data.&#160;This&#160;container&#160;has&#160;a&#160;configuration<br/>parameter&#160;DIDValue.<br/>
+<b>DIDValue</b><br/>
+Each&#160;individual&#160;data&#160;has&#160;a&#160;2&#160;bytes&#160;data&#160;identifier.&#160;This&#160;identifier&#160;shall&#160;be&#160;configured&#160;in&#160;parameter&#160;DIDValue.<br/>
+<b>MaxDataSize</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;maximum&#160;size&#160;of&#160;individual&#160;data&#160;for&#160;the&#160;corresponding&#160;DIDValue.<br/>
+<b>Configuration&#160;of&#160;adapter&#160;part</b><br/>
+<b>StdDiagGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;classic&#160;adapter&#160;of&#160;the&#160;StdDiag&#160;module.<br/>
+<b>StdDiagClearSecondaryErrorMemory</b><br/>
+This&#160;parameter&#160;defines&#160;if&#160;the&#160;StdDiag&#160;module&#160;provides&#160;a&#160;service&#160;handler&#160;to&#160;clear&#160;the&#160;secondary&#160;error<br/>memory&#160;via&#160;the&#160;UDS&#160;service&#160;0x31&#160;01&#160;0F&#160;06.&#160;true:&#160;StdDiag&#160;provides&#160;a&#160;service&#160;handler&#160;false:&#160;StdDiag&#160;does<br/>not&#160;provide&#160;a&#160;service&#160;handler<br/>
+If&#160;the&#160;ECU&#160;supports&#160;DTCs&#160;in&#160;the&#160;secondary&#160;error&#160;memory,&#160;this&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;&#34;true&#34;,&#160;and&#160;the<br/>following&#160;configuration&#160;container&#160;&#34;StdDiagUserDefinedMemory&#34;&#160;as&#160;well&#160;as&#160;the&#160;two&#160;parameters,&#160;which&#160;are<br/>part&#160;of&#160;this&#160;container,&#160;shall&#160;be&#160;configured.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;22&#160;of&#160;30<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-23_1.png"/><br/>
+<b>StdDiagUserDefinedMemory</b><br/>
+This&#160;configuration&#160;container&#160;and&#160;the&#160;parameters&#160;within&#160;this&#160;container&#160;have&#160;to&#160;be&#160;configured,&#160;if&#160;the<br/>parameter&#160;&#34;StdDiagClearSecondaryErrorMemory&#34;&#160;is&#160;set&#160;to&#160;'true'<br/>
+<b>StdDiagUserDefinedMemoryName</b><br/>
+This&#160;string&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;short-name&#160;of&#160;the&#160;Dem&#160;configuration&#160;container<br/>DemUserDefinedMemory,&#160;which&#160;represents&#160;the&#160;secondary&#160;error&#160;memory.&#160;To&#160;clear&#160;the&#160;secondary&#160;error<br/>memory,&#160;StdDiag&#160;calls&#160;the&#160;operation&#160;&#34;ClearDTC&#34;&#160;of&#160;the&#160;Interface&#160;&#34;CddIf&#34;&#160;with&#160;Parameter&#160;&#34;DTCOrigin&#34;&#160;set<br/>to&#160;&#34;DEM_DTC_ORIGIN_USERDEFINED_MEMORY_XX&#34;,&#160;where&#160;&#34;XX&#34;&#160;is&#160;the&#160;short-name&#160;of<br/>DemUserDefinedMemory.&#160;StdDiag&#160;uses&#160;the&#160;parameter&#160;&#34;StdDiagUserDefinedMemoryName&#34;&#160;to&#160;replace<br/>&#34;XX&#34;&#160;here.<br/>
+<b>StdDiagUserDefinedMemoryId</b><br/>
+This&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;value&#160;of&#160;&#34;Dem_DTCOriginType&#34;&#160;(i.e.&#160;the&#160;value&#160;of&#160;the&#160;compu-scale<br/>&#34;DEM_DTC_ORIGIN_USERDEFINED_MEMORY_XX&#34;),&#160;which&#160;represents&#160;the&#160;secondary&#160;error&#160;memory.<br/>
+Basically&#160;this&#160;is&#160;the&#160;value&#160;of&#160;the&#160;Dem&#160;parameter&#160;&#34;DemUserDefinedMemoryIdentifier&#34;.&#160;According&#160;to<br/>AUTOSAR&#160;4.2.2&#160;the&#160;value&#160;of&#160;the&#160;Dem&#160;parameter&#160;is&#160;restricted&#160;to&#160;a&#160;range&#160;16..255.&#160;As&#160;BMW&#160;requires&#160;a<br/>value&#160;of&#160;0x01&#160;for&#160;the&#160;parameter&#160;&#34;MemorySelection&#34;&#160;of&#160;UDS-Service&#160;0x19&#160;with&#160;subfunctions&#160;0x17,&#160;0x18<br/>or&#160;0x19,&#160;some&#160;Stack&#160;vendors&#160;might&#160;provide&#160;different&#160;workarounds&#160;to&#160;realize&#160;this.&#160;StdDiag&#160;provides&#160;the<br/>configuration&#160;parameter&#160;&#34;StdDiagUserDefinedMemoryId&#34;&#160;to&#160;configure&#160;the&#160;value&#160;of&#160;the&#160;compu-scale<br/>&#34;DEM_DTC_ORIGIN_USERDEFINED_MEMORY_XX&#34;&#160;according&#160;to&#160;the&#160;stack&#160;specific&#160;implementation.<br/>
+With&#160;RfC70370&#160;the&#160;range&#160;of&#160;&#34;DemUserDefinedMemoryIdentifier&#34;&#160;will&#160;be&#160;changed&#160;to&#160;0..255.<br/>
+<b>StdDiagSgbdIndex</b><br/>
+<b>[IM_StdDiagClassic_0020]&#160;</b>dThis&#160;container&#160;defines&#160;the&#160;SGBD-Index&#160;which&#160;is&#160;read&#160;out&#160;by&#160;UDS&#160;service<br/>0x22&#160;F1&#160;50.&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_312,&#160;DK_T3_316)</i></a><br/>
+<b>SgbdIndex</b><br/>
+<b>[IM_StdDiagClassic_0021]&#160;</b>dThis&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;value&#160;of&#160;the&#160;SGBD-Index.&#160;This&#160;value<br/>shall&#160;be&#160;in&#160;range&#160;0x000000&#160;to&#160;0xFFFFFF.&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(DK_T3_312,&#160;DK_T3_316)</i></a><br/>
+<b>Note:&#160;</b>The&#160;parameter&#160;&#34;SgbdIndex&#34;&#160;is&#160;post&#160;build&#160;configurable.&#160;If&#160;a&#160;post&#160;build&#160;selectable&#160;SgbdIndex&#160;is<br/>needed,&#160;the&#160;parameter&#160;&#34;SgbdIndex&#34;&#160;shall&#160;be&#160;configured&#160;once&#160;for&#160;each&#160;variant.&#160;Each&#160;instance&#160;of<br/>&#34;SgbdIndex&#34;&#160;shall&#160;have&#160;a&#160;variation&#160;point&#160;with&#160;a&#160;post&#160;build&#160;variant&#160;condition,&#160;that&#160;specifies&#160;the&#160;necessary<br/>value&#160;of&#160;the&#160;corresponding&#160;post&#160;build&#160;variant&#160;criterion.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;23&#160;of&#160;30<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-24_1.png"/><br/>
+<b>StdDiagApplicationDataTransfer</b><br/>
+This&#160;configuration&#160;container&#160;and&#160;its&#160;parameters&#160;and&#160;subcontainers&#160;has&#160;to&#160;be&#160;configured&#160;to&#160;enable<br/>functionality&#160;application&#160;data&#160;transfer&#160;(ADT).&#160;ADT&#160;is&#160;necessary&#160;to&#160;support&#160;e.g.&#160;certificate&#160;and&#160;key<br/>managemet&#160;of&#160;system&#160;function&#160;&#34;Basic&#160;Security&#34;&#160;(BS).<br/>
+<b>ApplicationRoutineControlIdentifier</b><br/>
+This&#160;configuration&#160;container&#160;shall&#160;exist&#160;for&#160;each&#160;supported&#160;applicationRoutineControlIdentifier.<br/>
+<b>RoutineIdentifierValue</b><br/>
+This&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;value&#160;of&#160;the&#160;applicationRoutineControlIdentifier&#160;(e.g.&#160;0x10AA&#160;for&#160;BS).<br/>
+<b>ApplicationSubRoutineControlIdentifier</b><br/>
+This&#160;configuration&#160;container&#160;shall&#160;exist&#160;for&#160;each&#160;supported&#160;applicationSubRoutineControlIdentifier.&#160;If&#160;no<br/>applicationSubRoutineControlIdentifier&#160;is&#160;needed,&#160;this&#160;container&#160;shall&#160;be&#160;configured&#160;anyway,&#160;and<br/>parameter&#160;SubRoutineIdentifierValue&#160;shall&#160;be&#160;set&#160;to&#160;0x0000.<br/>
+<b>SubRoutineIdentifierValue</b><br/>
+This&#160;parameter&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;value&#160;of&#160;the&#160;applicationSubRoutineControlIdentifier&#160;(e.g.&#160;0x0000&#160;for<br/>BS).<br/>
+<b>controlIDs</b><br/>
+This&#160;parameter&#160;has&#160;a&#160;multiplicity&#160;of&#160;1..n.&#160;For&#160;each&#160;cntrlID&#160;of&#160;the&#160;corresponding&#160;combination<br/>applicationRoutineControlIdentifier/applicationSubRoutineControlIdentifier&#160;one&#160;instance&#160;of&#160;this&#160;parameter<br/>shall&#160;exist,&#160;and&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;value&#160;of&#160;the&#160;cntrlID&#160;(e.g.&#160;one&#160;instance&#160;with&#160;value&#160;0x00&#160;for&#160;BS).<br/>
+<b>StdDiagProvideDLTSupport</b><br/>
+This&#160;configuration&#160;container&#160;defines&#160;if&#160;the&#160;StdDiag&#160;module&#160;shall&#160;provide&#160;the&#160;implementation&#160;for&#160;BMW<br/>specific&#160;support&#160;of&#160;Diagnostic&#160;Log&#160;and&#160;Trace&#160;(DLT).<br/>
+container&#160;is&#160;available:&#160;StdDiag&#160;provides&#160;the&#160;DLT&#160;feature&#160;container&#160;is&#160;not&#160;available:&#160;StdDiag&#160;does&#160;not<br/>provide&#160;the&#160;DLT&#160;feature<br/>
+If&#160;this&#160;container&#160;is&#160;available,&#160;the&#160;following&#160;parameter,&#160;which&#160;is&#160;part&#160;of&#160;this&#160;container,&#160;shall&#160;be&#160;configured.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;24&#160;of&#160;30<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-25_1.png"/><br/>
+<b>StdDiagNumberSupportedDLTLogChannels</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;number&#160;of&#160;supported&#160;DLT&#160;log&#160;channels.&#160;This&#160;has&#160;to&#160;be&#160;equal&#160;to&#160;the&#160;number<br/>of&#160;DltLogChannel&#160;containers&#160;in&#160;Dlt&#160;module&#160;configuration.<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE</b><br/>
+After&#160;performing&#160;the&#160;steps&#160;indicated&#160;in&#160;chapters&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1,&#160;</a><a href="StdDiagClassic_IntegrationManuals.html#20">5.2&#160;</a>and&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3,&#160;</a>the&#160;RTE&#160;configuration&#160;can&#160;be&#160;started.&#160;In<br/>other&#160;way,&#160;the&#160;RTE&#160;will&#160;report&#160;an&#160;interface&#160;incompatibility&#160;error.<br/>
+<b>Assembly&#160;Software&#160;Connectors</b><br/>
+The&#160;ports&#160;of&#160;the&#160;StdDiag&#160;module&#160;have&#160;to&#160;be&#160;connected&#160;with&#160;ports&#160;of&#160;other&#160;modules&#160;as&#160;follows:<br/>
+<b>Dcm</b><br/>
+<b>ActiveSessionState&#160;&lt;-&gt;&#160;DataServices_&lt;Data&gt;<br/></b>where&#160;&lt;Data&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspData&#34;&#160;describing&#160;the&#160;active&#160;Session<br/>State&#160;configured&#160;in&#160;the&#160;Dcm&#160;module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>SgbdIndex&#160;&lt;-&gt;&#160;DataServices_&lt;Data&gt;<br/></b>where&#160;&lt;Data&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspData&#34;&#160;describing&#160;the&#160;SGBD&#160;Index<br/>configured&#160;in&#160;the&#160;Dcm&#160;module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>DiagCommLoopback&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/></b>where&#160;&lt;Routine&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;configured&#160;in&#160;the&#160;Dcm<br/>module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>CheckProgrammingPreconditions&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/></b>where&#160;&lt;Routine&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;configured&#160;in&#160;the&#160;Dcm<br/>module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>ClearSecondaryErrorMemory&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/></b>where&#160;&lt;Routine&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;configured&#160;in&#160;the&#160;Dcm<br/>module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.&#160;</a>(Only&#160;necessary&#160;when&#160;configuration&#160;container<br/>&#34;StdDiagClearSecondaryErrorMemory&#34;&#160;is&#160;available,&#160;see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3.)</a><br/>
+<b>ServiceRequestManufacturerNotificationPort&#160;&lt;-&gt;&#160;ServiceRequestNotification_&lt;Name&gt;<br/></b>where&#160;&lt;Name&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container<br/>&#34;DcmDslServiceRequestManufacturerNotification&#34;&#160;configured&#160;in&#160;the&#160;Dcm&#160;module&#160;according&#160;to&#160;chapter<br/><a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>DCMServicesPort&#160;&lt;-&gt;&#160;DCMServices</b><br/>
+If&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagProvideIDRL&#34;&#160;is&#160;available&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2),&#160;</a>the&#160;following&#160;ports&#160;of<br/>the&#160;StdDiag&#160;module&#160;have&#160;to&#160;be&#160;connected&#160;with&#160;the&#160;ports&#160;of&#160;DCM&#160;as&#160;follows:<br/><b>IdrlDidTable&#160;&lt;-&gt;&#160;DataServices_&lt;Data&gt;</b><br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;25&#160;of&#160;30<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-26_1.png"/><br/>
+where&#160;&lt;Data&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspData&#34;&#160;configured&#160;in&#160;the&#160;Dcm&#160;module<br/>according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>ResetIdrlData&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/></b>where&#160;&lt;Routine&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;configured&#160;in&#160;the&#160;Dcm<br/>module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+If&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagProvideIDRL&#34;&#160;is&#160;available,&#160;and&#160;the&#160;IDRL&#160;clients&#160;and&#160;the&#160;individual<br/>data&#160;IDs&#160;are&#160;also&#160;configured&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2),&#160;</a>the&#160;following&#160;ports&#160;of&#160;the&#160;StdDiag&#160;module&#160;have&#160;to&#160;be<br/>connected&#160;with&#160;the&#160;ports&#160;of&#160;DCM&#160;as&#160;follows:<br/><b>IdrlData&lt;IDRLClient&gt;&lt;DID&gt;&#160;&lt;-&gt;&#160;DataServices_&lt;Data&gt;<br/></b>where&#160;&lt;IDRLClient&gt;&#160;is&#160;the&#160;name&#160;of&#160;an&#160;IDRL&#160;client&#160;configured&#160;in&#160;container&#160;IDRLClient,&#160;&lt;DID&gt;&#160;is&#160;the<br/>symbolic&#160;name&#160;of&#160;the&#160;individual&#160;data&#160;configured&#160;in&#160;container&#160;IndivData,&#160;and&#160;&lt;Data&gt;&#160;is&#160;the&#160;name&#160;of&#160;the<br/>corresponding&#160;container&#160;&#34;DcmDspData&#34;&#160;configured&#160;in&#160;the&#160;Dcm&#160;module&#160;according&#160;to&#160;Note&#160;of&#160;chapter<br/><a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+If&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagApplicationDataTransfer&#34;&#160;is&#160;available&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3),&#160;</a>the<br/>following&#160;port&#160;of&#160;the&#160;StdDiag&#160;module&#160;has&#160;to&#160;be&#160;connected&#160;with&#160;the&#160;port&#160;of&#160;DCM&#160;as&#160;follows:<br/><b>UpDownloadPrePostProcessingPort&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/></b>where&#160;&lt;Routine&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;configured&#160;in&#160;the&#160;Dcm<br/>module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+If&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagProvideDLTSupport&#34;&#160;is&#160;available&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3),&#160;</a>the&#160;following<br/>ports&#160;of&#160;the&#160;StdDiag&#160;module&#160;have&#160;to&#160;be&#160;connected&#160;with&#160;the&#160;ports&#160;of&#160;DCM&#160;as&#160;follows:<br/>
+<b>DltReadLogChannelNames&#160;&lt;-&gt;&#160;DataServices_&lt;Data&gt;<br/></b>where&#160;&lt;Data&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspData&#34;&#160;configured&#160;in&#160;the&#160;Dcm&#160;module<br/>according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.<br/></a><b>DltSetLoglevel&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltResetToDefault&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltSetMessagefilteringstate&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltSetLogchannelThreshold&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltStoreConfiguration&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltSetTracestate&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltSetDefaultLoglevel&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/>DltSetDefaultTracestate&#160;&lt;-&gt;&#160;RoutineServices_&lt;Routine&gt;<br/></b>where&#160;&lt;Routine&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DcmDspRoutine&#34;&#160;configured&#160;in&#160;the&#160;Dcm<br/>module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.</a><br/>
+<b>Dem</b><br/>
+<b>EnableConditionPort&#160;&lt;-&gt;&#160;EnableCond_&lt;Name&gt;<br/></b>where&#160;&lt;Name&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;corresponding&#160;container&#160;&#34;DemEnableCondition&#34;&#160;configured&#160;in&#160;the<br/>Dem&#160;module&#160;according&#160;to&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.3.</a><br/>
+<b>ClearDTCPort&lt;-&gt;&#160;Dem_Cdd<br/></b>(Only&#160;necessary&#160;when&#160;configuration&#160;container&#160;&#34;StdDiagClearSecondaryErrorMemory&#34;&#160;is&#160;available,&#160;see<br/>chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3)</a><br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;26&#160;of&#160;30<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-27_1.png"/><br/>
+<b>Det</b><br/>
+<b>ReportErrorPort&#160;&lt;-&gt;&#160;DS&lt;xxx&gt;<br/></b>where&#160;&lt;xxx&gt;&#160;is&#160;an&#160;identifier&#160;of&#160;the&#160;StdDiag&#160;configured&#160;in&#160;the&#160;Det&#160;module&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.2).</a><br/>
+<b>Darh</b><br/>
+<b>RoEStatePort&#160;&lt;-&gt;&#160;RoeStatePort</b><br/>
+<b>Omc</b><br/>
+<b>OperatingModeControlPort&#160;&lt;-&gt;&#160;operatingModeSwitchPort<br/>ExtendedOperatingModeControlPort&#160;&lt;-&gt;&#160;extendedOperatingModeSwitchPort<br/>AllowOpModeChangePort&#160;&lt;-&gt;&#160;StdDiag&#160;AllowOpModeChangeCbkPort&#160;&lt;-&gt;&#160;StdDiagCbk</b><br/>
+<b>Stm</b><br/>
+<b>VehicleStatePort&#160;&lt;-&gt;&#160;VehicleStateSP2015ModeSwitchPort</b><br/>
+<b>BswM</b><br/>
+<b>LifeCycle&#160;&lt;-&gt;&#160;BswMModeRequestPort_xxx<br/></b>where&#160;BswMModeRequestPort_xxx&#160;means&#160;the&#160;R-Port&#160;of&#160;the&#160;BswM&#160;that&#160;receives&#160;a&#160;mode&#160;switch&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;StdDiag_LifeCycle&#34;&#160;from&#160;the&#160;StdDiag&#160;module.&#160;(see&#160;&#34;Port_StdDiag_LifeCycle&#34;&#160;in<br/>chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4)</a><br/>
+<b>LifeCycleRequest&#160;&lt;-&gt;&#160;RteModeRequestPort_xxx<br/></b>where&#160;RteModeRequestPort_xxx&#160;means&#160;the&#160;P-Port&#160;of&#160;the&#160;BswM&#160;that&#160;provides&#160;a&#160;mode&#160;requret&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;StdDiag_LifeCycle&#34;&#160;to&#160;the&#160;StdDiag&#160;module.&#160;(see<br/>&#34;StdDiagLifeCycleRequestPort&#34;&#160;in&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4)</a><br/>
+<b>SessionChangeIndicationPort&#160;&lt;-&gt;&#160;ModeSwitchPort_xxx<br/></b>where&#160;ModeSwitchPort_xxx&#160;means&#160;the&#160;P-Port&#160;of&#160;the&#160;BswM&#160;that&#160;provides&#160;a&#160;mode&#160;switch&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;StdDiag_SessionModeGroup&#34;&#160;to&#160;the&#160;StdDiag&#160;module.&#160;(see<br/>&#34;StdDiagSessionChangeIndicationPort&#34;&#160;in&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4)</a><br/>
+<b>ComControlNormalModeAccessPort&#160;&lt;-&gt;&#160;ModeSwitchPort_xxx<br/></b>where&#160;ModeSwitchPort_xxx&#160;means&#160;the&#160;P-Port&#160;of&#160;the&#160;BswM&#160;that&#160;provides&#160;a&#160;mode&#160;switch&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;StdDiag_NormalCommunicationModeGroup&#34;&#160;to&#160;the&#160;StdDiag&#160;module.&#160;(see<br/>&#34;StdDiagComControlNormalNotificationPort&#34;&#160;in&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4)</a><br/>
+<b>ComControlModeRequestPort&#160;&lt;-&gt;&#160;ModeRequestPort_xxx<br/></b>where&#160;ModeRequestPort_xxx&#160;means&#160;the&#160;R-Port&#160;of&#160;the&#160;BswM&#160;that&#160;receives&#160;a&#160;mode&#160;request&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;StdDiag_NormalCommunicationModeGroup&#34;&#160;from&#160;the&#160;StdDiag&#160;module.&#160;(see<br/>&#34;Port_StdDiag_ComControlModeRequest&#34;&#160;in&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4)</a><br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;27&#160;of&#160;30<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-28_1.png"/><br/>
+<b>Other&#160;Application&#160;SWC</b><br/>
+<b>UserEstablishIntrinsicSafetyPort&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;ApplicationPort&#160;means&#160;the&#160;P-Port&#160;of&#160;an&#160;Application&#160;SWC&#160;that&#160;establishes&#160;intrinsic&#160;safety.&#160;(Only<br/>necessary&#160;when&#160;parameter&#160;&#34;StdDiagUserEstablishIntrinsicSafety&#34;&#160;is&#160;set&#160;to&#160;'true',&#160;see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.)</a><br/>
+<b>UserEstablishIntrinsicSafetyCbkPort&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;ApplicationPort&#160;means&#160;the&#160;R-Port&#160;of&#160;an&#160;Application&#160;SWC&#160;that&#160;notifies&#160;StdDiag&#160;when&#160;intrinsic<br/>safety&#160;is&#160;established.&#160;(Only&#160;necessary&#160;when&#160;parameter&#160;&#34;StdDiagUserEstablishIntrinsicSafety&#34;&#160;is&#160;set&#160;to<br/>'true',&#160;see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.)</a><br/>
+<b>UserProgrammingPreconditionsCheckPort&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;ApplicationPort&#160;means&#160;the&#160;P-Port&#160;of&#160;an&#160;Application&#160;SWC&#160;that&#160;provides&#160;a&#160;user&#160;programming<br/>precondition&#160;check.&#160;(Only&#160;necessary&#160;when&#160;parameter&#160;&#34;UserProgrammingPreconditionsCheck&#34;&#160;is&#160;set&#160;to<br/>'true',&#160;see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.)</a><br/>
+<b>UserActiveSessionStatePort&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;ApplicationPort&#160;means&#160;the&#160;P-Port&#160;of&#160;an&#160;Application&#160;SWC&#160;that&#160;provides&#160;the&#160;active&#160;session&#160;state&#160;for<br/>HDD&#160;Update&#160;Session.&#160;(Only&#160;necessary&#160;when&#160;parameter&#160;&#34;StdDiagUserActiveSessionState&#34;&#160;is&#160;set&#160;to&#160;'true',<br/>see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2.)</a><br/>
+If&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagProvideIDRL&#34;&#160;is&#160;available,&#160;and&#160;the&#160;IDRL&#160;clients&#160;and&#160;the&#160;individual<br/>data&#160;IDs&#160;are&#160;also&#160;configured&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2),&#160;</a>the&#160;following&#160;ports&#160;of&#160;the&#160;StdDiag&#160;module&#160;have&#160;to&#160;be<br/>connected&#160;with&#160;the&#160;ports&#160;of&#160;the&#160;IDRL&#160;clients&#160;as&#160;follows:<br/>
+<b>IdrlDataSwc&lt;IDRLClient&gt;&lt;DID&gt;&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;&lt;IDRLClient&gt;&#160;is&#160;the&#160;name&#160;of&#160;an&#160;IDRL&#160;client&#160;configured&#160;in&#160;container&#160;IDRLClient,&#160;and&#160;&lt;DID&gt;&#160;is&#160;the<br/>symbolic&#160;name&#160;of&#160;the&#160;individual&#160;data&#160;configured&#160;in&#160;container&#160;IndivData&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2).</a><br/>
+<b>ResetIdrlData&lt;IDRLClient&gt;&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;&lt;IDRLClient&gt;&#160;is&#160;the&#160;name&#160;of&#160;an&#160;IDRL&#160;client&#160;configured&#160;in&#160;container&#160;IDRLClient&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#20">5.2).</a><br/>
+If&#160;the&#160;configuration&#160;container&#160;&#34;StdDiagApplicationDataTransfer&#34;&#160;is&#160;available,&#160;and&#160;the<br/>applicationRoutineControlIdentifer,&#160;applicationSubRoutineControlIdentifer&#160;and&#160;cntrlIDs&#160;are&#160;also<br/>configured&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3),&#160;</a>the&#160;following&#160;ports&#160;of&#160;the&#160;StdDiag&#160;module&#160;have&#160;to&#160;be&#160;connected&#160;with&#160;the<br/>ports&#160;of&#160;the&#160;ADT&#160;clients&#160;as&#160;follows:<br/>
+<b>Adt_&lt;applRID&gt;_&lt;applSubRID&gt;_CtrlID_&lt;cntrlID&gt;&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>where&#160;ApplicationPort&#160;means&#160;the&#160;P-Port&#160;of&#160;an&#160;Application&#160;SWC&#160;that&#160;implements&#160;an&#160;ADT&#160;client&#160;(e.g.&#160;port<br/>&#34;StdDiag_AdueCertificates&#34;&#160;of&#160;module&#160;Bs),&#160;and&#160;where&#160;&lt;applRID&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;container<br/>&#34;ApplicationRoutineControlIdentifier&#34;,&#160;&lt;applSubRID&gt;&#160;is&#160;the&#160;name&#160;of&#160;the&#160;container<br/>&#34;ApplicationSubRoutineControlIdentifier&#34;,&#160;and&#160;&lt;cntrlID&gt;&#160;is&#160;the&#160;hex&#160;representation&#160;of&#160;parameter<br/>&#34;controlIDs&#34;&#160;(see&#160;chapter&#160;<a href="StdDiagClassic_IntegrationManuals.html#22">5.3).</a><br/>
+<b>Note:&#160;</b>&lt;applSubRID&gt;&#160;is&#160;an&#160;empty&#160;string&#160;if&#160;corresponding&#160;parameter&#160;&#34;SubRoutineIdentifierValue&#34;&#160;is&#160;0.<br/>
+<b>Adt_&lt;applRID&gt;_&lt;applSubRID&gt;_CtrlID_&lt;cntrlID&gt;_Cbk&#160;&lt;-&gt;&#160;ApplicationPort<br/></b>This&#160;is&#160;the&#160;corresponding&#160;optional&#160;callback&#160;port&#160;connection,&#160;which&#160;is&#160;only&#160;necessary&#160;if&#160;an&#160;ADT&#160;client<br/>handles&#160;requests&#160;asynchronously.<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;28&#160;of&#160;30<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-29_1.png"/><br/>
+<b>Event&#160;Mapping</b><br/>
+The&#160;mode&#160;switch&#160;events&#160;&#34;Event_SessionChange_DefaultSession&#34;&#160;and<br/>&#34;Event_SessionChange_OtherSession&#34;&#160;have&#160;to&#160;be&#160;mapped&#160;to&#160;an&#160;os-task.<br/>
+<b>Data&#160;Mapping</b><br/>
+No&#160;Data&#160;Mapping&#160;necessary&#160;for&#160;the&#160;StdDiag&#160;module.<br/>
+<b>Exclusive&#160;Areas</b><br/>
+No&#160;Exclusive&#160;Area&#160;available&#160;in&#160;the&#160;StdDiag&#160;module.<br/>
+<b>Software&#160;Integration</b><br/>
+<b>Startup/Initialization</b><br/>
+Before&#160;initialization&#160;of&#160;the&#160;StdDiag&#160;module,&#160;the&#160;modules&#160;Det,&#160;Dcm,&#160;Dem,&#160;Omc,&#160;Darh&#160;and&#160;the&#160;RTE&#160;have&#160;to<br/>be&#160;initialized.&#160;To&#160;initialize&#160;the&#160;StdDiag&#160;module,&#160;the&#160;BswM&#160;shall&#160;request&#160;the&#160;mode<br/>&#34;STDDIAG_INITIALIZED&#34;&#160;of&#160;the&#160;mode&#160;declaration&#160;group&#160;&#34;StdDiag_LifeCycle&#34;.<br/>
+When&#160;initialization&#160;of&#160;the&#160;StdDiag&#160;has&#160;been&#160;finished&#160;successfully,&#160;the&#160;StdDiag&#160;module&#160;switches&#160;the&#160;mode<br/>to&#160;&#34;STDDIAG_INITIALIZED&#34;.<br/>
+<b>Normal&#160;Operation</b><br/>
+When&#160;the&#160;StdDiag&#160;module&#160;switches&#160;the&#160;mode&#160;to&#160;&#34;STDDIAG_INITIALIZED&#34;,&#160;the&#160;BswM&#160;shall&#160;request&#160;the<br/>mode&#160;&#34;STDDIAG_RUNNING&#34;.&#160;There&#160;are&#160;no&#160;further&#160;conditions&#160;that&#160;have&#160;to&#160;be&#160;considered.&#160;When&#160;the<br/>StdDiag&#160;module&#160;switches&#160;the&#160;mode&#160;to&#160;&#34;STDDIAG_RUNNING&#34;,&#160;the&#160;module&#160;is&#160;in&#160;normal&#160;operation&#160;mode.<br/>
+<b>Shutdown/Deactivation</b><br/>
+To&#160;deactivate&#160;the&#160;StdDiag&#160;module,&#160;the&#160;BswM&#160;has&#160;to&#160;request&#160;to&#160;the&#160;mode&#160;&#34;STDDIAG_STOPPED&#34;.&#160;There<br/>are&#160;no&#160;further&#160;conditions&#160;that&#160;have&#160;to&#160;be&#160;considered.&#160;When&#160;the&#160;StdDiag&#160;module&#160;switches&#160;the&#160;mode&#160;to<br/>&#34;STDDIAG_STOPPED&#34;,&#160;the&#160;module&#160;is&#160;deactivated.<br/>
+<b>Select&#160;Post&#160;Build&#160;Configuration</b><br/>
+If&#160;the&#160;configuration&#160;parameter&#160;&#34;SgbdIndex&#34;&#160;is&#160;configured&#160;for&#160;two&#160;or&#160;more&#160;variants,&#160;the&#160;integrator&#160;shall&#160;call<br/>the&#160;API&#160;StdDiag_SetConfiguration(const&#160;StdDiag_PBConfigType&#160;*&#160;selectedConfig),<br/>
+with&#160;parameter&#160;selectedConfig&#160;set&#160;to&#160;the&#160;desired&#160;post&#160;build&#160;variant.&#160;Possible&#160;variants&#160;and&#160;necessary<br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;29&#160;of&#160;30<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/StdDiag/doc/StdDiagClassic_IntegrationManual-30_1.png"/><br/>
+type&#160;definitions&#160;are&#160;available&#160;in&#160;the&#160;generated&#160;header&#160;file&#160;StdDiagClassic_PBCfg.h.&#160;If&#160;only&#160;one<br/>SgbdIndex&#160;is&#160;configured,&#160;this&#160;configuration&#160;is&#160;used&#160;by&#160;default,&#160;i.e.&#160;it&#160;is&#160;not&#160;necessary&#160;to&#160;call&#160;this&#160;API.<br/>
+<b>SWCD</b><br/>
+After&#160;generating&#160;the&#160;Dcm&#160;SWC&#160;description&#160;files&#160;the&#160;integrator&#160;shall&#160;perform&#160;changes&#160;within<br/>StdDiag_ext_interface.arxml.pgen&#160;to&#160;make&#160;the&#160;Rte&#160;interfaces&#160;between&#160;Dcm&#160;and&#160;StdDiag&#160;compatible&#160;from<br/>Rte&#160;point&#160;of&#160;view.&#160;Within&#160;the&#160;StdDiag_ext_interface.arxml.pgen&#160;the&#160;&lt;ARRAY-SIZE&gt;&#160;of&#160;the&#160;parameters<br/>Indication_ArrayType&#160;and&#160;DiagCommLoopback_ArrayType&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;values&#160;given&#160;by&#160;Dcm.&#160;If&#160;the<br/>RTE&#160;importer&#160;still&#160;complains&#160;about&#160;incompatible&#160;interfaces,&#160;please&#160;check&#160;the&#160;compatibility&#160;of&#160;the&#160;StdDiag<br/>configuration&#160;and&#160;the&#160;Dcm&#160;configuration.<br/>
+<b>Prevent&#160;sleep&#160;mode</b><br/>
+<b>[IM_StdDiagClassic_0018]&#160;</b>dLH&#160;Fahrzeugprogrammierung&#160;(10505691-000-02)&#160;requires&#160;in&#160;FL247<br/>that&#160;an&#160;ECU&#160;shall&#160;not&#160;go&#160;into&#160;sleep&#160;mode&#160;as&#160;long&#160;as&#160;EnergyMode&#160;is&#160;set&#160;to&#160;&#34;Flash&#34;.&#160;This&#160;has&#160;to&#160;be&#160;ensured<br/>by&#160;the&#160;integrator,&#160;and&#160;can&#160;be&#160;acheived&#160;in&#160;different&#160;ways.&#160;One&#160;possibility&#160;is&#160;the&#160;following:<br/>
+Evaluate&#160;the&#160;current&#160;operating&#160;mode&#160;(=EnergyMode)&#160;provided&#160;by&#160;module&#160;&#34;Omc&#34;&#160;via&#160;Port<br/>&#34;operatingModeSwitchPort&#34;<br/>Create&#160;BswM-Rules&#160;that&#160;realize&#160;the&#160;following&#160;items<br/>If&#160;the&#160;operating&#160;mode&#160;equals&#160;&#34;Flash&#34;&#160;(0x03),&#160;trigger&#160;communication&#160;request&#160;for&#160;Partial&#160;Network<br/>&#34;Fahrzeug&#160;Infrastruktur&#34;<br/>If&#160;the&#160;operating&#160;mode&#160;does&#160;not&#160;equal&#160;&#34;Flash&#34;&#160;(0x03),&#160;release&#160;communication&#160;request&#160;for&#160;Partial<br/>Network&#160;&#34;Fahrzeug&#160;Infrastruktur&#34;<br/>
+For&#160;details&#160;on&#160;the&#160;operating&#160;mode&#160;refer&#160;to&#160;OmcClassic_IntegrationManual.pdf&#160;c<a href="StdDiagClassic_IntegrationManuals.html#1"><i>(FL247)</i></a><br/>
+StdDiagClassic_IntegrationManual.pdf,&#160;Version&#160;5.4.0,&#160;Software&#160;Platforms<br/>
+Page&#160;30&#160;of&#160;30<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#4">1 Introduction</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#4">1.1 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#5">2 Related documentation</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#6">3 Limitations</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#6">3.1 Unreleased Dlt specification in AUTOSAR</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4 Software Architecture</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1.1 RTE</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1.2 Det</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1.3 Dcm</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1.4 Dem</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1.5 BswM</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#7">4.1.6 Dlt</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#8">4.1.7 EcuC</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#8">4.2 Dependencies to other modules</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#8">4.2.1 Darh</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#8">4.2.2 Omc</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#8">4.2.3 Stm</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#8">4.2.4 Other SWC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#9">5 Integration</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#9">5.1 Configuration of other Modules</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1 Dcm</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#9">5.1.1.1 Read Data By Identifier</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#11">5.1.1.2 RoutineControl</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#16">5.1.1.3 Service Request Manufacturer Notification</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#16">5.1.1.4 Service Handler for Upload Download Services</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#17">5.1.2 Det</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#17">5.1.3 Dem</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#17">5.1.4 BswM</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#20">5.1.5 EcuC</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#20">5.2 Configuration of generic part</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#20">5.2.1 StdDiagGeneral</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#20">5.2.1.1 StdDiagDevErrorDetect</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#20">5.2.1.2 StdDiagUserEstablishIntrinsicSafety</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#21">5.2.1.3 StdDiagUserActiveSessionState</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#21">5.2.2 StdDiagUserProgrammingPreconditionsCheck</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#21">5.2.2.1 MaxNumberUserProgrammingPrecondition</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#21">5.2.3 StdDiagProvideIDRL</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#22">5.2.3.1 DIDTableFormatIdentifier</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#22">5.2.3.2 IDRLClient</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#22">5.3 Configuration of adapter part</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#22">5.3.1 StdDiagGeneral</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#22">5.3.1.1 StdDiagClearSecondaryErrorMemory</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#23">5.3.2 StdDiagUserDefinedMemory</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#23">5.3.2.1 StdDiagUserDefinedMemoryName</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#23">5.3.2.2 StdDiagUserDefinedMemoryId</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#23">5.3.3 StdDiagSgbdIndex</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#23">5.3.3.1 SgbdIndex</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4 StdDiagApplicationDataTransfer</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.1 ApplicationRoutineControlIdentifier</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.2 RoutineIdentifierValue</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.3 ApplicationSubRoutineControlIdentifier</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.4 SubRoutineIdentifierValue</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.4.5 controlIDs</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#24">5.3.5 StdDiagProvideDLTSupport</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#25">5.3.5.1 StdDiagNumberSupportedDLTLogChannels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#25">5.4 Configuration of the RTE</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#25">5.4.1 Assembly Software Connectors</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#25">5.4.1.1 Dcm</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#26">5.4.1.2 Dem</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.3 Det</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.4 Darh</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.5 Omc</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.6 Stm</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#27">5.4.1.7 BswM</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#28">5.4.1.8 Other Application SWC</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.4.2 Event Mapping</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.4.3 Data Mapping</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.4.4 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.5 Software Integration</a>
+<ul>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.5.1 Startup/Initialization</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.5.2 Normal Operation</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.5.3 Shutdown/Deactivation</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#29">5.5.4 Select Post Build Configuration</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#30">5.5.5 SWCD</a></li>
+<li><a href="StdDiagClassic_IntegrationManuals.html#30">5.5.6 Prevent sleep mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

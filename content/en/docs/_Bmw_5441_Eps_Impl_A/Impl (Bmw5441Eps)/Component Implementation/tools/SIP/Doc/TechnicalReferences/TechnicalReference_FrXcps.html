@@ -1,0 +1,1679 @@
+---
+title: TechnicalReference_FrXcps
+linkTitle: TechnicalReference_FrXcps
+weight: 244
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>XCP&#160;on FlexRay&#160;<br/></b>Technical Reference&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+Version&#160;1.13.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-2_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>1&#160;&#160;Document&#160;Information&#160;</b><br/>
+<b>1.1&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;&#160;Remarks&#160;</b><br/>
+2007-06-11&#160;&#160;1.00.00&#160;&#160;Creation&#160;of&#160;document&#160;<br/>2007-07-09&#160;&#160;1.01.00&#160;&#160;Support&#160;of&#160;AUTOSAR&#160;Memory&#160;Mapping&#160;<br/>2007-07-30&#160;&#160;1.02.00&#160;&#160;New&#160;GENy&#160;GUI&#160;features&#160;<br/>2007-09-10&#160;&#160;1.03.00&#160;&#160;Update&#160;for&#160;Vector-Release&#160;<br/>2008-02-25&#160;&#160;1.04.00&#160;&#160;New&#160;Feature “Use&#160;Tx&#160;Confirmation”&#160;<br/>2009-02-09&#160;&#160;1.05.00&#160;&#160;Support&#160;of&#160;Ecuc&#160;Import/Export&#160;<br/>2009-09-09&#160;&#160;1.06.00&#160;&#160;Support&#160;a2l&#160;export&#160;<br/>2010-08-25&#160;&#160;1.07.00&#160;&#160;ESCAN00044862:&#160;Multiple&#160;Transport&#160;Layer&#160;support&#160;<br/>2010-12-10&#160;&#160;1.08.00&#160;&#160;ESCAN00046308:&#160;AR3-297&#160;AR3-894:&#160;Support&#160;PduInfoType&#160;<br/>
+instead of&#160;the&#160;DataPtr&#160;<br/>
+2011-08-11&#160;&#160;1.09.00&#160;&#160;Support&#160;of&#160;Post&#160;Build configuration variant&#160;<br/>2012-11-09&#160;&#160;1.10.00&#160;&#160;Added&#160;Option&#160;for&#160;AMD&#160;Runtime Measurement&#160;<br/>
+ESCAN00058756&#160;Describe use&#160;case&#160;for&#160;PDU&#160;length&#160;<br/>ESCAN00065888&#160;Cluster&#160;Name&#160;should be&#160;Cluster&#160;ID&#160;<br/>ESCAN00066648&#160;Describe usage of&#160;new&#160;Exclusive Areas&#160;<br/>
+2013-09-10&#160;&#160;1.11.00&#160;&#160;ESCAN00070207&#160;Optimization&#160;-&#160;32bit&#160;copy&#160;<br/>
+ESCAN00070081&#160;Describe resume&#160;mode&#160;<br/>ESCAN00069779&#160;Missing description&#160;of&#160;&#34;Set&#160;PduMode&#160;Support&#34;&#160;<br/>Feature&#160;in&#160;GENy&#160;<br/>ESCAN00067440&#160;Max&#160;CTO&#160;must&#160;not&#160;be&#160;greater&#160;than Max&#160;DTO&#160;<br/>
+2014-08-15&#160;&#160;1.11.01&#160;&#160;ESCAN00077234&#160;AR3-2679:&#160;Description BCD-coded return-<br/>
+value&#160;of&#160;FrXcp_GetVersionInfo()&#160;in&#160;TechRef&#160;<br/>
+2015-05-05&#160;&#160;1.12.00&#160;&#160;Removed&#160;chapter&#160;GENy&#160;<br/>
+ESCAN00083373&#160;Tx&#160;Confirmation&#160;Timeout&#160;Timer&#160;<br/>ESCAN00083375&#160;Missing entries in&#160;root&#160;config structure&#160;<br/>
+2016-10-13&#160;&#160;1.13.00&#160;&#160;ESCAN00092303&#160;FrXcp_Control&#160;API&#160;replaced&#160;by&#160;global&#160;Variable&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;&#160;History&#160;of&#160;the&#160;Document&#160;<br/>
+<b>1.2&#160;</b><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>Index&#160;and&#160;Document&#160;Name&#160;<br/></b>[1]&#160;&#160;XCP&#160;-Part 2-&#160;Protocol&#160;Layer Specification&#160;-1.1.pdf&#160;<br/>
+[2]&#160;&#160;XCP&#160;-Part 3-&#160;Transport&#160;Layer Specification&#160;XCP&#160;on&#160;FlexRay&#160;-1.1.pdf&#160;<br/>
+[3]&#160;&#160;API&#160;specification&#160;of&#160;Development&#160;Error&#160;Tracer,&#160;Version&#160;1.0.0&#160;of&#160;2005-07-08&#160;<br/>
+[4]&#160;&#160;Specification&#160;of&#160;Platform&#160;Types Version&#160;1.1.0&#160;of&#160;2005-04-29&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-3_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+[5]&#160;&#160;Specification&#160;of&#160;Standard&#160;Types Version&#160;1.0.3&#160;of&#160;2005-12-13&#160;<br/>
+[6]&#160;&#160;TechnicalReference_Asr_Xcp.pdf&#160;<br/>
+Table&#160;1-2&#160;&#160;&#160;&#160;Reference&#160;Documents&#160;<br/>
+<b>1.3&#160;</b><br/>
+<b>Scope&#160;of&#160;this&#160;document&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;features,&#160;&#160;API,&#160;&#160;configuration&#160;&#160;and&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;XCP&#160;<br/>Transport&#160;Layer&#160;for&#160;FlexRay.&#160;The&#160;XCP&#160;Protocol&#160;Layer,&#160;which&#160;is&#160;already&#160;described&#160;within&#160;a&#160;<br/>separate&#160;documen<a href="TechnicalReference_FrXcps.html#3">t&#160;[6],</a>&#160;is not&#160;covered&#160;by&#160;this&#160;document.&#160;<br/>Please&#160;&#160;also&#160;&#160;refer&#160;&#160;to&#160;&#160;“The&#160;&#160;Universal&#160;&#160;Measurement&#160;&#160;and&#160;&#160;Calibration&#160;&#160;Protocol&#160;&#160;Family”&#160;<br/>specification&#160;by&#160;ASAM&#160;e.V.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-4_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_FrXcps.html#2"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#2"><b>Document&#160;Information&#160;.................................................................................................&#160;2</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#2">History&#160;...............................................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#2">1.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#2">Reference&#160;Documents&#160;.......................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#3">1.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#3">Scope of&#160;this&#160;document......................................................................................&#160;3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#8"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#8"><b>Overview&#160;.......................................................................................................................&#160;8</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#8">Abbreviations and Items&#160;.....................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">2.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">Naming Conventions&#160;..........................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">2.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">Architecture&#160;Overview&#160;........................................................................................&#160;9&#160;<br/>2.3.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">XCP&#160;Architecture&#160;................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#11">2.3.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#11">Detailed&#160;Architecture&#160;of&#160;XCP&#160;............................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#11">2.3.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#11">Include structure&#160;..............................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#12"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#12"><b>Functional&#160;Description&#160;...............................................................................................&#160;12</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#12">Overview&#160;of&#160;the&#160;Functional&#160;Scope&#160;....................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13"><b>Integration&#160;into&#160;the&#160;Application&#160;.................................................................................&#160;13</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13">XCP&#160;Transport&#160;Layer&#160;Files&#160;...............................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">4.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">Auxiliary&#160;Files&#160;...................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">4.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">Version Changes..............................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">4.4&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">Initialization&#160;......................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">4.5&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">Main Functions&#160;................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">4.6&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">Critical&#160;Sections&#160;...............................................................................................&#160;14&#160;<br/></a><a href="TechnicalReference_FrXcps.html#15">4.6.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">FRXCP_EXCLUSIVE_AREA_0&#160;.......................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">4.6.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">FRXCP_EXCLUSIVE_AREA_1&#160;.......................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">4.6.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">FRXCP_EXCLUSIVE_AREA_2&#160;.......................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">4.7&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">PDU&#160;Mode&#160;.......................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">4.8&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#15">PDUs&#160;...............................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">4.9&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">Initialized&#160;Memory&#160;............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">4.10&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">Memory&#160;Mapping&#160;.............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">4.11&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">Activation Macros&#160;.............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">4.12&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">Integration&#160;Notes..............................................................................................&#160;16&#160;<br/>4.12.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#16">Alignment&#160;.........................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">4.12.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">CANape Buffer&#160;ID&#160;............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">4.12.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">Resume Mode&#160;..................................................................................&#160;17&#160;<br/>4.12.3.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">Store&#160;FrXcp data&#160;to&#160;NVM&#160;...............................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#18">4.12.3.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#18">Restore&#160;FrXcp&#160;data&#160;from&#160;NVM&#160;.......................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#19"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#19"><b>Configuration&#160;..............................................................................................................&#160;19</b>&#160;</a><br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-5_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<a href="TechnicalReference_FrXcps.html#19">5.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#19">A2L&#160;File&#160;............................................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#19">5.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#19">Manual&#160;Configuration&#160;.......................................................................................&#160;19&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#19">Pre-Compile Configuration&#160;...............................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#20">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#20">Link&#160;Time &amp;&#160;Post&#160;Build Configuration&#160;...............................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23"><b>Description&#160;of&#160;the&#160;API&#160;................................................................................................&#160;23</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Data&#160;Types&#160;.......................................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">6.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Global&#160;Variables&#160;...............................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">6.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Global&#160;Constants&#160;.............................................................................................&#160;23&#160;<br/>6.3.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Component&#160;Versions&#160;........................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">6.3.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Vendor&#160;ID&#160;.........................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">6.3.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">Module ID&#160;........................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">6.4&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">Services provided by&#160;XCP&#160;on&#160;FlexRay&#160;.............................................................&#160;24&#160;<br/>6.4.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">Administrative Functions&#160;..................................................................&#160;24&#160;<br/>6.4.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">FrXcp_Init:&#160;Initialization of&#160;XCP&#160;on&#160;FlexRay&#160;...................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">6.4.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">FrXcp_MainFunctionRx:&#160;Main Function of&#160;XCP&#160;<br/>Transport&#160;Layer..............................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#25">6.4.1.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#25">FrXcp_MainFunctionTx:&#160;Main Function of&#160;XCP&#160;<br/>Transport&#160;Layer..............................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#26">6.4.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#26">Service Callback&#160;Functions&#160;..............................................................&#160;26&#160;<br/>6.4.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#26">FrXcp_TriggerTransmit:&#160;Call&#160;back&#160;for&#160;transmission&#160;of&#160;<br/>L-PDU&#160;............................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#26">6.4.2.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#26">FrXcp_TxConfirmation:&#160;Call&#160;back&#160;for&#160;transmission&#160;<br/>confirmation&#160;of&#160;L-PDU&#160;....................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#27">6.4.2.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#27">FrXcp_RxIndication:&#160;Call&#160;back&#160;for&#160;reception&#160;of&#160;L-PDU&#160;...&#160;27&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#28">6.4.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#28">Service Functions&#160;............................................................................&#160;28&#160;<br/>6.4.3.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#28">FrXcp_TLService:&#160;Handles&#160;Transport&#160;Layer&#160;<br/>Command&#160;......................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#29">6.4.3.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#29">FrXcp_Send:&#160;Transmission&#160;of&#160;CTO&#160;or&#160;DTO&#160;...................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#29">6.4.3.3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#29">FrXcp_SendFlush:&#160;Finish pending&#160;frames&#160;.....................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#30">6.4.3.4&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#30">FrXcp_SetPduMode:&#160;Enable/Disable transmission&#160;........&#160;30&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#30">6.4.3.5&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#30">FrXcp_GetVersionInfo:&#160;Get&#160;Version&#160;Information&#160;.............&#160;30&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#31">6.4.4&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#31">Macros&#160;.............................................................................................&#160;31&#160;<br/>6.4.4.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#31">XCP_ACTIVATE:&#160;Enable the&#160;Protocol&#160;and&#160;Transport&#160;<br/>Layer&#160;.............................................................................&#160;31&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#32">6.4.4.2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#32">XCP_DEACTIVATE:&#160;Disable the&#160;Protocol&#160;and&#160;<br/>Transport&#160;Layer..............................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#32">6.5&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#32">Services used by&#160;XCP&#160;on FlexRay...................................................................&#160;32&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">6.6&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">Development&#160;Error&#160;Tracer&#160;................................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">6.7&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">Diagnostic&#160;Event&#160;Manager&#160;...............................................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#34"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#34"><b>Extensions&#160;..................................................................................................................&#160;34</b>&#160;</a><br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-6_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<a href="TechnicalReference_FrXcps.html#35"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#35"><b>Known&#160;Issues/&#160;Limitations&#160;.........................................................................................&#160;35</b>&#160;<br/>8.1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#35">Reconfig LPDU&#160;................................................................................................&#160;35&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#36"><b>9</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#36"><b>Icons&#160;............................................................................................................................&#160;36</b>&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#37"><b>10</b>&#160;&#160;<b>Contact&#160;........................................................................................................................&#160;37</b>&#160;<br/></a>&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-7_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Illustrations&#160;<br/></b><a href="TechnicalReference_FrXcps.html#10">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#10">XCP&#160;Architecture&#160;......................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#11">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#11">Detailed&#160;Architecture&#160;of&#160;XCP&#160;....................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#12">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#12">API&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;Transport&#160;Layer&#160;...................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#17">CANape&#160;–&#160;PDU&#160;relation&#160;............................................................................&#160;17&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;&#160;</b><br/>
+<a href="TechnicalReference_FrXcps.html#2">Table&#160;1-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#2">&#160;History&#160;of&#160;the&#160;Document&#160;............................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#3">Table&#160;1-2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#3">&#160;Reference Documents&#160;...............................................................................&#160;3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">Table&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">&#160;Abbreviations&#160;and&#160;Items&#160;............................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">Table&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#9">&#160;Naming&#160;Conventions&#160;.................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13">Table&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13">&#160;File List&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;(object&#160;code)&#160;................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13">Table&#160;4-2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#13">&#160;File List&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;(source&#160;code)...............................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">Table&#160;4-3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#14">&#160;Auxiliary&#160;File List&#160;for&#160;XCP&#160;on&#160;FlexRay&#160;......................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#20">Table&#160;5-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#20">&#160;Pre-Compile Configuration&#160;.......................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#22">Table&#160;5-2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#22">&#160;Post&#160;Build Configuration&#160;..........................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Table&#160;6-1&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">&#160;Data&#160;Types&#160;..............................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">Table&#160;6-2&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#23">&#160;Version Data&#160;............................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">Table&#160;6-3&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">&#160;Vendor&#160;ID&#160;................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">Table&#160;6-4&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#24">&#160;Module ID&#160;................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">Table&#160;6-5&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">&#160;Services used by&#160;XCP&#160;on FlexRay&#160;..........................................................&#160;33&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">Table&#160;6-6&#160;</a><br/>
+<a href="TechnicalReference_FrXcps.html#33">&#160;Development&#160;Error&#160;Detection&#160;Codes of&#160;XCP&#160;on&#160;FlexRay&#160;.........................&#160;33&#160;</a><br/>
+&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-8_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>2&#160;&#160;Overview&#160;</b><br/>
+XCP&#160;on&#160;FlexRay&#160;is a&#160;hardware independent,&#160;yet&#160;bus specific protocol that&#160;can&#160;be&#160;ported&#160;to&#160;<br/>almost&#160;&#160;any&#160;&#160;FlexRay&#160;&#160;controller.&#160;&#160;Due&#160;&#160;to&#160;&#160;there&#160;&#160;are&#160;&#160;numerous&#160;&#160;combinations&#160;&#160;of&#160;&#160;micro&#160;<br/>controllers,&#160;compilers,&#160;FlexRay&#160;stacks&#160;and&#160;memory&#160;models&#160;it&#160;cannot&#160;be&#160;guaranteed&#160;that&#160;it&#160;<br/>will&#160;run&#160;properly&#160;on&#160;all&#160;of&#160;the&#160;above&#160;mentioned&#160;combinations.&#160;<br/>Please&#160;&#160;note&#160;&#160;that&#160;&#160;in&#160;&#160;this&#160;&#160;document&#160;&#160;the&#160;&#160;term&#160;&#160;Application&#160;&#160;is&#160;&#160;not&#160;&#160;used&#160;&#160;strictly&#160;&#160;for&#160;&#160;the&#160;&#160;user&#160;<br/>software&#160;but&#160;also&#160;for&#160;any&#160;higher&#160;software&#160;layer,&#160;like&#160;e.g.&#160;a&#160;Communication&#160;Control&#160;Layer.&#160;<br/>Therefore,&#160;Application&#160;refers to&#160;any&#160;of&#160;the&#160;software components&#160;using&#160;XCP&#160;on&#160;FlexRay.&#160;<br/>The&#160;API&#160;of&#160;the&#160;functions is described&#160;in&#160;a&#160;separate&#160;chapter at&#160;the&#160;end&#160;of&#160;this document.&#160;<br/>&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Abbreviations&#160;and Items&#160;</b><br/>
+<b>Abbreviations&#160;&#160;Complete&#160;expression&#160;<br/>A2L&#160;</b><br/>
+File Extension&#160;for&#160;an&#160;<b>A</b>SAM&#160;<b>2</b>MC&#160;<b>L</b>anguage&#160;File&#160;<br/>
+<b>AML&#160;</b><br/>
+<b>A</b>SAM&#160;2&#160;<b>M</b>eta&#160;<b>L</b>anguage&#160;<br/>
+<b>API&#160;</b><br/>
+<b>A</b>pplication&#160;<b>P</b>rogramming&#160;<b>I</b>nterface<b>&#160;</b><br/>
+<b>ASAM&#160;</b><br/>
+<b>A</b>ssociation for&#160;<b>S</b>tandardization of&#160;<b>A</b>utomation and&#160;<b>M</b>easuring&#160;Systems&#160;<br/>
+<b>CAN&#160;</b><br/>
+<b>C</b>ontroller&#160;<b>A</b>rea&#160;<b>N</b>etwork&#160;<br/>
+<b>CANape</b>&#160;<br/>
+Calibration&#160;and Measurement&#160;Data&#160;Acquisition&#160;for&#160;Electronic&#160;Control&#160;Systems&#160;<br/>
+<b>CC&#160;</b><br/>
+<b>C</b>ommunication&#160;<b>C</b>ontroller&#160;<br/>
+<b>CMD&#160;</b><br/>
+<b>C</b>o<b>m</b>man<b>d</b>&#160;<br/>
+<b>CTO&#160;</b><br/>
+<b>C</b>ommand&#160;<b>T</b>ransfer&#160;<b>O</b>bject&#160;<br/>
+<b>DAQ&#160;</b><br/>
+Synchronous&#160;<b>D</b>ata&#160;<b>A</b>c<b>q</b>uistion&#160;<br/>
+<b>DLC&#160;</b><br/>
+<b>D</b>ata&#160;<b>L</b>ength&#160;<b>C</b>ode&#160;(&#160;Number&#160;of&#160;data&#160;bytes of&#160;a&#160;CAN&#160;message&#160;)&#160;<br/>
+<b>DLL&#160;</b><br/>
+<b>D</b>ata&#160;<b>l</b>ink&#160;<b>l</b>ayer&#160;<br/>
+<b>DTO&#160;</b><br/>
+<b>D</b>ata&#160;<b>T</b>ransfer&#160;<b>O</b>bject&#160;<br/>
+<b>ECU&#160;</b><br/>
+<b>E</b>lectronic&#160;<b>C</b>ontrol&#160;<b>U</b>nit&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Id</b>entifier&#160;(of&#160;a&#160;CAN&#160;message)&#160;<br/>
+<b>Identifier&#160;</b><br/>
+Identifies&#160;a CAN&#160;message&#160;<br/>
+<b>ISR&#160;</b><br/>
+<b>I</b>nterrupt&#160;<b>S</b>ervice&#160;<b>R</b>outine&#160;<br/>
+<b>MCS&#160;</b><br/>
+<b>M</b>aster&#160;<b>C</b>alibration&#160;<b>S</b>ystem<b>&#160;</b><br/>
+<b>Message&#160;</b><br/>
+One&#160;or&#160;more&#160;signals&#160;are&#160;assigned&#160;to&#160;each&#160;message.&#160;<br/>
+<b>MRB&#160;</b><br/>
+<b>M</b>ulti&#160;<b>r</b>eceive&#160;<b>b</b>uffer<b>&#160;</b><br/>
+<b>MRC&#160;</b><br/>
+<b>M</b>ulti&#160;<b>r</b>eceive&#160;<b>c</b>hannel<b>&#160;</b><br/>
+<b>OEM&#160;</b><br/>
+<b>O</b>riginal&#160;<b>e</b>quipment&#160;<b>m</b>anufacturer&#160;(vehicle manufacturer)&#160;<br/>
+<b>RES&#160;</b><br/>
+Command&#160;<b>Res</b>ponse&#160;Packet&#160;<br/>
+<b>SRB&#160;</b><br/>
+<b>S</b>ingle&#160;<b>r</b>eceive&#160;<b>b</b>uffer<b>&#160;</b><br/>
+<b>SERV&#160;</b><br/>
+<b>Ser</b>vice Request&#160;Packet&#160;<br/>
+<b>STIM&#160;</b><br/>
+<b>Stim</b>ulation&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-9_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>XCP&#160;</b><br/>
+Universal&#160;Measurement&#160;and&#160;<b>C</b>alibration&#160;<b>P</b>rotocol&#160;<br/>
+<b>VI&#160;</b><br/>
+<b>V</b>ector&#160;<b>I</b>nformatik&#160;GmbH&#160;<br/>
+Table&#160;2-1&#160;&#160;&#160;&#160;Abbreviations&#160;and&#160;Items&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Naming Conventions&#160;</b><br/>
+<b>Naming&#160;conventions&#160;<br/>_Asr&#160;</b><br/>
+AUTOSAR&#160;conformant&#160;Implementation&#160;<br/>
+<b>_Vector&#160;</b><br/>
+Vector&#160;specific&#160;implementation&#160;<br/>
+<b>Fr_&#160;</b><br/>
+Services of&#160;FlexRay&#160;Driver&#160;<br/>
+<b>FrIf_&#160;</b><br/>
+Services of&#160;FlexRay&#160;Interface&#160;<br/>
+<b>FrNm_&#160;</b><br/>
+Services of&#160;FlexRay&#160;Network&#160;Management&#160;<br/>
+<b>FrNodeM_&#160;</b><br/>
+Services of&#160;FlexRay&#160;Node Manager&#160;<br/>
+<b>FrTP_&#160;</b><br/>
+Services of&#160;FlexRay&#160;Transport&#160;Layer&#160;<br/>
+<b>FrTrcv_&#160;</b><br/>
+Services of&#160;FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Nm_&#160;</b><br/>
+Services of&#160;Generic&#160;NM.&#160;<br/>
+<b>ApplXcp_&#160;</b><br/>
+Services of&#160;XCP&#160;Hardware&#160;Abstraction&#160;Layer&#160;on&#160;FlexRay&#160;<br/>
+<b>Xcp_&#160;</b><br/>
+Services of&#160;XCP&#160;Protocol&#160;Layer&#160;on&#160;FlexRay&#160;<br/>
+<b>FrXcp_&#160;</b><br/>
+Services of&#160;XCP&#160;Transport&#160;Layer&#160;on&#160;FlexRay&#160;<br/>
+Table&#160;2-2&#160;&#160;&#160;&#160;Naming&#160;Conventions&#160;<br/>
+The&#160;&#160;names&#160;&#160;of&#160;&#160;the&#160;&#160;service&#160;&#160;functions&#160;&#160;start&#160;&#160;with&#160;&#160;a&#160;&#160;prefix&#160;&#160;that&#160;&#160;denominates&#160;&#160;the&#160;&#160;software&#160;<br/>component&#160;&#160;where&#160;&#160;the&#160;&#160;service&#160;&#160;is&#160;&#160;located.&#160;&#160;E.g.&#160;&#160;a&#160;&#160;service&#160;&#160;that&#160;&#160;starts&#160;&#160;with&#160;&#160;‘XcpPl_’&#160;&#160;is&#160;<br/>implemented&#160;within&#160;the&#160;XCP&#160;Protocol Layer.&#160;<br/>In&#160;&#160;case&#160;&#160;of&#160;&#160;callback&#160;&#160;functions&#160;&#160;a&#160;&#160;term&#160;&#160;that&#160;&#160;denominates&#160;&#160;the&#160;&#160;component&#160;&#160;that&#160;&#160;calls&#160;&#160;the&#160;<br/>callback&#160;&#160;function&#160;&#160;is&#160;&#160;appended.&#160;&#160;E.g.&#160;&#160;‘ComM_Nm_’&#160;&#160;denominates&#160;&#160;a&#160;&#160;service,&#160;&#160;which&#160;&#160;is&#160;<br/>implemented&#160;within&#160;the&#160;COM Manager and&#160;called&#160;by&#160;Generic NM.&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+<b>2.3.1&#160;</b><br/>
+<b>XCP&#160;Architecture&#160;</b><br/>
+Up&#160;to&#160;now&#160;XCP&#160;consists of&#160;three&#160;modules:&#160;<br/>
+&#160;<br/>
+Hardware&#160;Abstraction&#160;Layer1&#160;<br/>
+&#160;<br/>
+XCP&#160;Protocol&#160;Layer1&#160;<br/>
+&#160;<br/>
+XCP&#160;Transport&#160;Layer&#160;<br/>
+The&#160;&#160;XCP&#160;&#160;Protocol&#160;&#160;Layer&#160;&#160;provides&#160;&#160;generic&#160;&#160;XCP&#160;&#160;functionality&#160;&#160;independent&#160;&#160;from&#160;&#160;the&#160;<br/>underlying&#160;bus&#160;interface&#160;while&#160;the&#160;XCP&#160;Transport&#160;Layer&#160;provides&#160;the&#160;bus&#160;dependent&#160;part,&#160;<br/>e.g.&#160;&#160;XCP&#160;&#160;on&#160;&#160;FlexRay.&#160;&#160;It&#160;&#160;can&#160;&#160;easily&#160;&#160;be&#160;&#160;substituted&#160;&#160;by&#160;&#160;a&#160;&#160;XCP&#160;&#160;on&#160;&#160;CAN&#160;&#160;or&#160;&#160;XCP&#160;&#160;on&#160;&#160;LIN&#160;<br/>Transport&#160;Layer.&#160;&#160;Interaction&#160;with&#160;the&#160;application&#160;is&#160;done&#160;exclusively&#160;by&#160;the&#160;XCP&#160;Protocol&#160;<br/>Layer.&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+1&#160;Not covered&#160;by&#160;this&#160;document.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-10_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+The&#160;&#160;following&#160;&#160;figure&#160;&#160;shows&#160;&#160;the&#160;&#160;software&#160;&#160;architecture&#160;&#160;of&#160;&#160;XCP&#160;&#160;that&#160;&#160;comprises&#160;&#160;the&#160;&#160;XCP&#160;<br/>Protocol&#160;&#160;Layer&#160;&#160;(XcpProf),&#160;&#160;the&#160;&#160;XCP&#160;Transport&#160;&#160;Layer&#160;&#160;(FrXcp),&#160;&#160;and&#160;&#160;a&#160;&#160;hardware&#160;&#160;abstraction&#160;<br/>Layer&#160;(xcp_appl).&#160;<br/>
+<b>id&#160;Component&#160;Model&#160;Ov&#160;erv&#160;iew</b><br/>
+<b>xcp_appl::Application</b><br/>
+<b>xcp_appl::xcp_appl</b><br/>
+<b>XcpProf::Xcp</b><br/>
+<b>FrXcp::FrXcp</b><br/>
+<b>FrIf::FrIf</b><br/>
+&#160;<br/>
+Figure&#160;2-1&#160;XCP&#160;Architecture&#160;<br/>
+&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-11_1.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-11_2.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-11_3.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-11_4.png"/><br/>
+<img class="yflip" src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-11_5.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>2.3.2&#160;</b><br/>
+<b>Detailed&#160;Architecture&#160;of&#160;XCP&#160;</b><br/>
+The&#160;XCP&#160;Transport&#160;Layer&#160;uses&#160;the&#160;FlexRay&#160;Interface&#160;as&#160;underlying&#160;layer&#160;for&#160;transmission&#160;<br/>and&#160;reception&#160;of&#160;XCP&#160;frames.&#160;<br/>
+<b>id&#160;Component&#160;Model&#160;Xcp&#160;Global</b><br/>
+<b>xcp_appl::Application</b><br/>
+<b>xcp_appl::xcp_appl</b><br/>
+«use»<br/>
+<b>XcpProf::Xcp</b><br/>
+«use»<br/>
+«use»<br/>
+«realize»<br/>
+«artifact»<br/>
+«artifact»<br/>
+FrXcp.h<br/>
+XcpProf.h<br/>
+«manifest»<br/>
+«manifest»<br/>
+<i><b>FrXcp</b></i><br/>
+<i><b>XcpProf</b></i><br/>
+«realize»<br/>
+«use»<br/>
+<b>FrXcp::FrXcp</b><br/>
+«use»<br/>
+«realize»<br/>
+«artifact»<br/>
+«artifact»<br/>
+manifests<br/>
+manifests<br/>
+FrIf.h<br/>
+FrXcp_Cbk.h<br/>
+<i><b>FrIf</b></i><br/>
+<i><b>FrXcp_Cbk</b></i><br/>
+«realize»<br/>
+«use»<br/>
+«artifact»<br/>
+manifests<br/>
+FrIf.c<br/>
+<b>FrIf::FrIf</b><br/>
+&#160;<br/>
+Figure&#160;2-2&#160;Detailed&#160;Architecture&#160;of&#160;XCP&#160;<br/>
+&#160;<br/>
+<b>2.3.3&#160;</b><br/>
+<b>Include&#160;structure&#160;</b><br/>
+The&#160;XCP&#160;Transport&#160;Layer&#160;uses&#160;the&#160;Standard&#160;AUTOSAR&#160;include&#160;structure.&#160;Therefore&#160;&#160;the&#160;<br/>header Std_Types.h&#160;is&#160;required.&#160;See<a href="TechnicalReference_FrXcps.html#14">&#160;4.2&#160;</a>for&#160;further details.&#160;<br/>
+&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-12_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Overview&#160;of the&#160;Functional&#160;Scope&#160;</b><br/>
+The&#160;XCP&#160;Transport&#160;Layer&#160;manages&#160;transmission&#160;and&#160;reception&#160;of&#160;XCP&#160;frames.&#160;It&#160;is&#160;also&#160;<br/>responsible&#160;for&#160;&#160;abstraction&#160;of&#160;possible&#160;&#160;bus&#160;dependencies.&#160;&#160;For&#160;&#160;this&#160;&#160;purpose&#160;and&#160;&#160;to&#160;make&#160;<br/>maximum&#160;use&#160;of&#160;FlexRay&#160;the&#160;Transport&#160;Layer&#160;supports&#160;features&#160;like&#160;frame&#160;concatenation,&#160;<br/>alignment&#160;&#160;of&#160;&#160;XCP&#160;&#160;frames&#160;&#160;to&#160;&#160;architectural&#160;&#160;needs&#160;&#160;and&#160;&#160;reconfiguration&#160;&#160;of&#160;&#160;used&#160;&#160;PDUs&#160;&#160;as&#160;<br/>described&#160;in<a href="TechnicalReference_FrXcps.html#2">&#160;[2].</a>&#160;<br/>The&#160;<br/>
+following&#160;<br/>
+API&#160;<br/>
+is&#160;<br/>
+provided&#160;<br/>
+by&#160;<br/>
+the&#160;<br/>
+XCP&#160;<br/>
+Transport&#160;<br/>
+Layer:&#160;<br/>
+<b>&#160;class&#160;Component&#160;Model&#160;FrXcp&#160;ASR4</b><br/>
+«interface»<br/>
+<b>FrXcp::FrXcp</b><br/>
++&#160;&#160;FrXcp_Init()&#160;&#160;:void<br/>+&#160;&#160;FrXcp_TLService(const&#160;uint8*)&#160;&#160;:uint8<br/>+&#160;&#160;FrXcp_Send(uint8,&#160;const&#160;uint8*)&#160;&#160;:void<br/>+&#160;&#160;FrXcp_SendFlush(uint8)&#160;&#160;:void<br/>+&#160;&#160;FrXcp_MainFunctionRx()&#160;&#160;:void<br/>+&#160;&#160;FrXcp_MainFunctionTx()&#160;&#160;:void<br/>+&#160;&#160;FrXcp_DaqResumeStore()&#160;&#160;:void<br/>+&#160;&#160;FrXcp_DaqResumeClear()&#160;&#160;:void<br/>+&#160;&#160;FrXcp_GetVersionInfo(Std_VersionInfoType*)&#160;&#160;:void<br/>
+<b>XcpProf</b><br/>
+use<br/>
+realize<br/>
+<b>FrXcp::FrXcp</b><br/>
+realize<br/>
+«use»<br/>
+«interface»<br/>
+<b>FrXcp::FrXcp_Cbk&#160;(ASR4)</b><br/>
++&#160;&#160;Xcp_FrIfTxConfirmation(PduIdType)&#160;&#160;:void<br/>+&#160;&#160;Xcp_FrIfRxIndication(PduIdType,&#160;PduInfoType*)&#160;&#160;:void<br/>
+<b>FrIf</b><br/>
++&#160;&#160;Xcp_FrIfTriggerTransmit(PduIdType,&#160;PduInfoType*)&#160;&#160;:void<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;API&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;Transport&#160;Layer&#160;<br/>
+Out&#160;of&#160;these&#160;public visible&#160;functions,&#160;only&#160;the&#160;FrXcp_MainFunctionRx&#160;and&#160;<br/>FrXcp_MainFunctionTx&#160;are relevant&#160;for the&#160;application.&#160;These&#160;services&#160;must&#160;be&#160;called&#160;<br/>cyclically&#160;for&#160;XCP&#160;message&#160;handling,&#160;see<a href="TechnicalReference_FrXcps.html#14">&#160;(4.5&#160;Main&#160;Functions).</a>&#160;<br/>All&#160;other services&#160;are called&#160;<b>exclusively</b>&#160;by&#160;the&#160;XCP&#160;Protocol&#160;Layer.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_6.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_7.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_8.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_9.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_10.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_11.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_12.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-13_13.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>4&#160;&#160;Integration&#160;into&#160;the&#160;Application&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;describes&#160;&#160;the&#160;&#160;steps&#160;&#160;necessary&#160;&#160;for&#160;&#160;successful&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;XCP&#160;<br/>Transport Layer for FlexRay&#160;into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>XCP&#160;Transport Layer&#160;Files&#160;</b><br/>
+The&#160;files&#160;required&#160;for&#160;the&#160;XCP&#160;Transport&#160;Layer&#160;depend&#160;on&#160;whether&#160;source&#160;code&#160;or&#160;object&#160;<br/>code&#160;is&#160;available:&#160;<br/>
+<b>Files&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;Transport&#160;Layer&#160;with&#160;object&#160;code&#160;delivery&#160;</b><br/>
+<b>&#160;</b><br/>
+FrXcp.o&#160;<br/>
+/&#160;XCP&#160;Transport&#160;Layer&#160;object&#160;code&#160;/&#160;library.&#160;<br/>
+FrXcp.obj&#160;<br/>
+/&#160;This&#160;file&#160;must&#160;not<b>&#160;</b>be&#160;modified&#160;by&#160;the&#160;user!&#160;<br/>
+&#160;<br/>
+FrXcp.lib&#160;<br/>FrXcp.h&#160;<br/>
+API&#160;definitions&#160;of&#160;the&#160;XCP&#160;Transport&#160;Layer&#160;FlexRay.&#160;<br/>This&#160;file&#160;must&#160;not&#160;be&#160;modified&#160;by&#160;the&#160;user!&#160;<br/>
+&#160;<br/>
+FrXcp_Cbk.h&#160;<br/>
+API&#160;of&#160;XCP&#160;Transport&#160;Layer&#160;call-back&#160;functions.&#160;<br/>This&#160;file must&#160;not&#160;be&#160;modified&#160;by&#160;the&#160;user!&#160;<br/>
+&#160;<br/>
+FrXcp_Cfg.h&#160;<br/>
+Pre-compile time&#160;configuration header&#160;file&#160;for&#160;the&#160;XCP&#160;Transport&#160;<br/>Layer.&#160;<br/>
+&#160;<br/>
+FrXcp_Lcfg.c&#160;<br/>
+Link&#160;time&#160;configuration source&#160;file&#160;for&#160;the&#160;XCP&#160;Transport&#160;Layer.&#160;<br/>
+&#160;<br/>
+FrXcp_Lcfg.h&#160;<br/>
+Link&#160;time&#160;configuration header&#160;file&#160;for&#160;the&#160;XCP&#160;Transport&#160;Layer.&#160;<br/>
+&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;&#160;File&#160;List&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;(object&#160;code)&#160;<br/>
+&#160;<br/>
+<b>Files&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;Transport&#160;Layer&#160;with&#160;source&#160;code&#160;delivery&#160;</b><br/>
+<b>&#160;</b><br/>
+FrXcp.c&#160;<br/>
+XCP&#160;Transport&#160;Layer&#160;source&#160;code.&#160;<br/>This&#160;file&#160;must&#160;not<b>&#160;</b>be&#160;modified&#160;by&#160;the&#160;user!&#160;<br/>
+&#160;<br/>
+FrXcp.h&#160;<br/>
+XCP&#160;Transport&#160;Layer&#160;API&#160;definitions.&#160;<br/>This&#160;file&#160;must&#160;not&#160;be&#160;modified&#160;by&#160;the&#160;user!&#160;<br/>
+&#160;<br/>
+FrXcp_Cbk.h&#160;<br/>
+API&#160;of&#160;XCP&#160;Transport&#160;Layer&#160;call-back&#160;functions.&#160;<br/>This&#160;file must&#160;not&#160;be&#160;modified&#160;by&#160;the&#160;user!&#160;<br/>
+&#160;<br/>
+FrXcp_Cfg.h&#160;<br/>
+Pre-compile time&#160;configuration header&#160;file&#160;for&#160;the&#160;XCP&#160;Transport&#160;<br/>Layer.&#160;<br/>
+&#160;<br/>
+FrXcp_Lcfg.c&#160;<br/>
+Link&#160;time&#160;configuration source&#160;file&#160;for&#160;the&#160;XCP&#160;Transport&#160;Layer.&#160;<br/>
+&#160;<br/>
+FrXcp_Lcfg.h&#160;<br/>
+Link&#160;time&#160;configuration header&#160;file&#160;for&#160;the&#160;XCP&#160;Transport&#160;Layer.&#160;<br/>
+&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;&#160;File&#160;List&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;(source&#160;code)&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-14_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-14_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-14_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-14_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-14_6.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Auxiliary&#160;Files&#160;</b><br/>
+The&#160;following&#160;files&#160;are&#160;not&#160;part of&#160;the&#160;XCP&#160;Transport&#160;Layer.&#160;They&#160;are,&#160;however,&#160;used&#160;by&#160;the&#160;<br/>Transport Layer&#160;and&#160;must&#160;be&#160;provided&#160;accordingly.&#160;<br/>
+<b>Auxiliary&#160;Files&#160;used&#160;by&#160;the&#160;XCP&#160;on&#160;FlexRay&#160;</b><br/>
+<b>&#160;</b><br/>
+Std_Types.h&#160;<br/>
+Standard&#160;AUTOSAR&#160;header.&#160;<br/>
+&#160;<br/>
+ComStack_Types.h&#160;&#160;Standard&#160;AUTOSAR&#160;header.&#160;<br/>
+&#160;<br/>
+FrIf.h&#160;<br/>
+FlexRay&#160;Interface&#160;header,&#160;providing&#160;API&#160;prototypes&#160;for&#160;XCP&#160;on&#160;<br/>FlexRay.&#160;<br/>
+&#160;<br/>
+Det.h&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;header,&#160;providing&#160;API&#160;prototypes&#160;for&#160;<br/>XCP&#160;on&#160;FlexRay.&#160;<br/>
+&#160;<br/>
+MemMap.h&#160;<br/>
+AUTOSAR&#160;Memory&#160;Mapping&#160;header&#160;(optional).&#160;<br/>This&#160;header&#160;is&#160;used if&#160;memory&#160;mapping&#160;is&#160;enabled.&#160;It&#160;must&#160;be&#160;<br/>
+&#160;<br/>
+provided by&#160;the&#160;user&#160;to&#160;define&#160;the&#160;section&#160;mapping.&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;&#160;Auxiliary&#160;File&#160;List&#160;for&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Version Changes&#160;</b><br/>
+Changes&#160;and&#160;the&#160;release&#160;versions&#160;of&#160;the&#160;XCP&#160;on&#160;FlexRay&#160;Transport Layer&#160;are&#160;listed&#160;at&#160;the&#160;<br/>beginning&#160;of&#160;the&#160;header and&#160;source&#160;code.&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+For&#160;&#160;initialization&#160;&#160;the&#160;&#160;service&#160;&#160;FrXcp_Init&#160;&#160;must&#160;&#160;be&#160;&#160;called.&#160;&#160;In&#160;&#160;Pre-compile&#160;&#160;and&#160;&#160;Link&#160;&#160;time&#160;<br/>configurations a&#160;NULL_PTR&#160;must&#160;be&#160;passed.&#160;In&#160;Post&#160;build&#160;configuration&#160;or multi&#160;config&#160;the&#160;<br/>pointer of&#160;the&#160;Root&#160;config&#160;struct&#160;must&#160;be&#160;passed.&#160;<br/>
+<b>4.5&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+The&#160;&#160;XCP&#160;&#160;Protocol&#160;&#160;Layer&#160;&#160;as&#160;&#160;well&#160;&#160;as&#160;&#160;the&#160;&#160;XCP&#160;&#160;Transport&#160;&#160;Layer&#160;&#160;have&#160;&#160;main&#160;&#160;functions&#160;&#160;that&#160;<br/>must&#160;be&#160;called&#160;cyclically.&#160;<br/>Please&#160;refer to<a href="TechnicalReference_FrXcps.html#3">&#160;[6]&#160;</a>for&#160;a&#160;detailed&#160;description&#160;of&#160;the&#160;XCP&#160;Protocol&#160;Layer&#160;main&#160;function&#160;<br/>
+&#160;&#160;FrXcp_MainFunctionRx&#160;<br/>&#160;&#160;FrXcp_MainFunctionTx&#160;<br/>
+The&#160;&#160;XCP&#160;&#160;Transport&#160;&#160;Layer&#160;&#160;provides&#160;&#160;two&#160;&#160;main&#160;&#160;functions.&#160;&#160;One&#160;&#160;is&#160;&#160;responsible&#160;&#160;for&#160;&#160;handling&#160;<br/>reception&#160;&#160;related&#160;&#160;processing&#160;&#160;and&#160;&#160;one&#160;&#160;is&#160;&#160;responsible&#160;&#160;for&#160;&#160;transmission&#160;&#160;processing.&#160;&#160;If&#160;&#160;the&#160;<br/>respective&#160;&#160;configuration&#160;&#160;option&#160;&#160;“Use&#160;&#160;Tx&#160;&#160;Task”&#160;&#160;or&#160;&#160;“Use&#160;&#160;Rx&#160;&#160;Task”&#160;&#160;is&#160;&#160;activated&#160;&#160;in&#160;&#160;the&#160;<br/>Generation&#160;Tool&#160;&#160;the&#160;&#160;MainFunction&#160;must&#160;&#160;be&#160;used&#160;&#160;accordingly.&#160;The&#160;&#160;FrXcp_MainFunctionRx&#160;<br/>must&#160;&#160;be&#160;&#160;executed&#160;&#160;after&#160;&#160;the&#160;&#160;FrIf&#160;&#160;Job&#160;&#160;that&#160;&#160;processes&#160;&#160;the&#160;&#160;FrXcp_RxIndication,&#160;&#160;the&#160;<br/>FrXcp_MainFunctionTx&#160;before&#160;the&#160;FrIf&#160;Job&#160;that&#160;processes the&#160;FrXcp_TriggerTransmit.&#160;<br/>
+<b>4.6&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+The&#160;XCP&#160;makes use&#160;of&#160;interrupt&#160;locking&#160;to&#160;guarantee&#160;atomic operation&#160;of&#160;critical sections.&#160;<br/>For this purpose&#160;three&#160;exclusive&#160;areas are&#160;defined&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-15_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+&#160;&#160;FRXCP_EXCLUSIVE_AREA_0&#160;<br/>
+&#160;&#160;FRXCP_EXCLUSIVE_AREA_1&#160;<br/>
+&#160;&#160;FRXCP_EXCLUSIVE_AREA_2&#160;<br/>
+These&#160;three&#160;exclusive&#160;areas&#160;must&#160;be&#160;mapped&#160;to&#160;interrupt&#160;lock and&#160;unlock&#160;functions&#160;which&#160;<br/>can&#160;be&#160;called&#160;nested.&#160;The&#160;exclusive&#160;areas are&#160;used&#160;in&#160;the&#160;following&#160;cases:&#160;<br/>&#160;<br/>
+<b>4.6.1&#160;</b><br/>
+<b>FRXCP_EXCLUSIVE_AREA_0&#160;</b><br/>
+This&#160;area&#160;is&#160;used&#160;whenever the&#160;services&#160;Xcp_Event, Xcp_SendCallBack,&#160;<br/>Xcp_MainFunction&#160;&#160;and&#160;&#160;Xcp_Command&#160;can&#160;interrupt&#160;each&#160;other.&#160;<br/>&#160;<br/>
+<b>4.6.2&#160;</b><br/>
+<b>FRXCP_EXCLUSIVE_AREA_1&#160;</b><br/>
+This&#160;area&#160;is&#160;used&#160;during&#160;the&#160;FrXcp_MainFunctionRx.&#160;When&#160;it&#160;is guaranteed&#160;that&#160;this&#160;<br/>MainFunction&#160;cannot&#160;be&#160;interrupted&#160;by&#160;the&#160;FrXcp_RxIndication&#160;this exclusive&#160;area&#160;can&#160;be&#160;<br/>left&#160;empty,&#160;i.e.&#160;not&#160;mapped&#160;to&#160;an&#160;interrupt&#160;disable&#160;function.&#160;<br/>&#160;<br/>
+<b>4.6.3&#160;</b><br/>
+<b>FRXCP_EXCLUSIVE_AREA_2&#160;</b><br/>
+This&#160;area&#160;is&#160;used&#160;during&#160;the&#160;FrXcp_MainFunctionTx.&#160;When&#160;it&#160;is guaranteed&#160;that&#160;this&#160;<br/>MainFunction&#160;cannot&#160;be&#160;interrupted&#160;by&#160;the&#160;FrXcp_TxConfirmation&#160;or&#160;<br/>FrXcp_TriggerTransmit&#160;this exclusive&#160;area&#160;can&#160;be&#160;left&#160;empty,&#160;i.e.&#160;not&#160;mapped&#160;to&#160;an&#160;<br/>interrupt&#160;disable&#160;function.&#160;<br/>
+<b>4.7&#160;</b><br/>
+<b>PDU&#160;Mode&#160;</b><br/>
+The&#160;FrXcp&#160;has&#160;an&#160;API&#160;to&#160;disable&#160;PDU&#160;Transmission&#160;called:&#160;FrXcp_SetPduMode().&#160;This&#160;API&#160;<br/>can&#160;be&#160;used&#160;to&#160;prevent&#160;transmission&#160;of&#160;PDUs&#160;when&#160;set&#160;to&#160;FRXCP_SET_OFFLINE.&#160;The&#160;PDUs&#160;<br/>are not&#160;lost&#160;but&#160;stored&#160;in&#160;the&#160;Send&#160;Queue&#160;until&#160;an&#160;overrun&#160;occurs&#160;while&#160;in&#160;the&#160;offline&#160;<br/>phase.&#160;If&#160;the&#160;PDU&#160;Mode&#160;is set&#160;to&#160;online&#160;again&#160;transmission&#160;of&#160;PDUs is resumed.&#160;<br/>This&#160;feature is&#160;useful when&#160;measurement&#160;during&#160;bus offline&#160;phases shall&#160;be&#160;performed,&#160;for&#160;<br/>example&#160;in&#160;the&#160;Resume&#160;Mode.&#160;Measurement&#160;is started&#160;automatically&#160;after&#160;Init while&#160;the&#160;<br/>FlexRay&#160;Bus still needs a&#160;few&#160;ms&#160;to&#160;go&#160;sync.&#160;During&#160;this time,&#160;measurement&#160;data&#160;is stored&#160;<br/>and&#160;transmission&#160;is started&#160;when&#160;the&#160;bus is sync.&#160;<br/>In&#160;a&#160;MICROSAR 3&#160;Stack this&#160;API&#160;is&#160;automatically&#160;used&#160;by&#160;the&#160;FrSm,&#160;therefore&#160;no&#160;calls by&#160;<br/>the&#160;application&#160;are required.&#160;When&#160;a&#160;non&#160;MICROSAR FrSm&#160;is&#160;used&#160;or in&#160;an&#160;AUTOSAR&#160;4&#160;<br/>environment&#160;the&#160;API&#160;must&#160;be&#160;called&#160;manually,&#160;if&#160;activated.&#160;<br/>
+<b>4.8&#160;</b><br/>
+<b>PDUs&#160;</b><br/>
+The&#160;PDU&#160;ID&#160;for&#160;the&#160;underlying&#160;Layer&#160;can&#160;be&#160;freely&#160;configured&#160;in&#160;the&#160;GenTool&#160;respectively&#160;<br/>in&#160;the&#160;configuration&#160;files.&#160;The&#160;XCP&#160;Transport&#160;Layer&#160;itself&#160;expects&#160;an&#160;incrementing&#160;PDU-ID&#160;<br/>for&#160;each&#160;PDU,&#160;starting&#160;with&#160;0&#160;for&#160;the&#160;first&#160;PDU.&#160;This&#160;holds&#160;true&#160;for&#160;FrXcp_RxIndication&#160;and&#160;<br/>FrXcp_TriggerTransmit&#160;respectively&#160;FrXcp_TxConfirmation.&#160;<br/>
+The&#160;PDUs&#160;need&#160;a&#160;size&#160;of&#160;at&#160;least&#160;8&#160;bytes&#160;if&#160;the&#160;buffer&#160;types&#160;are&#160;static.&#160;In&#160;most&#160;cases&#160;they&#160;<br/>are&#160;dynamic,&#160;i.e.&#160;reconfigured&#160;during&#160;runtime.&#160;In&#160;this&#160;case&#160;the&#160;PDUs need&#160;a&#160;size&#160;of&#160;at&#160;least&#160;<br/>12&#160;bytes.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-16_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>4.9&#160;</b><br/>
+<b>Initialized&#160;Memory&#160;</b><br/>
+In&#160;order&#160;for&#160;the&#160;DET&#160;to&#160;work&#160;correctly,&#160;initialized&#160;memory&#160;is&#160;required.&#160;That&#160;means&#160;that&#160;all&#160;<br/>RAM,&#160;used&#160;by&#160;the&#160;XCP&#160;Transport&#160;Layer,&#160;has&#160;to&#160;be&#160;zeroed&#160;out.&#160;This&#160;is&#160;usually&#160;done&#160;by&#160;the&#160;<br/>startup&#160;&#160;code.&#160;&#160;If&#160;&#160;the&#160;startup&#160;code&#160;does&#160;not&#160;do&#160;this&#160;the&#160;service&#160;&#160;FrXcp_InitMemory&#160;&#160;must&#160;be&#160;<br/>called&#160;<br/>
+<b>4.10&#160;&#160;Memory&#160;Mapping&#160;</b><br/>
+The&#160;XCP&#160;supports&#160;the&#160;AUTOSAR&#160;Memory&#160;Mapping.&#160;The&#160;following&#160;standard&#160;sections&#160;are&#160;<br/>used&#160;by&#160;the&#160;Transport&#160;Layer as&#160;well&#160;as the&#160;Protocol&#160;Layer:&#160;<br/>
+&#160;&#160;SEC_CODE&#160;<br/>&#160;&#160;SEC_CONST_8BIT&#160;<br/>&#160;&#160;SEC_CONST_16BIT&#160;<br/>&#160;&#160;SEC_CONST_UNSPECIFIED&#160;<br/>&#160;&#160;SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>&#160;&#160;SEC_VAR_NOINIT_8BIT&#160;<br/>
+<b>4.11&#160;&#160;Activation&#160;Macros&#160;</b><br/>
+The&#160;XCP&#160;Protocol&#160;Layer&#160;and&#160;Transport&#160;Layer&#160;can&#160;be&#160;activated&#160;and&#160;deactivated&#160;by&#160;a&#160;single&#160;<br/>macro&#160;called&#160;XCP_ACTIVATE()&#160;and&#160;XCP_DEACTIVATE().&#160;By&#160;default XCP&#160;is activated.&#160;<br/>This&#160;&#160;feature&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;to&#160;&#160;en-&#160;&#160;or&#160;&#160;disable&#160;&#160;the&#160;&#160;XCP&#160;&#160;module&#160;&#160;during&#160;&#160;run&#160;&#160;time.&#160;&#160;Thus&#160;&#160;XCP&#160;<br/>functionality&#160;can&#160;be&#160;controlled&#160;by&#160;the&#160;application,&#160;e.g.&#160;by&#160;a&#160;diagnostic&#160;service&#160;to&#160;enable&#160;the&#160;<br/>component.&#160;&#160;This&#160;&#160;feature&#160;&#160;allows&#160;&#160;the&#160;&#160;component&#160;&#160;to&#160;&#160;remain&#160;&#160;in&#160;&#160;series&#160;&#160;production&#160;&#160;ECU’s&#160;<br/>where it&#160;can&#160;be&#160;enabled&#160;on&#160;demand.&#160;<br/>
+<b>4.12&#160;&#160;Integration Notes&#160;</b><br/>
+<b>4.12.1&#160;&#160;Alignment&#160;<br/></b>Depending&#160;on&#160;the&#160;used&#160;Hardware&#160;it&#160;might&#160;be&#160;required&#160;to&#160;use&#160;an&#160;Alignment&#160;setting&#160;&gt;&#160;8Bit.&#160;<br/>The&#160;&#160;following&#160;&#160;Table&#160;&#160;gives&#160;&#160;an&#160;&#160;example&#160;&#160;overview&#160;&#160;of&#160;&#160;several&#160;&#160;Architectures&#160;&#160;and&#160;&#160;their&#160;<br/>alignment&#160;requirements:&#160;<br/>
+Architecture&#160;<br/>
+8Bit&#160;<br/>
+16Bit&#160;Alignment&#160;<br/>
+32Bit&#160;Alignment&#160;<br/>
+Alignment&#160;<br/>
+MCS12X&#160;<br/>
+Yes&#160;<br/>
+Yes1&#160;<br/>
+Yes1&#160;<br/>
+TriCore<b>&#160;</b><br/>
+No&#160;<br/>
+Yes2&#160;<br/>
+Yes&#160;<br/>
+V850&#160;FX2<b>&#160;</b><br/>
+No&#160;<br/>
+No&#160;<br/>
+Yes&#160;<br/>
+V850&#160;Phoenix&#160;<br/>
+Yes2&#160;<br/>
+Yes2&#160;<br/>
+Yes&#160;<br/>
+FS<b>&#160;</b><br/>
+&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+1&#160;Bandwidth&#160;penalty&#160;<br/>
+2&#160;Performance penalty&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-17_2.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>4.12.2&#160;&#160;CANape&#160;Buffer&#160;ID&#160;<br/></b>The&#160;&#160;Buffer&#160;&#160;ID,&#160;&#160;automatically&#160;&#160;assigned&#160;&#160;to&#160;&#160;the&#160;&#160;configured&#160;&#160;PDUs&#160;&#160;in&#160;&#160;the&#160;&#160;GenTool,&#160;&#160;must&#160;&#160;be&#160;<br/>configured&#160;in&#160;CANape&#160;accordingly.&#160;All&#160;TX&#160;PDUs&#160;are&#160;given&#160;an&#160;ascending&#160;buffer&#160;ID&#160;starting&#160;<br/>with&#160;0.&#160;All&#160;Rx&#160;PDUs are&#160;attached&#160;behind&#160;the&#160;TX&#160;PDUs.&#160;<br/>The&#160;following&#160;configuration&#160;in&#160;GENy:&#160;<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;CANape&#160;–&#160;PDU&#160;relation&#160;<br/>
+must&#160;match&#160;the&#160;configuration&#160;of&#160;the&#160;buffers&#160;in&#160;the&#160;a2l&#160;file&#160;with&#160;the&#160;Pdu&#160;Id&#160;as&#160;buffer&#160;number.&#160;<br/>For&#160;&#160;easier&#160;&#160;integration&#160;&#160;the&#160;&#160;GenTool&#160;&#160;generates&#160;&#160;an&#160;&#160;FrXcp.a2l&#160;&#160;fragment&#160;&#160;which&#160;&#160;contains&#160;&#160;the&#160;<br/>buffer configuration&#160;for&#160;the&#160;Xcp&#160;Master&#160;Tool.&#160;<br/>
+&#160;<br/>
+<b>4.12.3&#160;&#160;Resume&#160;Mode&#160;<br/></b>To&#160;use&#160;the&#160;resume&#160;mode&#160;on&#160;FlexRay&#160;additional&#160;FrXcp&#160;specific&#160;information&#160;must&#160;be&#160;stored&#160;<br/>in&#160;NVM memory.&#160;For this an&#160;API&#160;exists which&#160;returns&#160;the&#160;data&#160;to&#160;be&#160;stored.&#160;<br/>
+&#160;<br/>
+<b>4.12.3.1&#160;&#160;Store&#160;FrXcp data to NVM&#160;<br/></b>The&#160;following&#160;API&#160;is called&#160;by&#160;the&#160;FrXcp&#160;and&#160;must&#160;be&#160;implemented&#160;by&#160;the&#160;application:&#160;<br/>void&#160;<br/>
+XcpAppl_DaqTlResumeStore(P2CONST(tXcpDaqTl,&#160;<br/>
+AUTOMATIC,&#160;<br/>
+FRXCP_APPL_DATA) rtConfigPt )&#160;<br/>
+The&#160;parameter&#160;rtConfigPt&#160;is&#160;a&#160;pointer&#160;to&#160;the&#160;structure&#160;which&#160;must&#160;be&#160;saved.&#160;The&#160;size&#160;of&#160;<br/>this&#160;&#160;data&#160;&#160;can&#160;&#160;be&#160;&#160;retrieved&#160;&#160;by&#160;&#160;sizeof(tXcpDaqTl)*(FRXCP_NUM_TX_LPDUIDS&#160;&#160;+&#160;<br/>FRXCP_NUM_RX_LPDUIDS).&#160;<br/>
+The&#160;following&#160;API&#160;is called&#160;when&#160;the&#160;data&#160;has&#160;to&#160;be&#160;cleared&#160;from&#160;NVM&#160;again:&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-18_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+void&#160;XcpAppl_DaqTlResumeClear( void )&#160;<br/>
+&#160;<br/>
+<b>4.12.3.2&#160;&#160;Restore&#160;FrXcp&#160;data from NVM&#160;<br/></b>A&#160;call&#160;of&#160;FrXcp_Init()&#160;will trigger a&#160;call&#160;of&#160;the&#160;following&#160;call-back:&#160;<br/>
+uint8&#160;<br/>
+XcpAppl_DaqTlResume(P2VAR(tXcpDaqTl,&#160;<br/>
+AUTOMATIC,&#160;<br/>
+FRXCP_APPL_DATA) rtConfigPt&#160;)&#160;<br/>
+If&#160;resume&#160;data&#160;is&#160;available&#160;it&#160;must&#160;be&#160;restored&#160;in&#160;this&#160;call&#160;back.&#160;If&#160;no&#160;valid&#160;resume&#160;data&#160;is&#160;<br/>available&#160;this&#160;function&#160;can&#160;return doing&#160;nothing.&#160;<br/>
+&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-19_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-19_2.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>5&#160;&#160;Configuration&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>A2L File&#160;</b><br/>
+The&#160;GenTool&#160;exports&#160;an&#160;a2l&#160;file&#160;for&#160;easier&#160;configuration&#160;of&#160;the&#160;XCP&#160;Master&#160;(e.g.&#160;CANape).&#160;<br/>This&#160;file&#160;is&#160;called&#160;FrXcp.a2l&#160;and&#160;contains&#160;the&#160;XCP_ON_FLEXRAY&#160;IF_DATA&#160;section&#160;which&#160;<br/>can&#160;be&#160;included&#160;by&#160;a&#160;master template&#160;a2l&#160;file.&#160;<br/>
+<b>Hint!&#160;<br/>The&#160;following abstract can be&#160;used to&#160;include&#160;the&#160;generated a2l:&#160;</b><br/>
+&#160;<br/>
+<b>&#160;&#160;/begin IF_DATA&#160;XCP&#160;<br/>&#160; &#160;&#160;……..&#160;<br/>&#160; &#160;&#160;/include&#160;&#34;FrXcp.a2l&#34;&#160;<br/>&#160;&#160;/end IF_DATA</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Manual&#160;Configuration&#160;</b><br/>
+It&#160;is&#160;also&#160;possible&#160;to&#160;configure&#160;XCP&#160;on&#160;FlexRay&#160;with&#160;the&#160;provided&#160;configuration&#160;templates.&#160;<br/>The&#160;individual configuration&#160;options are&#160;described&#160;in&#160;the&#160;following&#160;sub-chapters.&#160;<br/>
+<b>5.2.1&#160;</b><br/>
+<b>Pre-Compile&#160;Configuration&#160;</b><br/>
+The&#160;following&#160;configuration&#160;options&#160;can&#160;be&#160;used&#160;to&#160;configure&#160;XCP&#160;on&#160;FlexRay&#160;during&#160;pre-<br/>compile&#160;time:&#160;<br/>
+<b>Configuration&#160;options&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+kFrXcpMaxCTO&#160;<br/>
+<b>&gt;&#160;&#160;</b>12..253&#160;&#160;This&#160;parameter&#160;defines&#160;the&#160;maximum&#160;length&#160;of&#160;<br/>
+Command&#160;Transfer&#160;Objects&#160;(CTO)&#160;in bytes.&#160;For&#160;<br/>FlexRay&#160;this&#160;parameter&#160;must&#160;be&#160;at&#160;least&#160;12&#160;and&#160;<br/>less than&#160;the&#160;maximum&#160;length&#160;of&#160;the&#160;PDU&#160;or&#160;Link-<br/>Layer&#160;frame.&#160;<br/>
+kFrXcpMaxDTO&#160;<br/>
+<b>&gt;&#160;&#160;</b>12..253&#160;&#160;This&#160;parameter&#160;defines&#160;the&#160;maximum&#160;length&#160;of&#160;<br/>
+Data&#160;Transfer&#160;Objects&#160;(DTO).&#160;For&#160;FlexRay&#160;this&#160;<br/>parameter&#160;must&#160;be&#160;at&#160;least&#160;12&#160;and less&#160;than&#160;the&#160;<br/>maximum&#160;length&#160;of&#160;the&#160;PDU&#160;or&#160;Link-Layer&#160;frame.&#160;<br/>
+FRXCP_PDU_SIZE&#160;<br/>
+<b>&gt;&#160;&#160;</b>14..255&#160;&#160;This&#160;parameter&#160;defines&#160;the&#160;maximum&#160;length&#160;of&#160;the&#160;<br/>
+PDU.&#160;<br/>This&#160;parameter&#160;must&#160;be&#160;at&#160;least&#160;Max.&#160;DTO&#160;+&#160;2..4,&#160;<br/>depending&#160;on&#160;other&#160;configuration options&#160;(Frame&#160;<br/>Alignment,&#160;Frame Concatenation)&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-20_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+FRXCP_DEV_ERROR_DETECT&#160;<br/>
+&#160;<br/>
+ON&#160;<br/>
+Activate/Deactivate&#160;the&#160;development&#160;error&#160;<br/>detection.&#160;The&#160;development&#160;error&#160;detection&#160;<br/>
+&#160;<br/>
+OFF&#160;&#160;comprises&#160;amongst&#160;others&#160;channel&#160;parameter&#160;<br/>
+checks&#160;and&#160;check&#160;of&#160;initialization upon&#160;every&#160;<br/>service call.&#160;<br/>It&#160;is&#160;strongly&#160;recommended&#160;to&#160;disable this&#160;option&#160;in&#160;<br/>production&#160;code.&#160;<br/>
+FRXCP_USE_DECOUPLED_MODE&#160;<br/>
+&#160;<br/>
+ON&#160;<br/>
+It&#160;is&#160;possible&#160;to use&#160;the&#160;XCP&#160;either&#160;in&#160;Immediate&#160;or&#160;<br/>Decoupled&#160;Mode.&#160;Immediate&#160;Mode requires less&#160;<br/>
+&#160;<br/>
+OFF&#160;&#160;resources&#160;but&#160;the&#160;XCP&#160;Event&#160;function&#160;must&#160;be&#160;<br/>
+used synchronous&#160;to&#160;the&#160;FlexRay&#160;bus,&#160;while in&#160;<br/>Decoupled&#160;Mode sampling&#160;is&#160;independent&#160;of&#160;the&#160;<br/>FlexRay&#160;bus.&#160;<br/>
+FRXCP_FRAME_CONCATENATION&#160;<br/>
+&#160;<br/>
+ON&#160;<br/>
+With&#160;this&#160;attribute you&#160;can enable the&#160;<br/>concatenation&#160;of&#160;multiple XCP&#160;frames&#160;into&#160;one&#160;<br/>
+&#160;<br/>
+OFF&#160;&#160;Protocol&#160;Data Unit&#160;(PDU).&#160;<br/>
+Be aware&#160;of&#160;higher&#160;protocol&#160;overhead&#160;and hence&#160;<br/>lower&#160;XCP&#160;bandwidth&#160;if&#160;enabled!&#160;<br/>
+FRXCP_SEQUENCE_COUNTER&#160;<br/>
+The&#160;Sequence&#160;Counter can&#160;be&#160;used&#160;for safety&#160;<br/>
+&#160;<br/>
+ON&#160;<br/>
+reasons&#160;to&#160;detect&#160;missing&#160;frames&#160;and&#160;frame&#160;<br/>
+&#160;<br/>
+OFF&#160;&#160;mix&#160;ups.&#160;An&#160;enabled&#160;Sequence&#160;Counter&#160;<br/>
+requires a&#160;slightly&#160;higher bandwidth&#160;overhead.&#160;<br/>
+FRXCP_USE_BUFFER_RECONFIG_A<br/>
+This&#160;parameter enables an&#160;API&#160;that&#160;allows&#160;<br/>
+&#160;<br/>
+ON&#160;<br/>
+PI&#160;<br/>
+dynamic reconfiguration&#160;of&#160;physical buffers.&#160;<br/>
+&#160;<br/>
+OFF&#160;&#160;The&#160;use&#160;case&#160;is to&#160;save&#160;physical buffers while&#160;<br/>
+maintaining&#160;flexibility.&#160;<br/>For&#160;this&#160;to&#160;work&#160;the FlexRay&#160;driver&#160;must&#160;support&#160;<br/>an&#160;enhanced&#160;API&#160;for&#160;buffer&#160;reconfiguration.&#160;<br/>
+FRXCP_FRAME_ALIGNMENT_[X]BI<br/>
+&#160;<br/>
+8&#160;<br/>
+This&#160;parameter&#160;determines&#160;the&#160;Alignment&#160;of&#160;XCP&#160;<br/>
+T&#160;<br/>
+frames within a&#160;PDU&#160;or&#160;Link-Layer&#160;frame.&#160;This&#160;<br/>
+&#160;<br/>
+16&#160;<br/>
+parameter&#160;must&#160;be&#160;selected&#160;according&#160;to&#160;<br/>
+&#160;<br/>
+32&#160;<br/>
+performance&#160;and&#160;architectural&#160;needs.&#160;<br/>
+FRXCP_USE_PDUMODE&#160;<br/>
+&#160;<br/>
+ON&#160;<br/>
+Can&#160;be&#160;used&#160;to&#160;prevent&#160;XCP&#160;frames&#160;to be&#160;sent,&#160;<br/>e.g.&#160;if&#160;the&#160;bus&#160;is&#160;offline.&#160;The&#160;frames&#160;are&#160;stored&#160;in&#160;<br/>
+&#160;<br/>
+OFF&#160;&#160;the&#160;send&#160;queue&#160;until&#160;the&#160;bus&#160;is&#160;available again&#160;<br/>
+FRXCP_CONFIG_VARIANT&#160;<br/>
+<br/>
+Configuration variant<br/>
+&#160;<br/>
+1&#160;<br/>
+&#160;<br/>
+1=Pre&#160;Compile<br/>
+<br/>
+&#160;<br/>
+&#160;<br/>
+2&#160;<br/>
+2=Link time&#160;<br/>
+&#160;<br/>
+3&#160;<br/>
+3=Post&#160;build&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;&#160;Pre-Compile&#160;Configuration&#160;&#160;<br/>
+&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>Link&#160;Time&#160;&amp;&#160;Post Build Configuration&#160;</b><br/>
+The&#160;following&#160;configuration&#160;options&#160;can&#160;be&#160;used&#160;to&#160;configure&#160;XCP&#160;on&#160;FlexRay&#160;during&#160;post-<br/>build-time.&#160;<br/>
+<b>Configuration&#160;options&#160;</b><br/>
+<b>Value&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrXcp_RootConfig&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-21_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+FrXcpPduDescriptorList&#160;<br/>
+<b>&gt;&#160;&#160;</b>Pointer&#160;<br/>
+Pointer&#160;to pdu&#160;configuration,&#160;see&#160;below&#160;<br/>
+FrXcp_NAX&#160;<br/>
+<b>&gt;&#160;&#160;</b>0u...255u&#160;<br/>
+This&#160;unique&#160;node&#160;address&#160;identifies&#160;the&#160;XCP&#160;<br/>slave&#160;within a&#160;network.&#160;This&#160;address&#160;is&#160;normally&#160;<br/>defined by&#160;the&#160;system&#160;designer&#160;and&#160;can&#160;be&#160;the&#160;<br/>same&#160;address&#160;as used&#160;in&#160;the&#160;Network&#160;<br/>Management,&#160;for&#160;example.&#160;<br/>
+ConfTimeoutReload&#160;<br/>
+<b>&gt;&#160;&#160;</b>0u..65535u&#160;<br/>
+Tx&#160;Confirmation&#160;timeout&#160;timer&#160;reload&#160;value&#160;in&#160;<br/>MainFunction&#160;cycles.&#160;Used&#160;in&#160;sync loss&#160;<br/>conditions&#160;when the&#160;FrIf&#160;does not&#160;provide&#160;<br/>TxConfirmations&#160;anymore.&#160;<br/>
+FrXcpPduDescriptorListSize&#160;&#160;<b>&gt;&#160;&#160;</b>1u...255u&#160;<br/>
+Number&#160;of&#160;PDU&#160;descriptors&#160;in&#160;the&#160;following&#160;List&#160;<br/>
+NumberOfTransmitFC&#160;<br/>
+<b>&gt;&#160;&#160;</b>0u..255u&#160;<br/>
+Number&#160;of&#160;pdu buffers.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-22_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+FrXcpNumberOfTxPdus&#160;<br/>
+<b>&gt;&#160;&#160;</b>1u...255u&#160;<br/>
+Number&#160;of&#160;Tx&#160;PDUs&#160;<br/>
+FrXcpNumberOfRxPdus&#160;<br/>
+<b>&gt;&#160;&#160;</b>1u...255u&#160;<br/>
+Number&#160;of&#160;Rx&#160;PDUs&#160;<br/>
+FrXcpMaxTxPduID&#160;<br/>
+<b>&gt;&#160;&#160;</b>1u…255u&#160;<br/>
+Max&#160;PDU&#160;ID&#160;for&#160;Tx&#160;PDUs&#160;<br/>
+FrXcpMaxRxPduID&#160;<br/>
+<b>&gt;&#160;&#160;</b>1u...255u&#160;<br/>
+Max&#160;PDU&#160;ID&#160;for&#160;Rx&#160;PDUs&#160;<br/>
+<b>&gt;&#160;&#160;</b>FrXcpPduDescriptorList&#160;(for&#160;each&#160;Tx&#160;PDU)&#160;<br/>XcpPduId&#160;<br/>
+<b>&gt;&#160;&#160;</b>0u…255u&#160;<br/>
+Unique&#160;PDU&#160;ID&#160;of&#160;underlying&#160;layer,&#160;e.g.&#160;PDU&#160;<br/>Router&#160;or&#160;FlexRay&#160;Interface&#160;that&#160;is&#160;used&#160;for&#160;<br/>
+<b>&gt;&#160;&#160;</b>0u…65535u&#160;<br/>
+transmission&#160;of&#160;messages&#160;by&#160;the&#160;XCP.&#160;<br/>
+XcpPacketFilter&#160;<br/>
+&#160;<br/>
+LPDU_TYPE_VARI<br/>
+The&#160;Frame&#160;Type&#160;determines&#160;the&#160;type&#160;of&#160;XCP&#160;<br/>
+ABLE&#160;<br/>
+frames&#160;that&#160;can&#160;be&#160;sent&#160;via this&#160;PDU.&#160;<br/>
+&#160;<br/>
+LPDU_TYPE_RES&#160;<br/>
+&#160;<br/>
+LPDU_TYPE_EV&#160;<br/>
+&#160;<br/>
+LPDU_TYPE_DAQ&#160;<br/>
+MaxFlxLenBuf&#160;<br/>
+<b>&gt;&#160;&#160;</b>14u...254u&#160;<br/>
+Maximum&#160;length&#160;of&#160;this&#160;specific&#160;buffer.&#160;<br/>
+IsReconfigurable&#160;<br/>
+<b>&gt;&#160;&#160;</b>0;&#160;1&#160;<br/>
+Is&#160;this&#160;PDU&#160;reconfigurable via FLX_ASSIGN&#160;<br/>
+IsInitialized&#160;<br/>
+<b>&gt;&#160;&#160;</b>0;&#160;1&#160;<br/>
+If&#160;the&#160;XcpPacketFilter&#160;is&#160;not&#160;of&#160;type&#160;Variable this&#160;<br/>value&#160;must&#160;be&#160;1.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;&#160;Post&#160;Build&#160;Configuration&#160;&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-23_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>6&#160;&#160;Description&#160;of&#160;the&#160;API&#160;</b><br/>
+The&#160;following&#160;chapter&#160;contains a&#160;brief&#160;description&#160;of&#160;the&#160;API&#160;provided&#160;by&#160;the&#160;XCP&#160;on&#160;<br/>FlexRay&#160;component.&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Data&#160;Types&#160;</b><br/>
+The&#160;software&#160;module&#160;XCP&#160;on&#160;FlexRay&#160;uses&#160;the&#160;standard&#160;AUTOSAR&#160;data&#160;types&#160;that&#160;are&#160;<br/>defined&#160;within&#160;Std_Types.h&#160;and&#160;the&#160;platform&#160;specific&#160;data&#160;types&#160;that&#160;are&#160;defined&#160;within&#160;<br/>Platform_Types.h.&#160;<br/>
+Furthermore the&#160;following&#160;software module&#160;specific&#160;data&#160;types are&#160;used:&#160;<br/>
+<b>Name&#160;</b><br/>
+<b>Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+XCP&#160;on&#160;FlexRay&#160;<br/>FrXcpPduDescriptorType&#160;<br/>
+struct&#160;<br/>
+Post-Compile configuration&#160;structure&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;&#160;Data&#160;Types&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Global&#160;Variables&#160;</b><br/>
+There are&#160;no&#160;global variables&#160;within&#160;XCP&#160;on&#160;FlexRay.&#160;<br/>
+<b>6.3&#160;</b><br/>
+<b>Global&#160;Constants&#160;</b><br/>
+<b>6.3.1&#160;</b><br/>
+<b>Component Versions&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;version&#160;&#160;of&#160;&#160;XCP&#160;&#160;on&#160;&#160;FlexRay&#160;&#160;is&#160;&#160;provided&#160;&#160;by&#160;&#160;three&#160;&#160;BCD&#160;&#160;constants.&#160;&#160;These&#160;<br/>constants&#160;are declared&#160;as external&#160;and&#160;can&#160;be&#160;read&#160;by&#160;the&#160;application&#160;at&#160;any&#160;time.&#160;<br/>
+<b>Constant&#160;name&#160;</b><br/>
+<b>Type&#160;&#160;Description&#160;</b><br/>
+<b>Value&#160;</b><br/>
+XCP&#160;on&#160;FlexRay&#160;&#160;<br/>FRXCP_MAJOR_VERSION&#160;<br/>
+BCD&#160;&#160;Contains the&#160;major&#160;version&#160;number.&#160;<br/>
+FRXCP_MINOR_VERSION&#160;<br/>
+BCD&#160;&#160;Contains the&#160;minor&#160;version&#160;number.&#160;<br/>
+FRXCP_PATCH_VERSION&#160;<br/>
+BCD&#160;&#160;Contains the&#160;patch level&#160;version number.&#160;Patch Version&#160;<br/>
+255&#160;means&#160;BETA&#160;version&#160;<br/>
+Table&#160;6-2&#160;&#160;&#160;&#160;Version&#160;Data&#160;<br/>
+<b>6.3.2&#160;</b><br/>
+<b>Vendor ID&#160;</b><br/>
+The&#160;Vendor&#160;identifier of&#160;XCP&#160;on&#160;FlexRay&#160;is&#160;provided&#160;by&#160;the&#160;following&#160;constant&#160;according&#160;to&#160;<br/>HIS:&#160;<br/>
+<b>Constant&#160;name&#160;&#160;</b><br/>
+<b>Type&#160;</b><br/>
+<b>Description&#160;<br/>Value&#160;</b><br/>
+XCP&#160;on&#160;FlexRay&#160;&#160;<br/>
+FRXCP_VENDOR_ID&#160;<br/>
+-&#160;<br/>
+Vendor&#160;ID&#160;according&#160;to&#160;HIS.&#160;<br/>Vector&#160;Informatik&#160;GmbH&#160;=&#160;30&#160;(decimal)&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-24_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+Table&#160;6-3&#160;&#160;&#160;&#160;Vendor&#160;ID&#160;<br/>
+<b>6.3.3&#160;</b><br/>
+<b>Module&#160;ID&#160;</b><br/>
+The&#160;Module&#160;identifier&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;is&#160;provided&#160;by&#160;the&#160;following&#160;constant&#160;according&#160;<br/>to&#160;HIS:&#160;<br/>
+<b>Constant&#160;name&#160;</b><br/>
+<b>Type&#160;</b><br/>
+<b>Description&#160;<br/>Value&#160;</b><br/>
+XCP&#160;on&#160;FlexRay&#160;<br/>
+FRXCP_MODULE_ID&#160;<br/>
+-&#160;<br/>
+Module&#160;ID&#160;according&#160;to&#160;HIS.&#160;<br/>XCP&#160;on&#160;FlexRay&#160;=&#160;211&#160;(decimal)&#160;<br/>
+Table&#160;6-4&#160;&#160;&#160;&#160;Module&#160;ID&#160;<br/>
+<b>6.4&#160;</b><br/>
+<b>Services&#160;provided&#160;by&#160;XCP&#160;on FlexRay&#160;</b><br/>
+<b>6.4.1&#160;</b><br/>
+<b>Administrative&#160;Functions&#160;</b><br/>
+<b>6.4.1.1&#160;</b><br/>
+<b>FrXcp_Init:&#160;Initialization of&#160;XCP&#160;on FlexRay&#160;</b><br/>
+<b>FrXcp_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrXcp_Init&#160;(P2CONST(FrXcp_ConfigType, AUTOMATIC, FRXCP_PBCFG) CfgPtr)&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+CfgPtr&#160;<br/>
+Pointer&#160;to&#160;Post build configuration&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+0&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Global&#160;initialization&#160;of&#160;the&#160;Transport Layer,&#160;i.e.&#160;all&#160;PDUs&#160;are set&#160;to&#160;an&#160;initial&#160;state.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+The&#160;Transport Layer&#160;will&#160;be&#160;initialized&#160;to the&#160;initial&#160;state.&#160;No&#160;PDUs&#160;will&#160;be&#160;sent,&#160;by&#160;default&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+Parameter&#160;CfgPtr&#160;is&#160;only&#160;evaluated&#160;in post&#160;build configuration&#160;<br/>
+&#160;<br/>
+<b>6.4.1.2&#160;</b><br/>
+<b>FrXcp_MainFunctionRx:&#160;Main Function of&#160;XCP&#160;Transport Layer&#160;</b><br/>
+<b>FrXcp_MainFunctionRx&#160;</b><br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-25_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrXcp_MainFunctionRx&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+200&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;responsible&#160;for cyclic&#160;reception&#160;handling&#160;of&#160;XCP-PDUs.&#160;<br/>This,&#160;together&#160;with&#160;the&#160;FrXcp_MainFunctionTx&#160;is&#160;the&#160;only&#160;service of&#160;the&#160;Transport&#160;Layer&#160;that&#160;has&#160;to&#160;be&#160;<br/>called by&#160;the&#160;application.&#160;All&#160;other&#160;services&#160;are called&#160;by&#160;the&#160;Protocol&#160;Layer&#160;exclusively.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transport&#160;Layer&#160;must&#160;be&#160;initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.1.3&#160;</b><br/>
+<b>FrXcp_MainFunctionTx:&#160;Main&#160;Function of&#160;XCP&#160;Transport Layer&#160;</b><br/>
+<b>FrXcp_MainFunctionTx&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrXcp_MainFunctionTx&#160;(&#160;void&#160;)&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+201&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;responsible&#160;for cyclic&#160;transmission&#160;handling&#160;of&#160;XCP-PDUs.&#160;<br/>This,&#160;together&#160;with&#160;the&#160;FrXcp_MainFunctionRx&#160;is&#160;the&#160;only&#160;service&#160;of&#160;the&#160;Transport&#160;Layer that&#160;has&#160;to&#160;be&#160;<br/>called by&#160;the&#160;application.&#160;All&#160;other&#160;services&#160;are called&#160;by&#160;the Protocol&#160;Layer&#160;exclusively.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transport Layer&#160;must&#160;be&#160;initialized.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-26_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.2&#160;</b><br/>
+<b>Service&#160;Callback&#160;Functions&#160;</b><br/>
+<b>6.4.2.1&#160;</b><br/>
+<b>FrXcp_TriggerTransmit:&#160;Call&#160;back&#160;for transmission of L-PDU&#160;</b><br/>
+<b>FrXcp_TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void FrXcp_TriggerTransmit( const PduIdType XcpTxPduId,&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;PduInfoType *PduInfoPtr );&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+XcpTxPduId&#160;[in]&#160;<br/>
+ID of&#160;XCP&#160;L-PDU&#160;that&#160;has&#160;been&#160;triggered&#160;<br/>
+SduPtr [out]&#160;<br/>
+Contains&#160;Pointer&#160;and&#160;Length to triggered XCP&#160;L-SDU&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+103&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called by&#160;the FlexRay&#160;Interface&#160;when&#160;a&#160;XCP&#160;L-PDU&#160;has&#160;to&#160;be&#160;transmitted.&#160;It copies&#160;the XCP&#160;<br/>L-SDU&#160;with&#160;respect to the triggered XCP&#160;L-PDU ID.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;XCP&#160;and the FlexRay&#160;Interface are configured for&#160;Decoupled&#160;Mode.&#160;<br/>Use&#160;PduInfoType&#160;is&#160;enabled&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+Decoupled&#160;Mode:&#160;The&#160;respective PDU buffer is&#160;freed again.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;or&#160;interrupt&#160;context&#160;<br/>
+&#160;<br/>
+Re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.2.2&#160;</b><br/>
+<b>FrXcp_TxConfirmation:&#160;Call&#160;back&#160;for transmission&#160;confirmation&#160;of L-PDU&#160;</b><br/>
+<b>FrXcp_TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrXcp_TxConfirmation( const PduIdType&#160;XcpTlTxPduId );&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-27_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+XcpTlTxPduId&#160;[in]&#160;<br/>
+ID of&#160;XCP&#160;L-PDU&#160;that&#160;has&#160;been&#160;triggered&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+101&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called by&#160;the FlexRay&#160;Interface after a&#160;XCP&#160;L-PDU&#160;has&#160;been&#160;transmitted.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+Immediate&#160;Mode:&#160;The&#160;respective PDU buffer is&#160;freed again&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;or&#160;interrupt&#160;context&#160;<br/>
+&#160;<br/>
+Re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.2.3&#160;</b><br/>
+<b>FrXcp_RxIndication:&#160;Call&#160;back&#160;for reception of L-PDU&#160;&#160;</b><br/>
+<b>FrXcp_RxIndication&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void FrXcp_RxIndication( const PduIdType XcpRxPduId,&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;const PduInfoType *PduInfoPtr );&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+XcpRxPduId&#160;[in]&#160;<br/>
+ID of&#160;XCP&#160;L-PDU&#160;that&#160;has&#160;been&#160;received&#160;<br/>
+PduInfoPtr [in]&#160;<br/>
+Contains&#160;Pointer&#160;and&#160;Length&#160;to&#160;received&#160;XCP&#160;L-SDU&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+102&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;is&#160;called by&#160;the&#160;FlexRay&#160;Interface after a&#160;XCP&#160;L-PDU&#160;has&#160;been&#160;received. It&#160;copies&#160;the&#160;received&#160;<br/>L-SDU&#160;and stores&#160;it&#160;locally&#160;with&#160;respect to&#160;the&#160;received&#160;XCP&#160;L-PDU&#160;ID.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+A&#160;valid XCP&#160;frame was&#160;received&#160;<br/>Use PduInfoType&#160;is&#160;enabled&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-28_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;or&#160;interrupt&#160;context&#160;<br/>
+&#160;<br/>
+Re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>6.4.3&#160;</b><br/>
+<b>Service&#160;Functions&#160;</b><br/>
+<b>6.4.3.1&#160;</b><br/>
+<b>FrXcp_TLService:&#160;Handles&#160;Transport&#160;Layer Command&#160;</b><br/>
+<b>FrXcp_TLService&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrXcp_TLService&#160;(&#160;const uint8* pCmd&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+pCmd&#160;[in]&#160;<br/>
+Pointer&#160;to&#160;the&#160;transport layer&#160;command&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint8&#160;<br/>
+<b>&gt;&#160;&#160;</b>Depending&#160;on&#160;the&#160;success&#160;of&#160;the&#160;operation,&#160;one&#160;of&#160;the&#160;following&#160;<br/>
+return codes&#160;is&#160;returned:&#160;<br/>
+&#160;<br/>
+XCP_CMD_DENIED&#160;<br/>
+&#160;<br/>
+XCP_CMD_OUT_OF_RANGE&#160;<br/>
+&#160;<br/>
+XCP_CMD_OK&#160;<br/>
+&#160;<br/>
+XCP_CMD_UNKNOWN&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+201&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service&#160;evaluates&#160;a&#160;transport layer&#160;specific&#160;command,&#160;performs&#160;the required&#160;operation and returns&#160;the&#160;<br/>status&#160;of&#160;the&#160;operation.&#160;<br/>Currently&#160;supported&#160;transport layer specific&#160;commands&#160;are:&#160;<br/>
+&#160;<br/>
+FLX_ASSIGN&#160;(partly)&#160;<br/>
+&#160;<br/>
+FLX_ACTIVATE&#160;<br/>
+&#160;<br/>
+FLX_DEACTIVATE&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;XCP&#160;Transport Layer&#160;must be initialized&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-29_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>6.4.3.2&#160;</b><br/>
+<b>FrXcp_Send:&#160;Transmission of CTO&#160;or DTO&#160;</b><br/>
+<b>FrXcp_Send&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+uint8&#160;FrXcp_Send&#160;(&#160;uint8 len, const uint8 *msg&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+len&#160;[in]&#160;<br/>
+Length&#160;of&#160;message.&#160;<br/>
+msg [in]&#160;<br/>
+A&#160;Pointer&#160;to&#160;the&#160;message itself.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+uint8&#160;<br/>
+The&#160;service returns&#160;XCP_TP_BUSY&#160;if&#160;there&#160;is&#160;no&#160;free&#160;PDU buffer available&#160;<br/>anymore,&#160;otherwise&#160;XCP_TP_OK&#160;is&#160;returned.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+2&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service&#160;prepares&#160;transmission&#160;of&#160;the referenced frame.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;XCP&#160;Transport Layer&#160;must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+-&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Re-entrant&#160;(not&#160;with the&#160;same&#160;channel)&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.3.3&#160;</b><br/>
+<b>FrXcp_SendFlush:&#160;Finish pending frames&#160;</b><br/>
+<b>FrXcp_SendFlush&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrXcp_SendFlush&#160;(&#160;uint8 XcpFlushTypeSel&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+XcpFlushTypeSel&#160;<br/>
+Selects&#160;which type&#160;of&#160;xcp frames&#160;are flushed.&#160;Possible&#160;values&#160;are:&#160;<br/>
+&#160;&#160;XCP_FLUSH_CTO&#160;<br/>&#160;&#160;XCP_FLUSH_DTO&#160;<br/>&#160;&#160;XCP_FLUSH_ALL&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+4&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Purge&#160;the&#160;current Frame Cache.&#160;This&#160;service&#160;is&#160;only&#160;needed&#160;when&#160;frame&#160;concatenation&#160;is&#160;enabled.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-30_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;XCP&#160;Transport Layer&#160;must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+-&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Re-entrant&#160;(not&#160;with the&#160;same&#160;channel)&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.3.4&#160;</b><br/>
+<b>FrXcp_SetPduMode:&#160;Enable/Disable&#160;transmission&#160;</b><br/>
+<b>FrXcp_SetPduMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void FrXcp_SetPduMode(&#160;NetworkHandleType XcpNwH, FrXcp_PduSetModeType PduMode );&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+XcpNwH&#160;[in]&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;network&#160;handle is&#160;usually&#160;0&#160;<br/>
+PduMode [in]&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;PDUMode&#160;which can&#160;be&#160;<br/>
+&#160;<br/>
+FRXCP_SET_OFFLINE&#160;(default)&#160;<br/>
+&#160;<br/>
+FRXCP_SET_ONLINE&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+7&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+With&#160;this&#160;service it&#160;is&#160;possible to&#160;prevent transmission&#160;of&#160;frames.&#160;The&#160;frames&#160;are not lost but&#160;stored&#160;in the&#160;<br/>send queue until&#160;overrun&#160;occurs&#160;or transmission&#160;is&#160;enabled&#160;again.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>-&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+-&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.3.5&#160;</b><br/>
+<b>FrXcp_GetVersionInfo:&#160;Get&#160;Version Information&#160;</b><br/>
+<b>FrXcp_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void FrXcp_GetVersionInfo(&#160;Std_VersionInfoType *FrXcpVerInfoPtr&#160;);&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-31_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrXcpVerInfoPtr&#160;[out]&#160;<br/>
+Pointer&#160;to version information structure&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+6&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+FrXcp_GetVersionInfo()&#160;returns&#160;version information,&#160;vendor&#160;ID&#160;and&#160;AUTOSAR&#160;module&#160;ID&#160;of&#160;the&#160;<br/>
+component.&#160;The versions&#160;are&#160;BCD-coded.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>-&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+-&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>6.4.4&#160;</b><br/>
+<b>Macros&#160;</b><br/>
+<b>6.4.4.1&#160;</b><br/>
+<b>XCP_ACTIVATE:&#160;Enable&#160;the&#160;Protocol&#160;and&#160;Transport Layer&#160;</b><br/>
+<b>XCP_ACTIVATE&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+XCP_ACTIVATE();&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+-&#160;<br/>
+-<b>&#160;</b><br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+With&#160;this&#160;service it&#160;is&#160;possible to&#160;enable&#160;all&#160;functionality&#160;of&#160;the XCP&#160;Protocol&#160;and&#160;Transport Layer&#160;during&#160;<br/>runtime to prevent&#160;erroneous&#160;execution.&#160;&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>-&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+-&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-32_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.4.4.2&#160;</b><br/>
+<b>XCP_DEACTIVATE:&#160;Disable&#160;the&#160;Protocol&#160;and&#160;Transport Layer&#160;</b><br/>
+<b>XCP_DEACTIVATE&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+XCP_DEACTIVATE();&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+-&#160;<br/>
+-<b>&#160;</b><br/>
+<b>Return&#160;code&#160;</b><br/>
+-&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+With&#160;this&#160;service it&#160;is&#160;possible to lock&#160;all&#160;functionality&#160;of&#160;the XCP&#160;Protocol&#160;and&#160;Transport Layer during runtime&#160;<br/>to&#160;prevent erroneous&#160;execution.&#160;&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>-&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+-&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Call&#160;context:&#160;task&#160;level&#160;<br/>
+&#160;<br/>
+Not&#160;re-entrant&#160;<br/>
+&#160;<br/>
+Synchronous&#160;<br/>
+&#160;<br/>
+<b>6.5&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;XCP&#160;on FlexRay&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;table&#160;&#160;lists&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components&#160;&#160;and&#160;&#160;used&#160;&#160;by&#160;<br/>XCP&#160;on&#160;FlexRay.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;&#160;the&#160;&#160;respective&#160;&#160;component.&#160;&#160;The&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;&#160;XCP&#160;&#160;Protocol&#160;&#160;Layer&#160;&#160;are&#160;&#160;not&#160;<br/>listed&#160;here.&#160;<br/>
+<b>Component&#160;&#160;</b><br/>
+<b>API&#160;</b><br/>
+XCP&#160;Hal&#160;<br/>
+ApplXcpDaqTlResumeClear&#160;<br/>ApplXcpDaqTlResumeStore&#160;<br/>ApplXcpDaqTlResume&#160;<br/>
+FlexRay&#160;Interface&#160;<br/>
+FrIf_Transmit&#160;<br/>
+XCP&#160;Pl&#160;<br/>
+XcpSendCallBack&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-33_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+Development Error&#160;Tracer1&#160;&#160;Det_ReportError&#160;<br/>
+AUTOSAR OS&#160;<br/>
+SuspendAllInterrupts&#160;<br/>ResumeAllInterrupts&#160;<br/>
+Table&#160;6-5&#160;&#160;&#160;&#160;Services&#160;used&#160;by&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+<b>6.6&#160;</b><br/>
+<b>Development&#160;Error&#160;Tracer&#160;</b><br/>
+The&#160;following&#160;table&#160;contains&#160;the&#160;supported&#160;DET&#160;error&#160;codes:&#160;<br/>
+<b>Name&#160;&#160;</b><br/>
+<b>Error&#160;&#160;Description&#160;</b><br/>
+<b>Id&#160;</b><br/>
+<b>AUTOSAR&#160;/&#160;OEM&#160;/&#160;Vector&#160;specific&#160;</b><br/>
+XCP&#160;on&#160;FlexRay&#160;<br/>FRXCP_E_NOT_INITIALI&#160;0x01&#160;&#160;A&#160;XCP&#160;Transport&#160;Layer&#160;service was called&#160;without&#160;<br/>ZED&#160;<br/>
+initializing&#160;the&#160;module&#160;first&#160;by&#160;calling&#160;FrXcp_Init.&#160;<br/>
+&#160;<br/>
+FRXCP_E_INV_PDU_ID&#160;<br/>
+0x02&#160;&#160;The&#160;Xcp&#160;Transport&#160;Layer&#160;was called&#160;with an&#160;invalid&#160;<br/>
+PDU-ID.&#160;<br/>
+FRXCP_E_NULL_POINTER&#160;&#160;0x03&#160;&#160;The&#160;Xcp&#160;Transport&#160;Layer&#160;was called&#160;with a&#160;Null&#160;<br/>&#160;<br/>
+pointer&#160;as&#160;parameter.&#160;<br/>
+FRXCP_E_RX_BUFFER_OV&#160;0x04&#160;&#160;The&#160;Rx&#160;MainFunction&#160;was&#160;not&#160;called&#160;often&#160;enough.&#160;<br/>ERFLOW&#160;<br/>
+FRXCP_E_RX_INVALID_L&#160;0x06&#160;&#160;The&#160;received&#160;pdu&#160;has&#160;an&#160;illegal&#160;length.&#160;<br/>ENGTH&#160;<br/>
+Table&#160;6-6&#160;&#160;&#160;&#160;Development&#160;Error&#160;Detection&#160;Codes&#160;of&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+<b>6.7&#160;</b><br/>
+<b>Diagnostic&#160;Event&#160;Manager&#160;</b><br/>
+The&#160;DEM is not&#160;used&#160;by&#160;the&#160;XCP.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-34_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>7&#160;&#160;Extensions&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;extensions&#160;&#160;of&#160;&#160;the&#160;&#160;XCP&#160;&#160;on&#160;&#160;FlexRay&#160;&#160;software&#160;&#160;specifications&#160;&#160;are&#160;&#160;available&#160;<br/>within&#160;the&#160;FlexRay&#160;embedded&#160;software&#160;components.&#160;If&#160;required,&#160;the&#160;extensions&#160;have&#160;to&#160;be&#160;<br/>enabled&#160;during&#160;configuration:&#160;<br/>None.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-35_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>8&#160;&#160;Known&#160;Issues/&#160;Limitations&#160;</b><br/>
+<b>8.1&#160;</b><br/>
+<b>Reconfig LPDU&#160;</b><br/>
+Reconfiguration&#160;of&#160;LPDUs is currently&#160;not&#160;supported.&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_6.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_7.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-36_8.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>9&#160;&#160;Icons&#160;</b><br/>
+<b>Caution&#160;<br/></b>This&#160;symbol&#160;calls&#160;your&#160;attention&#160;to warnings.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Info</b>&#160;<br/>Here&#160;you&#160;can&#160;obtain supplemental&#160;information.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Practical&#160;Procedure</b>&#160;<br/>Step-by-step&#160;instructions&#160;provide&#160;assistance&#160;at&#160;these&#160;points.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Example</b>&#160;<br/>Here&#160;is&#160;an&#160;example that&#160;has&#160;been&#160;prepared&#160;for&#160;you.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Edit</b>&#160;<br/>Instructions&#160;on&#160;editing&#160;files are&#160;found&#160;at&#160;these points<b>.</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Do not&#160;edit&#160;manually</b>&#160;<br/>This&#160;symbol&#160;warns&#160;you&#160;not&#160;to edit&#160;the&#160;specified&#160;file<b>.</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>FAQ</b>&#160;<br/>In&#160;this&#160;area&#160;you&#160;can&#160;get&#160;answers&#160;to&#160;frequently&#160;asked&#160;questions<b>.</b>&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/></b>&#160;<br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrXcp-37_1.png"/><br/>
+Technical Reference&#160;XCP&#160;on&#160;FlexRay&#160;<br/>
+&#160;<br/>
+<b>10&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our&#160;website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/>&gt;&#160; &#160;News&#160;<br/>&gt;&#160; &#160;Products&#160;<br/>&gt;&#160; &#160;Demo&#160;software&#160;<br/>&gt;&#160; &#160;Support&#160;<br/>&gt;&#160; &#160;Training&#160;data&#160;<br/>&gt;&#160; &#160;Addresses&#160;<br/>&#160;<br/><b>www.vector-informatik.com&#160;</b><br/>
+2016,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.13.00&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#2">1 Document Information</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#2">1.1 History</a></li>
+<li><a href="TechnicalReference_FrXcps.html#2">1.2 Reference Documents</a></li>
+<li><a href="TechnicalReference_FrXcps.html#3">1.3 Scope of this document</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#8">2 Overview</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#8">2.1 Abbreviations and Items</a></li>
+<li><a href="TechnicalReference_FrXcps.html#9">2.2 Naming Conventions</a></li>
+<li><a href="TechnicalReference_FrXcps.html#9">2.3 Architecture Overview</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#9">2.3.1 XCP Architecture</a></li>
+<li><a href="TechnicalReference_FrXcps.html#11">2.3.2 &#160;Detailed Architecture of XCP</a></li>
+<li><a href="TechnicalReference_FrXcps.html#11">2.3.3 Include structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#12">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#12">3.1 Overview of the Functional Scope</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#13">4 Integration into the Application</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#13">4.1 XCP Transport Layer Files</a></li>
+<li><a href="TechnicalReference_FrXcps.html#14">4.2 Auxiliary Files</a></li>
+<li><a href="TechnicalReference_FrXcps.html#14">4.3 Version Changes</a></li>
+<li><a href="TechnicalReference_FrXcps.html#14">4.4 Initialization</a></li>
+<li><a href="TechnicalReference_FrXcps.html#14">4.5 Main Functions</a></li>
+<li><a href="TechnicalReference_FrXcps.html#14">4.6 Critical Sections</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#15">4.6.1 FRXCP_EXCLUSIVE_AREA_0</a></li>
+<li><a href="TechnicalReference_FrXcps.html#15">4.6.2 FRXCP_EXCLUSIVE_AREA_1</a></li>
+<li><a href="TechnicalReference_FrXcps.html#15">4.6.3 FRXCP_EXCLUSIVE_AREA_2</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#15">4.7 PDU Mode</a></li>
+<li><a href="TechnicalReference_FrXcps.html#15">4.8 PDUs</a></li>
+<li><a href="TechnicalReference_FrXcps.html#16">4.9 Initialized Memory</a></li>
+<li><a href="TechnicalReference_FrXcps.html#16">4.10 Memory Mapping</a></li>
+<li><a href="TechnicalReference_FrXcps.html#16">4.11 Activation Macros</a></li>
+<li><a href="TechnicalReference_FrXcps.html#16">4.12 Integration Notes</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#16">4.12.1 Alignment</a></li>
+<li><a href="TechnicalReference_FrXcps.html#17">4.12.2 CANape Buffer ID</a></li>
+<li><a href="TechnicalReference_FrXcps.html#17">4.12.3 Resume Mode</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#17">4.12.3.1 Store FrXcp data to NVM</a></li>
+<li><a href="TechnicalReference_FrXcps.html#18">4.12.3.2 Restore FrXcp data from NVM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#19">5 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#19">5.1 A2L File</a></li>
+<li><a href="TechnicalReference_FrXcps.html#19">5.2 Manual Configuration</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#19">5.2.1 Pre-Compile Configuration</a></li>
+<li><a href="TechnicalReference_FrXcps.html#20">5.2.2 Link Time &amp; Post Build Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#23">6 Description of the API</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#23">6.1 Data Types</a></li>
+<li><a href="TechnicalReference_FrXcps.html#23">6.2 Global Variables</a></li>
+<li><a href="TechnicalReference_FrXcps.html#23">6.3 Global Constants</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#23">6.3.1 Component Versions</a></li>
+<li><a href="TechnicalReference_FrXcps.html#23">6.3.2 Vendor ID</a></li>
+<li><a href="TechnicalReference_FrXcps.html#24">6.3.3 Module ID</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#24">6.4 Services provided by XCP on FlexRay</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#24">6.4.1 Administrative Functions</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#24">6.4.1.1 FrXcp_Init: Initialization of XCP on FlexRay</a></li>
+<li><a href="TechnicalReference_FrXcps.html#24">6.4.1.2 FrXcp_MainFunctionRx: Main Function of XCP Transport Layer</a></li>
+<li><a href="TechnicalReference_FrXcps.html#25">6.4.1.3 FrXcp_MainFunctionTx: Main Function of XCP Transport Layer</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#26">6.4.2 Service Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#26">6.4.2.1 FrXcp_TriggerTransmit: Call back for transmission of L-PDU</a></li>
+<li><a href="TechnicalReference_FrXcps.html#26">6.4.2.2 FrXcp_TxConfirmation: Call back for transmission confirmation of L-PDU</a></li>
+<li><a href="TechnicalReference_FrXcps.html#27">6.4.2.3 FrXcp_RxIndication: Call back for reception of L-PDU</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#28">6.4.3 Service Functions</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#28">6.4.3.1 FrXcp_TLService: Handles Transport Layer Command</a></li>
+<li><a href="TechnicalReference_FrXcps.html#29">6.4.3.2 FrXcp_Send: Transmission of CTO or DTO</a></li>
+<li><a href="TechnicalReference_FrXcps.html#29">6.4.3.3 FrXcp_SendFlush: Finish pending frames</a></li>
+<li><a href="TechnicalReference_FrXcps.html#30">6.4.3.4 FrXcp_SetPduMode: Enable/Disable transmission</a></li>
+<li><a href="TechnicalReference_FrXcps.html#30">6.4.3.5 FrXcp_GetVersionInfo: Get Version Information</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#31">6.4.4 Macros</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#31">6.4.4.1 XCP_ACTIVATE: Enable the Protocol and Transport Layer</a></li>
+<li><a href="TechnicalReference_FrXcps.html#32">6.4.4.2 XCP_DEACTIVATE: Disable the Protocol and Transport Layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#32">6.5 Services used by XCP on FlexRay</a></li>
+<li><a href="TechnicalReference_FrXcps.html#33">6.6 Development Error Tracer</a></li>
+<li><a href="TechnicalReference_FrXcps.html#33">6.7 Diagnostic Event Manager</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#34">7 Extensions</a></li>
+<li><a href="TechnicalReference_FrXcps.html#35">8 Known Issues/ Limitations</a>
+<ul>
+<li><a href="TechnicalReference_FrXcps.html#35">8.1 Reconfig LPDU</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrXcps.html#36">9 Icons</a></li>
+<li><a href="TechnicalReference_FrXcps.html#37">10 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

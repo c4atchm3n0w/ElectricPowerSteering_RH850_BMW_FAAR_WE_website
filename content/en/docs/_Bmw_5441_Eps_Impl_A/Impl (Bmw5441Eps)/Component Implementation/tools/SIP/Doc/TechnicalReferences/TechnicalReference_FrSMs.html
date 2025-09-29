@@ -1,0 +1,1403 @@
+---
+title: TechnicalReference_FrSMs
+linkTitle: TechnicalReference_FrSMs
+weight: 236
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR FlexRay&#160;State Manager&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.2.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Mark&#160;A.&#160;Fingerle&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Mark&#160;A.&#160;Fingerle&#160;<br/>
+2012-08-08&#160;<br/>
+1.0.0&#160;<br/>
+Creation&#160;from&#160;scratch&#160;<br/>
+Mark&#160;A.&#160;Fingerle&#160;<br/>
+2014-10-13&#160;<br/>
+1.1.0&#160;<br/>
+ESCAN00076761&#160;Post-Build Selectable&#160;&#160;<br/>(Identity&#160;Manager)&#160;support<a href="TechnicalReference_FrSMs.html#29">&#160;6.1.3&#160;<br/></a>ESCAN00075457&#160;Add&#160;support&#160;for&#160;delayed&#160;<br/>FlexRay&#160;communication&#160;cluster&#160;shutdown&#160;<br/><a href="TechnicalReference_FrSMs.html#14">3.3.8,&#160;</a><a href="TechnicalReference_FrSMs.html#29">6.2.5&#160;<br/></a>ESCAN00079339&#160;Description&#160;BCD-coded&#160;<br/>return-value&#160;of&#160;GetVersionInfo()&#160;<br/>
+Mark&#160;A.&#160;Fingerle&#160;<br/>
+2016-05-13&#160;<br/>
+1.2.0&#160;<br/>
+Add&#160;missing&#160;API<a href="TechnicalReference_FrSMs.html#26">&#160;5.2.8&#160;<br/>FrSM_SetEcuPassive&#160;<br/></a>FEAT-2724&#160;Handle several&#160;FlexRay&#160;<br/>clusters<a href="TechnicalReference_FrSMs.html#9">&#160;Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;<br/>standard&#160;conform&#160;features,&#160;Table&#160;3-2&#160;&#160;&#160;Not&#160;<br/>supported&#160;AUTOSAR&#160;standard&#160;conform&#160;<br/>features&#160;</a><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+Specification&#160;of&#160;FlexRay&#160;State&#160;Manager&#160;<br/>
+2.2.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+Specification&#160;of&#160;Development&#160;Error&#160;Tracer&#160;<br/>
+3.2.0&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+Specification&#160;of&#160;Diagnostics&#160;Event&#160;Manager&#160;<br/>
+4.2.0&#160;<br/>
+[4]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+List&#160;of&#160;Basic&#160;Software&#160;Modules&#160;<br/>
+1.6.0&#160;<br/>
+[5]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+Specification&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+3.3.0&#160;<br/>
+[6]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+Specification&#160;of&#160;Communication Manager&#160;<br/>
+4.0.0&#160;<br/>
+[7]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+Specification&#160;of&#160;Basic&#160;Software&#160;Mode Manager&#160;<br/>
+1.2.0&#160;<br/>
+<b>Scope&#160;of&#160;the&#160;Document&#160;</b><br/>
+This&#160;&#160;technical&#160;&#160;reference&#160;&#160;describes&#160;&#160;the&#160;&#160;general&#160;&#160;use&#160;&#160;of&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;State&#160;&#160;Manager&#160;&#160;basis&#160;<br/>software.&#160;All&#160;aspects&#160;which&#160;are&#160;FlexRay&#160;controller&#160;specific&#160;are&#160;described&#160;in&#160;&#160;the&#160;technical&#160;<br/>reference&#160;of&#160;the&#160;FlexRay&#160;Interface,&#160;which&#160;is also&#160;part&#160;of&#160;the&#160;delivery.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector’s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_FrSMs.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#7">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;9</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9">Features&#160;............................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#10">3.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#10">Initialization&#160;......................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#11">3.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#11">State&#160;Machine&#160;..................................................................................................&#160;11&#160;<br/></a><a href="TechnicalReference_FrSMs.html#12">3.3.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#12">Meta&#160;States&#160;FullCom&#160;/&#160;NoCom&#160;.........................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#12">3.3.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#12">FRSM_INITIAL&#160;.................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#12">3.3.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#12">FRSM_STARTUP&#160;/&#160;FRSM_WAKEUP&#160;/&#160;FRSM_READY&#160;...................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#13">3.3.4&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#13">FRSM_WAKEUP,&#160;Send&#160;Multiple&#160;Wake-Up Pattern&#160;...........................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#13">3.3.5&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#13">FRSM_STATE_ONLINE&#160;...................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">3.3.6&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">FRSM_KEY_SLOT_ONLY&#160;...............................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">3.3.7&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">FRSM_STATE_ONLINE_PASSIVE&#160;..................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">3.3.8&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">FRSM_STATE_HALT_REQ&#160;.............................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">3.3.9&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#14">Startup&#160;Monitoring&#160;(FRSM_STARTUP&#160;/&#160;FRSM_WAKEUP&#160;/&#160;<br/>FRSM_STATE_HALT_REQ)&#160;............................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">3.4&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">Main Functions&#160;................................................................................................&#160;15&#160;<br/>3.4.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">Communication&#160;Modes&#160;....................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">3.4.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">Communication&#160;Mode Polling&#160;...........................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">3.5&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">Error&#160;Handling&#160;..................................................................................................&#160;15&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#15">Development&#160;Error&#160;Reporting&#160;...........................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#16">3.5.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#16">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18"><b>Integration&#160;...................................................................................................................&#160;18</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Scope of&#160;Delivery&#160;.............................................................................................&#160;18&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Static Files&#160;.......................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Dynamic&#160;Files&#160;..................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#19">4.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#19">Include Structure&#160;..............................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#19">4.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#19">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;.....................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#20">4.4&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#20">Critical&#160;Sections&#160;...............................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#22"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#22"><b>API&#160;Description&#160;...........................................................................................................&#160;22</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#22">Type&#160;Definitions&#160;...............................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">5.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">Services Provided by&#160;FrSM&#160;..............................................................................&#160;23&#160;<br/>5.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">FrSM_InitMemory&#160;............................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">5.2.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">FrSM_Init&#160;.........................................................................................&#160;23&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<a href="TechnicalReference_FrSMs.html#24">5.2.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">FrSM_MainFunction_&lt;Cluster&#160;Id&gt;&#160;....................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">5.2.4&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">FrSM_RequestComMode.................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">5.2.5&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">FrSM_GetCurrentComMode&#160;............................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">5.2.6&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">FrSM_GetVersionInfo&#160;.......................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">5.2.7&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">FrSM_AllSlots&#160;..................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">5.2.8&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">FrSM_SetEcuPassive&#160;......................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#27">5.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#27">Services Used by&#160;FrSM&#160;...................................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29"><b>AUTOSAR&#160;Standard&#160;Compliance...............................................................................&#160;29</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Additions/&#160;Extensions&#160;.......................................................................................&#160;29&#160;<br/>6.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">API&#160;FrSM_InitMemory()&#160;...................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Configuration&#160;Options&#160;......................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.1.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Post-Build Selectable (Identity&#160;Manager)&#160;.........................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Limitations........................................................................................................&#160;29&#160;<br/>6.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Controllers&#160;.......................................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.2.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Shy&#160;of&#160;Coldstarter&#160;............................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.2.3&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Configuration Class&#160;..........................................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.2.4&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">No Dual&#160;Channel&#160;Wake-up&#160;Echo&#160;......................................................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">6.2.5&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#29">Delayed&#160;FlexRay&#160;transceiver&#160;deactivation at&#160;Shutdown&#160;...................&#160;29&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;30</b>&#160;<br/>7.1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30">Glossary&#160;..........................................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30">7.2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30">Abbreviations&#160;...................................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#32"><b>8</b>&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#32"><b>Contact&#160;........................................................................................................................&#160;32</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_FrSMs.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#7">AUTOSAR&#160;architecture&#160;...............................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#8">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#8">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;FrSM&#160;................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#11">Figure&#160;3-1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#11">State&#160;machine&#160;of&#160;the&#160;FrSM&#160;.......................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#19">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#19">Include structure&#160;.......................................................................................&#160;19&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_FrSMs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#6">Component&#160;History&#160;.....................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.......................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#9">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#10">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#10">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#16">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#16">Service IDs&#160;...............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#16">Table&#160;3-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#16">Errors&#160;reported&#160;to Det&#160;...............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#17">Table&#160;3-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#17">Errors&#160;reported&#160;to Dem&#160;.............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Static&#160;files&#160;.................................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#18">Generated&#160;files&#160;.........................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#20">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#20">Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;..............................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">Type&#160;definitions&#160;.........................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#23">FrSM_InitMemory&#160;.....................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">FrSM_Init&#160;..................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#24">FrSM_MainFunction_&lt;Cluster&#160;Id&gt;&#160;............................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">FrSM_RequestComMode&#160;.........................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#25">FrSM_GetCurrentComMode&#160;.....................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">FrSM_GetVersionInfo&#160;...............................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#26">FrSM_AllSlots&#160;...........................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#27">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#27">FrSM_SetEcuPassive&#160;...............................................................................&#160;27&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#28">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#28">Services used by&#160;the&#160;FrSM&#160;.......................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#30">Glossary&#160;...................................................................................................&#160;30&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#31">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrSMs.html#31">Abbreviations&#160;............................................................................................&#160;31&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.0.0&#160;<br/>
+Creation&#160;according&#160;to&#160;AUTOSAR&#160;4.0.3&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;History&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-7_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;FrSM&#160;as&#160;specified&#160;in&#160;[1].&#160;&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_FrSMs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile,&#160;Post-Build Selectable&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+FRSM_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+FRSM_MODULE_ID &#160;&#160;<br/>
+142&#160;decimal&#160;<br/>(according&#160;to ref.&#160;[4])&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>The&#160;FlexRay&#160;State&#160;Manager&#160;(FrSM)&#160;realizes&#160;a&#160;software&#160;layer&#160;between&#160;the&#160;Communication&#160;<br/>Manager&#160;&#160;(ComM)&#160;&#160;and&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;Interface&#160;&#160;(FrIf).&#160;&#160;The&#160;&#160;FrSM&#160;&#160;handles&#160;&#160;the&#160;&#160;startup&#160;&#160;and&#160;<br/>shutdown&#160;of&#160;the&#160;communication&#160;of&#160;a&#160;FlexRay&#160;cluster.&#160;The&#160;FrSM&#160;maps&#160;the&#160;FrIf&#160;states&#160;to&#160;the&#160;<br/>states&#160;&#160;of&#160;&#160;the&#160;&#160;ComM&#160;and&#160;&#160;causes&#160;&#160;the&#160;necessary&#160;&#160;actions&#160;&#160;to&#160;&#160;change&#160;&#160;the&#160;&#160;FrIf&#160;&#160;state&#160;to&#160;these&#160;<br/>requested&#160;&#160;by&#160;&#160;the&#160;&#160;ComM.&#160;&#160;The&#160;&#160;main&#160;&#160;function&#160;&#160;of&#160;&#160;the&#160;&#160;FrSM&#160;&#160;is&#160;&#160;cyclically&#160;&#160;called&#160;&#160;by&#160;&#160;the&#160;<br/>Schedule&#160;Manager (SchM).&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;FrSM&#160;is&#160;located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;architecture&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+The&#160;next&#160;&#160;figure&#160;&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;&#160;FrSM.&#160;&#160;These&#160;interfaces&#160;<br/>are described&#160;in&#160;chapte<a href="TechnicalReference_FrSMs.html#22">r&#160;5.</a>&#160;<br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;FrSM&#160;<br/>
+Applications do&#160;not&#160;access the&#160;services&#160;of&#160;the&#160;BSW&#160;modules&#160;directly.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>FrSM.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;in&#160;&#160;[1],&#160;&#160;the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_FrSMs.html#9">Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_FrSMs.html#9">Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR standard conform&#160;features&#160;</a><br/>
+For further information&#160;of&#160;not&#160;supported&#160;features see&#160;also&#160;chapte<a href="TechnicalReference_FrSMs.html#29">r&#160;6.</a>&#160;<br/>Vector&#160;Informatik&#160;provides&#160;further&#160;FrSM&#160;functionality&#160;beyond&#160;the&#160;AUTOSAR&#160;standard.&#160;The&#160;<br/>corresponding&#160;features&#160;are&#160;listed&#160;in&#160;the&#160;table&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_FrSMs.html#10">Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR standard&#160;</a><br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;supported:&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>Translation of&#160;network&#160;communication&#160;mode&#160;requests&#160;<br/>Output&#160;of&#160;current&#160;network&#160;communication&#160;modes&#160;(Polling&#160;and Callback)&#160;<br/>Control&#160;of&#160;peripherals&#160;(Fr&#160;Transceivers,&#160;Fr&#160;Controllers)&#160;<br/>Handle the&#160;Network&#160;mode via a&#160;separate state&#160;machine&#160;per&#160;network&#160;<br/>Error&#160;classification,&#160;detection&#160;and&#160;notification&#160;<br/>Handle several&#160;FlexRay&#160;clusters&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in&#160;[1]&#160;are&#160;not&#160;supported:&#160;&#160;<br/>
+<b>Category&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>ASR&#160;<br/>Version&#160;</b><br/>
+Functional&#160;<br/>
+Several&#160;controllers&#160;per&#160;cluster.&#160;<br/>
+4.0.3&#160;<br/>
+Functional&#160;<br/>
+Low&#160;number&#160;of&#160;coldstarters&#160;neither&#160;detection&#160;nor&#160;handling&#160;<br/>
+4.0.3&#160;<br/>
+Config&#160;<br/>
+Change networks&#160;and&#160;controllers&#160;via Post-build configuration.&#160;<br/>
+4.0.3&#160;<br/>
+Config&#160;<br/>
+Configuration variant&#160;“link-time”.&#160;<br/>
+4.0.3&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;are&#160;provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided Beyond The&#160;AUTOSAR&#160;Standard&#160;<br/></b>It’s&#160;possible&#160;to deactivate&#160;the&#160;Dem&#160;at&#160;pre-compile time,&#160;like&#160;Det.&#160;<br/>MICROSAR&#160;Identity&#160;Manager&#160;using&#160;Post-Build Selectable&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+Some&#160;variables&#160;need&#160;a&#160;default&#160;value&#160;even&#160;before&#160;the&#160;initialization&#160;function&#160;will&#160;be&#160;called.&#160;<br/>The&#160;&#160;initialization&#160;&#160;of&#160;&#160;these&#160;&#160;variables&#160;&#160;is&#160;&#160;usually&#160;&#160;done&#160;&#160;by&#160;&#160;the&#160;&#160;startup&#160;&#160;code&#160;&#160;of&#160;&#160;the&#160;&#160;ECU.&#160;<br/>Otherwise&#160;&#160;the&#160;&#160;FrSM_InitMemory&#160;&#160;function&#160;&#160;has&#160;&#160;to&#160;&#160;be&#160;&#160;called&#160;&#160;before&#160;&#160;the&#160;&#160;initialization&#160;<br/>function.&#160;Then&#160;the&#160;initialization&#160;function&#160;of&#160;the&#160;FrSM&#160;has&#160;to&#160;be&#160;called.&#160;The&#160;FrSM&#160;gets&#160;the&#160;<br/>configuration&#160;data&#160;of&#160;the&#160;current&#160;system&#160;like&#160;the&#160;number&#160;of&#160;available&#160;clusters&#160;and&#160;an&#160;own&#160;<br/>configuration&#160;record&#160;per&#160;cluster.&#160;If&#160;the&#160;development&#160;error&#160;detection&#160;is&#160;activated&#160;the&#160;FrSM&#160;<br/>handles&#160;several&#160;validity&#160;checks&#160;at&#160;the&#160;configuration&#160;data.&#160;Then&#160;the&#160;internal&#160;variables&#160;of&#160;the&#160;<br/>state&#160;machine&#160;are set&#160;to&#160;their&#160;start values.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>State&#160;Machine&#160;</b><br/>
+<b>stm&#160;FrSM&#160;StateMachine</b><br/>
+<b>FrSM</b><br/>
+[TrcvCtrl]<br/>
+Set&#160;transceivers&#160;to&#160;<br/>
+FrSM_SetEcuPassive(TRUE)<br/>
+<b>FRSM_ECU_ACTIVE</b><br/>
+<b>FRSM_ECU_PASSIVE</b><br/>
+RECEIVE_ONLY&#160;<br/>
+FrSM_SetEcuPassive(FALSE)<br/>
+instead&#160;of&#160;NORMAL<br/>
+Initial<br/>
+[CcCtrl]<br/>
+<b>NoCom</b><br/>
+Initial<br/>
+<b>FRSM_READY</b><br/>
+<b>FRSM_HALT_REQ</b><br/>
+T00<br/>
+T11<br/>
+T02<br/>
+T01&#160;a,b,c<br/>
+a,b<br/>
+<b>Startup&#160;monitoring</b><br/>
+<b>StartUpProcessing</b><br/>
+T04<br/>
+T12<br/>
+a,b<br/>
+T06<br/>
+T103<br/>
+T13<br/>
+<b>FRSM_STARTUP</b><br/>
+T03&#160;a,b,c,d,e<br/>
+<b>FRSM_WAKEUP</b><br/>
+T05<br/>
+T17<br/>
+T08<br/>
+T108<br/>
+<b>FRSM_ONLINE_PASSIVE</b><br/>
+Junction<br/>
+T14<br/>
+Junction<br/>
+T20<br/>
+Junction<br/>
+a;b;c<br/>
+T15<br/>
+T115<br/>
+Junction<br/>
+T20&#160;a;<br/>
+T31;<br/>
+T30<br/>
+b;c<br/>
+T32;T33<br/>
+T16b<br/>
+T10b<br/>
+T09b<br/>
+<b>FRSM_KEYSLOT_ONLY</b><br/>
+T16a<br/>
+T20<br/>
+T10a<br/>
+T101<br/>
+a;b;c<br/>
+T09a<br/>
+<b>FullCom</b><br/>
+<b>FRSM_ONLINE</b><br/>
+T40<br/>
+T41<br/>
+<b>FRSM_LOW_NUMBER_OF_COLDSTARTERS</b><br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;3-1&#160;&#160;State&#160;machine&#160;of&#160;the&#160;FrSM&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>3.3.1&#160;</b><br/>
+<b>Meta&#160;States&#160;FullCom&#160;/&#160;NoCom&#160;</b><br/>
+In&#160;the&#160;FullCom&#160;state&#160;the&#160;network&#160;is&#160;started&#160;and&#160;communication&#160;works&#160;well.&#160;In&#160;the&#160;NoCom&#160;<br/>state&#160;&#160;the&#160;&#160;network&#160;&#160;isn’t&#160;&#160;started&#160;&#160;or&#160;&#160;the&#160;&#160;communication&#160;&#160;controller&#160;&#160;may&#160;&#160;have&#160;&#160;detected&#160;&#160;some&#160;<br/>errors.&#160;The&#160;ComM&#160;is informed&#160;at&#160;each&#160;time&#160;the&#160;Meta&#160;state&#160;changes.&#160;<br/>
+<b>3.3.2&#160;</b><br/>
+<b>FRSM_INITIAL&#160;</b><br/>
+When&#160;&#160;the&#160;&#160;ECU&#160;&#160;is&#160;&#160;powered&#160;&#160;on&#160;&#160;the&#160;&#160;initialization&#160;&#160;function&#160;&#160;of&#160;&#160;the&#160;&#160;FrSM&#160;&#160;is&#160;&#160;called.&#160;&#160;The&#160;<br/>initialization&#160;function&#160;sets&#160;the&#160;variables&#160;to&#160;the&#160;default&#160;value,&#160;maps&#160;the&#160;configuration&#160;data&#160;to&#160;<br/>the&#160;local&#160;handle&#160;and&#160;Initializes&#160;the&#160;FlexRay&#160;controllers&#160;for&#160;all&#160;clusters&#160;of&#160;the&#160;configuration.&#160;<br/>The&#160;&#160;state&#160;&#160;of&#160;&#160;the&#160;&#160;FrSM&#160;&#160;is&#160;&#160;now&#160;&#160;FRSM_READY.&#160;After&#160;&#160;initialization&#160;&#160;the&#160;API&#160;&#160;of&#160;&#160;the&#160;&#160;FrSM&#160;&#160;are&#160;<br/>ready&#160;for use.&#160;<br/>
+<b>3.3.3&#160;</b><br/>
+<b>FRSM_STARTUP&#160;/&#160;FRSM_WAKEUP&#160;/&#160;FRSM_READY&#160;</b><br/>
+If&#160;the&#160;FrSM&#160;receives&#160;a&#160;full&#160;communication&#160;request&#160;it&#160;sets&#160;the&#160;transceiver&#160;in&#160;&#160;normal&#160;mode&#160;<br/>(T01&#160;or&#160;T02) and&#160;starts&#160;the&#160;FlexRay&#160;communication&#160;(T03&#160;or&#160;T02).&#160;Before the&#160;FrSM triggers&#160;<br/>the&#160;transition&#160;T01&#160;it&#160;detects&#160;the&#160;wake-up&#160;reason.&#160;In&#160;case&#160;the&#160;ECU&#160;was&#160;woken&#160;up&#160;by&#160;bus&#160;<br/>(wake-up&#160;&#160;has&#160;&#160;been&#160;&#160;detected&#160;&#160;for&#160;&#160;all&#160;&#160;of&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;channels&#160;&#160;of&#160;&#160;the&#160;&#160;cluster&#160;&#160;to&#160;&#160;which&#160;&#160;the&#160;<br/>ECU&#160;&#160;is&#160;&#160;connected)&#160;&#160;the&#160;&#160;bus&#160;&#160;is&#160;&#160;already&#160;&#160;awake&#160;&#160;and&#160;&#160;the&#160;&#160;execution&#160;&#160;of&#160;&#160;the&#160;&#160;channel&#160;&#160;wake-up&#160;<br/>isn’t&#160;needed.&#160;In&#160;that&#160;case&#160;the&#160;FrSM&#160;executes&#160;the&#160;transition&#160;T02&#160;instead&#160;T01&#160;even&#160;the&#160;ECU&#160;<br/>is&#160;configured&#160;as&#160;wake-up&#160;node.&#160;Depending&#160;on&#160;the&#160;configuration&#160;a&#160;channel&#160;wake-up&#160;(T01)&#160;<br/>and&#160;&#160;a&#160;&#160;cold&#160;&#160;start&#160;&#160;process&#160;&#160;(T02&#160;&#160;or&#160;&#160;T04)&#160;&#160;is&#160;&#160;initiated&#160;&#160;too.&#160;&#160;The&#160;&#160;transition&#160;&#160;ends&#160;&#160;in&#160;&#160;state&#160;<br/>FRSM_STARTUP.&#160;Now&#160;the&#160;startup&#160;of&#160;the&#160;controller should&#160;be&#160;succeeded&#160;and&#160;the&#160;FrSM sets&#160;<br/>the&#160;FlexRay&#160;Interface&#160;to&#160;ONLINE,&#160;triggers&#160;a&#160;Dem&#160;status&#160;passed&#160;and&#160;updates&#160;the&#160;internal&#160;<br/>state&#160;to&#160;FRSM_ONLINE&#160;(T08).&#160;<br/>
+If&#160;&#160;the&#160;&#160;ECU&#160;&#160;is&#160;&#160;connected&#160;&#160;to&#160;&#160;both&#160;&#160;FlexRay&#160;&#160;channels&#160;&#160;of&#160;&#160;the&#160;&#160;cluster&#160;&#160;and&#160;&#160;T01&#160;&#160;becomes&#160;<br/>executed&#160;&#160;(see&#160;&#160;above)&#160;&#160;the&#160;&#160;function&#160;&#160;FrIf_SetWakeupChannel&#160;&#160;is&#160;&#160;always&#160;&#160;called&#160;&#160;before&#160;<br/>FrIf_SendWUP.&#160;&#160;In&#160;&#160;case&#160;&#160;no&#160;&#160;wake-up&#160;&#160;has&#160;&#160;been&#160;&#160;detected&#160;&#160;the&#160;&#160;wake-up&#160;&#160;channel&#160;&#160;is&#160;&#160;set&#160;&#160;to&#160;<br/>CHANNEL_A&#160;otherwise&#160;to&#160;the&#160;channel&#160;on&#160;which&#160;no&#160;wake-up&#160;has&#160;been&#160;detected.&#160;<br/>
+If&#160;&#160;the&#160;&#160;configuration&#160;&#160;parameter&#160;&#160;FrSMDelayStartupWithoutWakeup&#160;&#160;is&#160;&#160;activated&#160;&#160;the&#160;<br/>“allow&#160;cold&#160;start”&#160;in&#160;transition&#160;T02&#160;is&#160;skipped&#160;and&#160;the&#160;timer&#160;t1&#160;is&#160;started.&#160;So&#160;the&#160;first&#160;“allow&#160;<br/>cold&#160;&#160;start”&#160;&#160;attempt&#160;&#160;is&#160;&#160;delayed&#160;&#160;by&#160;&#160;“Duration&#160;&#160;T1”&#160;&#160;until&#160;&#160;the&#160;&#160;transition&#160;&#160;T04&#160;&#160;is&#160;&#160;executed.&#160;&#160;If&#160;<br/>“Duration&#160;T1” is configured&#160;to&#160;zero there will&#160;be&#160;also&#160;no&#160;difference&#160;to&#160;the&#160;“normal”&#160;behavior.&#160;<br/>
+If&#160;&#160;the&#160;&#160;communication&#160;&#160;controller&#160;&#160;has&#160;&#160;not&#160;&#160;reached&#160;&#160;normal&#160;&#160;active&#160;&#160;during&#160;&#160;the&#160;&#160;time&#160;<br/>Duration&#160;T2&#160;the&#160;wake-up&#160;process&#160;is&#160;repeated.&#160;The&#160;wake-up&#160;might&#160;be&#160;repeated&#160;as&#160;often&#160;<br/>as&#160;specified&#160;in&#160;FrSMStartupRepetitionsWithWakeup,&#160;of&#160;course&#160;only&#160;if&#160;the&#160;CC&#160;state&#160;<br/>isn’t&#160;&#160;“Normal&#160;&#160;Active”&#160;&#160;and&#160;&#160;still&#160;&#160;full&#160;&#160;communication&#160;&#160;is&#160;&#160;requested.&#160;&#160;The&#160;&#160;wake-up&#160;&#160;process&#160;<br/>includes&#160;&#160;the&#160;&#160;initialization&#160;&#160;of&#160;&#160;the&#160;&#160;controller,&#160;&#160;the&#160;&#160;channel&#160;&#160;wake-up&#160;&#160;(T05),&#160;&#160;the&#160;&#160;start&#160;&#160;of&#160;&#160;the&#160;<br/>FlexRay&#160;communication&#160;(T03)&#160;and&#160;if&#160;configured&#160;a&#160;cold&#160;start&#160;(T04).&#160;The&#160;wake-up&#160;repetition&#160;<br/>also&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;&#160;wake-up&#160;&#160;reason.&#160;&#160;In&#160;&#160;case&#160;&#160;the&#160;&#160;ECU&#160;&#160;was&#160;&#160;woken&#160;&#160;up&#160;&#160;by&#160;&#160;bus&#160;&#160;(passive&#160;<br/>wake-up) the&#160;bus&#160;is already&#160;awake&#160;and&#160;the&#160;execution&#160;of&#160;the&#160;channel&#160;wake-up&#160;isn’t needed.&#160;<br/>In&#160;&#160;that&#160;&#160;case&#160;&#160;the&#160;&#160;FrSM&#160;&#160;acts&#160;&#160;like&#160;&#160;the&#160;&#160;option&#160;&#160;FrSMIsWakeupEcu&#160;&#160;is&#160;&#160;deactivated&#160;&#160;and&#160;<br/>executes the&#160;transition&#160;T06&#160;instead&#160;T05.&#160;<br/>
+If&#160;all&#160;specified&#160;FrSMStartupRepetitionsWithWakeup&#160;have&#160;been&#160;executed,&#160;the&#160;startup&#160;<br/>repetitions&#160;without&#160;a&#160;wake-up&#160;follow.&#160;The&#160;number&#160;FrSMStartupRepetitions&#160;includes&#160;<br/>all&#160;repetitions as&#160;well&#160;the&#160;startup&#160;with&#160;and&#160;without&#160;a&#160;wake-up.&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-13_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+The&#160;&#160;startup&#160;&#160;repetitions&#160;&#160;without&#160;&#160;a&#160;&#160;wake-up&#160;&#160;(T06)&#160;&#160;might&#160;&#160;be&#160;&#160;repeated&#160;&#160;as&#160;&#160;many&#160;&#160;times&#160;&#160;as&#160;<br/>specified&#160;<br/>
+in&#160;<br/>
+the&#160;<br/>
+FrSMStartupRepetitions&#160;<br/>
+less&#160;<br/>
+the&#160;<br/>
+FrSMStartupRepetitionsWithWakeup&#160;&#160;(which&#160;&#160;has&#160;&#160;been&#160;&#160;already&#160;&#160;performed).&#160;&#160;Of&#160;<br/>course&#160;&#160;the&#160;&#160;transition&#160;&#160;T06&#160;&#160;will&#160;&#160;be&#160;&#160;skipped,&#160;&#160;if&#160;&#160;the&#160;&#160;CC&#160;&#160;state&#160;&#160;is&#160;&#160;NORMAL_ACTIVE&#160;&#160;or&#160;<br/>COMM_NO_COMMUNICATION&#160;&#160;is&#160;&#160;requested.&#160;&#160;If&#160;&#160;all&#160;&#160;specified&#160;&#160;Startup&#160;&#160;Repetitions&#160;&#160;have&#160;<br/>been&#160;&#160;executed&#160;&#160;and&#160;&#160;the&#160;&#160;controller&#160;&#160;is&#160;&#160;still&#160;&#160;not&#160;&#160;active&#160;&#160;the&#160;&#160;FrSM&#160;&#160;stays&#160;&#160;in&#160;&#160;the&#160;&#160;state&#160;<br/>FRSM_STARTUP&#160;and&#160;stops&#160;any&#160;startup&#160;retry.&#160;<br/>
+It’s&#160;&#160;also&#160;&#160;possible&#160;&#160;to&#160;&#160;repeat&#160;&#160;the&#160;&#160;startups&#160;&#160;infinitely.&#160;&#160;This&#160;&#160;happens&#160;&#160;if&#160;&#160;no&#160;&#160;threshold&#160;&#160;of&#160;&#160;the&#160;<br/>corresponding&#160;&#160;value&#160;&#160;has&#160;&#160;been&#160;&#160;configured&#160;&#160;or&#160;&#160;the&#160;&#160;corresponding&#160;&#160;checkbox&#160;&#160;in&#160;&#160;the&#160;<br/>configuration&#160;&#160;tool&#160;&#160;has&#160;&#160;been&#160;&#160;selected.&#160;&#160;If&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;&#160;repetitions&#160;&#160;with&#160;&#160;wake-up&#160;&#160;is&#160;&#160;set&#160;&#160;to&#160;<br/>infinite&#160;the&#160;value&#160;of&#160;the&#160;repetitions&#160;without&#160;wake-up&#160;are&#160;of&#160;course&#160;irrelevant.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>Unlimited&#160;number&#160;of&#160;startup&#160;attempts&#160;could lead&#160;to a&#160;continuous&#160;disturbance of&#160;the&#160;<br/>
+<b>&#160;&#160;</b>FlexRay&#160;communication.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;ComM&#160;may&#160;stop&#160;the&#160;startup&#160;by&#160;requesting&#160;no&#160;communication.&#160;In&#160;this&#160;case&#160;the&#160;FrSM&#160;<br/>sets&#160;&#160;the&#160;&#160;transceiver&#160;&#160;into&#160;&#160;standby,&#160;&#160;enables&#160;&#160;the&#160;&#160;wake-up,&#160;&#160;initializes&#160;&#160;the&#160;&#160;controller&#160;&#160;and&#160;&#160;sets&#160;<br/>the&#160;&#160;internal&#160;&#160;state&#160;&#160;to&#160;&#160;FRSM_READY&#160;&#160;(T12&#160;&#160;or&#160;&#160;T13).&#160;&#160;These&#160;&#160;two&#160;&#160;transitions&#160;&#160;are&#160;&#160;executed&#160;<br/>immediately.&#160;&#160;<br/>
+<b>3.3.4&#160;</b><br/>
+<b>FRSM_WAKEUP,&#160;Send&#160;Multiple&#160;Wake-Up Pattern&#160;</b><br/>
+The&#160;&#160;FrSM&#160;&#160;may&#160;&#160;stay&#160;&#160;in&#160;&#160;the&#160;&#160;state&#160;&#160;WAKEUP&#160;&#160;and&#160;&#160;send&#160;&#160;a&#160;&#160;configurable&#160;&#160;number&#160;&#160;of&#160;&#160;wake-up&#160;<br/>patterns.&#160;The&#160;&#160;intention&#160;&#160;is&#160;&#160;to&#160;&#160;send&#160;&#160;additional&#160;WUP&#160;&#160;during&#160;&#160;the&#160;&#160;gap&#160;between&#160;the&#160;first&#160;WUP&#160;<br/>(T01)&#160;and&#160;the&#160;cold&#160;start&#160;(after&#160;T04).&#160;<br/>If&#160;the&#160;“FrSMNumWakeupPatterns” is set&#160;to&#160;one&#160;(WUP&#160;in&#160;T01) there&#160;is no&#160;difference&#160;to&#160;the&#160;<br/>behavior described&#160;above.&#160;Otherwise&#160;the&#160;FrSM&#160;will&#160;send&#160;wake-up&#160;patterns,&#160;until the&#160;<br/>configured&#160;“FrSMNumWakeupPatterns” are&#160;reached&#160;(including&#160;T01&#160;or&#160;T05) or&#160;external&#160;<br/>bus communication&#160;is&#160;detected.&#160;In&#160;this case&#160;the&#160;FrSM will perform&#160;the&#160;transition&#160;T03&#160;to&#160;<br/>STARTUP.&#160;If&#160;any&#160;of&#160;the&#160;WUP&#160;(of&#160;this startup&#160;repetition) has been&#160;transmitted&#160;successfully&#160;<br/>(POC.WakeupStatus&#160;== WAKEUP_TRANSMITTED) or the&#160;time&#160;which&#160;has&#160;been&#160;elapsed&#160;<br/>(in&#160;state&#160;WAKEUP) exceeds the&#160;“Duration&#160;T1”&#160;or if&#160;a&#160;dual channel system&#160;has&#160;been&#160;woken&#160;<br/>up&#160;on&#160;exact&#160;one&#160;channel (PARTIAL_WU) then&#160;ALLOW_COLDSTART&#160;will&#160;be&#160;triggered&#160;<br/>immediately.&#160;<br/>
+<b>3.3.5&#160;</b><br/>
+<b>FRSM_STATE_ONLINE&#160;</b><br/>
+In&#160;&#160;this&#160;&#160;state&#160;&#160;the&#160;&#160;network&#160;&#160;is&#160;&#160;started&#160;&#160;and&#160;&#160;communication&#160;&#160;works&#160;&#160;well.&#160;The&#160;&#160;FrSM&#160;&#160;waits&#160;&#160;till&#160;&#160;it&#160;<br/>receives&#160;a&#160;No&#160;Communication&#160;Request.&#160;In&#160;this&#160;case&#160;the&#160;FrSM&#160;stops&#160;the&#160;PDU&#160;groups,&#160;sets&#160;<br/>the&#160;FlexRay&#160;Interface&#160;to&#160;OFFLINE,&#160;stops&#160;the&#160;FlexRay&#160;communication&#160;and&#160;sets&#160;the&#160;internal&#160;<br/>state&#160;to&#160;FRSM_HALT_REQ&#160;(T09).&#160;This&#160;transition&#160;is executed&#160;immediately.&#160;<br/>
+Under&#160;certain&#160;circumstances&#160;some&#160;failures&#160;on&#160;the&#160;bus&#160;triggers&#160;the&#160;CC&#160;to&#160;switch&#160;the&#160;state.&#160;<br/>If&#160;&#160;the&#160;&#160;state&#160;&#160;of&#160;&#160;the&#160;&#160;CC&#160;&#160;has&#160;&#160;switched&#160;&#160;to&#160;&#160;halt,&#160;&#160;freeze&#160;&#160;or&#160;&#160;ready&#160;&#160;the&#160;&#160;FrSM&#160;&#160;stops&#160;&#160;the&#160;&#160;PDU&#160;<br/>groups,&#160;sets&#160;the&#160;FlexRay&#160;Interface&#160;to&#160;OFFLINE,&#160;initializes&#160;the&#160;controller,&#160;starts&#160;the&#160;FlexRay&#160;<br/>communication&#160;&#160;and&#160;&#160;sets&#160;&#160;the&#160;&#160;internal&#160;&#160;state&#160;&#160;to&#160;&#160;FRSM_STARTUP&#160;&#160;(T10)&#160;&#160;if&#160;<br/>FrSMCheckWakeupReason&#160;has&#160;been&#160;selected,&#160;otherwise&#160;to&#160;&#160;FRSM_WAKEUP&#160;(T20).&#160;If&#160;the&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+state&#160;of&#160;the&#160;CC&#160;has&#160;switched&#160;to&#160;&#160;normal&#160;passive&#160;the&#160;FrSM&#160;stops&#160;the&#160;PDU&#160;groups&#160;and&#160;<br/>sets&#160;the&#160;internal state&#160;to&#160;FRSM_ONLINE_PASSIVE&#160;(T16).&#160;<br/>
+<b>3.3.6&#160;</b><br/>
+<b>FRSM_KEY_SLOT_ONLY&#160;</b><br/>
+Before&#160;the&#160;state&#160;FRSM_ONLINE&#160;will&#160;be&#160;entered&#160;in&#160;case&#160;the&#160;POCstate&#160;is&#160;normal&#160;active<b>&#160;<br/></b>the&#160;&#160;FrSM&#160;&#160;check&#160;&#160;the&#160;&#160;SlotMode&#160;&#160;of&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;controller.&#160;&#160;If&#160;&#160;the&#160;&#160;SlotMode&#160;&#160;is&#160;&#160;not&#160;&#160;equal&#160;&#160;to&#160;<br/>FR_SLOTMODE_ALL&#160;&#160;the&#160;&#160;FrSM&#160;&#160;enters&#160;&#160;the&#160;&#160;state&#160;&#160;FRSM_KEYSLOT_ONLY&#160;&#160;instead&#160;&#160;of&#160;<br/>FRSM_ONLINE.&#160;To&#160;leave&#160;the&#160;KeySlotOnlyMode&#160;the&#160;function&#160;FrSM_AllSlots()&#160;has&#160;to&#160;be&#160;<br/>called&#160;by&#160;the&#160;BswM.&#160;Within&#160;FrSM_AllSlots()&#160;the&#160;FrSM&#160;calls&#160;the&#160;similar&#160;named&#160;function&#160;<br/>FrIf_AllSlots()&#160;of&#160;the&#160;FrIf&#160;where the&#160;SlotMode&#160;switches.&#160;<br/>
+Apart&#160;from&#160;that&#160;the&#160;FrSM&#160;reacts&#160;on&#160;communication&#160;requests&#160;or&#160;changes&#160;of&#160;the&#160;POC&#160;state&#160;<br/>in&#160;the&#160;same&#160;way&#160;as in<a href="TechnicalReference_FrSMs.html#13">&#160;FRSM_STATE_ONLINE.</a>&#160;<br/>
+<b>3.3.7&#160;</b><br/>
+<b>FRSM_STATE_ONLINE_PASSIVE&#160;</b><br/>
+In&#160;&#160;this&#160;&#160;state&#160;&#160;some&#160;&#160;disturbance&#160;&#160;on&#160;&#160;the&#160;&#160;bus&#160;&#160;has&#160;&#160;been&#160;&#160;occurred&#160;&#160;and&#160;&#160;the&#160;&#160;CC&#160;&#160;has&#160;&#160;left&#160;&#160;the&#160;<br/>normal active&#160;state.&#160;<br/>
+The&#160;FrSM&#160;waits&#160;till&#160;it&#160;receives&#160;a&#160;no&#160;communication&#160;request.&#160;In&#160;this&#160;case&#160;the&#160;FrSM&#160;sets&#160;the&#160;<br/>FlexRay&#160;&#160;Interface&#160;&#160;to&#160;&#160;OFFLINE,&#160;&#160;stops&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;communication&#160;&#160;and&#160;&#160;sets&#160;&#160;the&#160;&#160;internal&#160;<br/>state&#160;&#160;to&#160;&#160;FRSM_HALT_REQ&#160;&#160;(T14).&#160;&#160;This&#160;&#160;transition&#160;&#160;is&#160;&#160;executed&#160;&#160;immediately.&#160;&#160;If&#160;&#160;the&#160;&#160;CC&#160;&#160;has&#160;<br/>already&#160;&#160;switched&#160;&#160;to&#160;&#160;the&#160;&#160;halt&#160;&#160;state&#160;&#160;the&#160;&#160;FrSM&#160;&#160;sets&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;Interface&#160;&#160;to&#160;&#160;OFFLINE,&#160;<br/>initializes&#160;&#160;the&#160;&#160;controller,&#160;&#160;starts&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;communication&#160;&#160;and&#160;&#160;sets&#160;&#160;the&#160;&#160;internal&#160;&#160;state&#160;&#160;to&#160;<br/>FRSM_STARTUP&#160;(T17).&#160;If&#160;the&#160;CC&#160;has&#160;already&#160;&#160;switched&#160;to&#160;the&#160;normal&#160;active<b>&#160;</b>state&#160;the&#160;<br/>FrSM&#160;stops&#160;the&#160;PDU&#160;groups,&#160;and&#160;updates&#160;the&#160;internal&#160;state&#160;to&#160;FRSM_ONLINE&#160;(T15)&#160;or&#160;to&#160;<br/><a href="TechnicalReference_FrSMs.html#14">FRSM_KEY_SLOT_ONLY&#160;</a>(T115).&#160;<br/>
+<b>3.3.8&#160;</b><br/>
+<b>FRSM_STATE_HALT_REQ&#160;</b><br/>
+The&#160;&#160;FrSM&#160;&#160;waits&#160;&#160;till&#160;&#160;the&#160;&#160;communication&#160;&#160;controller&#160;&#160;reaches&#160;&#160;the&#160;&#160;halt&#160;&#160;state.&#160;&#160;In&#160;&#160;this&#160;&#160;case&#160;&#160;the&#160;<br/>FrSM&#160;&#160;executes&#160;&#160;the&#160;&#160;transition&#160;&#160;T11&#160;&#160;sets&#160;&#160;the&#160;&#160;transceiver&#160;&#160;in&#160;&#160;standby,&#160;&#160;enables&#160;&#160;the&#160;&#160;wake-up,&#160;<br/>initializes the&#160;controller and&#160;sets&#160;the&#160;internal state&#160;to&#160;FRSM_READY.&#160;<br/>In&#160;&#160;some&#160;&#160;cases&#160;&#160;the&#160;&#160;instant&#160;&#160;deactivation&#160;&#160;of&#160;&#160;the&#160;&#160;transceiver&#160;&#160;might&#160;&#160;cause&#160;&#160;an&#160;&#160;unintentional&#160;<br/>wakeup.&#160;To&#160;avoid&#160;these,&#160;the&#160;transition&#160;T11&#160;from&#160;FRSM_HALT_REQ&#160;to&#160;FRSM_READY&#160;may&#160;<br/>be&#160;delayed&#160;by&#160;the&#160;configured&#160;“Trcv&#160;Stby&#160;Delay&#160;Timer”&#160;value.&#160;The&#160;timer&#160;is&#160;handled&#160;as&#160;zero&#160;<br/>if&#160;&#160;no&#160;&#160;transceiver&#160;&#160;is&#160;&#160;configured.&#160;&#160;The&#160;&#160;timer&#160;&#160;runs&#160;&#160;only&#160;&#160;if&#160;&#160;the&#160;&#160;POC&#160;&#160;state&#160;&#160;of&#160;&#160;the&#160;&#160;FlexRay&#160;<br/>controller&#160;&#160;is&#160;&#160;in&#160;&#160;the&#160;&#160;HALT&#160;&#160;mode.&#160;&#160;The&#160;&#160;delay&#160;&#160;timer&#160;&#160;will&#160;&#160;be&#160;&#160;ignored&#160;&#160;if&#160;&#160;the&#160;&#160;FrSM&#160;&#160;gets&#160;&#160;a&#160;&#160;new&#160;<br/>FullCom&#160;request.&#160;<br/>
+<b>3.3.9&#160;</b><br/>
+<b>Startup&#160;Monitoring&#160;(FRSM_STARTUP&#160;/&#160;FRSM_WAKEUP&#160;/&#160;<br/>FRSM_STATE_HALT_REQ)&#160;</b><br/>
+The&#160;timer&#160;t3&#160;is&#160;used&#160;to&#160;supervise&#160;the&#160;startup/restart&#160;process.&#160;The&#160;timer&#160;t3&#160;runs&#160;if&#160;the&#160;FrSM&#160;<br/>is&#160;&#160;in&#160;&#160;the&#160;&#160;state&#160;&#160;group&#160;&#160;FRSM_STATE_ONLINE_PASSIVE,&#160;&#160;FRSM_WAKEUP&#160;&#160;and&#160;<br/>FRSM_STARTUP.&#160;The&#160;timer t3&#160;is started&#160;if&#160;this&#160;state&#160;group&#160;is entered.&#160;<br/>
+If&#160;the&#160;timer&#160;expires,&#160;a&#160;Dem&#160;failed&#160;message&#160;is&#160;triggered&#160;once.&#160;If&#160;the&#160;timer&#160;has&#160;been&#160;expired&#160;<br/>the&#160;SyncLossErrorIndication&#160;function&#160;gets&#160;called&#160;every&#160;FrSM_MainFunction&#160;until&#160;<br/>the&#160;&#160;timer&#160;&#160;becomes&#160;&#160;deactivated.&#160;&#160;The&#160;&#160;timer&#160;&#160;t3&#160;&#160;is&#160;&#160;deactivated&#160;&#160;if&#160;&#160;this&#160;&#160;state&#160;&#160;group&#160;<br/>FRSM_STARTUP,&#160;FRSM_WAKEUP&#160;and&#160;FRSM_STATE_ONLINE_PASSIVE&#160;is left.&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+The&#160;function&#160;name&#160;of&#160;the&#160;SyncLossErrorIndication&#160;function&#160;can&#160;be&#160;configured&#160;in&#160;the&#160;<br/>configuration&#160;tool&#160;via&#160;the&#160;parameter&#160;FrSMSyncLossErrorIndicationName.&#160;Usually&#160;the&#160;<br/>function&#160;FrNm_StartupError&#160;of&#160;the&#160;FrNm&#160;is chosen.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+There&#160;is&#160;one&#160;main&#160;function&#160;for&#160;each&#160;cluster&#160;available.&#160;If&#160;the&#160;development&#160;error&#160;detection&#160;is&#160;<br/>activated&#160;&#160;the&#160;&#160;function&#160;&#160;checks&#160;&#160;if&#160;&#160;the&#160;&#160;cluster&#160;&#160;index&#160;&#160;is&#160;&#160;valid&#160;&#160;and&#160;&#160;if&#160;&#160;the&#160;&#160;FrSM&#160;&#160;has&#160;&#160;been&#160;<br/>initialized.&#160;Then&#160;the&#160;function&#160;detects&#160;if&#160;the&#160;conditions&#160;of&#160;a&#160;transition&#160;are&#160;fulfilled,&#160;triggers&#160;the&#160;<br/>necessary&#160;actions by&#160;calling&#160;API&#160;functions&#160;of&#160;other&#160;BSW&#160;and&#160;adapts&#160;the&#160;internal data.&#160;<br/>
+<b>3.4.1&#160;</b><br/>
+<b>Communication Modes&#160;</b><br/>
+The&#160;&#160;ComM&#160;&#160;collects&#160;&#160;the&#160;&#160;communication&#160;&#160;requests&#160;&#160;from&#160;&#160;the&#160;&#160;SWC&#160;&#160;and&#160;&#160;from&#160;&#160;the&#160;&#160;network.&#160;<br/>Accordingly&#160;the&#160;ComM&#160;calculates&#160;the&#160;needed&#160;communication&#160;mode&#160;and&#160;requests&#160;this from&#160;<br/>the&#160;&#160;FlexRay&#160;&#160;State&#160;&#160;Manager&#160;&#160;via&#160;&#160;the&#160;&#160;function&#160;&#160;FrSM_RequestComMode.&#160;&#160;The&#160;&#160;function&#160;<br/>FrSM_RequestComMode&#160;&#160;checks&#160;&#160;the&#160;&#160;function&#160;&#160;parameter,&#160;&#160;stores&#160;&#160;the&#160;&#160;requested&#160;<br/>communication&#160;&#160;mode&#160;&#160;and&#160;&#160;in&#160;&#160;some&#160;&#160;cases&#160;&#160;handles&#160;&#160;transitions&#160;&#160;directly&#160;&#160;to&#160;&#160;stop&#160;&#160;the&#160;<br/>transmission&#160;immediately.&#160;<br/>
+<b>3.4.2&#160;</b><br/>
+<b>Communication Mode&#160;Polling&#160;</b><br/>
+The&#160;ComM&#160;is&#160;informed&#160;about&#160;the&#160;changes&#160;of&#160;the&#160;Meta&#160;states&#160;NoCom&#160;and&#160;FullCom&#160;via&#160;the&#160;<br/>callback&#160;function&#160;ComM_BusSM_ModeIndication.&#160;<br/>
+Additionally&#160;the&#160;ComM&#160;has&#160;the&#160;possibility&#160;to&#160;request&#160;the&#160;current&#160;communication&#160;mode&#160;via&#160;<br/>the&#160;API&#160;&#160;function&#160;&#160;FrSM_GetCurrentComMode.&#160;&#160;The&#160;&#160;function&#160;&#160;delivers&#160;&#160;the&#160;&#160;communication&#160;<br/>mode&#160;of&#160;a&#160;specific&#160;cluster&#160;so&#160;it&#160;needs&#160;the&#160;network&#160;handle&#160;and&#160;an&#160;address&#160;reference&#160;where&#160;<br/>the&#160;mode&#160;shall&#160;be&#160;stored&#160;to.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;Det&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in&#160;&#160;[2],&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;parameter&#160;FRSM_DEV_ERROR_DetECT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;FrSM&#160;ID is&#160;142.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;<a href="TechnicalReference_FrSMs.html#23">in&#160;&#160;5.2.&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x01&#160;<br/>
+FrSM_Init&#160;<br/>
+0x80&#160;<br/>
++&#160;&#160;FrSM_MainFunction_&lt;ClusterId&gt;&#160;<br/>
+Cluster_Id&#160;<br/>
+0x02&#160;<br/>
+FrSM_RequestComMode&#160;<br/>
+0x03&#160;<br/>
+FrSM_GetCurrentComMode&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-16_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+0x04&#160;<br/>
+FrSM_GetVersionInfo&#160;<br/>
+0x05&#160;<br/>
+FrSM_AllSlots&#160;<br/>
+0x06&#160;<br/>
+FrSM_SetEcuPassive&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;Service ID&#160;0x03&#160;used twice (FrSM_RequestComMode and&#160;<br/>
+&#160;&#160;FrSM_GetCurrentComMode).&#160;So 0x02&#160;is&#160;used&#160;for&#160;FrSM_RequestComMode like&#160;in the&#160;<br/>
+prior&#160;AUTOSAR&#160;3.x&#160;releases.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;errors reported&#160;to&#160;Det&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;&#160;FRSM_E_NULL_PTR&#160;<br/>
+Invalid pointer&#160;in parameter&#160;list&#160;<br/>
+0x02&#160;&#160;FRSM_E_INV_HANDLE&#160;&#160;Invalid network&#160;handle parameter&#160;<br/>0x03&#160;&#160;FRSM_E_UNINIT&#160;<br/>
+FrSM&#160;module was not&#160;initialized&#160;<br/>
+0x04&#160;&#160;FRSM_E_INV_MODE&#160;<br/>
+Invalid communication&#160;mode requested&#160;<br/>
+Table&#160;3-5&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;Det&#160;<br/>
+<b>3.5.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;production&#160;&#160;code&#160;&#160;related&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;Dem&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Dem_ReportErrorStatus()&#160;as&#160;specified&#160;in&#160;[3],&#160;if&#160;production&#160;error&#160;reporting&#160;is&#160;enabled&#160;<br/>(i.e.&#160;pre-compile&#160;parameter&#160;FRSM_PROD_ERROR_DetECT==STD_ON).&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;production&#160;&#160;code&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Dem_ReportErrorStatus().&#160;<br/>
+The&#160;errors reported&#160;to&#160;Dem&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FRSM_E_CLUSTER_STARTUP&#160;<br/>
+Value&#160;&#160;to&#160;&#160;identify&#160;&#160;the&#160;&#160;FrSM&#160;&#160;to&#160;&#160;the&#160;&#160;Dem.&#160;A&#160;<br/>failed&#160;&#160;message&#160;&#160;is&#160;&#160;sent&#160;&#160;if&#160;&#160;the&#160;&#160;FlexRay&#160;<br/>could&#160;&#160;not&#160;&#160;reach&#160;&#160;the&#160;&#160;state&#160;&#160;normal&#160;&#160;active&#160;<br/>within&#160;&#160;the&#160;&#160;configured&#160;&#160;time&#160;&#160;or&#160;&#160;a&#160;&#160;passed&#160;<br/>message&#160;if&#160;the&#160;startup&#160;worked.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+FRSM_E_CLUSTER_SYNC_LOSS&#160;<br/>
+Value&#160;&#160;to&#160;&#160;identify&#160;&#160;the&#160;&#160;FrSM&#160;&#160;to&#160;&#160;the&#160;&#160;Dem.&#160;A&#160;<br/>failed&#160;&#160;message&#160;&#160;is&#160;&#160;sent&#160;&#160;if&#160;&#160;the&#160;&#160;FrSM&#160;&#160;is&#160;&#160;in&#160;<br/>state&#160;&#160;ONLINE&#160;&#160;and&#160;&#160;the&#160;&#160;POC&#160;&#160;state&#160;&#160;of&#160;&#160;the&#160;<br/>FlexRay&#160;&#160;controller&#160;&#160;has&#160;&#160;been&#160;&#160;changed&#160;<br/>automatically&#160;&#160;(NORMAL_PASSIVE,&#160;&#160;HALT&#160;<br/>or&#160;<br/>
+FREEZE)&#160;<br/>
+(T10,&#160;<br/>
+T16).&#160;<br/>
+The&#160;<br/>
+corresponding&#160;passed&#160;message&#160;is&#160;sent&#160;in&#160;<br/>the&#160;&#160;transitions.&#160;&#160;T08,&#160;&#160;T12,&#160;&#160;T13,&#160;&#160;T14&#160;&#160;and&#160;<br/>T15.&#160;<br/>
+Table&#160;3-6&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;Dem&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;&#160;FrSM&#160;into&#160;<br/>an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;FrSM&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_FrSMs.html#18">rs&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_FrSMs.html#18">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Source&#160;&#160;Object&#160;&#160;Description&#160;<br/>Code&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Deliver</b><br/>
+<b>Delive</b><br/>
+<b>y&#160;</b><br/>
+<b>ry&#160;</b><br/>
+FrSM.c&#160;<br/>
+This&#160;is&#160;the&#160;source&#160;file of&#160;the&#160;FrSM,&#160;which contains all&#160;API&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+functions&#160;and algorithms&#160;of&#160;the&#160;FrSM.&#160;(not&#160;available if&#160;<br/>libraries are&#160;delivered)&#160;<br/>
+FrSM.h&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file of&#160;the&#160;FrSM,&#160;which contains the&#160;API&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+prototypes&#160;and definitions.&#160;<br/>
+FrSM_Types.h&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+This&#160;header&#160;file contains&#160;the&#160;global&#160;data&#160;types&#160;of&#160;the&#160;FrSM.&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool [config&#160;tool].&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrSM_Cfg.h&#160;<br/>
+This&#160;is&#160;the&#160;configuration&#160;header&#160;file of&#160;the&#160;FrSM,&#160;which contains&#160;the&#160;configurable&#160;<br/>parameters.&#160;The&#160;setup&#160;has to&#160;be&#160;made&#160;before compiling&#160;the&#160;FrSM&#160;sources.&#160;<br/>
+FrSM_Lcfg.c&#160;<br/>
+This&#160;is&#160;the&#160;link time configuration&#160;file&#160;of&#160;the&#160;FrSM.&#160;The&#160;type&#160;declarations&#160;which&#160;<br/>are&#160;made in&#160;the&#160;FrSM_Types.h&#160;header&#160;can&#160;be&#160;defined&#160;with the&#160;currently&#160;needed&#160;<br/>values.&#160;The&#160;file&#160;may&#160;be&#160;implemented,&#160;compiled&#160;after&#160;the&#160;FrSM&#160;sources and&#160;<br/>linked&#160;to&#160;the&#160;object&#160;code.&#160;<br/>
+FrSM_PBcfg.c&#160;&#160;This&#160;is&#160;the&#160;post-build time configuration&#160;file&#160;of&#160;the&#160;FrSM.&#160;The&#160;type&#160;declarations&#160;<br/>
+which are&#160;made in&#160;the&#160;FrSM_Types.h header&#160;may&#160;be&#160;defined&#160;with the&#160;currently&#160;<br/>needed&#160;values.&#160;The&#160;file is&#160;handled&#160;in&#160;the&#160;same&#160;way&#160;as the&#160;link&#160;time&#160;configuration&#160;<br/>file.&#160;Additionally&#160;the&#160;memory&#160;addresses&#160;of&#160;the&#160;values&#160;are&#160;known and&#160;fix.&#160;So the&#160;<br/>values&#160;can&#160;be&#160;replaced&#160;after&#160;the&#160;build process&#160;too.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Include&#160;Structure&#160;</b><br/>
+&#160;<br/>
+<b>class&#160;IncludeStructure</b><br/>
+ComM_Types.h<br/>
+Std_Types.h<br/>
+«include»<br/>
+«include»<br/>
+FrSM_Types.h<br/>
+«include»<br/>
+«include»<br/>
+ComM_GenTypes.h<br/>
+«include»<br/>
+FrSM_Cfg.h<br/>
+Fr_GeneralTypes.h<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+FrSM_Lcfg.c<br/>
+«include»<br/>
+Dem.h<br/>
+FrSM.h<br/>
+«include»<br/>
+FrSM_PBcfg.c<br/>
+«include»<br/>
+«include»<br/>
+ComM_BusSM.h<br/>
+FrIf.h<br/>
+FrSM.c<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+«include»<br/>
+SchM_FrSM.h<br/>
+BswM.h<br/>
+Det.h<br/>
+FrTrcv.h<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Include&#160;structure&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;</b><br/>
+The&#160;&#160;objects&#160;&#160;(e.g.&#160;&#160;variables,&#160;&#160;functions,&#160;&#160;constants)&#160;&#160;are&#160;&#160;declared&#160;&#160;by&#160;&#160;compiler&#160;&#160;independent&#160;<br/>definitions&#160;&#160;–&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definitions.&#160;&#160;Each&#160;&#160;compiler&#160;&#160;abstraction&#160;&#160;definition&#160;&#160;is&#160;<br/>assigned&#160;to&#160;a&#160;memory&#160;section.&#160;<br/>The&#160;&#160;following&#160;&#160;table&#160;&#160;contains&#160;&#160;the&#160;&#160;memory&#160;&#160;section&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;<br/>definitions&#160;of&#160;the&#160;FrSM&#160;and&#160;illustrates&#160;their&#160;assignment&#160;among&#160;each&#160;other.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Compiler&#160;Abstraction&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Definitions&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>Memory&#160;Mapping&#160;<br/>Sections&#160;</b><br/>
+&#160;<br/>
+FRSM_VAR_NOINIT<br/>
+FRSM_VAR_ZERO_INI<br/>
+T<br/>
+FRSM_CONST<br/>
+FRSM_PBCFG<br/>
+FRSM_CODE<br/>
+FRSM_APPL_VAR<br/>
+FRSM_APPL_CODE<br/>
+FRSM_START_SEC_PBCFG_ROOT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_PBCFG_ROOT&#160;<br/>
+FRSM_START_SEC_PBCFG&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_PBCFG&#160;<br/>
+FRSM_START_SEC_CONST_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_CONST_8BIT&#160;<br/>
+FRSM_START_SEC_CONST_32BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_CONST_32BIT&#160;<br/>
+FRSM_START_SEC_CONST_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_CONST_UNSPECIFIED&#160;<br/>
+FRSM_START_SEC_VAR_ZERO_INIT_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_VAR_ZERO_INIT_8BIT&#160;<br/>
+FRSM_START_SEC_VAR_NOINIT_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_VAR_NOINIT_8BIT&#160;<br/>
+FRSM_START_SEC_VAR_NOINIT_16BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_VAR_NOINIT_16BIT&#160;<br/>
+FRSM_START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+FRSM_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FRSM_STOP_SEC_CODE&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+Critical&#160;&#160;sections&#160;&#160;are&#160;&#160;handled&#160;&#160;by&#160;&#160;the&#160;&#160;BSW&#160;&#160;Scheduler.&#160;&#160;To&#160;&#160;ensure&#160;&#160;data&#160;&#160;consistency&#160;&#160;and&#160;&#160;a&#160;<br/>correct&#160;function&#160;of&#160;the&#160;FrSM&#160;the&#160;following&#160;exclusive&#160;areas&#160;have&#160;to&#160;be&#160;provided&#160;during&#160;the&#160;<br/>integration.&#160;The&#160;chosen&#160;critical&#160;section&#160;solution&#160;has&#160;to&#160;be&#160;configured&#160;that&#160;it’s&#160;ensured&#160;that&#160;<br/>the&#160;API&#160;functions&#160;do&#160;not&#160;interrupt&#160;each&#160;other.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;FRSM_EXCLUSIVE_AREA_0&#160;has to&#160;be&#160;used&#160;if&#160;it&#160;is&#160;possible&#160;that&#160;the&#160;function&#160;<br/>
+FrSM_MainFunction_&lt;Idx&gt;()&#160;is interrupted&#160;by&#160;the&#160;function&#160;<br/>FrSM_RequestComMode().&#160;It&#160;is recommended&#160;to&#160;use&#160;AUTOSAR OS&#160;‘Resources’&#160;for&#160;<br/>these&#160;exclusive&#160;areas to&#160;prevent&#160;priority&#160;inversions and&#160;dead-locks.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;FRSM_EXCLUSIVE_AREA_1&#160;has to&#160;be&#160;used&#160;if&#160;it&#160;is&#160;possible&#160;that&#160;the&#160;function&#160;<br/>
+FrSM_MainFunction_&lt;Idx&gt;()&#160;is interrupted&#160;by&#160;the&#160;function&#160;<br/>FrSM_SetEcuPassive().&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;FRSM_EXCLUSIVE_AREA_2&#160;has to&#160;be&#160;used&#160;if&#160;it&#160;is&#160;possible&#160;that&#160;the&#160;function&#160;<br/>
+FrSM_RequestComMode()&#160;is interrupted&#160;by&#160;any&#160;of&#160;the&#160;functions&#160;<br/>FrSM_SetEcuPassive()&#160;or&#160;FrSM_MainFunction_&lt;Idx&gt;().&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;FRSM_EXCLUSIVE_AREA_3&#160;has to&#160;be&#160;used&#160;if&#160;it&#160;is&#160;possible&#160;that&#160;the&#160;function&#160;<br/>
+FrSM_SetEcuPassive()&#160;is interrupted&#160;by&#160;the&#160;function&#160;FrSM_RequestComMode().&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_FrSMs.html#8">&#160;Figure&#160;2-2.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;types defined&#160;by&#160;the&#160;FrSM&#160;are&#160;described&#160;in&#160;this chapter.&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+FrSM_BswM_StateType&#160;&#160;uint8&#160;<br/>
+This&#160;type&#160;defines&#160;the&#160;<br/>
+FRSM_INITIAL&#160;<br/>
+states&#160;of&#160;the&#160;FrSM&#160;<br/>
+FrSM&#160;is&#160;not&#160;initialized&#160;in this&#160;<br/>
+state&#160;machine&#160;which&#160;<br/>
+state&#160;<br/>
+are&#160;indicated&#160;to&#160;the&#160;<br/>
+FRSM_BSWM_READY&#160;<br/>
+BswM.&#160;<br/>
+Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:ready&#160;or&#160;(transitional)&#160;<br/>POC:default&#160;config&#160;or&#160;<br/>(transitional)&#160;POC:config or&#160;<br/>(transitional)&#160;POC:halt&#160;<br/>FRSM_BSWM_STARTUP&#160;<br/>Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:start-up&#160;<br/>FRSM_BSWM_WAKEUP&#160;<br/>Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:wake-up&#160;<br/>FRSM_BSWM_HALT_REQ&#160;<br/>Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:normal&#160;active or&#160;<br/>POC:normal&#160;passive&#160;<br/>FRSM_BSWM_KEYSLOT_ONLY&#160;<br/>Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:normal&#160;active&#160;but&#160;the&#160;<br/>SlotMode is not&#160;<br/>FR_SLOTMODE_ALL&#160;<br/>FRSM_BSWM_ONLINE&#160;<br/>Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:normal&#160;active&#160;<br/>Part&#160;of&#160;the&#160;Meta&#160;state&#160;FullCom&#160;<br/>Requested&#160;by&#160;ComM&#160;<br/>COMM_FULL_COMMUNICATION&#160;<br/>
+FRSM_BSWM_ONLINE_PASSIVE&#160;<br/>Mapped FlexRay&#160;CC&#160;state&#160;<br/>POC:normal&#160;passive&#160;<br/>NoCom&#160;<br/>Meta&#160;state&#160;contains&#160;each&#160;state&#160;<br/>except&#160;FRSM_BSWM_ONLINE.&#160;<br/>Requested&#160;by&#160;ComM&#160;<br/>COMM_NO_COMMUNICATION&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+Structure&#160;which&#160;<br/>
+&#160;<br/>
+FrSM_ConfigType&#160;<br/>
+struct&#160;&#160;contains&#160;the&#160;global&#160;<br/>
+configuration&#160;data.&#160;<br/>
+FrSMSyncLossError<br/>
+Specifies&#160;the&#160;function&#160;<br/>
+&#160;<br/>
+IndicationFctPtrT<br/>
+that&#160;shall&#160;be&#160;called&#160;on&#160;&#160;<br/>
+pointer&#160;<br/>
+“loss of&#160;<br/>
+ype&#160;<br/>
+synchronization”.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Type&#160;definitions&#160;<br/>
+&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;Provided by&#160;FrSM&#160;</b><br/>
+<b>5.2.1&#160;</b><br/>
+<b>FrSM_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrSM_InitMemory&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Function for *_INIT_*-variable&#160;initialization.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+Module must not&#160;be&#160;initialized&#160;<br/>Service to initialize module&#160;global&#160;variables&#160;at&#160;power up.&#160;This&#160;function&#160;can&#160;be&#160;used to&#160;initialize the Variables&#160;<br/>in *_INIT_*&#160;sections&#160;in case&#160;they&#160;are&#160;not&#160;initialized&#160;by&#160;the&#160;startup code.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;FrSM_InitMemory&#160;<br/>
+<b>5.2.2&#160;</b><br/>
+<b>FrSM_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrSM_Init&#160;</b>(const FrSM_ConfigType *const ConfigPtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+ConfigPtr&#160;[in]&#160;<br/>
+Configuration structure for&#160;initializing the module&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialization&#160;function.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&gt;&#160;&#160;Interrupts&#160;are disabled.&#160;FrSM_InitMemory&#160;has&#160;been&#160;called unless&#160;FRSM_Initialized is&#160;initialized by&#160;start-<br/>
+up&#160;code.&#160;<br/>
+This&#160;function&#160;initializes&#160;the&#160;module.&#160;It&#160;initializes&#160;all&#160;variables&#160;and&#160;sets&#160;the&#160;module&#160;state to&#160;READY.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;TASK&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;FrSM_Init&#160;<br/>
+<b>5.2.3&#160;</b><br/>
+<b>FrSM_MainFunction_&lt;Cluster&#160;Id&gt;&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>FrSM_MainFunction_&lt;Cluster Id&gt;</b>( void )&#160;<br/>
+<b>Parameter&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+None&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;main function&#160;of&#160;the FrSM triggers&#160;the state&#160;functions&#160;according&#160;to the current state.&#160;The&#160;function&#160;must&#160;<br/>be&#160;called cyclically&#160;with&#160;the&#160;configured&#160;cycle&#160;time.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;<br/>
+Service ID:&#160;see&#160;tabl<a href="TechnicalReference_FrSMs.html#16">e 'Service IDs'&#160;</a>&#160;<br/>
+&#160;<br/>
+FrSM&#160;has&#160;to be&#160;initialized.&#160;Function&#160;has&#160;to&#160;be&#160;called&#160;cyclically.&#160;The&#160;cycle time is&#160;set&#160;in the&#160;<br/>configuration&#160;tool.&#160;&#160;<br/>
+&#160;<br/>
+Reentrant&#160;for&#160;different&#160;FlexRay&#160;cluster&#160;ID&#160;suffix&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+&#160;&#160;Cyclically&#160;on&#160;task&#160;level&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;FrSM_MainFunction_&lt;Cluster&#160;Id&gt;&#160;<br/>
+<b>5.2.4&#160;</b><br/>
+<b>FrSM_RequestComMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrSM_RequestComMode&#160;</b>(NetworkHandleType NetworkHandle,&#160;<br/>ComM_ModeType ComM_Mode)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+NetworkHandle [in]&#160;<br/>
+FlexRay&#160;cluster for which a&#160;communication mode is&#160;requested&#160;<br/>
+ComM_Mode&#160;[in]&#160;<br/>
+Requested&#160;communication&#160;mode (Range: COMM_NO_COMMUNICATION,&#160;<br/>COMM_FULL_COMMUNICATION)&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_NOT_OK&#160;-&#160;function&#160;has&#160;been&#160;called&#160;with&#160;invalid&#160;parameters&#160;<br/>E_OK&#160;-&#160;request accepted&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initiates&#160;the sequence to&#160;reach the&#160;requested&#160;communication&#160;mode.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+This&#160;API function&#160;is&#160;used by&#160;the ComM to startup or&#160;shutdown the&#160;communication on&#160;a&#160;FlexRay&#160;cluster.&#160;&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;FrSM_RequestComMode&#160;<br/>
+<b>5.2.5&#160;</b><br/>
+<b>FrSM_GetCurrentComMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrSM_GetCurrentComMode&#160;</b>(NetworkHandleType NetworkHandle,&#160;<br/>ComM_ModeType *ComM_ModePtr)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+NetworkHandle [in]&#160;<br/>
+FlexRay&#160;cluster for which a&#160;communication mode is&#160;requested&#160;<br/>
+ComM_ModePtr&#160;[out]&#160;<br/>
+Pointer&#160;to the memory&#160;location&#160;where&#160;the&#160;current communication&#160;mode shall&#160;<br/>be&#160;stored&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request&#160;was&#160;accepted&#160;<br/>E_NOT_OK&#160;Request&#160;was&#160;not&#160;accepted&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Reports&#160;the communication&#160;mode.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-Reports&#160;the last communication mode&#160;which has&#160;been&#160;passed&#160;to the ComM&#160;<br/>
+Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;FrSM_GetCurrentComMode&#160;<br/>
+<b>5.2.6&#160;</b><br/>
+<b>FrSM_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>FrSM_GetVersionInfo&#160;</b>(Std_VersionInfoType *versioninfo)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo [out]&#160;<br/>
+Pointer&#160;to&#160;version information.&#160;Parameter&#160;must not&#160;be&#160;NULL&#160;(BSW00407).&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Returns&#160;the&#160;version information.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+-Returns&#160;the software&#160;version,&#160;vendor&#160;ID&#160;and&#160;AUTOSAR module ID&#160;of&#160;the component.&#160;<br/>Configuration Variant(s): FRSM_VERSION_INFO_API&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;FrSM_GetVersionInfo&#160;<br/>
+<b>5.2.7&#160;</b><br/>
+<b>FrSM_AllSlots&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrSM_AllSlots&#160;</b>(NetworkHandleType NetworkHandle)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+NetworkHandle [in]&#160;<br/>
+FlexRay&#160;cluster for which a&#160;communication mode is&#160;requested&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request&#160;was&#160;successful&#160;<br/>E_NOT_OK&#160;Request&#160;was&#160;not&#160;successful, any&#160;error occurred&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Calls&#160;the&#160;all&#160;slot function.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+FrSM initialization&#160;<br/>Forwarding&#160;the&#160;function&#160;call&#160;to&#160;the FrIf&#160;<br/>Configuration Variant(s): FRSM_ALLSLOTS_SUPPORT&#160;&#160;-&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Reentrant&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;FrSM_AllSlots&#160;<br/>
+<b>5.2.8&#160;</b><br/>
+<b>FrSM_SetEcuPassive&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;<b>FrSM_SetEcuPassive&#160;</b>(boolean FrSM_Passive)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrSM_Passive [in]&#160;<br/>
+parameter&#160;is&#160;true&#160;if&#160;Ecu&#160;Mode&#160;should&#160;be&#160;passive&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK&#160;Request&#160;was&#160;successful&#160;<br/>E_NOT_OK&#160;Request&#160;was&#160;not&#160;successful, any&#160;error occurred&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;API function&#160;notifies&#160;the FrSM&#160;if&#160;ECU&#160;has&#160;to&#160;be&#160;set in&#160;passive mode.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+FrSM initialization&#160;<br/>Transceiver is&#160;set&#160;to mode receive only&#160;if&#160;passive mode is&#160;activated. Each cluster needs&#160;transceivers&#160;to&#160;set&#160;<br/>the&#160;whole ECU&#160;in passive&#160;mode.&#160;Otherwise the&#160;clusters&#160;without transceivers&#160;may&#160;still&#160;be&#160;able to transmit&#160;<br/>messages.&#160;<br/>Configuration Variant(s): FRSM_ECU_PASSIVE_MODE&#160;<br/>Call&#160;context&#160;<br/>
+&gt;&#160;&#160;ANY&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Synchronous&#160;<br/>
+&gt;&#160;&#160;This&#160;function&#160;is&#160;Non-Reentrant&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;FrSM_SetEcuPassive&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;Used by&#160;FrSM&#160;</b><br/>
+In&#160;the&#160;following&#160;table&#160;services&#160;provided&#160;by&#160;other&#160;components,&#160;which&#160;are&#160;used&#160;by&#160;the&#160;FrSM&#160;<br/>are&#160;&#160;listed.&#160;&#160;For&#160;details&#160;about&#160;&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;of&#160;&#160;the&#160;<br/>providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+BswM&#160;<br/>
+BswM_FrSM_CurrentState&#160;<br/>
+FrIf&#160;<br/>
+FrIf_ControllerInit&#160;<br/>
+FrIf&#160;<br/>
+FrIf_StartCommunication&#160;<br/>
+FrIf&#160;<br/>
+FrIf_HaltCommunication&#160;<br/>
+FrIf&#160;<br/>
+FrIf_SetWakeupChannel&#160;<br/>
+FrIf&#160;<br/>
+FrIf_SendWUP&#160;<br/>
+FrIf&#160;<br/>
+FrIf_SetState&#160;<br/>
+FrIf&#160;<br/>
+FrIf_SetTransceiverMode&#160;<br/>
+FrIf&#160;<br/>
+FrIf_GetWakeupRxStatus&#160;<br/>
+FrIf&#160;<br/>
+FrIf_GetTransceiverWUReason&#160;<br/>
+FrIf&#160;<br/>
+FrIf_ClearTransceiverWakeup&#160;<br/>
+FrIf&#160;<br/>
+FrIf_GetPOCStatus&#160;<br/>
+FrIf&#160;<br/>
+FrIf_AllowColdstart&#160;<br/>
+FrIf&#160;<br/>
+FrIf_AllSlots&#160;<br/>
+FrIf&#160;<br/>
+FrIf_GetState&#160;<br/>
+&lt;Cdd&gt;&#160;<br/>
+&lt;Cdd&gt;_SyncLossErrorIndication&#160;<br/>
+ComM&#160;<br/>
+ComM_BusSM_ModeIndication&#160;<br/>
+Dem&#160;<br/>
+Dem_ReportErrorStatus&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+Det&#160;<br/>
+Det_ReportError&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;FrSM&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>6&#160;&#160;AUTOSAR&#160;Standard&#160;Compliance&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+<b>6.1.1&#160;</b><br/>
+<b>API&#160;FrSM_InitMemory()&#160;</b><br/>
+This&#160;service&#160;function&#160;was&#160;added&#160;to&#160;be&#160;called&#160;at&#160;Power&#160;On&#160;or&#160;after&#160;reset&#160;to&#160;set&#160;the&#160;global&#160;<br/>FrSM&#160;state,&#160;afterwards&#160;the&#160;FrSM can&#160;be&#160;initialized&#160;correctly.&#160;<br/>
+<b>6.1.2&#160;</b><br/>
+<b>Configuration Options&#160;</b><br/>
+It’s possible&#160;to&#160;(de)activate&#160;the&#160;Dem&#160;at&#160;pre-compile&#160;time,&#160;like&#160;Det.&#160;&#160;<br/>
+<b>6.1.3&#160;</b><br/>
+<b>Post-Build Selectable&#160;(Identity&#160;Manager)&#160;&#160;</b><br/>
+The&#160;code&#160;generator&#160;and&#160;the&#160;static code&#160;supports&#160;Post-Build&#160;Selectable&#160;configuration.&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Limitations&#160;</b><br/>
+<b>6.2.1&#160;</b><br/>
+<b>Controllers&#160;</b><br/>
+The&#160;FrSM supports&#160;only&#160;one&#160;controller per cluster.&#160;<br/>
+<b>6.2.2&#160;</b><br/>
+<b>Shy&#160;of Coldstarter&#160;</b><br/>
+The&#160;detection&#160;of&#160;low&#160;number of&#160;coldstarters is not&#160;supported.&#160;<br/>
+<b>6.2.3&#160;</b><br/>
+<b>Configuration Class&#160;</b><br/>
+Only&#160;VARIANT-PRE-COMPILE&#160;and&#160;Post-Build&#160;Selectable&#160;are&#160;supported.&#160;<br/>
+<b>6.2.4&#160;</b><br/>
+<b>No Dual&#160;Channel&#160;Wake-up Echo&#160;</b><br/>
+In&#160;&#160;case&#160;&#160;of&#160;&#160;a&#160;&#160;PARTIAL_WU_BY_BUS&#160;&#160;the&#160;&#160;WUP&#160;&#160;is&#160;&#160;not&#160;&#160;echoed&#160;&#160;to&#160;&#160;the&#160;&#160;waking&#160;&#160;channel.&#160;<br/>Instead&#160;&#160;of&#160;&#160;the&#160;&#160;echo&#160;&#160;the&#160;&#160;wake-up&#160;&#160;channel&#160;forward&#160;&#160;is&#160;&#160;performed.&#160;&#160;If&#160;multiple&#160;WUPs&#160;on&#160;&#160;the&#160;<br/>wake-up&#160;channel are&#160;needed&#160;the&#160;FrSMNumWakeupPatterns&#160;can&#160;be&#160;increased.&#160;<br/>
+<b>6.2.5&#160;</b><br/>
+<b>Delayed FlexRay&#160;transceiver deactivation at&#160;Shutdown&#160;</b><br/>
+The&#160;&#160;transition&#160;&#160;(T11)&#160;&#160;from&#160;&#160;FRSM_HALT_REQ&#160;&#160;to&#160;&#160;FRSM_READY&#160;&#160;may&#160;&#160;be&#160;&#160;delayed&#160;&#160;by&#160;&#160;a&#160;<br/>configured&#160;timer value&#160;see<a href="TechnicalReference_FrSMs.html#14">&#160;3.3.8.</a>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-30_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>7&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+DaVinci&#160;Configurator&#160;&#160;Generation&#160;tool&#160;for&#160;MICROSAR&#160;components&#160;<br/>FIBEX&#160;<br/>
+Field Bus EXchange&#160;format&#160;a bus&#160;system&#160;specific&#160;container&#160;for&#160;PDUs&#160;<br/>
+Cold-Start&#160;node&#160;<br/>
+ECU&#160;has&#160;an&#160;active part&#160;at&#160;the&#160;timing&#160;synchronization at&#160;Startup&#160;<br/>
+Wake-up&#160;node&#160;<br/>
+ECU&#160;which has&#160;the&#160;permission&#160;to wake&#160;up&#160;a&#160;FlexRay&#160;channel&#160;by&#160;sending&#160;<br/>a&#160;WUP&#160;<br/>
+Table&#160;7-1&#160;&#160;&#160;Glossary&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+BswM&#160;<br/>
+Basic&#160;SW&#160;Manager&#160;<br/>
+CC&#160;<br/>
+Communication&#160;Controller&#160;<br/>
+Cdd&#160;<br/>
+Complex&#160;Device Driver&#160;<br/>
+Cfg&#160;<br/>
+configuration&#160;<br/>
+ComM&#160;<br/>
+Communication&#160;Manager&#160;<br/>
+Dem&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+Det&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+FullCom&#160;<br/>
+COMM_FULL_COMMUNICATION&#160;<br/>
+Fr&#160;<br/>
+FlexRay&#160;<br/>
+FrIf&#160;<br/>
+FlexRay&#160;Interface&#160;<br/>
+FrSM&#160;<br/>
+FlexRay&#160;State&#160;Manager&#160;<br/>
+FrNm&#160;<br/>
+FlexRay&#160;Network&#160;Management&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+NoCom&#160;<br/>
+COMM_NO_COMMUNICATION&#160;<br/>
+OS&#160;<br/>
+Operating&#160;System&#160;<br/>
+POC&#160;<br/>
+Protocol&#160;Operation&#160;Control&#160;<br/>
+SchM&#160;<br/>
+BSW&#160;Schedule Manager&#160;<br/>
+SW&#160;&#160;<br/>
+Soft&#160;Ware&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+WU&#160;<br/>
+Wake-Up&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-31_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+WUP&#160;<br/>
+Wake-Up Pattern&#160;<br/>
+WUS&#160;<br/>
+Wake-Up Sequence&#160;<br/>
+Table&#160;7-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+31&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_FrSM-32_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;State Manager&#160;<br/>
+<b>8&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.2.0&#160;<br/>
+32&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;4.9.2&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_FrSMs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#7">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#9">3.1 Features</a></li>
+<li><a href="TechnicalReference_FrSMs.html#10">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_FrSMs.html#11">3.3 State Machine</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#12">3.3.1 Meta States FullCom / NoCom</a></li>
+<li><a href="TechnicalReference_FrSMs.html#12">3.3.2 FRSM_INITIAL</a></li>
+<li><a href="TechnicalReference_FrSMs.html#12">3.3.3 FRSM_STARTUP / FRSM_WAKEUP / FRSM_READY</a></li>
+<li><a href="TechnicalReference_FrSMs.html#13">3.3.4 FRSM_WAKEUP, Send Multiple Wake-Up Pattern</a></li>
+<li><a href="TechnicalReference_FrSMs.html#13">3.3.5 FRSM_STATE_ONLINE</a></li>
+<li><a href="TechnicalReference_FrSMs.html#14">3.3.6 FRSM_KEY_SLOT_ONLY</a></li>
+<li><a href="TechnicalReference_FrSMs.html#14">3.3.7 FRSM_STATE_ONLINE_PASSIVE</a></li>
+<li><a href="TechnicalReference_FrSMs.html#14">3.3.8 FRSM_STATE_HALT_REQ</a></li>
+<li><a href="TechnicalReference_FrSMs.html#14">3.3.9 Startup Monitoring (FRSM_STARTUP / FRSM_WAKEUP / FRSM_STATE_HALT_REQ)</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#15">3.4 Main Functions</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#15">3.4.1 Communication Modes</a></li>
+<li><a href="TechnicalReference_FrSMs.html#15">3.4.2 Communication Mode Polling</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#15">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#15">3.5.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_FrSMs.html#16">3.5.2 Production Code Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#18">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#18">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#18">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_FrSMs.html#18">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#19">4.2 Include Structure</a></li>
+<li><a href="TechnicalReference_FrSMs.html#19">4.3 Compiler Abstraction and Memory Mapping</a></li>
+<li><a href="TechnicalReference_FrSMs.html#20">4.4 Critical Sections</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#22">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#22">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_FrSMs.html#23">5.2 Services Provided by FrSM</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#23">5.2.1 FrSM_InitMemory</a></li>
+<li><a href="TechnicalReference_FrSMs.html#23">5.2.2 FrSM_Init</a></li>
+<li><a href="TechnicalReference_FrSMs.html#24">5.2.3 FrSM_MainFunction_&lt;Cluster Id&gt;</a></li>
+<li><a href="TechnicalReference_FrSMs.html#24">5.2.4 FrSM_RequestComMode</a></li>
+<li><a href="TechnicalReference_FrSMs.html#25">5.2.5 FrSM_GetCurrentComMode</a></li>
+<li><a href="TechnicalReference_FrSMs.html#25">5.2.6 FrSM_GetVersionInfo</a></li>
+<li><a href="TechnicalReference_FrSMs.html#26">5.2.7 FrSM_AllSlots</a></li>
+<li><a href="TechnicalReference_FrSMs.html#26">5.2.8 FrSM_SetEcuPassive</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#27">5.3 Services Used by FrSM</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#29">6 AUTOSAR Standard Compliance</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#29">6.1 Additions/ Extensions</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#29">6.1.1 API FrSM_InitMemory()</a></li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.1.2 Configuration Options</a></li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.1.3 Post-Build Selectable (Identity Manager)</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.2 Limitations</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#29">6.2.1 Controllers</a></li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.2.2 Shy of Coldstarter</a></li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.2.3 Configuration Class</a></li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.2.4 No Dual Channel Wake-up Echo</a></li>
+<li><a href="TechnicalReference_FrSMs.html#29">6.2.5 Delayed FlexRay transceiver deactivation at Shutdown</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#30">7 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_FrSMs.html#30">7.1 Glossary</a></li>
+<li><a href="TechnicalReference_FrSMs.html#30">7.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrSMs.html#32">8 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

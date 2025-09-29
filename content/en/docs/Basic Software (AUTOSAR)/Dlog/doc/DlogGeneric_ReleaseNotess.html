@@ -1,0 +1,285 @@
+---
+title: DlogGeneric_ReleaseNotess
+linkTitle: DlogGeneric_ReleaseNotess
+weight: 18
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogGeneric_ReleaseNotes-1_1.png"/><br/>
+Release&#160;Notes&#160;DlogGeneric<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;3&#160;and&#160;adaptive&#160;BMW&#160;AUTOSAR&#160;Core&#160;Rel.&#160;1<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.1.1<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233&#160;(classic)&#160;/&#160;+49&#160;89&#160;382&#160;-&#160;22522&#160;(adaptive)<br/>
+Contact<br/>
+bac@bmw.de&#160;(classic)&#160;/&#160;abac@bmw.de&#160;(adaptive)<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Issues</b><br/>
+5.1.1<br/>
+2017-12-14<br/>
+BAC-6672,&#160;BAC-6726<br/>
+5.1.0<br/>
+2017-11-09<br/>
+BAC-6266,&#160;BAC-6422,&#160;BAC-6055<br/>
+5.0.2<br/>
+2017-09-14<br/>
+BAC-6223,&#160;BAC-6213,&#160;BAC-6181,&#160;BAC-5169<br/>
+5.0.1<br/>
+2017-08-10<br/>
+BAC-6172,&#160;BAC-6089<br/>
+5.0.0<br/>
+2017-06-29<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+ReleaseNotes_DlogGeneric,&#160;Version&#160;5.1.1,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;5<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogGeneric_ReleaseNotes-2_1.png"/><br/>
+<b>1</b><br/>
+<b>Module&#160;Description</b><br/>
+The&#160;DataLogistic&#160;is&#160;part&#160;of&#160;the&#160;BootManager,&#160;Bootloader&#160;and&#160;Application.&#160;It&#160;is&#160;needed&#160;for&#160;every&#160;ECU&#160;to&#160;•<br/>get&#160;production&#160;information&#160;•&#160;identify&#160;software&#160;and&#160;hardware&#160;•&#160;check&#160;compatibility&#160;of&#160;hardware&#160;and<br/>software&#160;•&#160;check&#160;compatibility&#160;of&#160;all&#160;software&#160;units&#160;(SWEs)&#160;•&#160;check&#160;at&#160;startup&#160;if&#160;the&#160;software&#160;is&#160;valid&#160;and<br/>may&#160;be&#160;started<br/>
+<b>2</b><br/>
+<b>Revisions&#160;and&#160;Modifications</b><br/>
+<b>Revision&#160;5.1.1&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6672<br/>
+CR&#160;Headline:<br/>
+Dlog&#160;-&#160;version&#160;info&#160;not&#160;checked&#160;at&#160;compile&#160;time<br/>
+Description&#160;of&#160;Issues:<br/>
+Unlike&#160;for&#160;most&#160;other&#160;BAC&#160;modules&#160;the&#160;version&#160;information&#160;from<br/>the&#160;CommonPublishedInformation&#160;container&#160;is&#160;not&#160;validated&#160;at<br/>compile&#160;time&#160;in&#160;Dlog&#160;&amp;&#160;DlogShared.<br/>
+Description&#160;of&#160;Changes:<br/>
+add&#160;missing&#160;version&#160;checks<br/>
+Changed&#160;Files:<br/>
+include/Dlog_UDSAdapter.h<br/>include/Dlog_NvMAdapter.h<br/>include/Dlog_SvkGen.h<br/>src/Dlog_SweGen.c<br/>include/Dlog_CodingAdapter.h<br/>include/Dlog_SweGen.h<br/>include/Dlog_Data.h<br/>src/Dlog_SvkGen.c<br/>generate/include/Dlog_Cfg.h.pgen<br/>include/Dlog_UserAdapter.h<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6726<br/>
+CR&#160;Headline:<br/>
+Do&#160;not&#160;write&#160;History&#160;after&#160;first&#160;start&#160;after&#160;debug&#160;flash<br/>
+Description&#160;of&#160;Issues:<br/>
+Do&#160;not&#160;write&#160;History&#160;after&#160;first&#160;start&#160;after&#160;debug&#160;flash,&#160;i.e.&#160;when&#160;the<br/>NvM&#160;block&#160;is&#160;not&#160;readable.<br/>
+Description&#160;of&#160;Changes:<br/>
+Do&#160;not&#160;write&#160;History&#160;after&#160;first&#160;start&#160;after&#160;debug&#160;flash,&#160;i.e.&#160;when&#160;the<br/>NvM&#160;block&#160;is&#160;not&#160;readable.<br/>
+Changed&#160;Files:<br/>
+src/Dlog_SvkGen.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.1.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6266<br/>
+ReleaseNotes_DlogGeneric,&#160;Version&#160;5.1.1,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;5<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogGeneric_ReleaseNotes-3_1.png"/><br/>
+CR&#160;Headline:<br/>
+Invalid&#160;SWFK&#160;with&#160;alternative&#160;SWFK<br/>
+Description&#160;of&#160;Issues:<br/>
+after&#160;deleting&#160;the&#160;last&#160;SWFK&#160;of&#160;an&#160;group&#160;which&#160;must&#160;contain&#160;at<br/>least&#160;one&#160;SWFK&#160;an&#160;invalid&#160;entry&#160;must&#160;display&#160;when&#160;read<br/>SVK_AKTUELL.<br/>
+Description&#160;of&#160;Changes:<br/>
+output&#160;default&#160;entry&#160;for&#160;missing&#160;SWFK&#160;in<br/>DLOG_SWEGROUP_ONEOBLIGATORY<br/>
+Changed&#160;Files:<br/>
+src/Dlog_SvkGen.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6422<br/>
+CR&#160;Headline:<br/>
+Bs,&#160;Dlog,&#160;Pia:&#160;Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen<br/>should&#160;be&#160;AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Issues:<br/>
+Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen&#160;should&#160;be<br/>AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Changes:<br/>
+change&#160;arxml&#160;schema&#160;to<br/>AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Changed&#160;Files:<br/>
+cfgdesc/Dlog_paramdef.arxml<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6055<br/>
+CR&#160;Headline:<br/>
+Improve&#160;handling&#160;of&#160;DLOG_SWFK_DELSUP_AVAILABLE<br/>
+Description&#160;of&#160;Issues:<br/>
+At&#160;the&#160;moment&#160;DLOG_SWFK_DELSUP_AVAILABLE&#160;is&#160;set&#160;to<br/>STD_OFF.<br/>
+Description&#160;of&#160;Changes:<br/>
+move&#160;DLOG_SWFK_DELSUP_AVAILABLE&#160;back&#160;to&#160;classic&#160;since<br/>in&#160;adaptive&#160;it&#160;will&#160;be&#160;a&#160;postbuild&#160;parameter<br/>
+Changed&#160;Files:<br/>
+generate/include/Dlog_Cfg.h.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.2&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6223<br/>
+CR&#160;Headline:<br/>
+Usage&#160;of&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;is&#160;deprecated<br/>and&#160;shall&#160;be&#160;replaced&#160;by&#160;VALUE-CONFIG-CLASSES&#160;according&#160;to<br/>ASR4.2.2<br/>
+Description&#160;of&#160;Issues:<br/>
+TPS_ECUC_06051&#160;is&#160;removed&#160;from&#160;spec.&#160;In&#160;schema<br/>AUTOSAR_4-2-2.xsd&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;is<br/>marked&#160;as&#160;deprecated.&#160;That&#160;means:&#160;IMPLEMENTATION-<br/>CONFIG-CLASSES/IMPLEMENTATION-CONFIG-CLASS&#160;has&#160;to<br/>be&#160;replaed&#160;by<br/>VALUE-CONFIG-CLASSES/VALUE-CONFIG-CLASS&#160;entirely<br/>within&#160;paramdefs!<br/>
+Description&#160;of&#160;Changes:<br/>
+fix&#160;config&#160;classes&#160;in&#160;paramdef.arxml&#160;file<br/>
+Changed&#160;Files:<br/>
+cfgdesc/Dlog_paramdef.arxml<br/>
+ReleaseNotes_DlogGeneric,&#160;Version&#160;5.1.1,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;5<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogGeneric_ReleaseNotes-4_1.png"/><br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6213<br/>
+CR&#160;Headline:<br/>
+Write&#160;Svk&#160;History&#160;after&#160;reprogramming<br/>
+Description&#160;of&#160;Issues:<br/>
+Write&#160;Svk&#160;History&#160;after&#160;reprogramming<br/>
+Description&#160;of&#160;Changes:<br/>
+Write&#160;Svk&#160;History&#160;after&#160;reprogramming<br/>
+Changed&#160;Files:<br/>
+src/Dlog_SvkGen.c<br/>include/Dlog_SvkGen.h<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6181<br/>
+CR&#160;Headline:<br/>
+Tidy&#160;up<br/>
+Description&#160;of&#160;Issues:<br/>
+Tidy&#160;up:&#160;-&#160;remove&#160;dependency&#160;to&#160;Srv&#160;in&#160;comment&#160;-&#160;remove<br/>remains&#160;of&#160;VirtualCPU&#160;-&#160;remove&#160;remains&#160;of&#160;RSU&#160;-&#160;remove&#160;remains<br/>of&#160;write&#160;fingerprint&#160;-&#160;remove&#160;dead&#160;code&#160;-&#160;fix&#160;file&#160;headers&#160;-&#160;fix<br/>compiler&#160;warnings<br/>
+Description&#160;of&#160;Changes:<br/>
+Tidy&#160;up:&#160;-&#160;remove&#160;dependency&#160;to&#160;Srv&#160;in&#160;comment&#160;-&#160;remove<br/>remains&#160;of&#160;VirtualCPU&#160;-&#160;remove&#160;remains&#160;of&#160;RSU&#160;-&#160;remove&#160;remains<br/>of&#160;write&#160;fingerprint&#160;-&#160;remove&#160;dead&#160;code&#160;-&#160;fix&#160;file&#160;headers&#160;-&#160;fix<br/>compiler&#160;warnings<br/>
+Changed&#160;Files:<br/>
+src/Dlog_SvkGen.c<br/>src/Dlog_EcuGen.c<br/>CMakeLists.txt<br/>include/Dlog_EcuGen.h<br/>include/Dlog_SvkGen.h<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-5169<br/>
+CR&#160;Headline:<br/>
+Some&#160;(most?)&#160;BAC&#160;modules&#160;paramdef&#160;violate&#160;TPS_ECUC_06004<br/>
+Description&#160;of&#160;Issues:<br/>
+According&#160;to&#160;AUTOSAR&#160;TPS_ECUConfiguration&#160;there&#160;is&#160;the<br/>following&#160;requirement:<br/>[TPS_ECUC_06004]&#160;AdminData&#160;field&#160;in&#160;ECU&#160;Configuration<br/>Parameter&#160;Definition&#160;XML&#160;file&#160;d&#160;An&#160;AdminData&#160;field&#160;is&#160;required&#160;at<br/>the&#160;beginning&#160;of&#160;every&#160;ECU&#160;Configuration&#160;Parameter&#160;Definition<br/>XML&#160;file&#160;(regardless&#160;whether&#160;it&#160;is&#160;the&#160;StMD&#160;or&#160;the&#160;VSMD&#160;file)&#160;to<br/>allow&#160;the&#160;setting&#160;of&#160;AdminData&#160;for&#160;the&#160;whole&#160;XML&#160;File.&#160;c()<br/>Most&#160;of&#160;our&#160;modules&#160;fail&#160;to&#160;define&#160;the&#160;AdminData&#160;Element&#160;(just<br/>saw&#160;it&#160;in&#160;Darh&#160;-&#160;and&#160;here&#160;the&#160;element&#160;contains&#160;mixed&#160;info&#160;to&#160;be<br/>fixed).&#160;It&#160;is&#160;somehow&#160;weired&#160;as&#160;we&#160;then&#160;will&#160;define&#160;version&#160;info<br/>within&#160;CommonPublishedInformation&#160;AND&#160;AdminData&#160;-&#160;but&#160;as&#160;it&#160;is<br/>formally&#160;required,&#160;we&#160;have&#160;to&#160;follow&#160;it.<br/>
+Description&#160;of&#160;Changes:<br/>
+add&#160;AdminData&#160;to&#160;paramdef&#160;file<br/>
+Changed&#160;Files:<br/>
+cfgdesc/Dlog_paramdef.arxml<br/>
+ReleaseNotes_DlogGeneric,&#160;Version&#160;5.1.1,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;5<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dlog/doc/DlogGeneric_ReleaseNotes-5_1.png"/><br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.1&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6172<br/>
+CR&#160;Headline:<br/>
+Tidy&#160;up<br/>
+Description&#160;of&#160;Issues:<br/>
+Tidy&#160;up:&#160;-&#160;remove&#160;remains&#160;of&#160;first&#160;start&#160;flag&#160;-&#160;remove&#160;remains&#160;of<br/>prog&#160;counter&#160;-&#160;fix&#160;compiler&#160;warnings<br/>
+Description&#160;of&#160;Changes:<br/>
+Tidy&#160;up:&#160;-&#160;remove&#160;remains&#160;of&#160;first&#160;start&#160;flag&#160;-&#160;remove&#160;remains&#160;of<br/>prog&#160;counter&#160;-&#160;fix&#160;compiler&#160;warnings<br/>
+Changed&#160;Files:<br/>
+src/Dlog_SvkGen.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6089<br/>
+CR&#160;Headline:<br/>
+Bm/Dlog&#160;inconsistent&#160;defines&#160;Blu&#160;does&#160;not&#160;start<br/>
+Description&#160;of&#160;Issues:<br/>
+Bm/Dlog&#160;inconsistent&#160;defines&#160;Blu&#160;does&#160;not&#160;start<br/>
+Description&#160;of&#160;Changes:<br/>
+return&#160;consistent&#160;application&#160;for&#160;programming&#160;dependency&#160;state&#160;in<br/>case&#160;of&#160;BLU<br/>
+Changed&#160;Files:<br/>
+include/Dlog_Data.h<br/>src/Dlog_SvkGen.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>CR&#160;Headline:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Issues:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Changes:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Changed&#160;Files:<br/>Compatibility:<br/>
+ReleaseNotes_DlogGeneric,&#160;Version&#160;5.1.1,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;5<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="DlogGeneric_ReleaseNotess.html#2">1 Module Description</a></li>
+<li><a href="DlogGeneric_ReleaseNotess.html#2">2 Revisions and Modifications</a>
+<ul>
+<li><a href="DlogGeneric_ReleaseNotess.html#2">2.1 Revision 5.1.1 [Released]</a></li>
+<li><a href="DlogGeneric_ReleaseNotess.html#2">2.2 Revision 5.1.0 [Released]</a></li>
+<li><a href="DlogGeneric_ReleaseNotess.html#3">2.3 Revision 5.0.2 [Released]</a></li>
+<li><a href="DlogGeneric_ReleaseNotess.html#5">2.4 Revision 5.0.1 [Released]</a></li>
+<li><a href="DlogGeneric_ReleaseNotess.html#5">2.5 Revision 5.0.0 [Released]</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

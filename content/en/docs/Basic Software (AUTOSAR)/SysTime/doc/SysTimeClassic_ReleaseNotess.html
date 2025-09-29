@@ -1,0 +1,209 @@
+---
+title: SysTimeClassic_ReleaseNotess
+linkTitle: SysTimeClassic_ReleaseNotess
+weight: 10
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_ReleaseNotes-1_1.png"/><br/>
+Release&#160;Notes&#160;SysTimeClassic<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.0.3<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Issues</b><br/>
+5.0.3<br/>
+2017-12-14<br/>
+BAC-6695<br/>
+5.0.2<br/>
+2017-10-12<br/>
+BAC-5176,&#160;BAC-6230,&#160;BAC-6433<br/>
+5.0.1<br/>
+2017-08-10<br/>
+BAC-6204,&#160;BAC-6200<br/>
+5.0.0<br/>
+2017-06-29<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+ReleaseNotes_SysTimeClassic,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;4<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_ReleaseNotes-2_1.png"/><br/>
+<b>1</b><br/>
+<b>Module&#160;Description</b><br/>
+This&#160;package&#160;contains&#160;the&#160;adapter&#160;for&#160;a&#160;classic&#160;AUTOSAR&#160;platform&#160;for&#160;the&#160;SysTimeGeneric&#160;package.&#160;The<br/>System&#160;Time&#160;Client&#160;is&#160;modeled&#160;as&#160;an&#160;AUTOSAR&#160;software&#160;component&#160;(SWC)&#160;residing&#160;above&#160;the&#160;RTE.<br/>
+<b>2</b><br/>
+<b>Revisions&#160;and&#160;Modifications</b><br/>
+<b>Revision&#160;5.0.3&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6695<br/>
+CR&#160;Headline:<br/>
+Fix&#160;MISRA&#160;violations<br/>
+Description&#160;of&#160;Issues:<br/>
+SysTime&#160;has&#160;MISRA&#160;violations.<br/>
+Description&#160;of&#160;Changes:<br/>
+Fixed&#160;MISRA&#160;violations&#160;where&#160;reasonable.<br/>
+Changed&#160;Files:<br/>
+src/SysTime_ConcAdapter.c<br/>src/SysTimeClassic.c<br/>src/SysTime_TimerAdapter.c<br/>include/SysTime_AssertAdapter.h<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.2&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-5176<br/>
+CR&#160;Headline:<br/>
+BAC&#160;modules&#160;paramdef&#160;violate&#160;TPS_ECUC_06004<br/>
+Description&#160;of&#160;Issues:<br/>
+According&#160;to&#160;AUTOSAR_TPS_ECUConfiguration<br/>TPS_ECUC_06004&#160;an&#160;AdminData&#160;field&#160;is&#160;required&#160;at&#160;the<br/>beginning&#160;of&#160;every&#160;ECU&#160;Configuration&#160;Parameter&#160;Definition&#160;XML<br/>file.<br/>
+Description&#160;of&#160;Changes:<br/>
+Added&#160;AdminData&#160;field&#160;containing&#160;module&#160;version&#160;and&#160;release<br/>date.<br/>
+Changed&#160;Files:<br/>
+cfgdesc/SysTimeClassic_paramdef.arxml<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6230<br/>
+CR&#160;Headline:<br/>
+Usage&#160;of&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;in&#160;BMW<br/>modules&#160;is&#160;invalid&#160;according&#160;to&#160;ASR4.2.2<br/>
+Description&#160;of&#160;Issues:<br/>
+Elements&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;containing<br/>ECUC-IMPLEMENTATION-CONFIGURATION-CLASS&#160;are<br/>deprecated.They&#160;shall&#160;be&#160;replaced&#160;by&#160;VALUE-CONFIG-<br/>CLASSES/ECUC-VALUE-CONFIGURATION-CLASS&#160;and/or<br/>MULTIPLICITY-CONFIG-CLASSES/ECUC-MULTIPLICITY-<br/>CONFIGURATION-CLASS<br/>
+ReleaseNotes_SysTimeClassic,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;4<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_ReleaseNotes-3_1.png"/><br/>
+Description&#160;of&#160;Changes:<br/>
+Replaced&#160;IMPLEMENTATION-CONFIG-CLASSES&#160;by<br/>VALUE-CONFIG-CLASSES,&#160;added<br/>MULTIPLICITY-CONFIG-CLASSES&#160;where&#160;necessary.<br/>
+Changed&#160;Files:<br/>
+cfgdesc/SysTimeClassic_paramdef.arxml<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6433<br/>
+CR&#160;Headline:<br/>
+Schema&#160;of&#160;paramdefs,&#160;paramconfs&#160;and&#160;SWCDen&#160;should&#160;be<br/>AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Issues:<br/>
+Schema&#160;of&#160;parameter&#160;definition&#160;files&#160;and&#160;SWCDs&#160;should&#160;be<br/>conform&#160;to&#160;AUTOSAR_4-3-0_STRICT_COMPACT.xsd<br/>
+Description&#160;of&#160;Changes:<br/>
+Adapted&#160;parameter&#160;definition&#160;files&#160;and&#160;SWCDs&#160;to&#160;schema<br/>AUTOSAR_4-3-0_STRICT_COMPACT.<br/>
+Changed&#160;Files:<br/>
+cfgdesc/SysTimeClassic_paramdef.arxml<br/>generate/meta/SysTime_ext_interfaces.arxml.pgen<br/>generate/meta/SysTime_internal.arxml.pgen<br/>generate/meta/SysTime_interfaces.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.1&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6204<br/>
+CR&#160;Headline:<br/>
+SysTime:&#160;Wrong&#160;cross&#160;version&#160;check&#160;for&#160;classic&#160;adapter<br/>
+Description&#160;of&#160;Issues:<br/>
+SysTimeClassic_Version.h&#160;uses&#160;wrong&#160;cross&#160;version&#160;check&#160;of<br/>generic&#160;part.<br/>
+Description&#160;of&#160;Changes:<br/>
+Correct&#160;cross&#160;version&#160;check&#160;in&#160;classic&#160;adapter.<br/>
+Changed&#160;Files:<br/>
+generate/include/SysTimeClassic_Version.h.pgen<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6200<br/>
+CR&#160;Headline:<br/>
+Improve&#160;Requirements&#160;Traceability<br/>
+Description&#160;of&#160;Issues:<br/>
+Add&#160;requirements&#160;from&#160;IntegrationManual&#160;to&#160;RequirementsTable.<br/>
+Description&#160;of&#160;Changes:<br/>
+Added&#160;requirements&#160;from&#160;IntegrationManual&#160;to<br/>RequirementsTable.<br/>
+Changed&#160;Files:<br/>Compatibility:<br/>
+<b>Revision&#160;5.0.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>CR&#160;Headline:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Issues:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+ReleaseNotes_SysTimeClassic,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;4<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/SysTime/doc/SysTimeClassic_ReleaseNotes-4_1.png"/><br/>
+Description&#160;of&#160;Changes:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Changed&#160;Files:<br/>Compatibility:<br/>
+ReleaseNotes_SysTimeClassic,&#160;Version&#160;5.0.3,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;4<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="SysTimeClassic_ReleaseNotess.html#2">1 Module Description</a></li>
+<li><a href="SysTimeClassic_ReleaseNotess.html#2">2 Revisions and Modifications</a>
+<ul>
+<li><a href="SysTimeClassic_ReleaseNotess.html#2">2.1 Revision 5.0.3 [Released]</a></li>
+<li><a href="SysTimeClassic_ReleaseNotess.html#2">2.2 Revision 5.0.2 [Released]</a></li>
+<li><a href="SysTimeClassic_ReleaseNotess.html#3">2.3 Revision 5.0.1 [Released]</a></li>
+<li><a href="SysTimeClassic_ReleaseNotess.html#3">2.4 Revision 5.0.0 [Released]</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

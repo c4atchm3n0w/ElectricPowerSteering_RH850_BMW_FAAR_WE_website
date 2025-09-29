@@ -1,0 +1,272 @@
+---
+title: releasenotess
+linkTitle: releasenotess
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><b>Release&#160;Notes</b>&#160;<br/>
+<b>Version&#160;3.11.0 vom 07.11.2017</b>&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Signatur-&#160;(ecdsa,&#160;rsassa-pss)&#160;und Hashfunktionen&#160;(SHA3) für SP2021.&#160;<br/>
+&#160;&#160;Unterstützung&#160;von&#160;Multischlüsseldateien&#160;(*.keys)&#160;für SP2021.&#160;<br/>
+&#160;&#160;Kommando&#160;SIGN mit neuem&#160;Parameter&#160;keyname&#160;zur&#160;Auswahl&#160;eines&#160;<br/>
+Schlüssels&#160;aus&#160;einer Multischlüsseldatei.&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;<br/><b>Version&#160;3.10.0 vom 31.03.2017</b>&#160;&#160;<br/>
+&#160;&#160;Neuer&#160;Parameter&#160;POINTER für das&#160;Kommando&#160;<br/>
+CHECKSUM_TABLE_BLOCK.&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;<br/><b>Version&#160;3.9.0&#160;vom 25.07.2014</b>&#160;&#160;<br/>
+&#160;&#160;Erweiterung SWE-Verschlüsselung.&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;SET_SESSION_KEY_ADDRESS_STORAGE.&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;<br/><b>Version&#160;3.8.0&#160;vom 05.06.2013</b>&#160;&#160;<br/>
+&#160;&#160;Die&#160;verschiedenen&#160;SWE-Generator Modi&#160;können jetzt&#160;auch über&#160;Menüpunkt&#160;<br/>
+Ansicht&#160;ausgewählt&#160;werden.&#160;<br/>
+&#160;&#160;Menüpunkt Konfiguration ersetzt durch entsprechende&#160;Buttons&#160;im&#160;Modus&#160;<br/>
+Config-Editor.&#160;<br/>
+&#160;&#160;Bugfix: Hexadezimale&#160;Schlüssellängen in der&#160;Konfigurationsdatei&#160;wurden&#160;<br/>
+nicht&#160;mehr&#160;berücksichtigt.&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;<br/><b>Version&#160;3.7.0&#160;vom 09.04.2013</b>&#160;&#160;<br/>
+&#160;&#160;Englische&#160;Onlinehilfe überarbeitet.&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;CHECKSUM_TABLE_TO_EDCH_TABLE.&#160;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b>&#160;<br/>Version&#160;3.6.0&#160;vom 05.11.2012</b>&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::8091&#160;-&#160;Hash-Signatur&#160;scheitert&#160;wegen EA-Header-Comments:&#160;<br/>
+Fehlende Zeilenchecksumme ergänzt.&#160;<br/>
+&#160;&#160;Korrekturen am&#160;Compress&#160;Modus.&#160;<br/>&#160;&#160;Performance und&#160;Speicherbedarf&#160;des&#160;Viewers&#160;bei&#160;der&#160;Anzeige&#160;von BSW&#160;<br/>
+Dateien&#160;optimiert.&#160;<br/>
+&#160;&#160;Bugfix:&#160;Wenn BSW-Datei&#160;existiert und&#160;schreibgeschützt ist (z.B.&#160;VCS),&#160;gab&#160;es&#160;<br/>
+eine Exception.&#160;<br/>
+&#160;&#160;&#160;&#160;<br/><b>Version&#160;3.5.2&#160;vom 18.10.2012</b>&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::8102&#160;-&#160;Modul&#160;&#34;Hash-Sign&#34;&#160;::&#160;SIGNATURE_HASH_MODE:&#160;Invalid&#160;<br/>
+hash mode (bei&#160;sha1).&#160;<br/>
+&#160;&#160;&#160;<br/><b>Version&#160;3.5.1&#160;vom 09.10.2012</b>&#160;&#160;<br/>
+<hr/>
+<a name=2></a>&#160;&#160;TD_Pro441::8024&#160;-&#160;SWE-Generator bleibt&#160;im&#160;Batchmode hängen,&#160;wenn&#160;kein&#160;<br/>
+Hashfile&#160;vorhanden&#160;ist.&#160;<br/>
+&#160;&#160;Korrekturen am&#160;Header-Editor.&#160;<br/>
+&#160;&#160;Korrekturen am&#160;Compress&#160;Batchmodus.&#160;&#160;<br/>
+&#160;<br/><b>Version&#160;3.5.0&#160;vom 24.08.2012</b>&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::CR1422&#160;-&#160;Umstellung&#160;auf&#160;Visual&#160;Studio 2010&#160;&#160;-&gt;&#160;Leicht&#160;<br/>
+veränderte&#160;GUI.&#160;<br/>
+&#160;&#160;TD_Pro441::CR1308&#160;-&#160;Kommando&#160;CREATE_DESCRIPTION_TABLE&#160;<br/>
+variabel.&#160;<br/>-&#160;Neues&#160;BN2020&#160;Kommando&#160;SET_SIGNATURE_ADDRESS&#160;&lt;address&gt;&#160;<br/>(optional).&#160;<br/>-&#160;Neues&#160;BN2020&#160;Kommando&#160;SET_DIF_ADDRESS&#160;&lt;address&gt;&#160;(optional).&#160;<br/>
+&#160;&#160;TD_Pro441::KÄ1380&#160;-&#160;Signatur-Status&#160;im&#160;Hash-Editor&#160;automatisch auf&#160;<br/>
+&#34;signed&#34;&#160;setzen&#160;wenn&#160;Signatur&#160;generiert&#160;wurde.&#160;<br/>
+&#160;&#160;TD_Pro441::KÄ1379&#160;-&#160;Buttons&#160;&#34;Next Block&#34;&#160;und&#160;&#34;Prev&#160;Block&#34;&#160;im&#160;Modul&#160;<br/>
+Viewer&#160;tauschen.&#160;<br/>
+&#160;&#160;Diverse Optimierungen&#160;am&#160;SWE-Viewer.&#160;<br/>&#160;&#160;Bugfix: CARB&#160;Zeilenchecksumme&#160;fehlte&#160;im&#160;MSR-File&#160;bei&#160;Hash-Sign&#160;und&#160;<br/>
+Signierung.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.4.0&#160;vom 29.06.2012</b>&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::KÄ1291&#160;-&#160;Mehrere Checksummentabellen&#160;pro&#160;<br/>
+Konfigurationsdatei&#160;erlauben.&#160;<br/>Für interne Checksumme und&#160;CARB-Checksumme&#160;können&#160;verschiedene&#160;<br/>Tabellen aufgebaut&#160;werden.&#160;<br/>
+&#160;&#160;TD_Pro441::7329&#160;-&#160;Parameter&#160;wird abgeschnitten&#160;<br/>
+Es&#160;wurde&#160;bemängelt, dass&#160;Parameter&#160;(Dateinamen), die&#160;im&#160;Modul&#160;<br/>&#34;Generator&#34;&#160;über den &#34;Add...&#34;-Button hinzugefügt&#160;werden, nach 63 Zeichen&#160;<br/>abgeschnitten&#160;werden&#160;-&gt;&#160;Fehlermeldung&#160;anzeigen&#160;wenn&#160;Dateiname&#160;<br/>abgeschnitten&#160;wurde.&#160;<br/>
+&#160;&#160;TD_Pro441::CR1304&#160;-&#160;Neue Prozessklasse SWFK&#160;integriert.&#160;<br/>&#160;&#160;Version der XML Schemadatei&#160;der&#160;Hashliste&#160;auf&#160;V02.03.00 gesetzt&#160;<br/>
+&#160;&#160;Bugfix: Command CREATE_DESCRIPTION_TABLE:&#160;Adresse&#160;in&#160;<br/>
+Fehlermeldung&#160;nicht&#160;korrekt.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.3.0&#160;vom 30.01.2012</b>&#160;&#160;<br/>
+&#160;&#160;BN2020&#160;Signatur-&#160;/ Hashlibrary&#160;SigLibNT&#160;durch Open&#160;Source&#160;Bibliothek&#160;<br/>
+PolarSSL&#160;V1.0.0&#160;ersetzt.&#160;<br/>
+&#160;&#160;BN2020&#160;Hashwertberechnung (MD5)&#160;um&#160;folgende Algorithmen&#160;erweitert:&#160;<br/>
+SHA1,&#160;SHA256, SHA384,&#160;SHA512.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.2.0&#160;vom 23.09.2011</b>&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC5156:&#160;Komprimierung&#160;bei&#160;Binärdatenblock&#160;von&#160;ca.&#160;100 MB&#160;<br/>
+nicht&#160;möglich&#160;<br/>NRV&#160;Kompressionsfaktor jetzt konfigurierbar&#160;(Menüpunkt&#160;<br/>Optionen/Einstellungen:&#160;Default: 6).&#160;Ab Faktor 7 nimmt&#160;der&#160;interne&#160;<br/>Speicherbedarf&#160;des&#160;Kompressors&#160;stark&#160;zu&#160;(ca.&#160;das&#160;8-fache&#160;der Inputdatei).&#160;<br/>Früher&#160;war der Kompressionsfaktor fest auf&#160;10&#160;eingestellt,&#160;was&#160;bei&#160;großen&#160;<br/>SWE/PAF-Dateien&#160;zu&#160;Speicherproblemen&#160;führte.&#160;<br/>
+<hr/>
+<a name=3></a>PAF&#160;Kompression&#160;komplett&#160;überarbeitet&#160;um&#160;den&#160;hohen Speicherbedarf&#160;<br/>zusätzlich&#160;zum&#160;NRV-Kompressor&#160;zu reduzieren.&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC5763:&#160;Show&#160;Output-File im&#160;Modul&#160;Compress/Convert&#160;<br/>
+funktioniert nicht.&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC6248: Falsche&#160;Interpretation der&#160;Referenzenanzahl&#160;in&#160;<br/>
+&#34;CREATE_HEADER_COMMENTS_FROM_DIF&#160;EA&#34;.&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC6120: Reproduzierbarer&#160;Absturz&#160;des&#160;SWE-Generators&#160;mit&#160;<br/>
+Config-File für drei&#160;SWEn.&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC6098:&#160;Prozessklasse HWAP&#160;wird&#160;beim&#160;Kommando&#160;<br/>
+&#34;CREATE_HEADER_COMMENTS_FROM_DIF&#160;EA&#34;&#160;als&#160;UNKNOWN&#160;<br/>ausgegeben.&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC6103:&#160;Bug&#160;in READ_DIF_FROM_MEMORY&#160;wenn&#160;Länge=0.&#160;&#160;<br/>
+&#160;&#160;TD_Pro441::QC6854:&#160;Batchmodus&#160;BN2000:&#160;Enthält Configfile&#160;Path die&#160;<br/>
+Zeichenkette&#160;&#34;..-C..&#34;&#160;dann&#160;wird diese&#160;als&#160;Option Compress&#160;(-C)&#160;interpretiert.&#160;&#160;<br/>
+&#160;&#160;Bugfix&#160;VDLE:&#160;Letzter Eintrag der Ladetabelle&#160;am&#160;Ende&#160;des&#160;PBF-Files&#160;fehlte&#160;<br/>
+(kein Problem&#160;wenn AIF&#160;vorhanden&#160;ist).&#160;&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.1.1&#160;(inkl.&#160;PafMaker)&#160;vom 06.04.2011</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;Bei&#160;der&#160;Kompression&#160;/ Konvertierung&#160;von&#160;BN2020 MSR-<br/>
+Dateien&#160;ins&#160;BIN-Format,&#160;werden&#160;die BIN&#160;Dateien&#160;gemäß Muster&#160;<br/>gwtb_XXXXXXXX.bin.XXX_XXX_XXX&#160;benamt. Dies&#160;ist unabhängig vom&#160;<br/>Namen&#160;der&#160;MSR-Datei. Das&#160;Gleiche&#160;gilt für die erzeugte&#160;XML-Datei.&#160;Die&#160;<br/>Namen&#160;der&#160;Dateien in den&#160;BSW&#160;Archiven&#160;bleiben&#160;bei&#160;der&#160;Konvertierung&#160;ins&#160;<br/>BSW-Format&#160;unverändert und&#160;entsprechen dem&#160;Dateinamen&#160;der&#160;Input&#160;MSR-<br/>Datei.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.1.0&#160;(inkl.&#160;PafMaker)&#160;vom 21.03.2011</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;Neue&#160;Prozessklasse GWTB&#160;(0x04)&#160;integriert.&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;BN2020 Kompression&#160;erweitert um&#160;binären&#160;Output&#160;statt&#160;<br/>
+verpackt in&#160;BSW&#160;(Dialog&#160;und&#160;Batchmodus).&#160;&#160;<br/>
+&#160;&#160;Bugfix:&#160;Problem&#160;mit Schreiben&#160;der&#160;Hashsignatur&#160;ans&#160;Ende der&#160;*.msr&#160;Datei&#160;<br/>
+behoben.&#160;&#160;<br/>
+&#160;&#160;Bugfix: Fehler mit Adressen&#160;&gt;&#160;0x80000000&#160;behoben.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.0.1&#160;(inkl.&#160;PafMaker)&#160;vom 04.11.2010</b>&#160;&#160;<br/>
+&#160;&#160;Bugfix:&#160;Probleme&#160;mit BN2020&#160;Adresse 0xFFFFFFFF&#160;bei&#160;Kommandos&#160;<br/>
+BLOCK, COMPRESSION_BLOCK&#160;und SIGNATURE_BLOCK&#160;behoben.&#160;&#160;<br/>
+&#160;&#160;Bugfix:&#160;Problem&#160;mit BN2000 Hashsignierung bei&#160;gleichzeitiger&#160;<br/>
+Nulldatenreduktion&#160;behoben.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;3.0.0&#160;(inkl.&#160;PafMaker)&#160;vom 22.06.2010</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;PafMaker (BN2000)&#160;Funktionalität&#160;vollständig in&#160;den&#160;SWE-<br/>
+Generator&#160;integriert&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;BN2000 Hashdatei&#160;auf&#160;ASBC kompatibles&#160;XML&#160;Format&#160;<br/>
+umgestellt&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;Hash-Editor&#160;um&#160;BN2000 Funktionalität&#160;und&#160;neues&#160;XML&#160;<br/>
+Schema erweitert&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;BN2000 Hash-Signierung unterstützt jetzt&#160;auch&#160;die&#160;<br/>
+Nulldatenreduktion&#160;&#160;<br/>
+&#160;&#160;Speichermanagement optimiert wegen&#160;2GB&#160;Speichergrenze bei&#160;großen&#160;<br/>
+Dateien&#160;(CIC)&#160;&#160;<br/>
+<hr/>
+<a name=4></a>&#160;&#160;<b>Achtung:</b>&#160;BN2000&#160;Hash-Signierung&#160;unterstützt keine&#160;SGs&#160;mit&#160;<br/>
+Multisignaturen!&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.11.0 vom 24.04.2009</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;Mit dem&#160;optionalen&#160;Parameter&#160;&#34;Kompression&#160;erzwingen&#34;,&#160;<br/>
+kann die&#160;Kompression&#160;erzwungen&#160;werden, auch&#160;wenn die&#160;vorgegebenen&#160;<br/>Kompressionsrate&#160;nicht&#160;erreicht&#160;werden konnte.&#160;Siehe&#160;Kompression&#160;und&#160;<br/>Bedienung BatchModus&#160;Kompression/Konvertierung.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.10.0 vom 04.12.2008</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;Beim&#160;Einlesen&#160;aus&#160;Intel-, Srec-&#160;und&#160;Paf-Files&#160;wird&#160;die&#160;<br/>
+Zeilenchecksumme überprüft.&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Feature:&#160;Kommando READ_TYPENUMBER_FROM_MEMORY&#160;liest&#160;<br/>
+die Typenumber&#160;aus&#160;einem&#160;zuvor eingelesenem&#160;Datenbereich&#160;aus&#160;und&#160;<br/>schreibt&#160;diese&#160;in&#160;den&#160;Header.&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Prozessklassen&#160;NAVD und&#160;ENTD&#160;weren unterstützt.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.9.2&#160;vom 25.07.2008</b>&#160;&#160;<br/>
+&#160;&#160;Bugfix&#160;für die&#160;Berechnung&#160;von&#160;CHECKSUM_CARB_FROM_DATA&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.9.1&#160;vom 12.06.2008</b>&#160;&#160;<br/>
+&#160;&#160;Achtung:&#160;Für&#160;die&#160;FLUP-&#160;und BLUP-SWEn ändert das&#160;Kommando&#160;<br/>
+CREATE_DESCRIPTION_TABLE&#160;die&#160;Prozessklassen&#160;Identifier.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.9.0&#160;vom 07.04.2008</b>&#160;&#160;<br/>
+&#160;&#160;Neuer&#160;Parameter&#160;type&#160;im&#160;Kommando&#160;CHECKSUM_TABLE_TO_MEMORY&#160;&#160;<br/>
+&#160;&#160;Neuer&#160;Parameter&#160;type&#160;im&#160;Kommando&#160;CHECKSUM_TABLE_TO_CARB&#160;&#160;<br/>&#160;&#160;Bugfix&#160;Fehlermeldung bei&#160;der Angabe von&#160;readonly&#160;Hash-Dateien&#160;oder&#160;<br/>
+absolutem&#160;Pfad&#160;im&#160;Kommando CREATE_HASH_FILE&#160;&#160;<br/>
+&#160;&#160;Für den&#160;Parameter&#160;type&#160;im&#160;Kommando&#160;SET_TARGET_BOOTLOADER&#160;ist&#160;<br/>
+zusätzlich die Option&#160;&#34;flsl&#34;&#160;möglich.&#160;&#160;<br/>
+&#160;&#160;Signaturinfo im&#160;Block-Kommentar bei&#160;der Generierung von&#160;SWE'n entfernt.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.8.0&#160;vom 29.02.2008</b>&#160;&#160;<br/>
+&#160;&#160;Kommando&#160;CREATE_HASH_FILE&#160;um&#160;Option&#160;&#34;SWE_NAME&#34;&#160;erweitert&#160;&#160;<br/>
+&#160;&#160;Batch-Betrieb&#160;für den Hash-Merger&#160;&#160;<br/>&#160;&#160;Unterstützung neuer&#160;Prozessklassen&#160;SWUP, BLUP&#160;und FLUP&#160;&#160;<br/>
+&#160;&#160;Batch-Betrieb&#160;für das&#160;Paf2Swe-Modul&#160;&#160;<br/>&#160;&#160;Neues&#160;Menü Extras&#160;für Tools&#160;&#160;<br/>
+&#160;&#160;Kompressions&#160;und&#160;Signaturinformationen in die&#160;Blocktitel&#160;bei&#160;der Darstellung&#160;<br/>
+von&#160;bsw-Dateien übernommen&#160;&#160;<br/>
+&#160;&#160;Sicherung&#160;der&#160;Optionen&#160;im&#160;Kompressionsmodul&#160;&#160;<br/>&#160;&#160;BSW-Hash&#160;Tool&#160;deaktiviert&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;SET_TARGET_BOOTLOADER&#160;&#160;<br/>&#160;&#160;Das&#160;Kommando&#160;CHECKSUM_CARB_FROM_DATA&#160;kann&#160;für den&#160;Parameter&#160;<br/>
+mode CRC32_S&#160;verarbeiten.&#160;&#160;<br/>
+<hr/>
+<a name=5></a>&#160;&#160;Das&#160;Kommando&#160;CHECKSUM_CARB_FROM_HASH&#160;erhält&#160;die neuen&#160;<br/>
+Parameter&#160;mode,&#160;format&#160;und address&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.7.1&#160;vom 28.09.2007</b>&#160;&#160;<br/>
+&#160;&#160;Bugfix&#160;in der&#160;Validierung&#160;von SGBM-IDs&#160;&#160;<br/>
+&#160;&#160;Bugfix&#160;zur Unterstüztung mehrerer&#160;Parameter&#160;im&#160;Batch-Mode&#160;&#160;<br/>&#160;&#160;Bugfix&#160;für die&#160;Unterstützung des&#160;Batch-Parameters&#160;&#34;-gui&#160;off&#34;&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.7.0&#160;vom 14.09.2007</b>&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Tool-Funktion&#160;Hash&#160;Editor als&#160;Ersatz&#160;für das&#160;Hash-Tool.&#160;&#160;<br/>
+&#160;&#160;Anpassung&#160;von Log-Meldungen&#160;in&#160;der&#160;Kompression.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.6.1&#160;vom 27.07.2007</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;XML-Schema für die Hash-Signierung.&#160;&#160;<br/>
+&#160;&#160;Entfernung des&#160;Zeitstempels&#160;in binären&#160;Softwareeinheiten.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.6.0&#160;vom 13.07.2007</b>&#160;&#160;<br/>
+&#160;&#160;Der&#160;Viewer kann&#160;auch&#160;BSW-Dateien&#160;anzeigen.&#160;&#160;<br/>
+&#160;&#160;Bei&#160;der&#160;Konvertierung&#160;in&#160;BSW-Dateien&#160;wird für nicht&#160;komprimierte Blöcke&#160;<br/>
+(Unterschreitung&#160;der&#160;Effizienzgrenze,&#160;Komprimierung&#160;nicht&#160;angewählt)&#160;der&#160;<br/>Kompressionsalgorithmus&#160;auf&#160;&#34;UNKNOWN&#34;&#160;gesetzt&#160;&#160;<br/>
+&#160;&#160;Unterstützung eines&#160;neuen&#160;Schemas&#160;für die Hash-Signierung.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.5.0&#160;vom 22.05.2007</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;READ_DIF_FROM_MEMORY&#160;für&#160;das&#160;Einlesen&#160;von des&#160;<br/>
+Development Info Fields&#160;aus&#160;einem&#160;Datenblock&#160;&#160;<br/>
+&#160;&#160;Geändertes&#160;Format&#160;für das&#160;Development Info Field (&#34;#&#34;&#160;Trennzeichen&#160;<br/>
+zwischen Referenzen und&#160;Kommentaren)&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Format&#160;für die&#160;Ausgabe&#160;der&#160;Headerkommentare aus&#160;dem&#160;<br/>
+Development Info Field&#160;&#160;<br/>
+&#160;&#160;Generator&#160;gibt&#160;im&#160;SWE-Batch-Mode&#160;den&#160;Pfad&#160;der&#160;erzeugten Datei&#160;in&#160;die&#160;<br/>
+Standardausgabe&#160;zurück&#160;&#160;<br/>
+&#160;&#160;Kommando&#160;CREATE_HASH_FILE&#160;hat einen neuen optionalen&#160;Parameter&#160;<br/>
+BTLD-ID&#160;&#160;<br/>
+&#160;&#160;Zusammenfassen&#160;von&#160;Daten-Blöcken&#160;erfolgt&#160;vor der&#160;Kompression&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.4.0&#160;vom 14.03.2007</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Modul&#160;Hash-Signierung für das&#160;Einfügen&#160;von Signaturen aus&#160;ECCO.&#160;&#160;<br/>
+&#160;&#160;Hash-Signierung auch im&#160;Batchmode verfügbar.&#160;&#160;<br/>
+&#160;&#160;Kommando&#160;CALCULATE_CHECKSUM erfordert&#160;neuen&#160;Parameter&#160;BYTE&#160;<br/>
+oder NIBBLE.&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;CREATE_HASH_FILE&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Tool-Funktionen Hash-Merger&#160;und&#160;Hash-Tool&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Tool-Funktion&#160;PAF-SWE-Vergleich&#160;<br/>
+<hr/>
+<a name=6></a>&#160;&#160;<br/><b>Version&#160;2.3.1&#160;vom 02.02.2007</b>&#160;&#160;<br/>
+&#160;&#160;Modul&#160;Kompression: Komprimierung&#160;ist nur noch mit gleichzeitiger&#160;<br/>
+Konvertierung&#160;möglich.&#160;&#160;<br/>
+&#160;&#160;Schlüssellängen:&#160;Schlüssellänge&#160;1600&#160;Bit&#160;ist nicht verfügbar.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.3.0&#160;vom 15.01.2007</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;CREATE_HEADER_COMMENTS_FROM_DIF&#160;zur&#160;<br/>
+Interpretation&#160;der&#160;Development-Info-Field-Inhalte&#160;und&#160;Übernahme in den&#160;<br/>Header.&#160;&#160;<br/>
+&#160;&#160;Kompression&#160;und Konvertierung&#160;über&#160;Batch-Mode verfügbar.&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Schlüssellängen für&#160;Signatur 600, 800,&#160;1600 Bit&#160;im&#160;Kommando&#160;<br/>
+SET_SIGNATURE_KEY_LENGTH verfügbar.&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Prozessklasse SWFF&#160;im&#160;Kommando&#160;OPEN.&#160;&#160;<br/>&#160;&#160;Erweiterung der Kommandos&#160;CHECKSUM_TABLE_TO_MEMORY,&#160;<br/>
+CHECKSUM_TABLE_TO_CARB&#160;um&#160;ein&#160;Siemens-Checksummen-Verfahren.&#160;&#160;<br/>
+&#160;&#160;Bei&#160;der&#160;Signierung&#160;wird der&#160;berechnete&#160;MD5-Hashwert&#160;im&#160;Logfile&#160;<br/>
+ausgegeben.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.2.0&#160;vom 30.11.2006</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Kommando&#160;CREATE_OUTPUT_BLOCK&#160;definiert die Ausgabeblöcke&#160;<br/>
+im&#160;SWE-File.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.1.0&#160;vom 15.10.2006</b>&#160;&#160;<br/>
+&#160;&#160;Modul&#160;Kompression&#160;wurde&#160;erweitert; nun&#160;können&#160;SWEs&#160;komprimiert und&#160;<br/>
+konvertiert&#160;werden.&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Prozessklassen&#160;FLSL,&#160;IBAD&#160;und&#160;SWFF&#160;&#160;<br/>
+&#160;&#160;Kommando&#160;REDUCE_NULL_INFOSwurde&#160;deaktiviert.&#160;Kann nicht&#160;mehr&#160;<br/>
+verwendet&#160;werden.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;2.0.0&#160;vom 08.09.2006</b>&#160;&#160;<br/>
+&#160;&#160;Neues&#160;Modul&#160;Paf2SWE&#160;zum&#160;Konnvertieren&#160;von&#160;Paf-Files&#160;in SWE-Files.&#160;&#160;<br/>
+&#160;&#160;Die&#160;bisherige&#160;File-Endung&#160;&#34;.msr&#34;&#160;wird nur&#160;noch für signierte Files&#160;erstellt.&#160;<br/>
+Unsignierte Files&#160;erhalten&#160;die File-Endung&#160;&#34;.s19&#34;&#160;.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;1.3.0&#160;vom 02.06.2006</b>&#160;&#160;<br/>
+&#160;&#160;Neue&#160;Befehle&#160;zum&#160;Erstellen von&#160;Checksum-Carb-Einträgen&#160;<br/>
+CHECKSUM_CARB_FROM_DATA, CHECKSUM_CARB_FROM_HASH,&#160;<br/>CHECKSUM_TABLE_BLOCK, CHECKSUM_TABLE_END,&#160;<br/>CHECKSUM_TABLE_START, CHECKSUM_TABLE_TO_MEMORY,&#160;<br/>CHECKSUM_TABLE_TO_CARB.&#160;&#160;<br/>
+&#160;&#160;Suchfunktion&#160;in allen&#160;Editoren&#160;über&#160;Strg+F,&#160;Kontextmenü oder&#160;Hauptmenü-<br/>
+&gt;Bearbeiten&#160;verfügbar.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;1.2.0&#160;vom 02.05.2006</b>&#160;&#160;<br/>
+<hr/>
+<a name=7></a>&#160;&#160;Neues&#160;Modul&#160;Kompression&#160;erlaubt&#160;das&#160;Komprimieren&#160;von&#160;Datenblöcken. Bei&#160;<br/>
+den&#160;Kommandos&#160;READ_BLOCK_FROM_FILE&#160;und&#160;<br/>CREATE_BLOCK_PATTERN ist deshalb ein&#160;zusätzlicher&#160;Pflichtparameter&#160;<br/>(compress/nocompress)&#160;zu&#160;setzen ist.&#160;Standardmäßig ist dieser Parameter&#160;<br/>auf&#160;nocompress&#160;zu setzen.&#160;&#160;<br/>
+&#160;&#160;Das&#160;Signieren&#160;des&#160;SGBM-Identifiers&#160;und&#160;des&#160;Development-Info-Fieldes&#160;wird&#160;<br/>
+unterstützt (siehe&#160;Signierung SWE-Beschreibungstabelle).&#160;&#160;<br/>
+&#160;&#160;Die&#160;Version des&#160;SWE-Generators&#160;sowie der&#160;Name des&#160;Configfiles&#160;werden&#160;in&#160;<br/>
+den&#160;Kommentar-Header&#160;geschrieben.&#160;&#160;<br/>
+&#160;&#160;Symmetrische&#160;Signatur&#160;wird unterstützt (siehe Kommando&#160;<br/>
+SET_SIGNATURE_MODE)&#160;&#160;<br/>
+&#160;&#160;Der&#160;optionale Parameter&#160;offset&#160;für binary&#160;Files&#160;beim&#160;Kommando&#160;<br/>
+READ_BLOCK_FROM_FILE&#160;wird nicht&#160;mehr&#160;unterstützt.&#160;Bitte&#160;benutzen&#160;Sie&#160;<br/>die&#160;Startadresse für den&#160;offset&#160;und&#160;verschieben&#160;den&#160;Block&#160;später über&#160;das&#160;<br/>Kommando&#160;MOVE_BLOCK,&#160;wenn&#160;notwendig.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;1.1.1&#160;vom 11.04.2006</b>&#160;&#160;<br/>
+&#160;&#160;DevelopmentInfoField erlaubt&#160;jetzt #-Zeichen.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;1.1 vom 29.01.2006</b>&#160;&#160;<br/>
+&#160;&#160;Modul&#160;SWE-Generator: Einfügen&#160;der&#160;File-Ende-Zeile&#160;laut Motorola-SREC-<br/>
+Format&#160;(S7,&#160;S8,&#160;S9)&#160;in&#160;der&#160;erzeugten SWE.&#160;&#160;<br/>
+&#160;&#160;Der&#160;bei&#160;SET_SREC_FORMAT&#160;angegebene&#160;Adressbereich&#160;wird bei&#160;jedem&#160;<br/>
+Datenblock&#160;überprüft und&#160;eine&#160;Fehlermeldung&#160;ausgegeben,&#160;wenn&#160;der&#160;<br/>Adressbereich nicht&#160;zur&#160;Adressierung&#160;des&#160;angegebenen&#160;Block&#160;ausreicht.&#160;&#160;<br/>
+&#160;&#160;Das&#160;Einlesen&#160;von Binärfiles&#160;ist möglich.&#160;&#160;<br/>
+&#160;&#160;Das&#160;Angeben&#160;von Parametern ist über&#160;%1-%n im&#160;Batchmode&#160;möglich.&#160;<br/>
+&#160;&#160;<br/><b>Version&#160;1.0 vom 16.11.2005</b>&#160;&#160;<br/>
+&#160;&#160;Erstversion&#160;<br/>
+&#160;&#160;<br/>
+<hr/>
+</body>
+</html>

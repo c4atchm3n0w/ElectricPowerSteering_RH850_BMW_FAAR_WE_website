@@ -1,0 +1,467 @@
+---
+title: XcpIf_Integration_Manual
+linkTitle: XcpIf_Integration_Manual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>XCP Interfrace (XcpIf)</strong></p>
+<p><strong>VERSION: 1.00</strong></p>
+<p><strong>DATE: 19-Jan-2018</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>ESG Software,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+<u>Document Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 18%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Version</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author(s)</strong></td>
+<td><strong>Revision Date</strong></td>
+<td><strong>Approved By</strong></td>
+<td><strong>Approved Date</strong></td>
+<td><strong>Status</strong></td>
+</tr>
+<tr class="even">
+<td>1.00</td>
+<td>Initial document release</td>
+<td>K. Smith</td>
+<td>19-Jan-2018</td>
+<td>K. Smith</td>
+<td>19-Jan-2018</td>
+<td>Released</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong></p>
+<p>This version 1.00 was baselined without requirements or a design finalized.</p>
+<p><strong><u><br />
+Table of Contents</u></strong></p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms <span>4</span></a></p>
+<p><a href="#references">2 References <span>5</span></a></p>
+<p><a href="#dependencies">3 Dependencies <span>6</span></a></p>
+<p><a href="#swcs">3.1 SWCs <span>6</span></a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project <span>6</span></a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS <span>7</span></a></p>
+<p><a href="#build-time-config">4.1 Build Time Config <span>7</span></a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project <span>7</span></a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes <span>7</span></a></p>
+<p><a href="#davinci-interrupt-configuration-changes">4.4 DaVinci Interrupt Configuration Changes <span>7</span></a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes <span>7</span></a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS <span>8</span></a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs <span>8</span></a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs <span>8</span></a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present <span>8</span></a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling <span>9</span></a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS <span>10</span></a></p>
+<p><a href="#mapping">7.1 Mapping <span>10</span></a></p>
+<p><a href="#usage">7.2 Usage <span>10</span></a></p>
+<p><a href="#nvm-blocks">7.3 Non RTE NvM Blocks <span>10</span></a></p>
+<p><a href="#_Toc389222336">7.4 RTE NvM Blocks <span>10</span></a></p>
+<p><a href="#compiler-settings">8 Compiler Settings <span>11</span></a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO <span>11</span></a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings <span>11</span></a></p>
+<p><a href="#appendix">9 Appendix <span>12</span></a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Sr. No.</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Software Naming Conventions</td>
+<td>1.02</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Software Design and Coding Standards</td>
+<td>2.01</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Module</strong></th>
+<th><strong>Required Feature</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>&lt;Name of SWC&gt;</strong></td>
+<td>&lt;Addition of global data, function&gt;*.</td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p>The following functions need to be defined as non-trusted.</p>
+<ul>
+<li><p>CopyCalPageReq_Oper</p></li>
+<li><p>SetCalPageReq_Oper</p></li>
+<li><p>Xcp_Event</p></li>
+</ul>
+<p>The following function needs to be defined as trusted:</p>
+<ul>
+<li><p>XcpAppl_CalibrationWriteTrustd</p></li>
+</ul>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Modules</strong></th>
+<th><strong>Notes</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Parameter</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 38%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ISR Name</strong></th>
+<th><strong>VIM #</strong></th>
+<th><strong>Priority Dependency</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Constant</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p>None</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p>None</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>Yes</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Init</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CDD_XcpIfInit1</strong></td>
+<td>None</td>
+<td>RTE (Init)</td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Runnable</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CDD_XcpIfPer1</strong></td>
+<td>None</td>
+<td>RTE (100ms)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>.</strong></p>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Memory Section</strong></th>
+<th><strong>Contents</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>RAM</strong></th>
+<th><strong>ROM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: ARM Cortex R4 Memory Usage</p>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p>*See DataDict.m</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p>None</p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p>None</p>
+<h1 id="appendix">Appendix</h1>
+<h2 id="xcp-configuration">XCP Configuration</h2>
+<p>Below are the following options that need to be enabled for the component to properly work.</p>
+<p>&lt;&lt; ADD XCP NOTES &gt;&gt;&gt;</p>
+<h2 id="xcp-configuration-1">XCP Configuration</h2>
+<p>Based on the XCP settings for the DAQ lists, components descriptions (arxml), source files (.c), and m-files are created based on the configuration. These compoents will also need to be imported into the project.</p>
+<p>Key items</p>
+<ul>
+<li><p>DAQ runnables should be placed in the lowest priority task for a given runnable rate. This should be called before the checkpoint. This will ensure a good sample and avoid lag for a given runnable rate.</p></li>
+<li><p>Multiple DAQs can be configured to run at different rates. Each DAQ list will have its own set of description, source, and m-files to be integrated.</p></li>
+</ul>
+<h2 id="integration-compatibility-with-es400a">Integration Compatibility with ES400A</h2>
+<p>If this component is used with ES400A version 2.0.0 or earlier will require a header file to be created to map constants that are defined in ES400A to the values used by ES104B. These values are different then where defined in ES104A. Below is a sample template that can be used:</p>
+<p>File Name: CDD_XcpIf.h</p>
+<p>File Contents:</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>#ifndef CDD_XCPIF_H</p>
+<p>#define CDD_XCPIF_H</p>
+<p>/* Included this private until ES400 is separated from ES104 */</p>
+<p>#include "CDD_XcpIf_Cfg_private.h"</p>
+<p>#define XCPIF_XCPCMDOK_CNT_U08 XCPIF_CMDOK_CNT_U08</p>
+<p>#define XCPIF_SEGNOTVLD_CNT_U08 XCPIF_RTNSEGNOTVLD_CNT_U08</p>
+<p>#define XCPIF_CRCPAGEMODNOTVLD_CNT_U08 XCPIF_RTNPAGEMODNOTVLD_CNT_U08</p>
+<p>#define XCPIF_OUTOFRNG_CNT_U08 XCPIF_RTNOUTOFRNG_CNT_U08</p>
+<p>#endif</p></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h1 id="template-change-history">Template Change History</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 18%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Version</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author(s)</strong></td>
+<td><strong>Revision Date</strong></td>
+<td><strong>Approved By</strong></td>
+<td><strong>Approved Date</strong></td>
+<td><strong>Status</strong></td>
+</tr>
+<tr class="even">
+<td>1.00</td>
+<td>Initial version</td>
+<td>S. Sengottaniyan</td>
+<td>NA</td>
+<td>-</td>
+<td>NA</td>
+<td>Released</td>
+</tr>
+<tr class="odd">
+<td>1.01</td>
+<td>Rework on initial version</td>
+<td>S. Sengottaniyan</td>
+<td>23-May-2014</td>
+<td>-</td>
+<td>23-May-2014</td>
+<td>Released</td>
+</tr>
+<tr class="even">
+<td>1.02</td>
+<td>Removed Config Id references from the document</td>
+<td>M. Mehta</td>
+<td>10-Jul-2014</td>
+<td>L. Newton</td>
+<td>10-Jul-2014</td>
+<td>Released</td>
+</tr>
+<tr class="odd">
+<td>1.03</td>
+<td>Modificaions for EA4</td>
+<td>M. Story</td>
+<td>06-May-2015</td>
+<td>SEPG</td>
+<td>06-May-2015</td>
+<td>Released</td>
+</tr>
+<tr class="even">
+<td>1.04</td>
+<td>Aligned to portal version guideline</td>
+<td>Umesh Sambhari</td>
+<td>21-Nov-2017</td>
+<td>NA</td>
+<td>NA</td>
+<td>Released</td>
+</tr>
+</tbody>
+</table>

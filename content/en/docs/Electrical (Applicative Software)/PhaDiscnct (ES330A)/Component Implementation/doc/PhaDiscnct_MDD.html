@@ -1,0 +1,695 @@
+---
+title: PhaDiscnct_MDD
+linkTitle: PhaDiscnct_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>PhaDiscnct</strong></p>
+<p><strong>February 16, 2018</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Krzysztof Byrski</td>
+<td>1</td>
+<td>24-Aug-2017</td>
+</tr>
+<tr class="odd">
+<td>Updated as per Design version 1.2.0</td>
+<td>Krzysztof Byrski</td>
+<td>2</td>
+<td>03-Oct-2017</td>
+</tr>
+<tr class="even">
+<td>Updated as per Design version 1.3.0</td>
+<td>Krzysztof Byrski</td>
+<td>3</td>
+<td>16-Feb-2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p><a href="#introduction">1 Introduction <span>4</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>4</span></a></p>
+<p><a href="#scope">1.2 Scope <span>4</span></a></p>
+<p><a href="#phadiscnct-high-level-description">2 PhaDiscnct &amp; High-Level Description <span>5</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>6</span></a></p>
+<p><a href="#graphical-representation-of-phadiscnct">3.1 Graphical representation of PhaDiscnct <span>6</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>6</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>6</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>6</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>7</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>7</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>7</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>8</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>8</span></a></p>
+<p><a href="#init-init1">5.1.1 Init: PhaDiscnctInit1 <span>8</span></a></p>
+<p><a href="#per-per1">5.1.2 Per: PhaDiscnctPer1 <span>8</span></a></p>
+<p><a href="#per-phadiscnctper2">5.1.3 Per: PhaDiscnctPer2 <span>8</span></a></p>
+<p><a href="#server-runables">5.2 Server Runables <span>8</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>9</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>9</span></a></p>
+<p><a href="#local-function-performdiag">5.4.1 Local Function PerformDiag <span>9</span></a></p>
+<p><a href="#local-function-closingstatebody">5.4.2 Local Function ClosingStateBody <span>9</span></a></p>
+<p><a href="#local-function-closedstatebody">5.4.3 Local Function ClosedStateBody <span>10</span></a></p>
+<p><a href="#local-function-openingstatebody">5.4.4 Local Function OpeningStateBody <span>10</span></a></p>
+<p><a href="#local-function-openedstatebody">5.4.5 Local Function OpenedStateBody <span>10</span></a></p>
+<p><a href="#local-function-sethwphadiscnctio">5.4.6 Local Function SetHwPhaDiscnctIO <span>11</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>12</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>13</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>14</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>15</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>16</span></a></p>
+<p><a href="#references">Appendix C References <span>17</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>MDD for ES330A_PhaDiscnct_Impl</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="phadiscnct-high-level-description">PhaDiscnct &amp; High-Level Description</h1>
+<p>Phase Disconnect provides mechanism of disconnecting Motor Phases from system in order to prevent generation of unintended negative or positive motor torque. Phase Disconnect is controlled by System State and Motor Control Gate Driver FET fault signals. Phase Disconnect functionality provides support for loss of assist mitigation.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-phadiscnct">Graphical representation of PhaDiscnct</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:5.41667in;height:5.88542in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Refer FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Refer FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DIAGFLTPRMFAILTODIAGFLG_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>DIAGMOTCURRCORRDABITPOSN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>DIAGMOTCURRCORRDBBITPOSN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>DIAGMOTCURRCORRDCBITPOSN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>DIAGSTCMPL_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>DIAGSTINI_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>DIAGSTPROC_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>DIAGSTSFAILTODIAG_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>DIAGSTSFAILTOOPEN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>DIAGSTSPASS_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>DIAGTSTITRNPHAA_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>DIAGTSTITRNPHAB_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>DIAGTSTITRNPHAC_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>DISCNCTCURRCOMPIDX_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>OPERSTCLSPROGSN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>OPERSTCLS_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>OPERSTOPENPROGSN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>OPERSTOPEN_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>PHADISCNCTCMDALLOFF_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>PHADISCNCTCMDALLON_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>PHADISCNCTCMDAON_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>PHADISCNCTCMDBON_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>PHADISCNCTCMDCON_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h3 id="init-init1">Init: Init1</h3>
+<h4 id="design-rationale">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="module-outputs">Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="per-per1">Per: Per1</h3>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 id="per-phadiscnctper2">Per: PhaDiscnctPer2</h3>
+<h4 id="design-rationale-2">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-1">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs-1">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h2 id="server-runables">Server Runables </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h3 id="local-function-performdiag">Local Function PerformDiag</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>PerformDiag</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrCorrdA_Ampr_T_f32</td>
+<td>float32</td>
+<td>-200.0</td>
+<td>200.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrCorrdB_Ampr_T_f32</td>
+<td>float32</td>
+<td>-200.0</td>
+<td>200.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrCorrdC_Ampr_T_f32</td>
+<td>float32</td>
+<td>-200.0</td>
+<td>200.0</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PhaDiscnctDiagcPwmVect_Cnt_T_enum</td>
+<td>enum</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-3">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="local-function-closingstatebody">Local Function ClosingStateBody</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ClosingStateBody</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>StrtUpSt_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>160</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SysSt_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>PhaDiscnctInactvTemp_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-4">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-1">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="local-function-closedstatebody"><br />
+Local Function ClosedStateBody</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ClosedStateBody</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>IvtrFetFltPha_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>IvtrFetFltTyp_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SysSt_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PhaDiscnctCmdTemp_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-5">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-2">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="local-function-openingstatebody">Local Function OpeningStateBody</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OpeningStateBody</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>IvtrFetFltTyp_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SysSt_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>PhaDiscnctCmdTemp_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-6">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-3">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="local-function-openedstatebody">Local Function OpenedStateBody</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OpenedStateBody</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>IvtrFetFltPha_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>IvtrFetFltTyp_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SysSt_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>PhaDiscnctInactvTemp_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>PhaDiscnctCmdTemp_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-7">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-4">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="local-function-sethwphadiscnctio">Local Function SetHwPhaDiscnctIO</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>SetHwPhaDiscnctIO</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>PhaDiscnt_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-8">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-5">Processing</h4>
+<p>Refer FDD</p>
+<h2 id="global-functionmacro-definitions"><br />
+GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<h1 id="abbreviations-and-acronyms">Abbreviations and Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="glossary">Glossary</h1>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.4.0 R4.0 Rev 3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline EA4</td>
+<td>1.02</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>EA4 Software Naming Conventions</td>
+<td>1.01</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards</td>
+<td>2.01</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>ES330A_PhaDiscnct_Design</td>
+<td>See Synergy Sub Project Version</td>
+</tr>
+</tbody>
+</table>

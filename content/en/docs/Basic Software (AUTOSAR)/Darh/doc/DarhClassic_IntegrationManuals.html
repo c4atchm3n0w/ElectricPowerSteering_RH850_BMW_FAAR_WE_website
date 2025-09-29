@@ -1,0 +1,485 @@
+---
+title: DarhClassic_IntegrationManuals
+linkTitle: DarhClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-1_1.png"/><br/>
+Darh&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.1.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Changed&#160;by</b><br/>
+<b>Description</b><br/>
+5.1.0<br/>
+2017-12-14<br/>
+JC-42<br/>
+Document&#160;use&#160;of&#160;the&#160;Com&#160;port<br/>
+5.0.2<br/>
+2017-11-09<br/>
+JC-42<br/>
+Version&#160;Update<br/>
+5.0.1<br/>
+2017-10-12<br/>
+JC-42<br/>
+Version&#160;Update<br/>
+5.0.0<br/>
+2017-04-13<br/>
+Mariano<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+Cerdeiro<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;13<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="DarhClassic_IntegrationManuals.html#4"><b>1&#160;Introduction</b></a><br/>
+<b>4</b><br/>
+<a href="DarhClassic_IntegrationManuals.html#4">1.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#4">Functional&#160;overview</a><br/>
+4<br/>
+<a href="DarhClassic_IntegrationManuals.html#5"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="DarhClassic_IntegrationManuals.html#6"><b>3&#160;Limitations</b></a><br/>
+<b>6</b><br/>
+<a href="DarhClassic_IntegrationManuals.html#7"><b>4&#160;Software&#160;Architecture</b></a><br/>
+<b>7</b><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.1.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">RTE</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.1.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">Det</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.1.3</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">Dcm</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.1.4</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">Dem</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.1.5</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">Nvm</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#7">4.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#7">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+7<br/>
+<a href="DarhClassic_IntegrationManuals.html#8"><b>5&#160;Integration</b></a><br/>
+<b>8</b><br/>
+<a href="DarhClassic_IntegrationManuals.html#8">5.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#8">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+8<br/>
+<a href="DarhClassic_IntegrationManuals.html#8">5.1.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#8">Dcm</a><br/>
+8<br/>
+<a href="DarhClassic_IntegrationManuals.html#8">5.1.1.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#8">Read&#160;Data&#160;By&#160;Identifer</a><br/>
+8<br/>
+<a href="DarhClassic_IntegrationManuals.html#8">5.1.1.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#8">Routine&#160;Control</a><br/>
+8<br/>
+<a href="DarhClassic_IntegrationManuals.html#8">5.1.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#8">NvM</a><br/>
+8<br/>
+<a href="DarhClassic_IntegrationManuals.html#9">5.1.3</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#9">Dem</a><br/>
+9<br/>
+<a href="DarhClassic_IntegrationManuals.html#9">5.1.3.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#9">Event</a><br/>
+9<br/>
+<a href="DarhClassic_IntegrationManuals.html#9">5.1.4</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#9">Det</a><br/>
+9<br/>
+<a href="DarhClassic_IntegrationManuals.html#9">5.1.5</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#9">BswM</a><br/>
+9<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.1.6</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">Com</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">Configuration</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.2.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">DarhGeneral</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.2.1.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">DarhDevErrorDetect</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.2.1.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">DarhQueueHandlerCycleTime</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.2.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">DarhQueueSize</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#10">5.2.3</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#10">DarhActiveReportListType</a><br/>
+10<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.2.4</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">DarhActiveReportedEvent</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.3</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.3.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">Event&#160;Mapping</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.3.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">Data&#160;Mapping</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.3.2.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">Dcm</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.3.2.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">Det</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#11">5.3.3</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#11">Dem</a><br/>
+11<br/>
+<a href="DarhClassic_IntegrationManuals.html#12">5.3.4</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#12">NvM</a><br/>
+12<br/>
+<a href="DarhClassic_IntegrationManuals.html#12">5.3.5</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#12">BswM</a><br/>
+12<br/>
+<a href="DarhClassic_IntegrationManuals.html#12">5.3.6</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#12">NvM</a><br/>
+12<br/>
+<a href="DarhClassic_IntegrationManuals.html#12">5.3.7</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#12">User&#160;SWC</a><br/>
+12<br/>
+<a href="DarhClassic_IntegrationManuals.html#12">5.3.8</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#12">Exclusive&#160;Areas</a><br/>
+12<br/>
+<a href="DarhClassic_IntegrationManuals.html#12">5.4</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#12">Software&#160;Integration</a><br/>
+12<br/>
+<a href="DarhClassic_IntegrationManuals.html#13">5.4.1</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#13">Startup/Initialization</a><br/>
+13<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;13<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-3_1.png"/><br/>
+<a href="DarhClassic_IntegrationManuals.html#13">5.4.2</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#13">Normal&#160;Operation</a><br/>
+13<br/>
+<a href="DarhClassic_IntegrationManuals.html#13">5.4.3</a><br/>
+<a href="DarhClassic_IntegrationManuals.html#13">Shutdown/Deactivation</a><br/>
+13<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;13<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;and&#160;integration&#160;of&#160;the<br/>BMW&#160;System&#160;Function&#160;Darh.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Darh&#160;functionality&#160;is&#160;to&#160;send&#160;errors&#160;that&#160;occurred&#160;locally&#160;in&#160;the&#160;ECU&#160;and&#160;are<br/>reported&#160;to&#160;the&#160;Dem&#160;to&#160;a&#160;central&#160;master&#160;over&#160;the&#160;system&#160;bus.&#160;The&#160;idea&#160;is&#160;to&#160;collect&#160;errors&#160;of&#160;the&#160;individual<br/>ECUs&#160;in&#160;the&#160;vehicle&#160;in&#160;one&#160;central&#160;place&#160;to&#160;allow&#160;later&#160;analysis&#160;of&#160;error&#160;correlations&#160;between&#160;the&#160;different<br/>ECUs.<br/>
+For&#160;this&#160;purpose,&#160;errors&#160;are&#160;sent&#160;to&#160;the&#160;master&#160;containing&#160;timestamp&#160;information.&#160;This&#160;allows&#160;deducing<br/>the&#160;order&#160;in&#160;which&#160;errors&#160;occurred&#160;in&#160;the&#160;complete&#160;system&#160;and&#160;helps&#160;to&#160;find&#160;out&#160;the&#160;original&#160;reason&#160;of&#160;a<br/>complex&#160;causal&#160;loop.<br/>
+The&#160;Darh&#160;module&#160;itself&#160;is&#160;modeled&#160;as&#160;an&#160;AUTOSAR&#160;software&#160;component&#160;(SWC).<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;13<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-5_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;13<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-6_1.png"/><br/>
+<b>3</b><br/>
+<b>Limitations</b><br/>
+No&#160;limitations&#160;are&#160;known.<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;13<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-7_1.png"/><br/>
+<b>4</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Module&#160;Darh&#160;depends&#160;on&#160;the&#160;following&#160;BSW&#160;modules:<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;Darh&#160;module&#160;uses&#160;RTE&#160;client/server&#160;communication&#160;to&#160;communicate&#160;with<br/>other&#160;SWCs&#160;and&#160;BSW.&#160;Additionally&#160;the&#160;scheduling&#160;is&#160;done&#160;by&#160;the&#160;RTE.<br/>
+<b>Det</b><br/>
+In&#160;case&#160;Det&#160;usage&#160;is&#160;enabled&#160;in&#160;the&#160;Darh&#160;configuration,&#160;Darh&#160;will&#160;report&#160;development&#160;errors&#160;by&#160;using&#160;the<br/>Det&#160;functionality.<br/>
+<b>Dcm</b><br/>
+The&#160;Darh&#160;is&#160;tightly&#160;coupled&#160;with&#160;the&#160;Dcm.&#160;The&#160;Darh&#160;implements&#160;certain&#160;RDBI&#160;and&#160;RC&#160;services.&#160;Dcm&#160;shall<br/>be&#160;configured&#160;in&#160;a&#160;way,&#160;that&#160;it&#160;dispatches&#160;theses&#160;jobs&#160;to&#160;the&#160;Darh&#160;SWC.<br/>
+<b>Dem</b><br/>
+The&#160;Darh&#160;receives&#160;general&#160;callbacks&#160;of&#160;the&#160;Dem&#160;in&#160;case&#160;event&#160;related&#160;data&#160;changed.&#160;Additionally&#160;the&#160;Darh<br/>controls&#160;specific&#160;events&#160;via&#160;ClientServerInterface&#160;DiagnosticMonitor&#160;of&#160;the&#160;Dem.<br/>
+<b>Nvm</b><br/>
+The&#160;Darh&#160;uses&#160;the&#160;NvM&#160;to&#160;store&#160;and&#160;read&#160;the&#160;content&#160;of&#160;the&#160;error&#160;queue&#160;which&#160;shall&#160;be&#160;stored&#160;on&#160;non<br/>volatile&#160;memory&#160;at&#160;shutdown&#160;and&#160;restored&#160;at&#160;startup.&#160;Darh&#160;also&#160;stores&#160;if&#160;the&#160;tranmission&#160;is&#160;enabled&#160;or&#160;not.<br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+Darh&#160;does&#160;not&#160;have&#160;dependencies&#160;to&#160;other&#160;modules.<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;13<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-8_1.png"/><br/>
+<b>5</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;this&#160;module&#160;can&#160;be&#160;generated,&#160;compiled&#160;and&#160;linked.<br/>
+<b>Dcm</b><br/>
+<b>Read&#160;Data&#160;By&#160;Identifer</b><br/>
+The&#160;RDBI&#160;command&#160;22&#160;17&#160;23&#160;shall&#160;be&#160;configured&#160;within&#160;Dcm:<br/>
+DcmDspDataSize&#160;shall&#160;be&#160;long&#160;enough&#160;to&#160;store&#160;the&#160;complete&#160;list&#160;of&#160;DTC&#160;configured&#160;within&#160;Darh<br/>(DarhActiveReportedEvent).&#160;Greater&#160;than&#160;count&#160;of&#160;DarhActiveReportedEvent&#160;*&#160;3.<br/>DcmDspDataInfoRef&#160;shall&#160;reference&#160;to&#160;DcmDspDataInfo&#160;with&#160;DcmDspDataFixedLength&#160;set&#160;to&#160;false<br/>DcmDspDataUsePort&#160;shall&#160;be&#160;set&#160;to&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>DID&#160;shall&#160;be&#160;configured&#160;to&#160;be&#160;read&#160;in&#160;all&#160;sessions&#160;and&#160;security&#160;levels<br/>
+<b>Routine&#160;Control</b><br/>
+Two&#160;Routine&#160;Control&#160;command&#160;shall&#160;be&#160;configured&#160;within&#160;Dcm.<br/>
+One&#160;used&#160;to&#160;trigger&#160;two&#160;Dummy&#160;DTCs&#160;(31&#160;01&#160;03&#160;04):<br/>
+DcmDspRoutineFixedLength&#160;shall&#160;be&#160;true<br/>DcmDspRoutineUsePort&#160;shall&#160;be&#160;true<br/>Only&#160;DcmDspStartRoutineIn&#160;shall&#160;be&#160;configured<br/>
+DcmDspRoutineSignalLength&#160;shall&#160;be&#160;set&#160;to&#160;8<br/>DcmDspRoutineSignalPos&#160;shall&#160;be&#160;set&#160;to&#160;0<br/>
+DcmDspStartRoutineOut<br/>
+4&#160;paramters&#160;with&#160;a&#160;length&#160;of&#160;8&#160;bits&#160;shall&#160;be&#160;configured<br/>DcmDspRoutineSignalPos&#160;shall&#160;be&#160;set&#160;to&#160;0,&#160;8,&#160;16,&#160;and&#160;24.<br/>
+<b>[]&#160;</b>dThe&#160;second&#160;one&#160;to&#160;start&#160;and&#160;stop&#160;the&#160;transmission&#160;to&#160;the&#160;diagnose&#160;master&#160;(31&#160;0x&#160;40&#160;0A):<br/>c<a href="DarhClassic_IntegrationManuals.html#1"><i>(DMA_PA_9154)</i></a><br/>
+DcmDspRoutineFixedLength&#160;shall&#160;be&#160;true<br/>DcmDspRoutineUsePort&#160;shall&#160;be&#160;true<br/>Neither&#160;input&#160;or&#160;output&#160;parameters&#160;are&#160;needed<br/>Start&#160;and&#160;Stop&#160;sub&#160;services&#160;shall&#160;be&#160;supported<br/>
+<b>NvM</b><br/>
+The&#160;Darh&#160;needs&#160;2&#160;NvM&#160;blocks&#160;to&#160;store&#160;the&#160;event&#160;queue&#160;and&#160;the&#160;status&#160;of&#160;the&#160;transmission.<br/>
+The&#160;variable&#160;Darh_ErrorQueue&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;NvM&#160;block:<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;13<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-9_1.png"/><br/>
+Darh_ErrorQueue<br/>
+Block&#160;size&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;size&#160;of&#160;Darh_ErrorQueue<br/>Ram&#160;block&#160;address&#160;shall&#160;be&#160;set&#160;to&#160;Darh_ErrorQueue<br/>Rom&#160;block&#160;address&#160;shall&#160;be&#160;left&#160;empty.&#160;The&#160;default&#160;value&#160;shall&#160;be&#160;0<br/>NvmBlockManagementType&#160;shall&#160;be&#160;set&#160;to&#160;NVM_BLOCK_NATIVE<br/>NvmBlockUseCrc&#160;shall&#160;be&#160;set&#160;to&#160;true<br/>NvmSelectBlockForReadall&#160;shall&#160;be&#160;set&#160;to&#160;true<br/>NvMSelectBlockForWriteAll&#160;shall&#160;be&#160;set&#160;to&#160;true<br/>
+Darh_DiagnoseMasterEnable<br/>
+Block&#160;size&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;size&#160;of&#160;boolean<br/>Ram&#160;block&#160;address&#160;shall&#160;be&#160;set&#160;to&#160;Darh_DiagnoseMasterEnable<br/>Rom&#160;block&#160;address&#160;shall&#160;be&#160;left&#160;empty.<br/>NvmBlockManagementType&#160;shall&#160;be&#160;set&#160;to&#160;NVM_BLOCK_NATIVE<br/>NvmSelectBlockForReadall&#160;shall&#160;be&#160;set&#160;to&#160;true<br/>NvMSelectBlockForWriteAll&#160;shall&#160;be&#160;set&#160;to&#160;false<br/>
+<b>Dem</b><br/>
+<b>Event</b><br/>
+Two&#160;Dem&#160;events&#160;shall&#160;be&#160;configured&#160;for&#160;Darh:<br/>
+DTC&#160;vale&#160;shall&#160;be&#160;set&#160;to&#160;0xC90400&#160;+&#160;(0x4000&#160;*&#160;ECUDiagnosticAddress)&#160;+&#160;0x07FF<br/>Event&#160;destination:&#160;primary&#160;origin<br/>Event&#160;kind:&#160;DEM_EVENT_KIND_SWC<br/>Description:&#160;Dummy&#160;Network&#160;DTC<br/>DTC&#160;vale&#160;shall&#160;be&#160;set&#160;to&#160;0x02FF00&#160;+&#160;ECUDiagnosticAddress<br/>Event&#160;destination:&#160;primary&#160;origin<br/>Event&#160;kind:&#160;DEM_EVENT_KIND_SWC<br/>Description:&#160;Dummy&#160;Application&#160;DTC<br/>
+<b>Det</b><br/>
+A&#160;Darh&#160;entry&#160;shall&#160;be&#160;added&#160;to&#160;the&#160;Software&#160;Component&#160;List&#160;from&#160;Det.<br/>
+<b>BswM</b><br/>
+The&#160;BswM&#160;controls&#160;the&#160;states&#160;of&#160;the&#160;Darh&#160;module.<br/>
+BswMModeRequestPort&#160;for&#160;the&#160;Darh&#160;operation&#160;mode<br/>BswMRules&#160;to&#160;switch&#160;the&#160;Darh&#160;operation&#160;mode<br/>BswMRteSwitch&#160;actions&#160;for&#160;the&#160;Darh&#160;operation&#160;mode<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;13<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-10_1.png"/><br/>
+<b>Com</b><br/>
+The&#160;Darh&#160;requires&#160;a&#160;IPDU&#160;Multiplexer&#160;PDU&#160;for&#160;the&#160;transmission&#160;of&#160;the&#160;DTCs&#160;and&#160;their&#160;corresponding<br/>timestamp&#160;to&#160;the&#160;diagnostic&#160;master&#160;ECU.&#160;The&#160;Com&#160;port&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;corresponding&#160;port&#160;in<br/>Com.&#160;At&#160;the&#160;moment&#160;of&#160;this&#160;release&#160;there&#160;was&#160;not&#160;definition&#160;in&#160;the&#160;BNE&#160;regarding&#160;this&#160;PDU.<br/>
+<b>Configuration</b><br/>
+The&#160;Darh&#160;configuration&#160;contains&#160;the&#160;following&#160;containers:<br/>
+Darh&#160;General<br/>DarhActiveReportEvent<br/>
+<b>DarhGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;Darh<br/>
+<b>DarhDevErrorDetect</b><br/>
+Activate/Deactivate&#160;the&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification.&#160;true:&#160;Development&#160;Error&#160;Detection<br/>and&#160;Notification&#160;activated&#160;false:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;deactivated.<br/>
+<b>DarhQueueHandlerCycleTime</b><br/>
+Cycle&#160;time&#160;of&#160;the&#160;Queue&#160;handler&#160;functionality.&#160;This&#160;value&#160;determines&#160;in&#160;which&#160;interval&#160;the&#160;queue&#160;is<br/>checked&#160;for&#160;pending&#160;entries&#160;that&#160;have&#160;to&#160;be&#160;sent&#160;to&#160;the&#160;Diagnose&#160;Master.<br/>
+<b>[]&#160;</b>dThe&#160;valid&#160;range&#160;is&#160;between&#160;1&#160;and&#160;16&#160;seconds,&#160;but&#160;the&#160;delay&#160;between&#160;a&#160;Event&#160;is&#160;Report&#160;by&#160;the&#160;Dem<br/>and&#160;the&#160;transmission&#160;to&#160;the&#160;master&#160;shall&#160;be&#160;less&#160;than&#160;10&#160;seconds.&#160;c<a href="DarhClassic_IntegrationManuals.html#1"><i>(DMA_PA_5762,&#160;DMA_PA_8248)</i></a><br/>
+<b>DarhQueueSize</b><br/>
+Max.&#160;number&#160;of&#160;entries&#160;(of&#160;type&#160;Darh_QueueElementType)&#160;the&#160;queue&#160;can&#160;contain.<br/>
+<b>DarhActiveReportListType</b><br/>
+This&#160;parameter&#160;defines&#160;how&#160;and&#160;if&#160;Darh&#160;handles&#160;the&#160;DarhActiveReportedEvent&#160;to&#160;report&#160;errors&#160;to&#160;the<br/>Diagnose&#160;Master.<br/>
+If&#160;configured&#160;to&#160;POSITIVE_LIST&#160;the&#160;event&#160;listed&#160;in&#160;DarhActiveReportedEvent&#160;are&#160;those&#160;reported&#160;to&#160;the<br/>Diagnose&#160;Master&#160;(mode&#160;compatible&#160;to&#160;Darh&#160;in&#160;SP2015).&#160;If&#160;configured&#160;to&#160;DYNAMICALLY&#160;the&#160;events&#160;listed<br/>in&#160;DarhActiveReportedEvent&#160;are&#160;ignored,&#160;the&#160;Operation&#160;EventToReport&#160;of&#160;the&#160;Client&#160;Server&#160;Interface<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;13<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-11_1.png"/><br/>
+DarhReportDynamicallyEvent&#160;(over&#160;the&#160;port&#160;ReportDynamicallyEventPort)&#160;is&#160;used&#160;to&#160;check&#160;if&#160;a&#160;specific<br/>event&#160;shall&#160;be&#160;reported&#160;to&#160;Diagnose&#160;Master.<br/>
+NOTE:&#160;NEGATIVE_LIST&#160;is&#160;not&#160;more&#160;supported&#160;in&#160;SP2021&#160;(BAC4&#160;Rel.&#160;3).<br/>
+<b>DarhActiveReportedEvent</b><br/>
+This&#160;container&#160;contains&#160;the&#160;Dem&#160;events&#160;to&#160;be&#160;reported&#160;to&#160;the&#160;Darh&#160;master.<br/>
+<b>[]&#160;</b>dPlease&#160;refer&#160;to<br/>DMAP&#160;A8415andDMAP&#160;A8417toincludeinthislistthecorrectDT&#160;Cs/Eventstobereported.c<a href="DarhClassic_IntegrationManuals.html#1"><i>(DMA_PA_8415,</i></a><br/>
+<a href="DarhClassic_IntegrationManuals.html#1"><i>DMA_PA_8417)</i></a><br/>
+<b>Configuration&#160;of&#160;the&#160;RTE</b><br/>
+<b>Event&#160;Mapping</b><br/>
+The&#160;followings&#160;runnable&#160;entities&#160;shall&#160;be&#160;mapped:<br/>
+Init&#160;(triggers&#160;the&#160;Darh&#160;function&#160;Darh_Init)<br/>QueueHandler&#160;(triggers&#160;the&#160;Darh&#160;function&#160;Darh_QueueHandler).<br/>
+<b>Data&#160;Mapping</b><br/>
+<b>Dcm</b><br/>
+The&#160;port&#160;ActivelyReportedDtcPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dcm&#160;generated&#160;DataService_&lt;xxx&gt;&#160;see<br/>6.1&#160;Dcm.<br/>The&#160;port&#160;TriggerDTCPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dcm&#160;generated&#160;RoutineService_&lt;xxx&gt;&#160;see&#160;6.1<br/>Dcm.<br/>
+<b>Det</b><br/>
+The&#160;port&#160;DetPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Det&#160;generated&#160;service&#160;port.<br/>
+<b>Dem</b><br/>
+The&#160;ApplicationDTCInfoPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dem&#160;generated&#160;EvtInfo_&lt;xxx&gt;.<br/>The&#160;ApplicationDTCPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dem&#160;generated&#160;Event_&lt;xxx&gt;.<br/>The&#160;NetworkDTCInfoPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dem&#160;generated&#160;EvtInfo_&lt;xxx&gt;.<br/>The&#160;NetworkDTCPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dem&#160;generated&#160;Event_&lt;xxx&gt;.<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;13<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-12_1.png"/><br/>
+<b>NvM</b><br/>
+The&#160;port&#160;NvMServicePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;NvM&#160;generated&#160;service&#160;port&#160;see&#160;6.1.&#160;NvM.<br/>
+<b>BswM</b><br/>
+The&#160;port&#160;notificationDarhModePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;BswM&#160;generated&#160;mode&#160;switch&#160;port&#160;see<br/>6.1&#160;BswM.<br/>The&#160;port&#160;requestDarhModePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;BswM&#160;generated&#160;mode&#160;request&#160;port&#160;see&#160;6.1<br/>BswM.<br/>The&#160;port&#160;DarhReportErrorMode&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;BswM&#160;generated&#160;mode&#160;request&#160;port&#160;see&#160;6.1<br/>BswM.<br/>
+<b>NvM</b><br/>
+The&#160;port&#160;DiagnoseMasterStatus&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;NvM&#160;port&#160;created&#160;for&#160;the&#160;NvM&#160;block<br/>Darh_DiagnoseMasterEnable.<br/>The&#160;port&#160;ErrorQueueBlock&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;NvM&#160;port&#160;created&#160;for&#160;the&#160;NvM&#160;block<br/>Darh_ErrorQueue.<br/>
+<b>User&#160;SWC</b><br/>
+It&#160;the&#160;configuration&#160;parameter&#160;DarhActiveReportListType&#160;is&#160;set&#160;to&#160;DYNAMICALLY&#160;the&#160;port<br/>ReportDynamicallyEventPort&#160;shall&#160;be&#160;connected&#160;to&#160;a&#160;user&#160;implemented&#160;SWC&#160;which&#160;indicates&#160;which<br/>Events&#160;shall&#160;be&#160;reported&#160;to&#160;the&#160;Diagnose&#160;Master.<br/>
+This&#160;CSI&#160;shall&#160;implement&#160;the&#160;following&#160;methods:<br/>
+EventToReportCount:&#160;shall&#160;return&#160;the&#160;count&#160;of&#160;events&#160;to&#160;be&#160;reported.<br/>EventIdx2EventId:&#160;shall&#160;return&#160;the&#160;event&#160;(intsance&#160;ID)&#160;for&#160;an&#160;event&#160;index&#160;between&#160;0&#160;and&#160;GetEventCount.<br/>EventToReport:&#160;shall&#160;return&#160;if&#160;a&#160;specific&#160;event&#160;(instance&#160;ID)&#160;shall&#160;be&#160;reported&#160;or&#160;not.<br/>
+<b>Exclusive&#160;Areas</b><br/>
+The&#160;Darh&#160;uses&#160;one&#160;exclusive&#160;area.&#160;The&#160;exclusive&#160;area&#160;shall&#160;be&#160;configured&#160;within&#160;the&#160;RTE.<br/>
+<b>Software&#160;Integration</b><br/>
+The&#160;SWC&#160;description&#160;file&#160;has&#160;to&#160;be&#160;updated&#160;manually&#160;after&#160;the&#160;Dcm&#160;configuration.<br/>
+After&#160;generating&#160;the&#160;Dem&#160;and&#160;Dcm&#160;SWC&#160;description&#160;files&#160;the&#160;integrator&#160;shall&#160;perform&#160;changes&#160;within<br/>Darh_ext_interface.arxml.tt&#160;to&#160;make&#160;the&#160;RTE&#160;interfaces&#160;between&#160;Dcm/Dem&#160;and&#160;Darh&#160;compatible&#160;from<br/>RTE&#160;point&#160;of&#160;view.<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;13<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_IntegrationManual-13_1.png"/><br/>
+Within&#160;the&#160;Darh_ext_interface.arxml.tt&#160;the&#160;&lt;ARRAY-SIZE&gt;&#160;of&#160;the&#160;parameters&#160;Dem_MaxDataValueType<br/>and&#160;Dcm_RequestData_ArrayType&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;vaules&#160;given&#160;by&#160;Dcm&#160;and&#160;Dem.<br/>
+The&#160;size&#160;of&#160;the&#160;parameter&#160;Dem_MaxDataValueType&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;length&#160;indicated&#160;within&#160;the&#160;Dem<br/>client&#160;server&#160;interface&#160;GeneralDiagnosticInfo,&#160;the&#160;operation&#160;GetEventFreezeFrameData&#160;the&#160;parameter<br/>FFData.&#160;The&#160;size&#160;of&#160;the&#160;parameter&#160;Dcm_RequestData_ArrayType&#160;shall&#160;be&#160;set&#160;to&#160;the&#160;length&#160;indicated<br/>within&#160;the&#160;Dcm&#160;interface&#160;ServiceRequestNotification,&#160;the&#160;operation&#160;Indication&#160;the&#160;parameter<br/>RequestData.<br/>
+<b>Startup/Initialization</b><br/>
+The&#160;NvM&#160;ReadAll&#160;shall&#160;be&#160;complete&#160;before&#160;the&#160;Darh&#160;mode&#160;DARH_INIT&#160;is&#160;switched.<br/>
+The&#160;Darh&#160;will&#160;request&#160;an&#160;DARH_RUN&#160;after&#160;initialization&#160;is&#160;completed.<br/>
+The&#160;BswM&#160;shall&#160;switch&#160;the&#160;Darh&#160;Mode&#160;to&#160;DARH_RUN&#160;when&#160;the&#160;DARH&#160;requests&#160;this&#160;mode.<br/>
+While&#160;in&#160;DARH_RUN&#160;the&#160;Darh&#160;will&#160;receive&#160;and&#160;store&#160;errors&#160;but&#160;will&#160;not&#160;transmit&#160;them&#160;to&#160;the&#160;Diagnose<br/>Master.<br/>
+The&#160;BswM&#160;shall&#160;switch&#160;the&#160;Darh&#160;ReportErrorMode&#160;to&#160;DARH_REPORT_ERROR_ACTIVE&#160;to&#160;activate&#160;the<br/>transmission&#160;of&#160;the&#160;errors&#160;to&#160;the&#160;Diagnose&#160;Master,&#160;this&#160;may&#160;be&#160;performed&#160;for&#160;example&#160;when<br/>COM_FULL_COMMUNICATION&#160;is&#160;requested.<br/>
+To&#160;request&#160;a&#160;specific&#160;state&#160;the&#160;user&#160;shall&#160;use&#160;the&#160;port&#160;LifeCycleRequest.<br/>
+<b>Normal&#160;Operation</b><br/>
+If&#160;needed&#160;the&#160;BswM&#160;may&#160;switch&#160;the&#160;Darh&#160;ReportErrorMode&#160;to&#160;DARH_REPORT_ERROR_INACTIVE&#160;to<br/>disable&#160;the&#160;transmission&#160;of&#160;errors&#160;to&#160;the&#160;Diagnose&#160;Master.&#160;To&#160;activate&#160;the&#160;transmission&#160;again&#160;the&#160;mode<br/>DARH_REPORT_ERROR_ACTIVE&#160;shall&#160;be&#160;set&#160;again.<br/>
+<b>Shutdown/Deactivation</b><br/>
+The&#160;BswM&#160;shall&#160;switch&#160;the&#160;Darh&#160;Mode&#160;to&#160;DARH_STOP&#160;to&#160;stop&#160;the&#160;Darh&#160;SW-C.<br/>
+DarhClassic_IntegrationManual.pdf,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;13<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#4">1 Introduction</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#4">1.1 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#5">2 Related documentation</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#6">3 Limitations</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4 Software Architecture</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.1.1 RTE</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.1.2 Det</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.1.3 Dcm</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.1.4 Dem</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.1.5 Nvm</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#7">4.2 Dependencies to other modules</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#8">5 Integration</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#8">5.1 Configuration of other Modules</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#8">5.1.1 Dcm</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#8">5.1.1.1 Read Data By Identifer</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#8">5.1.1.2 Routine Control</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#8">5.1.2 NvM</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#9">5.1.3 Dem</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#9">5.1.3.1 Event</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#9">5.1.4 Det</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#9">5.1.5 BswM</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.1.6 Com</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.2 Configuration</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.2.1 DarhGeneral</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.2.1.1 DarhDevErrorDetect</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.2.1.2 DarhQueueHandlerCycleTime</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.2.2 DarhQueueSize</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#10">5.2.3 DarhActiveReportListType</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.2.4 DarhActiveReportedEvent</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.3 Configuration of the RTE</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.3.1 Event Mapping</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.3.2 Data Mapping</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.3.2.1 Dcm</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.3.2.2 Det</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#11">5.3.3 Dem</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#12">5.3.4 NvM</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#12">5.3.5 BswM</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#12">5.3.6 NvM</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#12">5.3.7 User SWC</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#12">5.3.8 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="DarhClassic_IntegrationManuals.html#12">5.4 Software Integration</a>
+<ul>
+<li><a href="DarhClassic_IntegrationManuals.html#13">5.4.1 Startup/Initialization</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#13">5.4.2 Normal Operation</a></li>
+<li><a href="DarhClassic_IntegrationManuals.html#13">5.4.3 Shutdown/Deactivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,646 @@
+---
+title: FlsMem Module Design Document
+linkTitle: FlsMem Module Design Document
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>FlsMem</strong></p>
+<p><strong>Sep 19 , 2017</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Lucas Wendling</td>
+<td>1.0</td>
+<td>10/06/15</td>
+</tr>
+<tr class="odd">
+<td>Updated with changes for DTS configuration for Flash CRC check</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>03/18/16</td>
+</tr>
+<tr class="even">
+<td>Updates for DTS Transfer Clear</td>
+<td>Avinash James</td>
+<td>3.0</td>
+<td>3/29/16</td>
+</tr>
+<tr class="odd">
+<td>Updated for removing the flash ECC single bit error handling and disabling the DTS channels after calculation</td>
+<td>Avinash James</td>
+<td>4.0</td>
+<td>3/31/16</td>
+</tr>
+<tr class="even">
+<td>Trusted function call for the DTS clean up updates</td>
+<td>Avinash James</td>
+<td>5.0</td>
+<td>04/18/16</td>
+</tr>
+<tr class="odd">
+<td>Function name changes and added CodFlsSngBitEcc handler for single bit code flash ecc</td>
+<td>Avinash James</td>
+<td>6.0</td>
+<td>08/25/16</td>
+</tr>
+<tr class="even">
+<td>Updated to design version 7.1.0</td>
+<td>Avinash James</td>
+<td>7.0</td>
+<td>04/10/17</td>
+</tr>
+<tr class="odd">
+<td>Updated to include design limitations</td>
+<td>Avinash James</td>
+<td>8.0</td>
+<td>09/19/17</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u><a href="#introduction">1 Introduction <span>5</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>5</span></a></p>
+<p><a href="#scope">1.2 Scope <span>5</span></a></p>
+<p><a href="#flsmem-high-level-description">2 FlsMem &amp; High-Level Description <span>6</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>7</span></a></p>
+<p><a href="#graphical-representation-of-flsmem">3.1 Graphical representation of FlsMem <span>7</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>7</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>7</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>7</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>8</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>8</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>8</span></a></p>
+<p><a href="#variable-data-dictionary">5 Variable Data Dictionary <span>9</span></a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">5.1 User defined typedef definition/declaration <span>9</span></a></p>
+<p><a href="#variable-definition-for-enumerated-types">5.2 Variable definition for enumerated types <span>9</span></a></p>
+<p><a href="#software-component-implementation">6 Software Component Implementation <span>10</span></a></p>
+<p><a href="#sub-module-functions">6.1 Sub-Module Functions <span>10</span></a></p>
+<p><a href="#init-flsmeminit1">6.1.1 Init: FlsMemInit1 <span>10</span></a></p>
+<p><a href="#design-rationale">6.1.1.1 Design Rationale <span>10</span></a></p>
+<p><a href="#module-outputs">6.1.1.2 Module Outputs <span>10</span></a></p>
+<p><a href="#init-flsmeminit2">6.1.2 Init: FlsMemInit2 <span>10</span></a></p>
+<p><a href="#design-rationale-1">6.1.2.1 Design Rationale <span>10</span></a></p>
+<p><a href="#module-outputs-1">6.1.2.2 Module Outputs <span>10</span></a></p>
+<p><a href="#per-flsmemper2">6.1.3 Per: FlsMemPer2 <span>10</span></a></p>
+<p><a href="#design-rationale-2">6.1.3.1 Design Rationale <span>10</span></a></p>
+<p><a href="#store-module-inputs-to-local-copies">6.1.3.2 Store Module Inputs to Local copies <span>10</span></a></p>
+<p><a href="#processing-of-function">6.1.3.3 (Processing of function)……… <span>10</span></a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">6.1.3.4 Store Local copy of outputs into Module Outputs <span>10</span></a></p>
+<p><a href="#server-runnables---codflssngbitecc">6.2 Server Runnables <span>11</span></a></p>
+<p><a href="#interrupt-functions">6.3 Interrupt Functions <span>11</span></a></p>
+<p><a href="#module-internal-local-functions">6.4 Module Internal (Local) Functions <span>11</span></a></p>
+<p><a href="#local-function-1">6.4.1 Local Function #1 <span>11</span></a></p>
+<p><a href="#design-rationale-4">6.4.1.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing">6.4.1.2 Processing <span>11</span></a></p>
+<p><a href="#global-functionmacro-definitions">6.5 GLOBAL Function/Macro Definitions <span>11</span></a></p>
+<p><a href="#_Toc448756690">6.5.1 DTSInit <span>11</span></a></p>
+<p><a href="#design-rationale-5">6.5.1.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing-1">6.5.1.2 Processing <span>14</span></a></p>
+<p><a href="#_Toc448756693">6.5.2 DTSClnUp <span>14</span></a></p>
+<p><a href="#design-rationale-6">6.5.2.1 Design Rationale <span>14</span></a></p>
+<p><a href="#processing-2">6.5.2.2 Processing <span>14</span></a></p>
+<p><a href="#known-limitations-with-design">7 Known Limitations with Design <span>15</span></a></p>
+<p><a href="#unit-test-consideration">8 UNIT TEST CONSIDERATION <span>16</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>17</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>18</span></a></p>
+<p><a href="#references">Appendix C References <span>19</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="flsmem-high-level-description">FlsMem &amp; High-Level Description</h1>
+<p><em>See FDD</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-flsmem">Graphical representation of FlsMem</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:3.14167in;height:2.075in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p><em>See FDD</em></p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p><em>See FDD</em></p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CPU1PEID_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>0x01U</strong></td>
+</tr>
+<tr class="even">
+<td><strong>CODFLSTOCRCSPID_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>0x02U</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>CRCTOLCLRAMSPID_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>0x00U</strong></td>
+</tr>
+<tr class="even">
+<td><strong>USRMODDIS_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>0x00U</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>FLSBLKLEN_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>0x0003FFFCU</strong></td>
+</tr>
+<tr class="even">
+<td><strong>DTSDATALEN_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>4U</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>CRCCHKMAXALLWDTI_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>2000</strong></td>
+</tr>
+<tr class="even">
+<td><strong>MAXNROFDTSCH_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint32</strong></td>
+<td><strong>32</strong></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>TOUTCRCCALCN_CNT_U08</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint08</strong></td>
+<td><strong>0xFFU</strong></td>
+</tr>
+<tr class="even">
+<td><strong>READADRCASE0_CNT_U08</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint08</strong></td>
+<td><strong>0</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>READADRCASE1_CNT_U08</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint08</strong></td>
+<td><strong>1</strong></td>
+</tr>
+<tr class="even">
+<td><strong>READADRCASE2_CNT_U08</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint08</strong></td>
+<td><strong>2</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>READADRCASE3_CNT_U08</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint08</strong></td>
+<td><strong>3</strong></td>
+</tr>
+<tr class="even">
+<td><strong>ERRADRMASK_CNT_U32</strong></td>
+<td><strong>1</strong></td>
+<td><strong>Uint32</strong></td>
+<td><strong>((uint32)0x80UL)</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>NROFADRCHK_CNT_U08</strong></td>
+<td><strong>1</strong></td>
+<td><strong>uint08</strong></td>
+<td><strong>((uint8)4U)</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<p><em>&lt;This section documents any user types uniquely used for the module.&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typedef Name</th>
+<th>Element Name</th>
+<th>User Defined Type</th>
+<th><p>Legal Range</p>
+<p>(min)</p></th>
+<th><p>Legal Range</p>
+<p>(max)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FlsCrcCfgBlkRec</td>
+<td>CrcFlsBlkStrtAdr</td>
+<td>uint32</td>
+<td>0</td>
+<td>0xFFFFFFFFH</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>CrcFlsBlkLen</td>
+<td>uint32</td>
+<td>0</td>
+<td>0xFFFFFFFFH</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>PreCalcnCrcFlsAdr</td>
+<td>uint32*</td>
+<td>0</td>
+<td>0xFFFFFFFFH</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enum Name</th>
+<th>Element Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>&lt;(Name given for the user defined typdef of type struct/union)</p>
+<p>(Variable name qualified in refer[2])&gt;</p></td>
+<td>&lt;(Variable name qualified Refer[2])&gt;</td>
+<td>&lt;Define the value &gt;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-flsmeminit1">Init: FlsMemInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>Function to return the application region CRC to Diag Manager</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="init-flsmeminit2">Init: FlsMemInit2</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>The FlsMemInit2 function is a non RTE function which shall be called to set up the DTS configuration for the Flash CRC check. The DTS channel configuration has to be applied only when the system is waking up from a Power On Reset or after a flash programming reset. In such a scenario a Hardware CRC unit is allocated by function call to the CRC module and once a hardware assignment is successful, the DTS channels are configured for chaining for the entire definition of the flash blocks (Boot, App, Cal1, Cal2 etc.). Record the time when the DTS transfer is initiated so that a check on a timeout can be made in the periodic function where a maximum timeout of 200 ms is checked for</em></p>
+<p><em>This function shall be called in the startup sequence. Hence it is a non RTE function</em></p>
+<p><em>See FDD for more.</em></p>
+<h2 id="module-outputs-1">Module Outputs</h2>
+<p><em>None</em></p>
+<p><em>None</em></p>
+<h2 id="per-flsmemper2">Per: FlsMemPer2</h2>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p><em>See FDD</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="processing-of-function">(Processing of function)………</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="server-runnables---codflssngbitecc">Server Runnables - CodFlsSngBitEcc</h2>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p><em>See FDD</em></p>
+<h2 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="processing-of-function-1">(Processing of function)………</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-1">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<h2 id="processing">Processing</h2>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<h2 id="dtsinin">DtsInin</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DTSInit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>CrcHwIdxInReg</td>
+<td>uint32</td>
+<td>0</td>
+<td>0xFFFFFFFF</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>CrcHwIdxOutReg</td>
+<td>uint32</td>
+<td>0</td>
+<td>0xFFFFFFFF</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p>Trusted function that performs all register initialization from the CM102A_FlsMem_DTSPeripheralCfg.xlsx spreadsheet in the FDD. The DTSMstrCfg channel master registers can be written only in supervisor mode. After the Channel master register for a given channel has been written, the selected Processor Element can write to that channel’s registers. However, for simplicity, all DTS register initialization and chaining is being done in one trusted function.</p>
+<p>The chaining is done in the following manner</p>
+<ol type="1">
+<li><p>Consider the first flash region to have the CRC calculated</p></li>
+<li><p>Calculate the number of DTS chains required for the length of the CRC region. Each DTS channel can address up to a maximum of 0x3FFFC bytes of data (0xFFFF maximum transfer count multiplied by 4 bytes of data in each transfer).</p></li>
+</ol>
+<p>Hence number of channel is equal to Region length/0x3FFFC + {1} if (Region length % 0x3FFFC is non zero)</p>
+<ol start="3" type="1">
+<li><p>Clear the DTS Transfer flag to make sure no pending requests are present for all the used channels</p></li>
+<li><p>Configure the DTS channels starting from 0 using the configuration defined as per CM102A_FlsMem_DTSPeripheralCfg.xlsx for the above calculated number of chains</p></li>
+<li><p>Configure the next DTS channel to transfer the CRC result from CRC HW output register to Per Instance Memory</p></li>
+<li><p>Configure the next DTS channel to transfer zero value to the CRC HW output register to clear the output register to continue with next flash region operation</p></li>
+<li><p>Repeat Step 1 thru 5 for all the flash regions(Boot, App, Cal1, Cal2 etc) The definition of the flash region is in the generated file CDD_FlsMem_Cfg.c which takes inputs defined in the Vector configurator Tool</p></li>
+<li><p>Disable chaining on the last channel</p></li>
+<li><p>Enable the Interrupt on the second last channel</p></li>
+<li><p>Clear the interrupt status register which shall be monitored in the periodic</p></li>
+<li><p>Start the DTS transfer</p></li>
+</ol>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.emf" /></p>
+<h2 id="processing-1">Processing</h2>
+<h2 id="dtsclnup">DtsClnUp</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DTSClnUp</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p><em><strong>None</strong></em></p>
+<h2 id="processing-2">Processing</h2>
+<p><em>None</em></p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>We have made use of a static constant global variable (<strong>static const uint32 CrcClrData_M = 0U</strong>) for the purpose of clearing the CRC hardware</p>
+<p>Also the result array (<strong>HwCrcCalcdRes_C[8]</strong>) has been also declared as a global array for the purpose of DTS write access in the Dma Write MemMap memory map section</p>
+<p>The loop starts from 0 and continues till 4 whereas in the design it’s the other way. This is done to make the implementation simpler and to have the error injection code to be present in the last switch case.</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>

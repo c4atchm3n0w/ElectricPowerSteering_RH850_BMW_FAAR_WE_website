@@ -1,0 +1,1258 @@
+---
+title: AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s
+linkTitle: AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s
+weight: 79
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-1_1.png"/><br/>
+&#160;<br/>&#160;<br/>
+<b>Compliance&#160;Documentation&#160;MISRA-C:2004&#160;<br/></b>Version&#160;3.0&#160;<br/>2017-10-09&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1213&#160;<br/>
+<b>Author</b>&#160;<br/>
+Andreas&#160;Raisch&#160;<br/>
+<b>Restrictions</b>&#160;&#160;Customer Confidential&#160;–&#160;Vector decides&#160;<br/><b>Abstract</b>&#160;<br/>
+This&#160;document explains&#160;the&#160;MISRA-C and&#160;HIS&#160;Metric&#160;compliance enforcement.&#160;It&#160;also&#160;<br/>contains&#160;the&#160;project specific&#160;MISRA&#160;and&#160;code metric&#160;deviations&#160;including&#160;their&#160;<br/>justifications.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#3"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#3"><b>Overview&#160;........................................................................................................................................&#160;3</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#3">Purpose, goal&#160;.......................................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4"><b>Enforcing&#160;MISRA-C Compliance&#160;..................................................................................................&#160;4</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">Software&#160;Engineering&#160;Context&#160;.............................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">Programming&#160;Language&#160;and Coding Context&#160;.....................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.3&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">Project specific&#160;MISRA&#160;Subset&#160;............................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.4&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">MISRA&#160;Compliance&#160;Matrix&#160;...................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">2.5&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">Hints&#160;on Compiler Selection&#160;.................................................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#7">2.5.1&#160;&#160;Deactivated&#160;QA-C Rules&#160;for MICROSAR&#160;Product Analysis&#160;................................................&#160;7&#160;<br/>2.6&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#7">Deviation&#160;Procedure&#160;............................................................................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">2.7&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">Usage of&#160;C99 Features&#160;........................................................................................................&#160;8&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">2.7.1&#160;&#160;Usage of&#160;Inline&#160;Functions&#160;....................................................................................................&#160;8&#160;<br/></a><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#9">2.7.2&#160;&#160;Usage of&#160;C99 Data Types&#160;....................................................................................................&#160;9&#160;<br/>2.7.3&#160;&#160;No Usage of&#160;“//” Comments&#160;.................................................................................................&#160;9&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#10"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#10"><b>Enforcing&#160;Code&#160;Metric&#160;Compliance&#160;..........................................................................................10</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#10">HIS&#160;Metric&#160;Compliance&#160;Matrix&#160;...........................................................................................10&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13"><b>Appendix&#160;......................................................................................................................................13</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13">MISRA&#160;Justification for “Project Deviations”&#160;......................................................................13&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#23">4.2&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#23">Code&#160;Metric&#160;Justification for “Product Deviations”&#160;.............................................................23&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26"><b>5</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26"><b>Additional&#160;Resources&#160;.................................................................................................................26</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26"><b>6</b>&#160;</a><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26"><b>Contacts&#160;.......................................................................................................................................26</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-2_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Revision&#160;List&#160;</b><br/>
+Version&#160;<br/>
+Editor&#160;<br/>
+Date&#160;<br/>
+Section&#160;<br/>
+Changes, Comments&#160;<br/>
+0.1.0&#160;<br/>
+virTsd&#160;<br/>
+2009-03-31&#160;&#160;all&#160;<br/>
+Initial&#160;version&#160;<br/>
+1.0.0&#160;<br/>
+visRa&#160;<br/>
+2011-04-26&#160;&#160;Reference&#160;References&#160;changed&#160;to new&#160;locations&#160;on&#160;server&#160;<br/>
+s&#160;<br/>
+1.1.0&#160;<br/>
+visRa&#160;<br/>
+2012-02-17&#160;&#160;Deviations&#160;&#160;New&#160;project&#160;deviations&#160;added: MD_MSR_1.1_810,&#160;<br/>
+MD_MSR_1.1_828,&#160;MD_MSR_1.1_857&#160;<br/>
+2.0.0&#160;<br/>
+visRa&#160;<br/>
+2013-04-22&#160;&#160;all&#160;<br/>
+Document renamed&#160;due to&#160;new&#160;target “claiming&#160;<br/>compliance”. Completely&#160;reworked; new&#160;chapters&#160;<br/><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">“Enforcing&#160;MISRA-C Compliance”</a>&#160;and<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#10">&#160;“Enforcing&#160;<br/>Code&#160;Metric”</a>&#160;added.&#160;MISRA&#160;product&#160;deviations&#160;<br/>moved&#160;in&#160;appendix; code&#160;metric&#160;deviations&#160;added.&#160;<br/>
+2.1.0&#160;<br/>
+visRa&#160;<br/>
+2013-12-16&#160;&#160;&#160;<br/>
+Chapter “Hints&#160;on&#160;Compiler&#160;Selection”&#160;added;&#160;new&#160;<br/>standard&#160;deviations&#160;added in “MISRA&#160;Justification&#160;<br/>for “Project Deviations”: MD_MSR_1.1_639,&#160;<br/>MD_MSR_5.1_777,&#160;MD_MSR_19.13_0342&#160;<br/>
+2.2.0&#160;<br/>
+visRa&#160;<br/>
+2014-03-19&#160;&#160;&#160;<br/>
+Chapter&#160;“Hints&#160;on&#160;Compiler&#160;Selection”&#160;extended;&#160;<br/>new&#160;standard&#160;deviations&#160;added&#160;in “MISRA&#160;<br/>Justification&#160;for “Project Deviations”:&#160;<br/>MD_MSR_1.1_715 and&#160;MD_MSR_5.1_779&#160;<br/>
+2.3.0&#160;<br/>
+visRa&#160;<br/>
+2015-02-18&#160;&#160;&#160;<br/>
+New&#160;standard&#160;deviation&#160;MD_MSR_14.2&#160;added&#160;<br/>New&#160;standard&#160;deviation&#160;MD_MSR_5.7&#160;added&#160;<br/>QA-C rule&#160;850 deactivation&#160;added&#160;to chap<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">ter&#160;2.4&#160;<br/>MISRA&#160;Compliance Matrix&#160;</a><br/>
+2.4.0&#160;<br/>
+visRa&#160;<br/>
+2016-04-08&#160;&#160;&#160;<br/>
+Chapt<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">er&#160;2.7&#160;Usage of&#160;C99&#160;Features&#160;</a>added&#160;<br/>
+2.5.0&#160;<br/>
+visRa&#160;<br/>
+2016-10-13&#160;&#160;&#160;<br/>
+New&#160;standard&#160;deviation&#160;MD_MSR_16.7&#160;added&#160;<br/>Mapping t<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">o&#160;[MISRA-P1]&#160;</a>added&#160;<br/>
+2.6.0&#160;<br/>
+visRa&#160;<br/>
+2017-02-03&#160;&#160;&#160;<br/>
+New&#160;standard&#160;deviation&#160;MD_MSR_5.6&#160;added&#160;<br/>
+3.0.0&#160;<br/>
+visRa&#160;<br/>
+2017-10-06&#160;&#160;&#160;<br/>
+Migration to&#160;“application note” format&#160;<br/>Usage and&#160;justification rule&#160;14.7&#160;adapted&#160;to&#160;Vector&#160;<br/>SafeBSW&#160;“process&#160;3”.&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-3_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-3_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-3_4.jpg"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+<b>1.1&#160;&#160;Purpose,&#160;goal&#160;</b><br/>
+The&#160;purpose of&#160;this&#160;document&#160;is&#160;to&#160;explain the&#160;process&#160;executed&#160;and&#160;limitations&#160;known to claim&#160;<br/>compliance of&#160;the&#160;product&#160;MICROSAR&#160;to “MISRA-C:2004&#160;guidelines&#160;for the&#160;use&#160;of&#160;the C&#160;language&#160;in&#160;<br/>critical&#160;systems”<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">&#160;[MISRA-C]&#160;</a>and&#160;to&#160;HIS&#160;source code&#160;metrics<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">&#160;[HIS-CODE].</a>&#160;<br/>
+In&#160;addition,&#160;the document also describes&#160;the&#160;handling&#160;of&#160;code metrics.&#160;<br/>
+The&#160;products&#160;are&#160;developed in&#160;a&#160;product-line&#160;approach,&#160;so the&#160;wording “project”&#160;i<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">n&#160;[MISRA-C]&#160;</a>is&#160;<br/>mapped to “product”&#160;in&#160;this&#160;context, too.&#160;Product-line&#160;approach means&#160;that a&#160;large&#160;set&#160;of&#160;reusable&#160;<br/>software-components&#160;are&#160;developed&#160;and&#160;maintained&#160;to fulfill&#160;the&#160;functional&#160;needs&#160;of&#160;different OEMs&#160;<br/>and TIER1s&#160;for any&#160;ECU&#160;in&#160;any&#160;vehicle.&#160;<br/>
+&#160;<br/>
+Req<br/>
+Compliance&#160;Matrix<br/>
+es<br/>rul<br/>
+Adv<br/>
+Req<br/>
+List&#160;of&#160;<br/>
+project-<br/>
+Own&#160;<br/>
+specific&#160;<br/>
+rules<br/>
+deviations<br/>
+CodeStyle&#160;Guide<br/>
+Code&#160;<br/>
+Template<br/>
+Code&#160;<br/>
+Verification<br/>
+by&#160;<b>tool</b><br/>
+(+QA-C&#160;markers)<br/>
+<b>(+Specific&#160;</b><br/>
+Verification<br/>
+<b>deviation&#160;</b><br/>
+<b>justification)</b><br/>
+by&#160;<b>review</b><br/>
+&#160;<br/>
+Figure&#160;1-1&#160;Overall&#160;MISRA&#160;process:&#160;MISRA&#160;standard&#160;–&#160;code&#160;style&#160;guides&#160;–&#160;code&#160;–&#160;compliance&#160;matrix&#160;-&#160;…&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-4_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>2&#160;</b><br/>
+<b>Enforcing MISRA-C Compliance&#160;</b><br/>
+<b>2.1&#160;&#160;Software&#160;Engineering&#160;Context&#160;</b><br/>
+If&#160;not otherwise stated,&#160;the&#160;product&#160;is&#160;developed&#160;according AUTOMOTIVE&#160;SPICE,&#160;level&#160;3.&#160;<br/>
+<b>2.2&#160;&#160;Programming&#160;Language and&#160;Coding&#160;Context&#160;</b><br/>
+Used&#160;programing&#160;languages&#160;are&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+C99&#160;but&#160;using&#160;C90&#160;subset&#160;only&#160;(see&#160;chapt<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">er&#160;<i>2.7&#160;Usage of C99</i>)</a>&#160;<br/>
+<b>&gt;&#160;</b><br/>
+ASM (rarely&#160;used,&#160;only&#160;for&#160;µC-specific&#160;codes&#160;like ISR,&#160;register access, ...)&#160;<br/>
+Code&#160;is&#160;developed&#160;based on a&#160;code style&#160;guide&#160;and by&#160;applying code&#160;and header templates.&#160;<br/>
+Selected&#160;code&#160;metrics&#160;are&#160;measured, documented&#160;and deviations&#160;are&#160;justified.&#160;<br/>
+Runtime test coverage is&#160;measured,&#160;documented&#160;and&#160;deviations&#160;are justified.&#160;<br/>
+<b>2.3&#160;&#160;Project&#160;specific&#160;MISRA&#160;Subset&#160;</b><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[HIS-MISRA]&#160;</a>defines&#160;all&#160;rules&#160;to&#160;be “required”, so&#160;no&#160;rule&#160;is&#160;“advisory”.&#160;<br/>
+All&#160;141 rules&#160;i<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">n&#160;[MISRA-C]&#160;</a>are analyzed&#160;for product relevance.&#160;If&#160;a&#160;rule&#160;is&#160;judged to be&#160;not relevant,&#160;it&#160;<br/>is&#160;justified&#160;in chapter<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">&#160;<i>2.4&#160;MISRA&#160;Compliance&#160;Matrix</i>.</a>&#160;<br/>
+<b>2.4&#160;&#160;MISRA&#160;Compliance&#160;Matrix&#160;</b><br/>
+The&#160;compliance matrix&#160;for the&#160;product is:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+All&#160;rules&#160;not&#160;explicitly&#160;listed&#160;i<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">n&#160;<i>Table&#160;2-1</i>&#160;</a>are checked&#160;by&#160;the tool&#160;QA-C (125 rules)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Rules&#160;listed i<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">n&#160;<i>Table&#160;2-1</i>&#160;</a>and marked&#160;“Code&#160;inspection”&#160;are manually&#160;checked&#160;(8 rules)&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Rules&#160;listed i<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">n&#160;<i>Table&#160;2-1</i>&#160;</a>and marked&#160;“Not applicable”&#160;are not&#160;checked&#160;(8 rules); the&#160;justification&#160;is&#160;<br/>added&#160;within the&#160;table.&#160;<br/>
+<b>Rule&#160;&#160;Description&#160;</b><br/>
+<b>Enforcement&#160;Strategy&#160;</b><br/>
+1.3 &#160;<br/>
+Multiple compilers&#160;and/or languages&#160;shall&#160;only&#160;be&#160;<br/>
+Not applicable&#160;<br/>
+(req)&#160;<br/>
+used&#160;if&#160;there is&#160;a&#160;common&#160;defined&#160;interface&#160;standard&#160;&#160;Justification: Multiple compilers&#160;or&#160;<br/>
+&#160;<br/>
+for object code to&#160;which the&#160;<br/>
+languages&#160;are&#160;not&#160;used&#160;in&#160;embedded&#160;<br/>
+languages/compilers/assemblers&#160;conform.&#160;<br/>
+software components&#160;developed&#160;at&#160;<br/>PES.&#160;The&#160;only&#160;exception&#160;is&#160;the&#160;usage&#160;<br/>of&#160;assembler code.&#160;Here however the&#160;<br/>assembler&#160;which belongs&#160;to the&#160;<br/>compiler&#160;is&#160;used&#160;so&#160;there&#160;is&#160;no&#160;issue&#160;<br/>with&#160;the&#160;object code interface.&#160;<br/>
+1.4 &#160;<br/>
+The&#160;compiler/linker shall&#160;be&#160;checked&#160;to&#160;ensure&#160;that&#160;<br/>
+Not applicable&#160;<br/>
+(req)&#160;<br/>
+31&#160;character significance and&#160;case sensitivity&#160;are&#160;<br/>
+Justification: Since&#160;we use&#160;the&#160;<br/>
+&#160;<br/>
+supported for external&#160;identifiers.&#160;<br/>
+compiler&#160;which&#160;is&#160;prescribed by&#160;our&#160;<br/>customer, we are not free&#160;in the&#160;<br/>compiler selection.&#160;There are still&#160;<br/>compilers&#160;which support only&#160;6&#160;<br/>characters, so the&#160;software&#160;has&#160;to&#160;<br/>support this.&#160;Since especially&#160;during&#160;<br/>implementation&#160;of&#160;higher&#160;layers&#160;the&#160;<br/>used&#160;compiler is&#160;not known&#160;it is&#160;not&#160;<br/>possible to&#160;check&#160;this&#160;in the&#160;<br/>development phase.&#160;This&#160;is&#160;verified&#160;<br/>during delivery&#160;test&#160;with the&#160;<br/>prescribed compiler.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+4<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-5_2.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Rule&#160;&#160;Description&#160;</b><br/>
+<b>Enforcement&#160;Strategy&#160;</b><br/>
+<b>Note&#160;<br/></b><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;<br/>
+&#160;<br/>
+this&#160;topic&#160;in&#160;<br/>Permit/MISRA/C:2004/5.1<br/>.A.1.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+1.5&#160;<br/>
+Floating-point&#160;implementations&#160;should comply&#160;with a&#160;&#160;Not applicable&#160;<br/>
+(adv)&#160;&#160;defined&#160;floating-point&#160;standard.&#160;<br/>
+Justification: Floating&#160;point&#160;operations&#160;<br/>
+&#160;<br/>
+are not&#160;used&#160;in&#160;embedded&#160;software&#160;<br/>components&#160;developed at&#160;PES.&#160;&#160;<br/>
+2.4&#160;<br/>
+Sections&#160;of&#160;code should not be&#160;‘commented&#160;out’.&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(adv)&#160;<br/>&#160;<br/>
+3.2 &#160;<br/>
+The&#160;character set&#160;and the corresponding&#160;encoding&#160;<br/>
+Not applicable&#160;<br/>
+(req)&#160;<br/>
+shall&#160;be&#160;documented.&#160;<br/>
+Justification: Character strings&#160;are not&#160;<br/>
+&#160;<br/>
+used&#160;in embedded software&#160;<br/>components&#160;developed at&#160;PES.&#160;<br/>
+3.3&#160;<br/>
+The&#160;implementation&#160;of&#160;integer&#160;division in the chosen&#160;&#160;Not applicable&#160;<br/>
+(adv)&#160;&#160;compiler should be determined,&#160;documented&#160;and&#160;<br/>
+Justification: Division&#160;of&#160;negative&#160;<br/>
+&#160;<br/>
+taken&#160;into&#160;account.&#160;<br/>
+signed integers&#160;is&#160;not used&#160;in&#160;<br/>
+Comment:&#160;There is&#160;a&#160;potential&#160;issue&#160;in case&#160;of&#160;the&#160;<br/>
+embedded&#160;software components&#160;<br/>
+division&#160;of&#160;negative signed integers&#160;because&#160;the&#160;<br/>
+developed at&#160;PES.&#160;<br/>
+compiler behavior is&#160;not standardized.&#160;<br/>
+3.5 &#160;<br/>
+If&#160;it is&#160;being relied upon,&#160;the&#160;implementation-defined&#160;&#160;Not applicable&#160;<br/>
+(req)&#160;<br/>
+behavior and&#160;packing&#160;of&#160;bit-fields&#160;shall&#160;be&#160;<br/>
+Justification: In&#160;the&#160;embedded&#160;<br/>
+&#160;<br/>
+documented.&#160;<br/>
+environment the handling&#160;of&#160;bit-fields&#160;<br/>is&#160;documented&#160;for each compiler and&#160;<br/>hardware&#160;in&#160;the&#160;compilers’&#160;user&#160;<br/>manual. Beyond&#160;this,&#160;tests&#160;minimize&#160;<br/>the&#160;risk&#160;indicated&#160;by&#160;this&#160;rule.&#160;<br/>
+3.6 &#160;<br/>
+All&#160;libraries&#160;used&#160;in&#160;production&#160;code shall&#160;be&#160;written&#160;<br/>
+Not applicable&#160;<br/>
+(req)&#160;<br/>
+to&#160;comply&#160;with&#160;the&#160;provisions&#160;of&#160;this&#160;document, and&#160;<br/>
+Justification:&#160;The&#160;C standard library&#160;or&#160;<br/>
+&#160;<br/>
+shall&#160;have&#160;been subject to&#160;appropriate validation.&#160;<br/>
+other&#160;libraries&#160;are&#160;not&#160;used&#160;in&#160;<br/>embedded&#160;software components&#160;<br/>developed at&#160;PES.&#160;<br/>
+5.7&#160;<br/>
+No identifier name should&#160;be reused.&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(adv)&#160;&#160;Comment: the&#160;term&#160;“system”&#160;in [MISRA-C] relates&#160;to&#160;<br/>&#160;<br/>
+the&#160;unit&#160;on&#160;which&#160;the&#160;MISRA&#160;analysis&#160;is&#160;applied,&#160;i.e.&#160;<br/>a software&#160;component.&#160;<br/>See<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#18">&#160;MD_MSR_5.7&#160;</a>for deviations&#160;to&#160;this&#160;rule.&#160;<br/>
+10.5.&#160;&#160;If&#160;the&#160;bitwise&#160;operators&#160;~&#160;and&#160;&lt;&lt;&#160;are applied to&#160;an&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(req)&#160;<br/>
+operand&#160;of&#160;underlying&#160;type&#160;unsigned char or&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+unsigned short, the&#160;result shall&#160;be immediately&#160;cast&#160;<br/>to&#160;the underlying&#160;type of&#160;the operand&#160;<br/>
+17.1&#160;<br/>
+Pointer&#160;arithmetic&#160;shall&#160;only&#160;be&#160;applied&#160;to&#160;pointers&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(req)&#160;<br/>
+that&#160;address&#160;an array&#160;or array&#160;element.&#160;<br/>
+&#160;<br/>
+17.2.&#160;&#160;Pointer&#160;subtraction&#160;shall&#160;only&#160;be&#160;applied&#160;to pointers&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(req)&#160;<br/>
+that&#160;address&#160;elements&#160;of&#160;the same array&#160;<br/>
+&#160;<br/>
+17.3&#160;<br/>
+&gt;,&#160;&gt;=,&#160;&lt;,&#160;&lt;=&#160;shall&#160;not be&#160;applied&#160;to pointer&#160;types&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(req)&#160;<br/>
+except&#160;where they&#160;point&#160;to&#160;the&#160;same array.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+5<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-6_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Rule&#160;&#160;Description&#160;</b><br/>
+<b>Enforcement&#160;Strategy&#160;</b><br/>
+&#160;<br/>
+18.2&#160;&#160;&#160;An object shall&#160;not&#160;be&#160;assigned to an overlapping&#160;<br/>
+Code&#160;inspection&#160;<br/>
+(req)&#160;<br/>
+object.&#160;<br/>
+&#160;<br/>
+Comment:&#160;This&#160;is&#160;related to&#160;use the same&#160;memory&#160;<br/>by&#160;different objects&#160;(variables)&#160;at&#160;the&#160;same time&#160;<br/>without&#160;using&#160;unions.&#160;<br/>
+18.3&#160;&#160;&#160;An area&#160;of&#160;memory&#160;shall&#160;not be reused&#160;for unrelated&#160;&#160;Code&#160;inspection&#160;<br/>(req)&#160;<br/>
+purposes.&#160;<br/>
+&#160;<br/>
+Comment:&#160;This&#160;is&#160;related to&#160;use the same&#160;memory&#160;<br/>for different purposes&#160;at&#160;different points&#160;of&#160;time&#160;<br/>(example:&#160;dynamic&#160;memory&#160;management)&#160;without&#160;<br/>using&#160;unions.&#160;<br/>
+20.3&#160;&#160;&#160;The&#160;validity&#160;of&#160;values&#160;passed&#160;to&#160;library&#160;functions&#160;<br/>
+Not applicable&#160;<br/>
+(req)&#160;<br/>
+shall&#160;be&#160;checked.&#160;<br/>
+Justification:&#160;The&#160;C standard library&#160;is&#160;<br/>
+&#160;<br/>
+not used in embedded software&#160;<br/>components&#160;developed at&#160;PES. Our&#160;<br/>own&#160;libraries&#160;provide&#160;sufficient&#160;internal&#160;<br/>checking&#160;in contrast to&#160;the&#160;C standard&#160;<br/>library.&#160;<br/>
+Partly&#160;&#160;QA-C rule&#160;850 “Macro&#160;argument is&#160;empty”, mapped&#160;&#160;Code&#160;inspection&#160;<br/>19.8&#160;<br/>
+to&#160;MISRA-C:2004&#160;rule&#160;19.8&#160;“A&#160;function-like&#160;macro&#160;<br/>
+(req)&#160;<br/>
+shall&#160;not&#160;be&#160;invoked&#160;without all&#160;of&#160;its&#160;arguments”.&#160;<br/>
+(QA-C&#160;&#160;Rule&#160;deactivated because&#160;of&#160;bug in used QA-C&#160;<br/>rule&#160;<br/>
+version (CR&#160;12354,&#160;Message&#160;0850&#160;was&#160;sometimes&#160;<br/>
+850)&#160;<br/>
+generated&#160;incorrectly&#160;when&#160;performing&#160;macro&#160;<br/>substitution&#160;with&#160;a&#160;macro defined&#160;with&#160;an&#160;empty&#160;<br/>replacement list)&#160;<br/>
+Table&#160;2-1&#160;Rules&#160;not&#160;checked&#160;by&#160;MISRA&#160;analysis&#160;tool&#160;PRQA-&#160;QA-C&#160;<br/>
+<b>2.5&#160;&#160;Hints&#160;on&#160;Compiler&#160;Selection&#160;</b><br/>
+The&#160;complexity&#160;of&#160;an<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">&#160;[AUTOSAR]&#160;</a>based software system&#160;exceeds&#160;typically&#160;the&#160;maximum&#160;numbers&#160;of&#160;<br/>structs, unions, includes&#160;and nested #if&#160;levels&#160;defined for C90. These C90&#160;limits&#160;originate in early&#160;C&#160;<br/>compiler&#160;implementations&#160;with&#160;limited&#160;RAM to store definitions. Nearly&#160;all&#160;current&#160;compilers&#160;support&#160;<br/>sufficient support for huge&#160;numbers&#160;of&#160;structs, unions,&#160;include&#160;and&#160;nested #if&#160;levels.&#160;&#160;<br/>
+Such compilers&#160;also support&#160;more than&#160;31&#160;characters&#160;to&#160;identify&#160;internal&#160;and&#160;external&#160;identifiers.&#160;<br/>
+Vector&#160;implements&#160;AUTOSAR compliant to&#160;the&#160;AUTOSAR&#160;SWS&#160;with focus&#160;to&#160;stay&#160;within the&#160;given&#160;<br/>limits. Nevertheless, combining the different BSW&#160;modules&#160;to a&#160;stack, this&#160;will&#160;result&#160;in&#160;exceeding&#160;C90&#160;<br/>limits. Because&#160;overstepping the&#160;limits&#160;depends&#160;on&#160;the&#160;concrete&#160;project and&#160;the&#160;used&#160;databases&#160;no&#160;<br/>value&#160;forecast can&#160;be&#160;given1.&#160;<br/>
+We&#160;strongly&#160;recommend that&#160;the ECU project&#160;validates&#160;the used compiler against&#160;its&#160;limits&#160;concerning&#160;<br/>maximum&#160;numbers&#160;of&#160;structs, unions,&#160;includes&#160;and&#160;nested&#160;#if&#160;levels&#160;and&#160;significant characters&#160;for&#160;<br/>internal&#160;and external&#160;identifiers.&#160;<br/>
+Additionally&#160;we strongly&#160;recommend that the&#160;ECU project configures&#160;its&#160;static&#160;code checker tool&#160;in a&#160;<br/>way&#160;that&#160;the&#160;concrete&#160;compiler&#160;limits&#160;are part of&#160;the&#160;ECU project verification&#160;activities.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160;<br/>1&#160;A&#160;typical&#160;reason for&#160;exceeding&#160;the&#160;number&#160;of&#160;1024&#160;macros&#160;is&#160;using&#160;the&#160;COM&#160;macro&#160;API.&#160;Enabling&#160;the&#160;macro&#160;API&#160;is&#160;<br/>
+a&#160;decision done&#160;by&#160;the&#160;ECU integrator&#160;to&#160;improve&#160;runtime&#160;and&#160;memory&#160;consumption.&#160;Negative&#160;effects&#160;are&#160;e.g.&#160;<br/>
+multiple&#160;MISRA&#160;deviations.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+6<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-7_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-7_3.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Note&#160;<br/></b><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.D.1&#160;and&#160;in&#160;<br/>
+&#160;<br/>
+Permit/MISRA/C:2004/5.1.A.1.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.5.1&#160;&#160;Deactivated&#160;QA-C&#160;Rules&#160;for&#160;MICROSAR&#160;Product&#160;Analysis&#160;</b><br/>
+As&#160;explained&#160;in chapt<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">er&#160;<i>2.5</i>, i</a>ntegrated&#160;AUTOSAR&#160;BSW&#160;typically&#160;exceeds&#160;the C90 limits.&#160;&#160;<br/>
+Vector explicitly&#160;excludes&#160;the&#160;following&#160;rules&#160;for MISRA&#160;analysis&#160;on integrated BSW&#160;stacks&#160;from&#160;<br/>justification:&#160;&#160;<br/>
+<b>MISRA&#160;&#160;QA-C&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Rule&#160;</b><br/>
+<b>Rule&#160;</b><br/>
+1.1&#160;<br/>
+612&#160;<br/>
+Size&#160;of&#160;object&#160;exceeds&#160;32767&#160;bytes&#160;-&#160;program&#160;is&#160;non-conforming.&#160;<br/>
+1.1&#160;<br/>
+639&#160;<br/>
+Number&#160;of&#160;members&#160;in 'struct'&#160;or&#160;'union'&#160;exceeds&#160;127&#160;-&#160;program&#160;is&#160;non-conforming.&#160;<br/>
+1.1&#160;<br/>
+715&#160;<br/>
+Nesting&#160;of&#160;control&#160;structures&#160;(statements)&#160;exceeds&#160;15&#160;-&#160;program&#160;is&#160;non-conforming.&#160;<br/>
+5.1&#160;<br/>
+777&#160;<br/>
+External&#160;identifier&#160;does&#160;not&#160;differ&#160;from other&#160;identifier(s)&#160;within the&#160;specified&#160;number&#160;of&#160;<br/>significant&#160;characters.&#160;<br/>
+5.1&#160;<br/>
+779&#160;<br/>
+Internal&#160;identifier&#160;does&#160;not&#160;differ&#160;from other&#160;identifier(s)&#160;within the&#160;specified&#160;number&#160;of&#160;<br/>significant&#160;characters.&#160;<br/>
+1.1&#160;<br/>
+810&#160;<br/>
+'#include&#160;&#34;xxxx&#34;'&#160;causes&#160;nesting&#160;to&#160;exceed&#160;8&#160;levels&#160;-&#160;program is&#160;non-conforming.&#160;<br/>
+1.1&#160;<br/>
+828&#160;<br/>
+Maximum '#if...'&#160;nesting&#160;exceeds&#160;8&#160;levels&#160;-&#160;program is&#160;non-conforming.&#160;<br/>
+1.1&#160;<br/>
+857&#160;<br/>
+Number&#160;of&#160;macro&#160;definitions&#160;exceeds&#160;1024&#160;-&#160;program&#160;is&#160;non-conforming.&#160;<br/>
+Table&#160;2-2&#160;Rules&#160;not&#160;checked&#160;by&#160;Vector&#160;on&#160;integrated&#160;BSW&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>Note&#160;<br/></b>On BSW&#160;module level,&#160;we&#160;have these rules&#160;enabled&#160;for module release&#160;verification&#160;<br/>
+&#160;<br/>
+activities. If&#160;such a&#160;rule&#160;is&#160;deviated on BSW&#160;component verification level,&#160;it&#160;is&#160;justified&#160;<br/>according&#160;chapt<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13">er&#160;4.1.</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.6&#160;&#160;Deviation&#160;Procedure&#160;</b><br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">Table&#160;2-3&#160;</a>describes&#160;the&#160;priority&#160;of&#160;the rules&#160;to be&#160;applied&#160;within the&#160;product.&#160;<br/>
+<b>Priority&#160;&#160;Rule&#160;</b><br/>
+<b>Rationale&#160;</b><br/>
+1&#160;<br/>
+Product’s&#160;embedded&#160;software shall&#160;be&#160;fully&#160;&#160;&#160;<br/>MISRA&#160;compliant.&#160;Thus&#160;deviation&#160;from&#160;<br/>MISRA&#160;rules&#160;shall&#160;be prevented&#160;wherever&#160;<br/>possible.&#160;<br/>
+2&#160;<br/>
+If&#160;a&#160;MISRA&#160;deviation&#160;is&#160;detected, the&#160;code&#160;&#160;&#160;<br/>shall&#160;be&#160;analyzed&#160;and,&#160;if&#160;reasonable,&#160;be&#160;<br/>changed/extended to become MISRA&#160;<br/>compliant.&#160;<br/>
+3&#160;<br/>
+If&#160;fixing&#160;the&#160;deviation is&#160;not&#160;a solution,&#160;the&#160;<br/>
+Justification: Depending&#160;on&#160;the context, there&#160;<br/>
+deviations&#160;shall&#160;be marked&#160;as&#160;known&#160;and&#160;a&#160;&#160;might be more important requirements&#160;than&#160;<br/>justification&#160;has&#160;to&#160;be&#160;added into&#160;the&#160;code&#160;<br/>
+“MISRA&#160;compliance” e.g.&#160;stick&#160;to&#160;standards&#160;<br/>
+either as&#160;a&#160;Product Deviation&#160;or a&#160;Specific&#160;&#160;(ISO,&#160;AUTOSAR, OEM&#160;specification,&#160;…),&#160;<br/>Deviation.&#160;<br/>
+preventing&#160;inefficiency&#160;(RAM/ROM footprint,&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+7<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-8_2.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Priority&#160;&#160;Rule&#160;</b><br/>
+<b>Rationale&#160;<br/></b>runtime,&#160;…), product-line&#160;code maintainability,&#160;<br/>…&#160;<br/>
+Table&#160;2-3&#160;Priority&#160;of&#160;measures&#160;to&#160;prevent&#160;MISRA&#160;deviations&#160;<br/>
+This&#160;document addresses&#160;a&#160;product-line&#160;approach,&#160;therefore chapter<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13">&#160;<i>4.1&#160;MISRA&#160;Justification&#160;for&#160;<br/>“</i>Project Deviations”<i>&#160;</i></a>&#160;list&#160;the&#160;<b>Product Deviations</b>. The&#160;maintenance&#160;of&#160;the&#160;Product&#160;Deviation list is&#160;part&#160;<br/>of&#160;the product-line&#160;development process.&#160;<br/>
+If&#160;a&#160;part of&#160;the&#160;product has&#160;a&#160;<b>Specific Deviation</b>, the justification is&#160;done locally.&#160;The&#160;Specific&#160;<br/>Deviation&#160;is&#160;documented&#160;within&#160;the&#160;code&#160;and&#160;verified&#160;in&#160;the code&#160;inspection&#160;process, too.&#160;<br/>
+Each deviation is&#160;marked&#160;as&#160;shown i<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">n&#160;<i>Figure&#160;2-1</i>. T</a>he&#160;justification&#160;is&#160;either&#160;a link&#160;on&#160;a&#160;Product&#160;<br/>Deviation&#160;(chapt<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13">er&#160;<i>4.1&#160;MISRA&#160;Justification&#160;for “</i>Project&#160;Deviations”<i>&#160;</i></a>&#160;within&#160;this&#160;document)&#160;or a link&#160;to&#160;a&#160;<br/>Specific&#160;Deviation&#160;justified&#160;within the&#160;source code&#160;itself.&#160;<br/>
+The&#160;justification&#160;in the&#160;source code&#160;is&#160;based&#160;on&#160;this&#160;template:&#160;<br/>
+/* Justification for module-specific MISRA deviations:&#160;<br/>
+<b>MD_&lt;CompName&gt;_&lt;RuleNo&gt;</b>: MISRA rule&#160;xx.y&#160;<br/>&#160;<b>Reason:</b>&#160;<i>Explanation of reason for deviation on &lt;RuleNo&gt;</i>&#160;<br/>&#160;<b>Risk:</b>&#160; &#160;<i>Explanation of risk for &lt;RuleNo&gt;&#160;</i>&#160;<br/>&#160;<b>Prevention:</b>&#160;<i>Explanation how to prevent risk occurrence&#160;<br/></i>*/&#160;<br/>
+&#160;<br/>
+<i><b>Deviation</b></i><br/>
+Analyze<br/>
+Justify<br/>
+<i><b>Code</b></i><br/>
+<i><b>Known&#160;Deviation</b></i><br/>
+<i><b>Justification</b></i><br/>
+<b>TASK(TaskInit)</b><br/>
+<b>/* PRQA S&#160;1503 */</b><br/>
+<b>/* MD_MSR_14.1 */</b><br/>
+<b>{<br/>/../<br/>}</b><br/>
+&#160;<br/>
+Figure&#160;2-1&#160;Style&#160;for&#160;justifying&#160;a&#160;deviation&#160;in&#160;code&#160;<br/>
+&#160;<br/>
+<b>2.7&#160;&#160;Usage&#160;of&#160;C99&#160;Features&#160;</b><br/>
+The&#160;product uses&#160;the&#160;C90&#160;language&#160;subset&#160;plus&#160;the&#160;here listed&#160;C99&#160;features.&#160;<br/>
+<b>2.7.1&#160;&#160;Usage&#160;of&#160;Inline&#160;Functions&#160;</b><br/>
+The&#160;product uses&#160;<i>inline functions</i>&#160;to&#160;reduce complexity&#160;and&#160;improve the readability&#160;and&#160;testability&#160;of&#160;<br/>the&#160;code.&#160;<br/>
+The&#160;code style guide&#160;requires&#160;the&#160;use of&#160;th<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">e&#160;[AUTOSAR]&#160;</a>compiler abstraction&#160;concept&#160;<br/>LOCAL_INLINE&#160;when using&#160;<i>inline&#160;functions</i>. This&#160;approach provides&#160;means&#160;to&#160;define&#160;a&#160;compiler&#160;<br/>specific&#160;static&#160;storage class&#160;definition as&#160;required&#160;by&#160;e.g.&#160;MISRA_C:2012,&#160;“rule 8.10&#160;An&#160;<i>inline function</i>&#160;<br/>shall&#160;be&#160;declared&#160;with&#160;the&#160;static&#160;storage&#160;class”.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+8<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_6.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_7.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-9_8.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Not all&#160;(C90)&#160;compilers&#160;support “static&#160;inline”.&#160;Therefore the&#160;mapping&#160;can be adapted&#160;to&#160;<br/>
+&#160;<br/>
+the&#160;supported compiler and&#160;usage from&#160;“static&#160;inline”&#160;to “inline”&#160;or to “”&#160;(i.e.&#160;explicit&#160;<br/>function&#160;call&#160;instead&#160;of&#160;compilation&#160;time inline).&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Compiler.h&#160;delivered&#160;with&#160;the&#160;product is&#160;adapted to&#160;the ordered compiler.&#160;When&#160;using&#160;a&#160;<br/>
+&#160;<br/>
+different Compiler.h&#160;(e.g.&#160;from&#160;MCAL&#160;package), please verify&#160;correct LOCAL_INLINE&#160;<br/>assignment.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.C.1.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.7.2&#160;&#160;Usage&#160;of&#160;C99&#160;Data&#160;Types&#160;</b><br/>
+The&#160;code style guide&#160;requires&#160;the&#160;use of&#160;th<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">e&#160;[AUTOSAR]&#160;</a>platform&#160;abstraction&#160;concept to&#160;declare and&#160;<br/>define&#160;variables.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Not all&#160;(C90)&#160;compilers&#160;support types&#160;to define 64 bit data&#160;types. Such&#160;a&#160;compiler&#160;cannot&#160;<br/>
+&#160;<br/>
+be&#160;used to compile the product in case it contains&#160;components&#160;requiring&#160;64&#160;bit&#160;data&#160;types.&#160;<br/>Therefore use of&#160;64&#160;bit data types&#160;is&#160;restricted&#160;to (1)&#160;components&#160;with typical&#160;usage&#160;on at&#160;<br/>least&#160;32bit &#160;µC&#160;(e.g.&#160;ethernet&#160;stack)&#160;and (2)&#160;when explicitly&#160;defined&#160;by&#160;AUTOSAR (e.g.&#160;as&#160;<br/>data&#160;type&#160;in&#160;interface).&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Platform_Types.h&#160;delivered&#160;with&#160;the&#160;product is&#160;adapted&#160;to&#160;the ordered&#160;platform.&#160;When&#160;<br/>
+&#160;<br/>
+using&#160;a different Platform_Types.h (e.g.&#160;from&#160;MCAL&#160;package), please&#160;verify&#160;correct type&#160;<br/>definition.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>Components&#160;developed for&#160;a&#160;specific&#160;platform&#160;and compiler (e.g. MCAL&#160;or OS)&#160;may&#160;use&#160;<br/>
+&#160;<br/>
+the&#160;64 bit data&#160;types&#160;directly.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.A.1.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.7.3&#160;&#160;No Usage of&#160;“//”&#160;Comments&#160;</b><br/>
+Usage of&#160;“//” comments&#160;is&#160;not allowed&#160;for the product.&#160;<br/>
+This&#160;is&#160;covered&#160;by&#160;MISRA-C:2004,&#160;rule&#160;2.2&#160;“Source code&#160;shall&#160;only&#160;use C-style comments.”&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+9<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-10_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Enforcing Code&#160;Metric&#160;Compliance&#160;</b><br/>
+<b>3.1&#160;&#160;HIS&#160;Metric Compliance&#160;Matrix&#160;</b><br/>
+The&#160;code for the&#160;product shall&#160;comply&#160;with&#160;HIS&#160;source&#160;code metrics<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">&#160;[HIS-MISRA].</a>&#160;<br/>
+Analysis&#160;of&#160;the HIS&#160;source&#160;code metrics&#160;in the&#160;product&#160;context has&#160;shown&#160;that only&#160;few of&#160;the metrics&#160;<br/>are helpful&#160;to measure and&#160;vote the products&#160;quality.&#160;&#160;<br/>
+The&#160;product has&#160;a&#160;high&#160;configurability,&#160;so metric&#160;deviations&#160;may&#160;occur in&#160;all&#160;or&#160;in just a&#160;few, specific&#160;<br/>setups. The&#160;components&#160;of&#160;the&#160;product&#160;are thus&#160;analyzed&#160;for a set&#160;of&#160;defined use-cases&#160;and metric&#160;<br/>deviations&#160;are analyzed.&#160;If&#160;the&#160;analysis&#160;result&#160;is&#160;“accept metric&#160;deviation”, a&#160;justification is&#160;added&#160;to the&#160;<br/>code.&#160;<br/>
+<b>HIS&#160;Metric&#160;</b><br/>
+<b>Rationale&#160;and&#160;Enforcement&#160;Strategy&#160;</b><br/>
+<b>(QA-C metric)&#160;<br/></b>Comment Density&#160;<br/>
+HIS: COMF &gt;&#160;0.2&#160;&#160;<br/>
+(COMF)&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;&#160;<br/>Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Product consists&#160;out&#160;of&#160;static&#160;and generated&#160;code&#160;files,&#160;some very&#160;small,&#160;<br/>some large,&#160;some with just&#160;tables&#160;and defines, some with&#160;many&#160;complex&#160;<br/>code structures. Comments&#160;shall&#160;be&#160;applied&#160;where&#160;necessary&#160;to&#160;improve&#160;<br/>the&#160;readability,&#160;not to satisfy&#160;a metric.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Adding MISRA&#160;justifications&#160;comments&#160;in the&#160;code&#160;results&#160;(in&#160;relevant&#160;<br/>files)&#160;in more than&#160;20%&#160;&#160;metric&#160;target is&#160;typically&#160;fulfilled but&#160;not&#160;the&#160;<br/>intended improvement in maintainability.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Vector focuses&#160;on&#160;the&#160;outcome of&#160;code inspection&#160;to improve also&#160;<br/>maintainability&#160;concerning&#160;good&#160;and helpful&#160;comments.&#160;<br/>
+Estimated static&#160;<br/>
+HIS:&#160;1..80&#160;<br/>
+path&#160;count (STPTH)&#160;&#160;This&#160;metric&#160;is&#160;measured and justified&#160;per&#160;deviation&#160;or class&#160;of&#160;deviations.&#160;<br/>Cyclomatic&#160;<br/>
+HIS:&#160;1..10&#160;<br/>
+Complexity&#160;<br/>
+This&#160;metric&#160;is&#160;measured and justified&#160;per&#160;deviation&#160;or class&#160;of&#160;deviations.&#160;<br/>
+(STCYC)&#160;<br/>Number&#160;of&#160;GOTOs&#160;<br/>
+HIS:&#160;0&#160;<br/>
+(STGTO)&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Use of&#160;GOTO&#160;is&#160;allowed in&#160;Vector code for limited&#160;use-cases.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Use of&#160;GOTO&#160;has&#160;to&#160;be&#160;already&#160;justified&#160;as&#160;MISRA&#160;deviation&#160;per use.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Mandatory&#160;metric&#160;STBAK&#160;is&#160;applied to&#160;check&#160;for illegal&#160;use&#160;of&#160;GOTO&#160;<br/>
+Number&#160;of&#160;functions&#160;&#160;HIS:&#160;0..5&#160;<br/>calling&#160;this&#160;function&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>
+(STM29)&#160;<br/>
+Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+The&#160;metric&#160;is&#160;aimed&#160;to&#160;detect “up to&#160;now&#160;unknown” functions&#160;in a&#160;“black-<br/>box&#160;system”&#160;which&#160;were critical&#160;due&#160;to&#160;be called by&#160;many&#160;other functions&#160;<br/>and shall&#160;thus&#160;be&#160;under specific&#160;focus.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+By&#160;contrast, the&#160;product&#160;is&#160;designed&#160;to&#160;provide&#160;functionality&#160;to&#160;an&#160;(ECU)&#160;<br/>project based&#160;on&#160;defined standards&#160;(ISO,&#160;AUTOSAR,&#160;…). Thus&#160;the usage&#160;<br/>of&#160;APIs&#160;is&#160;known,&#160;predefined and not in our control. Justifying&#160;the&#160;usage&#160;<br/>will&#160;indicate&#160;only&#160;the&#160;usage&#160;in e.g.&#160;our&#160;test-projects&#160;but&#160;not that&#160;in the&#160;<br/>concrete&#160;final&#160;project.&#160;<br/>
+Number&#160;of&#160;distinct&#160;<br/>
+HIS:&#160;1..7&#160;<br/>
+function&#160;calls&#160;<br/>
+This&#160;metric&#160;is&#160;measured and justified&#160;per&#160;deviation&#160;or class&#160;of&#160;deviations.&#160;<br/>
+(STCAL)&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+10<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-11_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>HIS&#160;Metric&#160;</b><br/>
+<b>Rationale&#160;and&#160;Enforcement&#160;Strategy&#160;</b><br/>
+<b>(QA-C metric)&#160;<br/></b>Number&#160;of&#160;function&#160;<br/>
+HIS:&#160;0..5&#160;<br/>
+parameters&#160;<br/>
+This&#160;metric&#160;is&#160;measured and justified&#160;per&#160;deviation&#160;or class&#160;of&#160;deviations.&#160;<br/>
+(STPAR)&#160;<br/>Number&#160;of&#160;<br/>
+HIS:&#160;1..50&#160;<br/>
+statements&#160;in&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not&#160;justified.&#160;<br/>
+function&#160;(STST3)&#160;<br/>
+Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Project analysis&#160;has&#160;shown&#160;that&#160;if&#160;STST3 is&#160;out of&#160;limit and&#160;the&#160;function&#160;is&#160;<br/>complex, also STCYC&#160;and&#160;STPATH are out&#160;of&#160;limits. So&#160;we focus&#160;on&#160;<br/>STCYC&#160;and STPATH for analysis.&#160;<br/>
+Maximum&#160;nesting&#160;of&#160;&#160;HIS:&#160;0..4&#160;<br/>control&#160;structures&#160;<br/>
+This&#160;metric&#160;is&#160;measured and justified&#160;per&#160;deviation&#160;or class&#160;of&#160;deviations.&#160;<br/>
+(STMIF)&#160;<br/>Number&#160;of&#160;exit&#160;<br/>
+HIS:&#160;0..1&#160;<br/>
+points&#160;(STM19)&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Safe programming&#160;requires&#160;runtime checks. Due&#160;to&#160;runtime efficiency, the&#160;<br/>checks&#160;have&#160;to&#160;be disabled&#160;for production code.&#160;Thus&#160;the&#160;DET&#160;checks&#160;are&#160;<br/>typically&#160;macros&#160;and are added to the begin of&#160;a&#160;function. To keep code&#160;<br/>structure simple,&#160;additional&#160;returns&#160;are allowed here, too.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Use of&#160;return statement has&#160;to&#160;be&#160;already&#160;justified&#160;as&#160;MISRA&#160;deviation per&#160;<br/>use.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Vector focuses&#160;on&#160;the&#160;outcome of&#160;code inspection&#160;to check&#160;for correct&#160;<br/>usage&#160;of&#160;return statements.&#160;<br/>
+Language set&#160;<br/>
+HIS:&#160;0..4&#160;<br/>
+(VOCF)&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>(Metric&#160;calculation done&#160;according&#160;PRQA&#160;specification)&#160;<br/>Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Value&#160;for very&#160;complex&#160;components&#160;has&#160;been&#160;found in HIS&#160;range (=&#160;ok),&#160;<br/>but nearly&#160;empty&#160;components&#160;have&#160;been reported&#160;as&#160;dramatically&#160;out of&#160;<br/>range&#160;(e.g.&#160;&gt;2500).&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Summary&#160;is, that&#160;analysis&#160;of&#160;metric&#160;values&#160;in&#160;the&#160;product context has&#160;not&#160;<br/>shown any&#160;significant&#160;hint&#160;on improving code maintainability&#160;or other&#160;<br/>benefits.&#160;<br/>
+Number&#160;of&#160;<br/>
+HIS:&#160;0&#160;<br/>
+recursions&#160;across&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>
+project (STNRA)&#160;<br/>
+Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Vector coding guidelines&#160;forbid the&#160;use&#160;of&#160;recursions&#160;to implement&#160;<br/>functional&#160;behavior.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Vector develops&#160;standard software&#160;according e.g.&#160;AUTOSAR, so API&#160;<br/>usage&#160;definition is&#160;mainly&#160;out&#160;of&#160;our&#160;scope&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Vector code is&#160;just a&#160;part&#160;of&#160;a&#160;“final”&#160;ECU code, so&#160;recursions&#160;caused by&#160;<br/>customer-project specific&#160;API or&#160;configuration&#160;data use&#160;cannot&#160;be&#160;<br/>detected in our selected&#160;product test use-cases. Measurement is&#160;done to&#160;<br/>be&#160;aware of&#160;potential&#160;recursions.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+(The&#160;tool&#160;QAC has&#160;no&#160;reliable capability&#160;to&#160;detect the&#160;absence&#160;of&#160;<br/>recursions&#160;due to&#160;insufficient&#160;pointer analysis)&#160;&#160;<br/>
+Number&#160;of&#160;MISRA&#160;<br/>
+HIS:&#160;0&#160;<br/>
+subset&#160;violations&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>
+(NOMV)&#160;<br/>
+Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+MISRA&#160;deviations&#160;are already&#160;justified per occurrence&#160;during the&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+11<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-12_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>HIS&#160;Metric&#160;</b><br/>
+<b>Rationale&#160;and&#160;Enforcement&#160;Strategy&#160;</b><br/>
+<b>(QA-C metric)&#160;</b><br/>
+development process&#160;of&#160;each component.&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;components&#160;are&#160;assembled&#160;to&#160;a&#160;large number&#160;of&#160;different projects&#160;<br/>with&#160;different configurations&#160;resulting&#160;in&#160;different number&#160;of&#160;MISRA&#160;<br/>deviations. Due&#160;to&#160;the&#160;product-line approach&#160;and the component-local&#160;<br/>handling, creating&#160;justification&#160;above the&#160;component&#160;level&#160;is&#160;not&#160;<br/>reasonable.&#160;<br/>
+Number&#160;of&#160;MISRA&#160;<br/>
+HIS:&#160;0&#160;<br/>
+subset&#160;violations&#160;per&#160;&#160;This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not justified.&#160;<br/>
+rule (NOMVRP)&#160;<br/>
+Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Same justification&#160;as&#160;for NOMV&#160;<br/>
+Stability&#160;Index&#160;„Si&#160;“&#160;<br/>
+HIS:&#160;&lt;=1&#160;<br/>
+&#160;<br/>
+This&#160;metric&#160;is&#160;measured but deviations&#160;are&#160;not&#160;justified.&#160;<br/>Justification:&#160;<br/><b>&gt;&#160;</b><br/>
+Basic&#160;idea of&#160;this&#160;metric&#160;is&#160;to show&#160;that&#160;the&#160;code&#160;has&#160;less&#160;changes&#160;from&#160;<br/>release&#160;to&#160;release. This&#160;is&#160;typically&#160;true&#160;for a concrete&#160;ECU project in&#160;its&#160;<br/>given&#160;timeline.&#160;The&#160;time-boxed&#160;product-line&#160;development has&#160;features&#160;of&#160;<br/>different products&#160;developed at the&#160;same time and&#160;each release&#160;is&#160;<br/>typically&#160;“production”. In&#160;addition,&#160;the&#160;code consists&#160;on&#160;a&#160;static&#160;part and&#160;a&#160;<br/>generated&#160;part. The&#160;generated&#160;part depends&#160;on&#160;the&#160;used&#160;configuration&#160;<br/>database.&#160;The&#160;reference&#160;database is&#160;updated&#160;with each time-box, too.&#160;<br/>Due&#160;to those effects&#160;creating justifications&#160;for the&#160;product is&#160;not&#160;<br/>reasonable.&#160;<br/>
+Table&#160;3-1&#160;HIS code&#160;metric compliance&#160;matrix&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+12<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-13_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Appendix&#160;</b><br/>
+<b>4.1&#160;&#160;MISRA&#160;Justification&#160;for&#160;“Project&#160;Deviations”&#160;</b><br/>
+This&#160;chapter&#160;contains&#160;the&#160;list of&#160;the agreed&#160;and&#160;released&#160;MISRA&#160;(Project)&#160;Product Deviations.&#160;<br/>
+MISRA&#160;test reports&#160;references&#160;the Deviation&#160;ID,&#160;if&#160;applicable.&#160;If&#160;a&#160;deviation does&#160;not&#160;match the&#160;<br/>description&#160;in this&#160;chapter,&#160;it is&#160;handled&#160;similar to a&#160;Specific&#160;Deviation&#160;with a&#160;local&#160;justification.&#160;<br/>
+MISRA&#160;has&#160;released&#160;[MISRA-P1]&#160;in&#160;04/2016&#160;with&#160;permits&#160;to&#160;some MISRA-C:2004&#160;rules.&#160;Some of&#160;<br/>these permits&#160;are similar of the&#160;product&#160;deviations&#160;described&#160;in this&#160;document. If&#160;there is&#160;a dedicated&#160;<br/>MISRA&#160;permit, a&#160;link&#160;is&#160;added. [MISRA-P1]&#160;contains&#160;additional&#160;permits&#160;not contained&#160;in this&#160;chapter.&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_1.1&#160;</b><br/>
+Violated rule&#160;<br/>
+1.1&#160;(ISO&#160;C standard compliance)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.E.1.&#160;<br/>
+Reason&#160;<br/>
+To access&#160;directly&#160;to&#160;hardware&#160;which is&#160;required&#160;to develop operating&#160;<br/>systems, drivers&#160;and flash&#160;boot&#160;loaders&#160;the usage&#160;of&#160;special&#160;compiler features&#160;<br/>such as&#160;qualifiers&#160;and&#160;pragmas&#160;is&#160;usually&#160;required.&#160;Further&#160;such concepts&#160;are&#160;<br/>sometimes&#160;required&#160;for memory&#160;mapping.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;used&#160;language extension&#160;may&#160;not&#160;have&#160;been fully&#160;understood&#160;or used&#160;<br/>incorrectly.&#160;This&#160;can&#160;lead&#160;to&#160;wrong&#160;behavior of&#160;hardware dependent&#160;software&#160;<br/>parts.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+During the code&#160;inspection&#160;hardware&#160;dependent software parts&#160;are&#160;checked.&#160;<br/>Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system&#160;where&#160;such&#160;<br/>extensions&#160;are&#160;used.&#160;<br/>Compiler selection&#160;and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+Declaration of&#160;interrupt service routine:&#160;<br/>__interrupt&#160;void CanTxInterrupt(void);&#160;<br/>allocate&#160;constant&#160;data to&#160;CONST&#160;segment:&#160;<br/>#pragma memory=constseg(CONST_DATA) :far&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_1.1_639&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+1.1&#160;(ISO&#160;C standard compliance)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.D.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0639 checks&#160;if&#160;the maximum&#160;number&#160;of&#160;members&#160;in a&#160;struct or&#160;<br/>union&#160;exceeds&#160;127.&#160;This&#160;check&#160;is&#160;due to some older compilers&#160;do&#160;not&#160;support&#160;<br/>more than 127&#160;members.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR, the&#160;<br/>maximum&#160;of&#160;127 is&#160;not&#160;sufficient to model&#160;the necessary&#160;structures.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;compiler might&#160;not correctly&#160;translate&#160;the&#160;software&#160;what might&#160;result in&#160;<br/>incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+13<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-14_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_1.1_715&#160;</b><br/>
+Violated rule&#160;<br/>
+1.1&#160;(ISO&#160;C standard compliance)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.D.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0715 checks&#160;if&#160;the maximum&#160;number&#160;of&#160;control&#160;structures&#160;<br/>exceeds&#160;15.&#160;This&#160;check&#160;is&#160;due to&#160;some older&#160;compilers&#160;do&#160;not&#160;support more&#160;<br/>than&#160;15&#160;nesting&#160;levels.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR, the&#160;<br/>maximum&#160;of&#160;15&#160;is&#160;in some cases&#160;not sufficient to&#160;model&#160;the&#160;necessary&#160;<br/>structures.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;compiler might&#160;not correctly&#160;translate&#160;the&#160;software&#160;what might result in&#160;<br/>incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_1.1_810&#160;</b><br/>
+Violated rule&#160;<br/>
+1.1&#160;(ISO&#160;C standard compliance)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.D.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0810 checks&#160;if&#160;the maximum&#160;#include&#160;nesting level&#160;exceeds&#160;8&#160;<br/>levels.&#160;This&#160;check&#160;is&#160;due to&#160;some older preprocessors&#160;do&#160;not&#160;support more&#160;<br/>than&#160;8 #include&#160;levels.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR, the&#160;<br/>maximum&#160;of&#160;8&#160;#include&#160;level&#160;is&#160;not sufficient to&#160;model&#160;the&#160;necessary&#160;<br/>structures.&#160;&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;preprocessor might not&#160;correctly&#160;pre-process&#160;the software&#160;what&#160;might result&#160;<br/>in&#160;incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+14<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-15_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_1.1_828&#160;</b><br/>
+Violated rule&#160;<br/>
+1.1&#160;(ISO&#160;C standard compliance)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.D.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0828 checks&#160;if&#160;the maximum&#160;#if&#160;nesting level&#160;exceeds&#160;8&#160;levels.&#160;<br/>This&#160;check&#160;is&#160;due to some older preprocessors&#160;do&#160;not&#160;support more than&#160;8&#160;#if&#160;<br/>levels.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR, the&#160;<br/>maximum&#160;of&#160;8&#160;#if&#160;level&#160;is&#160;not&#160;sufficient to model&#160;the necessary&#160;structures.&#160;&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;preprocessor might not&#160;correctly&#160;pre-process&#160;the software&#160;what&#160;might result&#160;<br/>in&#160;incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_1.1_857&#160;</b><br/>
+Violated rule&#160;<br/>
+1.1&#160;(ISO&#160;C standard compliance)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/1.1.D.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0857 checks&#160;if&#160;the maximum&#160;number&#160;of&#160;defined macros&#160;<br/>exceeds&#160;1024.&#160;This&#160;check&#160;is&#160;due to some older&#160;preprocessors&#160;do&#160;not support&#160;<br/>more than 1024 macros.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR, the&#160;<br/>maximum&#160;of&#160;1024&#160;macros&#160;per&#160;compilation&#160;unit is&#160;not sufficient to&#160;model&#160;the&#160;<br/>necessary&#160;structures.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;preprocessor might not&#160;correctly&#160;pre-process&#160;the software&#160;what&#160;might result&#160;<br/>in&#160;incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+15<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-16_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_3.4&#160;</b><br/>
+Violated rule&#160;<br/>
+3.4&#160;(Usage of&#160;#pragma directives)&#160;<br/>
+Reason&#160;<br/>
+The&#160;concept of&#160;AUTOSAR’s&#160;Memory&#160;Mapping SWS&#160;introduces&#160;#pragma&#160;<br/>directives&#160;to create&#160;an&#160;optimized&#160;layout&#160;of&#160;the target&#160;platform’s&#160;memory.&#160;The&#160;<br/>#pragma directives&#160;are therefore not&#160;localized&#160;to&#160;specific&#160;fragments&#160;in the&#160;<br/>code,&#160;but&#160;transferred&#160;to&#160;the&#160;file MemMap.h. Instead&#160;of&#160;specifying the #pragma&#160;<br/>directives&#160;at&#160;the appropriate position in the code,&#160;MemMap.h is&#160;included.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+The&#160;used&#160;language extension&#160;may&#160;not&#160;have&#160;been fully&#160;understood&#160;or used&#160;<br/>incorrectly.&#160;This&#160;can&#160;lead&#160;to&#160;wrong&#160;behavior of&#160;hardware dependent&#160;software&#160;<br/>parts.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+During code&#160;inspection the&#160;Memory&#160;Mapping markers&#160;(so to say&#160;“logical&#160;<br/>sections”)&#160;before each “#include &lt;MemMap.h&gt;”&#160;are&#160;verified and&#160;checked&#160;<br/>against the memory&#160;qualifier&#160;defined&#160;in&#160;the&#160;Compiler&#160;Abstraction&#160;file&#160;<br/>Compiler_Cfg.h.&#160;Each&#160;delivery&#160;is&#160;integrated&#160;and&#160;tested&#160;on&#160;the&#160;real&#160;target&#160;<br/>system&#160;where such&#160;extensions&#160;are used.&#160;<br/>The&#160;user documentation contains&#160;a&#160;table displaying&#160;which logical&#160;section&#160;of&#160;<br/>the&#160;Memory&#160;Mapping is&#160;addressed&#160;by&#160;which Compiler&#160;Abstraction&#160;memory&#160;<br/>qualifier.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+allocate&#160;constant&#160;data to&#160;CONST&#160;segment:&#160;<br/>#pragma memory=constseg(CONST_DATA)&#160;:far&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_5.1_777&#160;</b><br/>
+Violated rule&#160;<br/>
+5.1&#160;(Identifiers&#160;(internal&#160;and&#160;external)&#160;shall&#160;not&#160;rely&#160;on&#160;the&#160;significance&#160;of&#160;more&#160;<br/>than&#160;31&#160;characters)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/5.1.A.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0777 checks&#160;if&#160;all&#160;external&#160;identifiers&#160;are different within&#160;the&#160;<br/>first 31 characters.&#160;This&#160;check&#160;is&#160;due to some older&#160;preprocessors&#160;compare&#160;<br/>just the first 31 characters.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR,&#160;<br/>naming&#160;rules&#160;to prefix&#160;the identifiers&#160;are allocating&#160;a significant&#160;number&#160;of&#160;<br/>characters. Many&#160;of&#160;the&#160;identifiers&#160;are&#160;generated based on&#160;their&#160;elements&#160;in&#160;<br/>the&#160;OEM-defined configuration&#160;files. Combining&#160;these&#160;two effects, the first 31&#160;<br/>characters&#160;are not&#160;always&#160;unique.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;compiler might&#160;not correctly&#160;pre-process&#160;the software&#160;what might result&#160;in&#160;<br/>incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+16<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-17_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_5.1_779&#160;</b><br/>
+Violated rule&#160;<br/>
+5.1&#160;(Identifiers&#160;(internal&#160;and&#160;external)&#160;shall&#160;not&#160;rely&#160;on&#160;the&#160;significance&#160;of&#160;more&#160;<br/>than&#160;31&#160;characters)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/5.1.A.1.&#160;<br/>
+Reason&#160;<br/>
+The&#160;QA-C rule&#160;0779 checks&#160;if&#160;all&#160;internal&#160;identifiers&#160;are different within&#160;the&#160;first&#160;<br/>31&#160;characters.&#160;This&#160;check&#160;is&#160;due to some older&#160;preprocessors&#160;compare just&#160;<br/>the&#160;first 31 characters.&#160;<br/>In&#160;complex&#160;software&#160;architectures&#160;like the&#160;AUTOSAR&#160;based&#160;MICROSAR,&#160;<br/>naming&#160;rules&#160;to prefix&#160;the identifiers&#160;are allocating&#160;a significant&#160;number&#160;of&#160;<br/>characters. Many&#160;of&#160;the&#160;identifiers&#160;are&#160;generated based on&#160;their&#160;elements&#160;in&#160;<br/>the&#160;OEM-defined configuration&#160;files. Combining&#160;these&#160;two effects, the first 31&#160;<br/>characters&#160;are not&#160;always&#160;unique.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+A&#160;compiler might&#160;not correctly&#160;pre-process&#160;the software&#160;what might result&#160;in&#160;<br/>incorrect code.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Each delivery&#160;is&#160;integrated&#160;and tested&#160;on&#160;the&#160;real&#160;target system. In&#160;addition,&#160;<br/>preprocessors&#160;and compilers&#160;used&#160;in current&#160;MICROSAR projects&#160;are&#160;not&#160;<br/>expected&#160;to&#160;suffer&#160;from&#160;this&#160;(historic)&#160;limitation.&#160;<br/>Compiler selection and&#160;validation&#160;is&#160;done&#160;by&#160;ECU supplier.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_5.6&#160;</b><br/>
+Violated rule&#160;<br/>
+5.6&#160;(No&#160;identifier in&#160;one name space should&#160;have the&#160;same spelling as&#160;an&#160;<br/>identifier&#160;in&#160;another&#160;name space,&#160;with&#160;the&#160;exception&#160;of&#160;structure and&#160;union&#160;<br/>member&#160;names.)&#160;<br/>
+Reason&#160;<br/>
+This&#160;MISRA&#160;rule&#160;addresses&#160;potential&#160;misunderstandings&#160;by&#160;using&#160;the&#160;very&#160;<br/>same identifier multiple&#160;times&#160;in&#160;a different context.&#160;<br/>&#160;<br/>MICROSAR&#160;deviates&#160;partly&#160;from&#160;rule 5.6&#160;by&#160;allowing&#160;deviations&#160;in case&#160;<br/>„Standards“&#160;like&#160;AUTOSAR, ISO/ASAM/… and&#160;OEM specifications&#160;require the&#160;<br/>same identifier names&#160;in different name spaces. Note,&#160;that this&#160;use&#160;case is&#160;the&#160;<br/>only&#160;accepted&#160;application&#160;of&#160;this&#160;deviation.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Readability&#160;of&#160;the code&#160;is&#160;reduced&#160;by&#160;such ambiguities.&#160;&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Code&#160;inspection and&#160;test.&#160;<br/>
+Examples&#160;<br/>
+The identifier names&#160;“length” and&#160;“data” specified&#160;by&#160;AUTOSAR both&#160;for&#160;<br/>structure members&#160;and functions&#160;parameters&#160;lead to a&#160;violation&#160;of&#160;rule 5.6 if&#160;<br/>the&#160;related header files&#160;of&#160;these two modules&#160;are&#160;included.&#160;<br/>&#160;<br/>[SWS_SoAd_00681]:&#160;<br/>Std_ReturnType SoAd_ReadDhcpHostNameOption(&#160;&#160;<br/>&#160; &#160;&#160;SoAd_SoConIdType SoConId,&#160;&#160;<br/>&#160; &#160;&#160;uint8* length,&#160;&#160;<br/>&#160; &#160;&#160;uint8* data&#160;&#160;<br/>)&#160;<br/>&#160;<br/>[SWS_Csm_00076]&#160;<br/>typedef struct&#160;<br/>{&#160;<br/>&#160;&#160;uint32 length;&#160;<br/>&#160;&#160;Csm_AsymPublicKeyArrayType data;&#160;<br/>} Csm_AsymPublicKeyType;&#160;<br/>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+17<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-18_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-18_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-18_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-18_4.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_5.7&#160;</b><br/>
+Violated rule&#160;<br/>
+5.7&#160;(No&#160;identifier&#160;name should&#160;be&#160;reused)&#160;<br/>
+Reason&#160;<br/>
+This&#160;MISRA&#160;rule&#160;addresses&#160;potential&#160;misunderstandings&#160;by&#160;using&#160;the&#160;very&#160;<br/>same name&#160;multiple times&#160;with&#160;different meanings&#160;in different context.&#160;<br/>In&#160;general, this&#160;is&#160;addressed by&#160;naming&#160;conventions&#160;for&#160;external&#160;and globally&#160;<br/>visible identifiers&#160;like typedef, functions, global&#160;data&#160;and similar and&#160;explicitly&#160;<br/>addressed&#160;by&#160;rules&#160;5.2&#160;to 5.6.&#160;<br/>&#160;<br/>MICROSAR&#160;deviates&#160;partly&#160;to&#160;rule 5.7 by&#160;allowing&#160;the&#160;reuse of&#160;&#160;<br/>parameter&#160;names&#160;&#160;<br/>function-local&#160;variable&#160;names&#160;<br/>&#160;<br/><b>These specific&#160;MISRA&#160;deviations are not&#160;annotated&#160;in the code</b>&#160;because&#160;<br/>the&#160;rule&#160;is&#160;checked&#160;by&#160;review&#160;and&#160;it can on module&#160;level&#160;not&#160;decided,&#160;if&#160;any&#160;<br/>other module&#160;in&#160;the&#160;later project may&#160;use the&#160;same parameter&#160;name or&#160;not.&#160;A&#160;<br/>general&#160;deviation for each&#160;API&#160;and local&#160;function&#160;reduces&#160;the code readability&#160;<br/>on&#160;important&#160;topics.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;1&#160;<br/></b>Complex&#160;software architectures&#160;like&#160;AUTOSAR define&#160;the&#160;<br/>
+&#160;<br/>
+function&#160;prototypes&#160;including the&#160;name of&#160;the parameter.&#160;The&#160;<br/>name of&#160;the&#160;API&#160;is&#160;compliant&#160;to&#160;rule&#160;5.7&#160;but&#160;the&#160;used&#160;parameter&#160;<br/>name is&#160;often&#160;the same for&#160;different&#160;APIs.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;2&#160;<br/></b>Enforcing&#160;a unique&#160;parameter&#160;and&#160;function-local&#160;variable&#160;name&#160;<br/>
+&#160;<br/>
+code style rule&#160;implies&#160;that&#160;the&#160;function&#160;name has&#160;to&#160;be part&#160;of&#160;the&#160;<br/>resulting&#160;identifier&#160;name.&#160;As&#160;the function’s&#160;name has&#160;already&#160;been&#160;<br/>build&#160;based&#160;on&#160;e.g.&#160;a module-prefix&#160;and other&#160;constraints, the&#160;<br/>resulting&#160;identifier&#160;name will&#160;be&#160;very&#160;long and&#160;thus&#160;unreadable&#160;<br/>and&#160;error-prone.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;3&#160;<br/></b>This&#160;procedure follows&#160;the&#160;spirit of&#160;MISRA-C:2012&#160;where this&#160;rule&#160;<br/>
+&#160;<br/>
+has&#160;been&#160;relaxed.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Potential&#160;risks&#160;<br/>
+MISRA&#160;addresses&#160;an&#160;absolute&#160;unique&#160;definition&#160;of&#160;all&#160;identifiers&#160;in&#160;a software&#160;<br/>system&#160;to&#160;reduce the risk&#160;of&#160;erroneous&#160;usage.&#160;This&#160;risk&#160;is&#160;sufficiently&#160;<br/>addressed&#160;by&#160;applying&#160;rule&#160;5.7&#160;to global&#160;and&#160;external&#160;identifiers&#160;and&#160;keep&#160;<br/>local&#160;identifiers&#160;“readable”.&#160;&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Compliance to rules&#160;5.2&#160;–&#160;5.6&#160;and&#160;AUTOSAR naming&#160;convention&#160;prevents&#160;that&#160;<br/>a variable&#160;is&#160;unexpectedly&#160;misused.&#160;<br/>Applying a&#160;strict&#160;development process&#160;with independent module tests&#160;shows&#160;<br/>that&#160;each module&#160;is&#160;complete&#160;and independent&#160;to&#160;each&#160;other, so unexpected&#160;<br/>misuse by&#160;e.g.&#160;writing&#160;error of&#160;a&#160;parameter&#160;or local&#160;variable name is&#160;<br/>detectable.&#160;<br/>
+Examples&#160;<br/>
+void &lt;BSW_NAME_1&gt;_GetVersionInfo(Std_VersionInfoType*&#160;<b>versioninfo</b>&#160;)&#160;<br/>{&#160;<br/>&#160;&#160;for(uint8&#160;<b>i</b>=0; i&lt;10; i++) {&#160;<br/>&#160;&#160;}&#160;<br/>}&#160;<br/>&#160;<br/>void &lt;BSW_NAME_2&gt;_GetVersionInfo(Std_VersionInfoType*&#160;<b>versioninfo</b>&#160;)&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+18<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-19_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_5.7&#160;<br/></b>{&#160;<br/>&#160;&#160;for(uint8&#160;<b>i</b>=0; i&lt;10; i++) {&#160;<br/>&#160;&#160;}&#160;<br/>}&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_8.10&#160;</b><br/>
+Violated rule&#160;<br/>
+8.10 (global&#160;symbol&#160;only&#160;referenced&#160;in&#160;one&#160;translation&#160;unit)&#160;<br/>
+Reason&#160;<br/>
+Since&#160;the&#160;actual&#160;usage&#160;of&#160;the software component&#160;by&#160;the&#160;customer is&#160;not&#160;<br/>known some of&#160;the provided interfaces&#160;may&#160;not&#160;be&#160;used.&#160;Also during&#160;MISRA&#160;<br/>analysis&#160;there may&#160;be some provided&#160;APIs&#160;which are&#160;not&#160;in use.&#160;<br/>If&#160;there is&#160;only&#160;one&#160;configuration it is&#160;possible to&#160;reference such symbols&#160;in&#160;a&#160;<br/>test module.&#160;In case of&#160;large test suites&#160;with&#160;many&#160;configurations&#160;this&#160;is&#160;not&#160;<br/>feasible.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Functions&#160;or global&#160;variables&#160;which are superfluous&#160;in&#160;a specific&#160;configuration&#160;<br/>may&#160;remain undetected&#160;which leads&#160;to&#160;a small&#160;resource overhead.&#160;<br/>Other&#160;software parts&#160;in the&#160;application&#160;could access&#160;symbols&#160;which should&#160;<br/>only&#160;be used internally.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+By&#160;code&#160;inspection of&#160;the&#160;different variants.&#160;&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_14.1&#160;</b><br/>
+Violated rule&#160;<br/>
+14.1&#160;(unreachable code&#160;-&#160;API function not&#160;used in project)&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">[MISRA-P1]&#160;</a>addresses&#160;this&#160;topic&#160;in&#160;Permit/MISRA/C:2004/14.1.A.1.&#160;<br/>
+Reason&#160;<br/>
+Since&#160;the&#160;actual&#160;usage&#160;of&#160;the software component&#160;by&#160;the&#160;customer is&#160;not&#160;<br/>known some of&#160;the provided interfaces&#160;may&#160;not&#160;be&#160;used.&#160;Also during&#160;MISRA&#160;<br/>analysis&#160;there may&#160;be some provided&#160;APIs&#160;which are&#160;not&#160;in use.&#160;&#160;<br/>If&#160;there is&#160;only&#160;one&#160;configuration it is&#160;possible to&#160;reference such symbols&#160;in&#160;a&#160;<br/>test module.&#160;In case of&#160;large test suites&#160;with&#160;many&#160;configurations&#160;this&#160;is&#160;not&#160;<br/>feasible.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Functions&#160;or global&#160;variables&#160;which are superfluous&#160;in&#160;a specific&#160;configuration&#160;<br/>may&#160;remain undetected&#160;which leads&#160;to&#160;a small&#160;resource overhead.&#160;<br/>Other&#160;software parts&#160;in the&#160;application&#160;could access&#160;symbols&#160;which should&#160;<br/>only&#160;be used internally.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+By&#160;code&#160;inspection of&#160;the&#160;different variants.&#160;&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+19<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-20_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_14.2&#160;</b><br/>
+Violated rule&#160;<br/>
+14.2&#160;(All&#160;non-null&#160;statements&#160;shall&#160;either&#160;(i)&#160;have at least one&#160;side-effect&#160;<br/>however&#160;executed, or&#160;(ii)&#160;cause control&#160;flow to&#160;change)&#160;<br/>
+Reason&#160;<br/>
+To support different kinds&#160;of&#160;dummy&#160;statements, a&#160;dummy&#160;statement is&#160;<br/>encapsulated in a&#160;macro like MSN_DUMMY_STATEMENT(x).&#160;<br/>If&#160;no&#160;dummy&#160;statement is&#160;required, the&#160;macro is&#160;empty&#160;and&#160;only&#160;a&#160;null-<br/>statement remains.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+None,&#160;because in case of&#160;a&#160;dummy&#160;statement it&#160;is&#160;expected&#160;that there&#160;is&#160;no&#160;<br/>side&#160;effect.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Template&#160;based&#160;usage restricted&#160;to&#160;dummy&#160;statements.&#160;<br/>
+Examples&#160;<br/>
+MSN_DUMMY_STATEMENT(errorId);&#160;/*&#160;PRQA&#160;S&#160;3112,&#160;3199&#160;*/&#160;/*&#160;MD_MSR_14.2&#160;*/&#160;&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_14.3&#160;</b><br/>
+Violated&#160;rule&#160;<br/>
+14.3&#160;(empty&#160;statement must appear&#160;on a&#160;line&#160;on&#160;its&#160;own)&#160;<br/>
+Reason&#160;<br/>
+If&#160;macros&#160;are used&#160;in&#160;different code&#160;variants&#160;it may&#160;happen&#160;that after resolving&#160;<br/>the&#160;macro only&#160;a&#160;null&#160;statement remains.&#160;This&#160;happens&#160;typically&#160;if&#160;assertions&#160;<br/>are implemented&#160;by&#160;macros.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Wrong&#160;macro implementations&#160;could remain undetected.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Code&#160;inspection of&#160;the macros&#160;and test of&#160;different source code variants&#160;by&#160;<br/>the&#160;component&#160;test suites.&#160;<br/>
+Examples&#160;<br/>
+Assertions:&#160;<br/>#if&#160;defined( IL_ENABLE_SYS_TESTDEBUG )&#160;<br/>&#160;&#160;#define&#160;IlAssert(p,e)&#160;if&#160;((p)==0) {(ApplIlFatalError((e)));}&#160;<br/>#else&#160;<br/>&#160; &#160;#define&#160;IlAssert(a,b)&#160;<br/>#endif&#160;<br/>/* if assertions are disabled the following line leads to a&#160;<br/>„;“ after preprocessing but there are other characters in the&#160;<br/>source line */&#160;<br/>IlAssert(idx &lt;=&#160;0x80, ILERR_ILLTIMERMASK);&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+20<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-21_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_14.7&#160;</b><br/>
+Violated rule&#160;<br/>
+14.7&#160;(single point&#160;of&#160;exit&#160;at&#160;end&#160;of&#160;function)&#160;<br/>
+Reason&#160;<br/>
+Note:&#160;Vector development “Process&#160;3” compliant&#160;software has&#160;to comply&#160;to&#160;<br/>rule 14.7.&#160;<br/>&#160;<br/>A&#160;single exit point may&#160;lead&#160;to&#160;an inefficient&#160;or more difficult&#160;to&#160;understand&#160;<br/>code because the&#160;structure&#160;of&#160;the function can&#160;become more complex.&#160;<br/>Therefore it may&#160;be necessary&#160;to&#160;violate&#160;this&#160;rule&#160;for&#160;runtime and&#160;maintenance&#160;<br/>efficiency&#160;reasons.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Function&#160;may&#160;e.g.&#160;terminate&#160;with&#160;locked&#160;interrupts. Control&#160;and&#160;data flow&#160;have&#160;<br/>multiple&#160;paths&#160;&#160;increased&#160;risk&#160;of&#160;adding errors&#160;during&#160;maintenance&#160;activities.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Product&#160;design&#160;defines&#160;two&#160;&#34;blocks&#34;&#160;in each&#160;function, one&#160;block&#160;is&#160;<br/>&#34;checking/validity&#160;action&#160;like DET&#160;checks&#34;,&#160;and&#160;another&#160;block&#160;is&#160;&#34;functional&#160;<br/>behavior&#34;.&#160;&#34;Checking/validity&#160;actions&#34;&#160;are&#160;allowed to terminate&#160;immediately&#160;<br/>resulting&#160;in more than&#160;one&#160;exit in the function.&#160;&#34;Functional&#160;behavior&#34;&#160;checks&#160;<br/>are expected to terminate&#160;at the&#160;end&#160;of&#160;the function&#160;in&#160;one single exit.&#160;<br/>Based&#160;on&#160;this&#160;design rule,&#160;a&#160;justification is&#160;necessary&#160;for each deviating&#160;<br/>function.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_16.7&#160;</b><br/>
+Violated rule&#160;<br/>
+16.7&#160;(A&#160;pointer&#160;parameter&#160;in a&#160;function&#160;prototype should be declared as&#160;<br/>pointer&#160;to&#160;const if&#160;the pointer is&#160;not&#160;used&#160;to&#160;modify&#160;the&#160;addressed&#160;object)&#160;<br/>
+Reason&#160;<br/>
+Many&#160;standards&#160;like&#160;AUTOSAR, ISO,&#160;but&#160;also&#160;OEM&#160;specifications&#160;… specify&#160;<br/>the&#160;function&#160;prototypes&#160;without const statement.&#160;We have to comply&#160;with&#160;these&#160;<br/>standards.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Less&#160;precision in describing access&#160;rights&#160;on interface level&#160;may&#160;lead&#160;to&#160;<br/>incorrect use&#160;of&#160;the parameters.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Standards&#160;describe&#160;allowed parameter&#160;use and&#160;code&#160;style&#160;guide&#160;describes&#160;<br/>how&#160;to document parameter&#160;usage&#160;in the&#160;code&#160;to reduce risk&#160;of&#160;wrong usage.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_18.4&#160;</b><br/>
+Violated rule&#160;<br/>
+18.4&#160;(packing&#160;and unpacking&#160;of&#160;data, variant&#160;records)&#160;<br/>
+Reason&#160;<br/>
+For an efficient implementation&#160;of&#160;protocols&#160;the&#160;usage&#160;of&#160;unions&#160;is&#160;required.&#160;<br/>This&#160;is&#160;covered&#160;by&#160;the two&#160;acceptable&#160;deviations&#160;described&#160;in&#160;[MISRA-C]&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Union data&#160;may&#160;be misinterpreted&#160;by&#160;mixing&#160;up&#160;the&#160;different&#160;variants.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Code&#160;inspection and&#160;test of&#160;the&#160;different&#160;variants&#160;in the&#160;component&#160;test.&#160;<br/>
+Examples&#160;<br/>
+s.&#160;[MISRA-C]&#160;rule&#160;18.4 packing&#160;and&#160;unpacking&#160;and&#160;variant&#160;record examples&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+21<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-22_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_19.1&#160;</b><br/>
+Violated rule&#160;<br/>
+19.1&#160;(#include statements&#160;preceded)&#160;<br/>
+Reason&#160;<br/>
+AUTOSAR SWS&#160;Memory&#160;Mapping requires&#160;inclusion&#160;of&#160;MemMap.h&#160;multiple&#160;<br/>times&#160;in a&#160;file&#160;in&#160;order&#160;to select appropriate&#160;#pragma directives.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+MemMap.h&#160;is&#160;provided&#160;by&#160;the&#160;ECU software&#160;integrator, hence&#160;many&#160;risks&#160;may&#160;<br/>occur, caused&#160;by&#160;wrong implementation&#160;of&#160;this&#160;file.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+The&#160;ECU software&#160;integrator strictly&#160;has&#160;to adhere&#160;to&#160;the&#160;definitions&#160;of&#160;the&#160;<br/>AUTOSAR SWS&#160;Memory&#160;Mapping.&#160;Extensions&#160;to&#160;the&#160;file not&#160;described&#160;in&#160;the&#160;<br/>SWS&#160;may&#160;not&#160;be&#160;put&#160;into MemMap.h.&#160;This&#160;has&#160;to&#160;be&#160;verified&#160;by&#160;code&#160;<br/>inspection.&#160;<br/>
+Examples&#160;<br/>
+#define&#160;ECUM_STOP_SEC_CODE&#160;<br/>#include&#160;&#34;MemMap.h&#34;&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_19.4&#160;</b><br/>
+Violated rule&#160;<br/>
+19.4&#160;(reserved&#160;C keywords&#160;or braces&#160;/&#160;parentheses&#160;in&#160;macro)&#160;<br/>
+Reason&#160;<br/>
+Since&#160;efficiency&#160;is&#160;a&#160;primary&#160;implementation&#160;target&#160;it&#160;is&#160;necessary&#160;to use&#160;<br/>macros.&#160;<br/>Note&#160;that&#160;the&#160;proposed&#160;do-while-zero construct&#160;in&#160;[MISRA-C]&#160;leads&#160;to&#160;“useless&#160;<br/>statement”&#160;warnings&#160;with many&#160;compilers.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Resulting&#160;code&#160;is&#160;difficult to&#160;understand&#160;or may&#160;not&#160;work&#160;as&#160;expected.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Code&#160;inspection and&#160;test&#160;of&#160;the&#160;different variants&#160;in the&#160;component&#160;test.&#160;<br/>
+Examples&#160;<br/>
+#define&#160;FRNM_CHECK_INIT(ApiId)&#160;\&#160;<br/>&#160;&#160;{&#160;\&#160;<br/>&#160; &#160;&#160;if( FrNm_NmState[FRNM_CHANNEL_IDX] == NM_STATE_UNINIT )&#160;\&#160;<br/>&#160; &#160;&#160;{&#160;\&#160;<br/>&#160; &#160; &#160;&#160;(void)Det_ReportError(FRNM_MODULE_ID, FRNM_INSTANCE_ID, &#160;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;(ApiId), FRNM_E_UNINIT );&#160;<br/>&#160; &#160;&#160;}&#160;\&#160;<br/>&#160;&#160;}&#160;<br/>#endif&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_19.6&#160;</b><br/>
+Violated rule&#160;<br/>
+19.6&#160;(#undef&#160;shall&#160;not be&#160;used)&#160;<br/>
+Reason&#160;<br/>
+AUTOSAR SWS&#160;Memory&#160;Mapping requires&#160;#undef&#160;statements&#160;in order to&#160;<br/>implement the #pragma selection&#160;mechanism&#160;in MemMap.h&#160;<br/>
+Potential&#160;risks&#160;<br/>
+MemMap.h&#160;is&#160;provided&#160;by&#160;the&#160;integrator;&#160;hence many&#160;risks&#160;may&#160;occur, caused&#160;<br/>by&#160;wrong&#160;implementation&#160;of&#160;this&#160;file.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+The&#160;integrator&#160;strictly&#160;has&#160;to adhere to the definitions&#160;of&#160;the&#160;AUTOSAR SWS&#160;<br/>Memory&#160;Mapping.&#160;Extensions&#160;to&#160;the file&#160;not&#160;described&#160;in the&#160;SWS&#160;may&#160;not&#160;be&#160;<br/>put&#160;into&#160;MemMap.h.&#160;This&#160;has&#160;to&#160;be verified&#160;by&#160;code&#160;inspection.&#160;<br/>
+Examples&#160;<br/>
+#ifdef&#160;START_SEC_CONST_32BIT&#160;<br/>&#160;&#160;#pragma<b>&#160;</b>section MyConst32BitSection&#160;<br/>&#160;&#160;#undef&#160;START_SEC_CONST_32BIT&#160;<br/>&#160;&#160;#undef&#160;MEMMAP_ERROR&#160;<br/>#endif&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+22<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-23_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-23_2.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_19.7&#160;</b><br/>
+Violated rule&#160;<br/>
+19.7&#160;(function&#160;should be used&#160;instead of&#160;macro)&#160;<br/>
+Reason&#160;<br/>
+Since&#160;efficiency&#160;is&#160;a&#160;primary&#160;implementation&#160;target&#160;it&#160;is&#160;necessary&#160;to use&#160;<br/>macros.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Resulting&#160;code&#160;is&#160;difficult to&#160;understand&#160;or may&#160;not&#160;work&#160;as&#160;expected.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Code&#160;inspection and&#160;test of&#160;the&#160;different variants&#160;in the&#160;component&#160;test.&#160;<br/>
+Examples&#160;<br/>
+#define&#160;Com_IsDirectOfTxModeTrue(Index)&#160;<br/>&#160; &#160;(COMDIRECTOFTXMODETRUE_MASK == &#160;&#160;<br/>&#160; &#160;(Com_GetMaskedBitsOfTxModeTrue(Index) &amp;&#160;&#160;<br/>&#160; &#160;COMDIRECTOFTXMODETRUE_MASK))&#160;&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_19.8&#160;</b><br/>
+Violated rule&#160;<br/>
+19.8&#160;(A&#160;function-like macro shall&#160;not&#160;be&#160;invoked&#160;without all&#160;of&#160;its&#160;arguments)&#160;<br/>
+Reason&#160;<br/>
+AUTOSAR SWS&#160;Compiler&#160;Abstraction&#160;allows&#160;configuration of&#160;standard&#160;<br/>addressing mode by&#160;#define’ing&#160;an&#160;empty&#160;compiler&#160;abstraction&#160;qualifier&#160;in&#160;<br/>Compiler_Cfg.h.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+None.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+None.&#160;<br/>
+Examples&#160;<br/>
+In&#160;Compiler_Cfg.h:&#160;<br/>#define&#160;EEP_CONST&#160;<br/>&#160;<br/>In&#160;Eep.c&#160;(implementation of&#160;component):&#160;<br/>CONST(uint8,&#160;EEP_CONST) Eep_Status;&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_19.13_0342&#160;</b><br/>
+Violated rule&#160;<br/>
+19.13 (The&#160;#&#160;and ## preprocessor operators&#160;should&#160;not be&#160;used)&#160;<br/>
+Reason&#160;<br/>
+“Rule&#160;0342:&#160;K&amp;R&#160;compilers&#160;do&#160;not&#160;support the&#160;ISO&#160;glue operator '##'.”&#160;<br/>AUTOSAR requires&#160;C90 and C90&#160;supports&#160;##&#160;operators.&#160;&#160;<br/>
+Potential&#160;risks&#160;<br/>
+None.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+None.&#160;<br/>
+Examples&#160;<br/>
+-&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;&#160;Code Metric&#160;Justification&#160;for&#160;“Product&#160;Deviations”&#160;</b><br/>
+This&#160;chapter&#160;contains&#160;the&#160;list of&#160;the agreed&#160;and&#160;released&#160;code metric&#160;Product Deviations.&#160;<br/>
+Test reports&#160;references&#160;the&#160;Deviation ID,&#160;if&#160;applicable.&#160;If&#160;a&#160;deviation&#160;does&#160;not&#160;match the&#160;description in&#160;<br/>this&#160;chapter,&#160;it is&#160;handled&#160;similar to a&#160;Specific&#160;Deviation&#160;with a&#160;local&#160;justification.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>The&#160;QA-C error codes&#160;are&#160;defined&#160;by&#160;Vector&#160;and&#160;are no standard QA-C error codes.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+23<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-24_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_STPTH&#160;</b><br/>
+Violated&#160;metric&#160;<br/>
+Estimated static&#160;path count&#160;defined by&#160;HIS&#160;shall&#160;be&#160;in range&#160;1..80&#160;<br/>
+QA-C error code&#160;<br/>
+6010&#160;<br/>
+Reason&#160;<br/>
+No separation&#160;of&#160;functionality&#160;into&#160;sub-functions&#160;due&#160;to&#160;higher&#160;voted&#160;<br/>requirements&#160;for&#160;minimized&#160;stack&#160;and runtime usage&#160;applied&#160;on&#160;the&#160;code.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Understandability&#160;and&#160;testability&#160;might become too&#160;complex.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Design&#160;and code&#160;review +&#160;clearly&#160;structured and commented&#160;code.&#160;<br/>
+Comments&#160;<br/>
+Metric&#160;calculates&#160;the upper&#160;bound of&#160;possible (non-cyclic)&#160;paths&#160;in function’s&#160;<br/>control&#160;flow.&#160;Metric&#160;addresses&#160;the&#160;TESTABILITY&#160;of&#160;a&#160;function&#160;–&#160;the&#160;higher&#160;the&#160;<br/>more test cases&#160;might be&#160;necessary.&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_STCYC&#160;</b><br/>
+Violated metric&#160;<br/>
+Cyclomatic&#160;complexity&#160;defined&#160;by&#160;HIS&#160;shall&#160;be in range 1..10&#160;<br/>
+QA-C error code&#160;<br/>
+6030&#160;<br/>
+Reason&#160;<br/>
+No separation&#160;of&#160;functionality&#160;into&#160;sub-functions&#160;due&#160;to&#160;higher&#160;voted&#160;<br/>requirements&#160;for&#160;minimized&#160;stack&#160;and runtime usage&#160;applied&#160;on&#160;the&#160;code.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Understandability&#160;and&#160;testability&#160;might become too&#160;complex.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Design&#160;and code&#160;review +&#160;clearly&#160;structured and commented&#160;code.&#160;<br/>
+Comments&#160;<br/>
+Metric&#160;indicates&#160;potentially&#160;inadequate&#160;modularization&#160;or too&#160;much logic&#160;in one&#160;<br/>function&#160;if&#160;the&#160;value&#160;is&#160;high,&#160;the function&#160;may&#160;tend&#160;to have&#160;complexity&#160;related&#160;<br/>issues. Metric&#160;addresses&#160;a&#160;HOTSPOT&#160;in the&#160;code.&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_STCAL&#160;</b><br/>
+Violated metric&#160;<br/>
+Number&#160;of&#160;distinct function&#160;calls&#160;defined&#160;by&#160;HIS&#160;shall&#160;be in&#160;range 0..7&#160;<br/>
+QA-C error code&#160;<br/>
+6050&#160;<br/>
+Reason&#160;<br/>
+Software structure&#160;is&#160;defined by&#160;AUTOSAR standard.&#160;Standard compliance&#160;is&#160;<br/>voted&#160;higher&#160;than&#160;metric&#160;threshold.&#160;In&#160;addition, a&#160;typical&#160;approach to reduce&#160;<br/>STCAL&#160;is&#160;deeper nesting&#160;of&#160;functions, &#160;this&#160;increases&#160;call&#160;stack&#160;usage and&#160;<br/>runtime.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Understandability&#160;and&#160;testability&#160;might become too&#160;complex&#160;due to fan-out to&#160;<br/>many&#160;functions.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Design&#160;and code&#160;review +&#160;clearly&#160;structured and commented&#160;code.&#160;<br/>
+Comments&#160;<br/>
+Metric&#160;indicates&#160;fan-out of&#160;a&#160;function, i.e.&#160;how&#160;many&#160;different functions&#160;are&#160;<br/>called.&#160;Metric&#160;addresses&#160;a&#160;HOTSPOT&#160;in the&#160;code.&#160;<br/>The&#160;fan-out&#160;depends&#160;on&#160;a&#160;mix&#160;of&#160;component-local&#160;design&#160;and&#160;on&#160;global&#160;<br/>design (AUTOSAR). Only&#160;component-local&#160;design could be&#160;adopted.&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+24<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-25_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_STPAR&#160;</b><br/>
+Violated metric&#160;<br/>
+Number&#160;of&#160;function&#160;parameters&#160;defined&#160;by&#160;HIS&#160;shall&#160;be&#160;in range&#160;0..5&#160;<br/>
+QA-C error code&#160;<br/>
+6060&#160;<br/>
+Reason&#160;<br/>
+API&#160;is&#160;defined&#160;by&#160;AUTOSAR standard.&#160;Standard compliance is&#160;voted&#160;higher&#160;<br/>than metric&#160;threshold.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Stack&#160;usage and&#160;runtime too high&#160;for target&#160;uC.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Test of&#160;resulting code on&#160;target uC,&#160;user has&#160;to&#160;check&#160;stack&#160;usage in project&#160;<br/>context.&#160;<br/>
+Comments&#160;<br/>
+Metric&#160;counts&#160;number&#160;of&#160;declared parameters&#160;in the function&#160;argument list&#160;<br/>what&#160;have&#160;impact on runtime and call&#160;stack&#160;usage.&#160;<br/>Vector is&#160;aware of&#160;such environmental&#160;conditions&#160;and applies&#160;larger&#160;numbers&#160;<br/>of&#160;function&#160;parameters&#160;only,&#160;if&#160;explicitly&#160;required by&#160;standards&#160;like&#160;AUTOSAR,&#160;<br/>ISO, customer, … specs.&#160;<br/>
+&#160;<br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+<b>MD_MSR_STMIF&#160;</b><br/>
+Violated metric&#160;<br/>
+Number&#160;maximum&#160;nesting&#160;of&#160;control&#160;structures&#160;defined by&#160;HIS&#160;shall&#160;be&#160;in&#160;<br/>range&#160;0..4&#160;<br/>
+QA-C error code&#160;<br/>
+6080&#160;<br/>
+Reason&#160;<br/>
+Function handles&#160;specific&#160;task&#160;in the&#160;overall&#160;component&#160;behavior; task&#160;has&#160;<br/>different scenarios&#160;to&#160;cover&#160;depending&#160;on&#160;local&#160;conditions&#160;–&#160;this&#160;results&#160;in&#160;<br/>deep&#160;nesting&#160;of&#160;control&#160;structures. Due&#160;to there&#160;is&#160;more common&#160;than&#160;different&#160;<br/>code,&#160;higher&#160;nesting level&#160;is&#160;accepted&#160;to keep code&#160;footprint small.&#160;<br/>
+Potential&#160;risks&#160;<br/>
+Code&#160;is&#160;difficult to&#160;maintain.&#160;<br/>
+Prevention&#160;of&#160;risks&#160;<br/>
+Design&#160;and code&#160;review +&#160;clearly&#160;structured and commented&#160;code.&#160;<br/>
+Comments&#160;<br/>
+Metric&#160;addresses&#160;the MAINTAINABILITY&#160;of&#160;the code.&#160;Expectation&#160;is, that&#160;deep&#160;<br/>nesting of&#160;control&#160;structures&#160;increases&#160;the effort to&#160;understand&#160;a function.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+25<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1213_Compliance Documentation MISRA-C_2004-26_1.png"/><br/>
+Compliance Documentation&#160;MISRA-C:2004&#160;<br/>
+<b>5&#160;</b><br/>
+<b>Additional&#160;Resources&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Document&#160;</b><br/>
+[MISRA-C]&#160;<br/>
+<a href="https://www.misra.org.uk/Publications/tabid/57/Default.aspx#label-c2">MISRA-C:2004&#160;Guidelines&#160;for&#160;the&#160;use&#160;of&#160;the&#160;C language&#160;in&#160;critical&#160;systems&#160;</a>(October&#160;2004)&#160;&#160;<br/>
+[MISRA-P1]&#160;<br/>
+<a href="https://www.misra.org.uk/Publications/tabid/57/Default.aspx#label-permits-c2">MISRA C 2004&#160;Permits&#160;(First&#160;Edition).pdf&#160;</a>(April&#160;2016)&#160;<br/>
+[HIS-MISRA]&#160;&#160;<a href="https://vglobpessvn1.vg.vector.int/svn/Specifications/Standards/HIS/HIS_SubsetMISRA_C/trunk/HIS_SubSet_MISRA_C_2.0.pdf">Gemeinsames&#160;Subset&#160;der MISRA C Guidelines&#160;</a>(Version&#160;2.0,&#160;not&#160;public&#160;available)&#160;<br/>
+[HIS-CODE]&#160;<br/>
+<a href="https://vglobpessvn1.vg.vector.int/svn/Specifications/Standards/HIS/HIS_SourceCodeMetrics/tags/1.03.01/his-sc-metriken.1.3.1.pdf">HIS Source&#160;Code&#160;Metriken&#160;</a>(Version&#160;1.3.1,&#160;not&#160;public&#160;available)&#160;<br/>
+[AUTOSAR]&#160;<br/>
+http://www.autosar.org/&#160;<br/>
+&#160;<br/>
+<b>6&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For a full&#160;list&#160;with all&#160;Vector&#160;locations&#160;and&#160;addresses&#160;worldwide, please&#160;visi<a href="http://vector.com/contact/">t&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+26<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#3">1 Overview</a>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#3">1.1 Purpose, goal</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2 Enforcing MISRA-C Compliance</a>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.1 Software Engineering Context</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.2 Programming Language and Coding Context</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.3 Project specific MISRA Subset</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#4">2.4 MISRA Compliance Matrix</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#6">2.5 Hints on Compiler Selection</a>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#7">2.5.1 Deactivated QA-C Rules for MICROSAR Product Analysis</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#7">2.6 Deviation Procedure</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">2.7 Usage of C99 Features</a>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#8">2.7.1 Usage of Inline Functions</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#9">2.7.2 Usage of C99 Data Types</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#9">2.7.3 No Usage of “//” Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#10">3 Enforcing Code Metric Compliance</a>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#10">3.1 HIS Metric Compliance Matrix</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13">4 Appendix</a>
+<ul>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#13">4.1 MISRA Justification for “Project Deviations”</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#23">4.2 Code Metric Justification for “Product Deviations”</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">5 Additional Resources</a></li>
+<li><a href="AN-ISC-8-1213_Compliance Documentation MISRA-C_2004s.html#26">6 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

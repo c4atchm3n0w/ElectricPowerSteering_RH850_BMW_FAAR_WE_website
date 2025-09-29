@@ -1,0 +1,1284 @@
+---
+title: PAGe_UserManuals
+linkTitle: PAGe_UserManuals
+weight: 10
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-1_1.png"/><br/>
+User&#160;Guide&#160;PAGe<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;3&#160;and&#160;adaptive&#160;BMW&#160;AUTOSAR&#160;Core&#160;Rel.&#160;1<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-11-09<br/>
+Version<br/>
+1.1.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233&#160;(classic)&#160;/&#160;+49&#160;89&#160;382&#160;-&#160;22522&#160;(adaptive)<br/>
+Contact<br/>
+bac@bmw.de&#160;(classic)&#160;/&#160;abac@bmw.de&#160;(adaptive)<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Changed&#160;by</b><br/>
+<b>Description</b><br/>
+1.1.0<br/>
+2017-11-09<br/>
+JC-42<br/>
+Initial&#160;Documentation&#160;Release<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;22<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="PAGe_UserManuals.html#4"><b>1&#160;Overview</b></a><br/>
+<b>3</b><br/>
+<a href="PAGe_UserManuals.html#4">1.1</a><br/>
+<a href="PAGe_UserManuals.html#4">Purpose</a><br/>
+3<br/>
+<a href="PAGe_UserManuals.html#4">1.2</a><br/>
+<a href="PAGe_UserManuals.html#4">Usage</a><br/>
+3<br/>
+<a href="PAGe_UserManuals.html#4">1.2.1</a><br/>
+<a href="PAGe_UserManuals.html#4">Generation</a><br/>
+3<br/>
+<a href="PAGe_UserManuals.html#4">1.2.2</a><br/>
+<a href="PAGe_UserManuals.html#4">Validation</a><br/>
+3<br/>
+<a href="PAGe_UserManuals.html#4">1.2.3</a><br/>
+<a href="PAGe_UserManuals.html#4">verb</a><br/>
+3<br/>
+<a href="PAGe_UserManuals.html#5"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>4</b><br/>
+<a href="PAGe_UserManuals.html#6"><b>3&#160;Functionality</b></a><br/>
+<b>5</b><br/>
+<a href="PAGe_UserManuals.html#6">3.1</a><br/>
+<a href="PAGe_UserManuals.html#6">Command&#160;Line&#160;Usage</a><br/>
+5<br/>
+<a href="PAGe_UserManuals.html#6">3.2</a><br/>
+<a href="PAGe_UserManuals.html#6">Fileformat</a><br/>
+5<br/>
+<a href="PAGe_UserManuals.html#7">3.3</a><br/>
+<a href="PAGe_UserManuals.html#7">Available&#160;Function&#160;and&#160;Objects</a><br/>
+6<br/>
+<a href="PAGe_UserManuals.html#8">3.4</a><br/>
+<a href="PAGe_UserManuals.html#8">Handling&#160;of&#160;paramconf</a><br/>
+7<br/>
+<a href="PAGe_UserManuals.html#8">3.5</a><br/>
+<a href="PAGe_UserManuals.html#8">Notes&#160;ARXML&#160;shortcuts</a><br/>
+7<br/>
+<a href="PAGe_UserManuals.html#8">3.6</a><br/>
+<a href="PAGe_UserManuals.html#8">Loops</a><br/>
+7<br/>
+<a href="PAGe_UserManuals.html#9"><b>4&#160;Examples</b></a><br/>
+<b>8</b><br/>
+<a href="PAGe_UserManuals.html#9">4.1</a><br/>
+<a href="PAGe_UserManuals.html#9">Basic&#160;Navigation</a><br/>
+8<br/>
+<a href="PAGe_UserManuals.html#9">4.1.1</a><br/>
+<a href="PAGe_UserManuals.html#9">ARXML&#160;Files</a><br/>
+8<br/>
+<a href="PAGe_UserManuals.html#9">4.1.1.1</a><br/>
+<a href="PAGe_UserManuals.html#9">input.arxml</a><br/>
+8<br/>
+<a href="PAGe_UserManuals.html#10">4.1.2</a><br/>
+<a href="PAGe_UserManuals.html#10">pgen&#160;Files</a><br/>
+9<br/>
+<a href="PAGe_UserManuals.html#10">4.1.2.1</a><br/>
+<a href="PAGe_UserManuals.html#10">input.pgen</a><br/>
+9<br/>
+<a href="PAGe_UserManuals.html#11">4.1.3</a><br/>
+<a href="PAGe_UserManuals.html#11">Command&#160;line</a><br/>
+10<br/>
+<a href="PAGe_UserManuals.html#11">4.1.4</a><br/>
+<a href="PAGe_UserManuals.html#11">Console&#160;Output</a><br/>
+10<br/>
+<a href="PAGe_UserManuals.html#11">4.1.5</a><br/>
+<a href="PAGe_UserManuals.html#11">File&#160;Output</a><br/>
+10<br/>
+<a href="PAGe_UserManuals.html#12">4.2</a><br/>
+<a href="PAGe_UserManuals.html#12">Logging</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#12">4.2.1</a><br/>
+<a href="PAGe_UserManuals.html#12">pgen&#160;Files</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#12">4.2.1.1</a><br/>
+<a href="PAGe_UserManuals.html#12">input.pgen</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#12">4.2.2</a><br/>
+<a href="PAGe_UserManuals.html#12">Command&#160;line</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#12">4.2.3</a><br/>
+<a href="PAGe_UserManuals.html#12">Console&#160;Output</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#12">4.2.4</a><br/>
+<a href="PAGe_UserManuals.html#12">File&#160;Output</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#12">4.3</a><br/>
+<a href="PAGe_UserManuals.html#12">Usage&#160;of&#160;Code&#160;Blocks</a><br/>
+11<br/>
+<a href="PAGe_UserManuals.html#13">4.3.1</a><br/>
+<a href="PAGe_UserManuals.html#13">pgen&#160;Files</a><br/>
+12<br/>
+<a href="PAGe_UserManuals.html#13">4.3.1.1</a><br/>
+<a href="PAGe_UserManuals.html#13">input.pgen</a><br/>
+12<br/>
+<a href="PAGe_UserManuals.html#13">4.3.2</a><br/>
+<a href="PAGe_UserManuals.html#13">Command&#160;line</a><br/>
+12<br/>
+<a href="PAGe_UserManuals.html#13">4.3.3</a><br/>
+<a href="PAGe_UserManuals.html#13">Console&#160;Output</a><br/>
+12<br/>
+<a href="PAGe_UserManuals.html#13">4.3.4</a><br/>
+<a href="PAGe_UserManuals.html#13">File&#160;Output</a><br/>
+12<br/>
+<a href="PAGe_UserManuals.html#14">4.4</a><br/>
+<a href="PAGe_UserManuals.html#14">Conditionals</a><br/>
+13<br/>
+<a href="PAGe_UserManuals.html#14">4.4.1</a><br/>
+<a href="PAGe_UserManuals.html#14">ARXML&#160;Files</a><br/>
+13<br/>
+<a href="PAGe_UserManuals.html#14">4.4.1.1</a><br/>
+<a href="PAGe_UserManuals.html#14">input.arxml</a><br/>
+13<br/>
+<a href="PAGe_UserManuals.html#15">4.4.2</a><br/>
+<a href="PAGe_UserManuals.html#15">pgen&#160;Files</a><br/>
+14<br/>
+<a href="PAGe_UserManuals.html#15">4.4.2.1</a><br/>
+<a href="PAGe_UserManuals.html#15">input.pgen</a><br/>
+14<br/>
+<a href="PAGe_UserManuals.html#15">4.4.3</a><br/>
+<a href="PAGe_UserManuals.html#15">Command&#160;line</a><br/>
+14<br/>
+<a href="PAGe_UserManuals.html#16">4.4.4</a><br/>
+<a href="PAGe_UserManuals.html#16">Console&#160;Output</a><br/>
+15<br/>
+<a href="PAGe_UserManuals.html#16">4.4.5</a><br/>
+<a href="PAGe_UserManuals.html#16">File&#160;Output</a><br/>
+15<br/>
+<a href="PAGe_UserManuals.html#16">4.5</a><br/>
+<a href="PAGe_UserManuals.html#16">More&#160;Functions</a><br/>
+15<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;22<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-3_1.png"/><br/>
+<a href="PAGe_UserManuals.html#16">4.5.1</a><br/>
+<a href="PAGe_UserManuals.html#16">ARXML&#160;Files</a><br/>
+15<br/>
+<a href="PAGe_UserManuals.html#16">4.5.1.1</a><br/>
+<a href="PAGe_UserManuals.html#16">input.arxml</a><br/>
+15<br/>
+<a href="PAGe_UserManuals.html#18">4.5.2</a><br/>
+<a href="PAGe_UserManuals.html#18">pgen&#160;Files</a><br/>
+17<br/>
+<a href="PAGe_UserManuals.html#18">4.5.2.1</a><br/>
+<a href="PAGe_UserManuals.html#18">input.pgen</a><br/>
+17<br/>
+<a href="PAGe_UserManuals.html#18">4.5.3</a><br/>
+<a href="PAGe_UserManuals.html#18">Command&#160;line</a><br/>
+17<br/>
+<a href="PAGe_UserManuals.html#18">4.5.4</a><br/>
+<a href="PAGe_UserManuals.html#18">Console&#160;Output</a><br/>
+17<br/>
+<a href="PAGe_UserManuals.html#18">4.5.5</a><br/>
+<a href="PAGe_UserManuals.html#18">File&#160;Output</a><br/>
+17<br/>
+<a href="PAGe_UserManuals.html#18">4.6</a><br/>
+<a href="PAGe_UserManuals.html#18">ARXML&#160;Stuff</a><br/>
+17<br/>
+<a href="PAGe_UserManuals.html#19">4.6.1</a><br/>
+<a href="PAGe_UserManuals.html#19">ARXML&#160;Files</a><br/>
+18<br/>
+<a href="PAGe_UserManuals.html#19">4.6.1.1</a><br/>
+<a href="PAGe_UserManuals.html#19">input.arxml</a><br/>
+18<br/>
+<a href="PAGe_UserManuals.html#20">4.6.2</a><br/>
+<a href="PAGe_UserManuals.html#20">pgen&#160;Files</a><br/>
+19<br/>
+<a href="PAGe_UserManuals.html#20">4.6.2.1</a><br/>
+<a href="PAGe_UserManuals.html#20">input.pgen</a><br/>
+19<br/>
+<a href="PAGe_UserManuals.html#20">4.6.3</a><br/>
+<a href="PAGe_UserManuals.html#20">Command&#160;line</a><br/>
+19<br/>
+<a href="PAGe_UserManuals.html#20">4.6.4</a><br/>
+<a href="PAGe_UserManuals.html#20">Console&#160;Output</a><br/>
+19<br/>
+<a href="PAGe_UserManuals.html#21">4.6.5</a><br/>
+<a href="PAGe_UserManuals.html#21">File&#160;Output</a><br/>
+20<br/>
+<a href="PAGe_UserManuals.html#21">4.7</a><br/>
+<a href="PAGe_UserManuals.html#21">Filtering&#160;Elements</a><br/>
+20<br/>
+<a href="PAGe_UserManuals.html#21">4.7.1</a><br/>
+<a href="PAGe_UserManuals.html#21">ARXML&#160;Files</a><br/>
+20<br/>
+<a href="PAGe_UserManuals.html#21">4.7.1.1</a><br/>
+<a href="PAGe_UserManuals.html#21">input.arxml</a><br/>
+20<br/>
+<a href="PAGe_UserManuals.html#22">4.7.2</a><br/>
+<a href="PAGe_UserManuals.html#22">pgen&#160;Files</a><br/>
+21<br/>
+<a href="PAGe_UserManuals.html#22">4.7.2.1</a><br/>
+<a href="PAGe_UserManuals.html#22">input.pgen</a><br/>
+21<br/>
+<a href="PAGe_UserManuals.html#22">4.7.3</a><br/>
+<a href="PAGe_UserManuals.html#22">Command&#160;line</a><br/>
+21<br/>
+<a href="PAGe_UserManuals.html#22">4.7.4</a><br/>
+<a href="PAGe_UserManuals.html#22">Console&#160;Output</a><br/>
+21<br/>
+<a href="PAGe_UserManuals.html#23">4.7.5</a><br/>
+<a href="PAGe_UserManuals.html#23">File&#160;Output</a><br/>
+22<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;22<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Overview</b><br/>
+<b>Purpose</b><br/>
+This&#160;user&#160;guide&#160;describes&#160;the&#160;functionality&#160;and&#160;usage&#160;of&#160;the&#160;Python&#160;AUTOSAR&#160;Generator&#160;(PAGe).<br/>
+PAGe&#160;is&#160;a&#160;generator&#160;for&#160;text&#160;templates&#160;which&#160;has&#160;some&#160;knowledge&#160;of&#160;the&#160;AUTOSAR&#160;Meta&#160;Model<br/>regarding&#160;parameter&#160;configuration.&#160;It&#160;allows&#160;easy&#160;access&#160;of&#160;modules,&#160;containers&#160;and&#160;values&#160;as&#160;well&#160;as<br/>providing&#160;loops&#160;and&#160;verify&#160;a&#160;paramconf&#160;against&#160;a&#160;paramdef.&#160;These&#160;options&#160;are&#160;also&#160;available&#160;for&#160;postbuild.<br/>
+PAGe&#160;is&#160;based&#160;on&#160;Python&#160;3.&#160;It&#160;uses&#160;only&#160;modules&#160;of&#160;the&#160;standard&#160;library.<br/>
+PAGe&#160;is&#160;designed&#160;for&#160;the&#160;usage&#160;with&#160;the&#160;BMW&#160;AUTOSAR&#160;Core&#160;modules.<br/>
+Input&#160;files&#160;must&#160;have&#160;the&#160;ending&#160;.pgen&#160;which&#160;is&#160;removed&#160;from&#160;the&#160;output&#160;filename.<br/>
+<b>Usage</b><br/>
+<b>Generation</b><br/>
+To&#160;generate&#160;a&#160;pgen&#160;file.<br/>
+python3&#160;-m&#160;page&#160;example.pgen<br/>
+If&#160;arxmls&#160;should&#160;be&#160;used&#160;pass&#160;them&#160;to&#160;the&#160;commandline&#160;as&#160;well.<br/>python3&#160;-m&#160;page&#160;-o&#160;/tmp&#160;example.pgen&#160;input.arxml<br/>
+Also&#160;multiple&#160;pgen&#160;files&#160;and&#160;arxml&#160;files&#160;work.<br/>python3&#160;-m&#160;page&#160;-o&#160;/tmp&#160;example1.pgen&#160;example2.pgen&#160;input.arxml&#160;input_new.arxml<br/>
+<b>Validation</b><br/>
+In&#160;case&#160;you&#160;want&#160;to&#160;check&#160;a&#160;paramconf&#160;against&#160;its&#160;corresponding&#160;paramdef&#160;you&#160;can&#160;use&#160;the&#160;following<br/>commandline<br/>
+python3&#160;-m&#160;page&#160;paramconf.arxml&#160;paramdef.arxml<br/>
+The&#160;validation&#160;will&#160;be&#160;performed&#160;for&#160;all&#160;the&#160;variants&#160;if&#160;an&#160;ecuc&#160;configuration&#160;is&#160;provided,&#160;too.<br/>
+python3&#160;-m&#160;page&#160;paramconf.arxml&#160;paramdef.arxml&#160;ecuc.arxml<br/>
+<b>verb</b><br/>
+To&#160;enable&#160;a&#160;more&#160;verbose&#160;output&#160;add&#160;-v&#160;to&#160;-vvvv&#160;to&#160;the&#160;command&#160;line.<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;22<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-5_1.png"/><br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+API<br/>
+Application&#160;Programming&#160;Interface<br/>
+Application&#160;Application&#160;stands&#160;for&#160;the&#160;high-level&#160;part&#160;of&#160;software&#160;that&#160;uses&#160;the&#160;APIs<br/>
+provided&#160;by&#160;the&#160;modules.&#160;It&#160;can&#160;also&#160;mean&#160;the&#160;driving&#160;application&#160;that&#160;does<br/>not&#160;belong&#160;to&#160;the&#160;Bootloader.<br/>
+AUTOSAR&#160;Automotive&#160;Open&#160;System&#160;Architecture<br/>OS<br/>
+Operating&#160;System<br/>
+PAGe<br/>
+Python&#160;AUTOSAR&#160;Generator<br/>
+pgen<br/>
+Page&#160;generation&#160;file<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;22<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-6_1.png"/><br/>
+<b>3</b><br/>
+<b>Functionality</b><br/>
+PAGe&#160;builds&#160;a&#160;model&#160;of&#160;the&#160;provided&#160;ARXML&#160;paramconf&#160;and&#160;paramdefs.&#160;Within&#160;the&#160;pgen&#160;files&#160;you&#160;have<br/>access&#160;to&#160;this&#160;model&#160;and&#160;can&#160;navigate&#160;and&#160;retrieve&#160;values&#160;easily.&#160;Besides&#160;the&#160;access&#160;to&#160;the&#160;data&#160;you&#160;have<br/>the&#160;full&#160;power&#160;of&#160;python.<br/>
+<b>Command&#160;Line&#160;Usage</b><br/>
+Either&#160;you&#160;install&#160;page&#160;or&#160;you&#160;add&#160;the&#160;main&#160;directory&#160;to&#160;the&#160;source&#160;path.&#160;Installation&#160;can&#160;be&#160;achieved&#160;by<br/>
+python3&#160;setup.py&#160;install<br/>
+after&#160;that&#160;the&#160;page&#160;command&#160;will&#160;be&#160;available.&#160;So&#160;you&#160;can&#160;call&#160;PAGe&#160;using:<br/>
+page&#160;input.pgen&#160;test.arxml&#160;-vvvv<br/>
+But&#160;you&#160;may&#160;want&#160;to&#160;do&#160;install&#160;page&#160;only&#160;in&#160;a&#160;virtualenv&#160;so&#160;it&#160;does&#160;not&#160;harm&#160;any&#160;other&#160;installation.<br/>
+<b>-o&#160;</b>Specify&#160;the&#160;output&#160;directory,&#160;default&#160;is&#160;the&#160;current&#160;directory.<br/><b>--stdout&#160;</b>do&#160;not&#160;write&#160;files,&#160;print&#160;output&#160;to&#160;stdout&#160;instead.<br/><b>-vvv&#160;</b>change&#160;level&#160;of&#160;verbosity.<br/><b>-l&#160;</b>Location&#160;to&#160;write&#160;the&#160;logfile&#160;to.&#160;Default&#160;is&#160;stdout.<br/><b>-m&#160;</b>Specify&#160;delimiter&#160;to&#160;be&#160;used&#160;in&#160;pgen&#160;files.&#160;This&#160;allows&#160;you&#160;to&#160;specify&#160;other&#160;delimiters&#160;than&#160;the&#160;default<br/>
+e.g.&#160;you&#160;have&#160;files,&#160;where&#160;the&#160;defaults&#160;have&#160;a&#160;special&#160;meaning&#160;and&#160;you&#160;don't&#160;like&#160;to&#160;escape&#160;the&#160;every<br/>time&#160;used.<br/>
+<b>-d&#160;</b>Enable&#160;debug&#160;mode&#160;(trap&#160;functions&#160;become&#160;active)<br/><b>-V&#160;</b>Verifies&#160;given&#160;paramconf&#160;against&#160;the&#160;paramdefs&#160;which&#160;ara&#160;supplied.<br/><b>-i&#160;</b>Add&#160;paths&#160;for&#160;the&#160;search&#160;of&#160;includes.<br/><b>-D&#160;</b>Pass&#160;variables&#160;to&#160;the&#160;pgen&#160;files&#160;(params&#160;dictionary)<br/><b>-O&#160;</b>Change&#160;the&#160;optimisedb.&#160;This&#160;database&#160;stores&#160;the&#160;hash&#160;and&#160;the&#160;filename,&#160;so&#160;file&#160;with&#160;no&#160;change&#160;will<br/>
+not&#160;be&#160;overwritten.<br/>
+<b>-f&#160;</b>Forces&#160;write&#160;of&#160;files,&#160;even&#160;if&#160;no&#160;output&#160;change&#160;has&#160;been&#160;detected.<br/>
+<b>Fileformat</b><br/>
+The&#160;pgen&#160;files&#160;shall&#160;be&#160;utf-8&#160;encoded&#160;files.&#160;The&#160;files&#160;shall&#160;use&#160;unix&#160;file&#160;endings,&#160;windows&#160;file&#160;endings&#160;\r\n<br/>are&#160;transformed&#160;to&#160;\n.<br/>
+A&#160;file&#160;consists&#160;of&#160;text&#160;and&#160;several&#160;blocks&#160;that&#160;are&#160;interpreted&#160;by&#160;PAGe.&#160;These&#160;blocks&#160;are&#160;enclosed&#160;by&#160;a<br/>special&#160;sequence&#160;of&#160;characters.&#160;%{&#160;marks&#160;the&#160;beginning&#160;of&#160;a&#160;block&#160;and&#160;}%&#160;marks&#160;the&#160;end.&#160;The&#160;first<br/>character&#160;occuring&#160;directly&#160;after&#160;the&#160;opening&#160;tag&#160;has&#160;a&#160;special&#160;meaning&#160;an&#160;defines&#160;the&#160;type&#160;of&#160;the&#160;block.<br/>The&#160;following&#160;distinct&#160;blocks&#160;are&#160;supported:<br/>
+<b>=&#160;</b>The&#160;result&#160;of&#160;the&#160;statement&#160;within&#160;the&#160;tags&#160;are&#160;printed&#160;as&#160;output.&#160;A&#160;single&#160;statement&#160;shall&#160;be&#160;used&#160;but<br/>
+can&#160;contain&#160;newline&#160;and&#160;indentiation.&#160;The&#160;result&#160;of&#160;the&#160;statement&#160;will&#160;appear&#160;in&#160;the&#160;output&#160;file.<br/>
+<b>#&#160;</b>This&#160;marker&#160;indicates&#160;a&#160;section&#160;of&#160;code.&#160;The&#160;code&#160;can&#160;consist&#160;of&#160;any&#160;valid&#160;piece&#160;of&#160;python&#160;code&#160;and&#160;is<br/>
+also&#160;able&#160;to&#160;use&#160;the&#160;access&#160;functions&#160;for&#160;the&#160;data&#160;of&#160;the&#160;ARXMLs.&#160;It&#160;can&#160;be&#160;indentiated&#160;and&#160;consist<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;22<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-7_1.png"/><br/>
+of&#160;multiple&#160;lines.&#160;For&#160;indentiation&#160;the&#160;first&#160;line&#160;is&#160;taken&#160;for&#160;reference,&#160;the&#160;rest&#160;of&#160;the&#160;indentiation&#160;has<br/>to&#160;follow&#160;Pythons&#160;rules.<br/>
+<b>:&#160;</b>For&#160;conditions&#160;the&#160;colon&#160;is&#160;used&#160;as&#160;a&#160;marker.&#160;It&#160;occurs&#160;at&#160;least&#160;two&#160;times,&#160;one&#160;for&#160;the&#160;condition&#160;and&#160;one<br/>
+time&#160;(without&#160;extra&#160;text)&#160;for&#160;the&#160;closure.&#160;This&#160;is&#160;needed&#160;for&#160;the&#160;correct&#160;handling.&#160;You&#160;still&#160;have&#160;to&#160;use<br/>if,&#160;elif&#160;and&#160;else&#160;keywords.<br/>
+<b>?&#160;</b>For&#160;quick&#160;conditionals&#160;you&#160;can&#160;use&#160;a&#160;question&#160;mark.&#160;It&#160;works&#160;also&#160;directly&#160;as&#160;output.&#160;The&#160;condition<br/>
+followed&#160;by&#160;a&#160;colon&#160;which&#160;seperates&#160;it&#160;from&#160;the&#160;part&#160;which&#160;is&#160;written&#160;in&#160;case&#160;of&#160;success.&#160;And&#160;an<br/>optional&#160;second&#160;colon&#160;to&#160;seperate&#160;the&#160;ouput&#160;in&#160;the&#160;case&#160;the&#160;condition&#160;is&#160;not&#160;fullfilled.<br/>
+<b>@&#160;</b>This&#160;one&#160;loops&#160;over&#160;a&#160;statement.&#160;You&#160;can&#160;loop&#160;over&#160;a&#160;number&#160;of&#160;container&#160;instances,&#160;or&#160;any&#160;other<br/>
+python&#160;iterateable.&#160;To&#160;iterate&#160;over&#160;a&#160;python&#160;iterateable&#160;use&#160;the&#160;syntax&#160;myitem&#160;in&#160;mycontainer&#160;which<br/>makes&#160;the&#160;current&#160;item&#160;available&#160;as&#160;myitem.&#160;For&#160;loop&#160;over&#160;arxml&#160;elements,&#160;please&#160;have&#160;a&#160;look&#160;at&#160;<b>??</b><br/>
+<b>+&#160;</b>Use&#160;the&#160;plus&#160;sign&#160;for&#160;including&#160;other&#160;pgen&#160;or&#160;python&#160;files.&#160;These&#160;files&#160;are&#160;included&#160;and&#160;interpreted&#160;at<br/>
+the&#160;current&#160;point&#160;within&#160;the&#160;file&#160;which&#160;they&#160;are&#160;included.&#160;A&#160;file&#160;can&#160;be&#160;included&#160;several&#160;times.&#160;Pure<br/>python&#160;files&#160;can&#160;be&#160;included,&#160;too.&#160;By&#160;default&#160;the&#160;current&#160;path&#160;of&#160;the&#160;currently&#160;leaded&#160;source&#160;files&#160;(or<br/>included&#160;files)&#160;is&#160;used&#160;as&#160;search&#160;directory.&#160;You&#160;can&#160;add&#160;directories&#160;using&#160;the&#160;command&#160;line&#160;switch&#160;-i<br/>
+This&#160;mark&#160;is&#160;for&#160;special&#160;handling&#160;of&#160;post&#160;build&#160;variation.&#160;It&#160;loops&#160;over&#160;the&#160;configured&#160;pre&#160;defined&#160;variants<br/>
+that&#160;are&#160;configured&#160;for&#160;the&#160;ecu.&#160;Within&#160;the&#160;context&#160;of&#160;this&#160;mark,&#160;you&#160;have&#160;two&#160;special&#160;variables<br/>available:&#160;predefined_variant_name&#160;which&#160;is&#160;the&#160;name&#160;of&#160;the&#160;current&#160;variant&#160;or&#160;None&#160;if&#160;no<br/>variantation&#160;is&#160;configured.&#160;And&#160;predefined_variant_postfix&#160;which&#160;contains&#160;an&#160;underscore<br/>followed&#160;by&#160;the&#160;variant&#160;name&#160;or&#160;an&#160;empty&#160;string&#160;else.&#160;This&#160;can&#160;be&#160;used&#160;to&#160;build&#160;the&#160;name&#160;of&#160;the<br/>configuration&#160;according&#160;to&#160;ECUConfiguration.<br/>
+<b>Available&#160;Function&#160;and&#160;Objects</b><br/>
+The&#160;following&#160;functions&#160;are&#160;provided&#160;as&#160;part&#160;of&#160;PAGe:<br/>
+<b>comment&#160;</b>Format&#160;a&#160;given&#160;string&#160;as&#160;a&#160;comment&#160;in&#160;the&#160;current&#160;context.&#160;If&#160;no&#160;delimiter&#160;are&#160;given,&#160;the<br/>
+functions&#160;calls&#160;the&#160;automatic&#160;delimiter&#160;resolution.&#160;The&#160;string&#160;is&#160;splitted&#160;into&#160;single&#160;lines&#160;and&#160;enclosed<br/>in&#160;the&#160;delimiter<br/>
+<b>set_comment_delimiter&#160;</b>Set&#160;the&#160;comment&#160;markers<br/><b>count&#160;</b>Count&#160;elements&#160;found&#160;by&#160;shortname/search&#160;expression.<br/><b>current_file&#160;</b>Get&#160;the&#160;current&#160;filename&#160;of&#160;the&#160;file&#160;processed&#160;(pgen&#160;file).<br/><b>current_shortname&#160;</b>Get&#160;the&#160;AUTOSAR&#160;shortname&#160;of&#160;the&#160;current&#160;scope.<br/><b>current_shortname_path&#160;</b>Get&#160;the&#160;AUTOSAR&#160;shortname&#160;path.<br/><b>each&#160;</b>Get&#160;unique&#160;shortname&#160;paths&#160;of&#160;the&#160;elements&#160;that&#160;match&#160;the&#160;given&#160;search&#160;expression.<br/><b>exists&#160;</b>Checks&#160;existence&#160;of&#160;elements&#160;specified&#160;by&#160;search&#160;expression&#160;or&#160;shortname&#160;in&#160;current&#160;context.<br/><b>generation_file_fullpath&#160;</b>Full&#160;path&#160;of&#160;the&#160;source&#160;file.<br/><b>generation_file_modification&#160;</b>Date&#160;of&#160;modification&#160;of&#160;the&#160;source&#160;file.<br/><b>generation_info&#160;</b>Info&#160;about&#160;the&#160;generation&#160;as&#160;dict.<br/><b>generation_timestamp&#160;</b>Timestamp&#160;of&#160;generation.<br/><b>generation_tool&#160;</b>name&#160;of&#160;the&#160;generation&#160;tool.<br/><b>generation_version_info&#160;</b>Version&#160;of&#160;Generator.<br/><b>get_elements&#160;</b>Get&#160;list&#160;of&#160;elements&#160;matching&#160;search&#160;expression.<br/><b>get_xpaths&#160;</b>Deprecated&#160;for&#160;get_elements.<br/><b>into&#160;</b>Change&#160;context&#160;to&#160;given&#160;target,&#160;resets&#160;if&#160;target&#160;is&#160;None.&#160;The&#160;scope&#160;is&#160;held&#160;in&#160;a&#160;stack<br/><b>join&#160;</b>Join&#160;a&#160;set&#160;of&#160;values&#160;referenced&#160;by&#160;the&#160;search&#160;expression.<br/><b>leave&#160;</b>Leave&#160;the&#160;current&#160;scope.<br/><b>reset&#160;</b>Resets&#160;the&#160;context&#160;to&#160;the&#160;root&#160;node.<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;22<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-8_1.png"/><br/>
+<b>set_debug&#160;</b>Enable&#160;pdb&#160;debugging.<br/><b>shortname&#160;</b>Get&#160;the&#160;shortname&#160;at&#160;the&#160;given&#160;shortname&#160;path&#160;expression,<br/><b>trap&#160;</b>Traps&#160;if&#160;debugging&#160;is&#160;enabled.<br/><b>value&#160;</b>Fetching&#160;the&#160;value&#160;or&#160;value-ref&#160;of&#160;a&#160;search&#160;expression.&#160;Values&#160;are&#160;automatically&#160;casted&#160;to&#160;the<br/>
+correct&#160;type.<br/>
+<b>write&#160;</b>Write&#160;arguments&#160;to&#160;the&#160;output.<br/><b>container&#160;</b>Selects&#160;containers&#160;that&#160;refere&#160;to&#160;a&#160;given&#160;definition&#160;ref.<br/><b>module&#160;</b>Selects&#160;modules&#160;that&#160;refere&#160;to&#160;a&#160;given&#160;definition&#160;ref.<br/><b>ref&#160;</b>Get&#160;the&#160;elements&#160;in&#160;the&#160;model,&#160;which&#160;refere&#160;to&#160;the&#160;given&#160;shortnamepath&#160;as&#160;definition&#160;ref.<br/><b>snpath&#160;</b>Get&#160;the&#160;element&#160;at&#160;the&#160;given&#160;shortname&#160;path.<br/>
+Additionally&#160;to&#160;the&#160;functions&#160;and&#160;objects&#160;there&#160;is&#160;a&#160;dictionary&#160;called&#160;params&#160;which&#160;contains&#160;parameters<br/>passed&#160;to&#160;page&#160;by&#160;the&#160;command&#160;line&#160;(-D&#160;test=hello).<br/>
+<b>Handling&#160;of&#160;paramconf</b><br/>
+In&#160;general&#160;when&#160;using&#160;the&#160;data&#160;of&#160;a&#160;paramconf&#160;you&#160;should&#160;never&#160;enter&#160;a&#160;specific&#160;path&#160;you&#160;expect&#160;to&#160;be&#160;in<br/>the&#160;configuration.&#160;You&#160;should&#160;only&#160;use&#160;paths&#160;you&#160;define&#160;in&#160;the&#160;parameter&#160;definition&#160;or&#160;that&#160;are&#160;contained<br/>in&#160;the&#160;configuration&#160;as&#160;value&#160;(value&#160;refs).<br/>
+<b>Notes&#160;ARXML&#160;shortcuts</b><br/>
+The&#160;shortnamepaths&#160;snpath&#160;are&#160;looked&#160;up&#160;in&#160;the&#160;following&#160;order:<br/>
+<b>.&#160;</b>return&#160;element<br/><b>..&#160;</b>return&#160;parent<br/><b>contains&#160;*&#160;</b>Search&#160;children<br/><b>startwith&#160;/&#160;</b>lookup&#160;full&#160;path&#160;from&#160;root&#160;node<br/><b>else&#160;</b>lookup&#160;relative&#160;path<br/>
+This&#160;means,&#160;whenever&#160;you&#160;want&#160;to&#160;get&#160;a&#160;grandchild&#160;of&#160;the&#160;current&#160;scope&#160;you&#160;need&#160;to&#160;prepend&#160;a&#160;star&#160;to<br/>the&#160;node&#160;you&#160;are&#160;looking&#160;for&#160;or&#160;use&#160;the&#160;search.<br/>
+<b>Loops</b><br/>
+In&#160;case&#160;you&#160;loop&#160;over&#160;VALUE&#160;or&#160;VALUE-REF&#160;elements,&#160;you&#160;can&#160;access&#160;its&#160;value&#160;using&#160;value()&#160;without&#160;a<br/>target&#160;specified.<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;22<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-9_1.png"/><br/>
+<b>4</b><br/>
+<b>Examples</b><br/>
+<b>Basic&#160;Navigation</b><br/>
+This&#160;example&#160;will&#160;demonstrate&#160;basic&#160;navigation&#160;through&#160;an&#160;ARXML&#160;document.<br/>
+The&#160;example&#160;contains&#160;a&#160;module&#160;named&#160;MyModule&#160;which&#160;is&#160;of&#160;type&#160;TestModule&#160;and&#160;located&#160;in&#160;the<br/>package&#160;/TestPackage/TestModule<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+into<br/>reset<br/>ref<br/>module<br/>current_shortname_path<br/>with<br/>
+<b>ARXML&#160;Files</b><br/>
+<b>input.arxml</b><br/>
+<b>&lt;?xml&#160;version=</b>’1.0’<b>?&gt;</b><br/>
+<b>&lt;AUTOSAR&#160;xmlns=</b>&#34;http://autosar.org/schema/r4.0&#34;<br/>
+<b>xmlns:xsi=</b>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;<br/>
+<b>xsi:schemaLocation=</b>&#34;http://autosar.org/schema/r4.0&#160;autosar.xsd&#34;<b>&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;ELEMENTS&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;22<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-10_1.png"/><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-FLOAT-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b><br/>
+<b>REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-STRING-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>Hello&#160;World&#160;the&#160;value&#160;is:&#160;<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;/ELEMENTS&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AUTOSAR&gt;</b><br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;TestModule&#160;'&#160;)&#160;)&#160;}%<br/>
+%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>
+This&#160;w&#160;i&#160;l&#160;l&#160;change&#160;i&#160;n&#160;t&#160;o&#160;the&#160;∗FIRST∗&#160;element&#160;found<br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;I&#160;n&#160;t&#160;'&#160;)&#160;)&#160;}%<br/>
+The&#160;shortname&#160;w&#160;i&#160;l&#160;l&#160;be&#160;taken&#160;from&#160;the&#160;p&#160;a&#160;r&#160;e&#160;n&#160;t&#160;element&#160;,<br/>
+as&#160;t&#160;h&#160;i&#160;s&#160;element&#160;i&#160;s&#160;not&#160;an&#160;i&#160;d&#160;e&#160;n&#160;t&#160;i&#160;f&#160;y&#160;a&#160;b&#160;l&#160;e&#160;.<br/>
+%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>%{=&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;)&#160;}%<br/>
+%{#&#160;l&#160;e&#160;a&#160;v&#160;e&#160;(&#160;)&#160;}%<br/>
+I&#160;f&#160;you&#160;expect&#160;more&#160;than&#160;one&#160;use&#160;a&#160;loop<br/>
+For&#160;the&#160;loop&#160;the&#160;c&#160;o&#160;n&#160;t&#160;e&#160;x&#160;t&#160;i&#160;s&#160;a&#160;u&#160;t&#160;o&#160;m&#160;a&#160;t&#160;i&#160;c&#160;a&#160;l&#160;l&#160;y&#160;changed<br/>
+%{@&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;I&#160;n&#160;t&#160;'&#160;)&#160;}%<br/>%{=&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;)&#160;}%<br/>%{@}%<br/>%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;F&#160;l&#160;o&#160;a&#160;t&#160;'&#160;)&#160;)&#160;}%<br/>%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>%{=&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;)&#160;}%<br/>%{#&#160;r&#160;e&#160;s&#160;e&#160;t&#160;(&#160;)&#160;}%<br/>%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;22<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-11_1.png"/><br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;TestModule&#160;'&#160;)&#160;)&#160;}%<br/>
+%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;)&#160;}%<br/>
+%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>
+For&#160;a&#160;s&#160;h&#160;o&#160;r&#160;t&#160;i&#160;n&#160;t&#160;e&#160;r&#160;a&#160;c&#160;t&#160;i&#160;o&#160;n&#160;w&#160;i&#160;t&#160;h&#160;a&#160;c&#160;e&#160;r&#160;t&#160;a&#160;i&#160;n&#160;element&#160;w&#160;i&#160;t&#160;h&#160;i&#160;n&#160;a&#160;code&#160;block&#160;,<br/>
+you&#160;can&#160;a&#160;l&#160;s&#160;o&#160;use&#160;the&#160;w&#160;i&#160;t&#160;h&#160;statement&#160;o&#160;f&#160;python<br/>
+%{#<br/>
+w&#160;i&#160;t&#160;h&#160;module&#160;(&#160;'&#160;TestModule&#160;'&#160;)&#160;:<br/>
+i&#160;n&#160;p&#160;u&#160;t&#160;=&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;F&#160;l&#160;o&#160;a&#160;t&#160;'&#160;)&#160;)<br/>
+i&#160;n&#160;p&#160;u&#160;t&#160;=&#160;i&#160;n&#160;p&#160;u&#160;t&#160;∗&#160;2<br/>w&#160;i&#160;t&#160;h&#160;module&#160;(&#160;'&#160;AnotherTestModule&#160;'&#160;)&#160;:<br/>
+s&#160;t&#160;r&#160;i&#160;n&#160;g&#160;=&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;S&#160;t&#160;r&#160;i&#160;n&#160;g&#160;'&#160;)&#160;)<br/>
+}%<br/>%{=&#160;'&#160;{&#160;}&#160;{&#160;}&#160;'&#160;.&#160;format&#160;(&#160;s&#160;t&#160;r&#160;i&#160;n&#160;g&#160;,&#160;i&#160;n&#160;p&#160;u&#160;t&#160;)&#160;}%<br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;took&#160;:&#160;0.000859&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;a&#160;l&#160;l&#160;XMLs&#160;took&#160;:&#160;0.00104&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;1&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00317&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+F&#160;i&#160;l&#160;e&#160;does&#160;not&#160;e&#160;x&#160;i&#160;s&#160;t<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Wr&#160;ite&#160;/&#160;0&#160;0&#160;1&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t<br/>
+<b>File&#160;Output</b><br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule<br/>
+This&#160;w&#160;i&#160;l&#160;l&#160;change&#160;i&#160;n&#160;t&#160;o&#160;the&#160;∗FIRST∗&#160;element&#160;found<br/>
+The&#160;shortname&#160;w&#160;i&#160;l&#160;l&#160;be&#160;taken&#160;from&#160;the&#160;p&#160;a&#160;r&#160;e&#160;n&#160;t&#160;element&#160;,<br/>
+as&#160;t&#160;h&#160;i&#160;s&#160;element&#160;i&#160;s&#160;not&#160;an&#160;i&#160;d&#160;e&#160;n&#160;t&#160;i&#160;f&#160;y&#160;a&#160;b&#160;l&#160;e&#160;.<br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule&#160;/&#160;NumericalValues<br/>
+5<br/>
+I&#160;f&#160;you&#160;expect&#160;more&#160;than&#160;one&#160;use&#160;a&#160;loop<br/>
+For&#160;the&#160;loop&#160;the&#160;c&#160;o&#160;n&#160;t&#160;e&#160;x&#160;t&#160;i&#160;s&#160;a&#160;u&#160;t&#160;o&#160;m&#160;a&#160;t&#160;i&#160;c&#160;a&#160;l&#160;l&#160;y&#160;changed<br/>
+5<br/>8<br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule&#160;/&#160;NumericalValues<br/>
+3.1415<br/>
+ROOT<br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule<br/>
+ROOT<br/>
+For&#160;a&#160;s&#160;h&#160;o&#160;r&#160;t&#160;i&#160;n&#160;t&#160;e&#160;r&#160;a&#160;c&#160;t&#160;i&#160;o&#160;n&#160;w&#160;i&#160;t&#160;h&#160;a&#160;c&#160;e&#160;r&#160;t&#160;a&#160;i&#160;n&#160;element&#160;w&#160;i&#160;t&#160;h&#160;i&#160;n&#160;a&#160;code&#160;block&#160;,<br/>
+you&#160;can&#160;a&#160;l&#160;s&#160;o&#160;use&#160;the&#160;w&#160;i&#160;t&#160;h&#160;statement&#160;o&#160;f&#160;python<br/>
+H&#160;e&#160;l&#160;l&#160;o&#160;World&#160;the&#160;v&#160;a&#160;l&#160;u&#160;e&#160;i&#160;s&#160;:<br/>
+6.283<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;22<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-12_1.png"/><br/>
+<b>Logging</b><br/>
+This&#160;example&#160;will&#160;demonstrate&#160;the&#160;logging&#160;functionality.<br/>
+There&#160;are&#160;several&#160;log&#160;levels&#160;that&#160;depend&#160;on&#160;the&#160;-vs&#160;provided&#160;on&#160;the&#160;command&#160;line.<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+logger.debug<br/>logger.info<br/>logger.warning<br/>logger.error<br/>logger.fatal<br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+Logging&#160;o&#160;f&#160;some&#160;i&#160;n&#160;f&#160;o&#160;r&#160;m&#160;a&#160;t&#160;i&#160;o&#160;n<br/>
+%{#&#160;l&#160;o&#160;g&#160;g&#160;e&#160;r&#160;.&#160;debug&#160;(&#160;'&#160;This&#160;i&#160;s&#160;a&#160;message&#160;f&#160;o&#160;r&#160;debugging&#160;so&#160;you&#160;have&#160;to&#160;s&#160;p&#160;e&#160;c&#160;i&#160;f&#160;y&#160;a&#160;few&#160;v&#160;on&#160;the&#160;command&#160;l&#160;i&#160;n&#160;e&#160;'&#160;)&#160;}%<br/>%{#&#160;l&#160;o&#160;g&#160;g&#160;e&#160;r&#160;.&#160;i&#160;n&#160;f&#160;o&#160;(&#160;'&#160;This&#160;t&#160;e&#160;x&#160;t&#160;w&#160;i&#160;l&#160;l&#160;appear&#160;i&#160;n&#160;the&#160;INFO&#160;log&#160;'&#160;)&#160;}%<br/>%{#&#160;l&#160;o&#160;g&#160;g&#160;e&#160;r&#160;.&#160;warning&#160;(&#160;'&#160;You&#160;'&#160;'&#160;ve&#160;been&#160;warned&#160;')}%<br/>%{#&#160;l&#160;o&#160;g&#160;g&#160;e&#160;r&#160;.&#160;e&#160;r&#160;r&#160;o&#160;r&#160;(&#160;'&#160;This&#160;w&#160;i&#160;l&#160;l&#160;not&#160;work&#160;,&#160;ok&#160;I&#160;\&#160;'&#160;l&#160;l&#160;l&#160;e&#160;t&#160;you&#160;continue&#160;')}%<br/>%{#&#160;l&#160;o&#160;g&#160;g&#160;e&#160;r&#160;.&#160;f&#160;a&#160;t&#160;a&#160;l&#160;(&#160;'&#160;Oh&#160;noooo&#160;!&#160;'&#160;)&#160;}&#160;%<br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;2&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;DEBUG<br/>
+This&#160;i&#160;s&#160;a&#160;message&#160;f&#160;o&#160;r&#160;debugging&#160;so&#160;you&#160;have&#160;to&#160;s&#160;p&#160;e&#160;c&#160;i&#160;f&#160;y&#160;a&#160;few&#160;v&#160;on&#160;the&#160;command&#160;l&#160;i&#160;n&#160;e<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+This&#160;t&#160;e&#160;x&#160;t&#160;w&#160;i&#160;l&#160;l&#160;appear&#160;i&#160;n&#160;the&#160;INFO&#160;l&#160;o&#160;g<br/>
+BMW&#160;PAGe<br/>
+:&#160;WARNING<br/>
+Youve&#160;been&#160;warned<br/>
+BMW&#160;PAGe<br/>
+:&#160;ERROR<br/>
+This&#160;w&#160;i&#160;l&#160;l&#160;not&#160;work&#160;,&#160;ok&#160;I&#160;'&#160;l&#160;l&#160;l&#160;e&#160;t&#160;you&#160;continue<br/>
+BMW&#160;PAGe<br/>
+:&#160;CRITICAL&#160;Oh&#160;noooo&#160;!<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00185&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+F&#160;i&#160;l&#160;e&#160;does&#160;not&#160;e&#160;x&#160;i&#160;s&#160;t<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Wr&#160;ite&#160;/&#160;0&#160;0&#160;2&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t<br/>
+<b>File&#160;Output</b><br/>
+Logging&#160;o&#160;f&#160;some&#160;i&#160;n&#160;f&#160;o&#160;r&#160;m&#160;a&#160;t&#160;i&#160;o&#160;n<br/>
+<b>Usage&#160;of&#160;Code&#160;Blocks</b><br/>
+This&#160;example&#160;will&#160;show&#160;a&#160;few&#160;details&#160;about&#160;the&#160;code&#160;block<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;22<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-13_1.png"/><br/>
+The&#160;code&#160;block&#160;is&#160;one&#160;of&#160;PAGes&#160;super&#160;power.&#160;It&#160;allows&#160;to&#160;use&#160;any&#160;python&#160;code&#160;from&#160;within&#160;it.&#160;You&#160;can&#160;still<br/>use&#160;PAGes&#160;functions&#160;but&#160;also&#160;any&#160;other&#160;python&#160;statement&#160;you&#160;could&#160;think&#160;of.<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+write<br/>CodeBlock<br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+Usage&#160;o&#160;f&#160;Code&#160;Blocks<br/>
+Besides&#160;the&#160;output&#160;blocks&#160;you&#160;can&#160;use&#160;code&#160;blocks&#160;:<br/>
+%{#<br/>
+#&#160;The&#160;f&#160;i&#160;r&#160;s&#160;t&#160;l&#160;i&#160;n&#160;e&#160;d&#160;e&#160;f&#160;i&#160;n&#160;e&#160;s&#160;the&#160;b&#160;a&#160;s&#160;i&#160;c&#160;i&#160;n&#160;d&#160;e&#160;n&#160;t&#160;i&#160;a&#160;t&#160;i&#160;o&#160;n&#160;.<br/>#&#160;a&#160;l&#160;l&#160;l&#160;i&#160;n&#160;e&#160;s&#160;are&#160;i&#160;n&#160;t&#160;e&#160;r&#160;p&#160;r&#160;e&#160;t&#160;e&#160;d&#160;as&#160;pure&#160;python&#160;.<br/>
+def&#160;MyFunction&#160;(&#160;a&#160;,&#160;b&#160;)&#160;:<br/>
+r&#160;e&#160;t&#160;u&#160;r&#160;n&#160;(&#160;a+b&#160;)&#160;∗&#160;b<br/>
+}%<br/>
+A&#160;l&#160;l&#160;v&#160;a&#160;r&#160;i&#160;a&#160;b&#160;l&#160;e&#160;s&#160;,&#160;f&#160;u&#160;n&#160;c&#160;t&#160;i&#160;o&#160;n&#160;s&#160;,&#160;ect&#160;.&#160;w&#160;i&#160;l&#160;l&#160;remain&#160;u&#160;n&#160;t&#160;i&#160;l&#160;the&#160;end&#160;o&#160;f&#160;the&#160;pgen&#160;f&#160;i&#160;l&#160;e&#160;.<br/>
+You&#160;can&#160;now&#160;see&#160;the&#160;r&#160;e&#160;s&#160;u&#160;l&#160;t&#160;o&#160;f&#160;the&#160;p&#160;r&#160;e&#160;v&#160;i&#160;o&#160;u&#160;s&#160;f&#160;u&#160;n&#160;c&#160;t&#160;i&#160;o&#160;n&#160;:&#160;%{=&#160;MyFunction&#160;(&#160;3&#160;,&#160;5&#160;)&#160;}%<br/>
+I&#160;f&#160;you&#160;want&#160;to&#160;w&#160;r&#160;i&#160;t&#160;e&#160;to&#160;the&#160;output&#160;from&#160;w&#160;i&#160;t&#160;h&#160;i&#160;n&#160;a&#160;code&#160;block&#160;,&#160;you&#160;should&#160;use&#160;the&#160;∗&#160;w&#160;r&#160;i&#160;t&#160;e&#160;∗&#160;command<br/>
+%{#<br/>
+f&#160;o&#160;r&#160;x&#160;i&#160;n&#160;range&#160;(&#160;1&#160;,&#160;1&#160;5&#160;)&#160;:<br/>
+i&#160;f&#160;'&#160;3&#160;'&#160;i&#160;n&#160;s&#160;t&#160;r&#160;(&#160;x&#160;)&#160;or&#160;x&#160;%&#160;3&#160;==&#160;0&#160;:<br/>
+w&#160;r&#160;i&#160;t&#160;e&#160;(&#160;'&#160;buzz&#160;\&#160;n&#160;'&#160;)<br/>
+e&#160;l&#160;s&#160;e&#160;:<br/>
+w&#160;r&#160;i&#160;t&#160;e&#160;(&#160;'&#160;{&#160;}&#160;\&#160;n&#160;'&#160;.&#160;format&#160;(&#160;x&#160;)&#160;)<br/>
+}%<br/>NB&#160;:&#160;w&#160;r&#160;i&#160;t&#160;e&#160;does&#160;not&#160;a&#160;u&#160;t&#160;o&#160;m&#160;a&#160;t&#160;i&#160;c&#160;a&#160;l&#160;l&#160;y&#160;add&#160;a&#160;newline&#160;.<br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;3&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00171&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+F&#160;i&#160;l&#160;e&#160;does&#160;not&#160;e&#160;x&#160;i&#160;s&#160;t<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Wr&#160;ite&#160;/&#160;0&#160;0&#160;3&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t<br/>
+<b>File&#160;Output</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;22<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-14_1.png"/><br/>
+Usage&#160;o&#160;f&#160;Code&#160;Blocks<br/>
+Besides&#160;the&#160;output&#160;blocks&#160;you&#160;can&#160;use&#160;code&#160;blocks&#160;:<br/>
+A&#160;l&#160;l&#160;v&#160;a&#160;r&#160;i&#160;a&#160;b&#160;l&#160;e&#160;s&#160;,&#160;f&#160;u&#160;n&#160;c&#160;t&#160;i&#160;o&#160;n&#160;s&#160;,&#160;ect&#160;.&#160;w&#160;i&#160;l&#160;l&#160;remain&#160;u&#160;n&#160;t&#160;i&#160;l&#160;the&#160;end&#160;o&#160;f&#160;the&#160;pgen&#160;f&#160;i&#160;l&#160;e&#160;.<br/>
+You&#160;can&#160;now&#160;see&#160;the&#160;r&#160;e&#160;s&#160;u&#160;l&#160;t&#160;o&#160;f&#160;the&#160;p&#160;r&#160;e&#160;v&#160;i&#160;o&#160;u&#160;s&#160;f&#160;u&#160;n&#160;c&#160;t&#160;i&#160;o&#160;n&#160;:&#160;40<br/>
+I&#160;f&#160;you&#160;want&#160;to&#160;w&#160;r&#160;i&#160;t&#160;e&#160;to&#160;the&#160;output&#160;from&#160;w&#160;i&#160;t&#160;h&#160;i&#160;n&#160;a&#160;code&#160;block&#160;,&#160;you&#160;should&#160;use&#160;the&#160;∗&#160;w&#160;r&#160;i&#160;t&#160;e&#160;∗&#160;command<br/>
+1<br/>2<br/>
+buzz<br/>
+4<br/>5<br/>
+buzz<br/>
+7<br/>8<br/>
+buzz<br/>
+10<br/>11<br/>
+buzz<br/>buzz<br/>
+14<br/>
+NB&#160;:&#160;w&#160;r&#160;i&#160;t&#160;e&#160;does&#160;not&#160;a&#160;u&#160;t&#160;o&#160;m&#160;a&#160;t&#160;i&#160;c&#160;a&#160;l&#160;l&#160;y&#160;add&#160;a&#160;newline&#160;.<br/>
+<b>Conditionals</b><br/>
+This&#160;example&#160;will&#160;show&#160;the&#160;usage&#160;of&#160;conditional&#160;parts&#160;within&#160;a&#160;pgen&#160;file<br/>
+The&#160;example&#160;contains&#160;a&#160;module&#160;named&#160;MyModule&#160;which&#160;is&#160;of&#160;type&#160;TestModule&#160;and&#160;located&#160;in&#160;the<br/>package&#160;/TestPackage/TestModule<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+if<br/>elif<br/>else<br/>ShortIfBlock<br/>ConditionalBlock<br/>value<br/>
+<b>ARXML&#160;Files</b><br/>
+<b>input.arxml</b><br/>
+<b>&lt;?xml&#160;version=</b>’1.0’<b>?&gt;</b><br/>
+<b>&lt;AUTOSAR&#160;xmlns=</b>&#34;http://autosar.org/schema/r4.0&#34;<br/>
+<b>xmlns:xsi=</b>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;14&#160;of&#160;22<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-15_1.png"/><br/>
+<b>xsi:schemaLocation=</b>&#34;http://autosar.org/schema/r4.0&#160;autosar.xsd&#34;<b>&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;ELEMENTS&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;/ELEMENTS&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AUTOSAR&gt;</b><br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+C&#160;o&#160;n&#160;d&#160;i&#160;t&#160;i&#160;o&#160;n&#160;a&#160;l&#160;s&#160;can&#160;be&#160;done&#160;as&#160;seen&#160;here&#160;:<br/>
+%{:&#160;i&#160;f&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;I&#160;n&#160;t&#160;'&#160;)&#160;)&#160;&lt;&#160;6&#160;}%<br/>
+Test<br/>
+%{:&#160;e&#160;l&#160;i&#160;f&#160;e&#160;x&#160;i&#160;s&#160;t&#160;s&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;F&#160;l&#160;o&#160;a&#160;t&#160;'&#160;)&#160;)&#160;}%<br/>
+This&#160;w&#160;i&#160;l&#160;l&#160;not&#160;occur&#160;i&#160;n&#160;the&#160;output<br/>
+%{:&#160;e&#160;l&#160;s&#160;e&#160;}%<br/>
+This&#160;won&#160;'&#160;t&#160;appear<br/>
+%{:}%<br/>
+Want&#160;some&#160;s&#160;h&#160;o&#160;r&#160;t&#160;e&#160;r&#160;i&#160;f&#160;?<br/>These&#160;w&#160;r&#160;i&#160;t&#160;e&#160;the&#160;t&#160;e&#160;x&#160;t&#160;provided&#160;dependent&#160;on&#160;the&#160;r&#160;e&#160;s&#160;u&#160;l&#160;t&#160;o&#160;f&#160;the&#160;statement&#160;e&#160;v&#160;a&#160;l&#160;u&#160;a&#160;t&#160;i&#160;o&#160;n<br/>
+#&#160;Both&#160;o&#160;p&#160;t&#160;i&#160;o&#160;n&#160;s&#160;provided<br/>
+True&#160;:<br/>
+%{?&#160;True&#160;:&#160;For&#160;sure&#160;!&#160;:&#160;Nooooo!}%<br/>
+False&#160;:&#160;%{?&#160;False&#160;:&#160;For&#160;sure&#160;!&#160;:&#160;Nooooo!}%<br/>
+#&#160;No&#160;i&#160;s&#160;not&#160;an&#160;o&#160;p&#160;t&#160;i&#160;o&#160;n<br/>
+True&#160;:<br/>
+%{?&#160;True&#160;:&#160;For&#160;sure&#160;!}%<br/>
+False&#160;:&#160;%{?&#160;False&#160;:&#160;For&#160;sure&#160;!}%<br/>
+#&#160;Only&#160;output&#160;something&#160;i&#160;f&#160;the&#160;r&#160;e&#160;s&#160;u&#160;l&#160;t&#160;i&#160;s&#160;f&#160;a&#160;l&#160;s&#160;e<br/>
+True&#160;:<br/>
+%{?&#160;True&#160;:&#160;:&#160;NO!&#160;!&#160;!&#160;!&#160;}&#160;%<br/>
+False&#160;:&#160;%{?&#160;False&#160;:&#160;:&#160;NO!&#160;!&#160;!&#160;!&#160;}&#160;%<br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;15&#160;of&#160;22<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-16_1.png"/><br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;took&#160;:&#160;0.000677&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;a&#160;l&#160;l&#160;XMLs&#160;took&#160;:&#160;0.000871&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;4&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00211&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+F&#160;i&#160;l&#160;e&#160;does&#160;not&#160;e&#160;x&#160;i&#160;s&#160;t<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Wr&#160;ite&#160;/&#160;0&#160;0&#160;4&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t<br/>
+<b>File&#160;Output</b><br/>
+C&#160;o&#160;n&#160;d&#160;i&#160;t&#160;i&#160;o&#160;n&#160;a&#160;l&#160;s&#160;can&#160;be&#160;done&#160;as&#160;seen&#160;here&#160;:<br/>
+Test<br/>
+Want&#160;some&#160;s&#160;h&#160;o&#160;r&#160;t&#160;e&#160;r&#160;i&#160;f&#160;?<br/>These&#160;w&#160;r&#160;i&#160;t&#160;e&#160;the&#160;t&#160;e&#160;x&#160;t&#160;provided&#160;dependent&#160;on&#160;the&#160;r&#160;e&#160;s&#160;u&#160;l&#160;t&#160;o&#160;f&#160;the&#160;statement&#160;e&#160;v&#160;a&#160;l&#160;u&#160;a&#160;t&#160;i&#160;o&#160;n<br/>
+#&#160;Both&#160;o&#160;p&#160;t&#160;i&#160;o&#160;n&#160;s&#160;provided<br/>
+True&#160;:<br/>
+For&#160;sure&#160;!<br/>
+False&#160;:&#160;Nooooo&#160;!<br/>
+#&#160;No&#160;i&#160;s&#160;not&#160;an&#160;o&#160;p&#160;t&#160;i&#160;o&#160;n<br/>
+True&#160;:<br/>
+For&#160;sure&#160;!<br/>
+False&#160;:<br/>
+#&#160;Only&#160;output&#160;something&#160;i&#160;f&#160;the&#160;r&#160;e&#160;s&#160;u&#160;l&#160;t&#160;i&#160;s&#160;f&#160;a&#160;l&#160;s&#160;e<br/>
+True&#160;:<br/>
+False&#160;:&#160;NO&#160;!&#160;!&#160;!&#160;!<br/>
+<b>More&#160;Functions</b><br/>
+This&#160;example&#160;will&#160;contain&#160;usages&#160;of&#160;different&#160;functions.<br/>
+The&#160;example&#160;contains&#160;a&#160;module&#160;named&#160;MyModule&#160;which&#160;is&#160;of&#160;type&#160;TestModule&#160;and&#160;located&#160;in&#160;the<br/>package&#160;/TestPackage/TestModule<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+count<br/>current_shortname<br/>exists<br/>with<br/>
+<b>ARXML&#160;Files</b><br/>
+<b>input.arxml</b><br/>
+<b>&lt;?xml&#160;version=</b>’1.0’<b>?&gt;</b><br/>
+<b>&lt;AUTOSAR&#160;xmlns=</b>&#34;http://autosar.org/schema/r4.0&#34;<br/>
+<b>xmlns:xsi=</b>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;<br/>
+<b>xsi:schemaLocation=</b>&#34;http://autosar.org/schema/r4.0&#160;autosar.xsd&#34;<b>&gt;</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;16&#160;of&#160;22<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-17_1.png"/><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;ELEMENTS&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-FLOAT-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b><br/>
+<b>REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-STRING-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>Hello&#160;World&#160;the&#160;value&#160;is:&#160;<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;/ELEMENTS&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AUTOSAR&gt;</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;17&#160;of&#160;22<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-18_1.png"/><br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;TestModule&#160;'&#160;)&#160;)&#160;}%<br/>
+%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>
+We&#160;can&#160;a&#160;l&#160;s&#160;o&#160;check&#160;the&#160;number&#160;o&#160;f&#160;elements&#160;:<br/>
+There&#160;are&#160;%{=&#160;count&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;I&#160;n&#160;t&#160;'&#160;)&#160;)&#160;}%&#160;V&#160;a&#160;l&#160;u&#160;e&#160;I&#160;n&#160;t&#160;elements&#160;.<br/>There&#160;e&#160;x&#160;i&#160;s&#160;t&#160;s&#160;a&#160;t&#160;l&#160;e&#160;a&#160;s&#160;t&#160;one&#160;V&#160;a&#160;l&#160;u&#160;e&#160;F&#160;l&#160;o&#160;a&#160;t&#160;:&#160;%{=&#160;e&#160;x&#160;i&#160;s&#160;t&#160;s&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;V&#160;a&#160;l&#160;u&#160;e&#160;F&#160;l&#160;o&#160;a&#160;t&#160;'&#160;)&#160;)&#160;}%.<br/>
+You&#160;can&#160;use&#160;the&#160;p&#160;r&#160;e&#160;v&#160;i&#160;o&#160;u&#160;s&#160;o&#160;p&#160;t&#160;i&#160;o&#160;n&#160;s&#160;a&#160;l&#160;s&#160;o&#160;as&#160;an&#160;asignment&#160;statement&#160;:<br/>
+%{#&#160;pre&#160;viou&#160;s_sn&#160;=&#160;current_shortname&#160;(&#160;)&#160;}%<br/>%{#&#160;l&#160;e&#160;a&#160;v&#160;e&#160;()}%<br/>
+and&#160;use&#160;i&#160;t&#160;l&#160;a&#160;t&#160;e&#160;r<br/>
+%{=&#160;pr&#160;evio&#160;us_s&#160;n&#160;}%<br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;took&#160;:&#160;0.0012&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;a&#160;l&#160;l&#160;XMLs&#160;took&#160;:&#160;0.00162&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;5&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00212&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+F&#160;i&#160;l&#160;e&#160;does&#160;not&#160;e&#160;x&#160;i&#160;s&#160;t<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Wr&#160;ite&#160;/&#160;0&#160;0&#160;5&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t<br/>
+<b>File&#160;Output</b><br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule<br/>
+We&#160;can&#160;a&#160;l&#160;s&#160;o&#160;check&#160;the&#160;number&#160;o&#160;f&#160;elements&#160;:<br/>
+There&#160;are&#160;2&#160;V&#160;a&#160;l&#160;u&#160;e&#160;I&#160;n&#160;t&#160;elements&#160;.<br/>There&#160;e&#160;x&#160;i&#160;s&#160;t&#160;s&#160;a&#160;t&#160;l&#160;e&#160;a&#160;s&#160;t&#160;one&#160;V&#160;a&#160;l&#160;u&#160;e&#160;F&#160;l&#160;o&#160;a&#160;t&#160;:&#160;1&#160;.<br/>
+You&#160;can&#160;use&#160;the&#160;p&#160;r&#160;e&#160;v&#160;i&#160;o&#160;u&#160;s&#160;o&#160;p&#160;t&#160;i&#160;o&#160;n&#160;s&#160;a&#160;l&#160;s&#160;o&#160;as&#160;an&#160;asignment&#160;statement&#160;:<br/>and&#160;use&#160;i&#160;t&#160;l&#160;a&#160;t&#160;e&#160;r<br/>MyModule<br/>
+<b>ARXML&#160;Stuff</b><br/>
+This&#160;example&#160;will&#160;demonstrate&#160;some&#160;more&#160;ARXML&#160;selection&#160;stuff&#160;which&#160;can&#160;be&#160;usefull.<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+into<br/>module<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;18&#160;of&#160;22<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-19_1.png"/><br/>
+each<br/>container<br/>ref<br/>snpath<br/>
+<b>ARXML&#160;Files</b><br/>
+<b>input.arxml</b><br/>
+<b>&lt;?xml&#160;version=</b>’1.0’<b>?&gt;</b><br/>
+<b>&lt;AUTOSAR&#160;xmlns=</b>&#34;http://autosar.org/schema/r4.0&#34;<br/>
+<b>xmlns:xsi=</b>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;<br/>
+<b>xsi:schemaLocation=</b>&#34;http://autosar.org/schema/r4.0&#160;autosar.xsd&#34;<b>&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;ELEMENTS&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-FLOAT-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b><br/>
+<b>REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;19&#160;of&#160;22<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-20_1.png"/><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-STRING-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>Hello&#160;World&#160;the&#160;value&#160;is:&#160;<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;REFERENCE-VALUES&gt;</b><br/>
+<b>&lt;ECUC-REFERENCE-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-REFERENCE-DEF&#34;<b>&gt;</b>/BMW_DEF/AnotherTestModule/<br/>
+StringValues/ReferenceToNumericals<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE-REF&#160;DEST=</b>&#34;ECUC-CONTAINER-VALUE&#34;<b>&gt;</b>/TestPackage/TestModule/<br/>
+MyModule/NumericalValues<b>&lt;/VALUE-REF&gt;</b><br/>
+<b>&lt;/ECUC-REFERENCE-VALUE&gt;</b><br/>
+<b>&lt;/REFERENCE-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;/ELEMENTS&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AUTOSAR&gt;</b><br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+Find&#160;a&#160;Module&#160;and&#160;change&#160;the&#160;c&#160;u&#160;r&#160;r&#160;e&#160;n&#160;t&#160;scope&#160;to&#160;i&#160;t<br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;module&#160;(&#160;'&#160;TestModule&#160;'&#160;)&#160;)&#160;}%<br/>
+The&#160;next&#160;element&#160;to&#160;get&#160;to&#160;i&#160;s&#160;a&#160;(&#160;sub&#160;)&#160;c&#160;o&#160;n&#160;t&#160;a&#160;i&#160;n&#160;e&#160;r<br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;c&#160;o&#160;n&#160;t&#160;a&#160;i&#160;n&#160;e&#160;r&#160;(&#160;'&#160;NumericalValues&#160;'&#160;)&#160;)&#160;}%<br/>
+But&#160;we&#160;need&#160;a&#160;d&#160;i&#160;f&#160;f&#160;e&#160;r&#160;e&#160;n&#160;t&#160;c&#160;o&#160;n&#160;t&#160;a&#160;i&#160;n&#160;e&#160;r<br/>
+%{#<br/>
+r&#160;e&#160;s&#160;e&#160;t&#160;(&#160;)<br/>i&#160;n&#160;t&#160;o&#160;(&#160;c&#160;o&#160;n&#160;t&#160;a&#160;i&#160;n&#160;e&#160;r&#160;(&#160;'&#160;AnotherTestModule&#160;/&#160;S&#160;t&#160;r&#160;i&#160;n&#160;g&#160;V&#160;a&#160;l&#160;u&#160;e&#160;s&#160;'&#160;)&#160;)<br/>
+}%<br/>
+You&#160;can&#160;search&#160;f&#160;o&#160;r&#160;elements&#160;references&#160;,&#160;too&#160;:<br/>
+%{=&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;ReferenceToNumericals&#160;'&#160;)&#160;)&#160;}%<br/>
+You&#160;can&#160;use&#160;these&#160;to&#160;go&#160;i&#160;n&#160;t&#160;o&#160;but&#160;you&#160;have&#160;to&#160;use&#160;v&#160;a&#160;l&#160;u&#160;e<br/>
+to&#160;get&#160;the&#160;s&#160;t&#160;r&#160;i&#160;n&#160;g&#160;o&#160;f&#160;the&#160;r&#160;e&#160;f&#160;e&#160;r&#160;e&#160;n&#160;c&#160;e<br/>
+%{#&#160;i&#160;n&#160;t&#160;o&#160;(&#160;v&#160;a&#160;l&#160;u&#160;e&#160;(&#160;r&#160;e&#160;f&#160;(&#160;'&#160;ReferenceToNumericals&#160;'&#160;)&#160;)&#160;)&#160;}%<br/>
+%{=&#160;current_shortname_path&#160;(&#160;)&#160;}%<br/>
+%{#&#160;r&#160;e&#160;s&#160;e&#160;t&#160;(&#160;)&#160;}%<br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;took&#160;:&#160;0.00095&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;a&#160;l&#160;l&#160;XMLs&#160;took&#160;:&#160;0.00114&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;20&#160;of&#160;22<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-21_1.png"/><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;6&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00228&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+F&#160;i&#160;l&#160;e&#160;does&#160;not&#160;e&#160;x&#160;i&#160;s&#160;t<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Wr&#160;ite&#160;/&#160;0&#160;0&#160;6&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t<br/>
+<b>File&#160;Output</b><br/>
+Find&#160;a&#160;Module&#160;and&#160;change&#160;the&#160;c&#160;u&#160;r&#160;r&#160;e&#160;n&#160;t&#160;scope&#160;to&#160;i&#160;t<br/>
+The&#160;next&#160;element&#160;to&#160;get&#160;to&#160;i&#160;s&#160;a&#160;(&#160;sub&#160;)&#160;c&#160;o&#160;n&#160;t&#160;a&#160;i&#160;n&#160;e&#160;r<br/>
+But&#160;we&#160;need&#160;a&#160;d&#160;i&#160;f&#160;f&#160;e&#160;r&#160;e&#160;n&#160;t&#160;c&#160;o&#160;n&#160;t&#160;a&#160;i&#160;n&#160;e&#160;r<br/>
+You&#160;can&#160;search&#160;f&#160;o&#160;r&#160;elements&#160;references&#160;,&#160;too&#160;:<br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule&#160;/&#160;NumericalValues<br/>
+You&#160;can&#160;use&#160;these&#160;to&#160;go&#160;i&#160;n&#160;t&#160;o&#160;but&#160;you&#160;have&#160;to&#160;use&#160;v&#160;a&#160;l&#160;u&#160;e<br/>
+to&#160;get&#160;the&#160;s&#160;t&#160;r&#160;i&#160;n&#160;g&#160;o&#160;f&#160;the&#160;r&#160;e&#160;f&#160;e&#160;r&#160;e&#160;n&#160;c&#160;e<br/>
+/&#160;TestPackage&#160;/&#160;TestModule&#160;/&#160;MyModule&#160;/&#160;NumericalValues<br/>
+<b>Filtering&#160;Elements</b><br/>
+This&#160;example&#160;will&#160;demonstrate&#160;some&#160;techniques&#160;that&#160;can&#160;be&#160;used&#160;to&#160;filter&#160;some&#160;elements&#160;out&#160;of&#160;a&#160;larger<br/>list.<br/>
+It&#160;will&#160;demonstrate&#160;the&#160;following&#160;commands:<br/>
+into<br/>reset<br/>ref<br/>module<br/>current_shortname_path<br/>with<br/>
+<b>ARXML&#160;Files</b><br/>
+<b>input.arxml</b><br/>
+<b>&lt;?xml&#160;version=</b>’1.0’<b>?&gt;</b><br/>
+<b>&lt;AUTOSAR&#160;xmlns=</b>&#34;http://autosar.org/schema/r4.0&#34;<br/>
+<b>xmlns:xsi=</b>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;<br/>
+<b>xsi:schemaLocation=</b>&#34;http://autosar.org/schema/r4.0&#160;autosar.xsd&#34;<b>&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;AR-PACKAGES&gt;</b><br/>
+<b>&lt;AR-PACKAGE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;ELEMENTS&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;21&#160;of&#160;22<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-22_1.png"/><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-INTEGER-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-FLOAT-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/TestModule/<br/>
+NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-MODULE-DEF&#34;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b><br/>
+<b>REF&gt;</b><br/>
+<b>&lt;CONTAINERS&gt;</b><br/>
+<b>&lt;ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-PARAM-CONF-CONTAINER-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;DEFINITION-REF&#160;DEST=</b>&#34;ECUC-STRING-PARAM-DEF&#34;<b>&gt;</b>/BMW_DEF/<br/>
+AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b><br/>
+<b>&lt;VALUE&gt;</b>Hello&#160;World&#160;the&#160;value&#160;is:&#160;<b>&lt;/VALUE&gt;</b><br/>
+<b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b><br/>
+<b>&lt;/PARAMETER-VALUES&gt;</b><br/>
+<b>&lt;/ECUC-CONTAINER-VALUE&gt;</b><br/>
+<b>&lt;/CONTAINERS&gt;</b><br/>
+<b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b><br/>
+<b>&lt;/ELEMENTS&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AR-PACKAGE&gt;</b><br/>
+<b>&lt;/AR-PACKAGES&gt;</b><br/>
+<b>&lt;/AUTOSAR&gt;</b><br/>
+<b>pgen&#160;Files</b><br/>
+<b>input.pgen</b><br/>
+<b>Command&#160;line</b><br/>
+page&#160;−vvvv&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+<b>Console&#160;Output</b><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;a&#160;r&#160;x&#160;m&#160;l<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;XML&#160;took&#160;:&#160;0.000903&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Reading&#160;a&#160;l&#160;l&#160;XMLs&#160;took&#160;:&#160;0.00111&#160;s<br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;22&#160;of&#160;22<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL125A_PAGe/doc/PAGe_UserManual-23_1.png"/><br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+processing&#160;Pgen&#160;:&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Open&#160;f&#160;i&#160;l&#160;e&#160;/&#160;0&#160;0&#160;7&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;.&#160;pgen<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Processing&#160;Pgen&#160;took&#160;:&#160;0.00141&#160;s<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Empty&#160;content&#160;−&gt;&#160;no&#160;f&#160;i&#160;l&#160;e&#160;w&#160;r&#160;i&#160;t&#160;t&#160;e&#160;n<br/>
+BMW&#160;PAGe<br/>
+:&#160;INFO<br/>
+Skipping&#160;w&#160;r&#160;i&#160;t&#160;e&#160;o&#160;f&#160;/&#160;0&#160;0&#160;7&#160;/&#160;i&#160;n&#160;p&#160;u&#160;t&#160;,&#160;no&#160;changes&#160;detected<br/>
+<b>File&#160;Output</b><br/>
+UserGuide_PAGe,&#160;Version&#160;1.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;23&#160;of&#160;22<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="PAGe_UserManuals.html#4">1 Overview</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#4">1.1 Purpose</a></li>
+<li><a href="PAGe_UserManuals.html#4">1.2 Usage</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#4">1.2.1 Generation</a></li>
+<li><a href="PAGe_UserManuals.html#4">1.2.2 Validation</a></li>
+<li><a href="PAGe_UserManuals.html#4">1.2.3 verb</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#5">2 Acronyms and Abbreviations</a></li>
+<li><a href="PAGe_UserManuals.html#6">3 Functionality</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#6">3.1 Command Line Usage</a></li>
+<li><a href="PAGe_UserManuals.html#6">3.2 Fileformat</a></li>
+<li><a href="PAGe_UserManuals.html#7">3.3 Available Function and Objects</a></li>
+<li><a href="PAGe_UserManuals.html#8">3.4 Handling of paramconf</a></li>
+<li><a href="PAGe_UserManuals.html#8">3.5 Notes ARXML shortcuts</a></li>
+<li><a href="PAGe_UserManuals.html#8">3.6 Loops</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#9">4 Examples</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#9">4.1 Basic Navigation</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#9">4.1.1 ARXML Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#9">4.1.1.1 input.arxml</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#10">4.1.2 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#10">4.1.2.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#11">4.1.3 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#11">4.1.4 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#11">4.1.5 File Output</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#12">4.2 Logging</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#12">4.2.1 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#12">4.2.1.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#12">4.2.2 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#12">4.2.3 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#12">4.2.4 File Output</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#12">4.3 Usage of Code Blocks</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#13">4.3.1 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#13">4.3.1.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#13">4.3.2 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#13">4.3.3 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#13">4.3.4 File Output</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#14">4.4 Conditionals</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#14">4.4.1 ARXML Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#14">4.4.1.1 input.arxml</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#15">4.4.2 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#15">4.4.2.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#15">4.4.3 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#16">4.4.4 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#16">4.4.5 File Output</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#16">4.5 More Functions</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#16">4.5.1 ARXML Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#16">4.5.1.1 input.arxml</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#18">4.5.2 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#18">4.5.2.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#18">4.5.3 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#18">4.5.4 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#18">4.5.5 File Output</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#18">4.6 ARXML Stuff</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#19">4.6.1 ARXML Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#19">4.6.1.1 input.arxml</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#20">4.6.2 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#20">4.6.2.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#20">4.6.3 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#20">4.6.4 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#21">4.6.5 File Output</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#21">4.7 Filtering Elements</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#21">4.7.1 ARXML Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#21">4.7.1.1 input.arxml</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#22">4.7.2 pgen Files</a>
+<ul>
+<li><a href="PAGe_UserManuals.html#22">4.7.2.1 input.pgen</a></li>
+</ul>
+</li>
+<li><a href="PAGe_UserManuals.html#22">4.7.3 Command line</a></li>
+<li><a href="PAGe_UserManuals.html#22">4.7.4 Console Output</a></li>
+<li><a href="PAGe_UserManuals.html#23">4.7.5 File Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

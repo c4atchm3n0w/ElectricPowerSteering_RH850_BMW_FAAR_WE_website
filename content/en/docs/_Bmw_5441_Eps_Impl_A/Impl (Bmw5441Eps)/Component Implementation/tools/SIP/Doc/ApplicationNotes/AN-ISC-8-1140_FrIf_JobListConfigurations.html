@@ -1,0 +1,514 @@
+---
+title: AN-ISC-8-1140_FrIf_JobListConfigurations
+linkTitle: AN-ISC-8-1140_FrIf_JobListConfigurations
+weight: 43
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-1_1.png"/><br/>
+<b>&#160;</b><br/>
+<b>JobList&#160;Configuration of&#160;FlexRay&#160;Interface&#160;</b><br/>
+<b>Version&#160;1.2&#160;</b><br/>
+<b>2014-03-19&#160;</b><br/>
+<b>Application&#160;Note &#160;AN-ISC-8-1140&#160;</b><br/>
+&#160;<br/>&#160;<i>&#160;<br/></i>Author(s)&#160;<br/>
+Oliver,&#160;Reineke;&#160;Drescher,&#160;Markus&#160;<br/>
+Restrictions&#160;<br/>
+Customer&#160;confidential&#160;-&#160;AUTOSAR&#160;only&#160;<br/>
+Abstract&#160;<br/>
+This&#160;application&#160;notes&#160;describes&#160;how&#160;the FlexRay&#160;Interface JobList&#160;is&#160;configured.&#160;<br/>
+<i><b>&#160;<br/>Table&#160;of Contents&#160;</b></i><br/>
+<i><b>&#160;<br/></b></i>&#160;<br/><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">1.0&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">Overview&#160;..........................................................................................................................................................&#160;1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">1.1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">What&#160;is&#160;the Job&#160;List&#160;about?&#160;...........................................................................................................................&#160;1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">1.1.1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">Communication Jobs&#160;..................................................................................................................................&#160;1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">1.2&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">Job List&#160;Configuration&#160;....................................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">1.2.1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">Scheduling&#160;Algorithm&#160;–&#160;Default&#160;..................................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">1.2.2&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">Scheduling&#160;Algorithm&#160;–&#160;Concatenated&#160;Jobs&#160;...............................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">1.2.3&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">Scheduling&#160;Algorithm&#160;–&#160;User&#160;Defined&#160;.........................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">1.3&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">Synchronisation of&#160;BSW&#160;main functions&#160;.......................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#4">2.0&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#4">Configuration aspects&#160;......................................................................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">2.1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">PDUs&#160;with decoupled transmission&#160;...............................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">2.1.1&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">Optimal&#160;BSW&#160;main&#160;function&#160;placement&#160;......................................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#8">2.1.2&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#8">Wrong FRIFJob configurations&#160;...................................................................................................................&#160;8&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#9">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#9">PDUs&#160;with immediate transmission&#160;...............................................................................................................&#160;9&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#10">3.0&#160;</a><br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#10">Contacts&#160;.........................................................................................................................................................&#160;10&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>1.0&#160;&#160;Overview&#160;<br/></b>The following&#160;application note describes&#160;how&#160;to&#160;configure&#160;the&#160;FRIF&#160;Job&#160;List.&#160;<br/>
+<b>1.1&#160;&#160;What&#160;is&#160;the&#160;Job List&#160;about?&#160;<br/></b>Receive and transmit&#160;buffers&#160;of&#160;the FlexRay&#160;CC&#160;(communication controller)&#160;may&#160;only&#160;be&#160;accessed at&#160;well&#160;defined&#160;<br/>
+points&#160;in&#160;time in&#160;order&#160;to&#160;avoid concurrent&#160;access&#160;to the buffers&#160;by&#160;the&#160;hardware&#160;and the software.&#160;To provide&#160;this&#160;<br/>
+synchronous&#160;access,&#160;the FlexRay&#160;Interface defines&#160;a FlexRay&#160;Job&#160;List&#160;for&#160;each&#160;cluster.&#160;The&#160;cluster’s&#160;FlexRay&#160;Job&#160;<br/>
+List&#160;is&#160;executed&#160;by&#160;its Job List&#160;Execution&#160;(JLE)&#160;function&#160;using&#160;an&#160;absolute&#160;timer&#160;of&#160;the&#160;FlexRay&#160;CC.&#160;<br/>
+<b>1.1.1&#160;&#160;Communication&#160;Jobs&#160;<br/></b>A&#160;FlexRay&#160;Job List&#160;is&#160;a list&#160;of&#160;communication jobs&#160;that&#160;are sorted&#160;according to&#160;the&#160;time when they&#160;shall&#160;be&#160;<br/>
+executed.&#160;This&#160;start&#160;time defines&#160;when the respective&#160;JLE&#160;function shall&#160;be called.&#160;The&#160;communication&#160;operations&#160;<br/>
+specify&#160;the&#160;actual&#160;actions&#160;to process&#160;within the&#160;communication&#160;job.&#160;<br/>
+<b>&#160;1&#160;&#160;</b><br/>
+<i>Copyright&#160;©&#160;2014&#160;-&#160;Vector&#160;Informatik&#160;GmbH&#160;</i><br/>
+<b>Contact&#160;Information:&#160; &#160;www.vector-informatik.com&#160;&#160; or&#160;++49-711-80 670-0&#160;</b><br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-2_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>According the AUTOSAR&#160;SWS&#160;the FlexRay&#160;Interface supports&#160;the following&#160;communication&#160;operations&#160;that&#160;can be&#160;<br/>
+performed for&#160;each receive&#160;or&#160;transmit&#160;buffer:&#160;<br/>
+•&#160;&#160;Decoupled&#160;Transmission&#160;<br/>
+•&#160;&#160;Receive and Indicate&#160;<br/>
+•&#160;&#160;Tx&#160;Confirmation&#160;<br/>
+&#160;<br/>
+<b>1.2&#160;&#160;Job List&#160;Configuration&#160;&#160;<br/></b>As&#160;the&#160;FRIF&#160;Job&#160;List&#160;configuration&#160;is&#160;difficult&#160;and error-prone,&#160;GENy&#160;offers&#160;the possibility&#160;to calculate the&#160;<br/>
+scheduling&#160;of&#160;the communication&#160;operations.&#160;The FlexRay&#160;Interface supports&#160;the&#160;following configuration&#160;<br/>
+mechanisms&#160;(SchedulingAlgorithms)&#160;in GENy:&#160;<br/>
+•&#160;&#160;Default&#160;&#160;<br/>
+•&#160;&#160;Concatenated Jobs&#160;<br/>
+•&#160;&#160;User&#160;Defined&#160;<br/>
+<b>1.2.1&#160;&#160;Scheduling&#160;Algorithm&#160;–&#160;Default&#160;<br/></b>The&#160;<b>default</b>&#160;scheduling algorithm&#160;divides&#160;the FlexRay&#160;cycle&#160;into&#160;x&#160;segments&#160;of&#160;the same size,&#160;where&#160;x&#160;is&#160;the&#160;<br/>
+number&#160;of&#160;Tx&#160;or&#160;Rx&#160;jobs.&#160;Depending on the start&#160;slot&#160;and end slot&#160;of&#160;these&#160;segments&#160;the start&#160;time of&#160;the&#160;<br/>
+corresponding task&#160;and the&#160;maximum&#160;ISR&#160;delay&#160;is&#160;automatically&#160;calculated.&#160;<br/>Example:&#160;&#160;<br/>For&#160;a cycle&#160;with a&#160;length of&#160;5000&#160;macro ticks&#160;which&#160;is&#160;divided into&#160;a static&#160;segment&#160;of&#160;3000 macro ticks&#160;length&#160;and&#160;<br/>
+a dynamic&#160;segment&#160;of&#160;2000 macro ticks&#160;length,&#160;the following segments&#160;(Segment&#160;0 and Segment&#160;1&#160;in<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">&#160;Figure&#160;1)&#160;</a><br/>
+arise:&#160;<br/>&#160;<br/>
+&#160;<br/>
+Figure&#160;1&#160;–&#160;<b>Default</b>&#160;Scheduling Algorithm&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+A&#160;TxConf&#160;job is&#160;needed&#160;if&#160;a&#160;Tx&#160;job&#160;performs&#160;the&#160;decoupled transmission for&#160;a FlexRay&#160;frame with&#160;<br/>
+at&#160;least&#160;one&#160;PDU&#160;that&#160;shall&#160;be confirmed to&#160;the&#160;upper&#160;layer&#160;component.&#160;The Default&#160;Scheduling&#160;<br/>
+Algorithm&#160;takes&#160;the first&#160;job after&#160;the&#160;last&#160;slot&#160;of&#160;the Tx&#160;job as&#160;TxConf&#160;job.&#160;&#160;<br/>
+&#160;<br/>
+In the example above Rx1&#160;is&#160;the TxConf&#160;job for&#160;Tx1&#160;(because it&#160;is&#160;the first&#160;job after&#160;Segment&#160;0)&#160;and&#160;<br/>
+Rx0 is&#160;the TxConf&#160;job for&#160;Tx0&#160;(because&#160;it&#160;is&#160;the first&#160;Job after&#160;Segment&#160;1).&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>2<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-3_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/><b>1.2.2&#160;&#160;Scheduling&#160;Algorithm&#160;–&#160;Concatenated&#160;Jobs&#160;<br/></b>In contrast&#160;to the default&#160;algorithm&#160;the&#160;<b>Concatenated&#160;Jobs</b>&#160;algorithm&#160;configures&#160;the start&#160;time of&#160;an Rx&#160;and&#160;the&#160;<br/>
+following&#160;Tx&#160;FRIF&#160;job to&#160;the&#160;same&#160;macrotick&#160;parameter&#160;and&#160;enables&#160;the Job Concatenation&#160;Enable option.&#160;As&#160;one&#160;<br/>
+timer&#160;interrupt&#160;is&#160;used&#160;to activate&#160;an Rx&#160;and Tx&#160;FRIF&#160;job,&#160;this&#160;algorithm&#160;can be used to reduce the&#160;interrupt&#160;load of&#160;<br/>
+the FlexRay&#160;Interface.&#160;<br/>
+<b>&#160;</b><br/>
+Figure&#160;2&#160;–&#160;<b>Concatenated&#160;Jobs</b>&#160;Scheduling Algorithm&#160;<br/>
+&#160;<br/>Note:&#160;<br/>
+Due to the job concatenation it&#160;is&#160;not&#160;possible&#160;to&#160;achieve both shortest&#160;possible&#160;indication times&#160;<br/>
+after&#160;reception and&#160;latest&#160;data for&#160;transmission.&#160;<br/>
+&#160;<br/>For&#160;example in the&#160;picture&#160;above the concatenated jobs&#160;Rx0 and Tx0 can&#160;either&#160;be placed&#160;at&#160;the&#160;<br/>
+beginning&#160;of&#160;the cycle&#160;with&#160;the consequence that&#160;the&#160;data indications&#160;for&#160;frames&#160;in Segment&#160;1&#160;will&#160;<br/>
+be given to the upper&#160;layer&#160;components&#160;as&#160;soon&#160;as&#160;possible.&#160;Or&#160;Rx0&#160;and Tx0 can be placed&#160;just&#160;<br/>
+before the&#160;start&#160;of&#160;Segment&#160;1 to reduce the&#160;age&#160;of&#160;the transmitted data.&#160;<br/>
+&#160;<br/>
+<b>1.2.3&#160;&#160;Scheduling&#160;Algorithm&#160;–&#160;User&#160;Defined&#160;<br/></b>Beside the automated job&#160;placement&#160;GENy&#160;offers&#160;the possibility&#160;to configure the following&#160;job&#160;parameters&#160;<br/>
+manually:&#160;<br/>
+•&#160;&#160;Start&#160;Slot&#160;and&#160;End&#160;Slot&#160;(or&#160;assignment&#160;of&#160;single frames&#160;to a Job)&#160;<br/>
+•&#160;&#160;Macrotick&#160;<br/>
+•&#160;&#160;Maximum&#160;permissible&#160;ISR&#160;delay&#160;<br/>
+•&#160;&#160;TxConf&#160;Job&#160;<br/>
+&#160;<br/>
+<b>1.3&#160;&#160;Synchronisation of&#160;BSW&#160;main&#160;functions&#160;<br/></b>For&#160;deterministic&#160;communication behaviour&#160;on FlexRay&#160;it&#160;is&#160;necessary&#160;to synchronize the main function&#160;of&#160;FlexRay&#160;<br/>
+relevant&#160;BSW&#160;modules&#160;to&#160;the global&#160;time of&#160;the FlexRay&#160;CC.&#160;If&#160;the main functions&#160;are not&#160;synchronized&#160;it&#160;is&#160;<br/>
+possible that&#160;obsolete&#160;data&#160;is&#160;received&#160;or&#160;updated&#160;PDUs&#160;are&#160;not&#160;transmitted during&#160;the FlexRay&#160;cycle.&#160;&#160;<br/>&#160;<br/>For&#160;example if&#160;an application task&#160;shall&#160;receive PDU&#160;data at&#160;the beginning&#160;of&#160;the&#160;FlexRay&#160;cycle and the response&#160;<br/>
+should be&#160;transmitted at&#160;the end of&#160;the same cycle,&#160;it&#160;is&#160;necessary&#160;that&#160;this&#160;ApplTask&#160;is&#160;scheduled&#160;between&#160;the Rx&#160;<br/>
+receive slot&#160;and the Tx&#160;transmit&#160;slot.&#160;If&#160;the&#160;task&#160;is&#160;not&#160;synchronised&#160;and&#160;the task&#160;drift&#160;causes&#160;the application&#160;to&#160;<br/>
+transmit&#160;PDU&#160;data after&#160;the&#160;FlexRay&#160;slot&#160;is&#160;expired,&#160;the PDU&#160;will&#160;be&#160;transmitted in the&#160;next&#160;cycle&#160;as&#160;shown&#160;in&#160;<br/>
+<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#4">Figure&#160;3.</a>&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>3<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-4_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-4_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+Figure&#160;3&#160;–&#160;Unsynchronized application&#160;behaviour&#160;on FlexRay&#160;<br/>
+&#160;<br/>There are several&#160;ways&#160;to&#160;synchronize BSW&#160;modules&#160;to the FlexRay&#160;global&#160;time:&#160;<br/>
+1.&#160;&#160;Using synchronized schedule tables&#160;of&#160;the&#160;AUTOSAR&#160;OS&#160;<br/>
+2.&#160;&#160;Cancel&#160;and set&#160;relative alarms&#160;in the FlexRay&#160;timer&#160;or&#160;cycle start&#160;ISR&#160;(like the&#160;MICROSAR SCHM does)&#160;<br/>
+3.&#160;&#160;Calling the&#160;BSW&#160;main function&#160;directly&#160;in&#160;the&#160;context&#160;of&#160;the FlexRay&#160;timer&#160;or&#160;cycle&#160;start&#160;ISR&#160;<br/>
+&#160;<br/>Note:&#160;<br/>
+Calling the&#160;BSW&#160;main function&#160;only&#160;in&#160;the context&#160;of&#160;the FlexRay&#160;timer&#160;or&#160;cycle start&#160;ISR&#160;has&#160;the&#160;<br/>
+disadvantage that&#160;the main&#160;function&#160;won’t&#160;be&#160;called if&#160;the FlexRay&#160;bus&#160;loses&#160;synchronization.&#160;&#160;<br/>
+<b>2.0&#160;&#160;Configuration aspects&#160;<br/></b>For&#160;optimal&#160;BSW&#160;behaviour&#160;some configuration&#160;aspects&#160;shall&#160;be considered by&#160;the integrator&#160;as&#160;described&#160;in&#160;this&#160;<br/>
+section.&#160;Using&#160;the&#160;example&#160;of&#160;FRTP&#160;this&#160;chapter&#160;explains&#160;the details&#160;of:&#160;<br/>
+•&#160;&#160;FRIF&#160;job placement&#160;and&#160;configuration&#160;<br/>
+•&#160;&#160;Main function placement&#160;<br/>
+•&#160;&#160;FRIF&#160;PDU&#160;settings&#160;<br/>
+•&#160;&#160;Task&#160;priorities&#160;and&#160;interruptibilities&#160;<br/>
+•&#160;&#160;Duration&#160;of&#160;critical&#160;sections&#160;or&#160;resource locks&#160;<br/>
+•&#160;&#160;SystemTimer&#160;tick&#160;time&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+These settings&#160;are&#160;also relevant&#160;for&#160;non-FRTP&#160;modules&#160;like COM,&#160;PDUR,&#160;FRNM&#160;and&#160;FRXCP&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+Some FRNM specific&#160;details&#160;are also&#160;provided&#160;where&#160;applicable.&#160;<br/>
+In the following example the FRTP&#160;PDUs&#160;are&#160;all&#160;transmitted and received&#160;during&#160;the dynamic&#160;segment&#160;of&#160;the&#160;<br/>
+FlexRay cycle&#160;as&#160;depicted&#160;below.&#160;The corresponding frames&#160;have a cycle repetition 1 (meaning that&#160;they&#160;could&#160;be&#160;<br/>
+sent&#160;every cycle).&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+With AUTOSAR&#160;3.2.2 FRTP&#160;only&#160;the last&#160;Tx&#160;PDU&#160;of&#160;a PDU&#160;pool&#160;is&#160;confirmed by&#160;the FlexRay&#160;<br/>
+Interface to reduce the CPU&#160;and&#160;interrupt&#160;load.&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>4<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-5_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.1&#160;&#160;PDUs with&#160;decoupled transmission&#160;<br/></b>If&#160;FRTP&#160;PDUs&#160;are&#160;configured to&#160;use decoupled transmission,&#160;the transmission&#160;rate&#160;of&#160;the FlexRay&#160;Transport&#160;Layer&#160;<br/>
+strongly&#160;depends&#160;on the positioning of&#160;the&#160;FRTP&#160;main function and&#160;the&#160;Rx,&#160;Tx&#160;and&#160;TxConf&#160;FRIFJobs&#160;of&#160;the&#160;FRTP&#160;<br/>
+frames.&#160;<br/>
+Note:&#160;<br/>
+If&#160;the&#160;FRTP&#160;PDUs&#160;are&#160;sent&#160;with&#160;immediate transmission (the message buffers&#160;are written&#160;in&#160;the&#160;<br/>
+context&#160;of&#160;the&#160;FRTP&#160;main function)&#160;only&#160;the start&#160;times&#160;of&#160;the Rx&#160;and TxConf&#160;jobs&#160;are relevant&#160;for&#160;<br/>
+the placement&#160;of&#160;the&#160;FRTP&#160;main function.&#160;<br/>
+<b>2.1.1&#160;&#160;Optimal&#160;BSW&#160;main function&#160;placement&#160;</b><br/>
+<b>2.1.1.1&#160;&#160;FRTP&#160;Main&#160;Function&#160;placement&#160;<br/></b>To achieve optimal&#160;throughput&#160;for&#160;segmented&#160;TP&#160;transmission it&#160;is&#160;recommended&#160;to place the&#160;SCHM&#160;Task&#160;which&#160;<br/>
+executes&#160;the&#160;FRTP&#160;main function&#160;between the Rx&#160;and&#160;the Tx&#160;FRIFJob of&#160;the TP&#160;frames. The Rx&#160;FRIFJob&#160;should&#160;<br/>
+handle&#160;the TxConfirmation&#160;as&#160;depicted&#160;in<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">&#160;Figure&#160;4.</a>&#160;<br/>In this&#160;scenario the TP&#160;Tx&#160;PDUs&#160;in the dynamic&#160;segment&#160;are&#160;sent&#160;in cycle&#160;n and&#160;in&#160;the&#160;following&#160;cycle&#160;these PDUs&#160;<br/>
+are confirmed and&#160;the&#160;FRTP&#160;Rx&#160;PDUs&#160;(i.e.&#160;flow&#160;control&#160;or&#160;tester&#160;response)&#160;are&#160;received.&#160;Hence the&#160;first&#160;<br/>
+consecutive&#160;frame is&#160;sent&#160;in the&#160;next&#160;cycle&#160;after&#160;the flow&#160;control&#160;and&#160;each&#160;consecutive frame&#160;is&#160;sent&#160;every&#160;cycle&#160;<br/>
+(according the&#160;cycle&#160;repetition in&#160;ECUC&#160;database).&#160;<br/>
+&#160;<br/>
+Figure&#160;4&#160;–&#160;<b>FRTP&#160;Scenario&#160;1</b>&#160;–&#160;optimal&#160;FrTp&#160;main function&#160;placement&#160;for&#160;TP&#160;frames&#160;in the dynamic&#160;segment&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+The FRTP&#160;main function must&#160;be&#160;called at&#160;least&#160;once&#160;per&#160;FlexRay&#160;cycle (between two&#160;Rx&#160;job&#160;<br/>
+activations&#160;that&#160;handle&#160;the&#160;FRTP&#160;PDUs).&#160;Otherwise data loss&#160;is&#160;imminent.&#160;&#160;<br/>
+<b>2.1.1.2&#160;&#160;FRNM&#160;Main&#160;Function&#160;placement&#160;<br/></b>For&#160;the&#160;moment&#160;when the&#160;FRNM main function&#160;shall&#160;be executed,&#160;the&#160;SCHM task&#160;that&#160;calls&#160;the FRNM main&#160;<br/>
+function should be&#160;placed&#160;between the&#160;Rx&#160;FRIF&#160;job&#160;that&#160;receives&#160;the last&#160;NM&#160;vote&#160;and the first&#160;Tx&#160;FRIF&#160;job&#160;that&#160;<br/>
+sends&#160;one of&#160;the FRNM Tx&#160;PDUs.&#160;This&#160;can be seen in<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#6">&#160;Figure&#160;5.&#160;</a>&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>5<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-6_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+A<br/>
+B<br/>
+A<br/>
+Point&#160;in&#160;time&#160;where&#160;all&#160;NM&#160;PDUs<br/>
+Frame&#160;without&#160;NM&#160;PDU<br/>
+are&#160;available<br/>
+FrNm&#160;Task<br/>
+activation&#160;window<br/>
+B<br/>
+Point&#160;in&#160;time&#160;where&#160;the&#160;own&#160;NM<br/>
+Frame&#160;with&#160;other&#160;NM&#160;PDU&#160;(Rx)<br/>
+PDU&#160;must&#160;be&#160;provided<br/>
+FrNM&#160;Task<br/>
+Frame&#160;with&#160;own&#160;NM&#160;PDU&#160;(Tx)<br/>
+FrIf&#160;Rx<br/>
+FrIf&#160;Tx<br/>
+Time<br/>
+Time<br/>
+FlexRay&#160;Cycle&#160;N<br/>
+FlexRay&#160;Cycle&#160;N&#160;+&#160;1<br/>
+&#160;<br/>
+Figure&#160;5&#160;–&#160;FRNM&#160;Main Function&#160;–&#160;Window&#160;for&#160;task&#160;activation&#160;<br/>
+&#160;<br/>The FRNM Task&#160;function should&#160;always&#160;be executed&#160;either&#160;at&#160;the&#160;beginning of&#160;a&#160;FlexRay&#160;Cycle&#160;or&#160;at&#160;the&#160;end of&#160;a&#160;<br/>
+FlexRay cycle.&#160;If&#160;it&#160;shall&#160;be&#160;executed&#160;at&#160;the beginning&#160;of&#160;a FlexRay&#160;Cycle,&#160;the configuration parameter&#160;‘Main&#160;<br/>
+Across&#160;Fr&#160;Cycle’&#160;needs&#160;to&#160;be TRUE,&#160;otherwise&#160;FALSE.&#160;Note&#160;that&#160;this&#160;parameter&#160;is&#160;usually&#160;defined&#160;by&#160;the OEM.&#160;<br/>It&#160;is&#160;necessary&#160;that&#160;all&#160;NM&#160;Vote&#160;and Data&#160;PDUs&#160;have&#160;been&#160;received until&#160;the FRNM main function&#160;is&#160;called&#160;<br/>
+(Moment&#160;A&#160;in the figure).&#160;It&#160;is&#160;also&#160;necessary&#160;that&#160;the&#160;FRNM main function has&#160;finished execution&#160;before&#160;the&#160;<br/>
+Moment&#160;B&#160;in the figure&#160;where the&#160;FRIF&#160;TX&#160;Job is&#160;started.&#160;At&#160;this&#160;point&#160;of&#160;time,&#160;the&#160;data&#160;of&#160;the&#160;TX&#160;NM&#160;PDUs&#160;needs&#160;<br/>
+to be&#160;provided&#160;to the FRIF.&#160;<br/>
+Note:&#160;<br/>
+If&#160;the NM&#160;PDUs&#160;are&#160;in&#160;the&#160;dynamic&#160;segment&#160;(e.g.&#160;‘Pdu&#160;Schedule Variant’&#160;is&#160;2)&#160;but&#160;not&#160;at&#160;the&#160;<br/>
+beginning&#160;of&#160;the&#160;dynamic&#160;segment&#160;the corresponding&#160;FRIF&#160;job is&#160;always&#160;scheduled in the next&#160;FR&#160;<br/>
+cycle.&#160;This&#160;means&#160;in this&#160;case the&#160;‘Main&#160;Across&#160;Fr&#160;Cycle’&#160;must&#160;be set&#160;to&#160;TRUE.&#160;&#160;<br/>
+&#160;<br/>
+If&#160;‘Main Across&#160;Fr&#160;Cycle’&#160;is&#160;set&#160;to FALSE,&#160;the FRNM&#160;PDUs&#160;must&#160;be at&#160;the&#160;beginning of&#160;the&#160;<br/>
+dynamic&#160;segment.&#160;In this&#160;case an&#160;additional&#160;Rx&#160;job&#160;is&#160;necessary&#160;where&#160;the ‘End Slot’&#160;attribute&#160;of&#160;is&#160;<br/>
+set&#160;to the slot&#160;ID&#160;of&#160;the&#160;last&#160;FRNM frame.&#160;The start&#160;time of&#160;this&#160;Rx&#160;Job&#160;in&#160;‘Macrotick’&#160;should be&#160;<br/>
+scheduled after&#160;the&#160;last&#160;FRNM frame and before the&#160;FRNM main function in the same cycle.&#160;&#160;<br/>
+Note that&#160;it&#160;is&#160;difficult&#160;to determine Moment&#160;A&#160;in the figure,&#160;because&#160;it&#160;depends&#160;on&#160;the&#160;worst-case&#160;execution&#160;time&#160;<br/>
+(WCET)&#160;of&#160;the Rx&#160;Job that&#160;processes&#160;the&#160;last&#160;NM&#160;PDU.&#160;This&#160;Rx&#160;Job can be&#160;identified&#160;in GENy&#160;using the&#160;‘Is&#160;Last&#160;<br/>
+FrIf&#160;Rx&#160;Task&#160;for&#160;Nm’&#160;attribute.&#160;This&#160;WCET&#160;should&#160;be measured&#160;by&#160;the&#160;integrator&#160;because&#160;the jobs&#160;runtime is&#160;<br/>
+affected by&#160;the application&#160;behaviour&#160;in the RX&#160;Indication functions.&#160;<br/>The latest&#160;point&#160;in time for&#160;Moment&#160;A&#160;in the figure&#160;starting&#160;from&#160;the beginning of&#160;a&#160;FlexRay&#160;Cycle&#160;boundary&#160;can be&#160;<br/>
+determined by&#160;the following&#160;settings&#160;of&#160;the FRIF&#160;RX&#160;Job&#160;<i>j</i>&#160;that&#160;processes&#160;the&#160;last&#160;NM PDU&#160;in one FlexRay&#160;Cycle:&#160;<br/><i>Macrotick(j)</i>&#160;+&#160;<i>Max Isr&#160;Delay(j)</i>&#160;+&#160;<i>tWCET(j)</i>&#160;<br/>where&#160;<i>tWCET(j)</i>&#160;denotes&#160;the&#160;worst-Case&#160;execution&#160;time of&#160;the FrIf_JobListExec_0()&#160;routine.&#160;<br/>Note:&#160;<br/>
+The FRNM Main&#160;Function&#160;has&#160;to&#160;be called&#160;once in each FlexRay&#160;cycle.&#160;<br/>
+In the dual&#160;channel&#160;use case for&#160;‘Sync&#160;PDU&#160;Wake-up&#160;Master’&#160;nodes,&#160;the send&#160;requests&#160;of&#160;the FRNM&#160;Sync&#160;PDUs<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#6">1&#160;</a><br/>
+are&#160;also&#160;issued&#160;by&#160;the FRNM Main Function.&#160;These&#160;send requests,&#160;if&#160;required,&#160;are&#160;issued&#160;in&#160;a certain cycle of&#160;each&#160;<br/>
+FRNM&#160;Voting&#160;Cycle called the&#160;‘Sync&#160;Pdu Tx&#160;Request&#160;Cycle&#160;Offset’.&#160;<br/>The following&#160;constraints&#160;have&#160;to&#160;be considered for&#160;‘Sync&#160;PDU&#160;Wake-up Master’&#160;nodes&#160;about&#160;the&#160;configuration:&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;<br/>
+1&#160;This&#160;feature is&#160;OEM-specific&#160;and may&#160;not&#160;be&#160;available&#160;and/or&#160;relevant&#160;in&#160;your&#160;delivery&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>6<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-7_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;&#160;In each ‘Sync&#160;Pdu Tx&#160;Request&#160;Cycle&#160;Offset’&#160;cycle,&#160;all&#160;FRNM&#160;PDUs&#160;of&#160;other&#160;nodes&#160;in&#160;the current&#160;Voting&#160;<br/>
+Cycle&#160;have&#160;been&#160;received&#160;after&#160;the&#160;Rx&#160;Job&#160;List&#160;has&#160;been&#160;executed&#160;and&#160;before&#160;the&#160;FRNM&#160;Main&#160;Function&#160;<br/>
+has&#160;been executed.&#160;<br/>
+•&#160;&#160;The&#160;‘Sync&#160;Pdu&#160;Tx&#160;Request&#160;Cycle&#160;Offset’&#160;needs&#160;to&#160;be&#160;configured&#160;to&#160;a&#160;cycle&#160;offset&#160;in&#160;the&#160;Voting&#160;Cycle,&#160;so&#160;<br/>
+that&#160;the&#160;transmission&#160;request&#160;of&#160;the&#160;NM&#160;Sync&#160;PDUs&#160;can&#160;be&#160;issued&#160;in&#160;that&#160;cycle&#160;in&#160;order&#160;to&#160;send&#160;the&#160;NM&#160;<br/>
+Sync&#160;PDUs&#160;in the same Voting&#160;Cycle.&#160;<br/>
+These constraints&#160;are&#160;illustrated&#160;by&#160;an&#160;example in<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#7">&#160;Figure&#160;6.</a>&#160;<br/>
+<b>&#160;sd Scheduling in Detail</b><br/>
+Moment&#160;for&#160;the decision to send the NM<br/>
+he N&#160;&#160;Sync&#160;PDUs<br/>
+<b>X</b><br/>
+<b>tion_</b><br/>
+<b>Running</b><br/>
+<b>ainFunc<br/>_M<br/>m</b><br/>
+<b>Idle</b><br/>
+<b>m<br/>N<br/>Fr</b><br/>
+<b>ists</b><br/>
+<b>Tx&#160;Job List</b><br/>
+<b>ists</b><br/>
+<b>Tx&#160;Job Li</b><br/>
+<b>obl</b><br/>
+<b>Rx&#160;Job List</b><br/>
+<b>If&#160;J<br/>Fr</b><br/>
+<b>None</b><br/>
+<b>lots</b><br/>
+<b>Nm&#160;Sync</b><br/>
+<b>lots</b><br/>
+<b>Nm&#160;S</b><br/>
+<b>M S</b><br/>
+<b>Nm</b><br/>
+<b>M S<br/>N</b><br/>
+<b>None</b><br/>
+<b>ent</b><br/>
+<b>Static</b><br/>
+<b>Dynamic</b><br/>
+<b>Static</b><br/>
+<b>Dynamic</b><br/>
+<b>Static</b><br/>
+<b>egm<br/>S</b><br/>
+<b>e<br/>ycl</b><br/>
+<b>Cycle 6 (D</b><br/>
+<b>e 6 (&#160;ecision&#160;Cycle)</b><br/>
+<b>Cycle 7</b><br/>
+<b>Cycle 0</b><br/>
+<b>C</b><br/>
+New&#160;Voting Cy<br/>
+ng C&#160;cle<br/>
+&#160;<br/>
+Figure&#160;6&#160;–&#160;FRNM&#160;Scheduling for&#160;Sync&#160;PDU&#160;Wake-up Master&#160;node&#160;<br/>
+&#160;<br/>As&#160;it&#160;can be&#160;seen,&#160;two FlexRay&#160;cycles&#160;are shown in the example.&#160;These&#160;FRNM configuration parameters&#160;apply&#160;<br/>
+here:&#160;‘Voting Cycle’&#160;=&#160;‘Data&#160;Cycle’&#160;= 8,&#160;‘Main&#160;Across&#160;Fr&#160;Cycle’&#160;=&#160;FALSE,&#160;‘Sync&#160;Pdu Tx&#160;Request&#160;Cycle Offset’&#160;= 6.&#160;<br/>After&#160;NM&#160;PDUs&#160;may&#160;have&#160;been&#160;sent/received&#160;in&#160;the&#160;beginning&#160;of&#160;the Dynamic&#160;Segment&#160;in Cycle&#160;6 and the&#160;RX&#160;Job&#160;<br/>
+for&#160;FRNM PDUs&#160;in the&#160;FrIf&#160;RX&#160;Joblist&#160;has&#160;been&#160;executed,&#160;the FrNm_MainFunction_X&#160;may&#160;be executed&#160;and&#160;within&#160;<br/>
+this&#160;context,&#160;the transmit&#160;request&#160;for&#160;the&#160;NM&#160;Sync&#160;PDUs&#160;may&#160;be&#160;issued.&#160;It&#160;has&#160;to&#160;be assured&#160;that&#160;execution of&#160;the&#160;<br/>
+FRNM Main&#160;Function&#160;has&#160;been finished&#160;before the cycle end (because of&#160;‘Main&#160;Across&#160;Fr&#160;Cycle’&#160;=&#160;FALSE).&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>7<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-8_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-8_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>Afterwards&#160;the FrIf&#160;TX&#160;Joblist&#160;may&#160;be&#160;processed&#160;in the&#160;next&#160;FlexRay&#160;Cycle and the&#160;Transmission of&#160;the&#160;NM&#160;Sync&#160;<br/>
+PDUs&#160;may&#160;take place&#160;at&#160;the beginning of&#160;the Dynamic&#160;Segment&#160;in Cycle&#160;7.&#160;<br/>In this&#160;example it&#160;must&#160;be&#160;ensured&#160;that&#160;all&#160;NM&#160;RX&#160;PDUs&#160;from&#160;Cycle&#160;0 to&#160;6&#160;have been received and&#160;processed&#160;by&#160;<br/>
+FRNM&#160;when the&#160;‘Moment&#160;for&#160;the&#160;decision to send the&#160;NM Sync&#160;PDUs’&#160;arrives.&#160;Because the&#160;send request&#160;for&#160;the&#160;<br/>
+NM Sync&#160;PDUs&#160;is&#160;issued&#160;at&#160;the&#160;end&#160;of&#160;Cycle&#160;6 FrIf&#160;can&#160;transmit&#160;them&#160;in the next&#160;cycle.&#160;<br/>For&#160;details&#160;about&#160;the FRNM Main Function&#160;usage&#160;and details&#160;about&#160;the&#160;‘Sync&#160;PDU&#160;Wake-up Master’&#160;also&#160;refer&#160;to&#160;<br/>
+the&#160;‘AUTOSAR&#160;FlexRay&#160;Network&#160;Management&#160;Technical&#160;Reference’&#160;document.&#160;<br/>
+<b>2.1.2&#160;&#160;Wrong&#160;FRIFJob configurations&#160;<br/></b>For&#160;optimal&#160;FRTP&#160;throughput&#160;the integrator&#160;should&#160;ensure that&#160;task&#160;preemption&#160;by&#160;a high&#160;prior&#160;interrupt&#160;and/or&#160;jitter&#160;<br/>
+of&#160;the SCHM task&#160;does&#160;not&#160;cause the&#160;FRTP&#160;main function&#160;to be&#160;called after&#160;the Tx&#160;job or&#160;before the Rx&#160;job&#160;as&#160;<br/>
+shown i<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#8">n&#160;Figure&#160;7.</a>&#160;&#160;<br/>The jitter&#160;of&#160;the&#160;SCHM&#160;task is&#160;affected&#160;by&#160;non-preemptive tasks&#160;(even if&#160;they&#160;have&#160;lower&#160;priority),&#160;long&#160;duration of&#160;<br/>
+critical&#160;sections&#160;with&#160;locked interrupts/resources&#160;or&#160;large OS&#160;SystemTimer&#160;tick&#160;times.&#160;If&#160;the jitter&#160;or&#160;the&#160;preemption&#160;<br/>
+cannot&#160;be avoided it&#160;is&#160;recommended&#160;to draw&#160;the&#160;FRIFJobs&#160;manually&#160;apart.&#160;<br/>&#160;<br/>
+&#160;<br/>
+Figure&#160;7&#160;–&#160;<b>FRTP Scenario&#160;2</b>&#160;suboptimal&#160;FRTP&#160;main function&#160;placement&#160;caused&#160;large&#160;task&#160;jitter&#160;or&#160;preemption&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+It&#160;is&#160;not&#160;possible to&#160;achieve&#160;optimal&#160;FRTP&#160;transmission rates&#160;with the&#160;scheduling&#160;algorithm&#160;<br/>
+Concatenated Jobs&#160;because the&#160;FRTP&#160;main function cannot&#160;be&#160;placed&#160;between&#160;the Rx&#160;and Tx&#160;job&#160;<br/>
+as&#160;depicted&#160;i<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#8">n&#160;Figure&#160;8.</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;8&#160;–&#160;<b>FRTP Scenario&#160;3</b>&#160;suboptimal&#160;TP&#160;(decoupled)&#160;transmission rates&#160;due to job concatenation&#160;<br/>
+&#160;<br/><i><b>&#160;</b></i><br/>
+<b>8<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-9_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-9_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>For&#160;example&#160;if&#160;additionally&#160;Rx&#160;Job 1&#160;i<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#9">n&#160;Figure&#160;9&#160;</a>is&#160;configured to&#160;handle the Tx&#160;confirmations&#160;for&#160;Tx0&#160;FRIFJob&#160;the&#160;<br/>
+consecutive frames&#160;of&#160;a segmented TP&#160;transfer&#160;will&#160;only&#160;be send every&#160;second&#160;FRTP&#160;main function cycle because&#160;<br/>
+the Tx&#160;confirmations&#160;for&#160;the&#160;TP&#160;frames&#160;in the dynamic&#160;segment&#160;are given&#160;in cycle&#160;n+1&#160;and not&#160;in the same cycle of&#160;<br/>
+the&#160;FRTP&#160;main function.&#160;The reason&#160;is&#160;that&#160;in this&#160;case&#160;the TxConf&#160;job polls&#160;the transmission state&#160;before the&#160;<br/>
+FlexRay&#160;slot&#160;has&#160;been transmitted by&#160;the communication controller.&#160;<br/>
+&#160;<br/>
+Figure&#160;9&#160;–&#160;<b>FRTP&#160;Scenario&#160;4</b>&#160;suboptimal&#160;TxConf&#160;job&#160;configuration&#160;&#160;<br/>
+Please ensure that&#160;the TxConf&#160;job for&#160;FRTP&#160;PDUs&#160;is&#160;not&#160;scheduled after&#160;the Rx&#160;job&#160;of&#160;the FRTP&#160;PDUs&#160;as&#160;depicted&#160;<br/>
+in<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#9">&#160;Figure&#160;.</a>&#160;Otherwise&#160;it&#160;is&#160;possible&#160;that&#160;during&#160;segmented transmission&#160;the FRTP&#160;state machine handles&#160;the&#160;<br/>
+reception of&#160;a flow&#160;control&#160;frame before the&#160;first&#160;frames is confirmed&#160;and&#160;the&#160;transmission of&#160;the consecutive&#160;<br/>
+frames&#160;is&#160;delayed.&#160;Hence the&#160;FRTP&#160;transmission rates&#160;and OBD&#160;response times&#160;are affected negatively.&#160;<br/>
+&#160;<br/>
+Figure&#160;10&#160;–&#160;<b>FRTP&#160;Scenario&#160;4.1</b>&#160;TxConf&#160;Task&#160;before Rx&#160;Task&#160;&#160;<br/>
+&#160;<br/>
+Note:&#160;<br/>
+If&#160;a Rx&#160;job handles&#160;the Tx&#160;confirmation for&#160;a Tx&#160;job the FlexRay&#160;Interface component&#160;ensures&#160;that&#160;<br/>
+the confirmations&#160;will&#160;be&#160;handled before the&#160;Rx&#160;indications&#160;are given&#160;to the&#160;upper&#160;layer&#160;<br/>
+components.&#160;<br/>
+<b>2.2&#160;&#160;PDUs&#160;with immediate transmission&#160;<br/></b>If&#160;FRTP&#160;PDUs&#160;are&#160;configured to&#160;use&#160;immediate transmission,&#160;the transmission&#160;rate&#160;of&#160;the FlexRay&#160;Transport&#160;Layer&#160;<br/>
+only&#160;depends&#160;on the positioning of&#160;the&#160;FRTP&#160;main function&#160;and&#160;the&#160;Rx&#160;and TxConf&#160;FRIFJobs&#160;of&#160;the FRTP&#160;frames.&#160;&#160;<br/>The position of&#160;the Tx&#160;FRIFJob does&#160;not&#160;matter&#160;&#160;because&#160;the&#160;message buffers&#160;are&#160;written&#160;in&#160;the context&#160;of&#160;the&#160;<br/>
+FRTP&#160;main&#160;function.&#160;For&#160;example&#160;in<a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#10">&#160;Figure&#160;11&#160;</a>the&#160;FRTP&#160;PDUs&#160;in&#160;the&#160;dynamic&#160;segment&#160;will&#160;be&#160;transmitted&#160;in&#160;the&#160;<br/>
+same cycle as&#160;long as&#160;the&#160;FRTP&#160;main function&#160;is&#160;called before the FlexRay&#160;frames&#160;are sent&#160;on the bus.&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>9<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1140_FrIf_JobListConfiguration-10_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+JobList&#160;Configuration&#160;of&#160;FlexRay&#160;Interface&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<i>&#160;&#160;</i><br/>
+Figure&#160;11&#160;–&#160;<b>FRTP&#160;Scenario&#160;5</b>&#160;Tx&#160;FRIF&#160;jobs&#160;don’t&#160;matter&#160;for&#160;PDUs&#160;with immediate&#160;transmission&#160;<br/>&#160;<br/>
+Note:&#160;<br/>
+FRIF&#160;PDUs&#160;can&#160;only&#160;be&#160;configured for&#160;immediate transmission if&#160;the&#160;PDU&#160;is&#160;the&#160;only&#160;one&#160;within the&#160;<br/>
+FlexRay&#160;frame.&#160;Frames&#160;with more than one&#160;FRIF&#160;PDU&#160;always&#160;use&#160;decoupled&#160;transmission.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>3.0&#160;&#160;Contacts&#160;<br/></b>For&#160;a&#160;full&#160;list&#160;with&#160;all&#160;Vector&#160;locations&#160;and addresses&#160;worldwide,&#160;please visit<a href="http://vector.com/contact/">&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>10<i>&#160;</i></b><br/>
+<i>Application Note &#160;AN-ISC-8-1140<b>&#160;</b></i><br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">1.0 Overview</a>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">1.1 What is the Job List about?</a>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#1">1.1.1 Communication Jobs</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">1.2 Job List Configuration</a>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#2">1.2.1 Scheduling Algorithm – Default</a></li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">1.2.2 &#160;Scheduling Algorithm – Concatenated Jobs</a></li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">1.2.3 Scheduling Algorithm – User Defined</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#3">1.3 Synchronisation of BSW main functions</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#4">2.0 Configuration aspects</a>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">2.1 PDUs with decoupled transmission</a>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">2.1.1 Optimal BSW main function placement</a>
+<ul>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">2.1.1.1 FRTP Main Function placement</a></li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#5">2.1.1.2 FRNM Main Function placement</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#8">2.1.2 Wrong FRIFJob configurations</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#9">2.2 PDUs with immediate transmission</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1140_FrIf_JobListConfigurations.html#10">3.0 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

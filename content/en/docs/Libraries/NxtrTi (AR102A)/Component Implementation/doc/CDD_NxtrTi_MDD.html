@@ -1,0 +1,395 @@
+---
+title: CDD_NxtrTi_MDD
+linkTitle: CDD_NxtrTi_MDD
+weight: 2
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>CDD_NxtrTi</strong></p>
+<p><strong>Aug</strong> <strong>23, 2017</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shawn Penning,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Shawn Penning</td>
+<td>1.0</td>
+<td>01-May-2017</td>
+</tr>
+<tr class="odd">
+<td>Updated for error injection</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>23-Aug-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u>1 Introduction 5</p>
+<p>1.1 Purpose 5</p>
+<p>1.2 Scope 5</p>
+<p>2 CDD_NxtrTi &amp; High-Level Description 6</p>
+<p>3 Design details of software module 7</p>
+<p>3.1 Graphical representation of CDD_NxtrTi 7</p>
+<p>3.2 Data Flow Diagram 7</p>
+<p>Component level DFD 7</p>
+<p>Function level DFD 7</p>
+<p>4 Constant Data Dictionary 8</p>
+<p>4.1 Program (fixed) Constants 8</p>
+<p>Embedded Constants 8</p>
+<p>5 Software Component Implementation 9</p>
+<p>5.1 Sub-Module Functions 9</p>
+<p>5.1.1 Init: NxtrTiInit1 9</p>
+<p>5.1.1.1 Design Rationale 9</p>
+<p>5.1.1.2 Store Module Inputs to Local copies 9</p>
+<p>5.1.1.3 (Processing of function)……… 9</p>
+<p>5.1.1.4 Module Outputs 9</p>
+<p>5.1.2 NxtrTiInit0 9</p>
+<p>5.1.3 Per: NxtrTiPer1 9</p>
+<p>5.1.3.1 Design Rationale 9</p>
+<p>5.1.3.2 Store Module Inputs to Local copies 9</p>
+<p>5.1.3.3 (Processing of function)……… 9</p>
+<p>5.1.3.4 Store Local copy of outputs into Module Outputs 10</p>
+<p>5.2 Server Runnables 10</p>
+<p>5.2.1 GetRefTmr100MicroSec32bit 10</p>
+<p>5.2.2 GetRefTmr1MicroSec32bit 10</p>
+<p>5.2.3 GetTiSpan100MicroSec32bit 10</p>
+<p>5.2.4 GetTiSpan1MicroSec32bit 10</p>
+<p>5.3 Interrupt Functions 10</p>
+<p>5.3.1 Interrupt Function Name 10</p>
+<p>5.3.1.1 Design Rationale 11</p>
+<p>5.4 Module Internal (Local) Functions 11</p>
+<p>5.4.1 Local Function #1 11</p>
+<p>5.4.1.1 Design Rationale 11</p>
+<p>5.4.1.2 Processing 11</p>
+<p>5.5 GLOBAL Function/Macro Definitions 11</p>
+<p>5.5.1 GLOBAL Function #1 11</p>
+<p>5.5.1.1 Design Rationale 11</p>
+<p>5.5.1.2 processing 11</p>
+<p>6 Known Limitations with Design 12</p>
+<p>7 UNIT TEST CONSIDERATION 13</p>
+<p>Appendix A Abbreviations and Acronyms 14</p>
+<p>Appendix B Glossary 15</p>
+<p>Appendix C References 16</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="cdd_nxtrti-high-level-description">CDD_NxtrTi &amp; High-Level Description</h1>
+<p>Nexteer Time Complex Driver</p>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="graphical-representation-of-cdd_nxtrti">Graphical representation of CDD_NxtrTi</h2>
+<h2 class="unnumbered" id="section"></h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:2.43333in;height:1.60833in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TMRFLTTHD_CNT_U32</td>
+<td>1</td>
+<td>Counts</td>
+<td>200U</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-nxtrtiinit1">Init: NxtrTiInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>None</em></p>
+<h2 id="processing-of-function">(Processing of function)………</h2>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="nxtrtiinit0">NxtrTiInit0</h2>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<p><em>To be called by the user during initialization. If timers are not required prior to starting the</em></p>
+<p><em>* RTE, this function does not need to be called directly by a user.</em></p>
+<h4 id="processing-of-function-1">(Processing of function)</h4>
+<p><em>Non-RTE version of Nexteer Time Initialization function. Calling this function will initialize and</em></p>
+<p><em>* start the hardware timers used by this module if not already done.</em></p>
+<h3 id="section-1"></h3>
+<h2 id="per-nxtrtiper1">Per: NxtrTiPer1</h2>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h2>
+<p><em>None</em></p>
+<h2 id="processing-of-function-2">(Processing of function)………</h2>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="server-runnables">Server Runnables</h2>
+<h2 id="getreftmr100microsec32bit">GetRefTmr100MicroSec32bit</h2>
+<h4 id="design-rationale-3">Design Rationale</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h4 id="processing-of-function-3"> (Processing of function)</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="getreftmr1microsec32bit">GetRefTmr1MicroSec32bit</h2>
+<h4 id="design-rationale-4">Design Rationale</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h4 id="processing-of-function-4"> (Processing of function)</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="gettispan100microsec32bit">GetTiSpan100MicroSec32bit</h2>
+<h4 id="design-rationale-5">Design Rationale</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h4 id="processing-of-function-5"> (Processing of function)</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="gettispan1microsec32bit">GetTiSpan1MicroSec32bit</h2>
+<h4 id="design-rationale-6">Design Rationale</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h4 id="processing-of-function-6"> (Processing of function)</h4>
+<p>Refer to FDD to be created under CR EA4#164</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="interrupt-function-name">Interrupt Function Name</h2>
+<p><em>None</em></p>
+<h2 id="design-rationale-7">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<p>None</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>(if none, write None)</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>(Insert more rows for additional passed arguments)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-8">Design Rationale</h2>
+<h2 id="processing">Processing</h2>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>Refer to 5.1.2</p>
+<h2 id="global-function-1">GLOBAL Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>(if none, write None)</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>(Insert more rows for additional passed arguments)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>(if no value returned, write N/A)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-9">Design Rationale</h2>
+<h2 id="processing-1">processing</h2>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+</tbody>
+</table>

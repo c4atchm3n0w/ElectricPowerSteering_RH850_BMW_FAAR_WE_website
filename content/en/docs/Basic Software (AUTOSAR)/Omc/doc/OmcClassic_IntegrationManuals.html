@@ -1,0 +1,452 @@
+---
+title: OmcClassic_IntegrationManuals
+linkTitle: OmcClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-1_1.png"/><br/>
+Omc&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.2.0<br/>
+2017-12-14<br/>
+BAC-6565:&#160;document&#160;callback&#160;mechanism&#160;to&#160;establish&#160;intrinsic&#160;safety<br/>(AllowModeChange&#160;and&#160;OmcOperatingModeCallout)<br/>
+5.1.1<br/>
+2017-10-12<br/>
+Version&#160;Update<br/>
+5.1.0<br/>
+2017-08-10<br/>
+Version&#160;Update<br/>
+5.0.0<br/>
+2017-06-29<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;12<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="OmcClassic_IntegrationManuals.html#4"><b>1&#160;Introduction</b></a><br/>
+<b>4</b><br/>
+<a href="OmcClassic_IntegrationManuals.html#4">1.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#4">Functional&#160;overview</a><br/>
+4<br/>
+<a href="OmcClassic_IntegrationManuals.html#5"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="OmcClassic_IntegrationManuals.html#6"><b>3&#160;Limitations</b></a><br/>
+<b>6</b><br/>
+<a href="OmcClassic_IntegrationManuals.html#7"><b>4&#160;Software&#160;Architecture</b></a><br/>
+<b>7</b><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.1.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">RTE</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.1.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">Det</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.1.3</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">Dcm</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.1.4</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">Dem</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.1.5</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">Nvm</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#7">4.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#7">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+7<br/>
+<a href="OmcClassic_IntegrationManuals.html#8"><b>5&#160;Integration</b></a><br/>
+<b>8</b><br/>
+<a href="OmcClassic_IntegrationManuals.html#8">5.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#8">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+8<br/>
+<a href="OmcClassic_IntegrationManuals.html#8">5.1.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#8">Dcm</a><br/>
+8<br/>
+<a href="OmcClassic_IntegrationManuals.html#8">5.1.1.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#8">Read&#160;Data&#160;By&#160;Identifer</a><br/>
+8<br/>
+<a href="OmcClassic_IntegrationManuals.html#8">5.1.1.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#8">Routine&#160;Control</a><br/>
+8<br/>
+<a href="OmcClassic_IntegrationManuals.html#8">5.1.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#8">NvM</a><br/>
+8<br/>
+<a href="OmcClassic_IntegrationManuals.html#9">5.1.3</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#9">Dem</a><br/>
+9<br/>
+<a href="OmcClassic_IntegrationManuals.html#9">5.1.3.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#9">Enable&#160;Condition</a><br/>
+9<br/>
+<a href="OmcClassic_IntegrationManuals.html#9">5.1.3.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#9">Event</a><br/>
+9<br/>
+<a href="OmcClassic_IntegrationManuals.html#9">5.1.4</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#9">BswM</a><br/>
+9<br/>
+<a href="OmcClassic_IntegrationManuals.html#9">5.1.5</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#9">Det</a><br/>
+9<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">Provided&#160;Interfaces</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.2.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">OmcOperatingMode&#160;and&#160;OmcExtendedOperatingMode</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.2.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">OmcModesCalloutsResult</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.3</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">Required&#160;Interfaces</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.3.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">OmcModesCallouts</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.4</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">Configuration</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.4.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">OmcGeneral</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#10">5.4.1.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#10">OmcDevErrorDetect</a><br/>
+10<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.4.1.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">OmcOperatingModeCallout</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">Event&#160;Mapping</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">Data&#160;Mapping</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.2.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">Dcm</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.2.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">Det</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.3</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">Dem</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.4</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">NvM</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#11">5.5.5</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#11">BswM</a><br/>
+11<br/>
+<a href="OmcClassic_IntegrationManuals.html#12">5.5.6</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#12">Exclusive&#160;Areas</a><br/>
+12<br/>
+<a href="OmcClassic_IntegrationManuals.html#12">5.6</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#12">Software&#160;Integration</a><br/>
+12<br/>
+<a href="OmcClassic_IntegrationManuals.html#12">5.6.1</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#12">Startup/Initialization</a><br/>
+12<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;12<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-3_1.png"/><br/>
+<a href="OmcClassic_IntegrationManuals.html#12">5.6.2</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#12">Normal&#160;Operation</a><br/>
+12<br/>
+<a href="OmcClassic_IntegrationManuals.html#12">5.6.3</a><br/>
+<a href="OmcClassic_IntegrationManuals.html#12">Shutdown/Deactivation</a><br/>
+12<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;12<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;and&#160;integration&#160;of&#160;the<br/>BMW&#160;System&#160;Function&#160;Omc.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Omc&#160;functionality&#160;is&#160;to&#160;maintain&#160;the&#160;current&#160;Operating&#160;Mode&#160;of&#160;an&#160;ECU.<br/>
+This&#160;means:<br/>
+Allowing&#160;the&#160;change&#160;of&#160;the&#160;current&#160;Operating&#160;Mode&#160;via&#160;diagnostic&#160;request<br/>Saving&#160;the&#160;current&#160;Operating&#160;Mode&#160;to&#160;Non&#160;Volatile&#160;RAM&#160;(NVRAM)<br/>Enabling/disabling&#160;Dem&#160;(more&#160;concrete:&#160;Setting/Unsetting&#160;a&#160;enable&#160;condition)<br/>Providing&#160;the&#160;current&#160;Operating&#160;Mode&#160;to&#160;other&#160;software&#160;components.<br/>
+The&#160;Omc&#160;module&#160;distinguishes&#160;the&#160;following&#160;vehicle&#160;operating&#160;modes:<br/>
+NORMAL<br/>ASSEMBLY<br/>TRANSPORT<br/>FLASH<br/>
+Note&#160;that&#160;in&#160;different&#160;documents&#160;these&#160;modes&#160;are&#160;sometimes&#160;called&#160;&#34;energy&#160;modes&#34;&#160;sometimes&#160;called<br/>&#34;operating&#160;modes&#34;.&#160;Although&#160;both&#160;terms&#160;are&#160;equivalent,&#160;we&#160;strictly&#160;use&#160;the&#160;term&#160;operating&#160;mode.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;12<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-5_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;12<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-6_1.png"/><br/>
+<b>3</b><br/>
+<b>Limitations</b><br/>
+No&#160;limitations&#160;are&#160;known.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;12<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-7_1.png"/><br/>
+<b>4</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Module&#160;Omc&#160;depends&#160;on&#160;the&#160;following&#160;BSW&#160;modules:<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;Omc&#160;module&#160;uses&#160;Rte&#160;client/server&#160;communication&#160;to&#160;communicate&#160;with<br/>other&#160;SWCs&#160;and&#160;BSW.&#160;Additionally&#160;the&#160;scheduling&#160;is&#160;done&#160;by&#160;the&#160;Rte.<br/>
+<b>Det</b><br/>
+In&#160;case&#160;Det&#160;usage&#160;is&#160;enabled&#160;in&#160;the&#160;Omc&#160;configuration,&#160;Omc&#160;will&#160;report&#160;development&#160;errors&#160;by&#160;using&#160;the<br/>Det&#160;functionality.<br/>
+<b>Dcm</b><br/>
+The&#160;Dcm&#160;will&#160;call&#160;functionality&#160;of&#160;the&#160;Omc&#160;module&#160;when&#160;a&#160;RDBI&#160;for&#160;the&#160;operating&#160;mode&#160;or&#160;the&#160;extended<br/>operating&#160;mode&#160;has&#160;been&#160;received.&#160;The&#160;corresponding&#160;R-ports&#160;of&#160;the&#160;Dcm&#160;for&#160;these&#160;two&#160;identifiers&#160;must<br/>be&#160;connected&#160;with&#160;the&#160;corresponding&#160;P-ports&#160;of&#160;the&#160;Omc.<br/>
+<b>Dem</b><br/>
+The&#160;Omc&#160;use&#160;the&#160;operation&#160;SetEventStatus&#160;of&#160;the&#160;CSI&#160;DiagnosticMonitor&#160;to&#160;set&#160;an&#160;Event&#160;via&#160;Rte.&#160;It&#160;also<br/>uses&#160;the&#160;ClientServer&#160;Interface&#160;of&#160;service&#160;EnableCondition.<br/>
+<b>Nvm</b><br/>
+The&#160;Omc&#160;relies&#160;on&#160;services&#160;provided&#160;by&#160;the&#160;Nvm&#160;to&#160;store&#160;its&#160;persistent&#160;data&#160;regarding&#160;the&#160;current<br/>operating&#160;mode&#160;and&#160;current&#160;extended&#160;operating&#160;mode.<br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+Omc&#160;does&#160;not&#160;have&#160;dependencies&#160;to&#160;other&#160;modules.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;12<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-8_1.png"/><br/>
+<b>5</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;this&#160;module&#160;can&#160;be&#160;generated,&#160;compiled&#160;and&#160;linked.<br/>
+<b>Dcm</b><br/>
+<b>Read&#160;Data&#160;By&#160;Identifer</b><br/>
+<b>[]&#160;</b>dTwo&#160;Read&#160;Data&#160;By&#160;Identifier&#160;commands&#160;shall&#160;be&#160;configured&#160;within&#160;Dcm&#160;(22&#160;10&#160;0A&#160;and&#160;22&#160;10&#160;0E).<br/>c<a href="OmcClassic_IntegrationManuals.html#1"><i>(DK_T3_736,&#160;DK_T3_762,&#160;FZM_SC_SYS_PA_335,&#160;DK_T3_1255)</i></a><br/>
+DcmDspDataSize&#160;shall&#160;be&#160;set&#160;to&#160;8<br/>DcmDspDataUsePort&#160;shall&#160;be&#160;set&#160;to&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>DID&#160;shall&#160;be&#160;configured&#160;to&#160;be&#160;read&#160;in&#160;all&#160;sessions&#160;and&#160;security&#160;levels<br/>
+<b>Routine&#160;Control</b><br/>
+<b>[]&#160;</b>dTwo&#160;Routine&#160;Control&#160;commands&#160;shall&#160;be&#160;configured&#160;within&#160;Dcm&#160;(31&#160;01&#160;0F&#160;0C&#160;and&#160;31&#160;01&#160;10&#160;03).<br/>c<a href="OmcClassic_IntegrationManuals.html#1"><i>(DK_T3_720,&#160;DK_T3_725,&#160;DK_T3_727,&#160;DK_T3_729,&#160;DK_T3_751,&#160;FZM_SC_SYS_PA_334,<br/>FZM_SC_SYS_PA_334)</i></a><br/>
+DcmDspRoutineFixedLength&#160;shall&#160;be&#160;true<br/>DcmDspRoutineUsePort&#160;shall&#160;be&#160;true<br/>Only&#160;DcmDspStartRoutineIn&#160;shall&#160;be&#160;configured<br/>
+DcmDspRoutineSignalLength&#160;shall&#160;be&#160;set&#160;to&#160;8<br/>DcmDspRoutineSignalPos&#160;shall&#160;be&#160;set&#160;to&#160;0<br/>
+<b>NvM</b><br/>
+The&#160;Omc&#160;needs&#160;a&#160;Nvm&#160;block&#160;to&#160;store&#160;the&#160;operating&#160;mode:<br/>
+<b>[]&#160;</b>d<br/>
+block&#160;size&#160;shall&#160;be&#160;set&#160;to&#160;2&#160;bytes<br/>Ram&#160;block&#160;address&#160;shall&#160;be&#160;set&#160;to&#160;Omc_NvData<br/>Rom&#160;block&#160;address&#160;shall&#160;be&#160;set&#160;to&#160;Omc_DefaultNvData<br/>NvmBlockManagementType&#160;shall&#160;be&#160;set&#160;to&#160;NVM_BLOCK_NATIVE<br/>NvmBlockUseCrc&#160;shall&#160;be&#160;disabled<br/>NvmSelectBlockForReadall&#160;shall&#160;be&#160;set&#160;to&#160;true<br/>
+c<a href="OmcClassic_IntegrationManuals.html#1"><i>(DK_T3_743,&#160;FZM_SC_SYS_PA_169,&#160;FZM_SC_SYS_PA_329,&#160;FZM_SC_SYS_PA_171,<br/>FZM_SC_SYS_PA_331)</i></a><br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;12<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-9_1.png"/><br/>
+<b>Dem</b><br/>
+<b>Enable&#160;Condition</b><br/>
+A&#160;EnableCondition&#160;for&#160;Omc&#160;shall&#160;be&#160;configured&#160;wihtin&#160;Dem.<br/>
+This&#160;EnableCondition&#160;shall&#160;be&#160;referenced&#160;by&#160;all&#160;EnableConditionGroups&#160;in&#160;the&#160;system,&#160;that&#160;depend&#160;on<br/>this&#160;EnableCondition.<br/>
+Example:&#160;At&#160;BMW&#160;the&#160;permission&#160;to&#160;report&#160;communication&#160;error&#160;relevant&#160;Dem&#160;events&#160;depends&#160;on&#160;the<br/>state&#160;of&#160;different&#160;sources&#160;(operating&#160;mode,&#160;diagnostic&#160;state&#160;and&#160;Stm&#160;centralErrorLock).&#160;Each&#160;of&#160;these<br/>sources&#160;is&#160;connected&#160;to&#160;its&#160;own&#160;EnableCondition&#160;and&#160;all&#160;these&#160;conditions&#160;are&#160;combined&#160;in&#160;one<br/>EnableConditionGroup.<br/>
+At&#160;the&#160;end,&#160;all&#160;Dem&#160;Events&#160;that&#160;represent&#160;communication&#160;errors&#160;shall&#160;reference&#160;this&#160;EnableGroup&#160;via&#160;their<br/>DemEnableConditionGroupRef&#160;parameter.<br/>
+<b>Event</b><br/>
+An&#160;Dem&#160;event&#160;shall&#160;be&#160;configured&#160;for&#160;Omc.<br/>
+<b>[]&#160;</b>d<br/>
+DTC&#160;vale&#160;shall&#160;be&#160;set&#160;to&#160;0x020000&#160;+&#160;0x100&#160;*&#160;ECU_Address<br/>Event&#160;destination:&#160;primary&#160;origin<br/>Event&#160;kind:&#160;DEM_EVENT_KIND_SWC<br/>A&#160;Clear&#160;Event&#160;Allowed&#160;port&#160;shall&#160;be&#160;configured&#160;via&#160;Rte<br/>Operation&#160;Cycle:&#160;this&#160;event&#160;shall&#160;reference&#160;an&#160;operation&#160;cycle&#160;which&#160;is&#160;started&#160;before&#160;OmcMode&#160;is&#160;INIT<br/>and&#160;stays&#160;in&#160;this&#160;state&#160;until&#160;OmcMode&#160;is&#160;STOP.<br/>
+c<a href="OmcClassic_IntegrationManuals.html#1"><i>(DK_T3_711)</i></a><br/>
+<b>BswM</b><br/>
+The&#160;BswM&#160;controls&#160;the&#160;states&#160;of&#160;the&#160;Omc&#160;module.<br/>
+BswMModeRequestPort&#160;for&#160;the&#160;Omc&#160;operation&#160;mode<br/>BswMRules&#160;to&#160;switch&#160;the&#160;Omc&#160;operation&#160;mode<br/>BswMRteSwitch&#160;actions&#160;for&#160;the&#160;Omc&#160;operation&#160;mode<br/>
+<b>Det</b><br/>
+A&#160;Omc&#160;entry&#160;shall&#160;be&#160;added&#160;to&#160;the&#160;Software&#160;Component&#160;List&#160;from&#160;Det.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;12<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-10_1.png"/><br/>
+<b>Provided&#160;Interfaces</b><br/>
+<b>OmcOperatingMode&#160;and&#160;OmcExtendedOperatingMode</b><br/>
+The&#160;Omc&#160;provides&#160;two&#160;RTE&#160;Modes&#160;which&#160;indicate&#160;the&#160;operating&#160;and&#160;extended&#160;operating&#160;mode&#160;which&#160;are<br/>currently&#160;active.<br/>
+<b>OmcModesCalloutsResult</b><br/>
+This&#160;interface&#160;may&#160;be&#160;used&#160;by&#160;the&#160;user&#160;if&#160;OmcOperatingModeCallout&#160;is&#160;set&#160;to&#160;true&#160;when&#160;the&#160;interfaces<br/>AllowOpModeSwitch&#160;or&#160;OpModeSwitchCancelled&#160;returns&#160;RUNNING.<br/>
+The&#160;user&#160;may&#160;indicate&#160;over&#160;this&#160;interface&#160;using&#160;the&#160;following&#160;operations:<br/>
+OpModeSwitchAllowedResult:&#160;shall&#160;be&#160;called&#160;if&#160;AllowOpModeSwitch&#160;returned<br/>ERUNNINGtoinformtheOmcifamodeorextendedmodeswitchisallowedornot.OpModeSwitchCancelledAck&#160;:<br/>shallbecalledif&#160;OpM&#160;odeSwitchCancelledreturnedERU&#160;N&#160;N&#160;IN&#160;Gtoinf&#160;ormtheOmcthatthemodeorextendedmodeswitchhasbeencancelled.<br/>
+<b>Required&#160;Interfaces</b><br/>
+<b>OmcModesCallouts</b><br/>
+The&#160;user&#160;has&#160;to&#160;provide&#160;this&#160;this&#160;interface&#160;if&#160;the&#160;parameter&#160;OmcOperatingModeCallout&#160;is&#160;set&#160;to&#160;true.<br/>
+The&#160;following&#160;two&#160;opereations&#160;shall&#160;be&#160;implemented:<br/>
+AllowOpModeSwitch:&#160;is&#160;called&#160;by&#160;Omc&#160;during&#160;a&#160;diagnose&#160;request&#160;to&#160;change&#160;the&#160;operating&#160;or&#160;extended<br/>operating&#160;mode.&#160;The&#160;user&#160;will&#160;be&#160;able&#160;to&#160;accept&#160;or&#160;deny&#160;this&#160;request.<br/>OpModeSwitchCancelled:&#160;if&#160;the&#160;interface&#160;AllowOpModeSwitch&#160;has&#160;been&#160;called&#160;and&#160;the&#160;operating&#160;or<br/>extended&#160;operating&#160;mode&#160;change&#160;is&#160;not&#160;performed&#160;the&#160;user&#160;is&#160;informed&#160;over&#160;this&#160;interface&#160;that&#160;the<br/>change&#160;has&#160;been&#160;cancelled.&#160;This&#160;may&#160;happens&#160;e.g.&#160;if&#160;an&#160;error&#160;occurs&#160;while&#160;trying&#160;to&#160;store&#160;the&#160;new<br/>operating&#160;mode&#160;in&#160;non&#160;volatile&#160;memory.<br/>
+<b>Configuration<br/>OmcGeneral<br/></b>This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;Omc<br/>
+<b>OmcDevErrorDetect<br/></b>Activate/Deactivate&#160;the&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification.<br/>If&#160;set&#160;to&#160;true:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;activated.&#160;If&#160;set&#160;to&#160;false:&#160;Development&#160;Error<br/>Detection&#160;and&#160;Notification&#160;deactivated.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;12<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-11_1.png"/><br/>
+<b>OmcOperatingModeCallout<br/></b>Activate/Deactivate&#160;an&#160;user&#160;callback&#160;to&#160;be&#160;able&#160;to&#160;accept&#160;or&#160;deny&#160;a&#160;mode&#160;or&#160;extended&#160;mode&#160;change.&#160;If<br/>set&#160;to&#160;true:&#160;The&#160;application&#160;provides&#160;one&#160;or&#160;more&#160;instances&#160;of&#160;the&#160;service&#160;AllowModeChange.&#160;The&#160;user<br/>may&#160;control&#160;over&#160;this&#160;interface&#160;if&#160;mode&#160;or&#160;extended&#160;mode&#160;change&#160;is&#160;allowed&#160;or&#160;not.&#160;The&#160;user&#160;is&#160;only<br/>called&#160;to&#160;allow&#160;or&#160;not&#160;a&#160;mode&#160;or&#160;extended&#160;mode&#160;change&#160;only&#160;if&#160;the&#160;mode&#160;change&#160;has&#160;already&#160;be<br/>accepted&#160;by&#160;StdDiag.&#160;If&#160;set&#160;to&#160;false:&#160;Omc&#160;decides&#160;with&#160;StdDiag&#160;if&#160;a&#160;mode&#160;or&#160;extended&#160;mode&#160;change<br/>allowed&#160;is&#160;or&#160;not.<br/>
+<b>Configuration&#160;of&#160;the&#160;RTE<br/>Event&#160;Mapping<br/></b>The&#160;followings&#160;runnable&#160;entities&#160;shall&#160;be&#160;mapped:<br/>
+Init<br/>RollbackModeChange<br/>
+<b>Data&#160;Mapping<br/>Dcm</b><br/>
+The&#160;port&#160;ControlEnergySavingState&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dcm&#160;generated<br/>RoutineServices_&lt;xxx&gt;&#160;see&#160;6.1&#160;Dcm,&#160;Routine&#160;Control.<br/>The&#160;port&#160;ControlExtendedEnergySavingState&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dcm&#160;generated<br/>RoutineServices_&lt;xxx&gt;&#160;see&#160;6.1&#160;Dcm,&#160;Routine&#160;Control.<br/>The&#160;port&#160;EnergySavingState&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dcm&#160;generated&#160;DataServices_&lt;xxx&gt;&#160;see&#160;6.1<br/>Dcm,&#160;Read&#160;Data&#160;By&#160;Identifier<br/>The&#160;port&#160;ExtendedEnergySavingState&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dcm&#160;generated<br/>DataServices_&lt;xxx&gt;&#160;see&#160;6.1&#160;Dcm,&#160;Read&#160;Data&#160;By&#160;Identifier.<br/>
+<b>Det</b><br/>
+The&#160;port&#160;DETServicePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Det&#160;generated&#160;service&#160;port&#160;see&#160;6.1&#160;Dem,&#160;Det.<br/>
+<b>Dem</b><br/>
+The&#160;port&#160;ClearEventAllowedPort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dem&#160;generated&#160;clear&#160;event&#160;allowed&#160;port<br/>see&#160;6.1&#160;Dem,&#160;Event.<br/>The&#160;port&#160;operatingModeEvent&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;Dem&#160;generated&#160;Diagnostic&#160;Monitor&#160;port<br/>see&#160;6.1&#160;Dem,&#160;Event.<br/>
+<b>NvM</b><br/>
+The&#160;port&#160;NvMServicePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;NvM&#160;generated&#160;service&#160;port&#160;see&#160;6.1.&#160;NvM.<br/>
+<b>BswM</b><br/>
+The&#160;port&#160;notificationOMCModePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;BswM&#160;generated&#160;mode&#160;switch&#160;port<br/>see&#160;6.1&#160;BswM.<br/>The&#160;prot&#160;requestOmcModePort&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;BswM&#160;generated&#160;mode&#160;request&#160;port&#160;see<br/>6.1.&#160;BswM.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;12<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_IntegrationManual-12_1.png"/><br/>
+<b>Exclusive&#160;Areas<br/></b>Omc&#160;uses&#160;one&#160;Exclusive&#160;Area&#160;called&#160;Mode.<br/>
+<b>Software&#160;Integration<br/>Startup/Initialization<br/></b>The&#160;NvM&#160;ReadAll&#160;shall&#160;be&#160;complete&#160;before&#160;the&#160;Omc&#160;mode&#160;OMC_INITIALIZED&#160;is&#160;requested.&#160;The<br/>initialization&#160;is&#160;complete&#160;when&#160;the&#160;mode&#160;switch&#160;to&#160;OMC_INITIALIZED&#160;(triggered&#160;by&#160;Omc)&#160;is&#160;completed.<br/>While&#160;in&#160;OMC_INITIALIZED&#160;the&#160;integrator&#160;shall&#160;decide&#160;the&#160;best&#160;moment&#160;to&#160;BswM&#160;to&#160;request<br/>OMC_RUNNING.&#160;After&#160;requesting&#160;OMC_RUNNING&#160;Omc&#160;will&#160;switch&#160;the&#160;mode&#160;to&#160;OMC_RUNNING.<br/>When&#160;the&#160;switch&#160;is&#160;completed&#160;the&#160;Omc&#160;will&#160;be&#160;running.<br/>To&#160;request&#160;a&#160;specific&#160;state&#160;the&#160;user&#160;shall&#160;use&#160;the&#160;port&#160;LifeCycleRequest.<br/>
+<b>Normal&#160;Operation<br/>Shutdown/Deactivation<br/></b>The&#160;BswM&#160;shall&#160;request&#160;the&#160;Omc&#160;Mode&#160;to&#160;OMC_STOPPED&#160;to&#160;stop&#160;the&#160;Omc&#160;SW-C.&#160;The&#160;module&#160;is<br/>stopped&#160;when&#160;the&#160;mode&#160;switch&#160;to&#160;OMC_STOPPED&#160;(triggered&#160;by&#160;Omc)&#160;is&#160;completed.<br/>
+OmcClassic_IntegrationManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;12<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#4">1 Introduction</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#4">1.1 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#5">2 Related documentation</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#6">3 Limitations</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4 Software Architecture</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.1.1 RTE</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.1.2 Det</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.1.3 Dcm</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.1.4 Dem</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.1.5 Nvm</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#7">4.2 Dependencies to other modules</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#8">5 Integration</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#8">5.1 Configuration of other Modules</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#8">5.1.1 Dcm</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#8">5.1.1.1 Read Data By Identifer</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#8">5.1.1.2 Routine Control</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#8">5.1.2 NvM</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#9">5.1.3 Dem</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#9">5.1.3.1 Enable Condition</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#9">5.1.3.2 Event</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#9">5.1.4 BswM</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#9">5.1.5 Det</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.2 Provided Interfaces</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.2.1 OmcOperatingMode and OmcExtendedOperatingMode</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.2.2 OmcModesCalloutsResult</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.3 Required Interfaces</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.3.1 OmcModesCallouts</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.4 Configuration</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.4.1 OmcGeneral</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#10">5.4.1.1 OmcDevErrorDetect</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.4.1.2 OmcOperatingModeCallout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5 Configuration of the RTE</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.1 Event Mapping</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.2 Data Mapping</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.2.1 Dcm</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.2.2 Det</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.3 Dem</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.4 NvM</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#11">5.5.5 BswM</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#12">5.5.6 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_IntegrationManuals.html#12">5.6 Software Integration</a>
+<ul>
+<li><a href="OmcClassic_IntegrationManuals.html#12">5.6.1 Startup/Initialization</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#12">5.6.2 Normal Operation</a></li>
+<li><a href="OmcClassic_IntegrationManuals.html#12">5.6.3 Shutdown/Deactivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

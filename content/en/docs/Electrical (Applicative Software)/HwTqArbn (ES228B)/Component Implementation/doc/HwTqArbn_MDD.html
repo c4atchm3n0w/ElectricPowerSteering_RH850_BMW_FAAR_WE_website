@@ -1,0 +1,292 @@
+---
+title: HwTqArbn_MDD
+linkTitle: HwTqArbn_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>HwTqArbn</strong></p>
+<p><strong>26-May-2016</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>SEPG,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>SI. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>Basavaraja Ganeshappa</td>
+<td>1.0</td>
+<td>26<sup>th</sup> May 2016</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p><a href="#hwtrqarbn-high-level-description">1 HwTrqArbn High-Level Description <span>4</span></a></p>
+<p><a href="#design-details-of-software-module">2 Design details of software module <span>5</span></a></p>
+<p><a href="#graphical-representation-of-hwtrqarbn">2.1 Graphical representation of HwTrqArbn <span>5</span></a></p>
+<p><a href="#data-flow-diagram">2.2 Data Flow Diagram <span>5</span></a></p>
+<p><a href="#component-level-dfd">2.2.1 Component level DFD <span>5</span></a></p>
+<p><a href="#function-level-dfd">2.2.2 Function level DFD <span>5</span></a></p>
+<p><a href="#constant-data-dictionary">3 Constant Data Dictionary <span>6</span></a></p>
+<p><a href="#program-fixed-constants">3.1 Program (fixed) Constants <span>6</span></a></p>
+<p><a href="#embedded-constants">3.1.1 Embedded Constants <span>6</span></a></p>
+<p><a href="#software-component-implementation">4 Software Component Implementation <span>7</span></a></p>
+<p><a href="#sub-module-functions">4.1 Sub-Module Functions <span>7</span></a></p>
+<p><a href="#init-hwtrqarbninit1">4.1.1 Init: HwTrqArbnInit1 <span>7</span></a></p>
+<p><a href="#design-rationale">4.1.1.1 Design Rationale <span>7</span></a></p>
+<p><a href="#module-outputs">4.1.1.2 Module Outputs <span>7</span></a></p>
+<p><a href="#per-hwtrqarbnper1">4.1.2 Per: HwTrqArbnPer1 <span>7</span></a></p>
+<p><a href="#design-rationale-1">4.1.2.1 Design Rationale <span>7</span></a></p>
+<p><a href="#store-module-inputs-to-local-copies">4.1.2.2 Store Module Inputs to Local copies <span>7</span></a></p>
+<p><a href="#processing-of-function">4.1.2.3 (Processing of function)……… <span>7</span></a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">4.1.2.4 Store Local copy of outputs into Module Outputs <span>7</span></a></p>
+<p><a href="#server-runables">4.2 Server Runables <span>7</span></a></p>
+<p><a href="#interrupt-functions">4.3 Interrupt Functions <span>7</span></a></p>
+<p><a href="#module-internal-local-functions">4.4 Module Internal (Local) Functions <span>7</span></a></p>
+<p><a href="#local-function-1">4.4.1 Local Function #1 <span>7</span></a></p>
+<p><a href="#design-rationale-2">4.4.1.1 Design Rationale <span>8</span></a></p>
+<p><a href="#processing">4.4.1.2 Processing <span>8</span></a></p>
+<p><a href="#global-functionmacro-definitions">4.5 GLOBAL Function/Macro Definitions <span>8</span></a></p>
+<p><a href="#known-limitations-with-design">5 Known Limitations with Design <span>9</span></a></p>
+<p><a href="#unit-test-consideration">6 UNIT TEST CONSIDERATION <span>10</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>11</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>12</span></a></p>
+<p><a href="#references">Appendix C References <span>13</span></a></p>
+<h1 id="hwtrqarbn-high-level-description">HwTrqArbn High-Level Description</h1>
+<p><em>Refer FDD</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-hwtrqarbn">Graphical representation of HwTrqArbn</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:3.41667in;height:4.25in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p><em>Refer FDD</em></p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p><em>Refer FDD</em></p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p><em>Refer FDD</em></p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<p>Refer DD</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<p><em>Refer FDD</em></p>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p><em>Refer FDD</em></p>
+<h3 id="init-hwtrqarbninit1">Init: HwTrqArbnInit1</h3>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="per-hwtrqarbnper1">Per: HwTrqArbnPer1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>None</em></p>
+<h2 id="processing-of-function">(Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="server-runables">Server Runables </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>FricLearning</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td rowspan="5"><strong>Arguments Passed</strong></td>
+<td>SigRollgCntr_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td>SigQlfr_Cnt_T_enum</td>
+<td>enum</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>kMaxStallCnt_Cnt_T_u08</td>
+<td>Uint8</td>
+<td colspan="2">10</td>
+</tr>
+<tr class="odd">
+<td>LstRollgCntr_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="even">
+<td>StallCntr_Cnt_T_u08</td>
+<td>Uint8</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>SigAvl_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<h2 id="processing">Processing</h2>
+<p>Refer FDD</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document</td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>Process 04.02.01</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>Process 04.02.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>Process 04.02.01</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>Process 04.02.01</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>ES228B_HwTqArbn_Design</td>
+<td>Refer synergy subproject version</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,1421 @@
+---
+title: KnownIssues_P1x_R403_2015_CW23s
+linkTitle: KnownIssues_P1x_R403_2015_CW23s
+weight: 9
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>ID<br/>
+Category<br/>
+Summary<br/>
+Description<br/>
+ASR_TicketType<br/>
+Status<br/>
+22712<br/>
+General<br/>
+Usage of value INF not according ASR&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+requirements<br/>
+According AUTOSAR_TPS_ECUConfiguration the value 'inf' derived from standard module definition STMD must be used as follows:&#160;<br/>
+ISSUE<br/>
+• [ecuc_sws_6045] If the min value equals -inf or the max value equals inf in&#160;<br/>the StMD the min/max values in the VSMD shall be replaced with the actually&#160;<br/>supported min/max values for this implementation.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>INF shall not be used, but instead the actual MIN/MAX values shall be available in PDFs&#160;<br/>&#160;<br/>Current behavior:&#160;<br/>See problem description field.<br/>
+26927<br/>
+General<br/>
+[Port]&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+AUTOSAR_PORT_Component_UserManual.&#160;Lack of information about Exclusives areas in AUTOSAR_PORT_Component_UserManual.pdf. As a result user is facing difficulty during integration.&#160;<br/>
+ISSUE<br/>
+pdf is lacking information about Exclusives&#160;&#160;Source Package: AUTOSAR_RH850_P1x_MCAL_E4.03&#160;<br/>areas for CRITICAL SECTION PROTECTION<br/>
+&#160;<br/>Expected Behavior:&#160;<br/>The user manual should contain information about INIT_CONFIG_PROTECTION, REFRESH_PORT_INTERNAL_PROTECTION and SET_TO_DIO_ALT_PROTECTION.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>UM only describes SET_PIN_MODE_PROTECTION in chapter 4.4, but SET_PIN_DIR_PROTECTION, INIT_CONFIG_PROTECTION, REFRESH_PORT_INTERNAL_PROTECTION and&#160;<br/>SET_TO_DIO_ALT_PROTECTION, SET_PIN_DEFAULT_MODE_PROTECTION, SET_PIN_DEFAULT_DIR_PROTECTION are not mentioned.<br/>
+26988<br/>
+General<br/>
+CAN and LIN modules not following&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Autosar requirement BSW00347<br/>
+As per AUTOSAR requirement BSW00347, the driver modules shall be named as per &lt;MSN&gt;_&lt;VendorId&gt;_&lt;VendorSpecificName&gt;_&lt;ServiceName&gt;.&#160;<br/>
+ISSUE<br/>
+For Example : 'Can_Init()' will become 'Can_59_Renesas_Init()'. &#160;<br/>It shall be followed for File Names, Public APIs, Published Parameters, Memory allocation Keywords and Public data types. But this is not followed in CAN and LIN modules which support&#160;<br/>multiple instance as per autosar base definition file.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>The driver modules shall be named as per &lt;MSN&gt;_&lt;VendorId&gt;_&lt;VendorSpecificName&gt;_&lt;ServiceName&gt;.&#160;<br/>&#160;<br/>Actual&#160;behaviour:&#160;<br/>The driver modules(CAN and LIN) are not named as per &lt;MSN&gt;_&lt;VendorId&gt;_&lt;VendorSpecificName&gt;_&lt;ServiceName&gt;.&#160;<br/>&#160;<br/>The following MCAL modules have the tag 'UPPER-MULTIPLICITY-INFINITE' is set to 'true' in Autosar Base Definition file AUTOSAR_MOD_ECUConfigurationParameters.arxml and hence&#160;<br/>support multiple instance.&#160;<br/>1. CAN&#160;<br/>2. Ethernet&#160;<br/>3. FLS&#160;<br/>4. Flexray&#160;<br/>5. ICU&#160;<br/>6. LIN&#160;<br/>7. PWM&#160;<br/>8. WDG&#160;<br/>But for Ethernet, FLS, ICU, and PWM modules, the requirement BSW00347 is moved to NA requirements in the Traceability section. &#160;<br/>
+<hr/>
+<a name=2></a>27639<br/>
+General<br/>
+PRAGMA define inconsistent to device&#160;<br/>
+&lt;u&gt;Problem Description:&lt;/u&gt;&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+header file package<br/>
+PRAGMA define differs between io_macros_v2.h from device header file packages and compiler.h in MCAL package.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>In Compiler.h:&#160;<br/>#define PRAGMA(x) _Pragma(x)&#160;<br/>&#160;<br/>In io_macros_v2.h:&#160;<br/>#define PRAGMA(x) _Pragma(#x)&#160;<br/>&#160;<br/>&lt;u&gt;Current Behaviour:&lt;/u&gt;&#160;<br/>In customer application this might cause a compilation warning due to a macro redefinition if both header files are used.&#160;<br/>&#160;<br/>&lt;u&gt;Expected Behaviour:&lt;/u&gt;&#160;<br/>Consistent define used in both header files.&#160;<br/>
+27721<br/>
+General<br/>
+Command line option -F not working<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+The -F/FILEVERSION option of generation tool is not working. Instead of listing the version of tool code files, the tool is throwing error 'ERR000011:ECU Configuration Description File is&#160;<br/>
+ISSUE<br/>
+not provided as input to the Generation Tool'.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>On the usage of -F/FILEVERSION option, generation tool must list the version of tool code files.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>See Problem description.&#160;<br/>
+27747<br/>
+General<br/>
+Makefiles use invalid include paths for GHS&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+builder<br/>
+The GHS makefiles for sample applications use invalid include paths parameters.&#160;<br/>
+ISSUE<br/>
+This behaviour has currently no effect to GHS builder but this might change.&#160;<br/>It lengthens the command lines without any use.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>GHS builder is called with invalid options like&#160;<br/>-I\4.0.3&#160;<br/>-I\common&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Only valid include path parameters shall be used.<br/>
+27766<br/>
+General<br/>
+Functional codes are executing Even after&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+DEM is reported.<br/>
+&#160;<br/>
+ISSUE<br/>
+Even after DEM error is reported, functional codes are getting executed, which may result in unexpected behavior of driver. &#160;<br/>&#160;<br/>Similar issue is found in SPI while doing functional testing for E1x V4.00.04 release, And an issue is reported in mantis # bug:26731.&#160;<br/>&#160;<br/>Decided to create new ticket to start &#160;investigation for similar issues in all other module (see note:181849).&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>Expected behavior: &#160;<br/>Functional codes shall not execute after reporting DEM Error.&#160;<br/>&#160;<br/>&#160;<br/>Actual behavior: &#160;<br/>Functional codes are executed even after reporting DEM Error.&#160;<br/>
+<hr/>
+<a name=3></a>27974<br/>
+General<br/>
+Makefiles specify irrelevant folders for&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+header search<br/>
+The -I parameter is used to specify folders where the GHS builder shall search for header files. But also source folders are given.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>Actual behaviour:&#160;<br/>Many irrelevant folders are given as parameter to GHS builder. When project becomes large the maximum command line length (8k) is exceeded.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Only relevant folders shall be given with -I parameter.<br/>
+28478<br/>
+General<br/>
+CAN-ENTER-EXCLUSIVE-AREA-REF tag is&#160;<br/>
+canEnterExclusiveArea is required inside the entity in BSWMDT, if the referenced exclusive area is used in the entity's code. &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+missing in the BSWMDT<br/>
+The entity can be BswCalledEntity, BswSchedulableEntity or BswInterruptEntity.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>&#160;<br/>&lt;BSW-INTERNAL-BEHAVIOR UUID=&#34;ECUS:951843a9-6848-4a8d-869a-7b29a87158fa&#34;&gt;&#160;<br/>&#160; &lt;SHORT-NAME&gt;BswInternalBehavior_0&lt;/SHORT-NAME&gt;&#160;<br/>&#160; &#160; &lt;EXCLUSIVE-AREA UUID=&#34;ECUS:1b965de4-5e4a-49d8-a4cb-e7782386f347&#34;&gt;&#160;<br/>&#160; &#160; &#160; &lt;SHORT-NAME&gt;VARIABLE_PROTECTION&lt;/SHORT-NAME&gt;&#160;<br/>&#160; &#160; &lt;/EXCLUSIVE-AREA&gt;&#160;<br/>&#160; &lt;/EXCLUSIVE-AREAS&gt;&#160;<br/>&#160; &lt;ENTITYS&gt;&#160;<br/>&#160; &#160; &lt;BSW-INTERRUPT-ENTITY UUID=&#34;ECUS:8d9d01cd-59a4-4f9d-a0c5-a46966e1b2ad&#34;&gt;&#160;<br/>&#160; &#160; &#160; &lt;SHORT-NAME&gt;BswInterruptEntity_1&lt;/SHORT-NAME&gt;&#160;<br/>&#160; &#160; &#160; &lt;IMPLEMENTED-ENTRY-REF DEST=&#34;BSW-MODULE-ENTRY&#34;&gt;/ArPackage_0/MCU_FEINT_ISR&lt;/IMPLEMENTED-ENTRY-REF&gt;&#160;<br/>&#160; &#160; &#160; &lt;INTERRUPT-CATEGORY&gt;CAT-1&lt;/INTERRUPT-CATEGORY&gt;&#160;<br/>&#160; &#160; &#160; &lt;INTERRUPT-SOURCE&gt;INTLVI&lt;/INTERRUPT-SOURCE&gt;&#160;<br/>&#160; &#160; &lt;/BSW-INTERRUPT-ENTITY&gt;&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>&#160;<br/>&lt;BSW-INTERNAL-BEHAVIOR UUID=&#34;ECUS:951843a9-6848-4a8d-869a-7b29a87158fa&#34;&gt;&#160;<br/>&#160; &lt;SHORT-NAME&gt;BswInternalBehavior_0&lt;/SHORT-NAME&gt;&#160;<br/>&#160; &#160; &lt;EXCLUSIVE-AREA UUID=&#34;ECUS:1b965de4-5e4a-49d8-a4cb-e7782386f347&#34;&gt;&#160;<br/>&#160; &#160; &#160; &lt;SHORT-NAME&gt;VARIABLE_PROTECTION&lt;/SHORT-NAME&gt;&#160;<br/>&#160; &#160; &lt;/EXCLUSIVE-AREA&gt;&#160;<br/>&#160; &lt;/EXCLUSIVE-AREAS&gt;&#160;<br/>
+28534<br/>
+General<br/>
+Wrong upper multiplicity definition for&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Configuration container.<br/>
+In PDF of some MCAL modules the upper multiplicity is defined as&#160;<br/>
+ISSUE<br/>
+&lt;UPPER-MULTIPLICITY-INFINITE&gt;XX&lt;/UPPER-MULTIPLICITY-INFINITE&gt;&#160;<br/>&#160;<br/>The above definitions are not correct according to ASR ecuc_sws_2011.&#160;<br/>&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>Multiple configuration is not possible due to the above problem.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>The correct definitions must be as follows:&#160;<br/>&lt;UPPER-MULTIPLICITY&gt;XX&lt;/UPPER-MULTIPLICITY&gt;<br/>
+<hr/>
+<a name=4></a>26812<br/>
+ADC<br/>
+Unexpected DET ADC_E_IDLE is been raised&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+from Adc_DisableHardware Trigger<br/>
+Unexpected DET ADC_E_IDLE is being raised when Adc_DisableHardwareTrigger is invoked for an already enabled group (using the api Adc_EnableHardwareTrigger)whose status is&#160;<br/>
+ISSUE<br/>
+ADC_STREAM_COMPLETED.&#160;<br/>&#160;<br/>Expected Behaviour :&#160;<br/>As &#160;per requirement ADC304, the DET ADC_E_IDLE should not be reported when Adc_DisableHardwareTrigger is called for a group that has already been enabled using&#160;<br/>Adc_EnableHardwareTrigger.&#160;<br/>&#160;<br/>Actual Behaviour :&#160;<br/>The DET ADC_E_IDLE is reported when Adc_DisableHardwareTrigger is called for a group that has already been enabled using Adc_EnableHardwareTrigger.&#160;<br/>
+27492<br/>
+ADC<br/>
+HW triggered One-shot conversion in&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Circular Streaming is not working as&#160;<br/>
+As per AUTOSAR specification, one HW trigger should trigger only one ADC channel group conversion stream. The conversion must finish once it receives the HW trigger that is equal to&#160;<br/>
+ISSUE<br/>
+expected<br/>
+number of streams configured for the group. &#160;<br/>&#160;<br/>But in the current design single trigger executes the whole stream of conversions.&#160;<br/>&#160;<br/>Expected Behavior: &#160;<br/>Only one ADC channel Group conversion stream should happen per H/W trigger.&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>Streaming conversion is getting completed with single H/W trigger<br/>
+27505<br/>
+ADC<br/>
+'ucGroupSettings' element of&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Adc_GstGroupConfig[] is not generated&#160;<br/>
+LSB of 'ucGroupSettings' element decides whether a group is one-shot or continuous. &#160;<br/>
+ISSUE<br/>
+properly<br/>
+'0' means continuous group and &#160;<br/>'1' means one-shot group.&#160;<br/>But code generator is not generating this properly.&#160;<br/>For one-shot mode and circular streaming group it generates '1' and&#160;<br/>for continuous mode and linear streaming group it generates '0' &#160;<br/>&#160;<br/>Expected Behavior: &#160;<br/>LSB of 'ucGroupSettings' must be '0' for continuous group and '1' for one-shot group.&#160;<br/>&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>Code generator is generating the below values,&#160;<br/>For one-shot mode and circular streaming group it is generates '1' and&#160;<br/>for continuous mode and linear streaming group it generates '0'&#160;<br/>
+27592<br/>
+ADC<br/>
+DMA enabled ADC conversion gives wrong&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+conversion result if DTFRRQn register&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+signals a pending transfer request<br/>
+Conversion of an ADC group with 'AdcResultAccessMode' =&gt; 'ADC_ISR_ACCESS' (Group without DMA) leads to the flagging of DTFRRQn.DRQ bit.&#160;<br/>&#160;<br/>Conversion of an ADC group with 'AdcResultAccessMode' =&gt; 'ADC_DMA_ACCESS' (DMA enabled group) when DTFRRQn.DRQ bit already set leads to the return of converted value from&#160;<br/>previous cycle.&#160;<br/>&#160;<br/>Therefore DTFRRQn.DRQ bit must be cleared each time when DMA enabled ADC groups conversion is started.&#160;<br/>&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>DMA enabled ADC Groups should return the converted result of the current input voltage.&#160;<br/>&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>DMA enabled ADC Groups are not returning the converted result of the current input voltage because of already set DTFRRQn.DRQ bit.<br/>
+<hr/>
+<a name=5></a>27603<br/>
+ADC<br/>
+Conversion of a DMA enabled one-shot&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+ADC group is happening only for the first&#160;<br/>
+One-shot ADC groups with DMA as result access mode is getting converted only for the first trigger and not for the consecutive triggers. &#160;<br/>
+ISSUE<br/>
+HW trigger and not for the next triggers<br/>
+&#160;<br/>Note that if the result access mode is selected as interrupt then it is working as expected.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>One-shot ADC groups with DMA as result access mode should convert the group channels for every HW trigger until it is stopped explicitly by Adc_DisableHardwareTrigger()&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>One-shot ADC groups with DMA as result access mode is getting converted only for the first trigger and not for the consecutive triggers after enabling the group via&#160;<br/>Adc_EnableHardwareTrigger()<br/>
+27613<br/>
+ADC<br/>
+HW triggered ADC group with DMA circular&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+streaming access should convert one&#160;<br/>
+Current behaviour of the driver is, HW triggered ADC group with DMA and circular streaming access mode is converts more than one sample per H/W trigger. &#160;<br/>
+ISSUE<br/>
+sample per one trigger<br/>
+Sample conversion continues until the group is stopped by calling Adc_DisableHardwareTrigger().&#160;<br/>&#160;<br/>As per the AUTOSAR specification only one sample conversion must be initiated for one HW trigger.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>As per the AUTOSAR specification only one sample conversion must be initiated for one HW trigger.&#160;<br/>&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>Stream conversion continues with a single HW trigger.<br/>
+27624<br/>
+ADC<br/>
+Adc_GetStreamLastPointer() API does not&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+return the valid sample count when the&#160;<br/>
+Adc_GetStreamLastPointer() API does not return correct number of valid samples when the status of the circular streaming group is ADC_STREAM_COMPLETED. This API must return the&#160;<br/>
+ISSUE<br/>
+status of the group is&#160;<br/>
+value equal to the configured 'AdcStreamingNumSamples' parameter of that group.&#160;<br/>
+ADC_STREAM_COMPLETED<br/>
+&#160;<br/>Expected Behavior:&#160;<br/>Adc_GetStreamLastPointer() API must return the maximum sample value when the status of the circular streaming group is ADC_STREAM_COMPLETED.&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>Adc_GetStreamLastPointer() API is returning random value when the status of the group is ADC_STREAM_COMPLETED.<br/>
+<hr/>
+<a name=6></a>28094<br/>
+ADC<br/>
+Value assigned to register (ADCDnTHGSR) is&#160;Problem Description:- &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+not correct in API Adc_HwInit().<br/>
+In Private API Adc_HwInit() value assigned to register (ADCDnTHGSR) usADCXnTHGSR is not correct, assignment to this register is as mentioned below. &#160;<br/>
+ISSUE<br/>
+&#160;<br/>&lt;b&gt; LpAdcRegisters-&gt;usADCXnTHGSR = (uint16)(LpHwUnitConfig-&gt;ucGroupSelectMask); &lt;/b&gt;&#160;<br/>&#160;<br/>Generated value in structure element &#34;ucGroupSelectMask&#34; is not correct, Thereby selection of T&amp;H group B will not work properly.&#160;<br/>&#160;<br/>In tool code value for structure element &lt;b&gt;&#34;ucGroupSelectMask&#34;&lt;/b&gt; is as mentioned below. Here final value in &#34;ucGroupSelectMask&#34; is the value in local variable &lt;b&gt;$grp_mask&lt;/b&gt;,&#160;<br/>Understanding is that for register ADCDnTHGSR bit positions are in even number, as mentioned in section 30.3.23 of Device manual R01UH0436EJ0070 Rev.0.70, But in Generation Tool&#160;<br/>code its considered that ADCDnTHGSR register bit positions are continues, As mentioned in Actual Behavior.&#160;<br/>&#160;<br/>Please check and do needful.&#160;<br/>&#160;<br/>Actual Behavior:- &#160;<br/>@Line No 749 of BswPbIm.pm file, SVN Revision $185322&#160;<br/>Looping below mentioned code for each channel.&#160;<br/># Fill ucGroupSelectMask&#160;<br/>&#160; &#160; &#160; $grp_mask = 0;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; $BswPbIm::Dbrom_PbImage{Adc_GstHWUnitConfig}{$index}&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; {ucGroupSelectMask} = $grp_mask;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; if ($chn_trck eq &#34;ADC_TH_GROUPB&#34;)&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; {&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160;&lt;b&gt;$grp_mask = $grp_mask | (1 &lt;&lt; $ch_id); &lt;/b&gt;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; $BswPbIm::Dbrom_PbImage{Adc_GstHWUnitConfig}{$index}&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; {ucGroupSelectMask} = $grp_mask;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; }&#160;<br/>&#160;<br/>&#160;<br/>
+28109<br/>
+ADC<br/>
+Limit check implementation is not proper&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+for Polling mode<br/>
+In the case of Polling, Adc_ReadGroup API is called multiple times in a Loop. From Adc_PollingReadGroup function(called form Adc_ReadGroup API), Adc_ErrIsr is called. In Adc_ErrIsr the&#160;<br/>
+ISSUE<br/>
+following errors are being cleared by writing 0x0E to ADCDnECR register.&#160;<br/>1. Upper Limit/Lower Limit Error.&#160;<br/>2. Overwrite Error.&#160;<br/>3. Parity Error Clear.&#160;<br/>&#160;<br/>In next polling(calling Adc_ReadGroup), even if the value is beyond Limit/Lower limit, ADC group notification is called and the conversion status is changed to ADC_STREAM_COMPLETED.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>ADC driver should trigger the next conversion even if it is configured for one-shot conversion.&#160;<br/>&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Further conversion is not triggered for one-shot groups.&#160;<br/>ADC group notification is called and the conversion status is changed to ADC_STREAM_COMPLETED.<br/>
+<hr/>
+<a name=7></a>28111<br/>
+ADC<br/>
+Conversion is not happening for TH groups&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+when parameter 'AdcSuspendMode' is&#160;<br/>
+Conversion is happening for ADC groups which contains Track and Hold enabled channels when the configuration parameter 'AdcSuspendMode'&#160;<br/>
+ISSUE<br/>
+'ADC_ASYNCHRONOUS_SUSPEND' and the&#160;&#160;in container 'AdcHwUnit' is configured as 'ADC_ASYNCHRONOUS_SUSPEND' and the parameter 'AdcGroupTriggSrc' is 'ADC_TRGG_SRC_SW'.&#160;<br/>Trigger is SW<br/>
+&#160;<br/>The track and hold functionality is working fine for HW triggered groups even if the parameter 'AdcSuspendMode' is 'ADC_ASYNCHRONOUS_SUSPEND'.&#160;<br/>Also, it is working properly for both SW and HW triggered groups if the parameter 'AdcSuspendMode' is 'ADC_SYNCHRONOUS_SUSPEND'&#160;<br/>&#160;<br/>But if the parameter 'AdcSuspendMode' is configured as 'ADC_SYNCHRONOUS_SUSPEND' the generator tool produces the following warning.&#160;<br/>&#34;The parameter 'AdcSuspendMode' should be configured as &lt;ADC_ASYNCHRONOUS_SUSPEND&gt; when the channels are enabled for Track and hold feature.&#34;&#160;<br/>&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>conversion should be happened for both SW and HW triggered groups if parameter 'AdcSuspendMode' is 'ADC_ASYNCHRONOUS_SUSPEND'&#160;<br/>&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Conversion is not happening if parameter 'AdcSuspendMode' is 'ADC_ASYNCHRONOUS_SUSPEND' for SW triggered groups.<br/>
+28118<br/>
+ADC<br/>
+Critical section protection for global&#160;<br/>
+Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+structure array &#34;Adc_GpGroupRamData&#34; is&#160;&#160;&#160;<br/>
+ISSUE<br/>
+not implemented.<br/>
+Critical section protection for global structure array &#34;Adc_GpGroupRamData&#34; is not implemented, even though the values of the structure &#34;Adc_GpGroupRamData&#34; is modified in most of&#160;<br/>the APIs. &#160;<br/>&#160;<br/>In most of the private API, address of global structure array &#34;Adc_GpGroupRamData&#34; is assigned &#160;to a local pointer and then &#160;the elements values are changed / modified / read.&#160;<br/>Even &#160;though the values are changed using local pointer, &#160;the value in global structure array &#34;Adc_GpGroupRamData&#34; also gets changed.&#160;<br/>&#160;<br/>Example :&#160;<br/>&#160;<br/>The value of structure element &#34;ddGroupStatus&#34; of &#34;Adc_GpGroupRamData&#34; global structure is being modified in &#160;Adc_GroupCompleteMode() &#160;<br/>private API called from Adc_Isr(). &#160;<br/>&#160;<br/>/* Set group status as conversion completed */&#160;<br/>&#160; &#160; &#160; LpGroupData-&gt;ddGroupStatus = ADC_STREAM_COMPLETED;&#160;<br/>&#160;<br/>Consider a &#160;situation in which &#160;API Adc_StopGroupConversion() is called from a high priority task ( say Timer Isr) than that of Adc_Isr(), And if Adc_StopGroupConversion() is called ( for&#160;<br/>same group) just after start exciting Adc_Isr(), but not reached above mentioned code. &#160;<br/>&#160;<br/>In this case the status &#160;Group Status remain ADC_STREAM_COMPLETED, even after calling Adc_StopGroupConversion().&#160;<br/>&#160;<br/>To avoid such issues, critical sections need to be implemented properly.&#160;<br/>&#160;<br/>Required MO suggestion on same.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>Critical section protection not implemented.&#160;<br/>&#160;<br/>
+<hr/>
+<a name=8></a>28120<br/>
+ADC<br/>
+Autosar requirement ADC413 is not taken&#160;&#160;Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+care.<br/>
+&#160;<br/>
+ISSUE<br/>
+As per AUTOSAR requirement ADC413 all API functions, except &#160;Adc_Init, Adc_DeInit and Adc_GetVersionInfo are re-entrant. But in current implementation it is not taken care. If the&#160;<br/>functions are called &#160;<br/>for different channel groups, in current implementation these re-entrant API will not work properly.&#160;<br/>&#160;<br/>Example:-&#160;<br/>Consider that SW triggered ADC channel group 0 is already in queue.&#160;<br/>&#160;<br/>Considered that we call Adc_ReadGroup() for ADC group 1 and API Adc_DisableHardwareTrigger() is invoked for ADC Channel group 1 form a interrupt (Like Timer ISR) when only DET&#160;<br/>check in Adc_ReadGroup() API is completed. Then execution of Adc_ReadGroup() is pushed to stack and start execution of Adc_DisableHardwareTrigger() API. &#160;<br/>&#160;<br/>When Adc_DisableHardwareTrigger() API complete execution, it pops the ADC channel group 0 from queue, trigger its conversion, and when Adc_ReadGroup() start execution, it will give&#160;<br/>unexpected behavior.&#160;<br/>&#160;<br/>similar issues exist in most of the API's, &#160;<br/>&#160;<br/>Requesting MO suggestions on same.&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>Requirement should be taken care properly and API's except above mentioned should be re-entrant.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>Requirement is not taken care.<br/>
+28121<br/>
+ADC<br/>
+Memory section mapping used for global&#160;<br/>
+Probable Description:-&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+variable &#34;Adc_GaaHwUnitIndex[]&#34; and&#160;<br/>
+1.The global variable &#34;Adc_GaaResultGroupRamData[]&#34; is mapped to memory section &#34;CONFIG_DATA_UNSPECIFIED_SEC_STARTED&#34; (ADC_START_SEC_CONFIG_DATA_UNSPECIFIED), But&#160;<br/>
+ISSUE<br/>
+&#34;Adc_GaaResultGroupRamData[]&#34; &#160;is not&#160;<br/>
+this global variable is not initialized in Adc_PBcfg.c (Generated file).&#160;<br/>
+correct.&#160;<br/>
+&#160;<br/>Declaration of this variable is as mentioned below.&#160;<br/>&#160;<br/>extern VAR(Adc_ValueGroupType, ADC_NOINIT_DATA) Adc_GaaResultGroupRamData[];&#160;<br/>of Adc_Ram.c file.&#160;<br/>&#160;<br/>2. The global variable &#34;Adc_GaaHwUnitIndex[]&#34; is mapped to memory section &#34;VAR_NOINIT_UNSPECIFIED_SEC_STARTED&#34; (ADC_START_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED), But&#160;<br/>this global variable is of type const and initialized in Adc_PBcfg.c (Generated file).&#160;<br/>&#160;<br/>Declaration of this variable is as mentioned below.&#160;<br/>&#160;<br/>extern CONST(uint8, ADC_CONST) Adc_GaaHwUnitIndex[];&#160;<br/>of Adc_Ram.c file.&#160;<br/>&#160;<br/>Suggested Solution:&#160;<br/>&#160;<br/>1.Adc_GaaResultGroupRamData[] global variable needs to mapped to Uninitialized &#160;variable section.&#160;<br/>&#160;<br/>2.Adc_GaaHwUnitIndex[] global variable needs to mapped to initialized constant variable section.&#160;<br/>&#160;<br/>Expected Behavior:- NA&#160;<br/>&#160;<br/>Actual Behavior:- NA<br/>
+<hr/>
+<a name=9></a>28125<br/>
+ADC<br/>
+Register ADCDnTHSTPCR&#160;<br/>
+Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+(ucADCXnTHSTPCR) needs to use instead of&#160;&#160;Register ADCDnTHSTPCR (ucADCXnTHSTPCR) needs to use instead of ADCDnTHSMPSTCR (ucADCXnTHSMPSTCR) to stop TRACK &amp; HOLD in following mentioned Line of code.&#160;<br/>
+ISSUE<br/>
+ADCDnTHSMPSTCR (ucADCXnTHSMPSTCR) &#160;&#160;&#160;<br/>to stop T&amp;H.<br/>
+As per device manual R01UH0436EJ0070 Rev.0.70 section 30.3.15 ADCDnTHSMPSTCR register is used for starting T&amp;H.&#160;<br/>&#160;<br/>As per device manual R01UH0436EJ0070 Rev.0.70 section 30.3.16 ADCDnTHSTPCR register is used for stop T&amp;H.&#160;<br/>&#160;<br/>1. LpAdcRegisters-&gt;ucADCXnTHSMPSTCR = ADC_ZERO;&#160;<br/>of Adc_Private_ADCD_ADCB.c file in Private API Adc_HwDeInit().&#160;<br/>2. LpAdcRegisters-&gt;ucADCXnTHSMPSTCR = ADC_BYTE_ZERO;&#160;<br/>of Adc_Private_ADCD_ADCB.c file in Private API Adc_HwStopGroupConversion().&#160;<br/>3. Also Adc_Init() needs to update to stop T&amp;H by setting this register.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>Register use ADCDnTHSMPSTCR (ucADCXnTHSMPSTCR) to stop TRACK &amp; HOLD.&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>Register ADCDnTHSTPCR (ucADCXnTHSTPCR) needs to be use to stop TRACK &amp; HOLD.<br/>
+28134<br/>
+ADC<br/>
+Implementation of MRS requirement&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#34;AR_PN0076_FR_0201&#34; is not proper.<br/>
+If we call Adc_EnableChannel() API &#160;before calling Adc_DisableChannel() API, illegal memory access will occur.&#160;<br/>
+ISSUE<br/>
+Because when we call Adc_EnableChannel() API internally private API Adc_IntDisableEnableChannel() will call as mentioned below.&#160;<br/>&#160;<br/>Adc_IntDisableEnableChannel(Group, ChannelId, ADC_TRUE)&#160;<br/>&#160;<br/>and in private API Adc_IntDisableEnableChannel(), &#160;<br/>if LblApiType( 3rd argument) == ADC_TRUE, &#160;<br/>then, decrement the number of channels to disabled,as mentioned in below code &#160;<br/>&#160;<br/>LpGroupData-&gt;ucNoofChDisabled--;&#160;<br/>&#160;<br/>&#160;<br/>Initial value of &#34;ucNoofChDisabled&#34; is zero, so after decrement it become 255, which is not correct result in &#160;<br/>illegal memory access or unexpected behavior in API Adc_ReadGroup(), Adc_GetStreamLastPointer(), Adc_ConfigureGroupForConversion() and Adc_IsrConfigureGroupForConversion().&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>N/A&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>N/A&#160;<br/>&#160;<br/>Suggested solution:&#160;<br/>Add a DET check if particular channel is trying to enable before it is disabled.<br/>
+28135<br/>
+ADC<br/>
+Version check for Dem.h file is not present.&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+As per autosar requirement ADC124 The ADC module shall perform Inter Module Checks to avoid integration of incompatible files.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>But version check for Dem.h file is not present in the above mentioned file.&#160;<br/>&#160;<br/>FILE : Adc_Private_ADCD_ADCB.c &#160;<br/>&#160;<br/>Expected Behavior : &#160;<br/>Version check should be done.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>No version check is performed.<br/>
+<hr/>
+<a name=10></a>28143<br/>
+ADC<br/>
+General requirement&#160;<br/>
+Problem description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#34;AR_PN0034_FR_0025&#34; is not considered.<br/>
+The DMA related registers are not initialized in Adc_init().&#160;<br/>
+ISSUE<br/>
+&#160;<br/>The same issue is there with following registers also:&#160;<br/>&#160;<br/>1. ADCDnTHBCR (ucADCXnTHBCR),&#160;<br/>2. ADCDnSGCRx (ucADCXnSGCRx),&#160;<br/>3. ADCDnSGVCSPx (ucADCXnSGVCSPx)&#160;<br/>4. ADCDnSGVCEPx (ucADCXnSGVCEPx)&#160;<br/>5. ADCDnSGMCYCRx (ucADCXnSGMCYCRx)&#160;<br/>6. ADCDnULLMSRx (ucADCXnULLMSRx)&#160;<br/>7. ADCDnADTIPRy (ulADCXnADTIPRy)&#160;<br/>8. ADOPDIGn (ulADOPDIGn)&#160;<br/>9. ADCDnTHACR&#160;<br/>10. ADCDnTHCR &#160;<br/>11. ADCXnULLMTBR 0 to 2&#160;<br/>&#160;<br/>are not initialized in Adc_Init().&#160;<br/>&#160;<br/>But as per General MRS &#34;AR_PN0034_FR_0025&#34; &#160;:&#160;<br/>The &lt;MSN&gt;_Init API shall ensure that the related peripheral is running correctly, even if the peripheral was previously configured by another Application that changed the registers' default&#160;<br/>values.&#160;<br/>Thereby this General requirement &#34;AR_PN0034_FR_0025&#34; is not considered for above mentioned registers.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>The general MRS requirement &#34;AR_PN0034_FR_0025&#34; should be taken care for all above mentioned registers and DMA related registers and all should be initialized in Adc_init().&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>
+28151<br/>
+ADC<br/>
+AUTOSAR requirement &#160;ADC077 is not&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+taken care while implementing Adc_Init().<br/>
+As per this requirement,&#160;<br/>
+ISSUE<br/>
+[ADC077] The function Adc_Init shall disable the notifications and hardware trigger capability (if statically configured as active).&#160;<br/>&#160;<br/>Configured HW triggers are not disabled in Adc_Init(). If we consider General MRS requirement &#34;AR_PN0034_FR_0025&#34;, it needs to be corrected accordingly. &#160;<br/>As per this requirement:- &#34;The &lt;MSN&gt;_Init API shall ensure that the related peripheral is running correctly, even if the peripheral was previously configured by another Application that&#160;<br/>changed the registers' default values. &#34;&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>Configured HW triggers to be &#160;disabled in Adc_Init()&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>Configured HW triggers are not disabled in Adc_Init().<br/>
+<hr/>
+<a name=11></a>28158<br/>
+ADC<br/>
+The Cautions mentioned in Device manual&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+are not implemented.<br/>
+For example&#160;<br/>
+ISSUE<br/>
+As per Caution[1]: section 30.3.9&#160;<br/>&#160;To prevent malfunctions, make ADCDnADCR1 settings after making or confirming the following settings. &#160;<br/>(1) HLDTE of T&amp;H group A and B are 0.&#160;<br/>(2) ADSTARTE of all scan groups are 0 and TRGMD of all scan groups are 0H.&#160;<br/>(3) SGACT of all scan groups are 0 (before scan groups are started).]&#160;<br/>&#160;<br/>Before setting value to ADCDnADCR1 (ucADCXnADCR1) Register &#160;in Adc_Private_ADCD_ADCB.c file in Adc_HwInit() API, we are not setting the bits or values of these register bits&#160;<br/>mentioned in Caution are unknown to the driver. So based on General MRS requirement &#34;AR_PN0034_FR_0025&#34; this is to be implemented. &#160;<br/>&#160;<br/>&#160;<br/>Same type of issues are applicable for following registers also. Please check all applicable Cautions.&#160;<br/>&#160;<br/>1. ADCDnADCR2 (ucADCXnADCR2)&#160;<br/>2. ADCDnSFTCR (ucADCXnSFTCR)&#160;<br/>3. ADCDnTDCR (ucADCXnTDCR)&#160;<br/>4. ADCDnODCR (ucADCXnODCR)&#160;<br/>5. ADCDnTHACR (ucADCXnTHACR)&#160;<br/>6. ADCDnTHER (ucADCXnTHER)&#160;<br/>7. ADCDnTHGSR(usADCXnTHGSR)&#160;<br/>8. ADCDnSGVCSPx (ucADCXnSGVCSPx)&#160;<br/>9. ADOPDIGn (ulADOPDIGn)&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>none&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>
+28165<br/>
+ADC<br/>
+DEM error is not reported for Overwrite&#160;<br/>
+Problem description:&#160;<br/>
+FEATURE<br/>
+OPEN&#160;<br/>
+Error &#160;in error ISR &#160;Adc_ErrIsr()<br/>
+In the &#160;API Adc_ErrIsr(), ucADCXnOWER register is only used to calculate Physical channel ID. Understanding is that DEM error of Overwrite Error also needs to be reported. Also add&#160;<br/>
+ISSUE<br/>
+similar DEM error report to other errors like Parity Error, Upper / lower limit error and &#160;ID Error.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>DEM error needs to be reported.&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>DEm error is not reported.<br/>
+<hr/>
+<a name=12></a>28179<br/>
+ADC<br/>
+Device manual CAUTION is not considered&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+for implementation in Adc_HwInit() and&#160;<br/>
+CAUTION mentioned in section 7.10.2.13 of R01UH0436EJ0070 Rev.0.70, is not considered for implementation .&#160;<br/>
+ISSUE<br/>
+Adc_HwDeInit()<br/>
+As per device manual Caution &#160;<br/>&#34;DTFR.REQSEL can be changed while DTFR.REQEN is 0.&#34;&#160;<br/>&#160;<br/>But in current implementation both bits REQSEL and REQEN of DTFRn Register are updating simultaneously as mentioned in below code snippet.&#160;<br/>&#160;<br/>In Adc_HwInit():&#160;<br/>LpDmaRegisters-&gt;ulDTFRn = LpSGmDmaConfig-&gt;ulDmaDtfrRegValue;&#160;<br/>ulDmaDtfrRegValue is generated value contain value of both bits REQSEL and REQEN of DTFRn Register.&#160;<br/>In Adc_HwDeInit():&#160;<br/>LpDmaRegisters-&gt;ulDTFRn &#160;= ADC_DOUBLE_WORD_ZERO;&#160;<br/>&#160;<br/>Understanding is that before changing the value of DTFR.REQSEL, needs to clear bit DTFR.REQEN.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>Please update the design as below. &#160;<br/>In Adc_HwInit()&#160;<br/>1. Reset: DTFRRQn register (0x00)&#160;<br/>2. Clear bits LpDmaRegisters-&gt;ulDCENn &#160;= ADC_DMA_DTE_DISABLE; &#160;<br/>3. LpDmaRegisters-&gt;ulDTFRn = LpSGmDmaConfig-&gt;ulDmaDtfrRegValue;&#160;<br/>&#160;<br/>For &#160;Adc_HwDeInit()&#160;<br/>Make similiar changes&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>In Adc_HwInit():&#160;<br/>LpDmaRegisters-&gt;ulDTFRn = LpSGmDmaConfig-&gt;ulDmaDtfrRegValue;&#160;<br/>
+28184<br/>
+ADC<br/>
+Clearing of &#160;ID Error is not correct.<br/>
+Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Clearing of Error flags are not correct, In current implementation ADCDnIER.IDE error flag for ID Error is not clearing.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>LpAdcRegisters-&gt;ucADCXnECR = ADC_CHKCLR_ERROR_FLAG;&#160;<br/>of Adc_Private_ADCD_ADCB.c file in Adc_ErrIsr() Private API is used to clear all the error flag.&#160;<br/>&#160;<br/>As per device manual R01UH0436EJ0070 Rev.0.70 Section 30.3.29, register ADCDnECR (Error Clear Register) last 4 digits should be set to clear all error flag.&#160;<br/>&#160;<br/>In Adc_PBTypes_ADCD_ADCB.h file &#160;ADC_CHKCLR_ERROR_FLAG value of this macro is 0x0E. So last ADCDnIER.IDE bit is not clear.&#160;<br/>&#160;<br/>Suggested Solution :&#160;<br/>Adc_PBTypes_ADCD_ADCB.h file &#160;ADC_CHKCLR_ERROR_FLAG value of this macro should be 0x0F to clear all the flag.&#160;<br/>&#160;<br/>Actual Behavior : ID error is not getting clear when all the error flags are made clear. &#160;<br/>&#160;<br/>Expected Behavior : ID error should also getting clear when all the error flags made clear.&#160;<br/>
+&#160;&#160;<br/>
+<hr/>
+<a name=13></a>28187<br/>
+ADC<br/>
+Implementation of &#160;MRS requirement&#160;<br/>
+problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+AR_PN0076_FR_0087 and&#160;<br/>
+1.MRS requirement &#34;AR_PN0076_FR_0087&#34; is needs to be take care in Tool code, But in current implementation its not taken care. As per Device manual R01UH0436EJ0070 Rev.0.70&#160;<br/>
+ISSUE<br/>
+AR_PN0076_FR_0089 is not proper.<br/>
+section 30.3.28, number of &#160;ADCDnULLMTBRx register is 3 (x = 0, 1, 2). In current implementation tool code will not give any error even if we configure channel having limit check more&#160;<br/>than 2, when value of parameter &#34;AdcPriorityImplementation&#34; = ADC_PRIORITY_NONE.&#160;<br/>&#160;<br/>2.MRS requirement &#34;AR_PN0076_FR_0089&#34; is needs to be take care in Tool code, But in current implementation its not taken care. As per Device manual R01UH0436EJ0070 Rev.0.70&#160;<br/>section 30.3.28, number of &#160;ADCDnULLMTBRx register is 3 (x = 0, 1, 2). In current implementation tool code will not give any error even if we configure channel having limit check more&#160;<br/>than 2, when value of parameter &#34;AdcPriorityImplementation&#34; = ADC_PRIORITY_HW_SW or ADC_PRIORITY_HW.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>&#160;<br/>For both case generation tool code is not generating validation error, if limit check enabled for more than 3 channel Group with different Limit check setting. Understating is that, it will&#160;<br/>not work properly when these groups are queued. &#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>For both case proper validation needs to add in Tool code.&#160;<br/>&#160;<br/>Required MO suggestion on same.&#160;<br/>
+28188<br/>
+ADC<br/>
+Register &#34;ADCDnECR&#34; (ucADCXnECR) is not&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+handled properly in Adc_DeInit and&#160;<br/>
+In private API Adc_Init() register &#34;ADCDnECR&#34; (ucADCXnECR) is not implemented.&#160;<br/>
+ISSUE<br/>
+Adc_Init() API's.<br/>
+&#160;<br/>and also in private API Adc_DeInit() &#160;register &#34;ADCDnECR&#34; (ucADCXnECR) is upated with zero as mentioned below : &#160;<br/>&#160;<br/>LpAdcRegisters-&gt;ucADCXnECR = ADC_ZERO;&#160;<br/>&#160;<br/>Understanding is that to clear error flags ADCDnOWER.OWE, ADCDnPER.PE and ADCDnIER.IDE, we need to set ( write 1) to respective bits of the &#34;ADCDnECR&#34; (ucADCXnECR) register in&#160;<br/>Adc_DeInit() and Adc_Init() API.&#160;<br/>&#160;<br/>We can also consider general MRS requirement &#34;AR_PN0034_FR_0025&#34;, As per this requirement, &#160;<br/>&#160;<br/>The Adc_Init API shall ensure that the related peripheral is running correctly, even if the peripheral was previously configured by another Application that changed the registers' default&#160;<br/>values.&#160;<br/>&#160;<br/>and autosar requirement ADC110 :&#160;<br/>&#160;<br/>The function Adc_DeInit shall return all ADC HW Units to a state&#160;<br/>comparable to their power on reset state. Values of registers which are not writeable are excluded. It’s the responsibility of the hardware design that this state does not lead to undefined&#160;<br/>activities in the µC.&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>Register ADCDnECR&#34; (ucADCXnECR) should be updated correctly in Adc_Init and Adc_DeInit APIs as per requirements.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>Register ADCDnECR&#34; (ucADCXnECR) is not handled as per the requirements.<br/>
+<hr/>
+<a name=14></a>28214<br/>
+ADC<br/>
+AUTOSAR Requirement ADC091 and&#160;<br/>
+1. as per ADC091 requirement :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+ADC277 is not taken care.<br/>
+&#160;&#34;The &#160;ADC module’s configuration shall be such that an ADC Channel group contains at least one ADC Channel&#34;&#160;<br/>
+ISSUE<br/>
+&#160;&#160;<br/>In current implementation AUTOSAR Requirement ADC091 is not taken care, in generation tool.&#160;<br/>As per current implementation, tool code is not giving any proper error even if no channel is configured under a ADC Group and tool code will crash by giving error &#34;ERR123001&#34;, which is&#160;<br/>not correct.&#160;<br/>&#160;<br/>2. As per ADC277 Requirement,&#160;<br/>&#34;The ADC module’s configuration shall be such that all channels &#160;<br/>contained in one ADC Channel group shall belong to the same ADC HW Unit.&#34;&#160;<br/>&#160;<br/>Its found that this SWS requirement is not mapped properly in TSDD, Traceability and TSTP, that's needs to fix accordingly.&#160;<br/>&#160;<br/>Most of the requirement are not tracked properly in Traceability sheet.&#160;<br/>&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>point 1. Tool code should give a error message stating no channel is configured for particular ADC group.&#160;<br/>&#160;<br/>point 2. Update TSDD, TSTP, Traceability&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>point 1. Tool code crash if no channel is configured for a ADC group.&#160;<br/>point 2. Requirements are not tracked properly in Traceability sheet.&#160;<br/>
+26442<br/>
+Can<br/>
+Transmission History List issues<br/>
+1) CanIf (CanIf_TxConfirmation) is being called while looping by the Can_TxConfirmationProcessing function.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#160; &#160;Any processing isn't being done by hardware, so I'm thinking the time-out isn't being confirmed.&#160;<br/>
+ISSUE<br/>
+So don't we have to check the time out handling here?&#160;<br/>&#160;<br/>2) It's written on &#34;CLEARING OF ALL TRANSMIT MESSAGE BUFFERS&#34; and a comment in &#160;the Can_StartMode function, but how is a transmission history buffer initialized?&#160;<br/>&#160; &#160;RSCAN0THLACCm and RSCAN0TXQPCTRm resister weren't being read, so I didn't understand how to be initialized.<br/>
+26903<br/>
+Can<br/>
+PBcfg file Generation operation terminated&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+due to Illegal division by zero<br/>
+Generation terminated due to Illegal division by zero at /PerlApp/BswConfigValidate.pm line 561.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>can_X1X.exe Can.arxml Sample_Application_F1x.trxml R403_can_F1x_BSWMDT.arxml EcuM.arxml Mcu.arxml Os.arxml Dem.arxml&#160;<br/>INF000001: Tool Version: 1.2.3&#160;<br/>INF000002: Command line arguments: Can_X1x.exe Can.arxml&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;Sample_Application_F1x.trxml R403_can_F1x_BSWMDT.arxml EcuM.arxml&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;Mcu.arxml Os.arxml Dem.arxml&#160;<br/>Illegal division by zero at /PerlApp/BswConfigValidate.pm line 561.&#160;<br/>&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>PBcfg file Generation operation should not be terminated. If any error occurred Generator tool should throw out error with ambiguous error message.&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>PBcfg file Generation operation is terminated due to Illegal division.If any error occurred Generator tool is throwing out error with unambiguous error message.<br/>
+<hr/>
+<a name=15></a>27020<br/>
+Can<br/>
+Walking 0 pattern is not implemented in&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Can_RamTst_WalkPath_Algorithm() API<br/>
+As per Renesas requirement AR_PN0069_FR_0023,the RAM is checked by using data patterns (checker pattern, walking-0 and walking-1 pattern). &#160;<br/>
+ISSUE<br/>
+But in the current implementation walking-0 pattern is not implemented. This shall be implemented as an enhancement, but it is not a bug since Walking &#34;0&#34;'s pattern and Walking &#34;1&#34;'s&#160;<br/>pattern is similar.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>As per requirement walking-0 pattern shall be implemented.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>In the current code, walking-0 pattern is not implemented.<br/>
+27183<br/>
+Can<br/>
+Can_SelfTestChannel API &#160;executes in&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+modes other than STOPPED<br/>
+&#160;<br/>
+ISSUE<br/>
+If the controller is not in STOPPED state, the function 'Can_SelfTestChannel' shall be aborted and returns E_NOT_OK. But as per the current implementation, this check is not provided and&#160;<br/>the code try to set the operation mode as Halt mode.&#160;<br/>&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>&#160;<br/>The function shall be aborted and returns E_NOT_OK, if the controller is not in the STOPPED state. &#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>&#160;<br/>Please see the problem description.&#160;<br/>
+27647<br/>
+Can<br/>
+Transmission occurs even if the return of&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Can_write() API is CAN_BUSY<br/>
+If cancellation is enabled, cancellation has to be initiated for the lower priority ID/Identical ID (if identical Id cancellation is also enabled) request when the write request came with the&#160;<br/>
+ISSUE<br/>
+higher priority ID / identical ID for the same HTH. The TX request for the new L-PDU shall be repeated by the CanIf module, inside the notification function CanIf_CancelTxConfirmation -&#160;<br/>requirement [CAN288]. &#160;<br/>&#160;<br/>If cancellation is disabled, the new Can_Write() request for the same HTH shall not be accepted and returned with CAN_BUSY. The first write request shall be transmitted which was in&#160;<br/>pending state.&#160;<br/>&#160;<br/>The same information is covered with the requirements [CAN213], [CAN214], [CAN215] and [CAN434]&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>1. The transmission shall not be there for the Can_Write() request when its return value is CAN_BUSY.&#160;<br/>2. The cancellation of the pending transmission has to happen properly, when transmission cancellation is enabled.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>In different scenarios the transmission of the frame happens even after returning the reply as CAN_BUSY for the Can_Write() API call.&#160;<br/>&#160;<br/>EX:&#160;<br/>1. When the cancellation is OFF (In polling mode), however the return value of the Can_Write() request for the same HTH is CAN_BUSY, the transmission of the frame is observed on the&#160;<br/>CANAlyzer and also Tx confirmation is received.&#160;<br/>&#160;<br/>2. When Identical ID cancellation is ON, however the return for the Can_Write() request for the same HTH with identical ID is CAN_BUSY as expected and cancel confirmation is received,&#160;<br/>the transmission is happening without re-requested as stated in requirement [CAN288]. Also complete frame data is '0' and Tx confirmation is received as well. &#160;<br/>&#160;<br/>3. When cancellation is ON, however the return for the Can_Write() request for the same HTH with higher priority ID is CAN_BUSY as expected and cancel confirmation is received, the&#160;<br/>transmission is happening without re-requested as stated in requirement [CAN288] and also Tx confirmation is received .&#160;<br/>
+<hr/>
+<a name=16></a>27649<br/>
+Can<br/>
+Hth Cancellation is not notifed correctly to&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+the upper layer (CanIf) in case of multiple&#160;<br/>
+There is no while loop, but unnecessarily LucArrPosition incremented and wrong comment provided.&#160;<br/>
+ISSUE<br/>
+Hth to cancel<br/>
+&#160; uint8_least LucArrPosition;&#160;<br/>&#160; --code----&#160;<br/>&#160; if (LblTxCancelFlag == CAN_TRUE)&#160;<br/>&#160; {&#160;<br/>&#160; &#160; /* Set the BasicCAN HTH count to maximum to exit the while loop */&#160;<br/>&#160; &#160; LucArrPosition = LpPBController-&gt;ucNoOfBasicCanHth;&#160;<br/>&#160; &#160; /* Set the TX Cancellation Status flag of the HTH */&#160;<br/>&#160; &#160; Can_RSCAN_GaaTxCancelStsFlgs[(LucArrPosition &gt;&gt; CAN_THREE)] =&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;(Can_RSCAN_GaaTxCancelStsFlgs[(LucArrPosition &gt;&gt; CAN_THREE)]) |&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160;((uint8)(CAN_ONE &lt;&lt; (LucCount % CAN_EIGHT)));&#160;<br/>&#160; &#160; /* Increment the array position to point to next&#160;<br/>&#160; &#160; &#160;* BasicCAN HTH of the controller */&#160;<br/>&#160; &#160; LucArrPosition++;&#160;<br/>&#160; }&#160;<br/>&#160; else&#160;<br/>&#160; {&#160;<br/>&#160; &#160; /* No action required */&#160;<br/>&#160; }&#160;<br/>&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>None&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>None<br/>
+27650<br/>
+Can<br/>
+Multiple DET error reporting from one API&#160;&#160;Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+not compliant with AUTOSAR requirement&#160;According to CAN091 from AUTOSAR 4.0.3 CAN SWS - a function that reports a development error shall return immediately after.&#160;<br/>
+ISSUE<br/>
+In many CAN driver APIs multiple errors are checked and reported, before the function returns. Examples:&#160;<br/>* Can_Init() may report CAN_E_TRANSITION, CAN_E_PARAM_POINTER before it returns&#160;<br/>* Can_Can_InitController() may report e.g. CAN_E_UNINIT and CAN_E_PARAM_POINTER before it returns)&#160;<br/>&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Every CAN driver API should return immediately with not action after a development error is detected is reported&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>In some case in CAN APIs multiple development errors can be reported, like for Can_Init(), Can_InitController()<br/>
+27654<br/>
+Can<br/>
+DEM version Check is missing<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+As per the requirement [CAN111](BSW004), the AUTOSAR major and minor release version needs to be checked for all the external modules. But the version check for the DEM module is&#160;<br/>
+ISSUE<br/>
+missing.&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>The compilation error shall be reported when the DEM module with different AUTOSAR release version is integrated.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>The compilation is happening successfully even when the DEM module with different AUTOSAR release version is integrated.<br/>
+27742<br/>
+Can<br/>
+The MCAL CAN driver shall clear the&#160;<br/>
+Problem Description: The MCAL CAN driver will not clear the corresponding WUF flag in the ISR if the precompile configuration parameter CanWakeUpFactorClearIsr is set to TRUE.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+corresponding WUF flag in the ISR&#160;<br/>
+Default value should be FALSE. PDF is reviewed and found that the parameter CanWakeUpFactorClearIsr &#160;is not implemented.&#160;<br/>
+ISSUE<br/>
+(AR_PN0069_FR_0025)<br/>
+&#160;<br/>Expected Behavior: AR_PN0069_FR_0025 shall be implemented.&#160;<br/>&#160;<br/>Actual Behavior: AR_PN0069_FR_0025 is not implemented properly<br/>
+<hr/>
+<a name=17></a>27874<br/>
+Can<br/>
+Autosare requirment CAN065_Conf is not&#160;<br/>
+Problem Description: &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+taken care<br/>
+As per Autosare SWS CAN065_Conf, CanIdType &#160;shall support ID's of type STANDARD, MIXED and EXTENDED. In the current implementation only STANDARD and EXTENDED types are&#160;<br/>
+ISSUE<br/>
+taken care.&#160;<br/>&#160;<br/>Expected Behavior: MIXED ID type shall also be supported by the PDF.&#160;<br/>&#160;<br/>Actual Behavior: NA<br/>
+27880<br/>
+Can<br/>
+Additional API to cancel Tx is not available&#160;&#160;Problem Description: The internal function “Can_TxCancel” is available as private API. As per the requirement description, the API shall be available as public API such that CanIf AUTOSAR&#160;&#160;BUG<br/>
+OPEN&#160;<br/>
+for CanIf / Upper layer.<br/>
+module can have corresponding call to this API in order to use it.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>Expected Behavior: The internal function “Can_TxCancel” shall be available as additional API (public)&#160;<br/>&#160;<br/>Actual Behavior: NA<br/>
+27882<br/>
+Can<br/>
+CAN_E_DATALOST development error is&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+not reported<br/>
+According to AUTOSAR 4.0.3 CAN SWS CAN395: &#34;If the development error detection for the Can module is enabled, the Can module shall raise the error CAN_E_DATALOST in case of&#160;<br/>
+ISSUE<br/>
+“overwrite” or “overrun” event detection.&#34;&#160;<br/>&#160;<br/>This DET error CAN_E_DATALOST is declared in Can.h but it is not used in the code.&#160;<br/>&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Development error CAN_E_DATALOST should be reported if overwrite or overrun events are detected in the reception buffers.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>CAN_E_DATALOST development error reporting is nowhere encountered in CAN driver code<br/>
+27934<br/>
+Can<br/>
+Unexpected Behavior of in Can wake up<br/>
+Problem description: CAN wake up shows unexpected behavior. Wake up ISR is getting triggered, even if wake up is not initiated.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+Expected Bahavior: Wake up shall be triggered only on occurance of a wake up event&#160;<br/>&#160;<br/>Actual Behavior: Undefined behavior of CAN wake up<br/>
+27945<br/>
+Can<br/>
+Can_Write request returns &#160;CAN_OK when&#160;&#160;Problem Description: Can_Write request returns &#160;CAN_OK when HTH is busy to process another transmit request. Can transmission shall only be initiated after getting tx confirmation on&#160;&#160;BUG<br/>
+OPEN&#160;<br/>
+HTH is busy<br/>
+the last transmitted message.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>Expected Behavior: Can_Write request shall return CAN_BUSY when HTH is busy to process another transmit request&#160;<br/>&#160;<br/>Actual Behavior: NA<br/>
+27965<br/>
+Can<br/>
+Can module is malfunctioning on HW Tx&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Cancellation.<br/>
+Can module is malfunctioning when HW Tx Cancellation support is enabled and a Transmit abort request was not successful (the CAN frame was transmitted).&#160;<br/>
+ISSUE<br/>
+It this particular case, once the Tx Cancellation is initiated inside the Can module source code the global transmit cancel flag “Can_GblTxCancelIntFlg” is set to CAN_TRUE. Later this flag&#160;<br/>“Can_GblTxCancelIntFlg” is cleared inside the source code invoked when the &#34;INTCnWUP&#34; interrupt is serviced. But in the current use case, since the Transmit abort request was not&#160;<br/>successful, the &#34;INTCnWUP&#34; interruupt is not activated. Instead, the &#34;INTCnTRX&#34; interrupt is activated (frame successfully transmitted from message buffer m), but the source code&#160;<br/>invoked when &#34;INTCnTRX&#34; interrupt is serviced (ex. CAN_CONTROLLER0_TX_ISR) does not clear the “Can_GblTxCancelIntFlg” flag.&#160;<br/>The flag remains set and this causes subsequent calls to &#34;Can_Write()&#34; to fail and return &#34;CAN_BUSY&#34; result. This renders the Can module incapable to transmit CAN frames any more&#160;<br/>(until being re-initialized).&#160;<br/>&#160;<br/>Actual behavior: N/A&#160;<br/>&#160;<br/>Expected behavior: N/A<br/>
+28070<br/>
+Can<br/>
+[X1x][CAN]&#160;<br/>
+Problem Description: While updating ECODE for merging the changes done as part of F1H E4.00.01 release to trunk, in Can_RAMTest API call of 'Can_RamTst_WalkPath_Algorithm' was&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Can_RamTst_WalkPath_Algorithm is not&#160;<br/>
+replaced by 'Can_RamTest_Checker_Algorithm'. So now instead of calling Can_RamTst_WalkPath_Algorithm, Can_RamTest_Checker_Algorithm is called second time.&#160;<br/>
+ISSUE<br/>
+called from Can_RAMTest API<br/>
+Work Around: Repeated call of 'Can_RamTest_Checker_Algorithm' has to be replaced with 'Can_RamTst_WalkPath_Algorithm'.&#160;<br/>&#160;<br/>Expected behavior: Can_RamTst_WalkPath_Algorithm should be called from Can_RAMTest API.&#160;<br/>&#160;<br/>Actual behavior: Can_RamTst_WalkPath_Algorithm is not called from Can_RAMTest API.<br/>
+<hr/>
+<a name=18></a>28503<br/>
+Can<br/>
+CAN_E_DATALOST development error is&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+not reported<br/>
+According to AUTOSAR 4.0.3 CAN SWS CAN395: &#34;If the development error detection for the Can module is enabled, the Can module shall raise the error CAN_E_DATALOST in case of&#160;<br/>
+ISSUE<br/>
+“overwrite” or “overrun” event detection.&#34;&#160;<br/>&#160;<br/>This DET error CAN_E_DATALOST is declared in Can.h but it is not used in the code.&#160;<br/>&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Development error CAN_E_DATALOST should be reported if overwrite or overrun events are detected in the reception buffers.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>CAN_E_DATALOST development error reporting is nowhere encountered in CAN driver code<br/>
+28505<br/>
+Can<br/>
+Multiple polling period for Tx and Rx (valid&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+for R3.2and R4.x) is not supported<br/>
+This is a task to verify the possibility to configure and handle multiple transmission or reception in polling mode based on SWS R3.2 ID: CAN356,CAN436 (Rx) and CAN358, CAN345 (Tx).&#160;<br/>
+ISSUE<br/>
+&#160;<br/>The solution to this issue is to update the CAN code generator to count how many instances of the parameter CanMainFunctionWritePeriod and CanMainFunctionReadPeriod are&#160;<br/>configured &#160;<br/>and based on this to generate the opportune number of macro &#160;<br/>&#160;<br/>#defines Can_MainFunction_Write_0 &#160;<br/>#define &#160;Can_MainFunction_Read_0 &#160;<br/>for the 1st instance, &#160;<br/>&#160;<br/>#define Can_MainFunction_Write_1 &#160;<br/>#define Can_MainFunction_Read_1 for the 2nd instance&#160;<br/>&#160;<br/>The generated code should look like this:&#160;<br/>&#160;<br/>/*Polling Period 0 for Write*/&#160;<br/>#define Can_MainFunction_Write_0() Can_MainFunction_Write()&#160;<br/>&#160;<br/>/*Polling Period 1 for Write*/&#160;<br/>#define Can_MainFunction_Write_1() Can_MainFunction_Write()&#160;<br/>...etc.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>N/A&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>N/A&#160;<br/>
+28541<br/>
+Can<br/>
+Restrict the baudrate to only a limited&#160;<br/>
+Restrict the baudrate to only a limited range is wrong. There are other buadrate like 50K or 25K &#160;that can be realized.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+range is wrong.<br/>
+&#160;<br/>
+ISSUE<br/>
+Actually the generator impelementation is to occur error, if the value of the parameter CanControllerBaudRate is other than 33, 83,100,125,250,500 or 1000Kbps for the particular&#160;<br/>controller.&#160;<br/>&#160;<br/>Actual Behaviour: Error occurs, if the value of the parameter CanControllerBaudRate is other than 33,83,100,125,250,500 or 1000Kbps for the particular controller.&#160;<br/>&#160;<br/>Expected Behaviour:Error should not occur, if the value of the parameter CanControllerBaudRate is other buadrate like 50K or 25K.<br/>
+<hr/>
+<a name=19></a>28601<br/>
+Can<br/>
+Correct typo in error ERR080034.<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+Correct typo in error ERR080034 in BswConfigValidate.pm&#160;<br/>&#160;<br/>Expected behavior: &#160;<br/>&#160;<br/>The description of the ERR shall be &#34;The calculated 'Time Quanta' should be in the range of &lt;8- 25&gt;&#34;&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>&#160;<br/>The description of the error is currently&#160;<br/>&#160;<br/>The calculated 'DBT (Data Bit Time)' should be in the range of &lt;8- 25&gt;. &#160;<br/>
+&#160;&#160;<br/>
+Initialization Check is not performed for&#160;<br/>
+Problem Description:&#160;<br/>
+OPEN&#160;<br/>
+Dio_MaskedWritePort() API In the DIO&#160;<br/>
+&#160;Dio_MaskedWritePort() API is not checked whether DIO Is initialized or not.&#160;<br/>
+ISSUE<br/>
+driver.<br/>
+&#160;<br/>Expected behavior:&#160;<br/>FUNC(void, DIO_PUBLIC_CODE) Dio_MaskedWritePort&#160;<br/>(Dio_PortType PortId,&#160;<br/>&#160;Dio_PortLevelType Level,&#160;<br/>&#160;Dio_PortLevelType &#160;Mask)&#160;<br/>{&#160;<br/>&#160; ------variable declaraiton ----------&#160;<br/>&#160; /* Check whether DIO_DEV_ERROR_DETECT is enabled */&#160;<br/>&#160; #if (DIO_DEV_ERROR_DETECT == STD_ON)&#160;<br/>&#160; /*START of DIO_AR_VERSION */&#160;<br/>&#160; #if (DIO_AR_VERSION &#160;== DIO_AR_HIGHER_VERSION)&#160;<br/>&#160; if (Dio_GblDriverStatus == DIO_UNINITIALIZED)&#160;<br/>&#160; {&#160;<br/>&#160; &#160; /* Report Error to DET */&#160;<br/>&#160; &#160; (void)Det_ReportError(DIO_MODULE_ID, DIO_INSTANCE_ID,&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; DIO_MASKED_WRITE_PORT_SID, DIO_E_UNINIT);&#160;<br/>&#160; &#160; LenDetErrFlag = E_OK;&#160;<br/>&#160; }&#160;<br/>&#160; else&#160;<br/>&#160; {&#160;<br/>&#160; &#160; /* No action required */&#160;<br/>&#160; }&#160;<br/>&#160; #endif&#160;<br/>
+24131&#160;DIO<br/>
+&#160; &#160;&#160;<br/>
+BUG<br/>
+&#160; ---------&#160;<br/>
+26249<br/>
+DIO<br/>
+The channel group not validated correctly&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+in&#160;<br/>
+Functional argument pointer 'ChannelGroupIdPtr' is checked only against NULL_PTR in Dio_ReadChannelGroup/Dio_WriteChannelGroup APIs and it is not validated properly to report&#160;<br/>
+ISSUE<br/>
+Dio_ReadChannelGroup/Dio_WriteChannel&#160;DIO_E_PARAM_INVALID_GROUP. &#160;<br/>Group APIs<br/>
+&#160;<br/>Currently, if wrong or out-of-bound address is passed (Ex: If Dio_GstChannelGroupData[] size is 4 i.e. 0-3 and if &amp;Dio_GstChannelGroupData[4] is passed by mistake), the NULL_PTR&#160;<br/>condition check is unable to catch this and the API proceeds for further processing instead of reporting DET DIO_E_PARAM_INVALID_GROUP.&#160;<br/>&#160;<br/>While doing further processing the behaviour might be un-predictable.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>The channel group needs to be validated to report DET and it shall not do any further processing detecting DET.&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>The channel group is not validated to report DET and it shall do further processing even during development error condition.&#160;<br/>
+<hr/>
+<a name=20></a>26251<br/>
+DIO<br/>
+Global variable&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+(Dio_GusNoOfChannelGroups) and config&#160;<br/>
+The global variable 'Dio_GusNoOfChannelGroups' which is initialised with the value of the config structure member 'usNoofChannelGroups' is used as offset for accessing the channel&#160;<br/>
+ISSUE<br/>
+structure member (usNoofChannelGroups)&#160;&#160;group structure when multi config set comes into picture. But the name suggests that it holds the value of &#34;number of channel groups configured&#34; which misleading.&#160;<br/>names are misleading<br/>
+&#160;<br/>E.g.: If 8 channel groups are configured with two config sets (each), the handles will be generated as,&#160;<br/>&#160;<br/>&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup1 (&amp;Dio_GstChannelGroupData[0])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup2 (&amp;Dio_GstChannelGroupData[1])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup3 (&amp;Dio_GstChannelGroupData[2])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup4 (&amp;Dio_GstChannelGroupData[3])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup5 (&amp;Dio_GstChannelGroupData[4])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup6 (&amp;Dio_GstChannelGroupData[5])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup7 (&amp;Dio_GstChannelGroupData[6])&#160;<br/>#define DioConf_DioChannelGroup_DioChannelGroup8 (&amp;Dio_GstChannelGroupData[7])&#160;<br/>&#160;<br/>It shall generate 8 handles pointing 8 channel group structures and the channel structures 9-16 which is applicable for second config set shall be accessed with the help of same handles&#160;<br/>with offset value in 'Dio_GusNoOfChannelGroups'. i.e. When config set 0 is initialised its value will be 0. When config set 1 is initialised &#160;its value will be 8 for the above case.&#160;<br/>&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>The name of this global variable and respective config structure member has to be corrected with meaningful name which is near to it usage. Ex: 'Dio_GusChannelGroupsOffset' and&#160;<br/>'usChannelGroupsOffset' respectively.&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>Variable names are misleading<br/>
+26572<br/>
+DIO<br/>
+Optimize the execution time of RSR register&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+setting sequence<br/>
+Check the pin direction and prepare the value and write to psr register will take less time to execute when the pin direction check is failed(beginning check itself it will come out). As per&#160;<br/>
+ISSUE<br/>
+current method Even the pin direction check is failed, Prepare the value to set to the register operation is performed.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>1.Check the pins direction.(Check the PMSR register.)&#160;<br/>2.Prepare the value to set to the register.&#160;<br/>3.Write the PSR register.&#160;<br/>Source : Please refer to the attached file.(Proposed amendments)&#160;<br/>&#160; &#160; &#160; &#160;Dio_WriteChannel 168-191&#160;<br/>&#160; &#160; &#160; &#160;Dio_WriteChannelGroup 407-415&#160;<br/>&#160; &#160; &#160; &#160;Dio_MaskedWritePort 584-591&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>1.Prepare the value to set to the register.&#160;<br/>2.Check the pins direction.(Check the PMSR register.)&#160;<br/>3.Write the PSR register.&#160;<br/>Function : Dio_WriteChannel, Dio_WriteChannelGroup, Dio_MaskedWritePort&#160;<br/>Line : Dio_WriteChannel 931-956&#160;<br/>&#160; &#160; &#160; &#160;Dio_WriteChannelGroup 1573-1583&#160;<br/>&#160; &#160; &#160; &#160;Dio_MaskedWritePort 1714-1721<br/>
+<hr/>
+<a name=21></a>27729<br/>
+DIO<br/>
+Unreachable code present in Dio.c<br/>
+In API Dio_ReadChannelGroup and API Dio_WriteChannelGroup, In the below code if the first condition got true, code will not go inside else part. If the first condition fails the second&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+condition would also be false. So the code inside the second if block is unreachable that is dead code. The issue is found during UT.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>&#160; if (ChannelGroupIdPtr == NULL_PTR)&#160;<br/>&#160; {&#160;<br/>&#160; &#160; /* TRACE [R3, DIO140][R4, DIO140] */&#160;<br/>&#160; &#160; /* TRACE [R4, DIO178] */&#160;<br/>&#160; &#160; /* Report Error to DET */&#160;<br/>&#160; &#160; (void)Det_ReportError(DIO_MODULE_ID, DIO_INSTANCE_ID,&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; DIO_WRITE_CHANNEL_GROUP_SID, DIO_E_PARAM_POINTER);&#160;<br/>&#160; &#160; LenDetErrFlag = E_OK;&#160;<br/>&#160; }&#160;<br/>&#160; else&#160;<br/>&#160; {&#160;<br/>&#160; &#160; /* Get the pointer to corresponding index in the&#160;<br/>&#160; &#160; &#160; &#160;array Dio_GstChannelGroupData */&#160;<br/>&#160; &#160; /* MISRA Violation: START Msg(4:0492)-6 */&#160;<br/>&#160; &#160; &#160;LpChannelGroupPtr = &amp;ChannelGroupIdPtr[Dio_GusNoOfChannelGroups];&#160;<br/>&#160; &#160; /* END Msg(4:0492)-6 */&#160;<br/>&#160; &#160; &#160; if (NULL_PTR == LpChannelGroupPtr)&#160;<br/>&#160; &#160; &#160; {&#160;<br/>&#160; &#160; &#160; &#160; /* Report Error to DET */&#160;<br/>&#160; &#160; &#160; &#160; (void)Det_ReportError(DIO_MODULE_ID, DIO_INSTANCE_ID,&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; DIO_WRITE_CHANNEL_GROUP_SID, DIO_E_PARAM_INVALID_GROUP);&#160;<br/>&#160; &#160; &#160; &#160; LenDetErrFlag = E_OK;&#160;<br/>&#160; &#160; &#160; }&#160;<br/>&#160; &#160; &#160; else&#160;<br/>&#160; &#160; &#160; {&#160;<br/>
+26594<br/>
+FLS<br/>
+[F1L][FLS] Mismatch in memory mapping of&#160;&#160;Problem&#160;descripaon:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Fls_MainFunction<br/>
+There is a mismatch in the memory mapping of Fls_MainFunction.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>In Fls.h, Fls_MainFunction is mapped to FLS_START_SEC_PUBLIC_CODE:(See the code below)&#160;<br/>&#160;<br/>254 : #define FLS_START_SEC_PUBLIC_CODE&#160;<br/>255 : #include &#34;MemMap.h&#34;&#160;<br/>&#160; &#160; &#160; &#160;<br/>280 : extern FUNC(void, FLS_PUBLIC_CODE) Fls_MainFunction(void);&#160;<br/>&#160;<br/>&#160;<br/>In Fls.c, Fls_MainFunction is mapped to FLS_START_SEC_SCHEDULER_CODE(See the code below)&#160;<br/>&#160;<br/>1689 : define FLS_START_SEC_SCHEDULER_CODE&#160;<br/>1690 : #include &#34;MemMap.h&#34;&#160;<br/>1691 :&#160;<br/>1692 : FUNC(void, FLS_PUBLIC_CODE)Fls_MainFunction(void)&#160;<br/>&#160;<br/>And in MemMap.h, both FLS_START_SEC_PUBLIC_CODE and FLS_START_SEC_SCHEDULER_CODE are defined as &#34;.FLS_PUBLIC_CODE_RAM&#34;.&#160;<br/>&#160;<br/>Expected&#160;behaviour:&#160;<br/>Memory mapping in both declaration and definition of function shall be unique.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>There is difference in the memory mapping of declaration and definition of function Fls_MainFunction.<br/>
+<hr/>
+<a name=22></a>26925<br/>
+FLS<br/>
+Length calculation for misaligned access&#160;<br/>
+Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+fails<br/>
+Length calculation in Fls_Internal leads to invalid values.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>Actual behaviour:&#160;<br/>Resulting length is around 4 billion which causes other function to be in endless loop.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Correct length calculation<br/>
+27581<br/>
+FLS<br/>
+Fls_GVar structure is not initialised&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+properly according to C89/C90 (ISO/IEC&#160;<br/>
+The initialization of Fls_GVar in Fls_Ram.c is not according to C90 standard. A structure that contains pointers, variables and further structures is simply initialized with &#34;0&#34;.&#160;<br/>
+ISSUE<br/>
+9899:1990)<br/>
+This is possible in C99 (ISO/IEC 9899:1999, chapter 6.7.8.21), but MCAL shall be implemented according to C89/C90 (ISO/IEC 9899:1990).&#160;<br/>&#160;<br/>In Coding Guidelines EAAR-GL-0084.pdf, EAAR_PN0084_NR_0065 an example is given:&#160;<br/>/* Usage and initialization in a C file: */ &#160;&#160;<br/>MyModule_Vector_tst Vector1_st = { 0, 0, 0 };&#160;<br/>&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Each element in the structure shall be initialised properly.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>Structure is initialised as VAR(Fls_GVarProperties, FLS_INIT_DATA) Fls_GVar = {FLS_ZERO};&#160;<br/>
+27819<br/>
+FLS<br/>
+Fls_Resume cannot interrupt the FLS&#160;<br/>
+Problem Description: &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+ISR(JOB END).(AR_PN0072_FR_0046)<br/>
+As per current implementation in Fls_Resume() API, If FLS_DEV_ERROR_DETECT = STD_ON and FLS_TIMEOUT_MONITORING = STD_ON then after waiting for FLS_ISR_TIMEOUT_VALUE, It&#160;<br/>
+ISSUE<br/>
+starts FLS Resume process without checking whether FLS ISR is serviced (Check whether Fls_GVar.Fls_MutexFlag == FLS_ZERO). In current implementation, It will also not report any DET if&#160;<br/>timeout occurred after waiting for FLS ISR is serviced.&#160;<br/>&#160;<br/>This issue exist in file Fls.c V1.3.6.&#160;<br/>&#160;<br/>&#160;<br/>As per requirement AR_PN0072_FR_0046:- &#160;<br/>&#160;<br/>&lt;Fls_Suspend cannot interrupt the FLS ISR(JOB END). It means when FLS ISR(JOB END) has already entered critical section (protected by semaphore/mutex) the upcoming Fls_Suspend&#160;<br/>must wait until ISR(JOB END) exits critical section. until ISR(JOB END) exits critical section.&gt;&#160;<br/>&#160;<br/>Understanding is that above mentioned point in MRS is not correct. As per our understanding correct one is as mentioned below.&#160;<br/>&#160;<br/>&lt;Fls_Resume cannot interrupt the FLS ISR(JOB END). It means when FLS ISR(JOB END) has already entered critical section (protected by semaphore/mutex) the upcoming Fls_Resume must&#160;<br/>wait until ISR(JOB END) exits critical section. until ISR(JOB END) exits critical section.&gt;&#160;<br/>&#160;<br/>Expected Behavior: MRS requirement AR_PN0072_FR_0046 needs to implement properly.&#160;<br/>&#160;<br/>Actual Behavior: MRS requirement AR_PN0072_FR_0046 is not implemented properly.&#160;<br/>
+<hr/>
+<a name=23></a>27829<br/>
+FLS<br/>
+Fls_Suspend cannot interrupt the FLS&#160;<br/>
+Problem Description: &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+ISR(JOB END).(AR_PN0072_FR_0045)<br/>
+As per current implementation in Fls_Suspend() API, If FLS_DEV_ERROR_DETECT = STD_ON and FLS_TIMEOUT_MONITORING = STD_ON then after waiting for FLS_ISR_TIMEOUT_VALUE, It&#160;<br/>
+ISSUE<br/>
+starts FLS Suspend process without checking whether FLS ISR is serviced (Check whether Fls_GVar.Fls_MutexFlag == FLS_ZERO). In current implementation, It will also not report any DET if&#160;<br/>timeout occurred after waiting for FLS ISR is serviced.&#160;<br/>&#160;<br/>This issue exist in file Fls.c V1.3.6.&#160;<br/>&#160;<br/>&#160;<br/>As per requirement AR_PN0072_FR_0045:- Fls_Suspend cannot interrupt the FLS ISR(JOB END). It means when FLS ISR(JOB &#160;<br/>END) has already entered critical section (protected by semaphore/mutex) the upcoming Fls_Suspend must wait until ISR(JOB END) exits critical section. &#160;<br/>&#160;<br/>Expected Behavior: MRS requirement AR_PN0072_FR_0045 needs to implement properly.&#160;<br/>&#160;<br/>Actual Behavior: MRS requirement AR_PN0072_FR_0045 is not implemented properly.&#160;<br/>
+27839<br/>
+FLS<br/>
+Fls_Cancel cannot interrupt the FLS ISR(JOB&#160;&#160;Problem Description: &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+END).(AR_PN0072_FR_0011)<br/>
+As per current implementation in Fls_Cancel() API if FLS_DEV_ERROR_DETECT = STD_ON and FLS_TIMEOUT_MONITORING = STD_ON then after waiting for FLS_ISR_TIMEOUT_VALUE, It&#160;<br/>
+ISSUE<br/>
+starts FLS Cancel process without checking whether FLS ISR is serviced (Check whether Fls_GVar.Fls_MutexFlag == FLS_ZERO). In current implementation, It will also not report any DET if&#160;<br/>timeout occurred after waiting for FLS ISR is serviced.&#160;<br/>&#160;<br/>This issue exist in file Fls.c V1.3.6.&#160;<br/>&#160;<br/>&#160;<br/>As per requirement AR_PN0072_FR_0011:- Fls_Cancel cannot interrupt the FLS ISR(JOB END). It means when FLS ISR(JOB END) has already entered critical section (protected by&#160;<br/>semaphore/mutex) the upcoming Fls_Cancel must wait until ISR(JOB END) exits critical section.&#160;<br/>&#160;<br/>Expected Behavior: MRS requirement AR_PN0072_FR_0011 needs to implement properly.&#160;<br/>Actual Behavior: NA&#160;<br/>
+27867<br/>
+FLS<br/>
+Pre compile switch required to partition&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+FCL and FDL in source code&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+(AR_PN0072_FR_0027)<br/>
+As per AR_PN0072_FR_0027, The source code of FLS module must be partitioned in FCL part and FDL part by&#160;<br/>using pre-compile switches.&#160;<br/>The Flash library files, in this case FCL/FDL files, shall be included in build process as per FLS module configuration for respective use-cases. Redundant library files shall be excluded from&#160;<br/>build process&#160;<br/>&#160;<br/>Expected behavior: The requirement AR_PN0072_FR_0027 shall be implemented&#160;<br/>&#160;<br/>Actual Behavior: NA<br/>
+27890<br/>
+FLS<br/>
+Flash library status mapping<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Internal status of underlying libraries, ie. FCL and FDL shall be mapped to FLS driver status accordingly and shall lead to proper job processing result of FLS driver.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>In case of critical internal errors, notification must be given and user can decide to take necessary remedy.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>MRS requirement AR_PN0072_FR_0042 needs to implement.&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>MRS requirement AR_PN0072_FR_0042 is not implemented properly.<br/>
+<hr/>
+<a name=24></a>28459<br/>
+FLS<br/>
+Incomplete linker directive file for FLS&#160;<br/>
+&lt;B&gt;Problem Description:&lt;/B&gt;&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+sample application<br/>
+The linker directive file of FLS sample application does not contain the entries for &#160;<br/>
+ISSUE<br/>
+copying the initial variable values from ROM to RAM during startup.&#160;<br/>This is typically done by e.g. &lt;pre&gt;.romdata &#160;ROM(.data)&lt;/pre&gt;&#160;<br/>&#160;<br/>&lt;B&gt;Expected Behaviour:&lt;/B&gt;&#160;<br/>Variables are initialized by GHS startup as required by C standard.&#160;<br/>&#160;<br/>&lt;B&gt;Actual Behaviour:&lt;/B&gt;&#160;<br/>Variables are uninitialized, typically at 0 after power on, at any undefined value after reset.&#160;<br/>Application might show strange behaviour.<br/>
+28514<br/>
+FLS<br/>
+Negative test cases required to verify the&#160;<br/>
+In Fls.c,in section&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+boundary check of FLS_CF_OFFSET_VALUE&#160;&#160;<br/>
+ISSUE<br/>
+#if (FLS_FLASH_ACCESS == FLS_CODEFLASH_ACCESS)&#160;<br/>&#160; &#160; /* Virtual address is mapped to physical address */&#160;<br/>&#160; &#160; TargetAddress = TargetAddress - FLS_CF_OFFSET_VALUE;&#160;<br/>&#160;<br/>There shall be a check for TargetAddress against FLS_CF_OFFSET_VALUE before doing subtraction.&#160;<br/>&#160;<br/>Further, it requires negative test cases to verify the boundary check.<br/>
+28515<br/>
+FLS<br/>
+Fls_GulTimeout to be removed from&#160;<br/>
+In Fls_Internal.c, Fls_GulTimeout is actually not used in functions Fls_CFProcessReadCommand and Fls_CFProcessCompareCommand.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+functions Fls_CFProcessReadCommand and&#160;&#160;&#160;<br/>
+ISSUE<br/>
+Fls_CFProcessCompareCommand<br/>
+So it should be removed from above mentioned two subfunctions.<br/>
+28516<br/>
+FLS<br/>
+Setting of variable job notification to True&#160;&#160;In Fls_Internal.c, in API Fls_EndJobProcess(), 'LblJobNotification' variable is set to true irrespective of the condition check &#34;if (R_FDL_OK == Fls_GstVar.GucDFStatus)&#34;.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+is actually not depending on data flash&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+status or code flash status<br/>
+Similar is the case with the check &#34;if (R_FCL_OK == Fls_GstVar.GucCFStatus)&#34;.&#160;<br/>&#160;<br/>So the redundant code can be merged in these cases.<br/>
+28517<br/>
+FLS<br/>
+DEM error report should be added&#160;<br/>
+In Fls_Irq.c, Dem_ReportErrorStatus(FLS_E_ERASE_FAILED, DEM_EVENT_STATUS_FAILED) and Dem_ReportErrorStatus(FLS_E_WRITE_FAILED, DEM_EVENT_STATUS_FAILED) should be&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+depending on the Erase/Write operations.&#160;added depending on the Erase/Write operations.&#160;<br/>
+ISSUE<br/>
+28518<br/>
+FLS<br/>
+Tool shall throw error message when&#160;<br/>
+If interrupt is supported (FlsUseInterrupt = ON) and the call back functions are not mapped (NULL), the program will hang.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+'FlsUseInterrupt = ON' and the call back&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+functions are not mapped<br/>
+The tool code shall be updated to throw error message for above mentioned user configuration.<br/>
+28520<br/>
+FLS<br/>
+Default value of LenReturnValue shall be&#160;<br/>
+In Fls.c,&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+E_NOT_OK<br/>
+&#160;<br/>
+ISSUE<br/>
+Default value of LenReturnValue shall be E_NOT_OK. In this way, FLS job request will be rejected in the first place when driver state is busy. This logic is not dependent on DET settings.<br/>
+28521<br/>
+FLS<br/>
+The logic for updating&#160;<br/>
+In Fls_Irq.c, at end of job processing, the logic for updating Fls_GVar.Fls_GenState, Fls_GVar.Fls_GenJobResult and triggering JobEnd or JobError notifications shall be in line with the logic&#160;&#160;BUG<br/>
+OPEN&#160;<br/>
+Fls_GVar.Fls_GenState and&#160;<br/>
+in Fls_EndJobProcess function in Fls_Internal.c.&#160;<br/>
+ISSUE<br/>
+Fls_GVar.Fls_GenJobResult shall be in line&#160;&#160;&#160;<br/>with the logic in Fls_EndJobProcess<br/>
+In the current implementation, Fls_Erase and Fls_Write support interrupt based job processing. And Fls_EndJobProcess is not required at end of interrupt based job processing.<br/>
+<hr/>
+<a name=25></a>28522<br/>
+FLS<br/>
+JobEnd and JobErrorNotification should&#160;<br/>
+In Fls_Irq.c, Fls_GpConfigPtr-&gt;pJobEndNotificationPointer() and Fls_GpConfigPtr-&gt;pJobErrorNotificationPointer() should be depending on both (FLS_JOB_NOTIF_CONFIG == STD_ON) &amp;&amp;&#160;&#160;BUG<br/>
+OPEN&#160;<br/>
+depend on both (FLS_JOB_NOTIF_CONFIG&#160;&#160;(FLS_INTERRUPT_MODE == STD_ON).&#160;<br/>
+ISSUE<br/>
+== STD_ON) &amp;&amp; (FLS_INTERRUPT_MODE ==&#160;&#160;<br/>STD_ON)<br/>
+Actual Behaviour :&#160;<br/>&#160;<br/>if (R_FDL_OK == Fls_GstVar.GucDFStatus)&#160;<br/>{&#160;<br/>&#160; /* Set the job Result to OK */&#160;<br/>&#160; Fls_GVar.Fls_GenJobResult = MEMIF_JOB_OK;&#160;<br/>&#160; /* If job ended with success and call the job end call back&#160;<br/>&#160; &#160;* function.&#160;<br/>&#160; &#160;*/&#160;<br/>&#160; Fls_GpConfigPtr-&gt;pJobEndNotificationPointer();&#160;<br/>}&#160;<br/>else&#160;<br/>{&#160;<br/>&#160; /* Set the job Result to Failed */&#160;<br/>&#160; Fls_GVar.Fls_GenJobResult = MEMIF_JOB_FAILED;&#160;<br/>&#160; /* If job ended with error and call the job error call back&#160;<br/>&#160; &#160;* function.&#160;<br/>&#160; &#160;*/&#160;<br/>&#160; Fls_GpConfigPtr-&gt;pJobErrorNotificationPointer();&#160;<br/>}&#160;<br/>&#160;<br/>Expected Behaviour :&#160;<br/>&#160;<br/>if (R_FDL_OK == Fls_GstVar.GucDFStatus)&#160;<br/>{&#160;<br/>
+28523<br/>
+FLS<br/>
+Improvement in PDF of P1x<br/>
+The following points should be taken care in the Parameter Definition File of P1x.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+a. The upper bound/maximum value of FlsFclRamAddress shall be 4276092927 (0xFEDF_FFFF) for P1x.&#160;<br/>&#160;<br/>b. The parameters used in each of the following containers should be re-ordered to give a better overview of parameters.&#160;<br/>&#160; &#160; &#160;1. FlsDataFlash&#160;<br/>&#160; &#160; &#160;2. FlsCodeFlash&#160;<br/>&#160; &#160; &#160;3. FlsPublishedInformation&#160;<br/>&#160;<br/>c. Parameter &#34;FlsDFTotalSize&#34; in 'FlsDataFlash' container should be renamed as &#34;FlsDataFlashSize&#34;.&#160;<br/>&#160;<br/>d. The statement in the description of following parameters shall be updated as mentioned.&#160;<br/>&#160; &#160; &#160;1. FlsMaxWriteNormalMode : add into description - This parameter is not used for implementation.&#160;<br/>&#160; &#160; &#160;2. FlsMaxEraseNormalMode : add into description - This parameter is not used for implementation.&#160;<br/>&#160; &#160; &#160;3. FlsTotalSize : improve description - This parameter specifies the total amount of flash memory in bytes that is accessible by FLS driver.&#160;<br/>&#160; &#160; &#160;4. FlsNumberOfSectors : add into description - This parameter setting shall be in line with FlsSectorStartaddress.&#160;<br/>&#160; &#160; &#160;5. FlsFclRamAddress : add into description - This parameter is not used for implementation.&#160;<br/>&#160; &#160; &#160;6. FlsDFTotalSize : improve description - This parameter indicates the physical total size of Data Flash memory.<br/>
+28545<br/>
+FLS<br/>
+Safe exit from while-loop for&#160;<br/>
+In Fls.c,&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+R_FDL_Handler in Fls_Init shall be realized&#160;&#160;&#160;<br/>
+ISSUE<br/>
+as per general requirement<br/>
+Safe exit from while-loop for R_FDL_Handler in Fls_Init shall be realized as per general requirement.&#160;<br/>&#160;<br/>Timeout monitoring can be considered here.<br/>
+28546<br/>
+FLS<br/>
+DEM error should be reported for transient&#160;&#160;FLS Initialization (Fls_Init) can fail during driving cycle of ECU, due to eg. operation voltage change, clock frequency change, etc. (transient failures).&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+failures<br/>
+Such kind of fault must be notified and afterwards the upper layer can, for example, retry with init procedure until succeeds, or the system can be switched to a safety state if required.&#160;<br/>
+ISSUE<br/>
+DEM error should be reported here.<br/>
+28547<br/>
+FLS<br/>
+R_FDL_Handler() call in Fls_MainFunction&#160;<br/>
+In Fls.c, R_FDL_Handler() call in Fls_MainFunction and Fls_Init should be protected with critical section.<br/>
+BUG<br/>
+OPEN&#160;<br/>
+and Fls_Init should be protected with&#160;<br/>
+ISSUE<br/>
+critical section<br/>
+<hr/>
+<a name=26></a>28587<br/>
+FLS<br/>
+Unexpected Interrupt pending bit is set in&#160;&#160;Problem description:&#160;<br/>
+FEATURE<br/>
+OPEN&#160;<br/>
+Fls_Write and Fls_Erase APIs<br/>
+In Fls_Write and Fls_Erase APIs, interrupt processing is enabled as follows:&#160;<br/>
+ISSUE<br/>
+&#160;#if (FLS_INTERRUPT_MODE == STD_ON)&#160;<br/>&#160; &#160; &#160; &#160; /* Enable interrupt processing */&#160;<br/>&#160; &#160; &#160; &#160; RH850_SV_MODE_IMR_AND(16, (Fls_GpConfigPtr-&gt;pFlEndImrAddress),&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;(Fls_GpConfigPtr-&gt;usFlEndImrMask));&#160;<br/>&#160;#endif&#160;<br/>&#160;<br/>At that point SW nearly always had the interrupt pending bit set, so a first unwanted interrupt occurs quite fast there.&#160;<br/>&#160;<br/>Pending interrupts are not properly handled in the code so that this will cause some confusion because of a pending interrupt from the previous operation.&#160;<br/>&#160;<br/>There is a chance of setting interrupt pending bit from the previous Read operation, which have inbuilt blank check.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Before enabling interrupts, interrupt pending bit shall be cleared.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>Interrupt pending bit is set when interrupt processing is enabled in Fls_Write and Fls_Erase APIs&#160;<br/>
+28507<br/>
+FlsTst<br/>
+As per Autosar requirement, FlsTst.h&#160;<br/>
+According to Autosar requirement specification, the include of Std_Types.h should be done in FlsTst.h&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+should include Std_Types.h directly.<br/>
+&#160;<br/>
+ISSUE<br/>
+But in FlsTst, Std_Types.h is included through FlsTst_PBTypes.h and FlsTst_Types.h in the current implementation. The files can be found in the following svn path -&#160;<br/>&#160;<br/>/trunk/external/X1X/common_platform/modules/flstst/include&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>Expected behaviour :&#160;<br/>FlsTst.h should include Std_Types.h directly.&#160;<br/>&#160;<br/>Actual behaviour : &#160;<br/>Std_Types.h is included through FlsTst_PBTypes.h and FlsTst_Types.h<br/>
+28511<br/>
+FlsTst<br/>
+FlsTst_GenLastFgndResult and&#160;<br/>
+FlsTst_GenLastFgndResult and FlsTst_GenOverallBgndResult shall be declared as FLSTST_INIT_DATA, so as to match with memory section FLSTST_START_SEC_VAR_UNSPECIFIED.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+FlsTst_GenOverallBgndResult shall be&#160;<br/>
+But in the current implementation FlsTst_GenLastFgndResult and FlsTst_GenOverallBgndResult are declared as FLSTST_NOINIT_DATA. This can be found in the path -&#160;<br/>
+ISSUE<br/>
+declared as FLSTST_INIT_DATA<br/>
+&#160; &#160;\trunk\external\X1X\common_platform\modules\flstst\src\FlsTst_Ram.c&#160;<br/>&#160;<br/>Expected Behaviour :&#160;<br/>/* Variable to store the fgnd test result &#160;*/&#160;<br/>VAR(FlsTst_TestResultFgndType, FLSTST_INIT_DATA)FlsTst_GenLastFgndResult&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; = FLSTST_NOT_TESTED;&#160;<br/>/* TRACE [R4, FlsTst154] */&#160;<br/>/* Variable to store the overall Bgnd test result &#160;*/&#160;<br/>VAR(FlsTst_TestResultType, FLSTST_INIT_DATA)FlsTst_GenOverallBgndResult&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= FLSTST_RESULT_NOT_TESTED;&#160;<br/>&#160;<br/>Actual Behaviour :&#160;<br/>/* Variable to store the fgnd test result &#160;*/&#160;<br/>VAR(FlsTst_TestResultFgndType, FLSTST_NOINIT_DATA)FlsTst_GenLastFgndResult&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; = FLSTST_NOT_TESTED;&#160;<br/>/* TRACE [R4, FlsTst154] */&#160;<br/>/* Variable to store the overall Bgnd test result &#160;*/&#160;<br/>VAR(FlsTst_TestResultType, FLSTST_NOINIT_DATA)FlsTst_GenOverallBgndResult&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;= FLSTST_RESULT_NOT_TESTED;<br/>
+<hr/>
+<a name=27></a>27528<br/>
+Fr<br/>
+[P1x][Fr] While doing QAC Static Analysis,&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Some of the Misra violations are not&#160;<br/>
+While running QAC Static Analysis for the Fr_59.c file and Fr_59_Internal.c, QAC Misra rules violations are occuring.Some of the violations are justified and some violations are not&#160;<br/>
+ISSUE<br/>
+justified.<br/>
+justified.(For example: The messages such as 4:1843, 4:1863, 4:2985 etc. are not justified.).&#160;<br/>Common code change is not in the scope of V4.00.04 P1x release.&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>NA&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>NA<br/>
+27727<br/>
+Fr<br/>
+[P1x][V4.00.04][FR] The test cases related&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+to&#160;<br/>
+The test cases related to Dem_ReportErrorStatus(FrDemCtrlTestResultRef, DEM_EVENT_STATUS_FAILED) - FR_ETC_065, Dem_ReportErrorStatus (FrIfDemFTSlotStatusRef,&#160;<br/>
+ISSUE<br/>
+Dem_ReportErrorStatus(FrDemCtrlTestRes&#160;DEM_EVENT_STATUS_FAILED) - FR_ETC_066 and FR_ETC_067 are failing.&#160;<br/>ultRef, DEM_EVENT_STATUS_FAILED) -&#160;<br/>
+&#160;<br/>
+FR_ETC_06<br/>
+FR_ETC_065:&#160;<br/>In the ESTS, in the Tested functionality, Dem_ReportErrorStatus(FR_E_ACCESS, DEM_EVENT_STATUS_FAILED) is tested.But in the expected test result,&#160;<br/>Dem_ReportErrorStatus(FrDemCtrlTestResultRef, DEM_EVENT_STATUS_FAILED) is checked for the APIs Fr_ReceiveRxLPdu, Fr_CheckTxLPduStatus, Fr_TransmitTxLPdu, Fr_CancelTxLPdu.&#160;<br/>The test cases FR_ETC_065 is not tested because the Dem_ReportErrorStatus (FrDemCtrlTestResultRef, DEM_EVENT_STATUS_FAILED) is not implemented in the following APIs&#160;<br/>Fr_ReceiveRxLPdu, Fr_CheckTxLPduStatus, Fr_TransmitTxLPdu, Fr_CancelTxLPdu.&#160;<br/>&#160;<br/>FR_ETC_066 and FR_ETC_067:&#160;<br/>In the ESTS, in the Tested functionality, Dem_ReportErrorStatus(FR_E_ACCESS, DEM_EVENT_STATUS_FAILED) is tested.But in the expected test result,Dem_ReportErrorStatus&#160;<br/>(FrIfDemFTSlotStatusRef, DEM_EVENT_STATUS_FAILED) is checked for the APIs Fr_TransmitTxLPdu, Fr_ReceiveRxLPdu.&#160;<br/>The test cases FR_ETC_066 and FR_ETC_067 are not tested because the Dem_ReportErrorStatus (FrIfDemFTSlotStatusRef, DEM_EVENT_STATUS_FAILED) is not implemented in the&#160;<br/>following APIs Fr_TransmitTxLPdu, Fr_ReceiveRxLPdu.&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>FR_ETC_065:&#160;<br/>As per the Autosar R4.03 FlexRay SWS requirement,&#160;<br/>if any hardware error occurs while running the APIs Fr_ReceiveRxLPdu[FR232], Fr_CheckTxLPduStatus[FR243] , Fr_TransmitTxLPdu[FR223], Fr_CancelTxLPdu[FR613], then it should call&#160;<br/>Dem_ReportErrorStatus (FrDemCtrlTestResultRef, DEM_EVENT_STATUS_FAILED) and return E_NOT_OK.&#160;<br/>&#160;<br/>FR_ETC_066 and FR_ETC_067:&#160;<br/>As per the Autosar R4.03 FlexRay SWS requirement,&#160;<br/>In the API Fr_ReceiveRxLPdu, [FR605]If the optional configuration parameter FrIfDemFTSlotStatusRef exists and a single slot status error bit (vSS!SyntaxError, vSS!ContentError,&#160;<br/>vSS!Bviolation) is set, then the slot status information shall be reported to DEM as Dem_ReportErrorStatus (FrIfDemFTSlotStatusRef, DEM_EVENT_STATUS_FAILED).&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>
+27728<br/>
+[P1x][V4.00.04][FR] the functional&#160;<br/>
+Problem Description:&#160;<br/>
+OPEN&#160;<br/>
+testcases related to Transmit Queue and&#160;<br/>
+In ESTS the functional testcases related to Transmit Queue and Receive Queue functionality (FR_ETC_098, FR_ETC_099, FR_ETC_100, FR_ETC_101, FR_ETC_102, FR_ETC_103) are failing.&#160;<br/>
+ISSUE<br/>
+Receive Queue functionality are failing.<br/>
+&#160;<br/>Expected Behaviour:&#160;<br/>After transmitting the Data by invoking Fr_TransmitQueue_Table() it is returning E_OK as per the Expected Test result and when Fr_ReceiveQueue_Table() is invoked, it should E_OK and&#160;<br/>also the transmitted data should be received by the controller.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>After transmitting the Data by invoking Fr_TransmitQueue_Table() it is returning E_OK as per the Expected Test result and when Fr_ReceiveQueue_Table() is invoked, it is returning E_OK&#160;<br/>as per the expected Test Result but the data is not received.&#160;<br/>
+Fr<br/>
+BUG<br/>
+28147<br/>
+Fr<br/>
+[P1x][Fr][R4.0]&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Fr_User_Request_Output_Transfer and&#160;<br/>
+Fr_User_Request_Output_Transfer and Fr_User_Request_Input_Transfer API's are returning E_OK but no transmit/receive functionality is happening.&#160;<br/>
+ISSUE<br/>
+Fr_User_Request_Input_Transfer API's are&#160;&#160;&#160;<br/>not working.<br/>
+Expected Behaviour:&#160;<br/>Transmit/receive functionality should happen in this Fr_User_Request_Output_Transfer and Fr_User_Request_Input_Transfer API's .&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Transmit/receive functionality is not happen in this Fr_User_Request_Output_Transfer and Fr_User_Request_Input_Transfer API's .<br/>
+<hr/>
+<a name=28></a>28326<br/>
+[P1x][FR]Some Ecode lines are more than &#160;&#160;Problem Description:&#160;<br/>
+OPEN&#160;<br/>
+80 characters and trailing spaces are&#160;<br/>
+1.More than 80 characters in following lines : &#160;<br/>
+ISSUE<br/>
+present.<br/>
+Fr_59_Internal.c : @L1332 , L1352, 1405,1424,1519,1591,1620,1632,1774,1905,2101&#160;<br/>Fr_59.c : @L1909,2561&#160;<br/>Fr_59_Debug.h : @L83&#160;<br/>Fr_59_GeneralTypes.h:@L277,286&#160;<br/>Fr_59_Internal.h : @L71, @L97&#160;<br/>Fr_59_Version.h: @L86&#160;<br/>Fr_59.h : @L436, L70&#160;<br/>&#160;<br/>2. Trim trailing space not done in following files:&#160;<br/>Fr_59.h, Fr_59_Ram.h, Fr_59_PBTypes.h, Fr_59_Internal.h, Fr_59.c, Fr_59_Ram.c, Fr_59_Internal.c&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>NA&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>NA&#160;<br/>
+Fr<br/>
+BUG<br/>
+28474<br/>
+Fr<br/>
+[P1x][Fr][R4.0] Null pointer checking is not&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+performing.<br/>
+Null pointer checking is not performing in the following API's&#160;<br/>
+ISSUE<br/>
+&#160;<br/>1.Fr_59_ReceiveRxLPdu&#160;<br/>&#160; line: 3053 &#160;(*Fr_LPduStatusPtr = FR_59_NOT_RECEIVED;)&#160;<br/>&#160; line: 3058 &#160;(*Fr_LSduLengthPtr = FR_59_ZERO;)&#160;<br/>2.Fr_59_CheckTxLPduStatus &#160;<br/>&#160; line: 8485 &#160;(*Fr_TxLPduStatusPtr = FR_59_NOT_TRANSMITTED;)&#160;<br/>&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>When dereference a NULL pointer thereby raising a NullPointerException. It will cause the controller to reset.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Null pointer checking should be performed in the API Fr_59_ReceiveRxLPdu, Fr_59_CheckTxLPduStatus<br/>
+<hr/>
+<a name=29></a>28397<br/>
+GPT<br/>
+Wake up disabled channels are giving DET&#160;&#160;Description&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+after GPT_MODE_SLEEP to&#160;<br/>
+-----------&#160;<br/>
+ISSUE<br/>
+GPT_MODE_NORMAL &#160;mode transition.<br/>
+While Running ATF test case &#34;GPT_FTC_142&#34; its observed that unexpected DET with&#160;<br/>ApiId = 0X2 =&gt; Service Id of Gpt_DeInit API.&#160;<br/>ErrorId = 0XB =&gt; DET code to report Timer is already running.&#160;<br/>&#160;<br/>is occurring when calling Gpt_DeInit(), here all channels are expected be in &#34;stopped&#34; state.&#160;<br/>&#160;<br/>We tested as mentioned below, in ATF configuration &#34;ATF_cfg01&#34;.&#160;<br/>&#160;<br/>Test Scenario&#160;<br/>-------------&#160;<br/>&#160;<br/>1. &#160;Call Gpt_Init(&amp;GPT_CONFIG_01) to initialize the driver with [GPT_CONFIG_01].&#160;<br/>&#160; &#160; &#160;<br/>2. &#160;Call Gpt_EnableNotification() for channel 0.&#160;<br/>3. &#160;Call Gpt_EnableNotification() for channel 1.&#160;<br/>4. &#160;Call Gpt_EnableNotification() for channel 3.&#160;<br/>&#160; &#160; &#160;<br/>5. &#160;Call Gpt_EnableWakeup() for channel 0.&#160;<br/>6. &#160;Call Gpt_DisableWakeup() for channel 1.&#160;<br/>5. &#160;Call Gpt_DisableWakeup() for channel 3.&#160;<br/>&#160; &#160; &#160;<br/>6. &#160;Call Gpt_StartTimer() for channel 0.&#160;<br/>7. &#160;Call Gpt_StartTimer() for channel 1.&#160;<br/>8. &#160;Call Gpt_StartTimer() for channel 3.&#160;<br/>&#160; &#160; &#160;<br/>9. &#160;Wait for 1 Seconds.&#160;<br/>
+28405<br/>
+GPT<br/>
+Timer is starting automatically when call&#160;<br/>
+While testing ATF test case &#34;App_Gpt_Sample&#34; its observed that notification is occurring when call Gpt_EnableWakeup() in GPT_MODE_SLEEP mode before starting the timer.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Gpt_EnableWakeup() in GPT_MODE_SLEEP&#160;&#160;&#160;<br/>
+ISSUE<br/>
+mode.<br/>
+We tested as mentioned below, in ATF configuration &#34;ATF_cfg05&#34;.&#160;<br/>&#160;<br/>1. &#160;Call Gpt_Init(&amp;GPT_CONFIG_01) to initialize the driver with [GPT_CONFIG_01].&#160;<br/>2. &#160;Call Gpt_EnableNotification() for channel 0.&#160;<br/>3. &#160;Start timer for channel 0.&#160;<br/>4. &#160;Wait for 200 (ms).&#160;<br/>5. &#160;call Gpt_GetTimeElapsed() for channel 0.&#160;<br/>6. &#160;Check whether Time Elapsed &gt; 0 , and it's obtained as expected.&#160;<br/>7. &#160;Wait for 10 (ms).&#160;<br/>8. &#160;call Gpt_GetTimeRemaining() for channel 0.&#160;<br/>9. &#160;Check whether Time Remaining &gt; 0 , and it's obtained as expected.&#160;<br/>10. Wait for 5 Seconds.&#160;<br/>11. Check whether notification obtained is &#160;&gt; 0 , and it's obtained as expected.&#160;<br/>12. call Gpt_DisableWakeup() for channel 0.&#160;<br/>13. Set GPT mode to 'GPT_MODE_SLEEP' by calling &#160;&#34;Gpt_SetMode(GPT_MODE_SLEEP)&#34;.&#160;<br/>14. Wait for 1 Seconds.&#160;<br/>15. Clear The Notification Count.&#160;<br/>16. Wait for 2 Seconds.&#160;<br/>17. Check whether notification obtained is &#160;= 0 , and it's obtained as expected.&#160;<br/>18. Set GPT mode to 'GPT_MODE_NORMAL' by calling &#160;&#34;Gpt_SetMode(GPT_MODE_NORMAL)&#34;.&#160;<br/>19. Wait for 2 Seconds.&#160;<br/>20. Check whether notification obtained is &#160;= 0 , and it's obtained as expected.&#160;<br/>21. Set GPT mode to 'GPT_MODE_SLEEP' by calling &#160;&#34;Gpt_SetMode(GPT_MODE_SLEEP)&#34;.&#160;<br/>22. call Gpt_EnableWakeup() for channel 0.&#160;<br/>23. Set GPT mode to 'GPT_MODE_NORMAL' by calling &#160;&#34;Gpt_SetMode(GPT_MODE_NORMAL)&#34;.&#160;<br/>24. Wait for 5 Seconds.&#160;<br/>
+<hr/>
+<a name=30></a>25856<br/>
+ICU<br/>
+Obsolete code in Icu_HW_Init() function.<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+At line 754 in Icu_LLDriver.c the following loop is present:&#160;<br/>
+ISSUE<br/>
+&#160; for (LucCnt = ICU_MAX_TIMER_CHANNELS_CONFIGURED; LucCnt &lt; ICU_MAX_CHANNEL;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;LucCnt++)&#160;<br/>&#160; {&#160;<br/>&#160;<br/>This &#34;for&#34; loop is used for external interrupts only and not for timer channels initialization.&#160;<br/>&#160;<br/>Inside the loop you have checks for timer channels, which will always fail, since the loop is only for channels configured with external interrupts.&#160;<br/>&#160;<br/>It seems that everything above the &#34;switch&#34; at line 823 in this loop is obsolete code.&#160;<br/>&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>N/A&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>N/A<br/>
+Interrupts(IMR) are enabled All Channel&#160;<br/>
+Problem Description:&#160;<br/>
+OPEN&#160;<br/>
+After calling Icu_SetMode() Api form&#160;<br/>
+As per Autosar4.0.3 ICU requirement says that ICU194 &#160;ICU_MODE_NORMAL: Normal operation, all used interrupts are enabled according to the notification requests. ICU_MODE_SLEEP:&#160;<br/>
+ISSUE<br/>
+ICU_MODE_SLEEP to ICU_MODE_NORMAL.&#160;Reducedpower mode. In sleep mode only those notifications are available which are configured as wakeup capable. &#160;<br/>
+&#160;<br/>Current implementation is&#160;<br/>In Icu_SetMode(ICU_MODE_NORMAL) Api &#160;called after Icu_SetMode(ICU_MODE_SLEEP) Api.&#160;<br/>All interrupts are enabled with out considering Current notification status.&#160;<br/>&#160;<br/>&#160;Ver4.01.06 -- release &#160;Icu_LLDriver.c&#160;<br/>&#160;1765: &#160; &#160; &#160; &#160;/* Enable Interrupt */ &#160;<br/>&#160;1766: &#160; &#160; &#160; &#160;RH850_SV_MODE_IMR_AND(16, (LpImrIntpCntrlReg), &#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;(LpChannelConfig-&gt;usImrMaskValue)); &#160;<br/>&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>All used interrupts are enabled according to the notification requests&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>
+27622&#160;ICU<br/>
+All interrupts are enabled with out considering notification status.<br/>
+BUG<br/>
+28585<br/>
+ICU<br/>
+Component User Manual - Unimplemented&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+APIs and Not supported features&#160;<br/>
+1. The functionalities which are not supported by the hardware are present in the component user manual.Icu_CheckWakeup, Icu_DisableWakeup and Icu_EnableWakeup should be&#160;<br/>
+ISSUE<br/>
+removed from user manual.&#160;<br/>&#160;<br/>2. If a feature is not supported please mention &#34;Not supported&#34; in Table 5-1&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>NA&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Wakeup functionalities(Icu_CheckWakeup, Icu_DisableWakeup and Icu_EnableWakeup) which are not implemented are mentioned in the user manual, which misleads the user.<br/>
+<hr/>
+<a name=31></a>27490<br/>
+MCU<br/>
+McuResetReason could not be accessed By&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+EcuMResetReason from&#160;<br/>
+The contents of McuPublishedInformation0/McuResetReasonConf0/McuResetReason could not be accessed from EcuMResetReason since the implementation methodology in&#160;<br/>
+ISSUE<br/>
+McuPublishedInformation0/McuResetReas&#160;McuPublishedInformation dont seem to be according to what AUTOSAR has prescribed&#160;<br/>onConf0 container<br/>
+&#160;<br/>Note: Why is the P1x McuResetReason implementation &#160;different from F1x (The McuResetReason implemented in different way for F1x and P1x devices )&#160;<br/>&#160;&#160;<br/>Expected Behavior:&#160;<br/>None&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>None<br/>
+28160<br/>
+MCU<br/>
+GetVersionInfo() API of each module shall&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+also return “instanceID” as one of the&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+parameter in Std_VersionInfoType<br/>
+This ticket is created to track the pre-release review done on P1x MCU work products as part of V4.00.04 release. &#160;<br/>&#160;<br/>Requirement: AR_PN0034_FR_0017&#160;<br/>&#160;<br/>Finding: As per the requirement GetVersionInfo() API of each module shall also return “instanceID” as one of the&#160;<br/>parameter in Std_VersionInfoType pointed by the output parameter versioninfo. In the current implementation only moduleid, and vendorid are returned. Instance id is not returned&#160;<br/>&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>GetVersionInfo() API of each module shall return moduleid, vendorid and instanceID&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>GetVersionInfo() API of each module shall return moduleid and vendorid&#160;<br/>
+28170<br/>
+MCU<br/>
+Dummy read to register must be&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+performed after writing to register.<br/>
+&#160;<br/>
+ISSUE<br/>
+This ticket is created to track the pre-release review done on P1x MCU work products as part of V4.00.04 release.&#160;<br/>&#160;<br/>Requirement: AR_PN0034_FR_0068&#160;<br/>&#160;<br/>Finding: Synchronizing peripherals register write operation by dummy read. As per this requirement, Dummy read to register must be performed after writing to register. The requirement&#160;<br/>is not taken care in Mcu source code.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>NA&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>NA<br/>
+<hr/>
+<a name=32></a>28202<br/>
+MCU<br/>
+APIs Mcu_GetResetReason() and&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Mcu_GetResetRawValue() shall return the&#160;&#160;&#160;<br/>
+ISSUE<br/>
+same result in case they are called multiple&#160;&#160;This ticket is created to track the pre-release review done on P1x MCU work products as part of V4.00.04 release.&#160;<br/>times<br/>
+&#160;<br/>Requirement: EAAR_PN0079_FR_0086&#160;<br/>&#160;<br/>The APIs Mcu_GetResetReason() and Mcu_GetResetRawValue() shall return the&#160;<br/>same result in case they are called multiple times after a reset or a power on&#160;<br/>event.&#160;<br/>&#160;<br/>Finding: Add test case to test the requirement.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>NA&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>NA&#160;<br/>
+28382<br/>
+MCU<br/>
+McuResetReason added in Mcu schema&#160;<br/>
+In Mcu Schema several reset reason was added in McuPublishedInformation container.&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+cannot be referenced by EcuM<br/>
+&#160;<br/>
+ISSUE<br/>
+According with ECUM128_Conf Mcu Reset Reason should be in McuResetReasonConf container so this can be referenced by EcuM module .<br/>
+28421<br/>
+MCU<br/>
+In definition file Mandatory parameter's&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Lower and Upper multiplicity values are not&#160;In definition .arxml file Mandatory parameter's Lower and Upper multiplicity value should be one. &#160;<br/>
+ISSUE<br/>
+taken care properly<br/>
+parameters are McuLoopCount and McuPbusWaitCount.&#160;<br/>&#160;<br/>example:&#160;<br/>In Mcu_PBTypes.h MCU_PBUSWAITCOUNT is define with MCU_PBUSWAITCOUNT_VALUE and is used in Mcu.c file&#160;<br/>If McuPbusWaitCount value is not set, In Mcu_Cfg.h for MCU_PBUSWAITCOUNT_VALUE will not be generated any value:&#160;<br/>In PBcfg.h file&#160;<br/>/* Pbus Count Value for the MCU_PBUSWAITCOUNT */&#160;<br/>#define MCU_PBUSWAITCOUNT_VALUE&#160;<br/>&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>&lt;!-- PARAMETER DEFINITION: McuPbusWaitCount --&gt;&#160;<br/>&lt;ECUC-INTEGER-PARAM-DEF UUID=&#34;ECUS:dbeafba1-bfaf-4ca0-8572-235f3c9b9b35&#34;&gt;&#160;<br/>&lt;SHORT-NAME&gt;McuPbusWaitCount&lt;/SHORT-NAME&gt;&#160;<br/>&lt;DESC&gt;&#160;<br/>&lt;L-2 L=&#34;EN&#34;&gt;The parameter represents the PBus access wait time.The loop can be minimum 1 to maximum 65535&lt;/L-2&gt;&#160;<br/>&lt;/DESC&gt;&#160;<br/>&lt;LOWER-MULTIPLICITY&gt;1&lt;/LOWER-MULTIPLICITY&gt;&#160;<br/>&lt;UPPER-MULTIPLICITY&gt;1&lt;/UPPER-MULTIPLICITY&gt;&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>&lt;!-- PARAMETER DEFINITION: McuPbusWaitCount --&gt;&#160;<br/>&lt;ECUC-INTEGER-PARAM-DEF UUID=&#34;ECUS:dbeafba1-bfaf-4ca0-8572-235f3c9b9b35&#34;&gt;&#160;<br/>&lt;SHORT-NAME&gt;McuPbusWaitCount&lt;/SHORT-NAME&gt;&#160;<br/>&lt;DESC&gt;&#160;<br/>&lt;L-2 L=&#34;EN&#34;&gt;The parameter represents the PBus access wait time.The loop can be minimum 1 to maximum 65535&lt;/L-2&gt;&#160;<br/>
+28444<br/>
+MCU<br/>
+Reset reson handling depending on&#160;<br/>
+What is the difference between &#34;McuResetReasonConfPowerOnReset&#34; and &#34;McuResetReasonConfPowerOnFlagReset&#34; ?&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+POF.POF bit<br/>
+&#160;<br/>
+ISSUE<br/>
+The implementation seems to be wrong as POF.POF bit seems to be set in both cases mentioned, which means only McuResetReasonConfPowerOnFlagReset is reported and&#160;<br/>McuResetReasonConfPowerOnFlagReset is never reported.&#160;<br/>
+<hr/>
+<a name=33></a>28473<br/>
+MCU<br/>
+App_MCU_Device_Sample.h Which is not&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+as per AR_PN0034_FR_0039.<br/>
+&#160;<br/>
+ISSUE<br/>
+App_MCU_Device_Sample.h Which is not as per AR_PN0034_FR_0039. &#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>NA&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>NA<br/>
+25132<br/>
+Port<br/>
+When changing port pin to a DIO mode,&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+handling of PSRn(Pn) is different by API.<br/>
+The port pin can be changed to a DIO mode at API Port_SetPinMode, Port_SetToDioMode and Port_SetPinDefaultMode.Among these the Port_SetToDioMode doesn't set to PSR&#160;<br/>
+ISSUE<br/>
+register.Is this what Development Team intended?&#160;<br/>&#160;<br/>DIO output level change should be performed in DIO Driver and the user can also decide at the timing of change in the DIO output level.I'm thinking this specification is simplest and is&#160;<br/>without mistakes.&#160;<br/>&#160;<br/>Could you tell me why it's such specification?&#160;<br/>&#160;<br/>Expected Behavior &#160;:&#160;<br/>It is necessary to unify these specifications&#160;<br/>&#160;<br/>Actual Behavior &#160; &#160;:&#160;<br/>the Port_SetToDioMode doesn't set to PSR register.<br/>
+26487<br/>
+Port<br/>
+When Port_SetPinDirection() change&#160;<br/>
+PortPinDirectionChangeable = True&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+direction from o/p to o/p (refeshing) for&#160;<br/>
+PortPinModeChangeable = True&#160;<br/>
+ISSUE<br/>
+JTAG pins, the o/p level will set to default&#160;<br/>
+PortPinLevelValue = PORT_PIN_LEVEL_LOW&#160;<br/>
+state.<br/>
+PortPinInitialMode = DIO_SUPP_PFC_PMCSR&#160;<br/>PortPinDirection = &lt;b&gt;PORT_PIN_OUT&lt;/b&gt;&#160;<br/>&#160;<br/>Test case:&#160;<br/>Port_Init(PortConfigSet0);&#160;<br/>while(1)&#160;<br/>{ &#160;<br/>&#160; &#160; /* This API will initilize all the registers to the initial values */&#160;<br/>&#160; &#160; Port_Init(PortConfigSet0);&#160;<br/>&#160; &#160; /* Set Port Pin level of for JP0_6 to High. */&#160;<br/>&#160; &#160; JPSR0 = 0xFFFF0040;&#160;<br/>&#160; &#160; /* Refresh the pin. */&#160;<br/>&#160; &#160; Port_SetPinDirection (Port_PortGroupJtag00_PortPin60, &lt;b&gt;PORT_PIN_OUT&lt;/b&gt;);&#160;<br/>}&#160;<br/>&#160;<br/>Expected result:&#160;<br/>JP0_6 remains High.&#160;<br/>&#160;<br/>Actual result:&#160;<br/>JP0_6 sets to Low.<br/>
+<hr/>
+<a name=34></a>26852<br/>
+Port<br/>
+Local variables may remain not initialized in&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Port_SetToDioOrAltMode API.<br/>
+If we have a configuration with the following generated code&#160;<br/>
+ISSUE<br/>
+&#160;<br/>/* Availability of numeric port groups */&#160;<br/>#define PORT_NUM_PORT_GROUPS_AVAILABLE STD_OFF&#160;<br/>&#160;<br/>/* Availability of alphabetic port groups */&#160;<br/>#define PORT_ALPHA_PORT_GROUPS_AVAILABLE STD_OFF&#160;<br/>&#160;<br/>/* Availability of jtag port groups */&#160;<br/>#define PORT_JTAG_PORT_GROUPS_AVAILABLE STD_OFF&#160;<br/>&#160;<br/>then in Port_SetToDioOrAltMode() API the local variables LpFuncCtrlReg and LulBaseAddress will be used without being initialized.&#160;<br/>&#160;<br/>Expected result:&#160;<br/>N/A&#160;<br/>&#160;<br/>Actual result:&#160;<br/>N/A<br/>
+27039<br/>
+Port<br/>
+Port Group 4 Pin 6 MUX appears to be mis-&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+labeled in the Parameter defitnition file.<br/>
+Port Group 4 Pin 6 MUX appears to be mis-labeled in the Parameter definition file. It is labeled as TAUD202_ALT6_OUT, while according to the HW user manual &#34;2.4.1.7 Port 4 (P4)&#34; it is&#160;<br/>
+ISSUE<br/>
+related to TAUD2O3.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>Port Group 4 Pin 6 MUX must be labeled as TAUD2O3_ALT6_OUT.&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>Port Group 4 Pin 6 MUX is labeled as TAUD2O2_ALT6_OUT.<br/>
+27079<br/>
+Port<br/>
+Port Generator throwing unwanted error<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+If PortIpControl is enabled for e.g. CSI pins as recommended in description of PortIpControl, then error 124018 is raised.&#160;<br/>
+ISSUE<br/>
+Pin names in description of PortIpControl do not match to available options in PortPinInitialMode.&#160;<br/>This issue is valid for 701011 device, but not for 701035.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>No error should occur.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>ERR124018 Error occurs that is in contradiction to description.&#160;<br/>
+27676<br/>
+Port<br/>
+Fail to initialize the PFCAE registers&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+correctly<br/>
+The register initialization sequence in Port_InitConfig() api is not as mentioned in r01uh0436ej0070_rh850p1x.pdf(v0.70) at page 122 Section 2.3.4.6.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>&#160;<br/>PFCAE register along with PFC and PFCE should be initialized after initializing&#160;<br/>PINV register.&#160;<br/>&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>&#160;<br/>The function control registers(PFC,PFCE,PFCAE) are initialized before PINV register initialization<br/>
+<hr/>
+<a name=35></a>28391<br/>
+Port<br/>
+PINVn register is not setting properly in API&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Port_SetPinDirection()<br/>
+Value updating to PINVn — Port Output Level Inversion Register write protection is not implemented as in device User Manual. &#160;<br/>
+ISSUE<br/>
+&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>Needs to follow the write protection sequence mentioned in device User Manual. &#160;&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>Register write protection is not implemented properly.<br/>
+28447<br/>
+Port<br/>
+PMSR register access is not correct<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+PMSR register is accessing without checking whether PMSR register is present for that particular Port group. &#160;<br/>
+ISSUE<br/>
+&#160;<br/>&#160;<br/>Expected behavior: Before accessing PMSR register check whether PMSR register is exist is required.&#160;<br/>&#160; &#160; /*Check for PMSR register availability */&#160;<br/>&#160; &#160; if (PORT_REG_NOTAVAILABLE != LpSetPinModeGroupStruct-&gt;ucPMSRRegIndex)&#160;<br/>&#160; &#160; {&#160;<br/>&#160; &#160;...&#160;<br/>&#160; &#160; }&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>This check is not present result in illegal memory access. &#160;<br/>
+28539<br/>
+Port<br/>
+Pre compiler Macro is surrounded code at&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+wrong place in Port_FilterConfig()<br/>
+&#160;<br/>
+ISSUE<br/>
+Pre compiler Macro &#34;PORT_DNFA_REG_CONFIG&#34; is surrounded code at wrong place in Port_FilterConfig().&#160;<br/>&#160;<br/>#if ((PORT_DNFA_REG_CONFIG == STD_ON) || (PORT_FCLA_REG_CONFIG == STD_ON))&#160;<br/>#define PORT_START_SEC_PRIVATE_CODE&#160;<br/>#include &#34;MemMap.h&#34;&#160;<br/>STATIC FUNC(void, PORT_PRIVATE_CODE) Port_FilterConfig(void)&#160;<br/>{&#160;<br/>&#160; /* Pointer to digital filter DNFA register data structure */&#160;<br/>&#160; #if (PORT_DNFA_REG_CONFIG == STD_ON)&#160;<br/>&#160; P2CONST(volatile Port_DNFARegs, AUTOMATIC, PORT_CONFIG_DATA) LpDNFAReg;&#160;<br/>&#160;<br/>&#160; /* Pointer to Edge control EDC register data structure */&#160;<br/>&#160; #if (PORT_EDGE_DETECT_CONTROL == STD_ON)&#160;<br/>&#160; P2CONST(volatile Port_EDCRegs, AUTOMATIC, PORT_CONFIG_DATA) LpEDCReg;&#160;<br/>&#160; #endif /* End of PORT_EDGE_DETECT_CONTROL == STD_ON */&#160;<br/>&#160;<br/>&#160;-----code-----&#160;<br/>&#160; #endif /* End of PORT_DNFA_REG_CONFIG == STD_ON */&#160;<br/>&#160;<br/>&#160;-----code----&#160;<br/>&#160;<br/>Port_FilterConfig() API is enabled by PORT_DNFA_REG_CONFIG is STD_ON or PORT_FCLA_REG_CONFIG is STD_ON,&#160;<br/>In side variable declaration is done for PORT_DNFA_REG_CONFIG is STD_ON, When PORT_DNFA_REG_CONFIG is STD_OFF and PORT_FCLA_REG_CONFIG is STD_ON it will corrupted.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>Pre compiler Macro should be surrounded the E-code at appropriate places.&#160;<br/>
+<hr/>
+<a name=36></a>25724<br/>
+PWM<br/>
+Det PWM_E_PARAM_CHANNEL is not&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+reporting for Pwm_SetTriggerDelay().<br/>
+&#160;For the current PWM driver implementation we face the problem that it is not reporting Det PWM_E_PARAM_CHANNEL for Pwm_SetTriggerDelay() when configured for PWM TAU&#160;<br/>
+ISSUE<br/>
+channel. &#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>&#160;Det PWM_E_PARAM_CHANNEL should report for Pwm_SetTriggerDelay() when configured for PWM TAU channel.&#160;<br/>&#160;&#160;<br/>Actual behavior:&#160;<br/>&#160;DET is not occuring.<br/>
+26874<br/>
+PWM<br/>
+Pwm_SelectChannelClk is starting the PWM&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+diag channels configured for sync start<br/>
+If you configure 2 channels 1 on TAU and one PWM diag in sync start mode. If after Pwm_SynchronousInit() API, Pwm_SelectChannelClk() is called, the pwm diag channel will start even&#160;<br/>
+ISSUE<br/>
+before calling Pwm_SynchronousStart().&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>Channels marked as synchronous shall start only after Pwm_SynchronousStart() API is called.&#160;<br/>&#160;<br/>Current behavior:&#160;<br/>Check the problem description&#160;<br/>
+28292<br/>
+PWM<br/>
+[P1x][PWM] PWM notification is not&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+handled properly<br/>
+1. PWM notification null pointer checking is not performing on Pwm_HW_Callback ISR&#160;<br/>
+ISSUE<br/>
+2. Notification will send for wrong PWM channels/channels which are not configured.&#160;<br/>&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>With in Pwm_HW_Callback ISR, channel id is incrementing with in a for loop. Notification checking and sending is doing outside this for loop. After the execution of that for loop channel id&#160;<br/>will be, exact channel id + 1 + number of slave channels. So the notification will send for wrong channels or try to send notification for the channels which are not configured.&#160;<br/>&#160;<br/>Example: we have configured 7 channels out of which 3 are slave channels.&#160;<br/>and the interrupt is coming for 4th master channel.&#160;<br/>So at the end of the 'for' loop, channel id will be 8. This will cause out of array access and if the value of that memory location is one, it will try to send notification, which is not configured.&#160;<br/>This will cause the controller to reset.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>1.PWM notification null pointer checking should be performed in Pwm_HW_Callback ISR&#160;<br/>2.PWM notification checking should be with proper channel id.<br/>
+25663<br/>
+RamTst<br/>
+[P1x][RAMTST][R4.0] The test result is not &#160;&#160;&#160;RamTst_GetTestResultPerBlock() does not return RAMTST_RESULT_UNDEFINED, when March test on the specific block is running.<br/>
+BUG<br/>
+OPEN&#160;<br/>
+RAMTST_RESULT_UNDEFINED, if a March&#160;<br/>
+ISSUE<br/>
+Test on this block is running.<br/>
+25664<br/>
+RamTst<br/>
+[P1x][RAMTST][R4.0] RamTst_FillPattern&#160;<br/>
+When the configuration parameter RamTstTestPolicy for a block is set to RAMTEST_DESTRUCTIVE, the test algorithm does not fill the tested cells after the test with the bit pattern defined&#160;BUG<br/>
+OPEN&#160;<br/>
+not getting updated in the RAM location&#160;<br/>
+for this block by parameter RamTst_FillPattern except for the test algorithm RAMTST_ABRAHAM_TEST_APP.<br/>
+ISSUE<br/>
+when RamTstTestPolicy is&#160;<br/>RAMTEST_DESTRUCTIVE.<br/>
+<hr/>
+<a name=37></a>26482<br/>
+RamTst<br/>
+Dem event parameter name not generated&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+correctly<br/>
+If the short name of DemEventParameter in file Dem_RamTst.arxml is not appended with any number then the Dem event parameter name is not getting generated correctly.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>Expected Behaviour:&#160;<br/>DEM event parameters should generated correctly as follows&#160;<br/>&#160;<br/>#define RAMTST_E_RAM_FAILURE &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; \&#160;<br/>&#160; DemConf_DemEventParameter_DemEventParameter&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>DEM event parameters are generated as follows&#160;<br/>&#160;<br/>#define RAMTST_E_RAM_FAILURE &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; \&#160;<br/>&#160; DemConf_DemEventParameter_&#160;<br/>&#160;<br/>This results in compilation issues as &#34;the identifier &#34;DemConf_DemEventParameter_&#34; is undefined&#34;&#160;<br/>
+28604<br/>
+RamTst<br/>
+Issues in EUM.<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+This ticket is to report the defects found in EUM.&#160;<br/>
+ISSUE<br/>
+&#160;<br/>1.In Section 8 &#34;Software Generation Tool&#34; and &#34;Driver Generation Tool&#34; are used in parallel, which is misleading.&#160;<br/>[Driver Generation Tool] should be used here.&#160;<br/>&#160;<br/>2.In Revision History SI. No. 4 &#34;As part of P1x V4.00.04 activity following changes are made:&#34; should be removed.&#160;<br/>&#160;<br/>3.In Section 4.5 'X' is not marked for user mode for RamTst APIs, even with known limitations listed in Table 4-1. This is not in line with other MCAL modules.User mode is supported by&#160;<br/>RamTst_RunFullTest, RamTst_RunPartialTest, RamTst_MainFunction, but with precondition that the critical section should be disabled.&#160;<br/>&#160;<br/>Expected behavior&#160;<br/>N/A&#160;<br/>&#160;<br/>Actual behavior&#160;<br/>N/A&#160;<br/>
+28605<br/>
+RamTst<br/>
+RamTst_Ram.c and RamTst_Ram.h files are&#160;&#160;Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+missing.<br/>
+&#160;<br/>
+ISSUE<br/>
+Unlike other MCAL modules there are no dedicated files, ie. RamTst_Ram.c and RamTst_Ram.h, to address global variables.&#160;<br/>&#160;<br/>In other MCAL modules &lt;MSN&gt;_Ram.c and &lt;MSN_Ram.h&gt; used to address global variables.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>No dedicated file is exist to address global variables.&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>To maintain consistent file structures across all the MCAL modules these files should be added to address global variables.<br/>
+<hr/>
+<a name=38></a>28607<br/>
+RamTst<br/>
+Autosar requirement RamTst033 is not&#160;<br/>
+Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+implemented properly.<br/>
+&#160;<br/>
+ISSUE<br/>
+As per AUTOSAR requirement RamTst033 :&#160;<br/>&#34;If the DET is enabled and the execution status of the RAM Test is&#160;<br/>not RAMTST_EXECUTION_RUNNING or RAMTST_EXECUTION_SUSPENDED, the&#160;<br/>function RamTst_Stop shall report the error value RAMTST_E_STATUS_FAILURE to&#160;<br/>the DET, and then immediately return.&#34;&#160;<br/>&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>In the current implementation execution status is checked against STOPPED as below: &#160;<br/>else if (RAMTST_EXECUTION_STOPPED == RamTst_ExecutionStatus) in RamTst_Stop API.&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>N/A<br/>
+28608<br/>
+RamTst<br/>
+Autosar requirement RamTst003 is not&#160;<br/>
+Problem Description :&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+implemented properly.<br/>
+&#160;<br/>
+ISSUE<br/>
+As per this requirement RamTst.h shall include Std_Types.h directly.&#160;<br/>&#160;<br/>In &#160;current implementation Std_Types.h is included via RamTst_Types.h.&#160;<br/>&#160;<br/>Actual Behavior :&#160;<br/>Std_Types.h is included RamTst_Types.h and RamTst_Types.h is included RamTst.h which is not correct as per Autosar requirement RamTst003.&#160;<br/>&#160;<br/>Expected Behavior :&#160;<br/>RamTst.h shall include Std_Types.h directly.<br/>
+25109<br/>
+SPI<br/>
+SpiJobEndNotification functions are not&#160;<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+generated correctly, when two or more&#160;<br/>
+SpiJobEndNotification functions are not generated correctly, when two or more Jobs have the same JobEndNotification function.&#160;<br/>
+ISSUE<br/>
+Jobs have the same JobEndNotification&#160;<br/>
+Some JobEndNotifications functions are NULL after the generation, in spite they are not configured as NULL.&#160;<br/>
+function.<br/>
+There is no information or warning in the generator's manual, that this configuration would not be allowed.&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>If the following SpiJobEndNotifications are in one configuration:&#160;<br/>&#160;<br/>&#160; TswSpi_AsyncJobEndNotif&#160;<br/>&#160; TswSpi_AsyncJobEndNotif&#160;<br/>&#160; NULL&#160;<br/>&#160; NULL&#160;<br/>&#160; TswSpi_PrioCheckJob1EndNotif&#160;<br/>&#160; TswSpi_PrioCheckJob2EndNotif&#160;<br/>&#160; TswSpi_PrioCheckJob3EndNotif&#160;<br/>&#160; TswSpi_PrioCheckJob4EndNotif&#160;<br/>&#160; TswSpi_PrioCheckJob5EndNotif&#160;<br/>&#160; NULL&#160;<br/>&#160; NULL&#160;<br/>&#160;<br/>the same should be expected to be generated in &#160;Spi_BPcfg.c&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>Instead in Spi_BPcfg.c we have the following:&#160;<br/>&#160;<br/>&#160;NULL_PTR&#160;<br/>&#160; TswSpi_AsyncJobEndNotif&#160;<br/>&#160; NULL_PTR&#160;<br/>
+<hr/>
+<a name=39></a>26389<br/>
+SPI<br/>
+Short name, File name and Path generated&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+for error id ERR083058 is incorrect<br/>
+ERR083058 message is generating as follows&#160;<br/>
+ISSUE<br/>
+The reference path &lt;/AUTOSAR/EcucDefs/Dem0/DemConfigSet0/DemEventParamete&gt; provided for the parameter 'SPI_E_HARDWARE_ERROR' in the container&#160;<br/>'SpiDemEventParameterRefs', having shortname &lt;HASH(0x31829ac){ShortName}&gt; is incorrect.&#160;<br/>&#160;File Name: HASH(0x31829ac) {FileName}&#160;<br/>&#160;Path: HASH(0x31829ac){ShortName}&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>Correct Short name, File name and Path should be generated for error id ERR083058.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Short name, File name and Path generated for error id ERR083058 are wrong.<br/>
+26420<br/>
+SPI<br/>
+Execution stuck in Spi_HWTransmitSyncJob&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+function<br/>
+&#160;<br/>
+ISSUE<br/>
+When a sequence is transmitted synchronously, the execution hangs in Spi_HWTransmitSyncJob.&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>Sequence should be transmitted without hang.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Calling Spi_SyncTransmit API results hanging in Spi_HWTransmitSyncJob API .<br/>
+26764<br/>
+SPI<br/>
+The SPI driver does not change its status in&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+case of data consistency error occurs&#160;<br/>
+In case of data consistency error flag (CSIHnDCE) is set during SPI sync transmission, the ongoing sequence is aborted.&#160;<br/>
+ISSUE<br/>
+during sync transmission.<br/>
+The problem is that after the ongoing sequence was aborted, the global variable Spi_GusHwStatus is not changed by the Spi_SyncTransmit API. This blocks all the next SPI communication.&#160;<br/>&#160;<br/>Expected result:&#160;<br/>In case of consistency error detection during SPI Sync transmission, the ongoing sequence must be cancelled.&#160;<br/>&#160;<br/>Actual result:&#160;<br/>After consistency error detection during SPI Sync transmission, whole further communication is blocked.&#160;<br/>&#160;<br/>A workaround is not to enable the CSIHnCTL1.CSIHnDCS bit, until this issue is not fixed. &#160;<br/>
+27688<br/>
+SPI<br/>
+Illegal Memory access in Spi_Driver.c in API&#160;&#160;Problem description: &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Spi_TransmitISR()<br/>
+If the if condition:&#160;<br/>
+ISSUE<br/>
+if (SPI_FIFO_BUFFER_FULL != Spi_GucHWFifoBufferSts[SPI_FIFO_RX_INDEX])) fails, &#160;<br/>the pointer LpPBChannelConfig will not be initialised (since it is written in the if condition at Line 5618)&#160;<br/>This would lead to an illegal memory access (at Line:5707) where LpPBChannelConfig is used.&#160;<br/>&#160;<br/>Expected Behavior: &#160;<br/>The variable LpPBChannelConfig shall be initialized before used&#160;<br/>&#160;<br/>Actual behavior: &#160;<br/>If the if condition ((if (SPI_FIFO_BUFFER_FULL != Spi_GucHWFifoBufferSts[SPI_FIFO_RX_INDEX]))) fails, LpPBChannelConfig is not initialized.&#160;<br/>
+<hr/>
+<a name=40></a>27707<br/>
+SPI<br/>
+Illegal Memory access in Spi_Driver.c<br/>
+Problem Description: In Spi_Driver.c, API Spi_TransmitISR(), the local variable LpJobConfig is initialized in the part of code as below. &#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+&#160;<br/>
+ISSUE<br/>
+&#160;if (SPI_FIFO_BUFFER_UNINIT == Spi_GucHWFifoBufferSts[SPI_FIFO_RX_INDEX])&#160;<br/>&#160; &#160; &#160; {&#160;<br/>&#160; &#160; &#160; &#160; &#160;..............;&#160;<br/>&#160; &#160; &#160; &#160; &#160;...............;&#160;<br/>&#160; &#160; &#160; &#160; LpJobConfig = Spi_GpFirstJob + LddJobIndex;&#160;<br/>&#160; &#160; &#160; &#160;}&#160;<br/>&#160;<br/>If the condition SPI_FIFO_BUFFER_UNINIT is not equal to Spi_GucHWFifoBufferSts[SPI_FIFO_RX_INDEX]), the variable LpJobConfig will not be initialized. This could lead to illegal memory&#160;<br/>access since the variable is also used elsewhere. Eg: In the do while loop below the if loop mentioned in the description,&#160;<br/>&#160;<br/>#if (SPI_DMA_MODE_ENABLE == STD_ON)&#160;<br/>&#160; &#160; &#160; &#160; /* MISRA Violation: START Msg(4:2962)-18 */&#160;<br/>&#160; &#160; &#160; &#160; if ((SPI_INTERRUPT_MODE == Spi_GddAsyncMode) &amp;&amp;&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; (SPI_INVALID_DMAUNIT == LpJobConfig-&gt;ucRxDmaDeviceIndex))&#160;<br/>&#160; &#160; &#160; &#160; /* END Msg(4:2962)-18 */&#160;<br/>&#160; &#160; &#160; &#160; #endif&#160;<br/>&#160;<br/>Expected Behavior: None&#160;<br/>&#160;<br/>Actual Behavior: Illegal Memory access could happen if the if condition mentioned in the problem description fails.<br/>
+27978<br/>
+SPI<br/>
+&#160;Spi_SyncTransmit API is not working&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+properly.<br/>
+&#160;<br/>
+ISSUE<br/>
+when calling Spi_SyncTransmit() an exception is occurring from private API Spi_HWTransmitSyncJob(). On analysis we found that this is because of improper handling of a while loop exit&#160;<br/>criteria, resulting in illegal memory access. &#160;<br/>&#160;<br/>Expected behavior: &#160;<br/>Spi_SyncTransmit() execute with out any exception. &#160;&#160;<br/>&#160;<br/>Actual behavior: &#160;<br/>An exception is occurring while execution of Spi_SyncTransmit() API. &#160;<br/>
+28233<br/>
+SPI<br/>
+Improper pre-compiler switch for the&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+Spi_Mainfunction_Handling function&#160;<br/>
+Spi_Mainfunction_Handling &#160;function should be invoked only when polling mechanism is selected by Spi_SetAsyncMode API. This mode can be set only when the SPI_LEVEL_DELIVERED is&#160;<br/>
+ISSUE<br/>
+definition<br/>
+two. but the pre compiler switch for the function definition is as follows&#160;<br/>#if (((SPI_LEVEL_DELIVERED == SPI_ONE) || (SPI_LEVEL_DELIVERED == SPI_TWO)) \&#160;<br/>&#160; &#160; &#160; &amp;&amp; (SPI_HWUNIT_ASYNCHRONOUS == STD_ON))&#160;<br/>&#160;<br/>#define SPI_START_SEC_PUBLIC_CODE&#160;<br/>#include &#34;MemMap.h&#34;&#160;<br/>&#160;<br/>FUNC(void, SPI_PUBLIC_CODE) Spi_MainFunction_Handling (void)&#160;<br/>{&#160;<br/>...&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>Spi_Mainfunction_Handling function shall be available in Level 2 only.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Spi_Mainfunction_Handling function is available in Level 1 and 2 also.<br/>
+28249<br/>
+SPI<br/>
+SpiFifoTimeOut parameter is mandatory<br/>
+Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+SpiFifoTimeOut parameter is made mandatory but it is only valid for CSIH&#160;<br/>
+ISSUE<br/>
+&#160;<br/>Expected behaviour:&#160;<br/>SpiFifoTimeOut parameter should be optional (multiplicity 0..1) and additionally there should be a generator error check in case it is not configured for CSIH HW units in FIFO mode.<br/>
+<hr/>
+<a name=41></a>28251<br/>
+SPI<br/>
+The information provided about user mode&#160;&#160;Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+and supervisor mode is not correct in the&#160;<br/>
+In the user manual Table 4-5, it indicates that Spi_MainFunction_Handling() requires Supervisor mode access when Interrupt mode is active (SI. No. 14), though&#160;<br/>
+ISSUE<br/>
+user manual<br/>
+Spi_MainFunction_Handling() is not necessary in interrupt mode.&#160;<br/>Also, Spi_AsyncTransmit(), SI. No. 4 in Table 4-5, is missing any mark in the Interrupt Mode/user mode column..&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>Spi_MainFunction_Handling shall be removed in interrupt mode and &#160;Spi_AsyncTransmit() shall be corrected for applicable modes.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>Spi_MainFunction_Handling is marked for both interrupt and Polling modes. and Spi_AsyncTransmit() is missing any mark in the Interrupt Mode/user mode column.<br/>
+28364<br/>
+SPI<br/>
+Error ERR083120 is generated when&#160;<br/>
+Problem Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+SpiEnableCs is configured as false<br/>
+When the Parameter SpiEnableCs is configured as false SpiPortPinSelect should not be configured. But when SpiPortPinSelect is not configured tool is generating error ERR083120- the&#160;<br/>
+ISSUE<br/>
+parameter 'SpiPortPinSelect' value in the container 'SpiJob&lt;x&gt;', should be configured as CSL&lt;n&gt; since 'CSIH&lt;x&gt;' is configured.&#160;<br/>&#160;<br/>Expected Behaviour:&#160;<br/>Tool should not generate error.&#160;<br/>&#160;<br/>Actual Behaviour:&#160;<br/>ERR083120 is generated.<br/>
+28456<br/>
+SPI<br/>
+Variables are uninitialized when the certain&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+condition does not meet.<br/>
+Some of the Variables are uninitialized when the following conditions are not met. &#160;<br/>
+ISSUE<br/>
+when the SPI_DIRECT_ACCESS_MODE is STD_OFF&#160;<br/>&#160;<br/>&#160;<br/>Expected behavior:&#160;<br/>Before using the variables, Variables should be initialized.&#160;<br/>&#160;<br/>Actual behavior:&#160;<br/>Before using the variables, Variables are not initialized when SPI_DIRECT_ACCESS_MODE is STD_OFF<br/>
+28676<br/>
+SPI<br/>
+Calling of Spi_MainFunction_Handling&#160;<br/>
+Description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+possible in interrupt mode<br/>
+If interrupt mode is selected (Spi_SetAsyncMode(SPI_INTERRUPT_MODE)) &#160;<br/>
+ISSUE<br/>
+a call to Spi_MainFunction_Handling() is possible. Functions Spi_TransmitISR and Spi_ReceiveISR are called there without further checks. This can cause&#160;<br/>corrupted data transmission.&#160;<br/>&#160;<br/>Actual Behavior:&#160;<br/>No error but corrupted data.&#160;<br/>&#160;<br/>Expected Behavior:&#160;<br/>In interrupt mode a call to Spi_MainFunction_Handling shall be rejected, e.g. by DET.<br/>
+<hr/>
+<a name=42></a>28199<br/>
+WDG<br/>
+Wdg_SetMode function reports DEM error&#160;&#160;Problem description:&#160;<br/>
+BUG<br/>
+OPEN&#160;<br/>
+if WDGIF_OFF_MODE is selected<br/>
+As per AUTOSAR specification [WDG160], Wdg_SetMode function supports WDGIF_OFF_MODE.&#160;<br/>
+ISSUE<br/>
+And the user sets WdgDisableAllowed parameter 'true' in Configuration tool.&#160;<br/>However, in code Wdg_59_DriverA_SetMode function reports a Dem Error in case WDGIF_OFF_MODE is selected.&#160;<br/>&#160;<br/>Wdg_59_DriverA_SetMode function in Wdg_59_DriverA.c:&#160;<br/>&#160; &#160; if (Mode == WDGIF_OFF_MODE)&#160;<br/>&#160; &#160; {&#160;<br/>&#160; &#160; &#160; /* Report Error to DEM */&#160;<br/>&#160; &#160; &#160; Dem_ReportErrorStatus(WDG_59_DRIVERA_E_DISABLE_REJECTED,&#160;<br/>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; DEM_EVENT_STATUS_FAILED);&#160;<br/>&#160;<br/>WDG driver does not allow Wdg_SetMode function to translate the state into OFF by &#34;4.4 WDG State Diagram&#34; in WDG Driver Component Embedded User's Manual Rev.0.01 Nov 2013.&#160;<br/>&#160;<br/>Customer need to know the background for this.&#160;<br/>&#160;<br/>Expected behaviour:&#160;<br/>Wdg_SetMode function shall report DEM error only if required mode is 'WDGIF_OFF_MODE' and 'WdgDisableAllowed' is false.&#160;<br/>&#160;<br/>Actual behaviour:&#160;<br/>Wdg_SetMode function is reporting DEM error only if required mode is 'WDGIF_OFF_MODE' and 'WdgDisableAllowed' is true.&#160;<br/>
+<hr/>
+</body>
+</html>

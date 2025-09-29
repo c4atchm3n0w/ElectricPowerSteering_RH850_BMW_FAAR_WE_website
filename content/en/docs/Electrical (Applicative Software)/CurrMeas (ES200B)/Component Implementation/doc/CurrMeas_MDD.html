@@ -1,0 +1,1256 @@
+---
+title: CurrMeas_MDD
+linkTitle: CurrMeas_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>CurrMeas</strong></p>
+<p><strong>Mar 23, 2018</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Krzysztof Byrski</td>
+<td>1.0</td>
+<td>19-May-2017</td>
+</tr>
+<tr class="odd">
+<td>Fixed anomaly EA4#13330 by using required NVM blocks as applicable</td>
+<td>Krishna Anne</td>
+<td>2.0</td>
+<td>16-Oct-17</td>
+</tr>
+<tr class="even">
+<td>Created local functions for reducing the complexity of OffsetCalibration and GainCalibration functions</td>
+<td>Mrudula Paturi</td>
+<td>3.0</td>
+<td>23-Mar-18</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p><a href="#introduction">1 Introduction <span>5</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>5</span></a></p>
+<p><a href="#scope">1.2 Scope <span>5</span></a></p>
+<p><a href="#currmeas-high-level-description">2 CurrMeas &amp; High-Level Description <span>6</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>7</span></a></p>
+<p><a href="#graphical-representation-of-currmeas">3.1 Graphical representation of CurrMeas <span>7</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>7</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>7</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>7</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>8</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>8</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>8</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>9</span></a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions <span>9</span></a></p>
+<p><a href="#init-init1">5.1.1 Init: CurrMeasInit1 <span>9</span></a></p>
+<p><a href="#per-per1">5.1.2 Per: CurrMeasPer1 <span>9</span></a></p>
+<p><a href="#per-per2">5.1.3 Per: CurrMeasPer2 <span>9</span></a></p>
+<p><a href="#per-per3">5.1.4 Per: CurrMeasPer3 <span>10</span></a></p>
+<p><a href="#server-runables">5.2 Server Runables <span>11</span></a></p>
+<p><a href="#currmeaseolgainreq_oper">5.2.1 CurrMeasEolGainReq_Oper <span>11</span></a></p>
+<p><a href="#currmeaseolgainstsreq_oper">5.2.2 CurrMeasEolGainStsReq_Oper <span>11</span></a></p>
+<p><a href="#currmeaseoloffsreq_oper">5.2.3 CurrMeasEolOffsReq_Oper <span>11</span></a></p>
+<p><a href="#currmeaseoloffsstsreq_oper">5.2.4 CurrMeasEolOffsStsReq_Oper <span>11</span></a></p>
+<p><a href="#currmeasgainreadreqsngivtr_oper">5.2.5 CurrMeasGainReadReqSngIvtr_Oper <span>11</span></a></p>
+<p><a href="#currmeasgainwrreqsngivtr_oper">5.2.6 CurrMeasGainWrReqSngIvtr_Oper <span>11</span></a></p>
+<p><a href="#currmeasoffsreadreqsngivtr_oper">5.2.7 CurrMeasOffsReadReqSngIvtr_Oper <span>12</span></a></p>
+<p><a href="#currmeasoffswrreqsngivtr_oper">5.2.8 CurrMeasOffsWrReqSngIvtr_Oper <span>12</span></a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions <span>13</span></a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions <span>13</span></a></p>
+<p><a href="#offsetcalibration">5.4.1 OffsetCalibration <span>13</span></a></p>
+<p><a href="#gaincalibration">5.4.2 GainCalibration <span>14</span></a></p>
+<p><a href="#rangechkwiabc">5.4.3 RangeChkWIABC <span>14</span></a></p>
+<p><a href="#protocolchkenabc">5.4.4 ProtocolChkENABC <span>15</span></a></p>
+<p><a href="#calcmotcurrmotagcorrd">5.4.5 CalcMotCurrMotAgCorrd <span>15</span></a></p>
+<p><a href="#calmotcurrcorrdabc">5.4.6 CalMotCurrCorrdABC <span>15</span></a></p>
+<p><a href="#offscalcabc">5.4.7 OffsCalcABC <span>16</span></a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions <span>17</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>18</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>19</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>20</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>21</span></a></p>
+<p><a href="#references">Appendix C References <span>22</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module Design Document for ES200B_CurrMeas.</p>
+<h2 id="scope">Scope</h2>
+<p>The following definitions are used throughout this document:</p>
+<ul>
+<li><p><strong><u>Shall</u></strong>: indicates a mandatory requirement without exception in compliance.</p></li>
+<li><p><strong><u>Should</u></strong>: indicates a mandatory requirement; exceptions allowed only with documented justification.</p></li>
+<li><p><strong><u>May</u></strong>: indicates an optional action.</p></li>
+</ul>
+<h1 id="currmeas-high-level-description">CurrMeas &amp; High-Level Description</h1>
+<p>Refer FDD.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-currmeas">Graphical representation of CurrMeas</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:5.20833in;height:7.09583in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>Refer FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>None</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>None</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CALPROCNOTSTRTD_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>CALPROCSTRTD_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>CALPROCPASS_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>CALPROCPHAABCEOLOUTOFRNG_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>CALPROCVEHSPDCNDNOTMET_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>CALPROCMOTVELMRFCNDNOTMET_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>64</td>
+</tr>
+<tr class="odd">
+<td>VEHSPDCDNNOTMET_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>MOTVELMRFCDNNOTMET_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>DIAGCSTSINVTRINACTV_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>FAILDATENA_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>FAILDATWRMININ_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>INVTRINACTV_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>DIFOFFSRNGCHKMAX_VOLT_F32</td>
+<td>Single precision float</td>
+<td>Volt</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>DEGREES30_MOTRAD_F32</td>
+<td>Single precision float</td>
+<td>MotRad</td>
+<td>0.5236</td>
+</tr>
+<tr class="odd">
+<td>MAXCURRCORRD_AMPR_F32</td>
+<td>Single precision float</td>
+<td>Ampr</td>
+<td>200.0</td>
+</tr>
+<tr class="even">
+<td>PHAONTIBCOK_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x03</td>
+</tr>
+<tr class="odd">
+<td>PHAONTIACOK_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x05</td>
+</tr>
+<tr class="even">
+<td>PHAONTIABOK_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x06</td>
+</tr>
+<tr class="odd">
+<td>PHAONTIABCOK_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x07</td>
+</tr>
+<tr class="even">
+<td>PHAONTIA_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x04</td>
+</tr>
+<tr class="odd">
+<td>PHAONTIB_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x02</td>
+</tr>
+<tr class="even">
+<td>PHAONTIC_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>0x01</td>
+</tr>
+<tr class="odd">
+<td>NANOSECTOSEC_ULS_F32</td>
+<td>Single precision float</td>
+<td>Uls</td>
+<td>0.000000001</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h3 id="init-init1">Init: Init1</h3>
+<h4 id="design-rationale">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="module-outputs">Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 id="per-per1">Per: Per1</h3>
+<h4 id="design-rationale-1">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 id="per-per2">Per: Per2</h3>
+<h4 id="design-rationale-2">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-1">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs-1">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h3 id="per-per3">Per: Per3</h3>
+<h4 id="design-rationale-3">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="store-module-inputs-to-local-copies-2">Store Module Inputs to Local copies</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-2">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h4 id="store-local-copy-of-outputs-into-module-outputs-2">Store Local copy of outputs into Module Outputs</h4>
+<p>Refer FDD</p>
+<h2 id="server-runables">Server Runables </h2>
+<h3 id="currmeaseolgainreq_oper">CurrMeasEolGainReq_Oper</h3>
+<h4 id="design-rationale-4">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-3">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="currmeaseolgainstsreq_oper">CurrMeasEolGainStsReq_Oper</h3>
+<h4 id="design-rationale-5">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-4">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="currmeaseoloffsreq_oper">CurrMeasEolOffsReq_Oper</h3>
+<h4 id="design-rationale-6">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-5">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="currmeaseoloffsstsreq_oper">CurrMeasEolOffsStsReq_Oper</h3>
+<h4 id="design-rationale-7">Design Rationale</h4>
+<p>Refer FDD</p>
+<h3 id="currmeasgainreadreqsngivtr_oper">CurrMeasGainReadReqSngIvtr_Oper</h3>
+<h4 id="design-rationale-8">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-6">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="currmeasgainwrreqsngivtr_oper">CurrMeasGainWrReqSngIvtr_Oper</h3>
+<h4 id="design-rationale-9">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-7">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="currmeasoffsreadreqsngivtr_oper">CurrMeasOffsReadReqSngIvtr_Oper</h3>
+<h4 id="design-rationale-10">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-8">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h3 id="currmeasoffswrreqsngivtr_oper">CurrMeasOffsWrReqSngIvtr_Oper</h3>
+<h4 id="design-rationale-11">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-of-function-9">(Processing of function)………</h4>
+<p>Refer FDD</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h3 id="offsetcalibration">OffsetCalibration</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsetCalibration</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotVelMrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350.0</td>
+<td>1350.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>511.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpdVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BrdgVltg_Volt_T_f32</td>
+<td>float32</td>
+<td>6.0</td>
+<td>26.5</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>DiagcStsIvtr1Inactv_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-12">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="gaincalibration">GainCalibration</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 15%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GainCalibration</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrEolOffsProcFlg_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotVelMrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350.0</td>
+<td>1350.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsZeroAvrgA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrOffsZeroAvrgB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsZeroAvrgC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>511.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpdVld_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>DiagcStsIvtr1Inactv_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrEolCalStPrev_Cnt_T_enum</td>
+<td>MotCurrEolCalSt2</td>
+<td>0</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-13">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-1">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="rangechkwiabc">RangeChkWIABC</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RangeChkWIABC</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>InRng_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-14">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-2">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="protocolchkenabc">ProtocolChkENABC</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ProtocolChkENABC</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>N/A</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ProtocolChkEn_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-15">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-3">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calcmotcurrmotagcorrd">CalcMotCurrMotAgCorrd</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcMotCurrMotAgCorrd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>N/A</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>MotCtrlCurrMeasMotAgCorrd_Rad_T_f32</td>
+<td>float32</td>
+<td>-0.7666</td>
+<td>6.2832</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-16">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-4">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="calmotcurrcorrdabc">CalMotCurrCorrdABC</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalMotCurrCorrdABC</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrOffsA_Volt_T_f32</td>
+<td>float32</td>
+<td>-1892868,5</td>
+<td>1892873,5</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsA_Volt_T_f32</td>
+<td>float32</td>
+<td>-1892868,5</td>
+<td>1892873,5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrOffsA_Volt_T_f32</td>
+<td>float32</td>
+<td>-1892868,5</td>
+<td>1892873,5</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-17">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-5">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="offscalcabc">OffsCalcABC</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsCalcABC</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>MotCurrOffsA_Volt_T_f32</td>
+<td>float32</td>
+<td>-1892868,5</td>
+<td>1892873,5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrOffsB_Volt_T_f32</td>
+<td>float32</td>
+<td>-1892868,5</td>
+<td>1892873,5</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsC_Volt_T_f32</td>
+<td>float32</td>
+<td>-1892868,5</td>
+<td>1892873,5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-18">Design Rationale</h4>
+<p>Refer FDD</p>
+<h4 id="processing-6">Processing</h4>
+<p>Refer FDD</p>
+<h3 id="gaincmdad">GainCmdAD</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GainCmdAD</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsZeroAvrgA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-19">Design Rationale</h4>
+<p>This function is created for reducing the complexity of GainCalibration function</p>
+<h4 id="processing-7">Processing</h4>
+<p>Refer the source file</p>
+<h3 id="gaincmdbe">GainCmdBE</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GainCmdBE</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsZeroAvrgB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-20">Design Rationale</h4>
+<p>This function is created for reducing the complexity of GainCalibration function</p>
+<h4 id="processing-8">Processing</h4>
+<p>Refer the source file</p>
+<h3 id="gaincmdcf">GainCmdCF</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>GainCmdCF</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrOffsZeroAvrgC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-21">Design Rationale</h4>
+<p>This function is created for reducing the complexity of GainCalibration function</p>
+<h4 class="unnumbered" id="processing-9">5.4.10.2 Processing</h4>
+<p>Refer the source file</p>
+<h3 id="cmdsafest">CmdSafest</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CmdSafest</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>DiagcStsIvtr1Inactv_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-22">Design Rationale</h4>
+<p>This function is created for reducing the complexity of GainCalibration function</p>
+<h4 class="unnumbered" id="processing-10">5.4.11.2 Processing</h4>
+<p>Refer the source file</p>
+<h3 id="offscmdhi">OffsCmdHI</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsCmdHI</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>BrdgVltg_Volt_T_f32</td>
+<td>float32</td>
+<td>6.0</td>
+<td>26.5</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-23">Design Rationale</h4>
+<p>This function is created for reducing the complexity of OffsetCalibration function</p>
+<h4 class="unnumbered" id="processing-11">5.4.12.2 Processing</h4>
+<p>Refer the source file</p>
+<h3 id="offscmdlo">OffsCmdLO</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsCmdLO</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-24">Design Rationale</h4>
+<p>This function is created for reducing the complexity of OffsetCalibration function</p>
+<h4 class="unnumbered" id="processing-12">5.4.13.2 Processing</h4>
+<p>Refer the source file</p>
+<h3 id="offscmdzero">OffsCmdZERO</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsCmdZERO</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>MotCurrAdcVlyA_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotCurrAdcVlyB_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotCurrAdcVlyC_Volt_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-25">Design Rationale</h4>
+<p>This function is created for reducing the complexity of OffsetCalibration function</p>
+<h4 class="unnumbered" id="processing-13">5.4.14.2 Processing</h4>
+<p>Refer the source file</p>
+<h3 id="offscmdend">OffsCmdEND</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>OffsCmdEND</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>DiagcStsIvtr1Inactv_Cnt_T_logl</td>
+<td>boolean</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="design-rationale-26">Design Rationale</h4>
+<p>This function is created for reducing the complexity of OffsetCalibration function</p>
+<h4 class="unnumbered" id="processing-14">5.4.15.2 Processing</h4>
+<p>Refer the source file</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>None</p>
+<h1 id="abbreviations-and-acronyms">Abbreviations and Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h1 id="glossary">Glossary</h1>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Naming Conventions</td>
+<td>01.01.00</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Software Design and Coding Standards</td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>ES200B_CurrMeas_Design</td>
+<td>See Synergy Sub Project Version</td>
+</tr>
+</tbody>
+</table>

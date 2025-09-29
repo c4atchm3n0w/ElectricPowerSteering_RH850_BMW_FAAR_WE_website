@@ -1,0 +1,823 @@
+---
+title: EotProtn_MDD
+linkTitle: EotProtn_MDD
+weight: 4
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>EotProtn</strong></p>
+<p><strong>Aug 16, 2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Matthew Leser</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 29%" />
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>SNo.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>Sarika Natu(KPIT Technologies)</td>
+<td>1.0</td>
+<td>01-Oct-2015</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Implemented SF018A design version 1.5.0</td>
+<td>SB</td>
+<td>2.0</td>
+<td>01-Jul-2016</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated Graph, Function Inputs, and Unit Test Considerations</td>
+<td>Matthew Leser</td>
+<td>3.0</td>
+<td>16-Aug-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u></p>
+<p><a href="#eotprotn-high-level-description">1 EotProtn &amp; High-Level Description <span>5</span></a></p>
+<p><a href="#design-details-of-software-module">2 Design details of software module <span>6</span></a></p>
+<p><a href="#graphical-representation-of-eotprotn">2.1 Graphical representation of EotProtn <span>6</span></a></p>
+<p><a href="#data-flow-diagram">2.2 Data Flow Diagram <span>7</span></a></p>
+<p><a href="#component-level-dfd">2.2.1 Component level DFD <span>7</span></a></p>
+<p><a href="#function-level-dfd">2.2.2 Function level DFD <span>7</span></a></p>
+<p><a href="#constant-data-dictionary">3 Constant Data Dictionary <span>8</span></a></p>
+<p><a href="#program-fixed-constants">3.1 Program (fixed) Constants <span>8</span></a></p>
+<p><a href="#embedded-constants">3.1.1 Embedded Constants <span>8</span></a></p>
+<p><a href="#software-component-implementation">4 Software Component Implementation <span>9</span></a></p>
+<p><a href="#sub-module-functions">4.1 Sub-Module Functions <span>9</span></a></p>
+<p><a href="#init-eotprotn_init1">4.1.1 Init: EotProtn_Init1 <span>9</span></a></p>
+<p><a href="#design-rationale">4.1.1.1 Design Rationale <span>9</span></a></p>
+<p><a href="#module-outputs">4.1.1.2 Module Outputs <span>9</span></a></p>
+<p><a href="#per-eotprotn_per1">4.1.2 Per: EotProtn_Per1 <span>9</span></a></p>
+<p><a href="#design-rationale-1">4.1.2.1 Design Rationale <span>9</span></a></p>
+<p><a href="#store-module-inputs-to-local-copies">4.1.2.2 Store Module Inputs to Local copies <span>9</span></a></p>
+<p><a href="#processing-of-function">4.1.2.3 (Processing of function)……… <span>9</span></a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">4.1.2.4 Store Local copy of outputs into Module Outputs <span>9</span></a></p>
+<p><a href="#server-runables">4.2 Server Runables <span>9</span></a></p>
+<p><a href="#interrupt-functions">4.3 Interrupt Functions <span>9</span></a></p>
+<p><a href="#module-internal-local-functions">4.4 Module Internal (Local) Functions <span>9</span></a></p>
+<p><a href="#local-function-1">4.4.1 Local Function #1 <span>9</span></a></p>
+<p><a href="#design-rationale-2">4.4.1.1 Design Rationale <span>10</span></a></p>
+<p><a href="#processing">4.4.1.2 Processing <span>10</span></a></p>
+<p><a href="#local-function-2">4.4.2 Local Function #2 <span>10</span></a></p>
+<p><a href="#design-rationale-3">4.4.2.1 Design Rationale <span>10</span></a></p>
+<p><a href="#processing-1">4.4.2.2 Processing <span>10</span></a></p>
+<p><a href="#local-function-3">4.4.3 Local Function #3 <span>10</span></a></p>
+<p><a href="#design-rationale-4">4.4.3.1 Design Rationale <span>10</span></a></p>
+<p><a href="#processing-2">4.4.3.2 Processing <span>10</span></a></p>
+<p><a href="#local-function-4">4.4.4 Local Function #4 <span>11</span></a></p>
+<p><a href="#design-rationale-5">4.4.4.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing-3">4.4.4.2 Processing <span>11</span></a></p>
+<p><a href="#local-function-5">4.4.5 Local Function #5 <span>11</span></a></p>
+<p><a href="#design-rationale-6">4.4.5.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing-4">4.4.5.2 Processing <span>11</span></a></p>
+<p><a href="#local-function-6">4.4.6 Local Function #6 <span>11</span></a></p>
+<p><a href="#design-rationale-7">4.4.6.1 Design Rationale <span>11</span></a></p>
+<p><a href="#processing-5">4.4.6.2 Processing <span>11</span></a></p>
+<p><a href="#local-function-7">4.4.7 Local Function #7 <span>11</span></a></p>
+<p><a href="#design-rationale-8">4.4.7.1 Design Rationale <span>12</span></a></p>
+<p><a href="#processing-6">4.4.7.2 Processing <span>12</span></a></p>
+<p><a href="#local-function-8">4.4.8 Local Function #8 <span>12</span></a></p>
+<p><a href="#design-rationale-9">4.4.8.1 Design Rationale <span>12</span></a></p>
+<p><a href="#processing-7">4.4.8.2 Processing <span>12</span></a></p>
+<p><a href="#local-function-9">4.4.9 Local Function #9 <span>12</span></a></p>
+<p><a href="#design-rationale-10">4.4.9.1 Design Rationale <span>13</span></a></p>
+<p><a href="#processing-8">4.4.9.2 Processing <span>13</span></a></p>
+<p><a href="#global-functionmacro-definitions">4.5 GLOBAL Function/Macro Definitions <span>13</span></a></p>
+<p><a href="#known-limitations-with-design">5 Known Limitations with Design <span>14</span></a></p>
+<p><a href="#unit-test-consideration">6 UNIT TEST CONSIDERATION <span>15</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>16</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>17</span></a></p>
+<p><a href="#references">Appendix C References <span>18</span></a></p>
+<h1 id="eotprotn-high-level-description">EotProtn &amp; High-Level Description</h1>
+<p>The End of Travel Protection function specifies performance attributes as the steering system approaches the mechanical end of travel of the steering gear.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-eotprotn">Graphical representation of EotProtn</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:2.16268in;height:4.87944in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>See FDD</p>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>See FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>See FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Constant</strong></td>
+<td><strong>Value</strong></td>
+</tr>
+<tr class="even">
+<td>DAMPGPTSIZE_CNT_U08</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>DAMPGVEHSPDSIZE_CNT_U08</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>GAINVEHSPDSIZE_CNT_U08</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<h2 id="init-eotprotn_init1">Init: EotProtn_Init1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="per-eotprotn_per1">Per: EotProtn_Per1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>EotProtn_Per1 function is divided into various functions to reduce the cyclomatic complexity.</p>
+<p>The limiting of ‘EotAssiSca’ output is performed in SoftEndStop subsystem in FDD. But in code it is limiting calculations are done where the output is calculated i.e. FildEotGain function.</p>
+<p>The model is incorrectly handling a Case Statement by not having a default case. A solution was discussed with designers and has been implemented where the default case is Case 2 and Case 3.</p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="server-runables">Server Runables </h2>
+<p>None</p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>EotVelImpct</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwAgEotCw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>360</td>
+<td>900</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgEotCcw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-900</td>
+<td>-360</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgAuthy_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotVelCrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350</td>
+<td>1350</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>EotMotTqLim_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p>None</p>
+<p>Note: Outputs of “EotVelImpct” function is - EotMotTqLim_MotNwtMtr_T_f32.</p>
+<h2 id="processing">Processing</h2>
+<p>Refer to the “EotVelImpct” subsystem of the Simulink model of the design</p>
+<h2 id="local-function-2">Local Function #2</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>LimPosnDetd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>RackTrvlLimrRngEna_Cnt_T_logl</td>
+<td>boolean</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgEotCw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>360</td>
+<td>900</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgEotCcw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-900</td>
+<td>-360</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>LimPosn_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p>None</p>
+<p>Note: Outputs of “LimPosnDetd” function is - LimPosn_HwDeg_T_f32.</p>
+<h2 id="processing-1">Processing</h2>
+<p>Refer to the “LimPosnDetd” subsystem of the Simulink model of the design</p>
+<h2 id="local-function-3">Local Function #3</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcEntrGain</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>LimPosn_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgAuthy_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>EntrGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p>None</p>
+<p>Note: Outputs of “CalcEntrGain” function is - EntrGain_Uls_T_f32.</p>
+<h2 id="processing-2">Processing</h2>
+<p>Refer to the “CalcEntrGain” subsystem of the Simulink model of the design</p>
+<h2 id="local-function-4">Local Function #4</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcExitGain</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwTq_HwNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ExitGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p>Calculation of Filtered Handwheel torque is done after ‘CalcExitGain’ function is executed.</p>
+<p>Note: Outputs of “CalcExitGain” function is - FildHwTq_HwNwtMtr_T_f32</p>
+<h2 id="processing-3">Processing</h2>
+<p>Refer to the “CalcExitGain” subsystem of the Simulink model of the design</p>
+<h2 id="local-function-5">Local Function #5</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcEotGain</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>EntrGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ExitGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>EotGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p>None</p>
+<p>Note: Outputs of “CalcEotGain” function is - EotGain_Uls_T_f32</p>
+<h2 id="processing-4">Processing</h2>
+<p>Refer to the “CalcEotGain” subsystem of the Simulink model of the design</p>
+<h2 id="local-function-6">Local Function #6</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>FildEotGain</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>EotGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>EotAssiSca_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-7">Design Rationale</h2>
+<p>Limit of EotAssiSca is moved to local function FildEotGain.</p>
+<p>Note: Outputs of “FildEotGain” function is - EotAssiSca_Uls_T_f32</p>
+<h2 id="processing-5">Processing</h2>
+<p>Refer to the “FildEotGain” subsystem of the Simulink model of the design</p>
+<h2 id="local-function-7">Local Function #7</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>CalcEotDampg</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAgEotCw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>360</td>
+<td>900</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgEotCcw_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-900</td>
+<td>-360</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotVelCrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350</td>
+<td>1350</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>EotDampgCmd_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-8">Design Rationale</h2>
+<p>None</p>
+<p>Note: Outputs of “CalcEotDampg” function is - EotDampgCmd_MotNwtMtr_T_f32</p>
+<h2 id="processing-6">Processing</h2>
+<p>Refer to the “CalcEotDampg” calculation of the Simulink model of the design</p>
+<h2 id="local-function-8">Local Function #8</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>EotActvCmdCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>RackTrvlLimrDi_Cnt_T_logl</td>
+<td>boolean</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgAuthy_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>MotVelCrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350</td>
+<td>1350</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>LimPosn_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>EotActvCmd_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-9">Design Rationale</h2>
+<p>None</p>
+<p>Note: Outputs of “EotActvCmdCalc” function is - EotActvCmd_MotNwtMtr_T_f32</p>
+<h2 id="processing-7">Processing</h2>
+<p>Refer to the “EotActvCmdCalc” calculation of the Simulink model of the design</p>
+<h2 id="local-function-9">Local Function #9</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>SoftEndStopStCtrl</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>HwAgAuthy_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>EotProtnDi_Cnt_T_Logl</td>
+<td>boolean</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>EotDetd_Cnt_T_Logl</td>
+<td>boolean</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>HwAg_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>FildHwTq_HwNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-3.4E+38</td>
+<td>3.4E+38</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SysMotTqCmdSca_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>LimPosn_HwDeg_T_f32</td>
+<td>float32</td>
+<td>-1440</td>
+<td>1440</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td>float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-10">Design Rationale</h2>
+<p>None</p>
+<h2 id="processing-8">Processing</h2>
+<p>Refer to the “SoftEndStopStCtrl” calculation of the Simulink model of the design</p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>Source Model Mismatch will occur in PIL Testing. This is because the model is incorrectly handling a Case Statement by not having a default case. A solution was discussed with designers and has been implemented where the default case is Case 2 and Case 3. The design will be updated later through ICR EA4#14690.</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document</td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>Process release 04.02.01</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>Process release 04.02.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>SF018A_EotProtn_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,182 @@
+---
+title: DarhClassic_ReleaseNotess
+linkTitle: DarhClassic_ReleaseNotess
+weight: 10
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_ReleaseNotes-1_1.png"/><br/>
+Release&#160;Notes&#160;DarhClassic<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.1.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Issues</b><br/>
+5.1.0<br/>
+2017-12-14<br/>
+BAC-6651<br/>
+5.0.2<br/>
+2017-11-09<br/>
+BAC-6506<br/>
+5.0.1<br/>
+2017-10-12<br/>
+BAC-6345,&#160;BAC-6196<br/>
+5.0.0<br/>
+2017-06-29<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+ReleaseNotes_DarhClassic,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;3<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_ReleaseNotes-2_1.png"/><br/>
+<b>1</b><br/>
+<b>Module&#160;Description</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Darh&#160;functionality&#160;is&#160;to&#160;send&#160;errors&#160;that&#160;occurred&#160;locally&#160;in&#160;the&#160;ECU&#160;and&#160;are<br/>reported&#160;to&#160;the&#160;Dem&#160;to&#160;a&#160;central&#160;master&#160;over&#160;the&#160;system&#160;bus.&#160;The&#160;idea&#160;is&#160;to&#160;collect&#160;errors&#160;of&#160;the&#160;individual<br/>ECUs&#160;in&#160;the&#160;vehicle&#160;in&#160;one&#160;central&#160;place&#160;to&#160;allow&#160;later&#160;analysis&#160;of&#160;error&#160;correlations&#160;between&#160;the&#160;different<br/>ECUs.<br/>
+For&#160;this&#160;purpose,&#160;errors&#160;are&#160;sent&#160;to&#160;the&#160;master&#160;containing&#160;timestamp&#160;information.&#160;This&#160;allows&#160;deducing<br/>the&#160;order&#160;in&#160;which&#160;errors&#160;occurred&#160;in&#160;the&#160;complete&#160;system&#160;and&#160;helps&#160;to&#160;find&#160;out&#160;the&#160;original&#160;reason&#160;of&#160;a<br/>complex&#160;causal&#160;loop.<br/>
+<b>2</b><br/>
+<b>Revisions&#160;and&#160;Modifications</b><br/>
+<b>Revision&#160;5.1.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6651<br/>
+CR&#160;Headline:<br/>
+Darh:&#160;only&#160;1&#160;DTC&#160;shall&#160;be&#160;transmitted&#160;at&#160;a&#160;time<br/>
+Description&#160;of&#160;Issues:<br/>
+Darh&#160;transmit&#160;one&#160;DTC&#160;each&#160;time.<br/>
+Description&#160;of&#160;Changes:<br/>
+Due&#160;to&#160;an&#160;update&#160;on&#160;the&#160;LH&#160;and&#160;the&#160;BNE&#160;the&#160;Darh&#160;will&#160;transmit<br/>only&#160;one&#160;DTC&#160;and&#160;timestamp&#160;each&#160;time.<br/>
+Changed&#160;Files:<br/>
+doc/DarhClassic_IntegrationManual.pdf<br/>src/Darh_ApplAdapter.c<br/>generate/meta/Darh_ext_interfaces.arxml.pgen<br/>generate/meta/Darh_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.2&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6506<br/>
+CR&#160;Headline:<br/>
+Adapt&#160;pgen&#160;templates&#160;to&#160;PAGe&#160;v1.1.0<br/>
+Description&#160;of&#160;Issues:<br/>
+Adapt&#160;pgen&#160;files&#160;to&#160;PAGe&#160;v1.1.0.<br/>
+Description&#160;of&#160;Changes:<br/>
+Adapted&#160;pgen&#160;files&#160;to&#160;PAGe&#160;v1.1.0.<br/>
+Changed&#160;Files:<br/>
+generate/meta/Darh_ext_interfaces.arxml.pgen<br/>generate/include/DarhClassic_Cfg.h.pgen<br/>generate/meta/Darh_internal.arxml.pgen<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.1&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6345<br/>
+CR&#160;Headline:<br/>
+Darh:&#160;Dem_EventIdType&#160;has&#160;to&#160;be&#160;uint16<br/>
+ReleaseNotes_DarhClassic,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;3<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Darh/doc/DarhClassic_ReleaseNotes-3_1.png"/><br/>
+Description&#160;of&#160;Issues:<br/>
+Dem_EventIdType&#160;is&#160;defined&#160;in&#160;AUTOSAR&#160;as&#160;uint16&#160;and&#160;not<br/>uint32.<br/>
+Description&#160;of&#160;Changes:<br/>
+Dem_EventIdType&#160;has&#160;been&#160;changed&#160;to&#160;uint16.<br/>
+Changed&#160;Files:<br/>
+generate/meta/Darh_ext_interfaces.arxml.pgen<br/>src/Darh_ApplAdapter.c<br/>
+Compatibility:<br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>
+BAC-6196<br/>
+CR&#160;Headline:<br/>
+Darh:&#160;Implementation&#160;of&#160;Darh_SetRoeSuspendedHandler()<br/>missing<br/>
+Description&#160;of&#160;Issues:<br/>
+The&#160;runnable&#160;SetRoeSuspended&#160;was&#160;not&#160;implemented&#160;in&#160;code.<br/>
+Description&#160;of&#160;Changes:<br/>
+The&#160;runnable&#160;SetRoeSuspended&#160;with&#160;the&#160;Symbol<br/>Darh_SetRoeSuspendedHandler&#160;has&#160;been&#160;implemented.<br/>
+Changed&#160;Files:<br/>
+src/Darh_ApplAdapter.c<br/>
+Compatibility:<br/>
+<b>Revision&#160;5.0.0&#160;[Released]</b><br/>
+<b>Item</b><br/>
+<b>Description</b><br/>
+CR&#160;ID:<br/>CR&#160;Headline:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Issues:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Description&#160;of&#160;Changes:<br/>
+Initial&#160;Release&#160;for&#160;SP2021<br/>
+Changed&#160;Files:<br/>Compatibility:<br/>
+ReleaseNotes_DarhClassic,&#160;Version&#160;5.1.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;3<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="DarhClassic_ReleaseNotess.html#2">1 Module Description</a></li>
+<li><a href="DarhClassic_ReleaseNotess.html#2">2 Revisions and Modifications</a>
+<ul>
+<li><a href="DarhClassic_ReleaseNotess.html#2">2.1 Revision 5.1.0 [Released]</a></li>
+<li><a href="DarhClassic_ReleaseNotess.html#2">2.2 Revision 5.0.2 [Released]</a></li>
+<li><a href="DarhClassic_ReleaseNotess.html#2">2.3 Revision 5.0.1 [Released]</a></li>
+<li><a href="DarhClassic_ReleaseNotess.html#3">2.4 Revision 5.0.0 [Released]</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,964 @@
+---
+title: TechnicalReference_IpduMs
+linkTitle: TechnicalReference_IpduMs
+weight: 256
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR I-PDU Multiplexer&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;2.06.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Safiulla Shakir,&#160;Markus&#160;Bart,&#160;Gunnar&#160;Meiss&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-2_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-2_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Safiulla Shakir&#160;<br/>
+2011-12-06&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;CFG5&#160;version derived&#160;from&#160;<br/>TechnicalReference_ASR_IpduM.pdf&#160;&#160;<br/>
+Markus Bart&#160;<br/>
+2012-08-23&#160;<br/>
+2.00.00&#160;<br/>
+ESCAN00058313&#160;<br/>AR4-160:&#160;Support&#160;AUTOSAR&#160;4.0.3&#160;<br/>
+Markus Bart&#160;<br/>
+2013-01-29&#160;<br/>
+2.01.00&#160;<br/>
+ESCAN00063294&#160;<br/>AR4-197:&#160;Support&#160;BIG_ENDIAN&#160;Copy&#160;<br/>Segments&#160;in IpduM&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2013-04-04&#160;<br/>
+2.02.00&#160;<br/>
+ESCAN00064368&#160;<br/>AR4-325:&#160;Post-Build Loadable&#160;&#160;&#160;<br/>
+Markus Bart&#160;<br/>
+2014-11-05&#160;<br/>
+2.03.00&#160;<br/>
+AR4-698:&#160;Post-Build Selectable (Identity&#160;<br/>Manager)&#160;<br/>
+Markus Bart&#160;<br/>
+2014-12-01&#160;<br/>
+2.04.00&#160;<br/>
+FEAT-229:&#160;Support&#160;16bit&#160;selector&#160;in&#160;IpduM&#160;<br/>[AR4-927]&#160;<br/>
+Markus Bart&#160;<br/>
+2015-08-11&#160;<br/>
+2.05.00&#160;<br/>
+FEAT-1315:&#160;IPDUM&#160;for&#160;CAN-FD&#160;<br/>supporting&#160;nPdu2Frame-Mapping&#160;<br/>
+Gunnar&#160;Meiss&#160;<br/>
+2016-02-25&#160;<br/>
+2.06.00&#160;<br/>
+FEAT-1631:&#160;Trigger&#160;Transmit&#160;API&#160;with&#160;<br/>SduLength&#160;In/Out&#160;according&#160;to&#160;ASR4.2.2&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_IPDUMultiplexer.pdf&#160;<br/>
+2.2.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_TR_BSWModuleList.pdf&#160;<br/>
+1.6.0&#160;<br/>
+[3]&#160;&#160;&#160;Vector&#160;<br/>
+TechnicalReference_PostBuildLoadable.pdf&#160;<br/>
+1.0.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have&#160;configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>This&#160;symbol&#160;calls&#160;your&#160;attention&#160;to warnings.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_IpduMs.html#6"><b>1</b>&#160;&#160;<b>Component&#160;History&#160;........................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#7"><b>2</b>&#160;&#160;<b>Introduction&#160;....................................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#8">2.1&#160;&#160;Architecture&#160;Overview&#160;..............................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#10"><b>3</b>&#160;&#160;<b>Functional&#160;Description&#160;................................................................................................&#160;10</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#10">3.1&#160;&#160;Features&#160;.................................................................................................................&#160;10&#160;<br/></a><a href="TechnicalReference_IpduMs.html#11">3.2&#160;&#160;Initialization&#160;............................................................................................................&#160;11&#160;<br/>3.3&#160;&#160;States&#160;.....................................................................................................................&#160;11&#160;<br/>3.4&#160;&#160;Main Functions&#160;.......................................................................................................&#160;11&#160;<br/>3.5&#160;&#160;Error&#160;Handling&#160;........................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#11">3.5.1&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#11">Development&#160;Error&#160;Reporting&#160;........................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#12">3.6&#160;&#160;nPdu-to-Frame&#160;mapping&#160;for&#160;CAN-FD&#160;.....................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13"><b>4</b>&#160;&#160;<b>Integration&#160;....................................................................................................................&#160;13</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">4.1&#160;&#160;Scope of&#160;Delivery&#160;...................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">4.1.1&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">Static Files&#160;....................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">Dynamic&#160;Files&#160;...............................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#14">4.2&#160;&#160;Critical&#160;Sections&#160;.....................................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15"><b>5</b>&#160;&#160;<b>API&#160;Description&#160;............................................................................................................&#160;15</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">5.1&#160;&#160;Services provided by&#160;IPDUM&#160;..................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">5.1.1&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">IpduM_InitMemory&#160;........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">5.1.2&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">IpduM_Init&#160;.....................................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#16">5.1.3&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#16">IpduM_Transmit&#160;............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">5.1.4&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">IpduM_MainFunction&#160;.....................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">5.1.5&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">IpduM_GetVersionInfo&#160;...................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#18">5.2&#160;&#160;Services used by&#160;IPDUM........................................................................................&#160;18&#160;<br/></a><a href="TechnicalReference_IpduMs.html#19">5.3&#160;&#160;Callback&#160;Functions&#160;.................................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#19">5.3.1&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#19">IpduM_RxIndication&#160;......................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#19">5.3.2&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#19">IpduM_TxConfirmation&#160;..................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#20">5.3.3&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#20">IpduM_TriggerTransmit&#160;.................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#21"><b>6</b>&#160;&#160;<b>Configuration................................................................................................................&#160;21</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#21">6.1&#160;&#160;Configuration of&#160;Post-Build&#160;.....................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#22"><b>7</b>&#160;&#160;<b>AUTOSAR&#160;Standard&#160;Compliance&#160;................................................................................&#160;22</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#22">7.1&#160;&#160;Deviations&#160;..............................................................................................................&#160;22&#160;<br/>7.2&#160;&#160;Additions/&#160;Extensions&#160;.............................................................................................&#160;22&#160;</a><br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<a href="TechnicalReference_IpduMs.html#22">7.3&#160;&#160;Limitations&#160;..............................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#23"><b>8</b>&#160;&#160;<b>Glossary&#160;and&#160;Abbreviations&#160;........................................................................................&#160;23</b>&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#23">8.1&#160;&#160;Glossary&#160;.................................................................................................................&#160;23&#160;<br/></a><a href="TechnicalReference_IpduMs.html#24">8.2&#160;&#160;Abbreviations&#160;.........................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#25"><b>9</b>&#160;&#160;<b>Contact..........................................................................................................................&#160;25</b>&#160;<br/></a>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+Illustrations&#160;<br/><a href="TechnicalReference_IpduMs.html#8">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#8">AUTOSAR&#160;4.1&#160;Architecture&#160;Overview&#160;.........................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#8">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#8">AUTOSAR&#160;architecture&#160;...............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#9">Figure&#160;2-3&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#9">Interfaces&#160;to adjacent&#160;modules of&#160;the&#160;IPDUM&#160;.............................................&#160;9&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_IpduMs.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#6">Component&#160;history......................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#10">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#10">Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;.....................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#11">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#11">Not&#160;supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;...............................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#11">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#11">Features&#160;provided beyond the&#160;AUTOSAR&#160;standard&#160;..................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#13">Static&#160;files&#160;.................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#14">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#14">Generated&#160;files&#160;.........................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#15">IpduM_InitMemory&#160;....................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#16">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#16">IpduM_Init&#160;.................................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#16">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#16">IpduM_Transmit&#160;........................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">IpduM_MainFunction&#160;................................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#17">IpduM_GetVersionInfo&#160;..............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#18">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#18">Services used by&#160;the&#160;IPDUM&#160;....................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#19">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#19">IpduM_RxIndication&#160;..................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#20">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#20">IpduM_TxConfirmation&#160;.............................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#20">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#20">IpduM_TriggerTransmit&#160;.............................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#24">Table&#160;8-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#24">Glossary&#160;...................................................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#24">Table&#160;8-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_IpduMs.html#24">Abbreviations&#160;............................................................................................&#160;24&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00&#160;<br/>
+<b>&#160;&#160;</b>Component&#160;in&#160;conformance&#160;with&#160;AUTOSAR&#160;3.2.1&#160;<br/>
+2.00&#160;<br/>
+<b>&#160;&#160;</b>AUTOSAR 4.0.3&#160;<br/>
+2.01&#160;<br/>
+<b>&#160;&#160;</b>BIG_ENDIAN&#160;copy&#160;segments&#160;<br/>
+2.02&#160;<br/>
+<b>&#160;&#160;</b>Support&#160;post-build&#160;loadable&#160;<br/>
+3.00&#160;<br/>
+<b>&#160;&#160;</b>Support&#160;post-build&#160;selectable&#160;<br/>
+<b>&#160;&#160;</b>Support deleting&#160;container at&#160;post-build&#160;time&#160;<br/>
+4.00&#160;<br/>
+<b>&#160;&#160;</b>Extend&#160;support&#160;for&#160;module&#160;initialization&#160;<br/>
+6.00&#160;<br/>
+<b>&#160;&#160;</b>Support 16&#160;bit&#160;selector&#160;<br/>
+<b>&#160;&#160;</b>Support selector&#160;using&#160;more&#160;than&#160;one&#160;byte&#160;(i.e.&#160;crossing&#160;byte&#160;<br/>
+boundaries)&#160;<br/>
+6.01&#160;<br/>
+<b>&#160;&#160;</b>Support nPdu-to-Frame&#160;Mapping&#160;for CAN-FD&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;IPDUM&#160;as specified&#160;in<a href="TechnicalReference_IpduMs.html#2">&#160;[1].&#160;</a>&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_IpduMs.html#7">elease*:</a></b><b>&#160;</b><br/>
+4.x&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+PRE-COMPILE&#160;[SELECTABLE]&#160;<br/>POST-BUILD-LOADABLE&#160;[SELECTABLE]&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+IPDUM_VENDOR_ID&#160;<br/>
+30&#160;decimal&#160;<br/>(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+IPDUM_MODULE_ID &#160;&#160;<br/>
+52&#160;decimal&#160;<br/>(according&#160;to ref<a href="TechnicalReference_IpduMs.html#2">.&#160;[2])</a>&#160;<br/>
+*&#160;For the precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>&#160;<br/>Multiplexing&#160;is a&#160;concept&#160;generally&#160;used&#160;to&#160;save&#160;CAN&#160;identifiers where an&#160;I-PDU&#160;with&#160;a&#160;<br/>CAN ID is used&#160;to&#160;carry&#160;different&#160;I-PDUs thereby&#160;saving&#160;the&#160;CAN&#160;IDs for the&#160;I-PDUs it&#160;<br/>carries.&#160;The&#160;IpduM&#160;can&#160;be&#160;used&#160;also&#160;with&#160;Flexray&#160;and&#160;LIN.&#160;<br/>&#160;<br/>I-PDU&#160;multiplexing&#160;means using&#160;the&#160;same&#160;PCI of&#160;a&#160;PDU&#160;with&#160;more&#160;than&#160;one&#160;unique&#160;<br/>layouts&#160;of&#160;its&#160;SDU.&#160;The&#160;SDU&#160;in&#160;a&#160;multiplexed&#160;I-PDU&#160;contains&#160;a&#160;selector&#160;field&#160;which&#160;is used&#160;<br/>to&#160;determine&#160;the&#160;layout&#160;of&#160;the&#160;SDU&#160;being&#160;multiplexed&#160;or de-multiplexed.&#160;<br/>The&#160;AUTOSAR IpduM&#160;multiplexes a&#160;dynamic&#160;part along&#160;with&#160;or without&#160;a&#160;static part.&#160;<br/>Each&#160;dynamic&#160;and&#160;static&#160;part&#160;is&#160;an&#160;independent&#160;signal-I-PDU&#160;in&#160;AUTOSAR&#160;BSW&#160;module&#160;<br/>Com.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;following&#160;figure shows&#160;where the&#160;IPDUM&#160;is located&#160;in&#160;the&#160;AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.1&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+Figure&#160;2-2&#160;<br/>
+AUTOSAR architecture&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+The&#160;next&#160;figure&#160;shows&#160;the&#160;interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;IPDUM.&#160;These&#160;interfaces&#160;<br/>are described&#160;in&#160;chapte<a href="TechnicalReference_IpduMs.html#14">r&#160;4.2.&#160;</a>&#160;<br/>
+<b>&#160;class&#160;Architecture</b><br/>
+<b>opt&#160;</b><br/>
+[direct&#160;com&#160;invocation]<br/>
+<b>Com</b><br/>
+RxIndication,&#160;TxConfirmation,&#160;TriggerTransmit<br/>
+RxIndication,&#160;TxConfirmation,&#160;TriggerTransmit<br/>
+<b>IpduM</b><br/>
+<b>PduR</b><br/>
+ErrorReporting<br/>
+Transmission<br/>
+<b>Det</b><br/>
+Transmission<br/>
+Interrupt-&#160;and&#160;critical&#160;section&#160;handling<br/>
+Initialization<br/>
+<b>SchM&#160;/&#160;Rte</b><br/>
+<b>Bsw&#160;M</b><br/>
+&#160;<br/>
+Figure&#160;2-3&#160;&#160;Interfaces&#160;to&#160;adjacent&#160;modules&#160;of&#160;the&#160;IPDUM&#160;<br/>
+Normally&#160;the&#160;IpduM&#160;only&#160;interacts&#160;with&#160;the&#160;PduR.&#160;If&#160;required&#160;the&#160;IpduM&#160;can&#160;interface&#160;Com&#160;<br/>directly&#160;bypassing&#160;the&#160;PduR while&#160;indicating&#160;receptions and&#160;confirming&#160;transmissions.&#160;<br/>The&#160;IpduM&#160;also&#160;uses the&#160;interfaces&#160;to&#160;the&#160;BSW&#160;Scheduler and&#160;Det.&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;features&#160;listed&#160;in&#160;the&#160;following&#160;tables&#160;cover&#160;the&#160;complete&#160;functionality&#160;specified&#160;for&#160;the&#160;<br/>IPDUM.&#160;<br/>The&#160;AUTOSAR&#160;&#160;standard&#160;&#160;functionality&#160;&#160;is&#160;&#160;specified&#160;&#160;<a href="TechnicalReference_IpduMs.html#2">in&#160;&#160;[1],&#160;&#160;</a>the&#160;&#160;corresponding&#160;&#160;features&#160;&#160;are&#160;<br/>listed&#160;in&#160;the&#160;tables&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_IpduMs.html#10">Table&#160;3-1&#160;&#160;Supported&#160;AUTOSAR&#160;standard conform&#160;features&#160;</a>&#160;<br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_IpduMs.html#11">Table&#160;3-2&#160;&#160;Not&#160;supported&#160;AUTOSAR standard conform&#160;features&#160;</a><br/>
+<b>&gt;&#160;&#160;</b><a href="TechnicalReference_IpduMs.html#11">Table&#160;3-3&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR standard&#160;</a><br/>
+For further information&#160;of&#160;not&#160;supported&#160;features see&#160;also&#160;chapte<a href="TechnicalReference_IpduMs.html#21">r&#160;6.</a>&#160;<br/>
+&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in<a href="TechnicalReference_IpduMs.html#2">&#160;[1]&#160;</a>are&#160;supported:&#160;<br/>
+<b>Supported&#160;Feature&#160;<br/>Configuration</b>&#160;<br/><b>&gt;&#160;&#160;</b>Multiplexing&#160;of&#160;the&#160;static and&#160;dynamic&#160;parts.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Event&#160;base&#160;transmission&#160;triggering&#160;of&#160;the&#160;multiplexed&#160;I-PDU(s).&#160;<br/>
+<b>&gt;&#160;&#160;</b>Forwarding&#160;confirmations of&#160;all&#160;transmitted&#160;multiplexed&#160;I-PDUs to&#160;the&#160;BSW&#160;module&#160;<br/>
+AUTOSAR Com.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Timeout&#160;handling&#160;of&#160;transmission&#160;confirmations.&#160;<br/>
+<b>&gt;&#160;&#160;</b>De-multiplexing&#160;and&#160;indicating&#160;receptions&#160;of&#160;the&#160;de-multiplexed&#160;dynamic parts and&#160;<br/>
+static part to&#160;the&#160;BSW&#160;module&#160;AUTOSAR Com.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Static part configuration&#160;support in&#160;multiplex&#160;I-PDU(s).&#160;<br/>
+<b>&gt;&#160;&#160;</b>AUTOSAR EcuC&#160;format&#160;<br/>
+<b>&gt;&#160;&#160;</b>Initialization&#160;of&#160;transmission&#160;multiplex&#160;I-PDU&#160;buffers.&#160;This&#160;is required&#160;by&#160;e.g.&#160;FrIf&#160;in&#160;<br/>
+case&#160;the&#160;transmission&#160;of&#160;a&#160;multiplex&#160;I-PDU&#160;is triggered&#160;by&#160;interface&#160;layer BSW&#160;module&#160;<br/>before&#160;the&#160;transmission&#160;of&#160;their&#160;mapped&#160;dynamic and&#160;or static&#160;parts&#160;is requested.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Just-in-Time&#160;Update&#160;of&#160;dynamic and&#160;/&#160;or static parts.&#160;<br/>
+<b>&gt;&#160;&#160;</b>DET&#160;error reporting.&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-11_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-11_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+The&#160;following&#160;features&#160;specified&#160;in<a href="TechnicalReference_IpduMs.html#2">&#160;[1]&#160;</a>are&#160;not&#160;supported:&#160;<br/>
+<b>Not&#160;Supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/>&gt;&#160;&#160;</b>Configuring&#160;of&#160;transmission&#160;confirmations&#160;of&#160;transmitted&#160;multiplexed&#160;I-PDUs&#160;<br/>
+AUTOSAR Com.&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Not&#160;supported&#160;AUTOSAR&#160;standard&#160;conform&#160;features&#160;<br/>
+The&#160;following&#160;features&#160;are provided&#160;beyond&#160;the&#160;AUTOSAR standard:&#160;<br/>
+<b>Features&#160;Provided Beyond The&#160;AUTOSAR&#160;Standard&#160;<br/>&gt;&#160;&#160;</b>nPdu-to-Frame&#160;mapping&#160;for CAN-FD&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Features&#160;provided&#160;beyond&#160;the&#160;AUTOSAR&#160;standard&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+The&#160;IpduM&#160;is&#160;initialized&#160;by&#160;calling&#160;the&#160;API&#160;IpduM_Init().&#160;This&#160;is&#160;done&#160;by&#160;the&#160;AUTOSAR&#160;<br/>BSW&#160;module&#160;&#160;EcuM.&#160;&#160;If&#160;&#160;this&#160;&#160;is&#160;&#160;not&#160;&#160;the&#160;&#160;case,&#160;&#160;an&#160;&#160;adequate&#160;&#160;and&#160;&#160;suitable&#160;&#160;solution&#160;&#160;has&#160;&#160;to&#160;be&#160;<br/>provided.&#160;&#160;<br/>The&#160;API&#160;initializes all&#160;the&#160;transmission&#160;multiplex&#160;I-PDU(s)&#160;buffer(s)&#160;and&#160;all&#160;runtime&#160;relevant&#160;<br/>module&#160;variables.&#160;The&#160;successful&#160;execution&#160;of&#160;the&#160;API&#160;initializes the&#160;IpduM.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>No IpduM&#160;function&#160;should pre-empt&#160;IpduM_Init().&#160;The&#160;function&#160;should be&#160;called&#160;<br/>
+<b>&#160;&#160;</b>on&#160;task&#160;level&#160;and should&#160;not&#160;to be&#160;interrupted&#160;by&#160;other&#160;administrative&#160;function&#160;calls.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>3.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+The&#160;IpduM&#160;has&#160;the&#160;states:&#160;uninitialized&#160;and&#160;initialized.&#160;By&#160;calling&#160;IpduM_Init(),&#160;the&#160;state&#160;is&#160;<br/>changed&#160;from&#160;uninitialized&#160;to&#160;initialized.&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+IpduM&#160;&#160;provides&#160;&#160;all&#160;&#160;functions&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_IpduMs.html#2">[1].&#160;&#160;</a>The&#160;&#160;function&#160;&#160;IpduM_MainFunction()&#160;<br/>should&#160;be&#160;called&#160;cyclically&#160;by&#160;the&#160;Basic&#160;Software&#160;Scheduler&#160;or&#160;a&#160;similar&#160;component.&#160;The&#160;<br/>IpduM_MainFunction()&#160;primarily&#160;takes&#160;care&#160;of&#160;the&#160;timeout&#160;handling&#160;of&#160;the&#160;multiplexed&#160;<br/>I-PDU&#160;transmission&#160;confirmations.&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;&#160;as&#160;&#160;specified&#160;&#160;in<a href="TechnicalReference_IpduMs.html#2">&#160;&#160;[1],</a>&#160;&#160;if&#160;&#160;development&#160;&#160;error&#160;&#160;reporting&#160;&#160;is&#160;&#160;enabled&#160;&#160;(i.e.&#160;<br/>pre-compile&#160;&#160;parameter&#160;&#160;IPDUM_DEV_ERROR_DETECT==STD_ON).&#160;&#160;The&#160;&#160;DET&#160;&#160;reporting&#160;&#160;can&#160;<br/>be&#160;enabled&#160;during&#160;pre-compile&#160;time.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;IPDUM&#160;ID is&#160;52.&#160;<br/>The&#160;reported&#160;services&#160;IDs&#160;identify&#160;the&#160;IPDUM&#160;services&#160;as&#160;specified&#160;by<a href="TechnicalReference_IpduMs.html#2">&#160;[1].&#160;</a>For&#160;the&#160;service&#160;<br/>IDs and&#160;their&#160;related&#160;service&#160;names see&#160;section&#160;8.3&#160;of<a href="TechnicalReference_IpduMs.html#2">&#160;[1].</a>&#160;<br/>The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;section&#160;7.6&#160;of<a href="TechnicalReference_IpduMs.html#2">&#160;[1].</a>&#160;<br/>
+<b>3.6&#160;</b><br/>
+<b>nPdu-to-Frame&#160;mapping for CAN-FD&#160;</b><br/>
+This&#160;feature&#160;was&#160;backported&#160;from&#160;AUTOSAR&#160;4.2.1.&#160;It&#160;can&#160;be&#160;used&#160;to&#160;collect&#160;multiple&#160;PDUs&#160;<br/>and&#160;transfer&#160;them&#160;in&#160;one&#160;CAN-FD&#160;frame,&#160;for&#160;saving&#160;bandwidth&#160;or&#160;tunneling&#160;several&#160;classic&#160;<br/>CAN&#160;busses&#160;over&#160;one&#160;CAN-FD&#160;bus.&#160;The&#160;IpduM&#160;module&#160;handles&#160;packing&#160;and&#160;unpacking&#160;of&#160;<br/>those&#160;frames similar to&#160;the&#160;multiplexing&#160;feature.&#160;<br/>Several&#160;“contained”&#160;PDUs&#160;can&#160;be&#160;put&#160;into&#160;a&#160;single&#160;“container”&#160;PDU&#160;in&#160;arbitrary&#160;order&#160;and&#160;<br/>unpacked&#160;&#160;in&#160;&#160;the&#160;&#160;same&#160;&#160;order&#160;&#160;on&#160;&#160;the&#160;&#160;receiver&#160;&#160;side.&#160;&#160;Transmission&#160;&#160;is&#160;&#160;triggered&#160;&#160;by&#160;&#160;one&#160;&#160;of&#160;<br/>these&#160;conditions:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Contained&#160;PDU&#160;send&#160;timeout&#160;runs out.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Container&#160;PDU&#160;send&#160;timeout&#160;runs out.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Size&#160;threshold&#160;of&#160;container PDU is reached.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Contained&#160;PDU&#160;is configured&#160;for immediate&#160;transmission.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Container PDU is configured&#160;for immediate&#160;transmission.&#160;<br/>
+On&#160;the&#160;receiver&#160;side,&#160;the&#160;contained&#160;PDUs&#160;are&#160;retrieved&#160;from&#160;the&#160;container&#160;PDU&#160;again&#160;and&#160;<br/>RxIndications&#160;are&#160;created&#160;for&#160;every&#160;single&#160;contained&#160;PDU&#160;in&#160;the&#160;same&#160;order&#160;they&#160;were&#160;put&#160;<br/>into&#160;the&#160;container&#160;PDU.&#160;For&#160;even&#160;greater&#160;flexibility,&#160;a&#160;container&#160;PDU&#160;on&#160;the&#160;receiver&#160;side&#160;<br/>can&#160;&#160;be&#160;&#160;configured&#160;&#160;to&#160;&#160;accept&#160;&#160;any&#160;&#160;contained&#160;&#160;PDU&#160;&#160;instead&#160;&#160;of&#160;&#160;just&#160;&#160;the&#160;&#160;ones&#160;&#160;that&#160;&#160;are&#160;<br/>configured.&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;provides&#160;information&#160;necessary&#160;for&#160;the&#160;integration&#160;of&#160;the&#160;MICROSAR&#160;IPDUM&#160;<br/>into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;of&#160;the&#160;IPDUM&#160;contains&#160;the&#160;files&#160;which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_IpduMs.html#13">rs&#160;4.1.1&#160;</a>and&#160;<br/><a href="TechnicalReference_IpduMs.html#13">4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Object&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Code&#160;</b><br/>
+<b>Delivery&#160;&#160;Delivery&#160;</b><br/>
+IpduM.c&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+This&#160;is&#160;the&#160;source&#160;file of&#160;the&#160;IPDUM&#160;<br/>
+IpduM.h&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+This&#160;is&#160;the&#160;header&#160;file of&#160;IPDUM&#160;<br/>
+IpduM_Cbk.h&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+This&#160;is&#160;the&#160;callback&#160;header&#160;file of&#160;IPDUM&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci Configurator.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+IpduM_Cfg.h&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;<br/>of&#160;CONFIG-CLASS&#160;PRE-COMPILE&#160;data.&#160;<br/>
+IpduM_Lcfg.h&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;<br/>of&#160;CONFIG-CLASS&#160;LINK&#160;data.&#160;<br/>
+IpduM_Lcfg.c&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;<br/>of&#160;CONFIG-CLASS&#160;LINK&#160;and&#160;PRE-COMPILE&#160;data.&#160;<br/>
+IpduM_PBcfg.h&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;types&#160;and&#160;structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;function&#160;prototypes&#160;<br/>of&#160;CONFIG-CLASS&#160;POST-BUILD&#160;data.&#160;<br/>
+IpduM_PBcfg.c&#160;<br/>
+This&#160;file contains:&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;constant&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;function&#160;macros&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;types&#160;and structures&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data prototypes&#160;<br/>
+<b>&gt;&#160;&#160;</b>local&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>global&#160;data&#160;<br/>of&#160;CONFIG-CLASS&#160;POST-BUILD&#160;data.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;&#160;&#160;</b><br/>
+The&#160;critical section&#160;IPDUM_EXCLUSIVE_AREA_0&#160;has&#160;to&#160;lock global interrupts&#160;to&#160;protect&#160;<br/>common&#160;critical sections.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+For an&#160;interfaces overview&#160;please&#160;see<a href="TechnicalReference_IpduMs.html#9">&#160;Figure&#160;2-3.</a>&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Services&#160;provided by&#160;IPDUM&#160;</b><br/>
+<b>5.1.1&#160;</b><br/>
+<b>&#160;IpduM_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>IpduM_InitMemory&#160;</b>(void)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;initializes&#160;variables,&#160;which cannot&#160;be&#160;initialized&#160;with&#160;the&#160;startup&#160;code.&#160;&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>IpduM_Init()&#160;is&#160;not&#160;called&#160;yet.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;Application.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;must&#160;be&#160;called&#160;on&#160;task&#160;level.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;IpduM_InitMemory&#160;<br/>
+<b>5.1.2&#160;</b><br/>
+<b>IpduM_Init&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>IpduM_Init&#160;</b>(const IpduM_ConfigType* config)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+config&#160;<br/>
+&gt;&#160;&#160;NULL_PTR in the&#160;IPDUM_CONFIGURATION_VARIANT_PRECOMPILE&#160;<br/>
+&gt;&#160;&#160;Pointer&#160;to the IpduM configuration data&#160;in&#160;the&#160;<br/>
+IPDUM_CONFIGURATION_VARIANT_POSTBUILD_LOADABLE&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;initializes&#160;the IpduM&#160;and performs&#160;configuration&#160;consistency&#160;checks. If&#160;the initialization&#160;is&#160;<br/>performed&#160;successfully&#160;the&#160;IpduM is&#160;initialized.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>IpduM_InitMemory()&#160;has&#160;been&#160;executed,&#160;if&#160;the&#160;startup&#160;code does&#160;not&#160;initialize variables.&#160;The&#160;<br/>
+IpduM&#160;is&#160;in the&#160;state uninitialized.&#160;<br/>
+<b>&gt;&#160;&#160;</b>No IpduM&#160;function&#160;shall&#160;not&#160;pre-empt&#160;IpduM_Init()&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;used&#160;by&#160;the&#160;Ecu State&#160;Manager.&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;IpduM_Init&#160;<br/>
+<b>5.1.3&#160;</b><br/>
+<b>IpduM_Transmit&#160;</b><br/>
+<b>Prototype&#160;<br/></b>StdReturnType&#160;<b>IpduM_Transmit&#160;</b>(PduIdType PdumTxPduId, const PduInfoType*&#160;<br/>PduInfoPtr)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+PdumTxPduId&#160;<br/>
+ID of&#160;transmit request (static&#160;or dynamic&#160;part). Identifies&#160;the payload.&#160;&#160;<br/>
+PduInfoPtr&#160;<br/>
+Payload&#160;information&#160;of&#160;the&#160;I-PDU (pointer to&#160;data&#160;and data&#160;length).&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+StdReturnType&#160;<br/>
+E_OK:&#160;The&#160;request&#160;was&#160;accepted&#160;by&#160;the&#160;IpduM&#160;and&#160;by&#160;the destination&#160;layer.&#160;<br/>E_NOT_OK:&#160;The&#160;request&#160;was&#160;rejected&#160;because:&#160;<br/>the&#160;IpduM&#160;is&#160;not&#160;initialized&#160;<br/>or the&#160;provided&#160;PduInfoPtr&#160;is&#160;NULL&#160;<br/>or the&#160;SduDataPtr&#160;of&#160;the PduInfoPtr&#160;is&#160;NULL&#160;<br/>or the&#160;PdumTxPduId&#160;is&#160;not&#160;in the&#160;expected&#160;range&#160;<br/>or the&#160;destination&#160;layer&#160;did&#160;not accept the transmission&#160;request.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+The&#160;function&#160;serves&#160;to&#160;request the transmission&#160;of&#160;a&#160;static&#160;or dynamic&#160;part.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;IpduM_Init()&#160;has&#160;been&#160;executed&#160;successfully.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;non-reentrant&#160;for&#160;the&#160;same&#160;PdumTxPduId.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;in&#160;an&#160;interrupt&#160;context&#160;and&#160;at&#160;the&#160;task&#160;level&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;IpduM_Transmit&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>5.1.4&#160;</b><br/>
+<b>IpduM_MainFunction&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>IpduM_MainFunction&#160;</b>(void)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;function&#160;shall&#160;perform&#160;the&#160;processing&#160;of&#160;the IpduM processing&#160;which is&#160;not&#160;directly&#160;initiated&#160;by&#160;calls&#160;<br/>from&#160;the PduR.&#160;<br/>A&#160;call&#160;to&#160;IpduM_MainFunction&#160;returns&#160;simply&#160;if&#160;IpduM&#160;was&#160;not&#160;previously&#160;initialized&#160;with a&#160;call&#160;to&#160;IpduM_Init.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;IpduM_Init()&#160;has&#160;been&#160;executed&#160;successfully.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;cyclically&#160;by&#160;the&#160;BSW&#160;scheduler&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;on&#160;task&#160;level&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;IpduM_MainFunction&#160;<br/>
+<b>5.1.5&#160;</b><br/>
+<b>IpduM_GetVersionInfo&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>IpduM_GetVersionInfo&#160;</b>(Std_VersionInfoType* versioninfo)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+versioninfo&#160;<br/>
+Pointer&#160;to the structure to&#160;write&#160;the&#160;version&#160;info&#160;to.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Returns&#160;the&#160;version information of&#160;the&#160;IpduM.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>none&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;can&#160;be&#160;called on&#160;interrupt&#160;and&#160;task&#160;level.&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;Application.&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;IpduM_GetVersionInfo&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;IPDUM&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>IPDUM&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;the&#160;documentation&#160;<br/>of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+Det&#160;<br/>
+Det_ReportError&#160;<br/>
+PduR&#160;<br/>
+PduR_IpduMTransmit&#160;<br/>
+PduR&#160;<br/>
+PduR_IpduMTxConfirmation&#160;<br/>
+PduR&#160;<br/>
+PduR_IpduMRxIndication&#160;<br/>
+PduR&#160;<br/>
+PduR_IpduMTriggerTransmit&#160;<br/>
+Com&#160;<br/>
+Com_RxIndication&#160;<br/>
+Com&#160;<br/>
+Com_TxConfirmation&#160;<br/>
+Com&#160;<br/>
+Com_TriggerTransmit&#160;<br/>
+BSW&#160;Scheduler&#160;<br/>
+SchM_Enter_IpduM&#160;<br/>
+BSW&#160;Scheduler&#160;<br/>
+SchM_Exit_IpduM&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;IPDUM&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;the&#160;callback&#160;functions&#160;that&#160;are&#160;implemented&#160;by&#160;the&#160;IPDUM&#160;and&#160;can&#160;<br/>be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;functions&#160;are&#160;provided&#160;in&#160;the&#160;<br/>header&#160;file&#160;IpduM_Cbk.h&#160;by&#160;the&#160;IPDUM.&#160;<br/>
+<b>5.3.1&#160;</b><br/>
+<b>IpduM_RxIndication&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>IpduM_RxIndication&#160;</b>(PduIdType&#160;RxPduId, const PduInfoType*&#160;<br/>
+PduInfoPtr)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+RxPduId&#160;<br/>
+ID of&#160;received&#160;multiplexed&#160;I-PDU. Identifies&#160;the payload.&#160;<br/>
+&#160;<br/>
+PduInfoPtr&#160;<br/>
+Contains&#160;the&#160;length&#160;(SduLength) of&#160;the received I-PDU&#160;and&#160;a pointer to&#160;a&#160;<br/>buffer (SduDataPtr)&#160;containing&#160;the&#160;I-PDU.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service indicates&#160;the complete&#160;reception&#160;of&#160;an&#160;IpduM&#160;I-PDUs. It&#160;de-multiplexes&#160;the received&#160;<br/>multiplexed I-PDU.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;IpduM_Init()&#160;has&#160;been&#160;executed&#160;successfully&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;non-reentrant&#160;for&#160;the&#160;same&#160;PdumRxPduId.&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;The&#160;function&#160;is&#160;called&#160;in an&#160;interrupt&#160;context&#160;or&#160;at&#160;the&#160;task&#160;<br/>
+level&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;IpduM_RxIndication&#160;<br/>
+<b>5.3.2&#160;</b><br/>
+<b>IpduM_TxConfirmation&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;<b>IpduM_TxConfirmation&#160;</b>(PduIdType&#160;TxPduId)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+ID of&#160;transmitted multiplexed IPDU.&#160;&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+none&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service confirms&#160;the transmissions&#160;of&#160;the dynamic&#160;and static&#160;parts&#160;contained&#160;in the&#160;multiplexed IPDU&#160;<br/>whose transmission&#160;is&#160;confirmed.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;IpduM_Init()&#160;has&#160;been&#160;executed&#160;successfully&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;non-reentrant&#160;for&#160;the&#160;same&#160;PdumTxPduId.&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR.&#160;The&#160;function&#160;is&#160;called&#160;in an&#160;interrupt&#160;context&#160;or&#160;at&#160;the&#160;task&#160;<br/>
+level&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;IpduM_TxConfirmation&#160;<br/>
+<b>5.3.3&#160;</b><br/>
+<b>IpduM_TriggerTransmit&#160;</b><br/>
+<b>Prototype&#160;<br/></b>Std_ReturnType&#160;<b>IpduM_TriggerTransmit&#160;</b>(PduIdType&#160;TxPduId, PduInfoType*&#160;<br/>PduInfoPtr)&#160;&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TxPduId&#160;<br/>
+ID of&#160;transmission&#160;multiplexed&#160;IPDU.&#160;&#160;<br/>
+PduInfoPtr&#160;<br/>
+Contains&#160;a&#160;pointer to&#160;a buffer (SduDataPtr)&#160;to&#160;where&#160;the SDU&#160;data shall&#160;be&#160;<br/>copied,&#160;and&#160;the&#160;available&#160;buffer size in SduLengh.&#160;On&#160;return,&#160;the&#160;service&#160;will&#160;<br/>indicate&#160;the&#160;length&#160;of&#160;the copied SDU data&#160;in&#160;SduLength.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+E_OK:&#160;SDU has&#160;been copied&#160;and&#160;SduLength&#160;indicates&#160;the number&#160;of&#160;copied&#160;<br/>bytes.&#160;<br/>E_NOT_OK:&#160;No&#160;data has&#160;been copied,&#160;because IpduM is&#160;not&#160;initialized or&#160;<br/>TxPduId&#160;is&#160;not&#160;valid&#160;or PduInfoPtr&#160;is&#160;NULL_PTR or SduDataPtr&#160;is&#160;NULL_PTR&#160;<br/>or SduLength&#160;is&#160;to&#160;small&#160;or the&#160;SDU data&#160;could not&#160;be&#160;updated&#160;because&#160;the&#160;<br/>just in time update&#160;via&#160;a trigger&#160;transmit call&#160;of&#160;the upper layer&#160;was&#160;not&#160;<br/>successful&#160;for&#160;multiplexed&#160;messages.&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service copies&#160;the&#160;transmission&#160;multiplexed&#160;IPDU&#160;to&#160;the provided&#160;buffer.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;IpduM_Init()&#160;has&#160;been&#160;executed&#160;successfully&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;non-reentrant&#160;for&#160;the&#160;same&#160;TxPduId&#160;<br/>
+Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>The&#160;function&#160;is&#160;called&#160;by&#160;the&#160;PduR&#160;module.&#160;The&#160;function is called&#160;in an&#160;interrupt&#160;context&#160;or&#160;at&#160;<br/>
+the&#160;task&#160;level&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;IpduM_TriggerTransmit&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>6&#160;&#160;Configuration&#160;</b><br/>
+The&#160;IPDUM&#160;in&#160;the&#160;EcuC can&#160;be&#160;configured&#160;through&#160;the&#160;Vector configuration&#160;and&#160;<br/>generation&#160;tool CFG5.&#160;<br/>
+<b>6.1&#160;</b><br/>
+<b>Configuration of Post-Build&#160;</b><br/>
+The&#160;configuration&#160;of&#160;post-build&#160;loadable&#160;is described&#160;in<a href="TechnicalReference_IpduMs.html#2">&#160;[3].</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>7&#160;&#160;AUTOSAR&#160;Standard&#160;Compliance&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Deviations&#160;</b><br/>
+No&#160;deviations.&#160;<br/>
+<b>7.2&#160;</b><br/>
+<b>Additions/&#160;Extensions&#160;</b><br/>
+No&#160;additions/&#160;extensions.&#160;<br/>
+<b>7.3&#160;</b><br/>
+<b>Limitations&#160;</b><br/>
+See<a href="TechnicalReference_IpduMs.html#11">&#160;Table&#160;3-2&#160;&#160;Not&#160;supported&#160;AUTOSAR standard conform&#160;features.</a>&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>8&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>8.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+BSWMD&#160;<br/>
+The&#160;BSWMD&#160;is&#160;a&#160;formal&#160;notation of&#160;all&#160;information belonging&#160;to&#160;a certain&#160;<br/>BSW&#160;artifact&#160;(BSW&#160;module or&#160;BSW&#160;cluster)&#160;in addition&#160;to&#160;the&#160;<br/>implementation&#160;of&#160;that&#160;artifact.&#160;<br/>
+Buffer&#160;<br/>
+A&#160;buffer&#160;in a&#160;memory&#160;area normally&#160;in the&#160;RAM.&#160;It&#160;is&#160;an&#160;area&#160;that&#160;the&#160;<br/>application has&#160;reserved&#160;for&#160;data&#160;storage.&#160;<br/>
+CFG5&#160;<br/>
+Configurator&#160;5&#160;(configuration&#160;and&#160;generation&#160;tool)&#160;<br/>
+Component&#160;<br/>
+CAN&#160;Driver,&#160;Network&#160;Management&#160;...&#160;are&#160;software&#160;COMPONENTS&#160;in&#160;<br/>contrast&#160;to&#160;the&#160;expression&#160;module,&#160;which describes an&#160;ECU.&#160;<br/>
+Confirmation&#160;<br/>
+A&#160;service primitive defined in&#160;the&#160;ISO/OSI&#160;Reference Model&#160;(ISO&#160;7498).&#160;<br/>With&#160;the&#160;service primitive 'confirmation'&#160;a service provider&#160;informs&#160;a&#160;<br/>service user&#160;about&#160;the&#160;result&#160;of&#160;a&#160;preceding&#160;service request&#160;of&#160;the&#160;service&#160;<br/>user.&#160;Notification&#160;by&#160;the&#160;CAN&#160;Driver&#160;on&#160;asynchronous successful&#160;<br/>transmission&#160;of&#160;a&#160;CAN&#160;message.&#160;<br/>
+Electronic&#160;Control&#160;<br/>
+Also known as&#160;ECU.&#160;Small&#160;embedded&#160;computer&#160;system&#160;consisting&#160;of&#160;at&#160;<br/>
+Unit&#160;<br/>
+least&#160;one CPU&#160;and&#160;corresponding&#160;periphery&#160;which is placed in&#160;one&#160;<br/>housing.&#160;<br/>
+Event&#160;<br/>
+An exclusive signal&#160;which is assigned&#160;to&#160;a certain&#160;extended task.&#160;An&#160;<br/>event&#160;can&#160;be&#160;used&#160;to&#160;send&#160;binary&#160;information&#160;to&#160;an&#160;extended task.&#160;The&#160;<br/>meaning&#160;of&#160;events&#160;is&#160;defined by&#160;the&#160;application.&#160;Any&#160;task&#160;can&#160;set&#160;an&#160;<br/>event&#160;for&#160;an&#160;extended&#160;task.&#160;The&#160;event&#160;can&#160;only&#160;be&#160;cleared&#160;by&#160;the&#160;task&#160;<br/>which is assigned&#160;to&#160;the&#160;event.&#160;<br/>
+Interrupt&#160;<br/>
+Processor-specific&#160;event&#160;which can&#160;interrupt&#160;the&#160;execution&#160;of&#160;a&#160;current&#160;<br/>program&#160;section.&#160;<br/>
+Post-build&#160;<br/>
+This&#160;type&#160;of&#160;configuration is possible after&#160;building&#160;the&#160;software&#160;module&#160;or&#160;<br/>the&#160;ECU&#160;software.&#160;The&#160;software&#160;may&#160;either&#160;receive parameters&#160;of&#160;its&#160;<br/>configuration&#160;during&#160;the&#160;download of&#160;the&#160;complete ECU&#160;software&#160;resulting&#160;<br/>from&#160;the&#160;linkage of&#160;the&#160;code,&#160;or&#160;it&#160;may&#160;receive its&#160;configuration&#160;file that&#160;<br/>can&#160;be&#160;downloaded to&#160;the ECU&#160;separately,&#160;avoiding&#160;a&#160;re-compilation and&#160;<br/>re-build of&#160;the&#160;ECU&#160;software&#160;modules.&#160;In&#160;order&#160;to&#160;make&#160;the&#160;post-build&#160;<br/>time&#160;re-configuration&#160;possible,&#160;the&#160;re-configurable&#160;parameters&#160;shall&#160;be&#160;<br/>stored&#160;at&#160;a&#160;known memory&#160;location&#160;of&#160;ECU&#160;storage&#160;area.&#160;<br/>
+Scheduler&#160;<br/>
+The&#160;algorithm&#160;which decides&#160;whether&#160;a&#160;task&#160;switch is to&#160;be&#160;affected&#160;and&#160;<br/>which triggers&#160;all&#160;necessary&#160;internal&#160;activities of&#160;the&#160;operating&#160;system&#160;is&#160;<br/>named&#160;scheduler.&#160;The&#160;scheduler&#160;decides&#160;whether&#160;a&#160;task&#160;switch is&#160;<br/>possible according&#160;to&#160;the&#160;implemented&#160;scheduling&#160;policy.&#160;The&#160;scheduler&#160;<br/>can&#160;be&#160;considered&#160;as&#160;a&#160;resource&#160;which can&#160;be&#160;occupied&#160;and released&#160;by&#160;<br/>tasks.&#160;Thus&#160;a&#160;task&#160;can&#160;reserve the&#160;scheduler&#160;to&#160;avoid task switch until&#160;the&#160;<br/>scheduler&#160;is&#160;released.&#160;<br/>
+Signal&#160;<br/>
+A&#160;signal&#160;is&#160;responsible&#160;for&#160;the&#160;logical&#160;transmission&#160;and&#160;reception&#160;of&#160;<br/>information&#160;depending&#160;on the&#160;restrictions&#160;of&#160;the&#160;physical&#160;layer.&#160;The&#160;<br/>definition&#160;of&#160;the&#160;signal&#160;contents&#160;is&#160;part&#160;of&#160;the&#160;database&#160;given&#160;by&#160;the&#160;<br/>vehicle manufacturer.&#160;Signals&#160;describe&#160;the&#160;significance of&#160;the&#160;individual&#160;<br/>data segments&#160;within a&#160;message.&#160;Typically&#160;bits,&#160;bytes or&#160;words&#160;are used&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+for&#160;data&#160;segments&#160;but&#160;individual&#160;bit&#160;combinations&#160;are&#160;also possible.&#160;In&#160;the&#160;<br/>CAN&#160;data base,&#160;each data segment&#160;is&#160;assigned&#160;a&#160;symbolic&#160;name,&#160;a&#160;<br/>value&#160;range,&#160;a&#160;conversion&#160;formula and&#160;a&#160;physical&#160;unit,&#160;as&#160;well&#160;as a&#160;list&#160;of&#160;<br/>receiving&#160;nodes.&#160;<br/>
+Table&#160;8-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>8.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+CAN&#160;<br/>
+Controller&#160;Area&#160;Network&#160;protocol&#160;originally&#160;defined&#160;for&#160;use&#160;as&#160;a&#160;<br/>communication&#160;network&#160;for&#160;control&#160;applications&#160;in&#160;vehicles.&#160;<br/>
+Com&#160;<br/>
+AUTOSAR&#160;BSW&#160;module&#160;Com&#160;<br/>
+COM&#160;<br/>
+Communication&#160;<br/>
+DEM&#160;<br/>
+AUTOSAR&#160;BSW&#160;module&#160;Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+AUTOSAR&#160;BSW&#160;module&#160;Development&#160;Error&#160;Tracer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+EcuM&#160;<br/>
+AUTOSAR&#160;BSW&#160;module&#160;ECU&#160;Manager&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ID&#160;<br/>
+Identifier&#160;(e.g.&#160;Identifier&#160;of&#160;a&#160;CAN&#160;message)&#160;<br/>
+I-PDU&#160;<br/>
+Interactive layer&#160;Protocol&#160;Data&#160;Unit&#160;<br/>
+IpduM&#160;<br/>
+AUTOSAR&#160;BSW&#160;module&#160;I-PDU&#160;Multiplexer&#160;<br/>
+IPDUM&#160;<br/>
+I-PDU&#160;Multiplexer&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;flavor)&#160;<br/>
+PCI&#160;<br/>
+Protocol&#160;Control&#160;Information&#160;<br/>
+PDU&#160;<br/>
+Protocol&#160;Data Unit&#160;<br/>
+PduR&#160;<br/>
+AUTOSAR&#160;BSW&#160;module&#160;Pdu-Router&#160;<br/>
+RAM&#160;<br/>
+Random&#160;Access&#160;Memory&#160;<br/>
+ROM&#160;<br/>
+Read-Only&#160;Memory&#160;<br/>
+SDU&#160;<br/>
+Service Data Unit&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;8-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_IpduM-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR I-PDU&#160;Multiplexer&#160;<br/>
+<b>9&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2016&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.06.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.2.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_IpduMs.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#8">2.1 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#10">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#10">3.1 Features</a></li>
+<li><a href="TechnicalReference_IpduMs.html#11">3.2 Initialization</a></li>
+<li><a href="TechnicalReference_IpduMs.html#11">3.3 States</a></li>
+<li><a href="TechnicalReference_IpduMs.html#11">3.4 Main Functions</a></li>
+<li><a href="TechnicalReference_IpduMs.html#11">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#11">3.5.1 Development Error Reporting</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#12">3.6 nPdu-to-Frame mapping for CAN-FD</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#13">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#13">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#13">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_IpduMs.html#13">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#14">4.2 Critical Sections</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#15">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#15">5.1 Services provided by IPDUM</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#15">5.1.1 &#160;IpduM_InitMemory</a></li>
+<li><a href="TechnicalReference_IpduMs.html#15">5.1.2 IpduM_Init</a></li>
+<li><a href="TechnicalReference_IpduMs.html#16">5.1.3 IpduM_Transmit</a></li>
+<li><a href="TechnicalReference_IpduMs.html#17">5.1.4 &#160;IpduM_MainFunction</a></li>
+<li><a href="TechnicalReference_IpduMs.html#17">5.1.5 IpduM_GetVersionInfo</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#18">5.2 &#160;Services used by IPDUM</a></li>
+<li><a href="TechnicalReference_IpduMs.html#19">5.3 &#160;Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#19">5.3.1 IpduM_RxIndication</a></li>
+<li><a href="TechnicalReference_IpduMs.html#19">5.3.2 IpduM_TxConfirmation</a></li>
+<li><a href="TechnicalReference_IpduMs.html#20">5.3.3 IpduM_TriggerTransmit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#21">6 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#21">6.1 Configuration of Post-Build</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#22">7 AUTOSAR Standard Compliance</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#22">7.1 Deviations</a></li>
+<li><a href="TechnicalReference_IpduMs.html#22">7.2 Additions/ Extensions</a></li>
+<li><a href="TechnicalReference_IpduMs.html#22">7.3 Limitations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#23">8 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_IpduMs.html#23">8.1 Glossary</a></li>
+<li><a href="TechnicalReference_IpduMs.html#24">8.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_IpduMs.html#25">9 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

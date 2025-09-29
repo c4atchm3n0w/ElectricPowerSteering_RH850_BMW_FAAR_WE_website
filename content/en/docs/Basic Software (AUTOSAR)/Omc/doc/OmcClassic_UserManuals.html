@@ -1,0 +1,305 @@
+---
+title: OmcClassic_UserManuals
+linkTitle: OmcClassic_UserManuals
+weight: 14
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_UserManual-1_1.png"/><br/>
+Omc&#160;Classic&#160;User&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.2.0<br/>
+2017-12-14<br/>
+Version&#160;Update<br/>
+5.1.1<br/>
+2017-10-12<br/>
+Version&#160;Update<br/>
+5.1.0<br/>
+2017-08-10<br/>
+Version&#160;Update<br/>
+5.0.0<br/>
+2017-06-29<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+OmcClassic_UserManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;6<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_UserManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="OmcClassic_UserManuals.html#3"><b>1&#160;Overview</b></a><br/>
+<b>3</b><br/>
+<a href="OmcClassic_UserManuals.html#3">1.1</a><br/>
+<a href="OmcClassic_UserManuals.html#3">Purpose</a><br/>
+3<br/>
+<a href="OmcClassic_UserManuals.html#4"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>4</b><br/>
+<a href="OmcClassic_UserManuals.html#5"><b>3&#160;API</b></a><br/>
+<b>5</b><br/>
+<a href="OmcClassic_UserManuals.html#5">3.1</a><br/>
+<a href="OmcClassic_UserManuals.html#5">Datatypes</a><br/>
+5<br/>
+<a href="OmcClassic_UserManuals.html#5">3.1.1</a><br/>
+<a href="OmcClassic_UserManuals.html#5">Omc_OperatingModeType</a><br/>
+5<br/>
+<a href="OmcClassic_UserManuals.html#5">3.1.2</a><br/>
+<a href="OmcClassic_UserManuals.html#5">Omc_ExtendedOperatingModeType</a><br/>
+5<br/>
+<a href="OmcClassic_UserManuals.html#6">3.2</a><br/>
+<a href="OmcClassic_UserManuals.html#6">Interfaces</a><br/>
+6<br/>
+<a href="OmcClassic_UserManuals.html#6">3.2.1</a><br/>
+<a href="OmcClassic_UserManuals.html#6">Provided</a><br/>
+6<br/>
+<a href="OmcClassic_UserManuals.html#6">3.2.1.1</a><br/>
+<a href="OmcClassic_UserManuals.html#6">OmcOperatingMode</a><br/>
+6<br/>
+<a href="OmcClassic_UserManuals.html#6">3.2.1.2</a><br/>
+<a href="OmcClassic_UserManuals.html#6">OmcExtendedOperatingMode</a><br/>
+6<br/>
+OmcClassic_UserManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;6<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_UserManual-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Overview</b><br/>
+This&#160;User&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;and&#160;integration&#160;of&#160;the&#160;BMW<br/>System&#160;Function&#160;Omc.<br/>
+<b>Purpose</b><br/>
+The&#160;main&#160;objective&#160;of&#160;the&#160;Omc&#160;functionality&#160;is&#160;to&#160;maintain&#160;the&#160;current&#160;Operating&#160;Mode&#160;of&#160;an&#160;ECU.<br/>
+This&#160;means:<br/>
+Allowing&#160;the&#160;change&#160;of&#160;the&#160;current&#160;Operating&#160;Mode&#160;via&#160;diagnostic&#160;request<br/>Saving&#160;the&#160;current&#160;Operating&#160;Mode&#160;to&#160;Non&#160;Volatile&#160;RAM&#160;(NVRAM)<br/>Enabling/disabling&#160;Dem&#160;(more&#160;concrete:&#160;Setting/Unsetting&#160;a&#160;enable&#160;condition)<br/>Providing&#160;the&#160;current&#160;Operating&#160;Mode&#160;to&#160;other&#160;software&#160;components.<br/>
+The&#160;Omc&#160;module&#160;distinguishes&#160;the&#160;following&#160;vehicle&#160;operating&#160;modes:<br/>
+NORMAL<br/>ASSEMBLY<br/>TRANSPORT<br/>FLASH<br/>
+Note&#160;that&#160;in&#160;different&#160;documents&#160;these&#160;modes&#160;are&#160;sometimes&#160;called&#160;&#34;energy&#160;modes&#34;&#160;sometimes&#160;called<br/>&#34;operating&#160;modes&#34;.&#160;Although&#160;both&#160;terms&#160;are&#160;equivalent,&#160;we&#160;strictly&#160;use&#160;the&#160;term&#160;operating&#160;mode.<br/>
+OmcClassic_UserManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;6<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_UserManual-4_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+OmcClassic_UserManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;6<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_UserManual-5_1.png"/><br/>
+<b>3</b><br/>
+<b>API</b><br/>
+<b>Datatypes</b><br/>
+<b>Omc_OperatingModeType</b><br/>
+This&#160;type&#160;is&#160;used&#160;to&#160;represent&#160;the&#160;Operating&#160;Mode.<br/>
+<b>Type&#160;name</b><br/>
+Omc_OperatingModeType<br/>
+<b>Type</b><br/>
+uint8<br/>
+<b>Values</b><br/>
+0x00<br/>
+OMC_MODE_NORMAL<br/>
+Normal&#160;Mode<br/>
+0x01<br/>
+OMC_MODE_ASSEMBLY<br/>
+Assembly&#160;Mode<br/>
+0x02<br/>
+OMC_MODE_TRANSPORT<br/>
+Transport&#160;Mode<br/>
+0x03<br/>
+OMC_MODE_FLASH<br/>
+Flash&#160;Mode<br/>
+<b>Description</b><br/>
+Represents&#160;the&#160;operation&#160;mode.<br/>
+<b>Omc_ExtendedOperatingModeType</b><br/>
+This&#160;type&#160;is&#160;used&#160;to&#160;represent&#160;the&#160;Extended&#160;Operating&#160;Mode.<br/>
+<b>Type&#160;name</b><br/>
+Omc_ExtendedOperatingModeType<br/>
+<b>Type</b><br/>
+uint8<br/>
+<b>Values</b><br/>
+0x00<br/>
+OMC_MODE_EXTENSION_NORMAL<br/>
+Normal&#160;Extended&#160;Mode<br/>
+0x01<br/>
+OMC_MODE_EXTENSION_1<br/>
+Extended&#160;Mode&#160;1<br/>
+0x02<br/>
+OMC_MODE_EXTENSION_2<br/>
+Extended&#160;Mode&#160;2<br/>
+0x03<br/>
+OMC_MODE_EXTENSION_3<br/>
+Extended&#160;Mode&#160;3<br/>
+0x04<br/>
+OMC_MODE_EXTENSION_4<br/>
+Extended&#160;Mode&#160;4<br/>
+0x05<br/>
+OMC_MODE_EXTENSION_5<br/>
+Extended&#160;Mode&#160;5<br/>
+0x06<br/>
+OMC_MODE_EXTENSION_6<br/>
+Extended&#160;Mode&#160;6<br/>
+0x07<br/>
+OMC_MODE_EXTENSION_7<br/>
+Extended&#160;Mode&#160;7<br/>
+0x08<br/>
+OMC_MODE_EXTENSION_8<br/>
+Extended&#160;Mode&#160;8<br/>
+0x09<br/>
+OMC_MODE_EXTENSION_9<br/>
+Extended&#160;Mode&#160;9<br/>
+0x0A<br/>
+OMC_MODE_EXTENSION_10<br/>
+Extended&#160;Mode&#160;10<br/>
+0x0B<br/>
+OMC_MODE_EXTENSION_11<br/>
+Extended&#160;Mode&#160;11<br/>
+0x0C<br/>
+OMC_MODE_EXTENSION_12<br/>
+Extended&#160;Mode&#160;12<br/>
+0x0D<br/>
+OMC_MODE_EXTENSION_13<br/>
+Extended&#160;Mode&#160;13<br/>
+0x0E<br/>
+OMC_MODE_EXTENSION_14<br/>
+Extended&#160;Mode&#160;14<br/>
+0x0F<br/>
+OMC_MODE_EXTENSION_15<br/>
+Extended&#160;Mode&#160;15<br/>
+0xFF<br/>
+OMC_MODE_EXTENSION_INVALID<br/>
+Invalid&#160;Extended&#160;Mode<br/>
+<b>Description</b><br/>
+Represents&#160;the&#160;extended&#160;operation&#160;mode.<br/>
+OmcClassic_UserManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;6<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Omc/doc/OmcClassic_UserManual-6_1.png"/><br/>
+<b>Interfaces</b><br/>
+<b>Provided</b><br/>
+Omc&#160;provides&#160;two&#160;Mode&#160;interfaces&#160;to&#160;the&#160;user&#160;to&#160;be&#160;able&#160;to&#160;detect&#160;the&#160;current&#160;Operating&#160;Mode&#160;and<br/>Extended&#160;Operating&#160;Mode.&#160;The&#160;interface&#160;Mode&#160;interface,&#160;so&#160;the&#160;user&#160;can&#160;also&#160;trigger&#160;able&#160;runnable<br/>on-entry,&#160;on-change&#160;or&#160;on-exit&#160;of&#160;a&#160;mode.<br/>
+<b>OmcOperatingMode</b><br/>
+ModeDeclarationGroup&#160;OmcOperatingMode&#160;{<br/>
+{<br/>
+OMC_MODE_ASSEMBLY,<br/>
+OMC_MODE_BMW_FLASH,<br/>
+OMC_MODE_NORMAL,<br/>
+OMC_MODE_TRANSPORT<br/>
+}<br/>
+initialMode&#160;=&#160;OMC_MODE_NORMAL<br/>
+}<br/>
+<b>OmcExtendedOperatingMode</b><br/>
+ModeDeclarationGroup&#160;OmcExtendedOperatingMode&#160;{<br/>
+{<br/>
+OMC_MODE_EXTENSION_1,<br/>
+OMC_MODE_EXTENSION_10,<br/>
+OMC_MODE_EXTENSION_11,<br/>
+OMC_MODE_EXTENSION_12,<br/>
+OMC_MODE_EXTENSION_13,<br/>
+OMC_MODE_EXTENSION_14,<br/>
+OMC_MODE_EXTENSION_2,<br/>
+OMC_MODE_EXTENSION_3,<br/>
+OMC_MODE_EXTENSION_4,<br/>
+OMC_MODE_EXTENSION_5,<br/>
+OMC_MODE_EXTENSION_6,<br/>
+OMC_MODE_EXTENSION_7,<br/>
+OMC_MODE_EXTENSION_8,<br/>
+OMC_MODE_EXTENSION_9,<br/>
+OMC_MODE_EXTENSION_INVALID,<br/>
+OMC_MODE_EXTENSION_NORMAL,<br/>
+OMC_MODE_EXTENSION_SAVE_ENERGY<br/>
+}<br/>
+initialMode&#160;=&#160;OMC_MODE_EXTENSION_NORMAL<br/>
+}<br/>
+OmcClassic_UserManual.pdf,&#160;Version&#160;5.2.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;6<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="OmcClassic_UserManuals.html#3">1 Overview</a>
+<ul>
+<li><a href="OmcClassic_UserManuals.html#3">1.1 Purpose</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_UserManuals.html#4">2 Related documentation</a></li>
+<li><a href="OmcClassic_UserManuals.html#5">3 API</a>
+<ul>
+<li><a href="OmcClassic_UserManuals.html#5">3.1 Datatypes</a>
+<ul>
+<li><a href="OmcClassic_UserManuals.html#5">3.1.1 Omc_OperatingModeType</a></li>
+<li><a href="OmcClassic_UserManuals.html#5">3.1.2 Omc_ExtendedOperatingModeType</a></li>
+</ul>
+</li>
+<li><a href="OmcClassic_UserManuals.html#6">3.2 Interfaces</a>
+<ul>
+<li><a href="OmcClassic_UserManuals.html#6">3.2.1 Provided</a>
+<ul>
+<li><a href="OmcClassic_UserManuals.html#6">3.2.1.1 OmcOperatingMode</a></li>
+<li><a href="OmcClassic_UserManuals.html#6">3.2.1.2 OmcExtendedOperatingMode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

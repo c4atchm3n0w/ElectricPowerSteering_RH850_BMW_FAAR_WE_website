@@ -1,0 +1,423 @@
+---
+title: CurrMeasCorrln_IntegrationManual
+linkTitle: CurrMeasCorrln_IntegrationManual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>CURRENT MEASUREMENT CORRELATION</strong></p>
+<p><strong>VERSION: 3.0</strong></p>
+<p><strong>DATE:</strong> <strong>07-Jun-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Shawn Penning,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 10%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Nick Saxton</td>
+<td>1.0</td>
+<td>26-Apr-2016</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Added FltInj point for an output</td>
+<td>Krishna Anne</td>
+<td>2.0</td>
+<td>27-Jun-16</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Added Init Runnable</td>
+<td>Shawn Penning</td>
+<td>3.0</td>
+<td>06-Jun-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+Table of Contents</u></strong></p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms <span>4</span></a></p>
+<p><a href="#references">2 References <span>5</span></a></p>
+<p><a href="#dependencies">3 Dependencies <span>6</span></a></p>
+<p><a href="#swcs">3.1 SWCs <span>6</span></a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project <span>6</span></a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS <span>7</span></a></p>
+<p><a href="#build-time-config">4.1 Build Time Config <span>7</span></a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project <span>7</span></a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes <span>7</span></a></p>
+<p><a href="#davinci-interrupt-configuration-changes">4.4 DaVinci Interrupt Configuration Changes <span>7</span></a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes <span>7</span></a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS <span>8</span></a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs <span>8</span></a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs <span>8</span></a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present <span>8</span></a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling <span>9</span></a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS <span>10</span></a></p>
+<p><a href="#mapping">7.1 Mapping <span>10</span></a></p>
+<p><a href="#usage">7.2 Usage <span>10</span></a></p>
+<p><a href="#non-rte-nvm-blocks">7.3 Non RTE NvM Blocks <span>10</span></a></p>
+<p><a href="#rte-nvm-blocks">7.4 RTE NvM Blocks <span>10</span></a></p>
+<p><a href="#compiler-settings">8 Compiler Settings <span>11</span></a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO <span>11</span></a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings <span>11</span></a></p>
+<p><a href="#appendix">9 Appendix <span>12</span></a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&lt;ADD more to the table if applicable&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Sr. No.</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>FDD - ES209A Current Measurement Correlation</td>
+<td>Refer current Synergy subproject version</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>1.01.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Design and Coding Standards</td>
+<td>2.1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Module</strong></th>
+<th><strong>Required Feature</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p>None</p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Modules</strong></th>
+<th><strong>Notes</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CurrMeasCorrln</strong></td>
+<td>FLTINJENA should be set to STD_ON as required</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<p>None</p>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Parameter</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 38%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ISR Name</strong></th>
+<th><strong>VIM #</strong></th>
+<th><strong>Priority Dependency</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Constant</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>N/A</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p>Refer DataDict.m file</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p>Refer DataDict.m file</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>No</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling.</p>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 53%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Init</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CurrMeasCorrlnInit1</strong></td>
+<td>None</td>
+<td>RTE Init</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 54%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Runnable</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CurrMeasCorrlnPer1</strong></td>
+<td>None</td>
+<td>RTE 2ms</td>
+</tr>
+</tbody>
+</table>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Memory Section</strong></th>
+<th><strong>Contents</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CurrMeasCorrln_START_SEC_CODE</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>RAM</strong></th>
+<th><strong>ROM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: ARM Cortex R4 Memory Usage</p>
+<h2 id="non-rte-nvm-blocks">Non RTE NvM Blocks</h2>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Block Name</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Note : Size of the NVM block if configured in developer</p>
+<h2 id="rte-nvm-blocks"> RTE NvM Blocks</h2>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Block Name</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Note : Size of the NVM block if configured in developer</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p>None</p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p>None</p>
+<h1 id="appendix">Appendix</h1>
+<p><em>None</em></p>

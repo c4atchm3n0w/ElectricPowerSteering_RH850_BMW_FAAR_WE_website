@@ -1,0 +1,890 @@
+---
+title: TechnicalReference_Asr_MemoryMappings
+linkTitle: TechnicalReference_Asr_MemoryMappings
+weight: 144
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Memory&#160;Mapping&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.3.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Eugen&#160;Stripling&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Eugen&#160;Stripling&#160;<br/>
+2013-04-12&#160;<br/>
+1.00.00&#160;<br/>
+Creation&#160;-&#160;ESCAN00064655&#160;<br/>
+Eugen&#160;Stripling&#160;<br/>
+2013-05-29&#160;<br/>
+1.00.01&#160;<br/>
+Some&#160;typos&#160;corrected&#160;<br/>
+Eugen&#160;Stripling&#160;<br/>
+2016-09-27&#160;<br/>
+1.01.00&#160;<br/>
+FEATC-317 /&#160;FEAT-2002:&#160;64-bit&#160;memory&#160;<br/>section&#160;keywords&#160;added&#160;<br/>
+Eugen&#160;Stripling&#160;<br/>
+2017-01-16&#160;<br/>
+1.02.00&#160;<br/>
+ESCAN00093572<a href="TechnicalReference_Asr_MemoryMappings.html#11">:&#160;2.1.4&#160;</a>chapter&#160;added&#160;<br/>
+Eugen&#160;Stripling&#160;<br/>
+2017-07-18&#160;<br/>
+1.03.00&#160;<br/>
+Chapters<a href="TechnicalReference_Asr_MemoryMappings.html#6">&#160;2.1&#160;</a><a href="TechnicalReference_Asr_MemoryMappings.html#11">and&#160;2.1.4&#160;</a>adapted&#160;due&#160;to&#160;<br/>ESCAN00095756&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_MemoryMapping.pdf&#160;<br/>
+1.4.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_MemoryMapping.pdf&#160;<br/>
+4.2.2&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_CompilerAbstraction.pdf&#160;<br/>
+3.2.0&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#5"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#5"><b>Introduction...................................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#6"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#6"><b>Functional&#160;Description&#160;.................................................................................................&#160;6</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#6">Memory&#160;section&#160;keywords&#160;..................................................................................&#160;6&#160;<br/></a><a href="TechnicalReference_Asr_MemoryMappings.html#7">2.1.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#7">Declaration&#160;of&#160;code&#160;and&#160;data segments&#160;in&#160;AUTOSAR&#160;........................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#8">2.1.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#8">Mapping&#160;of&#160;code&#160;and data segments&#160;to&#160;a dedicated&#160;memory&#160;area&#160;.....&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#9">2.1.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#9">Example:&#160;Mapping&#160;of&#160;data to&#160;a post-build memory&#160;section.................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#11">2.1.4&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#11">Usage&#160;of&#160;AUTOSAR&#160;4.2.2 BSW&#160;module&#160;..........................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#12"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#12"><b>Appendix&#160;.....................................................................................................................&#160;12</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#12">Sub-keywords&#160;used in&#160;the memory&#160;section&#160;and&#160;compiler&#160;specific&#160;keywords&#160;....&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#12">3.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#12">Memory&#160;section&#160;keywords&#160;................................................................................&#160;12&#160;<br/></a><a href="TechnicalReference_Asr_MemoryMappings.html#13">3.2.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">Memory&#160;section&#160;keywords&#160;for&#160;code&#160;..................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">3.2.2&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">Memory&#160;section&#160;keywords&#160;for&#160;constants&#160;...........................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#14">3.2.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#14">Memory&#160;section&#160;keywords&#160;for&#160;variables............................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#17">3.3&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#17">Compiler&#160;specific&#160;keywords&#160;..............................................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#19"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#19"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;19</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#19">Abbreviations&#160;...................................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#20"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#20"><b>Contact&#160;........................................................................................................................&#160;20</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#7">&#160;Files:&#160;MemMap.h,&#160;MemMap_Common.h&#160;and Compiler_Cfg.h&#160;...................&#160;7&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_Asr_MemoryMappings.html#12">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#12">Explanation of&#160;sub-keywords&#160;used&#160;in&#160;the&#160;memory&#160;section&#160;and compiler&#160;<br/>specific&#160;keywords&#160;.....................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">Memory&#160;sections&#160;for&#160;code&#160;.........................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#13">Memory&#160;sections&#160;for&#160;constants&#160;.................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#14">Table&#160;3-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#14">Change of&#160;memory&#160;section&#160;keywords&#160;for&#160;constants&#160;in&#160;ASR&#160;4.0.3&#160;.............&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#15">Table&#160;3-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#15">Memory&#160;sections&#160;for&#160;variables&#160;..................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#17">Table&#160;3-6&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#17">Change of&#160;memory&#160;section&#160;keywords&#160;for&#160;variables in&#160;ASR&#160;4.0.3&#160;..............&#160;17&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#18">Table&#160;3-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#18">Compiler&#160;specific&#160;keywords and&#160;the&#160;related&#160;memory&#160;sections&#160;they&#160;used&#160;<br/>for&#160;.............................................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#19">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Asr_MemoryMappings.html#19">Abbreviations&#160;............................................................................................&#160;19&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>1&#160;&#160;Introduction&#160;</b><br/>
+This&#160;document&#160;gives&#160;an&#160;overview&#160;about&#160;the&#160;functionality&#160;of&#160;memory&#160;mapping&#160;as&#160;specified&#160;<br/>by&#160;AUTOSAR according&#160;to&#160;the&#160;Vector specific&#160;implementation&#160;(MICROSAR).&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>2&#160;&#160;Functional&#160;Description&#160;</b><br/>
+In&#160;the&#160;following&#160;chapters the&#160;following&#160;two&#160;expressions&#160;are used:&#160;<br/><b>&#160;&#160;memory&#160;section keyword&#160;</b><br/>
+and&#160;&#160;<br/>
+<b>&#160;&#160;memory&#160;area</b>.&#160;<br/>
+A&#160;&#160;<b>memory&#160;&#160;section&#160;&#160;keyword</b>&#160;&#160;describes&#160;&#160;a&#160;&#160;memory&#160;&#160;section&#160;&#160;according&#160;&#160;to&#160;&#160;AUTOSAR&#160;<br/>symbolically.&#160;&#160;All&#160;&#160;available&#160;&#160;corresponding&#160;&#160;keywords&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;chapter&#160;&#160;<a href="TechnicalReference_Asr_MemoryMappings.html#12">3.2.</a>&#160;&#160;By&#160;<br/><b>memory&#160;area</b>&#160;a&#160;memory&#160;section&#160;in&#160;hardware&#160;at&#160;all&#160;is&#160;meant.&#160;<br/>By&#160;using&#160;of&#160;expression&#160;<b>build-toolchain</b>&#160;the&#160;functionality&#160;covered&#160;by&#160;a&#160;compiler,&#160;linker&#160;and&#160;&#160;<br/>locator is&#160;meant.&#160;<br/>
+In&#160;addition&#160;the&#160;abbreviations&#160;MSN1&#160;and&#160;<a href="TechnicalReference_Asr_MemoryMappings.html#6">Msn1&#160;</a>respectively&#160;are&#160;used&#160;as&#160;placeholders&#160;for&#160;the&#160;<br/>short&#160;&#160;name&#160;&#160;of&#160;&#160;any&#160;&#160;BSW&#160;module.&#160;&#160;However&#160;&#160;AUTOSAR&#160;&#160;itself&#160;&#160;prefers&#160;&#160;to&#160;&#160;use&#160;&#160;the&#160;<br/>abbreviations&#160;MIP2&#160;and&#160;<a href="TechnicalReference_Asr_MemoryMappings.html#6">Mip2&#160;</a>respectively.&#160;Both&#160;abbreviations&#160;mean&#160;the&#160;same.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Memory&#160;section&#160;keywords&#160;</b><br/>
+The&#160;keywords&#160;of&#160;memory&#160;sections&#160;of&#160;all&#160;BSW&#160;modules&#160;which&#160;are&#160;implemented&#160;according&#160;<br/>to&#160;&#160;AUTOSAR&#160;4.0.3&#160;&#160;are&#160;&#160;located&#160;&#160;in&#160;&#160;the&#160;&#160;file&#160;&#160;MemMap.h.&#160;&#160;BSW&#160;&#160;modules&#160;&#160;implemented&#160;<br/>according&#160;to&#160;AUTOSAR&#160;4.0.3&#160;include&#160;this&#160;general&#160;file.&#160;&#160;However&#160;&#160;BSW&#160;modules&#160;which&#160;&#160;are&#160;<br/>implemented&#160;according&#160;to&#160;AUTOSAR&#160;4.2.2&#160;have&#160;their&#160;own&#160;specific&#160;&lt;Msn&gt;_MemMap.h&#160;file&#160;<br/>and&#160;&#160;include&#160;&#160;generally&#160;&#160;only&#160;&#160;their&#160;&#160;own&#160;&#160;file.&#160;&#160;For&#160;&#160;more&#160;&#160;information&#160;&#160;about&#160;&#160;usage&#160;&#160;of&#160;&#160;BSW&#160;<br/>modules&#160;which&#160;are implemented&#160;according&#160;to&#160;AUTOSAR&#160;4.2.2&#160;please&#160;see&#160;chapte<a href="TechnicalReference_Asr_MemoryMappings.html#11">r&#160;2.1.4.</a>&#160;&#160;<br/>
+The&#160;&#160;file&#160;&#160;Compiler_Cfg.h&#160;&#160;contains&#160;&#160;additional&#160;&#160;compiler&#160;&#160;specific&#160;&#160;keywords.&#160;&#160;These&#160;<br/>keywords&#160;are&#160;used&#160;to&#160;describe&#160;the&#160;memory&#160;location&#160;of&#160;variables,&#160;constants&#160;and&#160;pointers.&#160;<br/>In&#160;&#160;case&#160;of&#160;pointers&#160;&#160;additional&#160;&#160;keywords&#160;&#160;are&#160;&#160;defined&#160;to&#160;describe&#160;&#160;the&#160;memory&#160;&#160;location&#160;&#160;the&#160;<br/>pointer points&#160;to.&#160;&#160;<br/>All&#160;&#160;files&#160;&#160;are&#160;&#160;provided&#160;&#160;as&#160;&#160;templates&#160;&#160;and&#160;&#160;may&#160;&#160;be&#160;&#160;modified&#160;&#160;and&#160;&#160;extended&#160;&#160;by&#160;&#160;the&#160;&#160;user&#160;&#160;if&#160;<br/>required.&#160;&#160;The&#160;&#160;files&#160;&#160;MemMap.h&#160;&#160;and&#160;&#160;Compiler_Cfg.h&#160;&#160;are&#160;&#160;named&#160;&#160;_MemMap.h&#160;&#160;and&#160;<br/>_Compiler_Cfg.h&#160;&#160;initially.&#160;&#160;Before&#160;&#160;using&#160;&#160;both&#160;&#160;files&#160;&#160;have&#160;&#160;to&#160;&#160;be&#160;&#160;renamed&#160;&#160;to&#160;&#160;MemMap.h&#160;<br/>and&#160;to&#160;Compiler_Cfg.h&#160;respectively.&#160;&#160;<br/>
+The&#160;following&#160;figure shows descriptively&#160;the&#160;relationship&#160;between&#160;the&#160;mentioned&#160;files.&#160;<br/>
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160; &#160;&#160;<br/>
+1&#160;Module&#160;Short Name&#160;<br/>
+2&#160;Module&#160;Implementation&#160;Prefix&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>&#160;class&#160;TechnicalReference_Asr_MemoryMapping</b><br/>
+BSW&#160;module<br/>
+BSW&#160;module<br/>
+[AUTOSAR&#160;4.2.2]<br/>
+[AUTOSAR&#160;4.0.3]<br/>
+«include»<br/>
+«include»<br/>
+Contains&#160;the&#160;version&#160;<br/>defines&#160;and&#160;the&#160;memory&#160;<br/>sections&#160;of&#160;all&#160;BSW&#160;<br/>
+Contains&#160;the&#160;default&#160;<br/>
+modules&#160;which&#160;are&#160;<br/>
+memory&#160;sections&#160;at&#160;all&#160;<br/>
+implemented&#160;according&#160;<br/>
+&lt;Msn&gt;_MemMap.h<br/>
+Contains&#160;compiler&#160;<br/>
+MemMap.h<br/>
+and&#160;the&#160;re-definitions&#160;<br/>
+to&#160;AUTOSAR&#160;4.0.3.&#160;The&#160;<br/>
+specific&#160;keywords&#160;for&#160;<br/>
+to&#160;them&#160;and&#160;if&#160;required&#160;<br/>
+re-definition&#160;to&#160;default&#160;<br/>
+description&#160;of&#160;location&#160;<br/>
+the&#160;#pragma&#160;<br/>
+memory&#160;sections&#160;takes&#160;<br/>
+of&#160;variables,&#160;constants&#160;<br/>
+commands.<br/>
+place&#160;within&#160;the&#160;file&#160;<br/>
+and&#160;pointers.<br/>
+&#34;MemMap_Common.h&#34;.<br/>
+«include»<br/>
+«include»<br/>
+MemMap_Common.h<br/>
+Compiler_Cfg.h<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;&#160;Files:&#160;MemMap.h,&#160;MemMap_Common.h&#160;and&#160;Compiler_Cfg.h&#160;<br/>
+&#160;<br/>
+Each&#160;BSW&#160;module&#160;has&#160;its&#160;own&#160;set&#160;of&#160;compiler&#160;specific&#160;and&#160;memory&#160;section&#160;keywords&#160;with&#160;<br/>the&#160;pre-fix&#160;&lt;MSN&gt;.&#160;By&#160;default&#160;all&#160;the&#160;memory&#160;section&#160;keywords&#160;are&#160;mapped&#160;to&#160;the&#160;same&#160;<br/>default&#160;memory&#160;section&#160;keyword&#160;defined&#160;in&#160;file&#160;MemMap_Common.h.&#160;If&#160;required&#160;the&#160;default&#160;<br/>mapping&#160;&#160;can&#160;&#160;be&#160;&#160;modified&#160;&#160;by&#160;&#160;the&#160;&#160;BSW&#160;&#160;integrator.&#160;&#160;Detailed&#160;&#160;information&#160;&#160;concerning&#160;&#160;the&#160;<br/>provided&#160;&#160;memory&#160;&#160;section&#160;&#160;keywords&#160;&#160;can&#160;&#160;be&#160;&#160;found&#160;&#160;in&#160;&#160;the&#160;&#160;chapter&#160;&#160;<a href="TechnicalReference_Asr_MemoryMappings.html#12">3.2.</a>&#160;&#160;For&#160;&#160;detailed&#160;<br/>information&#160;about&#160;the&#160;compiler specific keywords&#160;please&#160;see&#160;the&#160;chapte<a href="TechnicalReference_Asr_MemoryMappings.html#17">r&#160;3.3.</a>&#160;<br/>
+&#160;<br/>
+<b>2.1.1&#160;</b><br/>
+<b>Declaration&#160;of&#160;code&#160;and data segments&#160;in&#160;AUTOSAR&#160;</b><br/>
+The&#160;declaration&#160;of&#160;all&#160;kinds of&#160;variables&#160;including&#160;constants,&#160;pointers&#160;and&#160;the&#160;code&#160;itself&#160;is&#160;<br/>performed&#160;in&#160;the&#160;following&#160;way.&#160;<br/>
+1.&#160;&#160;<b>Opening&#160;of&#160;the&#160;memory&#160;section:</b>&#160;The&#160;memory&#160;section&#160;where&#160;e.g.&#160;a&#160;variable&#160;shall&#160;<br/>
+be&#160;stored&#160;in&#160;is opened&#160;by&#160;defining&#160;of&#160;the&#160;corresponding&#160;memory&#160;section&#160;keyword&#160;<br/>(s.&#160;chapte<a href="TechnicalReference_Asr_MemoryMappings.html#12">r&#160;3.2)</a>.&#160;&#160;<br/>
+2.&#160;&#160;<b>Including of&#160;file&#160;MemMap.h/&lt;Msn&gt;_MemMap.h:</b>&#160;In&#160;this step&#160;the&#160;previously&#160;defined&#160;<br/>
+BSW&#160;module&#160;specific&#160;memory&#160;section&#160;keyword is&#160;redefined&#160;to&#160;the&#160;default&#160;keyword&#160;<br/>of&#160;the&#160;corresponding&#160;memory&#160;section.&#160;Additionally&#160;if&#160;specified&#160;the&#160;corresponding&#160;<br/>#pragma-command&#160;is&#160;activated.&#160;This command&#160;tells the&#160;build-toolchain&#160;to&#160;put&#160;the&#160;<br/>following&#160;data&#160;or code&#160;segments&#160;to&#160;intended&#160;memory&#160;area.&#160;<br/>
+<b>3.&#160;&#160;Declaration of&#160;data and&#160;code&#160;segments:</b>&#160;In&#160;this step&#160;any&#160;kind&#160;of&#160;data&#160;or code<b>&#160;</b><br/>
+itself&#160;is&#160;declared.<b>&#160;</b><br/>
+4.&#160;&#160;<b>Closing of the&#160;memory&#160;section:</b>&#160;In&#160;the&#160;last&#160;step&#160;the&#160;previously&#160;opened&#160;memory&#160;<br/>
+section&#160;is closed&#160;by&#160;defining&#160;of&#160;the&#160;STOP-keyword of&#160;the&#160;corresponding&#160;memory&#160;<br/>section&#160;keyword&#160;and&#160;by&#160;including&#160;of&#160;file&#160;MemMap.h/&lt;Msn&gt;_MemMap.h&#160;once&#160;again.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+By&#160;this&#160;step&#160;the&#160;build-toolchain&#160;shall&#160;be&#160;told&#160;to&#160;switch&#160;back to&#160;the&#160;default&#160;memory&#160;<br/>section.&#160;<br/>
+The&#160;following&#160;example&#160;shall&#160;clarify&#160;the&#160;mentioned&#160;steps.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Example&#160;<br/></b>…&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;&lt;MSN&gt;_START_SEC_CONST_8BIT&#160;<br/>2.&#160;&#160;#include&#160;“MemMap.h”&#160;<br/>
+&#160;<br/>
+3.&#160;&#160;CONST(uint8, &lt;MSN&gt;_CONST)&#160;&lt;Msn&gt;_Constant&#160;= 0xFAu;&#160;<br/>
+&#160;<br/>
+4.&#160;&#160;&lt;MSN&gt;_STOP_SEC_CONST_8BIT&#160;<br/>4.&#160;#include “MemMap.h&#160;<br/>
+…&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>2.1.2&#160;</b><br/>
+<b>Mapping of&#160;code&#160;and&#160;data&#160;segments&#160;to&#160;a&#160;dedicated&#160;memory&#160;area&#160;</b><br/>
+In&#160;order&#160;to&#160;map&#160;a&#160;code&#160;segment&#160;or&#160;a&#160;data&#160;segment&#160;to&#160;a&#160;dedicated&#160;memory&#160;area&#160;you&#160;need&#160;<br/>to&#160;follow&#160;the&#160;following&#160;four&#160;steps:&#160;<br/>
+1.&#160;&#160;<b>Selection of&#160;memory&#160;section keywords:</b>&#160;In&#160;this step&#160;the&#160;keywords&#160;of&#160;memory&#160;<br/>
+sections which&#160;are&#160;intended&#160;to&#160;be&#160;mapped&#160;to&#160;a&#160;dedicated&#160;memory&#160;area&#160;have&#160;to&#160;be&#160;<br/>picked&#160;out.&#160;All&#160;available&#160;memory&#160;section&#160;keywords&#160;are mentioned&#160;in&#160;chapte<a href="TechnicalReference_Asr_MemoryMappings.html#12">r&#160;3.2.</a>&#160;<br/>
+2.&#160;&#160;<b>Adaption of&#160;the&#160;linker&#160;/&#160;locator&#160;command file:</b>&#160;In&#160;this step&#160;the&#160;memory&#160;areas&#160;which&#160;<br/>
+are intended&#160;to&#160;be&#160;used&#160;for certain&#160;segments&#160;of&#160;code&#160;or data&#160;have&#160;to&#160;be&#160;defined&#160;in&#160;the&#160;<br/>linker&#160;/&#160;locator&#160;command&#160;file.&#160;By&#160;this way&#160;the&#160;defined&#160;memory&#160;areas&#160;are labeled&#160;with&#160;<br/>unique&#160;keywords.&#160;These&#160;keywords&#160;in&#160;combination&#160;with&#160;a&#160;#pragma-command&#160;can&#160;be&#160;<br/>used&#160;later&#160;to&#160;tell&#160;the&#160;build-toolchain&#160;to&#160;put&#160;code&#160;or data&#160;segments&#160;to&#160;a&#160;specific&#160;memory&#160;<br/>area.&#160;<br/>
+3.&#160;&#160;<b>Adding of&#160;#pragma-commands&#160;to&#160;selected&#160;memory&#160;section keywords:</b>&#160;In&#160;this&#160;<br/>
+step&#160;#pragma-commands&#160;together&#160;with&#160;memory&#160;area&#160;keywords&#160;defined&#160;in&#160;step<a href="TechnicalReference_Asr_MemoryMappings.html#8">&#160;2&#160;</a>are&#160;<br/>added&#160;to&#160;the&#160;corresponding&#160;memory&#160;section&#160;keywords&#160;picked&#160;out&#160;in&#160;step<a href="TechnicalReference_Asr_MemoryMappings.html#8">&#160;1.&#160;</a>The&#160;<br/>adaptions&#160;are&#160;performed&#160;in&#160;file&#160;MemMap_Common.h&#160;directly.&#160;<br/>
+4.&#160;&#160;<b>Adaption of compiler specific&#160;keywords:</b>&#160;This&#160;step&#160;is&#160;optional.&#160;The&#160;applying&#160;or not&#160;<br/>
+applying&#160;of&#160;this step&#160;depends on&#160;the&#160;used&#160;compiler&#160;and&#160;the&#160;memory model of&#160;used&#160;<br/>hardware.&#160;If&#160;required,&#160;in&#160;this step&#160;the&#160;compiler specific keywords&#160;which&#160;are required&#160;for&#160;<br/>correct&#160;access&#160;of&#160;code&#160;and&#160;data&#160;have&#160;to&#160;be&#160;adapted&#160;according&#160;to&#160;the&#160;corresponding&#160;<br/>memory&#160;mapping&#160;(step<a href="TechnicalReference_Asr_MemoryMappings.html#8">s:&#160;1&#160;</a>till<a href="TechnicalReference_Asr_MemoryMappings.html#8">&#160;3)</a>.&#160;&#160;For more&#160;information&#160;see&#160;chapte<a href="TechnicalReference_Asr_MemoryMappings.html#17">r&#160;3.3.</a>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-9_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-9_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>In&#160;case&#160;of&#160;using&#160;a&#160;#pragma-command&#160;at&#160;any&#160;START_SEC-keyword ensure&#160;that&#160;<br/>
+<b>&#160;&#160;</b>at&#160;the&#160;corresponding&#160;STOP_SEC-keyword the&#160;#pragma-command&#160;is&#160;defined&#160;<br/>
+which&#160;switches back to&#160;the&#160;default&#160;memory&#160;section.&#160;Otherwise&#160;the&#160;once&#160;opened&#160;<br/>memory&#160;section&#160;won’t&#160;be&#160;closed&#160;and&#160;all&#160;data&#160;segments&#160;which&#160;follow the&#160;<br/>#pragma-command&#160;will&#160;be&#160;mapped&#160;to&#160;the&#160;still opened&#160;memory&#160;section&#160;<br/>unintentionally.&#160;&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>This&#160;depends on&#160;the&#160;used&#160;compiler&#160;e.g.&#160;a&#160;DiabData<br/>
+&#160;<br/>
+-compiler&#160;does&#160;not&#160;<br/>
+need&#160;any&#160;#pragma-command&#160;at&#160;the&#160;STOP_SEC-keyword&#160;to&#160;switch&#160;&#160;<br/>back to&#160;the&#160;default&#160;memory&#160;section.&#160;Therefrom&#160;please&#160;check&#160;the&#160;&#160;<br/>technical reference&#160;of&#160;used&#160;compiler.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+For an&#160;example&#160;please&#160;see&#160;the&#160;following&#160;chapter.&#160;<br/>&#160;<br/>
+<b>2.1.3&#160;</b><br/>
+<b>Example:&#160;Mapping of&#160;data to a&#160;post-build&#160;memory&#160;section&#160;</b><br/>
+There&#160;are&#160;three&#160;post-build&#160;sections:&#160;two&#160;for&#160;ROM&#160;and&#160;one&#160;for&#160;RAM.&#160;The&#160;related&#160;keywords&#160;<br/>are:&#160;<br/><b>&#160;&#160;</b>START_SEC_PBCFG_GLOBALROOT&#160;and&#160;START_SEC_CONST_PBCFG&#160;(ROM)&#160;<br/>
+<b>&#160;&#160;</b>START_SEC_VAR_PBCFG&#160;(RAM)&#160;<br/>
+The&#160;corresponding&#160;STOP-sections are&#160;<br/><b>&#160;&#160;</b>STOP_SEC_CONST&#160;(ROM)&#160;<br/>
+<b>&#160;&#160;</b>STOP_SEC_VAR&#160;(RAM)&#160;<br/>
+&#160;<br/>
+At&#160;the&#160;position&#160;of&#160;mentioned&#160;keywords&#160;in&#160;file&#160;MemMap_Common.h&#160;the&#160;appropriate&#160;compiler&#160;<br/>specific&#160;#pragma-commands&#160;have&#160;to&#160;be&#160;added&#160;in&#160;order to&#160;tell&#160;the&#160;compiler&#160;to&#160;put&#160;the&#160;<br/>related&#160;data&#160;segments&#160;to&#160;the&#160;intended&#160;memory&#160;area.&#160;In&#160;case&#160;of&#160;platform&#160;V850&#160;and&#160;GHS&#160;<br/>compiler&#160;see&#160;the&#160;following&#160;example.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-10_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-10_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>&#160;<br/>Example&#160;</b>The&#160;following&#160;example applies on&#160;platform&#160;V850&#160;and&#160;GHS-compiler.<b>&#160;<br/></b>&#160;<br/>
+&#160;<br/>
+1.&#160;&#160;Labels&#160;for&#160;memory&#160;areas&#160;which&#160;are&#160;intended&#160;to&#160;be used are&#160;defined in&#160;the&#160;<br/>
+linker&#160;/&#160;locator&#160;command&#160;file:&#160;<br/>…&#160;<br/>&#160;&#160;&#160;$(ECHO)&#160;&#34;&#160;&#160;.pb_ecum_global_root&#160;0x001C0000&#160;&#160;:&gt;.&#160;&#160;&#160;&#160;&#160;/*&#160;Start&#160;post-build&#160;ROM&#160;area&#160;&#160;*/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#34;&#160;&gt;&gt;&#160;$@;&#160;\&#160;<br/>
+&#160;&#160;&#160;$(ECHO)&#160;&#34;&#160;&#160;.pb_tscpb_data&#160;align(4)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;:&gt;.&#160;&#160;&#160;&#160;&#160;/*&#160;post-build&#160;ROM&#160;area&#160;*/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#34;&#160;&gt;&gt;&#160;$@;&#160;\&#160;<br/>
+&#160; &#160;$(ECHO)&#160;&#34;&#160;&#160;.pb_ram&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0xfedfa000&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;:&gt;.&#160;&#160;&#160;&#160;&#160;/*&#160;&#160;post-build&#160;RAM&#160;area&#160;*/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#34;&#160;&gt;&gt;&#160;$@;&#160;\&#160;<br/>…&#160;<br/>
+2.&#160;&#160;The&#160;defined labels&#160;can&#160;now&#160;be&#160;used&#160;for&#160;the&#160;#pragma-commands&#160;at&#160;the&#160;<br/>
+corresponding&#160;memory&#160;section&#160;keywords&#160;in&#160;file&#160;MemMap_Common.h:&#160;<br/>
+…&#160;&#160;<br/>
+#elif defined&#160;START_SEC_CONST_PBCFG &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;<br/>
+#&#160;define CONST_SEC_OPEN&#160;<br/>
+/*&#160;Enter here a #pragma command for opening the specified section */&#160;<br/>
+#&#160;pragma ghs section rodata=&#34;.pb_tscpb_data&#34;&#160;<br/>
+#&#160;undef START_SEC_CONST_PBCFG&#160;<br/>
+#&#160;undef MEMMAP_ERROR&#160;<br/>
+# ifdef MEMMAP_DETECT_ANY_ERROR&#160;<br/>
+# &#160;error &#34;The DEFINE: &#34;START_SEC_CONST_PBCFG&#34; is the obsolete&#160;one!&#34;&#160;<br/>
+# endif &#160; &#160; &#160; &#160;&#160;<br/>
+&#160;<br/>
+#elif&#160;defined&#160;START_SEC_PBCFG_GLOBALROOT &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;<br/>
+#&#160;define CONST_SEC_OPEN&#160;<br/>
+/* Enter here a #pragma command for opening the specified section */&#160;<br/>
+#&#160;pragma ghs section rodata=&#34;.pb_ecum_global_root&#34;&#160;<br/>
+#&#160;undef START_SEC_PBCFG_GLOBALROOT&#160;<br/>
+#&#160;undef MEMMAP_ERROR&#160;<br/>
+# ifdef MEMMAP_DETECT_ANY_ERROR&#160;<br/>
+# &#160;error &#34;The DEFINE: &#34;START_SEC_PBCFG_GLOBALROOT&#34; is the obsolete one!&#34;&#160;<br/>
+# endif&#160;&#160;<br/>
+…&#160;<br/>
+#elif&#160;defined&#160;STOP_SEC_CONST&#160;<br/>
+# if defined CONST_SEC_OPEN&#160;<br/>
+#&#160;&#160;undef CONST_SEC_OPEN&#160;<br/>
+/* Enter here a #pragma command for&#160;closing the specified section */&#160;<br/>
+/* This should switch back to the default section */&#160;<br/>
+#&#160;&#160;pragma ghs section rodata=default&#160;<br/>
+#&#160;&#160;undef STOP_SEC_CONST&#160;<br/>
+#&#160;&#160;undef MEMMAP_ERROR&#160;<br/>
+# else&#160;<br/>
+# &#160;error &#34;MemMap_Common.h: Const section closed but not opened one. Please close&#160;<br/>a const section [== usage of *_STOP_SEC_CONST_*] only if you have opened one [==&#160;<br/>usage of *_START_SEC_CONST_*]!&#34;&#160;<br/>
+#&#160;endif&#160;<br/>
+…&#160;<br/>
+#elif defined&#160;START_SEC_VAR_PBCFG &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;&#160;&#160;<br/>
+#&#160;define VAR_SEC_OPEN&#160;<br/>
+/* Enter here a #pragma command for opening the&#160;specified section */&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+#&#160;pragma ghs section bss=&#34;.pb_ram&#34;&#160;<br/>
+#&#160;undef START_SEC_VAR_PBCFG&#160;<br/>
+#&#160;undef MEMMAP_ERROR&#160;<br/>
+# ifdef MEMMAP_DETECT_ANY_ERROR&#160;<br/>
+# &#160;error &#34;The DEFINE: &#34;START_SEC_VAR_PBCFG&#34; is the obsolete one!&#34;&#160;<br/>
+#&#160;endif&#160;<br/>
+…&#160;<br/>
+#elif&#160;defined&#160;STOP_SEC_VAR&#160;<br/>
+# if defined&#160;VAR_SEC_OPEN&#160;<br/>
+#&#160;&#160;undef VAR_SEC_OPEN&#160;<br/>
+/* Enter here a #pragma command for closing the specified section */&#160;<br/>
+/* This should switch back to the default section */&#160;<br/>
+#&#160;&#160;pragma ghs section bss=default&#160;<br/>
+#&#160;&#160;undef STOP_SEC_VAR&#160;<br/>
+#&#160;&#160;undef MEMMAP_ERROR&#160;<br/>
+# else&#160;<br/>
+# &#160;error &#34;MemMap_Common.h: Var section closed but not opened one. Please close a&#160;<br/>var section [== usage of *_STOP_SEC_VAR_*] only if you have opened one [== usage&#160;<br/>of *_START_SEC_VAR_*]!&#34;&#160;<br/>
+#&#160;endif&#160;<br/>
+…&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>2.1.4&#160;</b><br/>
+<b>Usage&#160;of&#160;AUTOSAR&#160;4.2.2&#160;BSW module&#160;&#160;</b><br/>
+The&#160;Vector&#160;specific&#160;implementation&#160;of&#160;memory&#160;mapping&#160;&#160;[MICROSAR]&#160;complies&#160;with&#160;both&#160;<br/>AUTOSAR&#160;4.0.3&#160;&#160;and&#160;AUTOSAR&#160;4.2.2.&#160;&#160;Due&#160;&#160;to&#160;&#160;fact&#160;&#160;that&#160;&#160;the&#160;AUTOSAR&#160;4.2.2&#160;&#160;defines&#160;&#160;that&#160;<br/>each&#160;&#160;BSW&#160;&#160;module&#160;&#160;must&#160;&#160;include&#160;&#160;an&#160;&#160;own&#160;&#160;memory&#160;&#160;mapping&#160;&#160;header&#160;&#160;file&#160;<br/>[see&#160;SWS_MemMap_00032]&#160;one&#160;manual&#160;adaption&#160;is&#160;required&#160;for&#160;BSW&#160;modules&#160;which&#160;are&#160;<br/>implemented&#160;&#160;according&#160;&#160;to&#160;AUTOSAR&#160;&#160;4.2.2&#160;&#160;and&#160;&#160;are&#160;&#160;intended&#160;&#160;to&#160;&#160;be&#160;&#160;used&#160;&#160;in&#160;&#160;combination&#160;<br/>with&#160;the&#160;Vector&#160;specific&#160;implementation&#160;of&#160;memory&#160;mapping&#160;especially&#160;in&#160;case&#160;of&#160;using&#160;of&#160;<br/>default&#160;memory&#160;sections.&#160;The&#160;required&#160;adaption&#160;is&#160;described&#160;below.&#160;<br/>
+&#160;<br/>
+<b>&#160;&#160;</b>Add&#160;the&#160;following&#160;code&#160;at&#160;the&#160;very&#160;bottom&#160;to&#160;the&#160;BSW&#160;module&#160;specific memory&#160;<br/>
+mapping&#160;header&#160;file&#160;&lt;Msn&gt;_MemMap.h:&#160;#include “MemMap_Common.h”&#160;<br/>[see<a href="TechnicalReference_Asr_MemoryMappings.html#7">&#160;Figure&#160;2-1]</a>.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-12_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>3&#160;&#160;Appendix&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Sub-keywords&#160;used&#160;in the&#160;memory&#160;section and compiler specific&#160;keywords&#160;</b><br/>
+The&#160;memory&#160;section&#160;and&#160;compiler&#160;specific&#160;keywords&#160;mentioned&#160;in&#160;the&#160;following&#160;chapters&#160;<br/><a href="TechnicalReference_Asr_MemoryMappings.html#12">3.2&#160;&#160;</a><a href="TechnicalReference_Asr_MemoryMappings.html#17">and&#160;&#160;3.3&#160;&#160;</a>generally&#160;&#160;have&#160;&#160;self-explanatory&#160;&#160;names.&#160;&#160;Despite&#160;&#160;this&#160;&#160;fact&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;<br/>gives more information&#160;about&#160;used&#160;sub-keywords.&#160;<br/>
+&#160;<br/>
+<b>Sub-keyword&#160;</b><br/>
+<b>Kind&#160;of&#160;memory&#160;section&#160;which&#160;is&#160;meant&#160;</b><br/>
+CODE&#160;<br/>
+Memory&#160;section&#160;for code&#160;(ROM)&#160;<br/>
+CONST&#160;<br/>
+Memory&#160;section&#160;for constant&#160;data&#160;(ROM)&#160;<br/>
+VAR&#160;<br/>
+Memory&#160;section&#160;for variables&#160;(RAM)&#160;<br/>
+FAST&#160;<br/>
+Memory&#160;section&#160;with fast read&#160;and&#160;write&#160;accesses&#160;(ROM&#160;/&#160;<br/>RAM)&#160;<br/>
+ISR&#160;<br/>
+Memory&#160;section&#160;for interrupt service routines&#160;(generally&#160;ROM)&#160;<br/>
+8BIT&#160;(since&#160;ASR&#160;4.0.3:&#160;8)&#160;<br/>
+Memory&#160;section&#160;for one byte data (ROM /&#160;RAM)&#160;<br/>
+16BIT&#160;(since&#160;ASR&#160;4.0.3:&#160;16)&#160;<br/>
+Memory&#160;section&#160;for &#160;two bytes&#160;data&#160;(ROM /&#160;RAM)&#160;<br/>
+32BIT&#160;(since&#160;ASR&#160;4.0.3:&#160;32)&#160;<br/>
+Memory&#160;section&#160;for four&#160;bytes&#160;data&#160;(ROM /&#160;RAM)&#160;<br/>
+64BIT&#160;(since&#160;ASR&#160;4.0.3:&#160;64)&#160;<br/>
+Memory&#160;section&#160;for eight&#160;bytes&#160;data&#160;(ROM /&#160;RAM)&#160;<br/>
+UNSPECIFIED&#160;<br/>
+Memory&#160;section&#160;for data&#160;(ROM /&#160;RAM)&#160;which type is&#160;variable,&#160;<br/>depends&#160;on&#160;configuration and&#160;is&#160;determined&#160;only&#160;at&#160;compile&#160;<br/>time&#160;(e.g. enumeration, boolean,&#160;structure)&#160;<br/>
+PBCFG_GLOBALROOT&#160;<br/>
+The&#160;top&#160;of&#160;the&#160;memory&#160;section&#160;for post-build ROM data.&#160;Only&#160;<br/>the&#160;table&#160;EcuM_GlobalConfigRoot&#160;shall&#160;be placed&#160;into&#160;this&#160;<br/>section.&#160;&#160;<br/>
+(CONST_)PBCFG&#160;<br/>
+Memory&#160;section&#160;for post-build&#160;ROM data.&#160;&#160;<br/>NOTE:&#160;The&#160;data&#160;which&#160;resides&#160;in&#160;this&#160;section&#160;may&#160;change&#160;at&#160;<br/>post-build&#160;time.&#160;<br/>
+INIT&#160;<br/>
+Memory&#160;section&#160;for pre-initialized&#160;variables&#160;(RAM)&#160;e.g.&#160;by&#160;the&#160;<br/>start-up&#160;code&#160;&#160;<br/>
+NOINIT&#160;(since&#160;ASR&#160;4.0.3:&#160;NO_INIT)&#160;<br/>
+Memory&#160;section&#160;for&#160;not pre-initialized&#160;variables&#160;(RAM)&#160;<br/>
+ZERO_INIT&#160;(since&#160;ASR&#160;4.0.3:&#160;CLEARED)&#160;&#160;Memory&#160;section&#160;for&#160;pre-initialized&#160;variables&#160;with&#160;zeros&#160;<br/>
+VAR_PBCFG&#160;<br/>
+Memory&#160;section&#160;for post-build&#160;RAM&#160;variables&#160;<br/>NOTE:&#160;The&#160;allocation&#160;of&#160;this&#160;memory&#160;area&#160;can&#160;change&#160;at&#160;<br/>post-build&#160;time.&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Explanation&#160;of&#160;sub-keywords&#160;used&#160;in&#160;the&#160;memory&#160;section&#160;and&#160;compiler&#160;specific&#160;keywords&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Memory&#160;section&#160;keywords&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;tables&#160;&#160;listed&#160;&#160;below&#160;&#160;give&#160;&#160;an&#160;&#160;overview&#160;&#160;about&#160;&#160;pre-defined&#160;&#160;memory&#160;&#160;section&#160;<br/>keywords&#160;used&#160;by&#160;the&#160;BSW&#160;modules.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-13_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-13_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;memory&#160;section&#160;keywords&#160;listed&#160;below&#160;are the&#160;default&#160;ones.&#160;Apart&#160;from&#160;<br/>
+&#160;&#160;these&#160;ones&#160;if&#160;required&#160;each&#160;BSW&#160;module&#160;may&#160;define&#160;further&#160;own&#160;ones.&#160;Please&#160;<br/>
+see&#160;the&#160;files&#160;&lt;Msn&gt;_MemMap.h&#160;[in&#160;case&#160;of&#160;an&#160;AUTOSAR&#160;4.2.2&#160;BSW&#160;module]&#160;or&#160;<br/>MemMap.h&#160;[in case&#160;of&#160;an&#160;AUTOSAR&#160;4.0.3 BSW&#160;module]&#160;included&#160;in&#160;your delivery.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>3.2.1&#160;</b><br/>
+<b>Memory&#160;section&#160;keywords&#160;for code&#160;</b><br/>
+&#160;<br/>
+<b>BSW&#160;specific&#160;memory&#160;section&#160;keyword&#160;</b><br/>
+<b>Default&#160;memory&#160;section keyword&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_CODE&#160;<br/>
+START_SEC_CODE&#160;<br/>
+&lt;MSN&gt;_START_SEC_CODE_FAST&#160;<br/>
+START_SEC_CODE_FAST&#160;<br/>
+&lt;MSN&gt;_START_SEC_CODE_ISR&#160;<br/>
+START_SEC_CODE_ISR&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Memory&#160;sections&#160;for&#160;code&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>&#160;<br/>Note&#160;<br/></b>For&#160;&#160;each&#160;&#160;START-section&#160;&#160;keyword&#160;&#160;a&#160;&#160;corresponding&#160;&#160;STOP-section&#160;&#160;keyword&#160;&#160;is&#160;<br/>
+&#160;&#160;defined&#160;&#160;e.g.&#160;&#160;&lt;MSN&gt;_STOP_SEC_CODE.&#160;&#160;By&#160;&#160;default&#160;&#160;all&#160;&#160;these&#160;&#160;STOP-section&#160;<br/>
+keywords&#160;&#160;are&#160;&#160;mapped&#160;&#160;to&#160;&#160;the&#160;&#160;same&#160;&#160;keyword&#160;&#160;STOP_SEC_CODE.&#160;&#160;Hence&#160;&#160;use&#160;&#160;a&#160;<br/>#pragma&#160;command&#160;to&#160;switch&#160;back to&#160;the&#160;default section&#160;for code.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>3.2.2&#160;</b><br/>
+<b>Memory&#160;section keywords&#160;for constants&#160;</b><br/>
+&#160;<br/>
+<b>BSW&#160;specific&#160;memory&#160;section&#160;keyword&#160;</b><br/>
+<b>Default&#160;memory&#160;section keyword&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_CONST_8BIT&#160;<br/>
+START_SEC_CONST_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_16BIT&#160;<br/>
+START_SEC_CONST_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_32BIT&#160;<br/>
+START_SEC_CONST_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_64BIT&#160;<br/>
+START_SEC_CONST_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_UNSPECIFIED&#160;<br/>
+START_SEC_CONST_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_8BIT&#160;<br/>
+START_SEC_FAST_CONST_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_16BIT&#160;<br/>
+START_SEC_FAST_CONST_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_32BIT&#160;<br/>
+START_SEC_FAST_CONST_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_64BIT&#160;<br/>
+START_SEC_FAST_CONST_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_UNSPECIFIED&#160;<br/>
+START_SEC_FAST_CONST_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_PBCFG_GLOBALROOT&#160;<br/>
+START_SEC_PBCFG_GLOBALROOT&#160;<br/>
+&lt;MSN&gt;_START_SEC_PBCFG&#160;<br/>
+START_SEC_CONST_PBCFG&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Memory&#160;sections&#160;for&#160;constants&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-14_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-14_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>&#160;<br/>Note&#160;<br/></b>For&#160;&#160;each&#160;&#160;START-section&#160;&#160;keyword&#160;&#160;a&#160;&#160;corresponding&#160;&#160;STOP-section&#160;&#160;keyword&#160;&#160;is&#160;<br/>
+&#160;&#160;defined&#160;&#160;e.g.&#160;&#160;&lt;MSN&gt;_STOP_SEC_CONST_32BIT.&#160;&#160;By&#160;&#160;default&#160;&#160;all&#160;&#160;these&#160;<br/>
+STOP-section&#160;keywords&#160;are&#160;mapped&#160;to&#160;&#160;the&#160;same&#160;keyword&#160;STOP_SEC_CONST.&#160;<br/>Hence&#160;&#160;use&#160;&#160;a&#160;&#160;#pragma&#160;&#160;command&#160;&#160;to&#160;&#160;switch&#160;&#160;back&#160;&#160;to&#160;&#160;the&#160;&#160;default&#160;&#160;section&#160;&#160;for&#160;<br/>constants.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;&#160;mentioned&#160;&#160;BSW&#160;module&#160;&#160;specific&#160;&#160;keywords&#160;&#160;conform&#160;&#160;to&#160;AUTOSAR&#160;&#160;releases&#160;&#160;3.x.x&#160;&#160;till&#160;<br/>4.0.1.&#160;&#160;Since&#160;&#160;release&#160;&#160;4.0.3&#160;&#160;the&#160;&#160;naming&#160;&#160;convention&#160;&#160;of&#160;&#160;some&#160;&#160;keywords&#160;&#160;has&#160;&#160;changed.&#160;&#160;The&#160;<br/>following&#160;table&#160;shows&#160;the&#160;related&#160;changes.&#160;<br/>
+&#160;<br/>
+<b>Keyword&#160;in&#160;AUTOSAR&#160;3.x.x&#160;till&#160;4.0.1&#160;</b><br/>
+<b>Keyword&#160;in&#160;AUTOSAR&#160;4.0.3&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_CONST_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_64&#160;<br/>
+Table&#160;3-4&#160;&#160;&#160;Change&#160;of&#160;memory&#160;section&#160;keywords&#160;for&#160;constants&#160;in&#160;ASR&#160;4.0.3&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Although&#160;names&#160;of&#160;some&#160;keywords&#160;have&#160;changed&#160;most&#160;of&#160;ASR&#160;<br/>
+&#160;&#160;4.0.3&#160;BSW&#160;modules&#160;provided&#160;by&#160;Vector Informatik GmbH still&#160;use&#160;the&#160;old&#160;<br/>
+naming&#160;convention&#160;of&#160;memory&#160;section&#160;keywords.&#160;The&#160;BSW&#160;module&#160;MemMap&#160;at&#160;<br/>all&#160;provided&#160;by&#160;Vector Informatik GmbH&#160;accepts&#160;both&#160;naming&#160;conventions.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>3.2.3&#160;</b><br/>
+<b>Memory&#160;section&#160;keywords&#160;for variables&#160;</b><br/>
+&#160;<br/>
+<b>BSW&#160;specific&#160;memory&#160;section&#160;keyword&#160;</b><br/>
+<b>Default&#160;memory&#160;section keyword&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_8BIT&#160;<br/>
+START_SEC_VAR_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_16BIT&#160;<br/>
+START_SEC_VAR_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_32BIT&#160;<br/>
+START_SEC_VAR_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_64BIT&#160;<br/>
+START_SEC_VAR_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_UNSPECIFIED&#160;<br/>
+START_SEC_VAR_INIT_UNSPECIFIED&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>BSW&#160;specific&#160;memory&#160;section&#160;keyword&#160;</b><br/>
+<b>Default&#160;memory&#160;section keyword&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_8BIT&#160;<br/>
+START_SEC_VAR_NOINIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_16BIT&#160;<br/>
+START_SEC_VAR_NOINIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_32BIT&#160;<br/>
+START_SEC_VAR_NOINIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_64BIT&#160;<br/>
+START_SEC_VAR_NOINIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_PBCFG&#160;<br/>
+START_SEC_VAR_PBCFG&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_8BIT&#160;<br/>
+START_SEC_VAR_ZERO_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_16BIT&#160;<br/>
+START_SEC_VAR_ZERO_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_32BIT&#160;<br/>
+START_SEC_VAR_ZERO_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_64BIT&#160;<br/>
+START_SEC_VAR_ZERO_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_UNSPECIFIED&#160;&#160;START_SEC_VAR_ZERO_INIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8BIT&#160;<br/>
+START_SEC_VAR_FAST_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16BIT&#160;<br/>
+START_SEC_VAR_FAST_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32BIT&#160;<br/>
+START_SEC_VAR_FAST_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64BIT&#160;<br/>
+START_SEC_VAR_FAST_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPECIFIED&#160;&#160;START_SEC_VAR_FAST_INIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_8BIT&#160;<br/>
+START_SEC_VAR_FAST_NOINIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_16BIT&#160;<br/>
+START_SEC_VAR_FAST_NOINIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_32BIT&#160;<br/>
+START_SEC_VAR_FAST_NOINIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_64BIT&#160;<br/>
+START_SEC_VAR_FAST_NOINIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_UNSPECIFI&#160;START_SEC_VAR_FAST_NOINIT_UNSPECIFIE<br/>ED&#160;<br/>
+D&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_8BIT&#160;<br/>
+START_SEC_VAR_FAST_ZERO_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_16BIT&#160;&#160;START_SEC_VAR_FAST_ZERO_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_32BIT&#160;&#160;START_SEC_VAR_FAST_ZERO_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_64BIT&#160;&#160;START_SEC_VAR_FAST_ZERO_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_UNSPEC&#160;START_SEC_VAR_FAST_ZERO_INIT_UNSPECI<br/>IFIED&#160;<br/>
+FIED&#160;<br/>
+Table&#160;3-5&#160;&#160;&#160;Memory&#160;sections&#160;for&#160;variables&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-16_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>&#160;<br/>Note&#160;<br/></b>For&#160;&#160;each&#160;&#160;START-section&#160;&#160;keyword&#160;&#160;a&#160;&#160;corresponding&#160;&#160;STOP-section&#160;&#160;keyword&#160;&#160;is&#160;<br/>
+&#160;&#160;defined&#160;&#160;e.g.&#160;&#160;&lt;MSN&gt;_STOP_SEC_VAR_INIT_32BIT.&#160;&#160;By&#160;&#160;default&#160;&#160;all&#160;&#160;these&#160;<br/>
+STOP-section&#160;&#160;keywords&#160;&#160;are&#160;&#160;mapped&#160;&#160;to&#160;&#160;the&#160;&#160;same&#160;&#160;keyword&#160;&#160;STOP_SEC_VAR.&#160;<br/>Hence&#160;&#160;use&#160;&#160;a&#160;&#160;#pragma&#160;&#160;command&#160;&#160;to&#160;&#160;switch&#160;&#160;back&#160;&#160;to&#160;&#160;the&#160;&#160;default&#160;&#160;section&#160;&#160;for&#160;<br/>variables.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+The&#160;&#160;mentioned&#160;&#160;BSW&#160;module&#160;&#160;specific&#160;&#160;keywords&#160;&#160;conform&#160;&#160;to&#160;AUTOSAR&#160;&#160;releases&#160;&#160;3.x.x&#160;&#160;till&#160;<br/>4.0.1.&#160;&#160;Since&#160;&#160;release&#160;&#160;4.0.3&#160;&#160;the&#160;&#160;naming&#160;&#160;convention&#160;&#160;of&#160;&#160;some&#160;&#160;keywords&#160;&#160;has&#160;&#160;changed.&#160;&#160;The&#160;<br/>following&#160;table&#160;shows&#160;the&#160;related&#160;changes.&#160;<br/>
+&#160;<br/>
+<b>Keyword&#160;in&#160;AUTOSAR&#160;3.x.x&#160;till&#160;4.0.1&#160;</b><br/>
+<b>Keyword&#160;in&#160;AUTOSAR&#160;4.0.3&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NO_INIT_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NO_INIT_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NO_INIT_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NO_INIT_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NO_INIT_UNSPECIF<br/>IED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_CLEARED_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_CLEARED_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_CLEARED_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_CLEARED_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_UNSPECIFIED&#160;&#160;&lt;MSN&gt;_START_SEC_VAR_CLEARED_UNSPECIF<br/>
+IED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPECIFIED&#160;&#160;&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPEC<br/>
+IFIED&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_16BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_32BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_64BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_UNSPECIFI&#160;&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_UNS<br/>ED&#160;<br/>
+PECIFIED&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-17_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-17_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-17_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>Keyword&#160;in&#160;AUTOSAR&#160;3.x.x&#160;till&#160;4.0.1&#160;</b><br/>
+<b>Keyword&#160;in&#160;AUTOSAR&#160;4.0.3&#160;</b><br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_8BIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_&#160;CLEARED_8&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_16BIT&#160;&#160;&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_16&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_32BIT&#160;&#160;&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_32&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_64BIT&#160;&#160;&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_64&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_UNSPEC&#160;&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_UNS<br/>IFIED&#160;<br/>
+PECIFIED&#160;<br/>
+Table&#160;3-6&#160;&#160;Change&#160;of&#160;memory&#160;section&#160;keywords&#160;for&#160;variables&#160;in&#160;ASR&#160;4.0.3&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>Although&#160;names&#160;of&#160;some&#160;keywords&#160;have&#160;changed&#160;most&#160;of&#160;AUTOSAR&#160;<br/>
+&#160;&#160;4.0.3&#160;BSW&#160;modules&#160;provided&#160;by&#160;Vector Informatik GmbH still&#160;use&#160;the&#160;old&#160;<br/>
+naming&#160;convention&#160;of&#160;memory&#160;section&#160;keywords.&#160;The&#160;BSW&#160;module&#160;MemMap&#160;at&#160;<br/>all&#160;provided&#160;by&#160;Vector Informatik GmbH&#160;accepts&#160;both&#160;naming&#160;conventions.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>3.3&#160;</b><br/>
+<b>Compiler specific&#160;keywords&#160;</b><br/>
+The&#160;following&#160;table&#160;gives&#160;an&#160;overview&#160;about&#160;available&#160;compiler&#160;specific&#160;keywords.&#160;These&#160;<br/>keywords&#160;are&#160;required&#160;to&#160;tell&#160;the&#160;compiler&#160;the&#160;memory&#160;location&#160;of&#160;the&#160;corresponding&#160;code&#160;<br/>and&#160;&#160;data&#160;&#160;segments.&#160;&#160;This&#160;&#160;information&#160;&#160;allows&#160;&#160;the&#160;&#160;compiler&#160;&#160;to&#160;&#160;create&#160;&#160;correct&#160;&#160;access&#160;<br/>instructions&#160;&#160;for&#160;&#160;corresponding&#160;&#160;data&#160;&#160;and&#160;&#160;code&#160;&#160;segments.&#160;&#160;&#160;&#160;&#160;&#160;The&#160;&#160;need&#160;&#160;of&#160;&#160;usage&#160;&#160;of&#160;&#160;these&#160;<br/>keywords&#160;depends&#160;on&#160;the&#160;used&#160;compiler and&#160;the&#160;memory&#160;model of&#160;used&#160;hardware.&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>The&#160;compiler specific keywords&#160;listed&#160;below&#160;are the&#160;default&#160;ones.&#160;Apart&#160;from&#160;<br/>
+&#160;&#160;these&#160;ones&#160;if&#160;required&#160;each&#160;BSW&#160;module&#160;may&#160;define&#160;further&#160;own&#160;ones.&#160;Please&#160;<br/>
+see&#160;file&#160;Compiler_Cfg.h&#160;included&#160;in&#160;your delivery.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Compiler&#160;specific keyword&#160;</b><br/>
+<b>Memory&#160;section&#160;the&#160;compiler&#160;specific&#160;keyword used&#160;for&#160;</b><br/>
+&lt;MSN&gt;_CODE&#160;<br/>
+&lt;MSN&gt;_START_SEC_CODE&#160;<br/>
+&lt;MSN&gt;_CODE_FAST&#160;<br/>
+&lt;MSN&gt;_START_SEC_CODE_FAST&#160;<br/>
+&lt;MSN&gt;_CODE_ISR&#160;<br/>
+&lt;MSN&gt;_START_SEC_CODE_ISR&#160;<br/>
+&lt;MSN&gt;_CONST&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_CONST_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_CONST_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_CONST_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_CONST_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_CONST_FAST&#160;<br/>
+&lt;MSN&gt;_START_SEC_FAST_CONST_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_FAST_CONST_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_FAST_CONST_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_FAST_CONST_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_FAST_CONST_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_PBCFG&#160;<br/>
+&lt;MSN&gt;_START_SEC_PBCFG_GLOBALROOT&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+&lt;MSN&gt;_START_SEC_CONST_PBCFG&#160;<br/>
+&lt;MSN&gt;_VAR_PBCFG&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_PBCFG&#160;<br/>
+&lt;MSN&gt;_VAR_INIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_INIT_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_INIT_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_INIT_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_INIT_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_INIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_VAR_NOINIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_NOINIT_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_NOINIT_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_NOINIT_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_NOINIT_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_VAR_ZERO_INIT&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_VAR_INIT_FAST&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_VAR_NOINIT_FAST&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_UNSPECIFIED&#160;<br/>
+&lt;MSN&gt;_VAR_ZERO_INIT_FAST&#160;<br/>
+&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_8BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_16BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_32BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_64BIT&#160;<br/>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_UNSPECIFIED&#160;<br/>
+Table&#160;3-7&#160;&#160;&#160;Compiler&#160;specific&#160;keywords&#160;and&#160;the&#160;related&#160;memory&#160;sections&#160;they&#160;used&#160;for&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>4&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>4.1&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+ASR&#160;<br/>
+AUTOSAR&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+GHS&#160;<br/>
+Greenhills&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+MIP/Mip&#160;<br/>
+Module Implementation&#160;Prefix&#160;<br/>
+MSN/Msn&#160;<br/>
+Module Short&#160;Name&#160;<br/>
+RAM&#160;<br/>
+Random&#160;Access&#160;Memory&#160;<br/>
+ROM&#160;<br/>
+Read Only&#160;Memory&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_Asr_MemoryMapping-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR&#160;Memory&#160;Mapping&#160;<br/>
+<b>5&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more&#160;information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.3.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.6.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#5">1 Introduction</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#6">2 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#6">2.1 Memory section keywords</a>
+<ul>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#7">2.1.1 Declaration of code and data segments in AUTOSAR</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#8">2.1.2 Mapping of code and data segments to a dedicated memory area</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#9">2.1.3 Example: Mapping of data to a post-build memory section</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#11">2.1.4 Usage of AUTOSAR 4.2.2 BSW module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#12">3 Appendix</a>
+<ul>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#12">3.1 Sub-keywords used in the memory section and compiler specific keywords</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#12">3.2 Memory section keywords</a>
+<ul>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#13">3.2.1 Memory section keywords for code</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#13">3.2.2 Memory section keywords for constants</a></li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#14">3.2.3 Memory section keywords for variables</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#17">3.3 Compiler specific keywords</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#19">4 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#19">4.1 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Asr_MemoryMappings.html#20">5 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

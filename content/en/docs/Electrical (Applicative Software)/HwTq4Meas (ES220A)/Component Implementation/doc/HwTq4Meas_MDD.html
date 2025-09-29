@@ -1,0 +1,353 @@
+---
+title: HwTq4Meas_MDD
+linkTitle: HwTq4Meas_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>HwTq4Meas</strong></p>
+<p><strong>Oct 30, 2017</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>TATA ELXSI,</strong></p>
+<p><strong>TRIVANDRUM, INDIA</strong></p>
+<p><strong><br />
+<u>Change History</u></strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 28%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Krishna Anne</td>
+<td>1.0</td>
+<td>10-Jun-2016</td>
+</tr>
+<tr class="odd">
+<td>Updated to design revision 1.7.0</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>30-Nov-2016</td>
+</tr>
+<tr class="even">
+<td>Updated as per FDD revision 1.10.0</td>
+<td>TATA</td>
+<td>3.0</td>
+<td>30-Oct-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><u>Table of Contents</u></p>
+<p>1 Introduction 6</p>
+<p>1.1 Purpose 6</p>
+<p>2 HwTq4Meas &amp; High-Level Description 7</p>
+<p>3 Design details of software module 8</p>
+<p>3.1 Graphical representation of HwTq4Meas 8</p>
+<p>3.2 Data Flow Diagram 8</p>
+<p>3.2.1 Component level DFD 8</p>
+<p>3.2.2 Function level DFD 8</p>
+<p>4 Constant Data Dictionary 9</p>
+<p>4.1 Program (fixed) Constants 9</p>
+<p>4.1.1 Embedded Constants 9</p>
+<p>5 Software Component Implementation 10</p>
+<p>5.1.1 Init: HwTq4Meas_Init1 10</p>
+<p>5.1.1.1 Design Rationale 10</p>
+<p>5.1.1.2 Module Outputs 10</p>
+<p>5.1.2 Per: HwTq4Meas_Per1 10</p>
+<p>5.1.2.1 Design Rationale 10</p>
+<p>5.1.3 Per: HwTq4Meas_Per2 10</p>
+<p>5.1.3.1 Design Rationale 10</p>
+<p>5.1.4 Per: HwTq4Meas_Per3 10</p>
+<p>5.1.4.1 Design Rationale 10</p>
+<p>5.1.5 Per: HwTq4Meas_Per4 10</p>
+<p>5.1.5.1 Design Rationale 10</p>
+<p>5.2 Server Runables 10</p>
+<p>5.2.1 HwTq4AutTrim_Oper 10</p>
+<p>5.2.1.1 Design Rationale 10</p>
+<p>5.2.2 HwTq4ClrSnsrSca_Oper 10</p>
+<p>5.2.2.1 Design Rationale 10</p>
+<p>5.2.3 HwTq4ClrTrim_Oper 11</p>
+<p>5.2.3.1 Design Rationale 11</p>
+<p>5.2.4 HwTq4ReadSnsrSca_Oper 11</p>
+<p>5.2.4.1 Design Rationale 11</p>
+<p>5.2.5 HwTq4ReadTrim_Oper 11</p>
+<p>5.2.5.1 Design Rationale 11</p>
+<p>5.2.6 HwTq4TrimPrfmdSts_Oper 11</p>
+<p>5.2.6.1 Design Rationale 11</p>
+<p>5.2.7 HwTq4WrSnsrSca_Oper 11</p>
+<p>5.2.7.1 Design Rationale 11</p>
+<p>5.2.8 HwTq4WrTrim_Oper 11</p>
+<p>5.2.8.1 Design Rationale 11</p>
+<p>5.2.9 HwTq4SnsrScaPrfmdSts_Oper 11</p>
+<p>5.2.9.1 Design Rationale 11</p>
+<p>5.3 Module Internal (Local) Functions 11</p>
+<p>5.3.1 Local Function #1 11</p>
+<p>5.3.1.1 Design Rationale 12</p>
+<p>5.3.1.2 Processing 12</p>
+<p>6 Known Limitations with Design 13</p>
+<p>7 UNIT TEST CONSIDERATION 14</p>
+<p>Appendix A Abbreviations and Acronyms 15</p>
+<p>Appendix B Glossary 16</p>
+<p>Appendix C References 17</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>MDD for HwTq4Meas.</p>
+<h1 id="hwtq4meas-high-level-description">HwTq4Meas &amp; High-Level Description</h1>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<p>Please refer to the FDD.</p>
+<h2 id="graphical-representation-of-hwtq4meas">Graphical representation of HwTq4Meas</h2>
+<h2 id="data-flow-diagram">Data Flow Diagram<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:4.20833in;height:5.26042in" /></h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Constant Name</th>
+<th>Resolution</th>
+<th>Units</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Please refer to the FDD</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="init-hwtq4meas_init1">Init: HwTq4Meas_Init1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p>None</p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p>None</p>
+<h2 id="per-hwtq4meas_per1">Per: HwTq4Meas_Per1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p>Rte_Pim_HwTq4RawFastAdcIdxCntr is used in this periodic as a counter that increments from 0 to 7 and is used to write to an output buffer MotCtrlHwTq4RawFastAdcBuf accessed by Motor Control Manager. Whereas the FDD describes this counter as 1 based indexing that increments from 1 till 8. Effective they are same in terms of functionality.</p>
+<h2 id="per-hwtq4meas_per2">Per: HwTq4Meas_Per2</h2>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p>None</p>
+<h2 id="per-hwtq4meas_per3">Per: HwTq4Meas_Per3</h2>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p>None</p>
+<h2 id="per-hwtq4meas_per4">Per: HwTq4Meas_Per4</h2>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p>None</p>
+<h2 id="server-runables">Server Runables </h2>
+<h2 id="hwtq4auttrim_oper">HwTq4AutTrim_Oper</h2>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4clrsnsrsca_oper">HwTq4ClrSnsrSca_Oper</h2>
+<h2 id="design-rationale-6">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4clrtrim_oper">HwTq4ClrTrim_Oper</h2>
+<h2 id="design-rationale-7">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4readsnsrsca_oper">HwTq4ReadSnsrSca_Oper</h2>
+<h2 id="design-rationale-8">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4readtrim_oper">HwTq4ReadTrim_Oper</h2>
+<h2 id="design-rationale-9">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4trimprfmdsts_oper">HwTq4TrimPrfmdSts_Oper</h2>
+<h2 id="design-rationale-10">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4wrsnsrsca_oper">HwTq4WrSnsrSca_Oper</h2>
+<h2 id="design-rationale-11">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4wrtrim_oper">HwTq4WrTrim_Oper</h2>
+<h2 id="design-rationale-12">Design Rationale</h2>
+<p>None</p>
+<h2 id="hwtq4snsrscaprfmdsts_oper">HwTq4SnsrScaPrfmdSts_Oper</h2>
+<h2 id="design-rationale-13">Design Rationale</h2>
+<p>None</p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<h2 id="local-function-1">Local Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 37%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>HwTqQlfr</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>NtcSts_Cnt_T_enum</td>
+<td>SigQlfr1</td>
+<td>SIGQLFR_NORES (0U)</td>
+<td>SIGQLFR_FAILD (2U)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ParamByte_Cnt_T_u08</td>
+<td>uint8</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>* HwTq4Qlfr_Cnt_T_enum</td>
+<td>SigQlfr1</td>
+<td>SIGQLFR_NORES (0U)</td>
+<td>SIGQLFR_FAILD (2U)</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-rationale-14">Design Rationale</h2>
+<h2 id="processing">Processing</h2>
+<p>Please refer to the below path in the FDD model.</p>
+<p>ES220A_HwTq4Meas/HwTq4Meas/HwTq4MeasPer2/HwTqQlfr</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None.</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p>Rte_Pim_HwTq4PrevRollgCntr is being used as a rolling counter. Hence the overflow is intentional.</p>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>ES220A_HwTq4Meas_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>

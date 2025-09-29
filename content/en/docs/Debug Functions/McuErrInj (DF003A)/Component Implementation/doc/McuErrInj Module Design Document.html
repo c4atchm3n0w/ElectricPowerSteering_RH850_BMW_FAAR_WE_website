@@ -1,0 +1,393 @@
+---
+title: McuErrInj Module Design Document
+linkTitle: McuErrInj Module Design Document
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>McuErrInj</strong></p>
+<p><strong>Jul 25, 2017</strong></p>
+<p><strong>Prepared For:</strong></p>
+<p><strong>Software Engineering</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong><u>Saginaw, MI, USAChange</u></strong> History</p>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 20%" />
+<col style="width: 11%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>Initial Version</td>
+<td>Avinash James</td>
+<td>1.0</td>
+<td>15-Mar-2017</td>
+</tr>
+<tr class="odd">
+<td>Added the global functions</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>25-Jul-2017</td>
+</tr>
+</tbody>
+</table>
+<p><u>Table of Contents</u></p>
+<p><a href="#introduction">1 Introduction 5</a></p>
+<p><a href="#purpose">1.1 Purpose 5</a></p>
+<p><a href="#mcudiagc-high-level-description">2 McuDiagc &amp; High-Level Description 6</a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module 7</a></p>
+<p><a href="#graphical-representation-of-mcudiagc">3.1 Graphical representation of McuDiagc 7</a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram 7</a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD 7</a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD 7</a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary 8</a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants 8</a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants 8</a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation 9</a></p>
+<p><a href="#sub-module-functions">5.1 Sub-Module Functions 9</a></p>
+<p><a href="#init-mcuerrinjinit1">5.1.1 Init: McuErrInjInit1 9</a></p>
+<p><a href="#design-rationale">5.1.1.1 Design Rationale 9</a></p>
+<p><a href="#module-outputs">5.1.1.2 Module Outputs 9</a></p>
+<p><a href="#per-mcuerrinjper1">5.1.2 Per: McuErrInjPer1 9</a></p>
+<p><a href="#design-rationale-1">5.1.2.1 Design Rationale 9</a></p>
+<p><a href="#store-module-inputs-to-local-copies">5.1.2.2 Store Module Inputs to Local copies 9</a></p>
+<p><a href="#processing-of-function">5.1.2.3 (Processing of function)……… 9</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">5.1.2.4 Store Local copy of outputs into Module Outputs 9</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs-1">5.1.2.5 Store Local copy of outputs into Module Outputs 9</a></p>
+<p><a href="#server-runnable">5.2 Server Runnable 10</a></p>
+<p><a href="#clrerrinjreg_oper">5.2.1 ClrErrInjReg_Oper 10</a></p>
+<p><a href="#design-rationale-2">5.2.1.1 Design Rationale 10</a></p>
+<p><a href="#store-module-inputs-to-local-copies-1">5.2.1.2 Store Module Inputs to Local copies 10</a></p>
+<p><a href="#processing-of-function-1">5.2.1.3 (Processing of function)……… 10</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs-2">5.2.1.4 Store Local copy of outputs into Module Outputs 10</a></p>
+<p><a href="#readerrinjreg_oper">5.2.1 ReadErrInjReg_Oper 10</a></p>
+<p><a href="#design-rationale-3">5.2.1.1 Design Rationale 10</a></p>
+<p><a href="#store-module-inputs-to-local-copies-2">5.2.1.2 Store Module Inputs to Local copies 10</a></p>
+<p><a href="#processing-of-function-2">5.2.1.3 (Processing of function)……… 10</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs-3">5.2.1.4 Store Local copy of outputs into Module Outputs 10</a></p>
+<p><a href="#upderrinjreg_oper">5.2.1 UpdErrInjReg_Oper 10</a></p>
+<p><a href="#design-rationale-4">5.2.1.1 Design Rationale 10</a></p>
+<p><a href="#store-module-inputs-to-local-copies-3">5.2.1.2 Store Module Inputs to Local copies 10</a></p>
+<p><a href="#processing-of-function-3">5.2.1.3 (Processing of function)……… 10</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs-4">5.2.1.4 Store Local copy of outputs into Module Outputs 10</a></p>
+<p><a href="#strterrinjcntr">5.2.1 StrtErrInjCntr 11</a></p>
+<p><a href="#design-rationale-5">5.2.1.1 Design Rationale 11</a></p>
+<p><a href="#store-module-inputs-to-local-copies-4">5.2.1.2 Store Module Inputs to Local copies 11</a></p>
+<p><a href="#processing-of-function-4">5.2.1.3 (Processing of function)……… 11</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs-5">5.2.1.4 Store Local copy of outputs into Module Outputs 11</a></p>
+<p><a href="#interrupt-functions">5.3 Interrupt Functions 11</a></p>
+<p><a href="#module-internal-local-functions">5.4 Module Internal (Local) Functions 11</a></p>
+<p><a href="#global-functionmacro-definitions">5.5 GLOBAL Function/Macro Definitions 11</a></p>
+<p><a href="#global-function-1">5.5.1 GLObAL Function #1 11</a></p>
+<p><a href="#description">5.5.1.1 Description 11</a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design 12</a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION 13</a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms 14</a></p>
+<p><a href="#glossary">Appendix B Glossary 15</a></p>
+<p><a href="#references">Appendix C References 17</a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Module design document for Micro Controller Diagnostics Error Injection</p>
+<h1 id="mcudiagc-high-level-description"> McuDiagc &amp; High-Level Description</h1>
+<p>Refer the Design.</p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-mcudiagc">Graphical representation of McuDiagc</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:2.94167in;height:1.49167in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>N/A</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>N/A</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Units</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>MCUERRINJ_TESTRSTUKWN_CNT_U32</td>
+<td>1</td>
+<td>Cnt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SHIFTBYWORD_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>16U</td>
+</tr>
+<tr class="even">
+<td>SHIFTBYBYTE_CNT_U08</td>
+<td>1</td>
+<td>Cnt</td>
+<td>8U</td>
+</tr>
+<tr class="odd">
+<td>Refer .m file</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="global">Global</h4>
+<p>Currently the FDD has not been updated to show define the global constants. However the header file includes all the necessary global constants</p>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>The sub-module functions are grouped based on similar functionality that needs to be executed in a given “State” of the system (refer States and Modes). For a given module, the MDD will identify the type and number of sub-modules required. The sub-module types are described below.</p>
+<h3 id="init-mcuerrinjinit1">Init: McuErrInjInit1</h3>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="module-outputs">Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h3 class="unnumbered" id="section"></h3>
+<h3 id="per-mcuerrinjper1">Per: McuErrInjPer1</h3>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="processing-of-function">(Processing of function)………</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-1">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="server-runnable">Server Runnable </h2>
+<h3 id="clrerrinjreg_oper">ClrErrInjReg_Oper</h3>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-1"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-2">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h3 id="readerrinjreg_oper">ReadErrInjReg_Oper</h3>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p><em>Refer FDD. The function returns a 0 value in the case when the MCUERRINJ is defined as STD_OFF. This is done for static compliance as the actual functional code returns the value of BRAMDAT2 when</em> <em>MCUERRINJ is defined as STD_ON which is encapsulated under the compiler define and when its STD_OFF for the pointer variable to have a default value, we return 0.</em></p>
+<h2 id="store-module-inputs-to-local-copies-2">Store Module Inputs to Local copies</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-2"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-3">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h3 id="upderrinjreg_oper">UpdErrInjReg_Oper</h3>
+<h2 id="design-rationale-4">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-module-inputs-to-local-copies-3">Store Module Inputs to Local copies</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-3"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-4">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h3 id="strterrinjcntr">StrtErrInjCntr</h3>
+<h2 id="design-rationale-5">Design Rationale</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-module-inputs-to-local-copies-4">Store Module Inputs to Local copies</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="processing-of-function-4"> (Processing of function)………</h2>
+<p><em>Refer FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-5">Store Local copy of outputs into Module Outputs</h2>
+<p><em>None</em></p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="module-internal-local-functions">Module Internal (Local) Functions</h2>
+<p><em>None</em></p>
+<h2 id="global-functionmacro-definitions">GLOBAL Function/Macro Definitions</h2>
+<h2 id="global-function-1">GLObAL Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>McuDiagcTestTrustd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description">Description</h2>
+<p>Trusted function that performs the tests which need to run in supervisor mode of the processor as some tests needs register access at supervisor level.</p>
+<h2 id="global-functions">GLObAL Functions</h2>
+<p>InjVrfyCritRegErr()</p>
+<p>InjMcuVltgMonrErr()</p>
+<p>InjClkMonrErr()</p>
+<p>InjOsTmpGenericRtErr ()</p>
+<p>InjOsPrmntGenericRtErr ()</p>
+<p>InjWdgErr ()</p>
+<p>InjFpuErr ()</p>
+<p>InjMemProtnErr ()</p>
+<p>InjModErr ()</p>
+<p>InjMcuRtErr ()</p>
+<p>InjProgSeqErr ()</p>
+<p>InjPbgRtErr ()</p>
+<p>InjRamErr()</p>
+<p>InjEcmMstChkrRtErr()</p>
+<p>InjUkwnStrtUpDetdErr()</p>
+<p>InjIpgRtErr()</p>
+<p>InjRtPegErr()</p>
+<p>InjDataParErr()</p>
+<blockquote>
+<p>InjDmaErr()</p>
+</blockquote>
+<p>InjMcuDiagcErr()</p>
+<blockquote>
+<p>InjAdcErr()</p>
+<p>InjSwFpuErr()</p>
+</blockquote>
+<h2 id="description-1">Description</h2>
+<p>The above list is the list of global functions which are used for error injection which gets defined in multiple FDDs based of the NTC they are trying to set. These global functions are only enabled when the #define MCUDIAGCERRINJ is made STD_ON in the McuDiagcErrInj header file. So, DF003A FDD is the owner of these global functions though they are defined in multiple files. Return type and parameter lists are both void for the above defined ones</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD – ES002A McuDiagc</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>

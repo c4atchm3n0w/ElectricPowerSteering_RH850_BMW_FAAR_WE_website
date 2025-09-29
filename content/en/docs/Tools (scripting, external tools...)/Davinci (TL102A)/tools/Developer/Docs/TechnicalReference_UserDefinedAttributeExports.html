@@ -1,0 +1,346 @@
+---
+title: TechnicalReference_UserDefinedAttributeExports
+linkTitle: TechnicalReference_UserDefinedAttributeExports
+weight: 30
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>User-defined&#160;attribute&#160;XML-export&#160;</b><br/>
+Technical&#160;Reference&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Version&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Authors:&#160;</b><br/>
+Michael&#160;Hoffmann,&#160;Andreas&#160;Claus&#160;<br/>
+<b>Version:&#160;</b><br/>
+1.3&#160;<br/>
+<b>Status:&#160;</b><br/>
+released&#160;(in&#160;preparation/completed/inspected/released)&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-2_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>History&#160;</b><br/>
+&#160;<br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;&#160;Remarks&#160;</b><br/>
+Hn&#160;<br/>
+2007-02-02&#160;<br/>
+1.0&#160;<br/>
+Document&#160;released&#160;<br/>
+Cs&#160;<br/>
+2007-11-28&#160;<br/>
+1.1&#160;<br/>
+New&#160;document&#160;template;&#160;minor&#160;corrections&#160;<br/>
+Hn&#160;<br/>
+2008-02-08&#160;<br/>
+1.2&#160;<br/>
+Document&#160;updated&#160;<br/>
+Cs&#160;<br/>
+2012-04-11&#160;<br/>
+1.3&#160;<br/>
+DCF&#160;workspaces&#160;added;&#160;minor&#160;corrections&#160;<br/>
+<b>&#160;</b><br/>
+<b>Contents</b>&#160;<br/>
+<b>1</b><br/>
+<b>Overview&#160;...................................................................................................................&#160;3</b><br/>
+1.1<br/>
+Terms&#160;and&#160;Acronyms&#160;..................................................................................&#160;3<br/>
+<b>2</b><br/>
+<b>User-defined&#160;attributes&#160;in&#160;DaVinci&#160;..........................................................................&#160;4</b><br/>
+2.1<br/>
+Creating&#160;user-defined&#160;attribute&#160;definition&#160;....................................................&#160;4<br/>
+2.2<br/>
+User-defined&#160;attribute&#160;usage&#160;.......................................................................&#160;5<br/>
+2.3<br/>
+Creating&#160;the&#160;XML-export&#160;.............................................................................&#160;6<br/>
+<b>3</b><br/>
+<b>Design&#160;object&#160;reference&#160;...........................................................................................&#160;7</b><br/>
+<b>4</b><br/>
+<b>Attribute&#160;definition&#160;resolution&#160;.................................................................................&#160;8</b><br/>
+4.1<br/>
+Reference&#160;of&#160;global&#160;attribute&#160;definition&#160;values&#160;.............................................&#160;8<br/>
+4.2<br/>
+Reference&#160;of&#160;local&#160;attribute&#160;value&#160;................................................................&#160;9<br/>
+<b>5</b><br/>
+<b>DCF&#160;Workspaces&#160;....................................................................................................&#160;10</b><br/>
+5.1<br/>
+Global&#160;attribute&#160;definition&#160;file&#160;.....................................................................&#160;10<br/>
+5.2<br/>
+Loading&#160;attribute&#160;definitions&#160;......................................................................&#160;10<br/>
+<b>6</b><br/>
+<b>Contact&#160;....................................................................................................................&#160;11</b><br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-3_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>1&#160;&#160;&#160;Overview&#160;</b><br/>
+With&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;Developer&#160;&#160;2.1&#160;&#160;and&#160;&#160;later&#160;&#160;user-defined&#160;&#160;attribute&#160;&#160;definitions&#160;&#160;can&#160;&#160;be&#160;<br/>
+exported.&#160;This&#160;document&#160;describes&#160;the&#160;usage&#160;of&#160;the&#160;exported&#160;XML&#160;file&#160;format.&#160;<br/>
+<b>1.1&#160;&#160;Terms&#160;and&#160;Acronyms&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Definition&#160;</b><br/>
+DaVinci&#160;DEV&#160;<br/>
+DaVinci&#160;Developer&#160;<br/>
+AR&#160;<br/>
+AUTOSAR&#160;–&#160;Automotive&#160;Open&#160;System&#160;Architecture&#160;<br/>
+GUI&#160;<br/>
+Graphical&#160;user&#160;interface&#160;<br/>
+DCF&#160;<br/>
+DaVinci&#160;configuration&#160;file&#160;workspace&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-4_2.jpg"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>2&#160;&#160;User-defined&#160;attributes&#160;in&#160;DaVinci&#160;</b><br/>
+DaVinci&#160;DEV&#160;are&#160;allows&#160;the&#160;definition&#160;of&#160;user-defined&#160;attributes&#160;for&#160;certain&#160;design&#160;elements&#160;<br/>
+visible&#160;within&#160;the&#160;GUI.&#160;<br/>
+The&#160;&#160;set&#160;&#160;of&#160;&#160;design&#160;&#160;elements&#160;&#160;which&#160;&#160;are&#160;&#160;providing&#160;&#160;the&#160;&#160;definition&#160;&#160;of&#160;&#160;user-defined&#160;&#160;attributes&#160;<br/>
+depends&#160;on&#160;the&#160;tool&#160;version.&#160;<br/>
+<b>2.1&#160;&#160;Creating&#160;user-defined&#160;attribute&#160;definition&#160;</b><br/>
+To&#160;create&#160;a&#160;user-defined&#160;attribute&#160;definition&#160;open&#160;the&#160;workspace&#160;global&#160;attribute&#160;definition&#160;<br/>
+table&#160;available&#160;on&#160;the&#160;main&#160;menu&#160;‘View&#160;&#160;Attribute&#160;Definition…’.&#160;<br/>
+Each&#160;&#160;user-defined&#160;&#160;attribute&#160;&#160;is&#160;&#160;related&#160;&#160;to&#160;&#160;a&#160;&#160;DaVinci&#160;&#160;object&#160;&#160;type&#160;&#160;and&#160;&#160;must&#160;&#160;have&#160;&#160;a&#160;&#160;name&#160;<br/>
+which&#160;is&#160;unique&#160;in&#160;the&#160;scope&#160;of&#160;the&#160;attribute&#160;definition&#160;table.&#160;<br/>
+The&#160;&#160;definition&#160;&#160;of&#160;&#160;minimum,&#160;&#160;maximum,&#160;&#160;and&#160;&#160;default&#160;&#160;value&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;&#160;selected&#160;&#160;value&#160;<br/>
+type&#160;<br/>
+&#160;<br/>
+Figure&#160;1:&#160;Definition&#160;of&#160;user-defined&#160;attribute&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-5_2.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>2.2&#160;&#160;User-defined&#160;attribute&#160;usage&#160;</b><br/>
+Attribute&#160;&#160;definitions&#160;&#160;can&#160;&#160;be&#160;&#160;used&#160;&#160;at&#160;&#160;certain&#160;&#160;design&#160;&#160;objects&#160;&#160;of&#160;&#160;the&#160;&#160;workspace.&#160;&#160;For&#160;&#160;each&#160;<br/>
+attribute&#160;&#160;which&#160;&#160;is&#160;&#160;defined&#160;&#160;within&#160;&#160;the&#160;&#160;global&#160;&#160;attribute&#160;&#160;table&#160;&#160;and&#160;&#160;associated&#160;&#160;with&#160;&#160;the&#160;&#160;object&#160;<br/>
+type&#160;of&#160;the&#160;design&#160;object,&#160;a&#160;local&#160;value&#160;definition&#160;can&#160;be&#160;specified.&#160;&#160;<br/>
+These&#160;values&#160;are&#160;specific&#160;for&#160;each&#160;design&#160;object&#160;and&#160;are&#160;available&#160;in&#160;the&#160;properties&#160;dialog&#160;<br/>
+of&#160;the&#160;design&#160;object.&#160;<br/>
+A&#160;&#160;design&#160;&#160;object&#160;&#160;can&#160;&#160;only&#160;&#160;use&#160;&#160;those&#160;&#160;user-defined&#160;&#160;attributes&#160;&#160;which&#160;&#160;are&#160;&#160;defined&#160;&#160;within&#160;&#160;the&#160;<br/>
+global&#160;attribute&#160;definition&#160;table.&#160;<br/>
+&#160;<br/>
+Figure&#160;2:&#160;Definition&#160;of&#160;a&#160;local&#160;value&#160;of&#160;a&#160;user-defined&#160;attribute&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-6_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-6_2.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>2.3&#160;&#160;Creating&#160;the&#160;XML-export&#160;</b><br/>
+The&#160;&#160;export&#160;&#160;of&#160;&#160;user-defined&#160;&#160;attributes&#160;&#160;is&#160;&#160;always&#160;&#160;related&#160;&#160;to&#160;&#160;a&#160;&#160;preceded&#160;&#160;export&#160;&#160;of&#160;&#160;design&#160;<br/>
+elements.&#160;The&#160;export&#160;can&#160;be&#160;used&#160;with&#160;all&#160;supported&#160;AR&#160;versions.&#160;<br/>
+To&#160;create&#160;the&#160;XML&#160;export,&#160;select&#160;the&#160;appropriate&#160;design&#160;element&#160;within&#160;DaVinci&#160;DEV&#160;and&#160;<br/>
+choose&#160;the&#160;‘XML&#160;Export…’&#160;command&#160;from&#160;the&#160;context&#160;menu.&#160;<br/>
+The&#160;&#160;export&#160;&#160;dialog&#160;&#160;provides&#160;&#160;an&#160;&#160;option&#160;&#160;‘Export&#160;&#160;user-defined&#160;&#160;attributes’.&#160;&#160;If&#160;&#160;this&#160;&#160;option&#160;&#160;is&#160;<br/>
+selected&#160;&#160;an&#160;&#160;additional&#160;&#160;XML&#160;&#160;output&#160;&#160;file&#160;&#160;will&#160;&#160;be&#160;&#160;created.&#160;&#160;The&#160;&#160;name&#160;&#160;of&#160;&#160;the&#160;&#160;XML&#160;&#160;file&#160;&#160;is&#160;<br/>
+automatically&#160;&#160;created&#160;&#160;by&#160;&#160;using&#160;&#160;the&#160;&#160;name&#160;&#160;of&#160;&#160;the&#160;&#160;AR-XML&#160;&#160;output&#160;&#160;file&#160;&#160;plus&#160;&#160;the&#160;&#160;extension&#160;<br/>
+‘_gen_attr’&#160;(e.g.&#160;‘System_gen_attr.xml’).&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;3:&#160;User-defined&#160;attribute&#160;export&#160;option&#160;for&#160;XML-exports&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-7_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>3&#160;&#160;Design&#160;object&#160;reference&#160;</b><br/>
+The&#160;design&#160;object&#160;reference&#160;clarifies&#160;in&#160;which&#160;way&#160;a&#160;certain&#160;design&#160;object&#160;is&#160;related&#160;to&#160;the&#160;<br/>
+user-defined&#160;attribute&#160;definition&#160;within&#160;the&#160;attribute&#160;export&#160;file.&#160;<br/>
+An&#160;AR&#160;design&#160;object&#160;is&#160;referenced&#160;by&#160;an&#160;AR&#160;reference&#160;which&#160;contains&#160;the&#160;package&#160;path&#160;to&#160;<br/>
+the&#160;SHORT_NAME&#160;attribute&#160;of&#160;the&#160;referenced&#160;AR&#160;object.&#160;&#160;<br/>
+This&#160;reference&#160;is&#160;stored&#160;within&#160;the&#160;<b>Reference</b>&#160;attribute&#160;of&#160;the&#160;<b>ARObjectReference</b>&#160;tag&#160;<br/>
+within&#160;the&#160;user-defined&#160;attribute&#160;export&#160;XML&#160;file.&#160;<br/>
+Beside&#160;the&#160;AR&#160;reference&#160;the&#160;ARObjectReference&#160;tag&#160;also&#160;includes&#160;the&#160;XML&#160;tag&#160;of&#160;the&#160;<br/>
+referenced&#160;AR&#160;element&#160;within&#160;its&#160;<b>Type</b>&#160;attribute.&#160;<br/>
+E.g.&#160;&#160;for&#160;&#160;a&#160;&#160;software&#160;&#160;component&#160;&#160;type&#160;&#160;‘AP_MySWC’&#160;&#160;following&#160;&#160;reference&#160;&#160;information&#160;&#160;is&#160;<br/>
+exported:&#160;<br/>
+User-defined&#160;attribute&#160;export&#160;file:&#160;<br/>
+&#160;<br/>&#160;&#160;&lt;ObjectAttributeReference&#160;ObjectType=&#34;ComponentType&#34;&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;ARObjectReference&#160;&#160;<br/>
+Type=&#34;APPLICATION-SOFTWARE-COMPONENT-TYPE&#34;&#160;<br/>Reference=&#34;<b>/ComponentType/AP_MySWC</b>&#34;&gt;&#160;<br/>
+&lt;/ARObjectReference&gt;&#160;<br/>
+<b>….&#160;</b><br/>
+&#160;&#160;&lt;/ObjectAttributeReference&gt;&#160;<br/>
+&#160;<br/>
+AR-export&#160;file:&#160;<br/>
+&#160;<br/>&lt;AUTOSAR&gt;&#160;<br/>&#160;&#160;&lt;TOP-LEVEL-PACKAGES&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;AR-PACKAGE&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&lt;SHORT-NAME&gt;<b>ComponentType</b>&lt;/SHORT-NAME&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&lt;ELEMENTS&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;APPLICATION-SOFTWARE-COMPONENT-TYPE&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;SHORT-NAME&gt;<b>AP_MySWC</b>&lt;/SHORT-NAME&gt;&#160;<br/>
+<b>….&#160;</b><br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/APPLICATION-SOFTWARE-COMPONENT-TYPE&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&lt;/ELEMENTS&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;/AR-PACKAGE&gt;&#160;<br/>&#160;&#160;&lt;/TOP-LEVEL-PACKAGES&gt;&#160;<br/>&lt;/AUTOSAR&gt;&#160;&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-8_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>4&#160;&#160;Attribute&#160;definition&#160;resolution&#160;</b><br/>
+The&#160;&#160;attribute&#160;&#160;definition&#160;&#160;resolution&#160;&#160;shows&#160;&#160;how&#160;&#160;a&#160;&#160;global&#160;&#160;user-defined&#160;&#160;attribute&#160;&#160;definition&#160;&#160;is&#160;<br/>
+referenced&#160;by&#160;a&#160;certain&#160;design&#160;object.&#160;&#160;<br/>
+<b>4.1&#160;&#160;Reference&#160;of&#160;global&#160;attribute&#160;definition&#160;values&#160;</b><br/>
+If&#160;a&#160;design&#160;object&#160;doesn’t&#160;define&#160;a&#160;local&#160;value&#160;that&#160;is&#160;different&#160;from&#160;the&#160;global&#160;default&#160;value&#160;<br/>
+definition&#160;&#160;the&#160;&#160;user-defined&#160;&#160;attribute&#160;&#160;export&#160;&#160;will&#160;&#160;only&#160;&#160;export&#160;&#160;the&#160;&#160;reference&#160;&#160;to&#160;&#160;the&#160;&#160;relevant&#160;<br/>
+attribute&#160;&#160;definition&#160;&#160;table.&#160;&#160;This&#160;&#160;reference&#160;&#160;(<b>AttributeDefinitionTableRef</b>)&#160;&#160;contains&#160;&#160;a&#160;<br/>
+<b>Version</b>&#160;and&#160;an&#160;<b>ID</b>&#160;attribute&#160;which&#160;uniquely&#160;identifies&#160;the&#160;relevant&#160;attribute&#160;definition&#160;table&#160;<br/>
+of&#160;the&#160;item&#160;(see&#160;‘<b>AttributeDefinitionTableRef’</b>&#160;of&#160;the&#160;example&#160;below).&#160;<br/>
+By&#160;using&#160;the&#160;<b>ObjectType</b>&#160;attribute&#160;information&#160;of&#160;the&#160;<b>ObjectAttributeReference</b>&#160;tag&#160;<br/>
+the&#160;&#160;set&#160;&#160;of&#160;&#160;relevant&#160;&#160;attribute&#160;&#160;definitions&#160;&#160;for&#160;&#160;this&#160;&#160;item&#160;&#160;type&#160;&#160;can&#160;&#160;be&#160;&#160;identified&#160;&#160;(e.g.&#160;<br/>
+‘<b>ComponentType</b>’).&#160;<br/>
+User-defined&#160;attribute&#160;export&#160;file:&#160;<br/>
+&#160;<br/>&lt;AttributeDefinition&gt;&#160;<br/>&#160;&#160;&lt;AttributeDefinitionTable&#160;<b>Version=&#34;1.0&#34;&#160;ID=&#34;{932D3FD0-2F6C-49BF-80CB-D1C3756D3868}&#34;</b>&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;Attribute&#160;Name=&#34;MySWCEnum&#34;&#160;ObjectType=&#34;ComponentType&#34;&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&lt;ENUM&#160;Default=&#34;Enum2&#34;&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;EnumValue&#160;Value=&#34;Enum1&#34;&gt;&lt;/EnumValue&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;EnumValue&#160;Value=&#34;Enum2&#34;&gt;&lt;/EnumValue&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;EnumValue&#160;Value=&#34;Enum3&#34;&gt;&lt;/EnumValue&gt;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&lt;/ENUM&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;/Attribute&gt;&#160;<br/>&#160;&#160;&lt;/AttributeDefinitionTable&gt;&#160;<br/>&#160;<br/>&#160;&#160;&lt;ObjectAttributeReference&#160;ObjectType=&#34;ComponentType&#34;&gt;&#160;<br/>&#160;<br/>
+&lt;ARObjectReference&#160;&#160;<br/>&#160;&#160;&#160;&#160;Type=&#34;APPLICATION-SOFTWARE-COMPONENT-TYPE&#34;&#160;<br/>&#160;&#160;&#160;&#160;Reference=&#34;/ComponentType/AP_MySWC&#34;&gt;&#160;<br/>&lt;/ARObjectReference&gt;&#160;<br/>
+&#160;<br/>
+&lt;AttributeDefinitionTableRef&#160;&#160;&#160;<br/>
+&#160;&#160;&#160;&#160;<b>Version=&#34;1.0&#34;&#160;&#160;<br/>&#160;&#160;&#160;&#160;ID=&#34;{932D3FD0-2F6C-49BF-80CB-D1C3756D3868}&#34;</b>&gt;&#160;<br/>&lt;/AttributeDefinitionTableRef&gt;&#160;<br/>&#160;<br/>
+&#160;&#160;&lt;/ObjectAttributeReference&gt;&#160;<br/>&lt;/AttributeDefinition&gt;&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-9_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;&#160;Reference&#160;of&#160;local&#160;attribute&#160;value&#160;</b><br/>
+Each&#160;&#160;design&#160;&#160;object&#160;&#160;may&#160;&#160;define&#160;&#160;a&#160;&#160;local&#160;&#160;value&#160;&#160;for&#160;&#160;the&#160;&#160;user-defined&#160;attributes.&#160;These&#160;&#160;value&#160;<br/>
+definitions&#160;<br/>
+are&#160;<br/>
+exported&#160;<br/>
+with&#160;<br/>
+the&#160;<br/>
+<b>AttributeValue</b>&#160;<br/>
+tag&#160;<br/>
+within&#160;<br/>
+each&#160;<br/>
+<b>ObjectAttributeReference</b>&#160;&#160;tag.&#160;&#160;This&#160;&#160;tag&#160;&#160;contains&#160;&#160;a&#160;&#160;<b>Name</b>&#160;&#160;attribute&#160;&#160;which&#160;&#160;uniquely&#160;<br/>
+identifies&#160;&#160;a&#160;&#160;single&#160;&#160;attribute&#160;&#160;within&#160;&#160;the&#160;&#160;attribute&#160;&#160;definition&#160;&#160;table&#160;&#160;(e.g.&#160;&#160;the&#160;&#160;attribute&#160;<br/>
+‘<b>MySWCEnum’</b>).&#160;The&#160;<b>Value</b>&#160;attribute&#160;holds&#160;the&#160;local&#160;value&#160;of&#160;the&#160;design&#160;object.&#160;<br/>
+User-defined&#160;attribute&#160;export&#160;file:&#160;<br/>
+&#160;<br/>&#160;&#160;&lt;ObjectAttributeReference&#160;ObjectType=&#34;ComponentType&#34;&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;ARObjectReference&#160;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Type=&#34;APPLICATION-SOFTWARE-COMPONENT-TYPE&#34;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Reference=&#34;/ComponentType/AP_MySWC&#34;&gt;&#160;<br/>
+&lt;/ARObjectReference&gt;&#160;<br/>&#160;<br/>&lt;AttributeDefinitionTableRef&#160;&#160;<br/>&#160;&#160;&#160;&#160;Version=&#34;1.0&#34;&#160;&#160;<br/>&#160;&#160;&#160;&#160;ID=&#34;{932D3FD0-2F6C-49BF-80CB-D1C3756D3868}&#34;&gt;&#160;<br/>&lt;/AttributeDefinitionTableRef&gt;&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&lt;AttributeValue&#160;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Name=&#34;MySWCEnum&#34;&#160;&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Value=&#34;Enum3&#34;&gt;&#160;<br/>&#160;&#160;&#160;&#160;&lt;/AttributeValue&gt;&#160;<br/>&#160;<br/></b>&#160;&#160;&lt;/ObjectAttributeReference&gt;&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-10_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>5&#160;&#160;DCF&#160;Workspaces&#160;</b><br/>
+As&#160;DCF&#160;workspaces&#160;mainly&#160;consists&#160;of&#160;exported&#160;AR-XML&#160;files&#160;the&#160;user-defined&#160;attributes&#160;<br/>
+are&#160;also&#160;used&#160;in&#160;DCF&#160;workspaces.&#160;Thus&#160;all&#160;user-defined&#160;attributes&#160;can&#160;be&#160;loaded&#160;with&#160;the&#160;<br/>
+attribute&#160;&#160;definitions&#160;&#160;and&#160;&#160;their&#160;&#160;corresponding&#160;&#160;AR&#160;&#160;design&#160;&#160;objects&#160;&#160;during&#160;&#160;opening&#160;&#160;a&#160;&#160;DCF&#160;<br/>
+workspace.&#160;<br/>
+<b>5.1&#160;&#160;Global&#160;attribute&#160;definition&#160;file&#160;</b><br/>
+Nevertheless,&#160;if&#160;attribute&#160;definitions&#160;are&#160;defined&#160;without&#160;usage&#160;by&#160;a&#160;design&#160;objects,&#160;these&#160;<br/>
+definitions&#160;&#160;will&#160;&#160;be&#160;&#160;lost&#160;&#160;on&#160;&#160;opening&#160;&#160;the&#160;&#160;DCF&#160;&#160;workspace.&#160;&#160;To&#160;&#160;overcome&#160;&#160;this&#160;&#160;limitation&#160;&#160;all&#160;<br/>
+attribute&#160;definitions&#160;are&#160;stored&#160;in&#160;a&#160;global&#160;XML&#160;file&#160;named&#160;like&#160;the&#160;DCF&#160;&#160;workspace&#160;name&#160;<br/>
+with&#160;the&#160;extension&#160;_attr_def.xml&#160;<br/>
+The&#160;&#160;format&#160;&#160;is&#160;&#160;the&#160;&#160;same&#160;&#160;as&#160;&#160;for&#160;&#160;user-defined&#160;&#160;attributes&#160;&#160;but&#160;&#160;the&#160;&#160;file&#160;&#160;contains&#160;&#160;the&#160;&#160;attribute&#160;<br/>
+definitions&#160;only.&#160;<br/>
+<b>5.2&#160;&#160;Loading&#160;attribute&#160;definitions&#160;</b><br/>
+On&#160;opening&#160;a&#160;DCF&#160;workspace&#160;the&#160;global&#160;attribute&#160;definition&#160;file&#160;is&#160;always&#160;loaded&#160;first.&#160;Thus&#160;<br/>
+all&#160;definitions&#160;exist&#160;and&#160;can&#160;be&#160;referenced&#160;by&#160;the&#160;further&#160;AR-XML&#160;import.&#160;A&#160;warning&#160;during&#160;<br/>
+AR-XML&#160;import&#160;is&#160;thrown&#160;if&#160;the&#160;attribute&#160;definition&#160;within&#160;a&#160;single&#160;_gen_attr.xml&#160;differs&#160;from&#160;<br/>
+the&#160;globally&#160;defined&#160;one.&#160;In&#160;this&#160;case&#160;the&#160;definition&#160;from&#160;the&#160;_gen_attr.xml&#160;is&#160;ignored&#160;and&#160;<br/>
+only&#160;the&#160;value&#160;of&#160;the&#160;attribute&#160;itself&#160;is&#160;imported&#160;to&#160;the&#160;design&#160;object.&#160;&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/TL102A_Davinci/tools/Developer/Docs/TechnicalReference_UserDefinedAttributeExport-11_1.png"/><br/>
+User-defined&#160;attribute&#160;XML-export&#160;Technical&#160;Reference&#160;<br/>
+&#160;<br/>
+<b>6&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our&#160;website&#160;for&#160;more&#160;information&#160;on&#160;<br/>
+&#160;<br/>
+&gt;&#160;&#160;&#160;News&#160;<br/>
+&gt;&#160;&#160;&#160;Products&#160;<br/>
+&gt;&#160;&#160;&#160;Demo&#160;software&#160;<br/>
+&gt;&#160;&#160;&#160;Support&#160;<br/>
+&gt;&#160;&#160;&#160;Training&#160;data&#160;<br/>
+&gt;&#160;&#160;&#160;Addresses&#160;<br/>
+&#160;<br/>
+<b>www.vector.com&#160;</b><br/>
+&#160;<br/>
+2012,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.3&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,491 @@
+---
+title: AN-ISC-2-1081_Interrupt_Control_VStdLibs
+linkTitle: AN-ISC-2-1081_Interrupt_Control_VStdLibs
+weight: 5
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-1_1.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-1_2.png"/><br/>
+<b>&#160;</b><br/>
+<b>Application Interrupt Control with VStdLib&#160;</b><br/>
+<b>Version 1.0&#160;</b><br/>
+<b>2008-08-06&#160;</b><br/>
+<b>Application Note &#160;AN-ISC-2-1081&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<i>&#160;<br/></i>Author(s) Patrick&#160;<br/>
+Markl&#160;<br/>
+Restrictions&#160;Restricted&#160;<br/>
+Membership&#160;<br/>
+Abstract&#160;<br/>
+This application note explains how the&#160;application can&#160;control interrupt handling&#160;via the&#160;<br/>VStdLib and&#160;which constraints apply.&#160;<br/>
+&#160;<br/><i><b>&#160;<br/>Table of Contents&#160;<br/>&#160;<br/></b></i><a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#1">1.0&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#1">Overview&#160;.......................................................................................................................</a>...................................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#1">1</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#1">1.1&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#1">Introduction...................................................................................................................</a>.................................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#1">1</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">2.0&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">Interrupt Control&#160;by Application&#160;...............................................................................................</a>........................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">3</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">2.1&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">Constraints&#160;....................................................................................................................</a>................................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">3</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">2.1.1&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">Constraint 1:&#160;Nested&#160;Calls&#160;.....................................................................................................</a>.....................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">3</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">2.1.2&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">Constraint 2: Recursive Calls&#160;when Disabling CAN Interrupts...................................................................3</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">2.1.3&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">Constraint 3: No Locking&#160;when Disabling CAN Interrupts.........................................................................</a>.<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#3">3</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#6">3.0&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#6">Solution&#160;.......................................................................................................................</a>.....................................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#6">6</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#6">3.1.1&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#6">Nested Calls...................................................................................................................</a>.............................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#6">6</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#7">3.1.2&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#7">No Locking of&#160;Interrupts.......................................................................................................</a>.......................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#7">7</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#12">4.0&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#12">Referenced Documents&#160;...........................................................................................................</a>......................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#12">12</a>&#160;<br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#13">5.0&#160;</a><br/>
+<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#13">Contacts.......................................................................................................................</a>..................................<a href="AN-ISC-2-1081_Interrupt_Control_VStdLibs.html#13">13</a>&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>1.0 Overview&#160;<br/></b>This application note describes how the&#160;user&#160;can configure the interrupt control options of the&#160;VStdLib. Some&#160;<br/>applications&#160;provide their own lock/unlock functions, which&#160;better fulfill the application’s needs. Because of this the&#160;<br/>VStdLib provides a means which allows&#160;the application to&#160;use it’s own lock/unlock functions, instead of the&#160;<br/>implementation provided by&#160;the VStdLib. &#160;<br/>
+This application note describes the handling of this use case in more detail.&#160;<br/>
+<b>1.1 Introduction&#160;</b><br/>
+The VStdLib provides&#160;functions to lock/unlock interrupts. There are&#160;three options&#160;to be set in the configuration tool,&#160;<br/>as shown in figure1. The first &#160;option (Default) lets the&#160;VStdLib lock global interrupts. Depending on the hardware&#160;<br/>plattform it is&#160;also&#160;possible&#160;to lock&#160;interrupts&#160;to a certain level. The lock&#160;is&#160;implemented by the VStdLib itself. &#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure 1: Possible&#160;configuration options&#160;for VStdLib interrupt control&#160;<br/>
+<b>&#160;1 &#160;</b><br/>
+<i>Copyright ©&#160;2008 - Vector Informatik GmbH&#160;<br/></i><b>Contact Information:&#160; &#160;www.vector-informatik.com &#160; or&#160;++49-711-80&#160;670-0&#160;</b><br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-2_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-2_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+The second option (OSEK) is to configure the VStdLib in a way that locking&#160;of interrupts is&#160;done by means of&#160;<br/>OSEK OS functions. The third and last&#160;option (User&#160;defined) requires the&#160;application to perform the&#160;<br/>locking/unlocking functionality within callback&#160;functions.&#160;<br/>
+This application note focusses&#160;mainly on&#160;the third option.&#160;It describes the way the application&#160;has to implement the&#160;<br/>callback functions required&#160;by the VStdLib. &#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure 2: Configuration of interrupt control by application&#160;<br/>&#160;<br/>
+Figure 2 shows the VStdLib configuration dialog, if interrupt control&#160;by application is configured. The user has to&#160;<br/>enter the names of two functions in the&#160;dialog, which will be called by the VStdLib&#160;in order to lock/unlock interrupts.&#160;<br/>If the user has specified the callback function names&#160;as&#160;shown in figure 2, the application must provide the&#160;<br/>implementations of these two two functions. The prototypes are:&#160;<br/>
+&#160;<br/>
+void ApplNestedDisable(void);&#160;<br/>
+void ApplNestedRestore(void);&#160;<br/>
+&#160;<br/>
+From now on&#160;these two function names&#160;will be used&#160;within this application note.&#160;<br/>
+These two functions are called by the VStdLib, in case any&#160;Vector&#160;component requests a lock&#160;for a critical section.&#160;<br/>The user has&#160;to make&#160;sure that the locking mechanism within&#160;these two functions is&#160;sufficient&#160;to protect data. This&#160;<br/>depends heavily on the architecture of the application. The more priority levels exists,&#160;which&#160;call Vector&#160;functions,&#160;<br/>the more&#160;restrictive the lock must be.&#160;<br/>
+&#160;<br/>
+Please&#160;check the technical&#160;references of&#160;the other Vector&#160;components for restrictions regarding the call&#160;<br/>context of the API&#160;functions.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>2<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-3_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.0&#160;&#160;Interrupt Control by&#160;Application&#160;<br/></b>This&#160;configuration option is&#160;usually used, if a global lock&#160;is not desired by the user or&#160;special lock mechanisms are&#160;<br/>used. Once this option is configured, there are two functions to be provided by the application.&#160;The user can&#160;<br/>specify the names of these functions in&#160;the configuration dialog of&#160;the VStdLib. The&#160;VStdLib calls these functions&#160;<br/>instead of directly locking/unlocking interrupts. This&#160;means,&#160;if any Vector&#160;component requests&#160;an interrupt lock, it is&#160;<br/>finally performed by the application provided functions.&#160;<br/>
+The first function is called, in&#160;order to perform a lock operation. It is expected, that the application function&#160;stores&#160;<br/>the current interrupt state(or&#160;any other),&#160;in order to restore it later. The second function is&#160;to restore the previously&#160;<br/>saved lock state. &#160;<br/>
+The implementation of these two functions is up&#160;to the user. The user may lock just certain interrupt sources or&#160;set&#160;<br/>a mutex, semaphore or&#160;whatever ensures consistent data&#160;and fulfills the call context requirements, described&#160;in the&#160;<br/>Vector&#160;component specific technical references.&#160;<br/>
+<b>2.1 Constraints&#160;</b><br/>
+The usage of&#160;Interrupt Control by Application has&#160;some&#160;constraints,&#160;which have to be taken into account. The&#160;<br/>following chapters&#160;describe them.&#160;<br/>
+<b>2.1.1&#160;&#160;Constraint&#160;1: Nested Calls&#160;</b><br/>
+It is expected&#160;that the two callback functions (ApplNestedDisable()/-Restore()) are implemented in a way that&#160;<br/>nested calls are possible. This means if the function ApplNestedDisable() was&#160;called by some&#160;software&#160;component&#160;<br/>it may happen that this function is&#160;called&#160;again from&#160;somewhere else. This&#160;has to be taken into account when&#160;<br/>saving and restoring the interrupt state!&#160;The implementer of these two function&#160;can assume&#160;that the number of lock&#160;<br/>and unlock calls is identical and nesting is balanced.&#160;<br/>
+<b>2.1.2&#160;&#160;Constraint&#160;2: Recursive Calls when Disabling CAN Interrupts&#160;</b><br/>
+Instead of implementing an&#160;own lock mechanism, the user&#160;could&#160;configure interrupt control by application&#160;and call&#160;<br/>the CAN driver’s&#160;CanCanInterruptDisable()/-Restore() functions. These two function simply disable CAN interrupts&#160;<br/>for the given CAN channel. These two CAN&#160;driver functions protect the access&#160;to their state&#160;variables&#160;by means of&#160;<br/>the VStdLib’s lock mechanism, which would again be implemented&#160;by the callbacks provided&#160;by&#160;the application.&#160;<br/>This would&#160;cause an&#160;indirect recursion.&#160;<br/>
+&#160;<br/>
+Please note that CanCanInterruptDisable()/Restore() shall not be&#160;called from&#160;<br/>ApplNestedDisable()/Restore(). This application note does not provide a solution&#160;for this use case!&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2.1.3&#160;&#160;Constraint&#160;3: No Locking&#160;when Disabling CAN Interrupts&#160;</b><br/>
+One could think of letting the application directly modify the interrupt flags of the CAN&#160;controller, to overcome the&#160;<br/>recursion, described in the&#160;previous&#160;chapter. But this&#160;would cause the CAN interrupts to be never locked, when&#160;<br/>CanCanInterruptDisable() is called, by any component. The reason&#160;is that the application’s interrupt lock code&#160;<br/>would interfere with the code in the CAN driver’s function CanCanInterruptDisable(). The following pseudo code&#160;<br/>shows the way CanCanInterruptDisable()&#160;is implemented. It is assumed that ApplNestedDisable()/-Restore() are&#160;<br/>implemented&#160;to allow nested&#160;calls.&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>3<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-4_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+/* CAN Interrupt will be never locked in this example!!! */&#160;<br/>
+void CanCanInterruptDisable(CAN_CHANNEL_CANTYPE_ONLY)&#160;<br/>
+{&#160;<br/>
+&#160; ApplNestedDisable();&#160;<br/>
+&#160; Lock CAN interrupts&#160;<br/>
+&#160; ApplNestedRestore();&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplNestedDisable(void)&#160;<br/>
+{&#160;<br/>
+&#160; Save current CAN interrupt state();&#160;<br/>
+&#160; Lock CAN Interrupts();&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplNestedRestore(void)&#160;<br/>
+{&#160;<br/>
+&#160; Restore CAN interrupts to previous state();&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+Figure 3 shows&#160;what happens in this&#160;case. The function&#160;CanCanInterruptDisable() calls ApplNestedDisable() in&#160;<br/>order to protect an internal counter. This&#160;lock function&#160;disables&#160;the CAN interrupts, afterwards&#160;the CAN driver’s&#160;<br/>function locks the CAN interrupts too. The next thing is to&#160;call ApplNestedRestore()&#160;which again is implemented by&#160;<br/>the application and restores&#160;the previous&#160;CAN interrupt state – in this case enables the&#160;CAN interrupts. Now an&#160;<br/>inconsistency&#160;exists. The code which called CanCanInterruptDisable() assumes locked&#160;CAN interrupts, but they&#160;<br/>aren’t&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>4<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-5_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>sd FailedLock</b><br/>
+Component<br/>
+CAN Driver<br/>
+Application<br/>
+CAN Controller<br/>
+CanCanInterruptDisable<br/>
+VStdGlobalInterruptDisable<br/>
+Lock&#160;CAN&#160;Interrupt<br/>
+Lock&#160;CAN&#160;Interrupt<br/>
+VStdGlobalInterruptRestore<br/>
+Unlock&#160;CAN Interrupt<br/>
+&#160;<br/>
+Figure 3: Sequence diagram of&#160;CanCanInterruptDisable()&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>5<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-6_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>3.0 Solution&#160;<br/></b>This&#160;chapter&#160;proposes a&#160;solution and a code examples,&#160;to overcome the constraints 1 and 3 described in the&#160;<br/>previous&#160;chapters.&#160;<br/>
+<b>3.1.1 Nested&#160;</b><br/>
+<b>Calls&#160;</b><br/>
+Solving the first issue – nested calls – is&#160;simply done&#160;by introducation of a nesting&#160;counter. The callbacks&#160;<br/>implemented&#160;by the application need to manage this&#160;counter.&#160;The&#160;counter is to&#160;be incremented, if the function to&#160;<br/>lock interrupts is called and&#160;decremented&#160;if the unlock function&#160;is called. The application has to take care to&#160;<br/>initialize this&#160;counter, before any Vector&#160;function is&#160;called, in order to ensure a&#160;consistent interrupt locking.&#160;<br/>
+The interrupt&#160;state is to be&#160;modified only&#160;if the counter&#160;has the value zero. If the&#160;value is greater than&#160;zero, the&#160;<br/>counter is just maintained. The following&#160;code example shows, how this nested counter&#160;could be implemented.&#160;<br/>
+&#160;<br/>
+/* Global variable as nesting counter */&#160;<br/>
+vuint8 gApplNestingCounter;&#160;<br/>
+&#160;<br/>
+/* Must be called before the Vector components are initialized! */&#160;<br/>
+void SomeApplicationInitFunction(void)&#160;<br/>
+{&#160;<br/>
+&#160; gApplNestingCounter = (vuint8)0;&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplNestedDisable(void)&#160;<br/>
+{&#160;<br/>
+&#160; /* check counter – lock if counter is 0 */&#160;<br/>
+&#160; if((vuint8)0 == gApplNestingCounter)&#160;<br/>
+&#160; { &#160;<br/>
+&#160; &#160; /* Save current state and perform lock &#160;*/&#160;<br/>
+&#160; &#160; ApplicationSpecificSaveStateAndLock();&#160;<br/>
+&#160; }&#160;<br/>
+&#160; /* increment counter – do not disable if nested, because already done */&#160;<br/>
+&#160; gApplNestingCounter++;&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplNestedRestore(void)&#160;<br/>
+{&#160;<br/>
+&#160; gApplNestingCounter--;&#160;<br/>
+&#160; if((vuint8)0 == gApplNestingCounter)&#160;<br/>
+&#160; {&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>6<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-7_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160; &#160; ApplicationSpecificRestoreToPreviousState();&#160;<br/>
+&#160; }&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+<b>3.1.2&#160;&#160;No Locking of Interrupts&#160;</b><br/>
+Constraint 3 described a&#160;situation, in which the CAN interrupts are&#160;not locked at&#160;all. This is because the application&#160;<br/>implements a&#160;lock function,&#160;which modifes the CAN interrupt&#160;registers&#160;with own&#160;code. To overcome this issue, a&#160;<br/>global flag needs to be implemented. This&#160;global flag tells the application, when&#160;to lock or unlock&#160;CAN interrupts.&#160;<br/>The flag is&#160;set within two additional&#160;callback functions&#160;to&#160;be implemented by the application. The prototypes&#160;of the&#160;<br/>additional callbacks are:&#160;<br/>
+&#160;<br/>
+void ApplCanAddCanInterruptDisable(CanChannelHandle channel);&#160;<br/>
+void ApplCanAddCanInterruptRestore(CanChannelHandle channel);&#160;<br/>
+&#160;<br/>
+The callback&#160;functions are called by the CAN driver from within the&#160;functions CanCanInterruptDisable() and&#160;<br/>CanCanInterruptRestore() and have to be&#160;enabled by means of the preprocessor&#160;define&#160;<br/>C_ENABLE_INTCTRL_ADD_CAN_FCT. This is done, by creating&#160;a user&#160;config file, which&#160;contains this&#160;definition.&#160;<br/>More information about these two functions can be found in [1].&#160;<br/>
+The sequence diagrams in&#160;figure 4 and figure 5&#160;show&#160;the lock and&#160;unlocking procedure&#160;respectively.&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>7<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-8_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>sd InterruptControlByApplication_Lock</b><br/>
+Component<br/>
+CAN Driver<br/>
+VStdLib<br/>
+Application<br/>
+CanCanInterruptDisable<br/>
+CanNestedGlobalInterruptDisable<br/>
+ApplDisableFunc<br/>
+Lock&#160;if<br/>Flag<br/>cleared<br/>
+Lock&#160;CAN&#160;Interrupts<br/>
+ApplCanAddCanInterruptDisable<br/>
+Set<br/>Global<br/>Flag<br/>
+CanNestedGlobalInterruptRestore<br/>
+ApplRestoreFunc<br/>
+Unlock<br/>if&#160;Flag<br/>cleared<br/>
+&#160;<br/>
+Figure 4: Sequence diagram for&#160;locking&#160;just CAN interrupts.&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>8<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-9_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>sd InterruptControlByApplication_UnLock</b><br/>
+Component<br/>
+CAN Driver<br/>
+VStdLib<br/>
+Application<br/>
+CanCanInterruptRestore<br/>
+VStdGlobalInterruptDisable<br/>
+ApplDisableFunc<br/>
+Lock&#160;if<br/>Flag<br/>cleared<br/>
+Restore CAN&#160;Interrupts<br/>
+ApplCanAddCanInterruptRestore<br/>
+Clear&#160;Global&#160;Flag<br/>
+VStdGlobalInterruptRestore<br/>
+ApplRestoreFunc<br/>
+Unlock<br/>if&#160;Flag<br/>cleared<br/>
+&#160;<br/>
+Figure 5: Sequence diagram for&#160;unlocking just CAN interrupts&#160;<br/>&#160;<br/>
+The following&#160;code example shows how to implement&#160;the handling&#160;of the global flag. If the function&#160;<br/>CanCanInterruptDisable() is called, it&#160;calls the ApplNestedDisable(), in order&#160;to protect a&#160;counter. This function&#160;<br/>locks&#160;CAN interrupts using own&#160;code. When ApplNestedDisable() returns, the CAN driver locks&#160;CAN interrupts too.&#160;<br/>Afterwards ApplCanAddCanInterruptDisable() is called. This function&#160;is implemented by the application and sets&#160;<br/>the global flag. Before the function&#160;CanCanInterruptDisable() returns, it calls&#160;ApplNestedRestore(). The application,&#160;<br/>which implements the restore callback function has to&#160;check, if the&#160;global flag is&#160;set. If yes, the CAN interrupts&#160;<br/>must not be unlocked!&#160;<br/>
+If the function CanCanInterruptRestore() is called, first&#160;ApplNestedDisable() is&#160;called&#160;again. Then the CAN driver&#160;<br/>unlocks the CAN interrupts&#160;(if its nesting&#160;counter&#160;reached the value&#160;zero) and calls the function&#160;<br/>ApplCanAddCanInterruptRestore().&#160;Within this function the flag is&#160;cleared. If ApplNestedRestore() is&#160;called&#160;now,&#160;<br/>the flag is not&#160;set anymore and the restore of the CAN interrupts is&#160;performed.&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>9<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-10_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>Note that the application needs to implement also a nesting&#160;counter, if it uses own code&#160;to lock CAN interrupts, in&#160;<br/>order to avoid&#160;the issue described by&#160;constraint 1. The following code example&#160;shows, how to implement the&#160;<br/>nesting&#160;counter and the flag.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+vuint8 gCanLockFlag;&#160;<br/>
+vuint8 gApplNestingCounter;&#160;<br/>
+&#160;<br/>
+void ApplicationInitFunction(void)&#160;<br/>
+{&#160;<br/>
+&#160; /* initialize the flags */&#160;<br/>
+&#160; gCanLockFlag = (vuint8)0;&#160;<br/>
+&#160; gApplNestingCounter = (vuint8)0;&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplNestedDisable(void)&#160;<br/>
+{&#160;<br/>
+&#160; if((vuint8)0 == gApplNestingCounter)&#160;<br/>
+&#160; {&#160;<br/>
+&#160; &#160; if((vuint8)0 == gCanLockFlag)&#160;<br/>
+&#160; &#160; {&#160;<br/>
+&#160; &#160; &#160; Save current CAN interrupt state();&#160;<br/>
+&#160; &#160; &#160; Lock CAN Interrupts();&#160;<br/>
+&#160; &#160; }&#160;<br/>
+&#160; }&#160;<br/>
+&#160; gApplNestingCounter++;&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplNestedRestore (void)&#160;<br/>
+{&#160;<br/>
+&#160; gApplNestingCounter--;&#160;<br/>
+&#160; if((vuint8)0 == gApplNestingCounter)&#160;<br/>
+&#160; {&#160;<br/>
+&#160; &#160; if((vuint8)0 == gCanLockFlag)&#160;<br/>
+&#160; &#160; {&#160;<br/>
+&#160; &#160; &#160; Restore CAN interrupts to previous state();&#160;<br/>
+&#160; &#160; }&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>10<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-11_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160; }&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplCanAddCanInterruptDisable(CanChannelHandle channel)&#160;<br/>
+{&#160;<br/>
+&#160; gCanLockFlag = (vuint8)1;&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+void ApplCanAddCanInterruptRestore(CanChannelHandle channel)&#160;<br/>
+{&#160;<br/>
+&#160; gCanLockFlag = (vuint8)0;&#160;<br/>
+}&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>11<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-12_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>4.0 Referenced&#160;Documents&#160;<br/></b>The following&#160;table contains&#160;the referenced documents.&#160;<br/>
+&#160;<br/>
+<b>Referenced Documents&#160;</b><br/>
+[1] TechnicalReference_CANDriver.pdf&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>12<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/VectorBswSuprt/doc/01.04.00_03.08.00/AN-ISC-2-1081_Interrupt_Control_VStdLib-13_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+Application Interrupt Control&#160;with&#160;VStdLib&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>5.0 Contacts&#160;<br/></b>&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Vector Informatik&#160;GmbH&#160;</b><br/>
+<b>Vector CANtech, Inc.&#160;</b><br/>
+<b>VecScan AB&#160;</b><br/>
+Ingersheimer Straße 24&#160;<br/>
+39500&#160;Orchard&#160;Hill Pl., Ste 550&#160;<br/>
+Lindholmspiren 5&#160;<br/>
+70499 Stuttgart&#160;<br/>
+Novi, MI &#160;48375&#160;<br/>
+402 78&#160;Göteborg&#160;&#160;<br/>
+Germany&#160;<br/>
+USA&#160;<br/>
+Sweden&#160;<br/>
+Tel.: +49 711-80670-0&#160;<br/>
+Tel: &#160;+1-248-449-9290&#160;<br/>
+Tel: &#160;+46 (0)31 764 76 00&#160;<br/>
+Fax: +49 711-80670-111&#160;<br/>
+Fax: +1-248-449-9704&#160;<br/>
+Fax: +46 (0)31 764 76 19 &#160;<br/>
+Email: info@vector-informatik.de&#160;<br/>
+Email: info@vector-cantech.com&#160;<br/>
+Email: info@vecscan.com&#160;<br/>
+&#160;<br/><b>Vector France SAS&#160;</b><br/>
+<b>Vector Japan&#160;Co. Ltd.&#160;</b><br/>
+<b>Vector Korea IT&#160;Inc.&#160;</b><br/>
+168 Boulevard Camélinat&#160;<br/>
+Seafort Square&#160;Center Bld. 18F&#160;<br/>
+Daerung Post Tower III, 508&#160;<br/>
+92240 Malakoff &#160;<br/>
+2-3-12, Higashi-shinagawa,&#160;<br/>
+Guro-gu, Guro-dong,&#160;182-4&#160;<br/>
+France&#160;<br/>
+Shinagawa-ku&#160;<br/>
+Seoul, 152-790&#160;<br/>
+Tel: &#160;+33 (0)1 42&#160;31 40 00&#160;<br/>
+J-140-0002 Tokyo&#160;<br/>
+Republic of Korea&#160;<br/>
+Fax: +33 (0)1 42&#160;31 40 09&#160;<br/>
+Tel.: +81 3 5769&#160;6970 &#160; &#160;<br/>
+Tel.: +82-2-2028-0600&#160;<br/>
+Email: information@vector-france.fr&#160;<br/>
+Fax: +81 3 5769&#160;6975&#160;<br/>
+Fax: &#160; +82-2-2028-0604&#160;<br/>
+&#160;<br/>
+Email: info@vector-japan.co.jp&#160;<br/>
+Email: info@vector-korea.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+<i><b>&#160;</b></i><br/>
+<b>13<i>&#160;</i></b><br/>
+<i>Application Note&#160; AN-ISC-2-1081<b>&#160;<br/></b></i>&#160;<br/>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,521 @@
+---
+title: StOutpCtrl_MDD
+linkTitle: StOutpCtrl_MDD
+weight: 4
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>StOutpCtrl</strong></p>
+<p><strong>VERSION: 3</strong></p>
+<p><strong>DATE:</strong> <strong>5-Dec-2016</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Matthew Leser</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>Akilan Rathakrishnan</td>
+<td>1.0</td>
+<td>02-June-2015</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Implementation of input name change</td>
+<td>Basavaraja Ganeshappa</td>
+<td>2.0</td>
+<td>30-June-2016</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated to fix Anomaly EA4#7767</td>
+<td>Matthew Leser</td>
+<td>3.0</td>
+<td>05-Dec-2016</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 5</a></p>
+<p><a href="#references">2 References 6</a></p>
+<p><a href="#stoutpctrl---high-level-description">3 StOutpCtrl - High-Level Description 7</a></p>
+<p><a href="#design-details-of-software-module">4 Design details of software module 8</a></p>
+<p><a href="#graphical-representation-of-stoutpctrl">4.1 Graphical representation of StOutpCtrl 8</a></p>
+<p><a href="#data-flow-diagram">4.2 Data Flow Diagram 8</a></p>
+<p><a href="#module-level-dfd">4.2.1 Module level DFD 8</a></p>
+<p><a href="#sub-module-level-dfd">4.2.2 Sub-Module level DFD 8</a></p>
+<p><a href="#component-flow-diagram">4.3 COMPONENT FLOW DIAGRAM 8</a></p>
+<p><a href="#variable-data-dictionary">5 Variable Data Dictionary 9</a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">5.1 User defined typedef definition/declaration 9</a></p>
+<p><a href="#variable-definition-for-enumerated-types">5.2 Variable definition for enumerated types 9</a></p>
+<p><a href="#constant-data-dictionary">6 Constant Data Dictionary 10</a></p>
+<p><a href="#programfixed-constants">6.1 Program(fixed) Constants 10</a></p>
+<p><a href="#embedded-constants">6.1.1 Embedded Constants 10</a></p>
+<p><a href="#local">6.1.1.1 Local 10</a></p>
+<p><a href="#global">6.1.1.2 Global 10</a></p>
+<p><a href="#module-specific-lookup-tables-constants">6.1.2 Module specific Lookup Tables Constants 10</a></p>
+<p><a href="#software-module-implementation">7 Software Module Implementation 11</a></p>
+<p><a href="#sub-module-functions">7.1 Sub-Module Functions 11</a></p>
+<p><a href="#initialization-functions">7.1.1 Initialization Functions 11</a></p>
+<p><a href="#init-stoutpctrlinit1">7.1.1.1 INIT: StOutpCtrlInit1 11</a></p>
+<p><a href="#design-rationale">7.1.1.2 Design Rationale 11</a></p>
+<p><a href="#store-module-inputs-to-local-copies">7.1.1.3 Store Module Inputs to Local copies 11</a></p>
+<p><a href="#processing-of-function">7.1.1.4 (Processing of function)……… 11</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs">7.1.1.5 Store Local copy of outputs into Module Outputs 11</a></p>
+<p><a href="#periodic-functions">7.1.2 PERIODIC FUNCTIONS 11</a></p>
+<p><a href="#per-stoutpctrlper1">7.1.2.1 Per: StOutpCtrlPer1 11</a></p>
+<p><a href="#design-rationale-1">7.1.2.2 Design Rationale 11</a></p>
+<p><a href="#store-module-inputs-to-local-copies-1">7.1.2.3 Store Module Inputs to Local copies 11</a></p>
+<p><a href="#processing-of-function-1">7.1.2.4 (Processing of function)……… 11</a></p>
+<p><a href="#store-local-copy-of-outputs-into-module-outputs-1">7.1.2.5 Store Local copy of outputs into Module Outputs 11</a></p>
+<p><a href="#interrupt-functions">7.2 Interrupt Functions 11</a></p>
+<p><a href="#serial-communication-functions">7.3 Serial Communication Functions 11</a></p>
+<p><a href="#local-functionmacro-definitions">7.4 Local Function/Macro Definitions 12</a></p>
+<p><a href="#local-function-1-ratelimit">7.4.1 Local Function #1: RateLimit 12</a></p>
+<p><a href="#description">7.4.1.1 Description 12</a></p>
+<p><a href="#design-rationale-2">7.4.1.2 Design Rationale 12</a></p>
+<p><a href="#local-function-2-ratesource">7.4.2 Local Function #1: RateSource 12</a></p>
+<p><a href="#description-1">7.4.2.1 Description 12</a></p>
+<p><a href="#design-rationale-3">7.4.2.2 Design Rationale 12</a></p>
+<p><a href="#global-functionmacro-definitions">7.5 GLObAL Function/Macro Definitions 12</a></p>
+<p><a href="#global-function-1">7.5.1 GLObAL Function #1 12</a></p>
+<p><a href="#description-2">7.5.1.1 Description 12</a></p>
+<p><a href="#transient-functions">7.6 TRANSIENT FUNCTIONS 13</a></p>
+<p><a href="#known-limitations-with-design">8 Known Limitations With Design 14</a></p>
+<p><a href="#unit-test-consideration">9 UNIT TEST CONSIDERATION 15</a></p>
+<p><a href="#appendix">10 Appendix 16</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Abbreviation</td>
+<td>Description</td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&lt;ADD more to the table if applicable&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Sr. No.</td>
+<td>Title</td>
+<td>Version</td>
+</tr>
+<tr class="even">
+<td>&lt;1&gt;</td>
+<td>&lt;MDD Guidelines&gt;</td>
+<td>Process 4.02.01</td>
+</tr>
+<tr class="odd">
+<td>&lt;2&gt;</td>
+<td>&lt;Software Naming Conventions&gt;</td>
+<td>Process 4.02.01</td>
+</tr>
+<tr class="even">
+<td>&lt;3&gt;</td>
+<td>&lt;Coding standards&gt;</td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>&lt;4&gt;</td>
+<td>&lt;FDD SF005A_StOutpCtrl_Design&gt;</td>
+<td>See Synergy Subproject version</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&lt;Add if more available&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="stoutpctrl---high-level-description">StOutpCtrl - High-Level Description</h1>
+<p><em>Refer FDD</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-stoutpctrl">Graphical representation of StOutpCtrl</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:3.3in;height:4.11667in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p>N/A</p>
+<h2 id="module-level-dfd">Module level DFD</h2>
+<p><em>N/A</em></p>
+<h2 id="sub-module-level-dfd">Sub-Module level DFD</h2>
+<p><em>N/A</em></p>
+<h2 id="component-flow-diagram">COMPONENT FLOW DIAGRAM</h2>
+<p><em>N/A</em></p>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<p><em>&lt;This section documents any user types uniquely used for the module.&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Typedef Name</td>
+<td>Element Name</td>
+<td>User Defined Type</td>
+<td><p>Legal Range</p>
+<p>(min)</p></td>
+<td><p>Legal Range</p>
+<p>(max)</p></td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Enum Name</td>
+<td>Element Name</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="programfixed-constants">Program(fixed) Constants</h2>
+<h2 id="embedded-constants">Embedded Constants</h2>
+<p><em>&lt; All program specific constants will be defined in detail &gt;</em></p>
+<h2 id="local">Local</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Units</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="global">Global</h2>
+<p><em>&lt;This section lists the global constants used by the module. For details on global constants, refer to the Data Dictionary for the application&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-specific-lookup-tables-constants">Module specific Lookup Tables Constants</h2>
+<p><em>&lt;(This is for lookup tables (arrays) with fixed values, same name as other tables)&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Value</td>
+<td>Software Segment</td>
+</tr>
+<tr class="even">
+<td>&lt;Refer Constant name qualified in [2]&gt;</td>
+<td>&lt;Refer MDD guidelines [1]&gt;</td>
+<td>&lt;Refer MDD guidelines [1]&gt;</td>
+<td>&lt;Refer MDD guidelines [1]&gt;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-module-implementation">Software Module Implementation</h1>
+<h2 id="sub-module-functions">Sub-Module Functions</h2>
+<p>None</p>
+<h2 id="initialization-functions">Initialization Functions</h2>
+<h2 id="init-stoutpctrlinit1">INIT: StOutpCtrlInit1</h2>
+<h2 id="design-rationale">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies">Store Module Inputs to Local copies</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="processing-of-function">(Processing of function)………</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="periodic-functions">PERIODIC FUNCTIONS </h2>
+<p><em>(Note: For multiple periodic functions, insert new headers at the “Header 2” level – subset of “7.1.2 Periodic Functions” and follow the same sub-section design shown below). If none required, place the text “None”)&gt;</em></p>
+<h2 id="per-stoutpctrlper1">Per: StOutpCtrlPer1</h2>
+<h2 id="design-rationale-1">Design Rationale</h2>
+<p><em>None</em></p>
+<h2 id="store-module-inputs-to-local-copies-1">Store Module Inputs to Local copies</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="processing-of-function-1">(Processing of function)………</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="store-local-copy-of-outputs-into-module-outputs-1">Store Local copy of outputs into Module Outputs</h2>
+<p><em>Refer to FDD</em></p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<p><em>None</em></p>
+<h2 id="serial-communication-functions">Serial Communication Functions</h2>
+<p><em>None</em></p>
+<h2 id="local-functionmacro-definitions">Local Function/Macro Definitions</h2>
+<p>&lt;If these are numerous and defined in a separate source file then reference the source file only.&gt;</p>
+<h2 id="local-function-1-ratelimit">Local Function #1: RateLimit</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RateLimit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>SysOperRampRate_UlspS_T_f32</td>
+<td>float32</td>
+<td>0.1</td>
+<td>500.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>LoaRateLim_UlspS_T_f32</td>
+<td>float32</td>
+<td>0.1</td>
+<td>500.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehStrtStopRampRate_UlspS_T_f32</td>
+<td>float32</td>
+<td>0.1</td>
+<td>500.0</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>SelRampRate_UlspS_T_f32</td>
+<td>float32</td>
+<td>0.1</td>
+<td>500.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description">Description</h2>
+<p>Implements "Rate Limit" model block in FDD -- selects ramp rate from input rate limits.</p>
+<h2 id="design-rationale-2">Design Rationale</h2>
+<p>FDD does not show a default case on the switch/case block in this function because none is required – all possible values of the switch variable (which is internal to this component) are covered by the cases shown. However a default clause is required by MISRA Rule 15.3. Therefore the default label was placed with the final case label in the code; this is functionally equivalent to the FDD and satisfies the MISRA rule.</p>
+<h2 id="local-function-2-ratesource">Local Function #2: RateSource</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>RateSource</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>SysOperMotTqCmdSca_Uls_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>LoaSca_Uls_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehStrtStopMotTqCmdSca_Uls_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SelectedState_Cnt_T_u08</td>
+<td>uint8</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>SelectedTqCmdSca_Uls_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-1">Description</h2>
+<p>Implements "Rate Source" model block in FDD -- selects scale factor from input rate scales.</p>
+<h2 id="design-rationale-3">Design Rationale</h2>
+<p>FDD does not show a default case on the switch/case block in this function because none is required – all possible values of the switch variable (which is internal to this component) are covered by the cases shown. However a default clause is required by MISRA Rule 15.3. Therefore the default label was placed with the final case label in the code; this is functionally equivalent to the FDD and satisfies the MISRA rule.</p>
+<h2 id="global-functionmacro-definitions">GLObAL Function/Macro Definitions</h2>
+<h2 id="global-function-1">GLObAL Function #1</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 42%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>(Exact name used)</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>None</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+<td>&lt;Refer MDD guidelines[1]&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="description-2">Description</h2>
+<p>N/A</p>
+<h2 id="transient-functions">TRANSIENT FUNCTIONS </h2>
+<p><em>None</em></p>
+<h1 id="known-limitations-with-design">Known Limitations With Design</h1>
+<ol type="1">
+<li><p>None</p></li>
+</ol>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<p><em>None</em></p>
+<h1 id="appendix">Appendix</h1>
+<p><em>None</em></p>

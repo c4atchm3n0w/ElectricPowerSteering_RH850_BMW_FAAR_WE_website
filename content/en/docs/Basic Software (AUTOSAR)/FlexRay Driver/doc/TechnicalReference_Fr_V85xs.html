@@ -1,0 +1,1110 @@
+---
+title: TechnicalReference_Fr_V85xs
+linkTitle: TechnicalReference_Fr_V85xs
+weight: 9
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR Fr ERay&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Communication Controller E-Ray&#160;V850&#160;<br/>Version&#160;1.41&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Juergen&#160;Schaeffer,&#160;Mario&#160;Kunz,&#160;Sebastian&#160;Gärtner,&#160;<br/>Sebastian Schmar,&#160;Oliver&#160;Reineke,&#160;Roland Hocke,&#160;<br/>Matthias Müller&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-2_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>1&#160;&#160;Document&#160;Information&#160;</b><br/>
+<b>1.1&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Roland Hocke&#160;<br/>
+2013-05-14&#160;<br/>
+1.34&#160;<br/>
+Creation&#160;and&#160;content&#160;copy&#160;<br/>from&#160;MSR3 document&#160;<br/>
+&#160;<br/>
+2013-06-26&#160;<br/>
+1.35&#160;<br/>
+Remove obsolete&#160;MTS&#160;<br/>
+Roland Hocke&#160;<br/>
+2014-01-29&#160;<br/>
+1.37&#160;<br/>
+Buffer&#160;alignment&#160;hints&#160;<br/>
+&#160;<br/>
+Matthias Müller&#160;<br/>
+2015-02-20&#160;<br/>
+1.38&#160;<br/>
+Renaming of&#160;document&#160;name&#160;<br/>
+Matthias Müller&#160;<br/>
+2015-09-28&#160;<br/>
+1.39&#160;<br/>
+Description&#160;of&#160;Endinit&#160;and&#160;<br/>Protected&#160;Register&#160;Access&#160;<br/>
+Matthias Müller&#160;<br/>
+2015-11-27&#160;<br/>
+1.40&#160;<br/>
+ESCAN00080370&#160;The&#160;usage&#160;<br/>of&#160;the&#160;Appl_TricoreAurixInit()&#160;<br/>function&#160;is&#160;not&#160;described&#160;in&#160;<br/>the&#160;TechRef&#160;<br/>
+SafeBSW&#160;limitations&#160;<br/>
+Matthias Müller&#160;<br/>
+2017-02-01&#160;<br/>
+1.41&#160;<br/>
+Added&#160;hint&#160;about&#160;the&#160;specifics&#160;<br/>of&#160;RH850 P1X&#160;<br/>
+Table&#160;1-1&#160;&#160;<br/>
+History&#160;of&#160;the&#160;document&#160;<br/>
+<b>1.2&#160;</b><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;<br/>
+AUTOSAR_SWS_DevelopmentErrorTracer.pdf&#160;<br/>
+3.2.0&#160;<br/>
+[2]&#160;&#160;&#160;<br/>
+AUTOSAR_SWS_DiagnosticEventManager.pdf&#160;<br/>
+4.2.0&#160;<br/>
+[3]&#160;&#160;&#160;<br/>
+TechnicalReference_Fr.pdf&#160;<br/>
+1.0&#160;or&#160;later&#160;<br/>
+[4]&#160;&#160;&#160;<br/>
+E-Ray_Errata_Sheet_20100215.pdf&#160;and later&#160;<br/>
+REL20100215&#160;and&#160;<br/>later&#160;<br/>
+[5]&#160;&#160;&#160;<br/>
+TechnicalReference_SchM.pdf&#160;<br/>
+2.5&#160;or&#160;later&#160;<br/>
+Table&#160;1-2&#160;&#160;<br/>
+Reference&#160;documents&#160;<br/>
+<b>1.3&#160;</b><br/>
+<b>Scope&#160;of&#160;the&#160;Document&#160;</b><br/>
+&#160;<br/>
+This&#160;technical&#160;reference&#160;describes&#160;the&#160;specific&#160;use&#160;of&#160;the&#160;FlexRay&#160;ERay&#160;driver&#160;software.&#160;It&#160;<br/>supplements&#160;the&#160;general FlexRay&#160;driver technical reference<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].</a>&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+2&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-3_2.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>Please&#160;note&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+&#160;&#160;questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+3&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-4_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2"><b>1</b>&#160;&#160;<b>Document&#160;Information&#160;...................................................................................................&#160;2</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">1.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">History&#160;.............................................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">1.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">Reference&#160;Documents&#160;.....................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">1.3&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">Scope of&#160;the&#160;Document&#160;...................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#7"><b>2</b>&#160;&#160;<b>Hardware&#160;Overview&#160;........................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#8"><b>3</b>&#160;&#160;<b>Component&#160;History&#160;........................................................................................................&#160;8</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#9"><b>4</b>&#160;&#160;<b>Introduction&#160;....................................................................................................................&#160;9</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#10"><b>5</b>&#160;&#160;<b>Functional&#160;Description&#160;................................................................................................&#160;10</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11"><b>6</b>&#160;&#160;<b>Integration&#160;....................................................................................................................&#160;11</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">6.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">Scope of&#160;Delivery&#160;..........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">6.1.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">Static&#160;Files&#160;.....................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">6.1.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">Dynamic&#160;Files................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">6.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">Compiler&#160;Abstraction&#160;and Memory&#160;Mapping&#160;..................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#12">6.3&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#12">Critical&#160;Sections&#160;............................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">6.4&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">General&#160;Integration&#160;notes&#160;..............................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">6.4.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">Calculation of&#160;Timeout&#160;Loops&#160;........................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">6.5&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">Integration&#160;notes&#160;for&#160;NEC&#160;V850&#160;.....................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">6.5.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">ERay&#160;Base&#160;Address&#160;......................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">6.5.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">FlexRay&#160;Memory&#160;buffer&#160;number&#160;....................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">6.5.3&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">FlexRay&#160;Memory&#160;Buffer&#160;size&#160;.........................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">6.5.4&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">Interrupt&#160;routines&#160;...........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">6.5.5&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">Timer&#160;interrupt&#160;...............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">6.5.6&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">Buffer&#160;alignment&#160;............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">6.6&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">Integration&#160;notes&#160;for&#160;RH850&#160;..........................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">6.6.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">Buffer&#160;alignment&#160;............................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">6.6.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#16">Specifics&#160;of&#160;RH850 P1x&#160;.................................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18"><b>7</b>&#160;&#160;<b>API&#160;Description&#160;............................................................................................................&#160;18</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18">7.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18">Type&#160;Definitions&#160;.............................................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18">7.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18">Interrupt&#160;Service Routines&#160;provided by&#160;Fr&#160;ERay&#160;............................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.4&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Services provided by&#160;Fr&#160;ERay&#160;and differs&#160;from&#160;standard&#160;...............................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.4.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Fr_EnableAbsoluteTimerIRQ.........................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.4.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Fr_DisableAbsoluteTimerIRQ&#160;........................................................................&#160;20&#160;</a><br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+4&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-5_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.5&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Services used by&#160;Fr&#160;ERay&#160;.............................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.6&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Callback&#160;Functions&#160;........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.7&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Configurable Interfaces&#160;.................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.7.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Notifications&#160;..................................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">7.7.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Callout&#160;Functions&#160;..........................................................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#21"><b>8</b>&#160;&#160;<b>Configuration................................................................................................................&#160;21</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#21">8.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#21">Hardware&#160;Fifo................................................................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#21">8.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#21">Configuration with DaVinci&#160;Configurator&#160;5&#160;.....................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22"><b>9</b>&#160;&#160;<b>AUTOSAR&#160;Standard&#160;Compliance&#160;................................................................................&#160;22</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">9.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">Deviations&#160;.....................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">9.1.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">Fr_GetSyncFrameList&#160;...................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">9.1.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">Fr_GetPOCStatus&#160;.........................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">9.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">Additions/&#160;Extensions&#160;....................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">9.3&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#22">Limitations&#160;.....................................................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23"><b>10</b>&#160;&#160;<b>Glossary&#160;and&#160;Abbreviations&#160;........................................................................................&#160;23</b>&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">10.1&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">Glossary&#160;........................................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">10.2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">Abbreviations&#160;................................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#24"><b>11</b>&#160;&#160;<b>Contact&#160;..........................................................................................................................&#160;24</b>&#160;<br/></a>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+5&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-6_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<b>Es&#160;konnten&#160;keine&#160;Einträge&#160;für ein&#160;Abbildungsverzeichnis&#160;gefunden&#160;werden.&#160;</b><br/>
+<b>Tables&#160;</b><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">Table 1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">History&#160;of&#160;the&#160;document&#160;..............................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">Table 1-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#2">Reference&#160;documents&#160;.................................................................................&#160;2&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#7">Table 2-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#7">Supported&#160;Hardware&#160;Overview&#160;...................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#7">Table 2-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#7">Supported&#160;Errata&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#8">Table 3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#8">Component&#160;history......................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">Table 6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#11">Static&#160;files&#160;.................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#12">Table 6-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#12">Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;..............................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">Table 6-3&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#14">CC&#160;base address&#160;......................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">Table 6-4&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#15">Message RAM&#160;..........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18">Table 7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#18">Fr_IrqLine0/Fr_IrqLine1&#160;............................................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#19">Table 7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#19">Fr_IrqTimer0&#160;.............................................................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Table 7-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#20">Configuration dependent&#160;services used&#160;by&#160;Fr&#160;ERay&#160;.................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">Table 10-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">Glossary&#160;...................................................................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">Table 10-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_Fr_V85xs.html#23">Abbreviations&#160;............................................................................................&#160;23&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+6&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-7_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>2&#160;&#160;Hardware&#160;Overview&#160;</b><br/>
+The&#160;following&#160;table&#160;gives&#160;you&#160;detailed&#160;information&#160;about&#160;the&#160;derivatives&#160;and&#160;compilers. As&#160;<br/>very&#160;&#160;important&#160;&#160;information&#160;&#160;the&#160;&#160;documentations&#160;&#160;of&#160;&#160;the&#160;&#160;hardware&#160;&#160;manufacturers&#160;&#160;are&#160;&#160;listed.&#160;<br/>The&#160;driver is based&#160;upon&#160;these&#160;documents in&#160;the&#160;given&#160;version.&#160;&#160;&#160;<br/>
+&#160;<br/>
+<b>Derivative&#160;</b><br/>
+<b>Compiler&#160;</b><br/>
+<b>Hardware&#160;Manufacturer&#160;Document&#160;</b><br/>
+<b>Version&#160;</b><br/>
+µPD70F3441&#160;<br/>
+Greenhills&#160;<br/>
+U17754EE6V0UM00.pdf&#160;<br/>
+April&#160;2010&#160;<br/>
+&#160;<br/>
+5.1.6c&#160;<br/>
+µPD70F3461(A)&#160;<br/>
+Greenhills&#160;<br/>
+U18577EE1V3UM00.PDF&#160;<br/>
+December&#160;<br/>
+5.1.6c&#160;<br/>
+2008&#160;<br/>
+µPD70F3501&#160;<br/>
+Greenhills&#160;<br/>
+U19944EE0V3UM00.pdf&#160;<br/>
+July&#160;16,&#160;2010&#160;<br/>
+5.1.6c&#160;<br/>
+µPD70F4010&#160;<br/>
+Greenhills&#160;<br/>
+U19944EE0V3UM00.pdf&#160;<br/>
+July&#160;16,&#160;2010&#160;<br/>
+5.1.6c&#160;<br/>
+Table&#160;2-1&#160;&#160;<br/>
+Supported&#160;Hardware&#160;Overview&#160;<br/>
+<b>&#160;<br/>Derivative:&#160;</b>This&#160;can&#160;be&#160;a single&#160;information&#160;or a&#160;list&#160;of&#160;derivatives, the Flexray&#160;Driver can&#160;be&#160;used&#160;on.&#160;<br/><b>Compiler:&#160;</b>List of&#160;Compilers&#160;the Flexray&#160;Driver is&#160;working&#160;with.&#160;<br/><b>Hardware Manufacturer&#160;Document:&#160;</b>List of&#160;hardware&#160;documentation the Flexray&#160;Driver&#160;is&#160;based on.&#160;&#160;<br/><b>Version:&#160;</b>To be able to reference to this&#160;hardware documentation&#160;its&#160;version&#160;is&#160;very&#160;important.&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>Derivative&#160;</b><br/>
+<b>Errata Document&#160;</b><br/>
+<b>Release&#160;Date&#160;</b><br/>
+µPD70F3441&#160;<br/>
+R01TU0011ED0100_V850E_PHO3.PDF&#160;<br/>
+Sep&#160;14,&#160;2010&#160;<br/>
+&#160;<br/>
+µPD70F3461(A)&#160;<br/>
+R01TU0010ED0105_V850E_DAN.PDF&#160;<br/>
+November&#160;2010&#160;<br/>
+µPD70F3501&#160;<br/>
+Not&#160;available&#160;<br/>
+Not&#160;available&#160;<br/>
+µPD70F4010&#160;<br/>
+Not&#160;available&#160;<br/>
+Not&#160;available&#160;<br/>
+Table&#160;2-2&#160;&#160;<br/>
+Supported&#160;Errata&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+7&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-8_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>3&#160;&#160;Component&#160;History&#160;</b><br/>
+<b>Component&#160;</b><br/>
+<b>New&#160;Features&#160;</b><br/>
+<b>Version&#160;</b><br/>
+3.0&#160;<br/>
+Initial&#160;version&#160;<br/>
+3.3&#160;<br/>
+ISR&#160;routines&#160;in separate&#160;file&#160;<br/>
+3.9&#160;<br/>
+Fifo&#160;added&#160;<br/>
+3.11&#160;<br/>
+Read and verification of&#160;the&#160;FlexRay&#160;configuration&#160;<br/>
+3.13&#160;<br/>
+Added&#160;Fr_GetChannelStatus,Fr_GetClockCorrection,&#160;Fr_GetSyncFrameList,&#160;<br/>Fr_DisableLPdu&#160;and Fr_ReconfigLPdu&#160;<br/>
+3.14&#160;<br/>
+Optimization&#160;<br/>
+Table&#160;3-1&#160;&#160;<br/>
+Component&#160;history&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+8&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-9_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>4&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;Fr&#160;ERay&#160;that&#160;is&#160;specific&#160;for the&#160;communication&#160;controller E-Ray&#160;and&#160;the&#160;used&#160;micro&#160;<br/>controller.&#160;&#160;The&#160;&#160;basic&#160;&#160;functionality&#160;&#160;API&#160;&#160;architecture&#160;&#160;is&#160;&#160;already&#160;&#160;described&#160;&#160;within&#160;&#160;the&#160;<br/>documen<a href="TechnicalReference_Fr_V85xs.html#2">t&#160;[3].&#160;</a>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+9&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-10_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>5&#160;&#160;Functional&#160;Description&#160;</b><br/>
+Please&#160;refer to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].</a>&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+10&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-11_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>6&#160;&#160;Integration&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;gives&#160;&#160;necessary&#160;&#160;information&#160;&#160;for&#160;&#160;the&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;Fr&#160;&#160;ERay&#160;<br/>into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;It&#160;describes&#160;ERay&#160;specific&#160;issues&#160;in&#160;addition&#160;to&#160;<br/><a href="TechnicalReference_Fr_V85xs.html#2">[3].</a>&#160;<br/>
+<b>6.1&#160;&#160;Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;&#160;delivery&#160;&#160;of&#160;&#160;the&#160;&#160;Fr&#160;&#160;ERay&#160;&#160;contains&#160;&#160;the&#160;&#160;files&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;the&#160;&#160;chapte<a href="TechnicalReference_Fr_V85xs.html#11">rs&#160;&#160;6.1.1&#160;<br/>and&#160;6.1.2:</a>&#160;<br/>
+<b>6.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+Fr_ERay.h&#160;<br/>
+This&#160;file replaces&#160;the&#160;file&#160;Fr_&lt;CC&gt;.h listed&#160;in the&#160;document<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;6-1&#160;&#160;<br/>
+Static&#160;files&#160;<br/>
+&#160;<br/>
+<b>6.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+No&#160;additional&#160;dynamic&#160;files.&#160;Please&#160;refer to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].</a>&#160;<br/>
+&#160;<br/>
+<b>6.2&#160;</b><br/>
+<b>Compiler&#160;Abstraction and Memory&#160;Mapping&#160;&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;table&#160;&#160;contains&#160;&#160;the&#160;&#160;memory&#160;&#160;section&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;compiler&#160;&#160;abstraction&#160;<br/>definitions defined&#160;for the&#160;Fr&#160;ERay&#160;and&#160;illustrates their&#160;assignment&#160;among&#160;each&#160;other.&#160;<br/>
+<b>Compiler&#160;Abstraction&#160;</b><br/>
+&#160;<br/>T<br/>S<br/>
+<b>Definitions&#160;</b><br/>
+&#160;<br/>
+A<br/>
+e]<br/>
+&#160;<br/>
+_F<br/>
+&#160;<br/>
+&#160;<br/>
+E<br/>
+&#160;<br/>
+am<br/>
+&#160;<br/>
+D<br/>
+R<br/>
+&#160;<br/>
+INIT<br/>
+INIT<br/>
+M<br/>
+&#160;N<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+T<br/>
+CO<br/>
+_IS<br/>
+on<br/>
+G<br/>
+<b>Memory&#160;Mapping&#160;</b><br/>
+ti<br/>
+L_<br/>
+DE<br/>
+R_NO<br/>
+R_NO<br/>
+R_FR<br/>
+NS<br/>
+CF<br/>
+P<br/>
+DE<br/>
+ac<br/>
+A<br/>
+A<br/>
+A<br/>
+B<br/>
+P<br/>
+<b>Sections&#160;</b><br/>
+tr<br/>bs<br/>
+R_CO<br/>
+R_V<br/>
+R_V<br/>
+R_V<br/>
+R_CO<br/>
+R_P<br/>
+R_A<br/>
+R_CO<br/>
+[A<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+F<br/>
+[Section&#160;Name]&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_CODE&#160;<br/>
+FR_START_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_VAR_NOINIT_UNSPECIFIED&#160;<br/>
+FR_START_SEC_VAR_FAST_NOINIT_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_VAR_FAST_NOINIT_UNSPECIFIED&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+11&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-12_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-12_2.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+FR_START_SEC_CONST_UNSPECIFIED&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_CONST_UNSPECIFIED&#160;<br/>
+FR_START_SEC_PBCFG_ROOT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_&#160;STOP&#160;_SEC_PBCFG_ROOT&#160;<br/>
+FR_START_SEC_PBCFG&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_PBCFG&#160;<br/>
+FR_START_SEC_CONST_32BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_CONST_32BIT&#160;<br/>
+FR_START_SEC_CONST_16BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_CONST_16BIT&#160;<br/>
+FR_START_SEC_CONST_8BIT&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_CONST_8BIT&#160;<br/>
+FR_APPL_START_SEC_CODE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_APPL_STOP_SEC_CODE&#160;<br/>
+FR_START_SEC_CODE_ISR&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+FR_STOP_SEC_CODE_ISR&#160;<br/>
+Table&#160;6-2&#160;&#160;<br/>
+Compiler&#160;abstraction&#160;and&#160;memory&#160;mapping&#160;<br/>
+<b>&#160;</b><br/>
+<b>Caution&#160;<br/></b>Please ensure&#160;that&#160;the&#160;define&#160;FR_PBCFG&#160;get&#160;the&#160;same&#160;value&#160;as FR_ CONST&#160;in&#160;<br/>
+&#160;&#160;configuration&#160;type&#160;“Pre-compile Configuration”&#160;or&#160;“Link-time Configuration”&#160;<br/>
+<b>6.3&#160;&#160;Critical&#160;Sections&#160;</b><br/>
+To&#160;&#160;ensure&#160;&#160;data&#160;&#160;consistency&#160;&#160;and&#160;&#160;a&#160;&#160;correct&#160;&#160;function&#160;&#160;of&#160;&#160;the&#160;&#160;Fr&#160;&#160;ERay&#160;&#160;the&#160;&#160;exclusive&#160;&#160;area&#160;<br/>FR_EXCLUSIVE_AREA_0&#160;has to&#160;be&#160;provided&#160;during&#160;the&#160;integration.&#160;<br/>
+Considering&#160;the&#160;timing&#160;behavior&#160;of&#160;your&#160;system&#160;(e.g.&#160;depending&#160;on&#160;the&#160;CPU&#160;load&#160;of&#160;your&#160;<br/>system,&#160;&#160;priorities&#160;&#160;and&#160;&#160;interruptibility&#160;&#160;of&#160;&#160;interrupts&#160;&#160;and&#160;&#160;OS&#160;&#160;tasks&#160;&#160;and&#160;&#160;their&#160;&#160;jitter&#160;&#160;and&#160;&#160;delay&#160;<br/>times)&#160;&#160;the&#160;&#160;integrator&#160;&#160;has&#160;&#160;to&#160;&#160;choose&#160;&#160;and&#160;&#160;configure&#160;&#160;a&#160;&#160;critical&#160;&#160;section&#160;&#160;solution&#160;&#160;in&#160;&#160;such&#160;&#160;way&#160;<br/>that&#160;it&#160;is&#160;ensured&#160;that&#160;the&#160;API&#160;functions&#160;do&#160;not&#160;&#160;interrupt&#160;each&#160;other.&#160;You&#160;can&#160;find&#160;a&#160;set&#160;of&#160;<br/>rules&#160;below&#160;which&#160;describes whether an&#160;exclusive&#160;area&#160;is needed&#160;by&#160;the&#160;Fr&#160;ERay&#160;or not.&#160;<br/>
+The&#160;&#160;FR_EXCLUSIVE_AREA_0&#160;&#160;has&#160;&#160;to&#160;&#160;be&#160;&#160;used&#160;&#160;if&#160;&#160;at&#160;&#160;least&#160;&#160;one&#160;&#160;of&#160;&#160;the&#160;&#160;following&#160;&#160;rules&#160;&#160;hold&#160;<br/>true:&#160;<br/>
+&#160;&#160;It&#160;&#160;is&#160;&#160;possible&#160;&#160;that&#160;&#160;the&#160;&#160;function&#160;&#160;Fr_TransmitTxLPdu&#160;&#160;is&#160;&#160;interrupted&#160;&#160;by&#160;&#160;the&#160;&#160;function&#160;<br/>
+Fr_TransmitTxLPdu&#160;itself.&#160;E.g.&#160;at&#160;execution&#160;of&#160;method&#160;Fr_TransmitTxLPdu,&#160;that&#160;<br/>was&#160;&#160;triggered&#160;&#160;by&#160;&#160;upper&#160;&#160;layer&#160;&#160;because&#160;&#160;the&#160;&#160;attribute&#160;&#160;FrIfImmediate&#160;&#160;is&#160;&#160;set,&#160;&#160;is&#160;<br/>interrupted&#160;&#160;by&#160;&#160;the&#160;&#160;job&#160;&#160;list&#160;&#160;execution&#160;&#160;of&#160;&#160;FrIf&#160;&#160;that&#160;&#160;contains&#160;&#160;a&#160;&#160;call&#160;&#160;of&#160;&#160;the&#160;&#160;method&#160;<br/>Fr_TransmitTxLPdu,&#160;or vice&#160;versa.&#160;<br/>
+&#160;&#160;At&#160;&#160;enabled&#160;&#160;feature&#160;&#160;“Reconfig&#160;&#160;LPdu&#160;&#160;Support”&#160;&#160;it&#160;&#160;is&#160;&#160;possible&#160;&#160;that&#160;&#160;the&#160;&#160;functions&#160;<br/>
+Fr_DisableLPdu&#160;&#160;or&#160;&#160;Fr_ReconfigLPdu&#160;&#160;are&#160;&#160;interrupted&#160;&#160;by&#160;&#160;the&#160;&#160;function&#160;<br/>Fr_TransmitTxLPdu&#160;&#160;and&#160;&#160;vice&#160;&#160;versa.&#160;&#160;E.g.&#160;&#160;at&#160;&#160;execution&#160;&#160;of&#160;&#160;the&#160;&#160;method&#160;<br/>Fr_DisableLPdu&#160;&#160;or&#160;&#160;Fr_ReconfigLPdu&#160;&#160;is&#160;&#160;interrupted&#160;&#160;by&#160;&#160;the&#160;&#160;job&#160;&#160;list&#160;&#160;execution&#160;&#160;of&#160;<br/>FrIf&#160;that&#160;contains a&#160;call&#160;of&#160;the&#160;method&#160;Fr_TransmitTxLPdu.&#160;&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+12&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-13_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+The&#160;recommended&#160;implementation&#160;for&#160;the&#160;FR_EXCLUSIVE_AREA_0&#160;of&#160;the&#160;component&#160;Fr&#160;<br/>ERay&#160;depends&#160;on&#160;the&#160;integration&#160;context&#160;of&#160;the&#160;job&#160;list&#160;execution.&#160;&#160;&#160;<br/>
+The&#160;&#160;FR_EXCLUSIVE_AREA_0&#160;&#160;shall&#160;&#160;disable/enable&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;timer&#160;&#160;interrupt&#160;&#160;or&#160;&#160;call&#160;<br/>SuspendAllInterrupts()&#160;&#160;&#160;&#160;and&#160;&#160;&#160;&#160;ResumeAllInterrupts()&#160;&#160;in&#160;&#160;case&#160;&#160;the&#160;&#160;job&#160;&#160;list&#160;<br/>execution&#160;is done&#160;at&#160;interrupt&#160;context&#160;to&#160;ensure data&#160;consistency.&#160;<br/>
+The&#160;<br/>
+FR_EXCLUSIVE_AREA_0&#160;<br/>
+shall&#160;<br/>
+call&#160;<br/>
+SuspendOSInterrupts()&#160;<br/>
+&#160;<br/>
+and&#160;&#160;<br/>
+ResumeOSInterrupts()&#160;in&#160;case&#160;the&#160;case&#160;the&#160;job&#160;list&#160;execution&#160;is&#160;done&#160;at&#160;task&#160;context&#160;<br/>to&#160;&#160;ensure&#160;&#160;data&#160;&#160;consistency.&#160;&#160;&#160;Alternative&#160;&#160;the&#160;&#160;undesired&#160;&#160;task&#160;&#160;activation&#160;&#160;can&#160;&#160;be&#160;&#160;prevent&#160;&#160;by&#160;<br/>implement&#160;OS&#160;resource&#160;lock at&#160;the&#160;involved&#160;tasks.&#160;&#160;<br/>
+The&#160;&#160;Fr&#160;&#160;ERay&#160;&#160;supports&#160;&#160;one&#160;&#160;of&#160;&#160;the&#160;&#160;following&#160;&#160;two&#160;&#160;alternatives&#160;&#160;as&#160;&#160;implementation&#160;&#160;for&#160;&#160;these&#160;<br/>exclusive&#160;areas depending&#160;on&#160;your questionnaire:&#160;<br/>
+&#160;&#160;The&#160;BSW&#160;Scheduler (refer to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[5]&#160;</a>for&#160;a&#160;detailed&#160;description)&#160;<br/>
+&#160;&#160;the&#160;Vector Standard&#160;Library&#160;(VStdLib)&#160;<br/>
+The&#160;VStdLib&#160;offers the&#160;possibility&#160;of&#160;mapping&#160;the&#160;interrupt&#160;handling&#160;to&#160;OS&#160;services&#160;or to&#160;<br/>user defined&#160;functions.&#160;In&#160;the&#160;first&#160;case&#160;interrupt&#160;handling&#160;is done&#160;by&#160;the&#160;OS,&#160;in&#160;the&#160;second&#160;<br/>case&#160;the&#160;user has to&#160;take&#160;care&#160;by&#160;providing&#160;corresponding&#160;functions.&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+13&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-14_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-14_2.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>6.4&#160;&#160;General&#160;Integration notes&#160;</b><br/>
+A&#160;workaround&#160;for&#160;errata&#160;#27 in<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[4]&#160;</a>is&#160;implemented&#160;in module&#160;FrSm.&#160;If&#160;no&#160;FrSm&#160;is&#160;used,&#160;the&#160;<br/>application has&#160;to&#160;implement&#160;a workaround.&#160;<br/>&#160;<br/>
+<b>6.4.1&#160;</b><br/>
+<b>Calculation of&#160;Timeout&#160;Loops&#160;</b><br/>
+Please&#160;&#160;refer&#160;&#160;to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;&#160;[3]&#160;&#160;</a>for&#160;&#160;generically&#160;&#160;description&#160;&#160;of&#160;&#160;this&#160;&#160;feature.&#160;The&#160;&#160;following&#160;&#160;text&#160;&#160;describes&#160;<br/>the&#160;worst case&#160;value&#160;for given&#160;platform.&#160;<br/>
+The&#160;&#160;worst&#160;&#160;case&#160;&#160;time&#160;&#160;value&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;&#160;“BCLK“&#160;&#160;speed.&#160;&#160;The&#160;&#160;time&#160;&#160;value&#160;&#160;can&#160;&#160;be&#160;<br/>calculated&#160;as&#160;follow:&#160;<br/>
+Worst&#160;case&#160;time&#160;= 1/BCLK&#160;*&#160;1329&#160;<br/>
+e.g.&#160;<br/>
+Worst&#160;case&#160;time&#160;= 1/64MHz&#160;*&#160;1329&#160;= 20,7&#160;micro&#160;seconds&#160;<br/>
+The&#160;&#160;worst&#160;&#160;case&#160;&#160;time&#160;&#160;wait&#160;&#160;is&#160;&#160;reached&#160;&#160;with&#160;&#160;the&#160;&#160;“Timeout&#160;&#160;Duration&#160;&#160;Factor”&#160;&#160;that&#160;&#160;can&#160;&#160;be&#160;&#160;set&#160;<br/>within&#160;configuration.&#160;The&#160;“Timeout&#160;Duration&#160;Factor”&#160;value&#160;for&#160;the&#160;given&#160;example&#160;worst&#160;case&#160;<br/>time&#160;of&#160;20,7&#160;micro&#160;seconds&#160;is&#160;380&#160;in&#160;case&#160;the&#160;internal&#160;system&#160;clock&#160;of&#160;the&#160;micro&#160;controller&#160;<br/>is set&#160;to&#160;128MHz.&#160;<br/>
+<b>&#160;</b><br/>
+<b>Info</b>&#160;<br/>The&#160;timeout&#160;expiration&#160;is&#160;controlled&#160;by&#160;simply&#160;while loop.&#160;You&#160;can&#160;adapt&#160;the “Timeout&#160;<br/>
+&#160;&#160;Duration&#160;Factor”&#160;in&#160;case&#160;you&#160;use&#160;other&#160;BCLK&#160;or&#160;internal&#160;system&#160;clock&#160;values.&#160;The&#160;new&#160;<br/>
+value&#160;of&#160;the&#160;“Timeout&#160;Duration Factor”&#160;can&#160;be&#160;find&#160;out&#160;by&#160;measuring&#160;the&#160;execution&#160;time&#160;<br/>of&#160;the&#160;while loop.&#160;<br/>while (timeoutCounter &lt; “Timeout Duration Factor”)&#160;<br/>{&#160;<br/>&#160;&#160;timeoutCounter++;&#160;<br/>}&#160;<br/>
+<b>&#160;</b><br/>
+<b>6.5&#160;&#160;Integration notes&#160;for&#160;NEC V850&#160;</b><br/>
+<b>6.5.1&#160;</b><br/>
+<b>ERay&#160;Base&#160;Address&#160;</b><br/>
+The&#160;base&#160;address&#160;for&#160;V85x&#160;CC depends&#160;on&#160;the&#160;device&#160;and&#160;can&#160;be&#160;found&#160;in<a href="TechnicalReference_Fr_V85xs.html#14">&#160;Table&#160;6-3.</a>&#160;<br/>
+<b>Device&#160;name&#160;</b><br/>
+<b>CC&#160;base&#160;address&#160;</b><br/>
+µPD70F3441&#160;<br/>
+0x0F800000&#160;<br/>
+&#160;<br/>
+µPD70F3461(A)&#160;<br/>
+0x0F800000&#160;<br/>
+µPD70F3501&#160;<br/>
+0xFF580000&#160;<br/>
+µPD70F4010&#160;<br/>
+0xFF580000&#160;<br/>
+Table&#160;6-3&#160;&#160;CC&#160;base&#160;address&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+14&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-15_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-15_2.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>6.5.2&#160;</b><br/>
+<b>FlexRay&#160;Memory&#160;buffer number&#160;</b><br/>
+The&#160;ERay&#160;CC at&#160;V85x&#160;can&#160;address&#160;a&#160;maximum&#160;number of&#160;128&#160;message&#160;buffers.&#160;<br/>
+<b>6.5.3&#160;</b><br/>
+<b>FlexRay&#160;Memory&#160;Buffer size&#160;</b><br/>
+The&#160;&#160;available&#160;&#160;FlexRay&#160;&#160;Message&#160;&#160;RAM&#160;&#160;for&#160;&#160;V85x&#160;&#160;CC&#160;&#160;depends&#160;&#160;on&#160;&#160;the&#160;&#160;device&#160;&#160;and&#160;&#160;can&#160;&#160;be&#160;<br/>found&#160;in<a href="TechnicalReference_Fr_V85xs.html#15">&#160;Table&#160;6-4.</a>&#160;<br/>
+<b>Device&#160;name&#160;</b><br/>
+<b>Message&#160;RAM&#160;</b><br/>
+µPD70F3441&#160;<br/>
+6&#160;kB&#160;<br/>
+&#160;<br/>
+µPD70F3461(A)&#160;<br/>
+8&#160;kB&#160;<br/>
+µPD70F3501&#160;<br/>
+8&#160;kB&#160;<br/>
+µPD70F4010&#160;<br/>
+8&#160;kB&#160;<br/>
+Table&#160;6-4&#160;&#160;Message&#160;RAM&#160;<br/>
+<b>6.5.4&#160;</b><br/>
+<b>Interrupt&#160;routines&#160;</b><br/>
+The&#160;&#160;Fr&#160;&#160;ERay&#160;&#160;module&#160;&#160;configures&#160;&#160;the&#160;&#160;CC&#160;&#160;with&#160;&#160;its&#160;&#160;interrupt&#160;&#160;registers.&#160;&#160;But&#160;&#160;the&#160;&#160;FlexRay&#160;<br/>interrupts are&#160;not&#160;enabled&#160;on&#160;V850&#160;interrupt&#160;controller by&#160;Fr&#160;ERay.&#160;&#160;<br/>
+The&#160;application&#160;has to&#160;enable&#160;the&#160;FlexRay&#160;interrupts on&#160;the&#160;V850&#160;interrupt&#160;controller.&#160;As an&#160;<br/>example&#160;a&#160;small&#160;function&#160;is given&#160;within&#160;the&#160;next&#160;lines:&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>Example&#160;</b><br/>
+&#160;&#160;&#160;void EnableInterrupts(void)&#160;<br/>
+{&#160;<br/>&#160;&#160;ECU_FRIC0 = ECU_FRIC0 &amp; (~0x40);&#160;<br/>&#160;&#160;ECU_FRIC1 = ECU_FRIC1 &amp; (~0x40);&#160;<br/>&#160;&#160;ECU_FRIC2 = ECU_FRIC2 &amp; (~0x40);&#160;<br/>}&#160;&#160;<br/>
+<b>&#160;</b><br/>
+The&#160;interrupt&#160;function&#160;can&#160;be&#160;called&#160;directly&#160;from&#160;OS&#160;or&#160;integration&#160;of&#160;V850.&#160;Therefore&#160;the&#160;<br/>interrupt&#160;routines&#160;<br/>
+<b>&gt;&#160;&#160;</b>Fr_IrqLine0&#160;or Fr_IrqLine1&#160;line&#160;selected&#160;at&#160;optional&#160;parameter&#160;“Line&#160;select&#160;for status&#160;<br/>
+interrupts”.&#160;By&#160;default&#160;Fr_IrqLine0&#160;is used.&#160;This&#160;interrupt&#160;is&#160;only&#160;necessary&#160;if&#160;<br/>configuration&#160;attribute&#160;“Cycle&#160;Start Interrupt” or ECUC&#160;Parameter FrCycleStartInterrup&#160;is&#160;<br/>enabled.&#160;Otherwise&#160;this interrupt&#160;does need&#160;not&#160;be&#160;enabled.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Fr_IrqTimer0&#160;<br/>
+are&#160;implemented&#160;in&#160;file&#160;Fr_Irq.c.&#160;They&#160;call&#160;the&#160;corresponding&#160;interrupt&#160;function&#160;out&#160;of&#160;which&#160;<br/>the&#160;application&#160;callout&#160;functions&#160;are&#160;called.&#160;To&#160;save&#160;resources,&#160;Fr_IrqTimer0&#160;directly&#160;calls&#160;<br/>the&#160;application&#160;callout&#160;function&#160;or FrIf,&#160;according&#160;to&#160;configuration.&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+15&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-16_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-16_2.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>6.5.5&#160;</b><br/>
+<b>Timer interrupt&#160;</b><br/>
+At&#160;&#160;V850&#160;&#160;with&#160;&#160;ERay&#160;&#160;it&#160;&#160;is&#160;&#160;not&#160;&#160;possible&#160;&#160;to&#160;&#160;switch&#160;&#160;off&#160;&#160;FlexRay&#160;&#160;timer&#160;&#160;interrupts&#160;&#160;on&#160;&#160;ERay.&#160;The&#160;<br/>configuration&#160;of&#160;Eray&#160;allows&#160;disconnecting&#160;the&#160;timer&#160;interrupt&#160;from&#160;line&#160;0&#160;or&#160;line&#160;1&#160;interrupt.&#160;<br/>This&#160;&#160;is&#160;&#160;the&#160;&#160;default&#160;&#160;configuration&#160;&#160;of&#160;&#160;FR.&#160;&#160;But&#160;&#160;there&#160;&#160;is&#160;&#160;an&#160;&#160;additional&#160;&#160;interrupt&#160;&#160;line&#160;&#160;for&#160;&#160;timer&#160;<br/>interrupt&#160;&#160;which&#160;&#160;is&#160;&#160;not&#160;&#160;configurable&#160;&#160;by&#160;&#160;Eray&#160;&#160;registers.&#160;&#160;This&#160;&#160;additional&#160;&#160;interrupt&#160;&#160;line&#160;&#160;is&#160;<br/>connected&#160;directly&#160;to&#160;V850&#160;interrupt&#160;controller.&#160;<br/>
+So&#160;enabling&#160;or&#160;disabling&#160;the&#160;timer&#160;interrupt&#160;on&#160;V850&#160;interrupt&#160;controller&#160;has&#160;to&#160;be&#160;done&#160;by&#160;<br/>the&#160;application&#160;by&#160;configuration&#160;of&#160;V850&#160;interrupt&#160;controller.&#160;<br/>
+<b>6.5.6&#160;</b><br/>
+<b>Buffer&#160;alignment&#160;</b><br/>
+The&#160;&#160;used&#160;&#160;FlexRay&#160;&#160;buffers&#160;&#160;shall&#160;&#160;be&#160;&#160;aligned&#160;&#160;to&#160;&#160;16&#160;&#160;bit&#160;&#160;addresses.&#160;&#160;This&#160;&#160;is&#160;&#160;important&#160;&#160;for&#160;<br/>message&#160;&#160;buffers&#160;&#160;which&#160;&#160;are&#160;&#160;sent&#160;&#160;with&#160;&#160;FrIf&#160;&#160;mode&#160;&#160;immediately&#160;&#160;or&#160;&#160;no&#160;&#160;FrIf&#160;&#160;is&#160;&#160;used.&#160;&#160;If&#160;&#160;FrIf&#160;&#160;is&#160;<br/>used,&#160;&#160;FrIf&#160;&#160;automatically&#160;&#160;aligns&#160;&#160;the&#160;&#160;buffers&#160;&#160;to&#160;&#160;32&#160;&#160;bit.&#160;&#160;The&#160;&#160;used&#160;&#160;FlexRay&#160;&#160;buffers&#160;&#160;shall&#160;&#160;be&#160;<br/>aligned&#160;to&#160;16&#160;bit addresses.&#160;<br/>
+In&#160;&#160;case&#160;&#160;this&#160;&#160;is&#160;&#160;not&#160;&#160;possible,&#160;&#160;FlexRay&#160;&#160;driver&#160;&#160;can&#160;&#160;align&#160;&#160;unaligned&#160;&#160;message&#160;&#160;itself.&#160;&#160;This&#160;<br/>functionality&#160;&#160;needs&#160;&#160;more&#160;&#160;runtime&#160;&#160;to&#160;&#160;transmit&#160;&#160;unaligned&#160;&#160;messages&#160;&#160;and&#160;&#160;needs&#160;&#160;to&#160;&#160;check&#160;<br/>every&#160;message&#160;for its&#160;alignment.&#160;It&#160;can&#160;be&#160;activated&#160;with&#160;a&#160;define&#160;switch&#160;in&#160;userconfig-file.&#160;<br/>
+<b>&#160;</b><br/>
+<b>Example&#160;</b><br/>
+&#160;&#160;&#160;#define&#160;FR_NONALIGNED_SRCMEMORY&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>6.6&#160;</b><br/>
+<b>Integration notes&#160;for&#160;RH850&#160;</b><br/>
+The&#160;&#160;ERay&#160;&#160;CC&#160;&#160;at&#160;&#160;RH850&#160;&#160;can&#160;&#160;address&#160;&#160;a&#160;&#160;maximum&#160;&#160;number&#160;&#160;of&#160;&#160;128&#160;&#160;message&#160;&#160;buffers.&#160;The&#160;<br/>maximum&#160;amount&#160;&#160;of&#160;usable&#160;&#160;message&#160;buffers&#160;depends&#160;heavily&#160;on&#160;the&#160;size&#160;of&#160;the&#160;frames,&#160;<br/>and&#160;thus,&#160;on&#160;the&#160;specific configuration.&#160;<br/>
+<b>6.6.1&#160;</b><br/>
+<b>Buffer&#160;alignment&#160;</b><br/>
+The&#160;&#160;used&#160;&#160;FlexRay&#160;&#160;buffers&#160;&#160;shall&#160;&#160;be&#160;&#160;aligned&#160;&#160;to&#160;&#160;16&#160;&#160;bit&#160;&#160;addresses.&#160;&#160;This&#160;&#160;is&#160;&#160;important&#160;&#160;for&#160;<br/>message&#160;&#160;buffers&#160;&#160;which&#160;&#160;are&#160;&#160;sent&#160;&#160;with&#160;&#160;FrIf&#160;&#160;mode&#160;&#160;immediately&#160;&#160;or&#160;&#160;no&#160;&#160;FrIf&#160;&#160;is&#160;&#160;used.&#160;&#160;If&#160;&#160;FrIf&#160;&#160;is&#160;<br/>used,&#160;&#160;FrIf&#160;&#160;automatically&#160;&#160;aligns&#160;&#160;the&#160;&#160;buffers&#160;&#160;to&#160;&#160;32&#160;&#160;bit.&#160;&#160;The&#160;&#160;used&#160;&#160;FlexRay&#160;&#160;buffers&#160;&#160;shall&#160;&#160;be&#160;<br/>aligned&#160;to&#160;16&#160;bit addresses.&#160;<br/>
+<b>6.6.2&#160;</b><br/>
+<b>Specifics&#160;of RH850&#160;P1x&#160;</b><br/>
+We&#160;&#160;discovered&#160;&#160;a&#160;&#160;problem&#160;&#160;with&#160;&#160;RH850&#160;&#160;derivatives&#160;&#160;of&#160;&#160;type&#160;&#160;P1x.&#160;&#160;With&#160;&#160;these&#160;&#160;chips&#160;&#160;our&#160;<br/>FlexRay&#160;&#160;might&#160;&#160;not&#160;&#160;work&#160;&#160;as&#160;&#160;expected.&#160;&#160;We&#160;&#160;observed&#160;&#160;an&#160;&#160;abortion&#160;&#160;of&#160;&#160;the&#160;&#160;initialization&#160;<br/>sequence.&#160;&#160;The&#160;&#160;result&#160;&#160;is&#160;&#160;that&#160;&#160;no&#160;&#160;FlexRay&#160;&#160;communication&#160;&#160;can&#160;&#160;be&#160;&#160;established&#160;<br/>(ESCAN00093807).&#160;<br/>
+We&#160;observed&#160;this&#160;behavior on&#160;the&#160;following&#160;P1x:&#160;<br/>
+<b>&gt;&#160;&#160;</b>P1H-C 1331&#160;<br/>
+<b>&gt;&#160;&#160;</b>P1H-C 1372&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+16&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-17_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>&gt;&#160;&#160;</b>P1M&#160;1312&#160;<br/>
+There&#160;&#160;is&#160;&#160;a&#160;&#160;workaround&#160;&#160;that&#160;&#160;can&#160;&#160;be&#160;&#160;controlled&#160;&#160;by&#160;&#160;defining&#160;&#160;FR_WAIT_STATES&#160;&#160;via&#160;&#160;a&#160;&#160;user&#160;<br/>config&#160;&#160;file.&#160;&#160;If&#160;&#160;FR_WAIT_STATES&#160;&#160;is&#160;&#160;not&#160;&#160;defined&#160;&#160;its&#160;&#160;default&#160;&#160;value&#160;&#160;will&#160;&#160;be&#160;&#160;5&#160;&#160;which&#160;&#160;means&#160;&#160;5&#160;<br/>ms.&#160;A&#160;user config&#160;file&#160;can&#160;look like&#160;that:&#160;<br/>
+&#160;<br/>
+#define FR_WAIT_STATES 3&#160;/* number means time in ms */&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+17&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-18_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>7&#160;&#160;API&#160;Description&#160;</b><br/>
+<b>7.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;types defined&#160;by&#160;the&#160;Fr&#160;ERay&#160;are&#160;described&#160;in&#160;this chapter.&#160;<br/>
+The&#160;Fr&#160;ERay&#160;does not&#160;define&#160;specific&#160;type&#160;definitions.&#160;&#160;<br/>
+<b>7.2&#160;&#160;Interrupt&#160;Service&#160;Routines&#160;provided by&#160;Fr&#160;ERay&#160;&#160;</b><br/>
+For&#160;&#160;general&#160;&#160;description&#160;&#160;please&#160;&#160;refer&#160;&#160;to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;&#160;[3]&#160;&#160;</a>and&#160;&#160;the&#160;&#160;respective&#160;&#160;chapters&#160;&#160;under&#160;&#160;<a href="TechnicalReference_Fr_V85xs.html#10">“Functional&#160;<br/>Description”.</a>&#160;<br/>
+&#160;<br/>
+<b>Prototype&#160;</b><br/>
+FUNC(void, FR_CODE)&#160;<b>Fr_IrqLine0/Fr_IrqLine1</b>&#160;()&#160;<br/>
+<b>Parameter&#160;</b><br/>
+---&#160;<br/>
+&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+---&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Executes&#160;the status&#160;interrupts&#160;of&#160;ERay.&#160;By&#160;default&#160;cycle start&#160;interrupt&#160;are used by&#160;Fr&#160;ERay&#160;to&#160;synchronize&#160;<br/>Application&#160;with&#160;callback&#160;function&#160;ApplFr_ISR_CycleStart.&#160;&#160;<br/>
+&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Particularities, limitations,&#160;post-conditions, pre-conditions&#160;<br/>
+<b>&gt;&#160;&#160;</b>An&#160;interrupt&#160;splitting is&#160;used.&#160;<br/>Fr&#160;ERay&#160;is&#160;initialized&#160;and&#160;interrupts&#160;are enabled.&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;attribute&#160;“Cycle&#160;Start Interrupt”&#160;or ECUC&#160;Parameter&#160;FrCycleStartInterrupt is&#160;enabled.&#160;&#160;<br/>
+Table&#160;7-1&#160;&#160;<br/>
+Fr_IrqLine0/Fr_IrqLine1&#160;<br/>
+&#160;<br/>
+<b>Prototype&#160;<br/></b>FUNC(void, FR_CODE)&#160;<b>Fr_IrqTimer0&#160;</b>()&#160;<br/>
+<b>Parameter&#160;</b><br/>
+---&#160;<br/>
+&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+---&#160;<br/>
+&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+18&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-19_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Executes&#160;the&#160;Timer0 interrupt&#160;of&#160;ERay.&#160;By&#160;default this&#160;interrupt&#160;is&#160;used&#160;by&#160;Fr&#160;ERay. It&#160;also disables&#160;the&#160;<br/>interrupt.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Particularities, limitations,&#160;post-conditions, pre-conditions&#160;<br/>
+<b>&gt;&#160;&#160;</b>A&#160;separate&#160;interrupt for&#160;Timer0 is&#160;called by&#160;hardware&#160;and&#160;interrupt splitting&#160;is&#160;used.&#160;<br/>Fr&#160;ERay&#160;is&#160;initialized&#160;and&#160;interrupts&#160;are enabled.&#160;<br/>
+Table&#160;7-2&#160;&#160;<br/>
+Fr_IrqTimer0&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+19&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-20_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>7.3&#160;</b><br/>
+<b>&#160;&#160;</b><br/>
+<b>7.4&#160;&#160;Services&#160;provided by&#160;Fr ERay&#160;and differs&#160;from standard&#160;</b><br/>
+The&#160;&#160;Fr&#160;&#160;ERay&#160;&#160;API&#160;&#160;consists&#160;&#160;of&#160;&#160;services,&#160;&#160;which&#160;&#160;are&#160;&#160;realized&#160;&#160;by&#160;&#160;function&#160;&#160;calls.&#160;&#160;General&#160;<br/>services&#160;are described&#160;in<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].&#160;</a>The&#160;following&#160;services differ&#160;from&#160;standard behavior.&#160;<br/>
+<b>7.4.1&#160;</b><br/>
+<b>Fr_EnableAbsoluteTimerIRQ&#160;</b><br/>
+Fr&#160;&#160;ERay&#160;&#160;module&#160;&#160;does&#160;&#160;not&#160;&#160;enable&#160;&#160;or&#160;&#160;disable&#160;&#160;ERay&#160;&#160;timer&#160;&#160;interrupts&#160;&#160;or&#160;&#160;assign&#160;&#160;them&#160;&#160;to&#160;&#160;an&#160;<br/>ERay&#160;interrupt&#160;line.&#160;The&#160;application&#160;has&#160;to&#160;enable&#160;or&#160;disable&#160;the&#160;ERay&#160;timer&#160;interrupt&#160;at&#160;the&#160;<br/>controller specific interrupt&#160;controller.&#160;&#160;<br/>
+<b>7.4.2&#160;</b><br/>
+<b>Fr_DisableAbsoluteTimerIRQ&#160;</b><br/>
+Please&#160;refer to<a href="TechnicalReference_Fr_V85xs.html#20">&#160;7.4.1&#160;</a><br/>
+<b>7.5&#160;&#160;Services&#160;used&#160;by&#160;Fr&#160;ERay&#160;</b><br/>
+General services&#160;are described&#160;in<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].</a>&#160;<br/>
+Depending&#160;on&#160;configuration&#160;services&#160;used&#160;by&#160;&#160;Fr&#160;ERay&#160;are&#160;listed&#160;in&#160;next&#160;table.&#160;For&#160;details&#160;<br/>about&#160;prototype&#160;and&#160;functionality&#160;refer to&#160;the&#160;documentation&#160;of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Configuration/Precondition&#160;</b><br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+Application callback&#160;at&#160;timer&#160;0 interrupt&#160;and&#160;&#160;<br/>
+FrIf&#160;<br/>
+FrIf_JobListExec_0&#160;<br/>
+BSM&#160;FrIf&#160;is&#160;used&#160;<br/>
+Table&#160;7-3&#160;&#160;<br/>
+Configuration&#160;dependent&#160;services&#160;used&#160;by&#160;Fr&#160;ERay&#160;<br/>
+<b>7.6&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+There is&#160;no&#160;Fr&#160;ERay&#160;specific callback&#160;function&#160;available.&#160;&#160;<br/>
+<b>7.7&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>7.7.1&#160;</b><br/>
+<b>Notifications&#160;</b><br/>
+There is&#160;no&#160;Fr&#160;ERay&#160;specific notification&#160;function&#160;available.&#160;&#160;<br/>
+<b>7.7.2&#160;</b><br/>
+<b>Callout Functions&#160;</b><br/>
+There is&#160;no&#160;Fr&#160;ERay&#160;specific callout&#160;function&#160;available.&#160;&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+20&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-21_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>8&#160;&#160;Configuration&#160;</b><br/>
+In&#160;the&#160;Fr&#160;ERay&#160;the&#160;attributes&#160;can&#160;be&#160;configured&#160;with&#160;the&#160;following&#160;methods:&#160;<br/>
+<b>&gt;&#160;&#160;</b>Configuration&#160;in&#160;DaVinci Configurator 5;&#160;for&#160;a&#160;detailed&#160;description&#160;see<a href="TechnicalReference_Fr_V85xs.html#21">&#160;8.2.</a>&#160;<br/>
+<b>8.1&#160;</b><br/>
+<b>Hardware&#160;Fifo&#160;</b><br/>
+This&#160;platform&#160;does not&#160;support Hardware&#160;Fifo&#160;support.&#160;Therefore it&#160;cannot&#160;be&#160;configured.&#160;<br/>
+<b>8.2&#160;&#160;Configuration&#160;with&#160;DaVinci&#160;Configurator 5&#160;&#160;</b><br/>
+The&#160;&#160;Fr&#160;&#160;ERay&#160;&#160;is&#160;&#160;configured&#160;&#160;with&#160;&#160;the&#160;&#160;help&#160;&#160;of&#160;&#160;the&#160;&#160;configuration&#160;&#160;tool&#160;&#160;DaVinci&#160;&#160;Configurator&#160;5.&#160;<br/>For general configuration&#160;information&#160;please&#160;refer to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3].</a>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+21&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-22_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>9&#160;&#160;AUTOSAR&#160;Standard&#160;Compliance&#160;</b><br/>
+<b>9.1&#160;&#160;Deviations&#160;</b><br/>
+For&#160;general&#160;deviations please refer&#160;to<a href="TechnicalReference_Fr_V85xs.html#2">&#160;[3]&#160;</a>an<a href="TechnicalReference_Fr_V85xs.html#2">d&#160;[4].</a>&#160;<br/>
+<b>9.1.1&#160;</b><br/>
+<b>Fr_GetSyncFrameList&#160;</b><br/>
+Eray&#160;CC&#160;always&#160;receives&#160;a&#160;transmitted&#160;SYNC&#160;frame&#160;on&#160;both&#160;channels,&#160;even&#160;if&#160;a&#160;channel&#160;is&#160;<br/>not&#160;used.&#160;The&#160;transmission&#160;of&#160;a&#160;SYNC&#160;frame&#160;depends&#160;on&#160;configuration.&#160;<br/>
+<b>9.1.2&#160;</b><br/>
+<b>Fr_GetPOCStatus&#160;</b><br/>
+The&#160;value&#160;for Fr_POCStatusPtr-&gt;SlotMode&#160;is&#160;derived&#160;out&#160;of&#160;the&#160;Eray&#160;bit&#160;CCSV.SLT.&#160;<br/>
+At&#160;&#160;Eray&#160;&#160;versions&#160;&#160;higher&#160;&#160;than&#160;1.0.1&#160;&#160;the&#160;&#160;Eray&#160;&#160;Bit&#160;&#160;CCSV.SLT&#160;&#160;(single&#160;&#160;slot&#160;&#160;mode)&#160;&#160;can&#160;not&#160;&#160;be&#160;<br/>read&#160;in&#160;Poc&#160;states:&#160;“Config,&#160;Default&#160;Config,&#160;Halt”&#160;and&#160;always&#160;return&#160;0.&#160;In&#160;all&#160;other&#160;POC&#160;states&#160;<br/>the&#160;Value&#160;is&#160;according&#160;configuration.&#160;For&#160;a&#160;detailed description&#160;please&#160;refer&#160;t<a href="TechnicalReference_Fr_V85xs.html#2">o&#160;[4].</a>&#160;<br/>
+<b>9.2&#160;&#160;Additions/&#160;Extensions&#160;</b><br/>
+Please refer&#160;t<a href="TechnicalReference_Fr_V85xs.html#2">o&#160;[3].</a>&#160;<br/>
+<b>9.3&#160;&#160;Limitations&#160;</b><br/>
+Please refer&#160;t<a href="TechnicalReference_Fr_V85xs.html#2">o&#160;[3].&#160;</a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+For&#160;&#160;the&#160;&#160;hardware&#160;&#160;limitations&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_Fr_V85xs.html#2">[4],</a>&#160;&#160;workarounds&#160;&#160;are&#160;&#160;implemented&#160;&#160;or&#160;&#160;configuration&#160;<br/>warnings&#160;with suggestions&#160;for&#160;solutions&#160;are&#160;displayed&#160;at&#160;configuration&#160;time.&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+22&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-23_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>10&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>10.1&#160;&#160;Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer;&#160;generation&#160;tool&#160;for&#160;MICROSAR&#160;<br/>components&#160;<br/>
+Cfg 5&#160;<br/>
+DaVinci&#160;Configurator&#160;5.&#160;Configuration&#160;tool&#160;for&#160;Microsar&#160;4&#160;<br/>
+Table&#160;10-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>10.2&#160;&#160;Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+CC&#160;<br/>
+FlexRay&#160;Communication Controller&#160;<br/>
+E-Ray&#160;<br/>
+Specific&#160;implementation&#160;of&#160;a&#160;FlexRay&#160;Communication Controller&#160;<br/>
+DBA&#160;<br/>
+Direct&#160;Buffer&#160;Access&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative&#160;Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service&#160;Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPort&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPort&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;10-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+23&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fr/doc/TechnicalReference_Fr_V85x-24_1.png"/><br/>
+Technical Reference&#160;MICROSAR Fr&#160;ERay&#160;Communication&#160;Controller E-Ray&#160;<br/>
+&#160;<br/>
+<b>11&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/>&gt;&#160; &#160;News&#160;<br/>&gt;&#160; &#160;Products&#160;<br/>&gt;&#160; &#160;Demo&#160;software&#160;<br/>&gt;&#160; &#160;Support&#160;<br/>&gt;&#160; &#160;Training&#160;data&#160;<br/>&gt;&#160; &#160;Addresses&#160;<br/>&#160;<br/>
+<a href="http://www.vector-informatik.com/"><b>www.vector-informatik.com&#160;</b></a><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+2017,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.41&#160;<br/>
+24&#160;/&#160;24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;3.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#2">1 Document Information</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#2">1.1 History</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#2">1.2 Reference Documents</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#2">1.3 Scope of the Document</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#7">2 Hardware Overview</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#8">3 Component History</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#9">4 Introduction</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#10">5 Functional Description</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#11">6 Integration</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#11">6.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#11">6.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#11">6.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#11">6.2 Compiler Abstraction and Memory Mapping</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#12">6.3 Critical Sections</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#14">6.4 General Integration notes</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#14">6.4.1 Calculation of Timeout Loops</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#14">6.5 Integration notes for NEC V850</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#14">6.5.1 ERay Base Address</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#15">6.5.2 FlexRay Memory buffer number</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#15">6.5.3 FlexRay Memory Buffer size</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#15">6.5.4 Interrupt routines</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#16">6.5.5 Timer interrupt</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#16">6.5.6 Buffer alignment</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#16">6.6 Integration notes for RH850</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#16">6.6.1 Buffer alignment</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#16">6.6.2 Specifics of RH850 P1x</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#18">7 API Description</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#18">7.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#18">7.2 Interrupt Service Routines provided by Fr ERay</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.3</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.4 Services provided by Fr ERay and differs from standard</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.4.1 Fr_EnableAbsoluteTimerIRQ</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.4.2 Fr_DisableAbsoluteTimerIRQ</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.5 Services used by Fr ERay</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.6 Callback Functions</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.7 Configurable Interfaces</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.7.1 Notifications</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#20">7.7.2 Callout Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#21">8 Configuration</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#21">8.1 Hardware Fifo</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#21">8.2 Configuration with DaVinci Configurator 5</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#22">9 AUTOSAR Standard Compliance</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#22">9.1 Deviations</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#22">9.1.1 Fr_GetSyncFrameList</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#22">9.1.2 Fr_GetPOCStatus</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#22">9.2 Additions/ Extensions</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#22">9.3 Limitations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#23">10 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_Fr_V85xs.html#23">10.1 Glossary</a></li>
+<li><a href="TechnicalReference_Fr_V85xs.html#23">10.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_Fr_V85xs.html#24">11 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

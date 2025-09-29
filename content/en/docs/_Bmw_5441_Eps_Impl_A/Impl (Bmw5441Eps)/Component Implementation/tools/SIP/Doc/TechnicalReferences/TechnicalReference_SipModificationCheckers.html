@@ -1,0 +1,341 @@
+---
+title: TechnicalReference_SipModificationCheckers
+linkTitle: TechnicalReference_SipModificationCheckers
+weight: 292
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>SIP&#160;Modification Checker&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;<br/>Version&#160;1.00.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Markus Schwarz&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Markus Schwarz&#160;<br/>
+2014-05-07&#160;<br/>
+1.00.00&#160;<br/>
+Initial&#160;version&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Scope&#160;of&#160;the&#160;Document</b>&#160;&#160;<br/>
+This technical reference&#160;describes the&#160;general use&#160;of&#160;the&#160;tool SipModificationChecker.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+2&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=3></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#5"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#5"><b>Component&#160;History&#160;......................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#6"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#6"><b>Introduction...................................................................................................................&#160;6</b>&#160;<br/>2.1&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#6">Overview&#160;............................................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#6">2.2&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#6">Background&#160;........................................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">2.3&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">Workflow&#160;............................................................................................................&#160;7&#160;<br/>2.3.1&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">At&#160;Vector&#160;............................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">2.3.2&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">At&#160;Tier1/OEM&#160;.....................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8"><b>Functional&#160;Description&#160;.................................................................................................&#160;8</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8">Command&#160;Line&#160;Usage&#160;.......................................................................................&#160;8&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8">Console Output&#160;..................................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8">Return Error&#160;Codes&#160;............................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#9">3.1.3&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#9">Report&#160;Creation&#160;..................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#9">3.2&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#9">Integration&#160;..........................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;10</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">Glossary&#160;..........................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">4.2&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">Abbreviations&#160;...................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#11"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#11"><b>Contact&#160;........................................................................................................................&#160;11</b>&#160;</a><br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+3&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=4></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>Illustrations&#160;</b><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">Workflow&#160;at&#160;Vector&#160;......................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">Figure&#160;2-2&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#7">Workflow&#160;at&#160;Tier1/OEM&#160;...............................................................................&#160;7&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_SipModificationCheckers.html#5">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#5">Component&#160;history......................................................................................&#160;5&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#8">Command&#160;Line&#160;ErrorCodes&#160;........................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">Table&#160;7-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">Glossary&#160;...................................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">Table&#160;7-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_SipModificationCheckers.html#10">Abbreviations&#160;............................................................................................&#160;10&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+4&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=5></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+&#160;Initial&#160;Version&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+5&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=6></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;document&#160;describes the&#160;functionality&#160;of&#160;the&#160;tool&#160;SipModifcationChecker.&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+The&#160;SipModifcationChecker&#160;is&#160;a&#160;tool&#160;that&#160;supports&#160;the&#160;Tier1&#160;and&#160;OEM&#160;to&#160;determine&#160;if&#160;and&#160;<br/>where the&#160;(source&#160;code)&#160;files&#160;delivered&#160;from&#160;Vector were&#160;unintentionally&#160;changed.&#160;&#160;<br/>The&#160;SipModifcationChecker&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>is a&#160;command&#160;line&#160;based&#160;tool.&#160;<br/>
+<b>&gt;&#160;&#160;</b>checks sources&#160;below&#160;a&#160;user-selectable&#160;root&#160;directory&#160;against&#160;information&#160;given&#160;in&#160;a&#160;<br/>
+reference&#160;file.&#160;<br/>
+<b>&gt;&#160;&#160;</b>checks if&#160;and&#160;which&#160;of&#160;the&#160;relevant&#160;delivered&#160;files&#160;are contained&#160;below&#160;that&#160;directory.&#160;<br/>
+<b>&gt;&#160;&#160;</b>checks if&#160;and&#160;which&#160;files have&#160;been&#160;modified.&#160;<br/>
+<b>&gt;&#160;&#160;</b>reports the&#160;“modification&#160;state”&#160;as&#160;ERRORLEVEL&#160;and&#160;within&#160;a&#160;HTML&#160;report.&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Background&#160;</b><br/>
+This&#160;tool&#160;aims&#160;to&#160;find&#160;changes&#160;that&#160;were&#160;&#160;unintendedly&#160;introduced&#160;by&#160;the&#160;customer&#160;in&#160;the&#160;<br/>delivered&#160;Vector source&#160;code.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+6&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=7></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>2.3&#160;</b><br/>
+<b>Workflow&#160;</b><br/>
+<b>2.3.1&#160;</b><br/>
+<b>At Vector&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Vector&#160;creates the&#160;list&#160;of&#160;relevant&#160;files,&#160;i.e.&#160;all&#160;(source&#160;code)&#160;files that&#160;are relevant&#160;to&#160;<br/>
+not&#160;be&#160;modified&#160;&#160;<br/>
+<b>&gt;&#160;&#160;</b>Vector&#160;calculates&#160;a&#160;check code&#160;for each&#160;of&#160;these&#160;files&#160;and&#160;creates&#160;the&#160;<br/>
+SipCheckCodeFile&#160;<br/>
+<b>&gt;&#160;&#160;</b>Vector&#160;delivers the&#160;embedded&#160;sources,&#160;the&#160;SipCheckCodeFile&#160;and&#160;the&#160;<br/>
+SipModifcationChecker&#160;<br/>
+<b>Deliv&#160;ery</b><br/>
+WP<br/>
+SourceCode<br/>
++SubSet<br/>
+WP<br/>
+SipCheckCodeFile<br/>
+RelevantFiles<br/>
+«based&#160;on»<br/>
+Tool<br/>
+«create»<br/>
+SipModifcationChecker<br/>
+<b>Vector</b><br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;Workflow&#160;at&#160;Vector&#160;<br/>
+<b>2.3.2&#160;</b><br/>
+<b>At Tier1/OEM&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>The&#160;Tier1/OEM&#160;run&#160;the&#160;SipModifcationChecker,&#160;configure their&#160;root&#160;path&#160;and&#160;load&#160;the&#160;<br/>
+SipCheckCodeFile&#160;from&#160;Vector.&#160;The&#160;tool provides information&#160;if&#160;the&#160;local sources&#160;found&#160;<br/>below&#160;the&#160;selected&#160;root&#160;directory&#160;are un-modified.&#160;<br/>
+<b>Deliv&#160;ery</b><br/>
+WP<br/>
+WP<br/>
+SourceCode<br/>
+UsedSourceCode<br/>
++CurrentCode<br/>
+SipCheckCodeFile<br/>
+check&#160;for&#160;modification<br/>
++Reference<br/>
+Tool<br/>
+SipModifcationChecker<br/>
+«use»<br/>
+<b>Customer</b><br/>
+&#160;<br/>
+Figure&#160;2-2&#160;&#160;Workflow&#160;at&#160;Tier1/OEM&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+7&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=8></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Command Line&#160;Usage&#160;</b><br/>
+The&#160;analysis&#160;can&#160;be&#160;executed&#160;from&#160;command&#160;line.&#160;<br/>Syntax:&#160;<br/>SipModificationChecker &lt;rootPath&gt; &lt;referenceFile&gt;&#160;<br/>
+rootPath: &#160; &#160;&#160;&#160;path to the directory that is used as base for analysis&#160;<br/>referenceFile:&#160;path to the provided reference file&#160;<br/>
+&#160;<br/>Example:&#160;<br/>SipModificationChecker c:\Example\CodeRootPath&#160;<br/>C:\Example\SipModificationChecker.xml&#160;<br/>&#160;<br/>
+If&#160;the&#160;rootPath&#160;or&#160;the&#160;referenceFile&#160;do&#160;not&#160;exist,&#160;the&#160;tool&#160;outputs&#160;a&#160;command&#160;line&#160;message&#160;<br/>and&#160;returns&#160;a&#160;ProcessError.&#160;<br/>Otherwise&#160;the&#160;tool&#160;checks&#160;all&#160;files&#160;provided&#160;in&#160;referenceFile&#160;if&#160;they&#160;can&#160;be&#160;found&#160;below&#160;the&#160;<br/>rootPath&#160;and&#160;if&#160;they&#160;have&#160;local modifications&#160;compared&#160;to&#160;the&#160;delivery.&#160;<br/>
+&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Console&#160;Output&#160;&#160;&#160;</b><br/>
+The&#160;tool outputs&#160;the&#160;results in&#160;the&#160;console:&#160;<br/>=&gt; Result:&#160;<br/>
+&#160; &#160;115/310 files are OK (unmodified)&#160;<br/>
+&#160; &#160;185/310 files are NOT OK (i.e. they have been modified)&#160;<br/>
+&#160; &#160;10/310 files are&#160;not found in given directory&#160;<br/>
+&#160; &#160;Refer to&#160;HTML&#160;for details&#160;<br/>
+=&gt; ERROR&#160;<br/>
+&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Return Error&#160;Codes&#160;&#160;</b><br/>
+The&#160;tool sets&#160;the&#160;environmental variable&#160;ERRORLEVEL&#160;depending&#160;on&#160;its&#160;result:&#160;<br/>
+<b>Return&#160;Code&#160;</b><br/>
+<b>Value&#160;&#160;Description&#160;</b><br/>
+Ok&#160;<br/>
+0&#160;<br/>
+All&#160;referenced&#160;files are&#160;found.&#160;<br/>They&#160;have no&#160;modifications.&#160;<br/>
+Warning&#160;<br/>
+1&#160;<br/>
+Not&#160;all&#160;referenced&#160;files are&#160;found.&#160;<br/>All&#160;found&#160;files have no&#160;modifications.&#160;<br/>
+Error&#160;<br/>
+10&#160;<br/>
+There is at&#160;least&#160;one&#160;file&#160;with modifications.&#160;<br/>
+ProcessError&#160;<br/>
+20&#160;<br/>
+The&#160;check&#160;could not&#160;be&#160;performed&#160;as&#160;the&#160;input&#160;data&#160;is&#160;not&#160;valid&#160;<br/>(rootPath&#160;and/or&#160;referenceFile do&#160;not&#160;exist)&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Command&#160;Line&#160;Error&#160;Codes&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+8&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SipModificationChecker-9_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_SipModificationChecker-9_2.png"/><br/>
+Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>3.1.3&#160;</b><br/>
+<b>Report Creation&#160;</b><br/>
+In&#160;&#160;addition&#160;&#160;to&#160;&#160;the&#160;&#160;returned&#160;&#160;error&#160;&#160;code,&#160;&#160;the&#160;&#160;tool&#160;&#160;creates&#160;&#160;a&#160;&#160;HTML&#160;&#160;report&#160;&#160;that&#160;&#160;indicates&#160;&#160;the&#160;<br/>status&#160;of&#160;each&#160;file.&#160;<br/>Example:&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+The&#160;&#160;HTML&#160;&#160;report&#160;&#160;is&#160;&#160;located&#160;&#160;in&#160;&#160;the&#160;&#160;same&#160;&#160;directory&#160;&#160;as&#160;&#160;referenceFile.&#160;&#160;It&#160;&#160;is&#160;&#160;named&#160;&#160;like&#160;&#160;the&#160;<br/>referenceFile&#160;extended&#160;with&#160;“_Report.html”.&#160;<br/>Example:&#160;<br/>The&#160;Reference&#160;File&#160;C:\Example\SipModificationChecker.xml&#160;&#160;<br/>leads to&#160;report C:\Example\SipModificationChecker_Report.html&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Integration&#160;</b><br/>
+It&#160;&#160;is&#160;&#160;recommended&#160;&#160;to&#160;&#160;integrate&#160;&#160;this&#160;&#160;tooling&#160;&#160;into&#160;&#160;the&#160;&#160;build&#160;&#160;environment&#160;&#160;to&#160;&#160;get&#160;&#160;early&#160;<br/>notifications&#160;of&#160;modified&#160;sources.&#160;This&#160;also&#160;prevents&#160;that&#160;the&#160;different&#160;sources&#160;are&#160;used&#160;for&#160;<br/>build&#160;and&#160;check.&#160;&#160;<br/>Use&#160;the&#160;returned&#160;ERRORLEVEL&#160;to&#160;react&#160;on&#160;modified&#160;files,&#160;e.g.&#160;abort&#160;the&#160;build&#160;process&#160;or&#160;<br/>inform&#160;the&#160;user&#160;within&#160;the&#160;build&#160;report.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+9&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=10></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>4&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>4.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Glossary&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+SIP&#160;<br/>
+Software&#160;Integration&#160;Package&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+10&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=11></a>Technical Reference&#160;SIP&#160;Modification&#160;Checker&#160;<br/>
+<b>5&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+2014,&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version:&#160;1.00.00&#160;<br/>
+11&#160;/&#160;11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+</body>
+</html>

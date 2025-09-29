@@ -1,0 +1,1223 @@
+---
+title: R20UT3711EJ0101-AUTOSARs
+linkTitle: R20UT3711EJ0101-AUTOSARs
+weight: 11
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-1_1.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-1_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-1_3.png"/><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+AUTOSAR&#160;MCAL&#160;R4.0.3&#160;<br/>
+User’s Manual&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+FLS Driver&#160;Component Ver.1.0.8&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Generation Tool&#160;User’s&#160;Manual&#160;<br/>
+&#160;<br/>&#160;<br/>
+Target&#160;Device:&#160;<br/>
+RH850/P1x&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+All&#160;information&#160;contained&#160;in&#160;these&#160;materials,&#160;including&#160;products&#160;and&#160;product&#160;specifications,&#160;<br/>represents&#160;information&#160;on&#160;the&#160;product&#160;at&#160;the&#160;time&#160;of&#160;publication&#160;and&#160;is&#160;subject&#160;to&#160;change&#160;by&#160;<br/>Renesas&#160;Electronics&#160;Corp.&#160;without&#160;notice.&#160;Please&#160;review&#160;the&#160;latest&#160;information&#160;published&#160;by&#160;<br/>Renesas&#160;Electronics&#160;Corp.&#160;through&#160;various&#160;means,&#160;including&#160;the&#160;Renesas&#160;Electronics&#160;Corp.&#160;<br/>website<a href="http://www.renesas.com/">&#160;(http://www.renesas.com).&#160;</a><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<a href="http://www.renesas.com/">www.renesas.com&#160;</a><br/>
+<a href="http://www.renesas.com/">Rev</a>.1.01&#160;Feb&#160;2017&#160;<br/>
+<hr/>
+<a name=2></a>&#160;<br/>
+&#160;<br/>
+<b>2</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=3></a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+Notice&#160;<br/>
+&#160;<br/>
+1.&#160;<br/>
+Descriptions&#160;of&#160;circuits,&#160;software&#160;and&#160;other&#160;related&#160;information&#160;in&#160;this&#160;document&#160;are&#160;provided&#160;only&#160;to&#160;illustrate&#160;the&#160;operation&#160;of&#160;<br/>
+&#160;<br/>
+semiconductor&#160;products&#160;and&#160;application&#160;examples.&#160;You&#160;are&#160;fully&#160;responsible&#160;for&#160;the&#160;incorporation&#160;or&#160;any&#160;other&#160;use&#160;of&#160;the&#160;circuits,&#160;<br/>
+&#160;<br/>
+software,&#160;and&#160;information&#160;in&#160;the&#160;design&#160;of&#160;your&#160;product&#160;or&#160;system.&#160;Renesas&#160;Electronics&#160;disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;losses&#160;and&#160;<br/>
+&#160;<br/>
+damages&#160;incurred&#160;by&#160;you&#160;or&#160;third&#160;parties&#160;arising&#160;from&#160;the&#160;use&#160;of&#160;these&#160;circuits,&#160;software,&#160;or&#160;information.&#160;<br/>
+&#160;<br/>&#160;<br/>
+2.&#160;<br/>
+Renesas&#160;Electronics&#160;hereby&#160;expressly&#160;disclaims&#160;any&#160;warranties&#160;against&#160;and&#160;liability&#160;for&#160;infringement&#160;or&#160;any&#160;other&#160;disputes involving&#160;patents,&#160;<br/>
+&#160;<br/>
+copyrights,&#160;or&#160;other&#160;intellectual&#160;property&#160;rights of&#160;third&#160;parties,&#160;by&#160;or&#160;arising&#160;from the&#160;use&#160;of&#160;Renesas&#160;Electronics&#160;products&#160;or&#160;technical&#160;information&#160;<br/>
+&#160;<br/>
+described&#160;in&#160;this&#160;document,&#160;including&#160;but&#160;not&#160;limited&#160;to,&#160;the&#160;product&#160;data,&#160;drawing,&#160;chart,&#160;program,&#160;algorithm,&#160;application&#160;examples.&#160;<br/>
+&#160;<br/>
+3.&#160;<br/>
+No&#160;license,&#160;express,&#160;implied&#160;or&#160;otherwise,&#160;is granted&#160;hereby&#160;under&#160;any&#160;patents,&#160;copyrights or&#160;other&#160;intellectual&#160;property&#160;rights of&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics or&#160;others.&#160;<br/>
+&#160;<br/>
+4.&#160;<br/>
+You&#160;shall&#160;not&#160;alter,&#160;modify,&#160;copy,&#160;or&#160;otherwise&#160;misappropriate&#160;any&#160;Renesas&#160;Electronics&#160;product,&#160;whether&#160;in&#160;whole&#160;or&#160;in&#160;part.&#160;Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;losses or&#160;damages incurred&#160;by&#160;you&#160;or&#160;third&#160;parties arising&#160;from such&#160;alteration,&#160;modification,&#160;copy&#160;or&#160;<br/>
+&#160;<br/>
+otherwise&#160;misappropriation&#160;of&#160;Renesas Electronics&#160;products.&#160;<br/>
+&#160;<br/>
+5.&#160;<br/>
+Renesas&#160;Electronics&#160;products are&#160;classified&#160;according&#160;to&#160;the&#160;following&#160;two&#160;quality&#160;grades:&#160;&#34;Standard&#34;&#160;and&#160;&#34;High&#160;Quality&#34;.&#160;The&#160;intended&#160;<br/>
+&#160;<br/>
+applications for&#160;each&#160;Renesas&#160;Electronics&#160;product&#160;depends on&#160;the&#160;product’s&#160;quality&#160;grade,&#160;as indicated&#160;below.&#160;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#34;Standard&#34;:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Computers;&#160;office&#160;equipment;&#160;communications&#160;equipment;&#160;test&#160;and&#160;measurement&#160;equipment;&#160;audio&#160;and&#160;visual&#160;equipment;&#160;<br/>
+&#160;<br/>
+home&#160;electronic&#160;appliances;&#160;machine&#160;tools;&#160;personal&#160;electronic&#160;equipment;&#160;and&#160;industrial&#160;robots&#160;etc.&#160;<br/>
+&#160;<br/>
+&#34;High&#160;Quality&#34;:&#160;&#160;&#160;Transportation&#160;equipment&#160;(automobiles,&#160;trains,&#160;ships,&#160;etc.);&#160;traffic&#160;control&#160;(traffic&#160;lights);&#160;large-scale&#160;communication&#160;<br/>
+&#160;<br/>
+equipment;&#160;key&#160;financial&#160;terminal&#160;systems;&#160;safety&#160;control&#160;equipment;&#160;etc.&#160;<br/>
+&#160;<br/>
+Renesas&#160;Electronics&#160;products are&#160;neither&#160;intended&#160;nor&#160;authorized&#160;for&#160;use&#160;in&#160;products&#160;or&#160;systems that&#160;may&#160;pose&#160;a&#160;direct&#160;threat&#160;to&#160;human&#160;life&#160;or&#160;<br/>
+&#160;<br/>
+bodily&#160;injury&#160;(artificial&#160;life&#160;support&#160;devices or&#160;systems,&#160;surgical&#160;implantations etc.),&#160;or&#160;may&#160;cause&#160;serious&#160;property&#160;damages (space&#160;and&#160;undersea&#160;<br/>
+&#160;<br/>
+repeaters;&#160;nuclear&#160;power&#160;control&#160;systems;&#160;aircraft&#160;control&#160;systems;&#160;key&#160;plant&#160;systems;&#160;military&#160;equipment;&#160;etc.).&#160;Renesas&#160;Electronics&#160;disclaims&#160;any&#160;<br/>
+&#160;<br/>
+and&#160;all&#160;liability&#160;for&#160;any&#160;damages or&#160;losses incurred&#160;by&#160;you&#160;or&#160;third&#160;parties arising&#160;from&#160;the&#160;use&#160;of&#160;any&#160;Renesas&#160;Electronics&#160;product&#160;for&#160;which&#160;the&#160;<br/>
+&#160;<br/>
+product&#160;is&#160;not&#160;intended&#160;by&#160;Renesas&#160;Electronics.&#160;<br/>
+&#160;<br/>
+6.&#160;<br/>
+When&#160;using&#160;the&#160;Renesas&#160;Electronics&#160;products,&#160;refer&#160;to&#160;the&#160;latest&#160;product&#160;information&#160;(data&#160;sheets,&#160;user’s manuals,&#160;application&#160;notes,&#160;&#34;General&#160;<br/>
+&#160;<br/>
+Notes for&#160;Handling&#160;and&#160;Using&#160;Semiconductor&#160;Devices&#34;&#160;in&#160;the&#160;reliability&#160;handbook,&#160;etc.),&#160;and&#160;ensure&#160;that&#160;usage&#160;conditions&#160;are&#160;within&#160;the&#160;ranges&#160;<br/>
+&#160;<br/>
+specified&#160;by&#160;Renesas&#160;Electronics&#160;with&#160;respect&#160;to&#160;maximum ratings,&#160;operating&#160;power&#160;supply&#160;voltage&#160;range,&#160;heat&#160;radiation&#160;characteristics,&#160;<br/>
+&#160;<br/>
+installation,&#160;etc.&#160;Renesas&#160;Electronics&#160;disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;malfunctions or&#160;failure&#160;or&#160;accident&#160;arising&#160;out&#160;of&#160;the&#160;use&#160;of&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics&#160;products&#160;beyond&#160;such&#160;specified&#160;ranges.&#160;<br/>
+&#160;<br/>
+7.&#160;<br/>
+Although&#160;Renesas&#160;Electronics&#160;endeavors to&#160;improve&#160;the&#160;quality&#160;and&#160;reliability&#160;of&#160;Renesas&#160;Electronics&#160;products,&#160;semiconductor&#160;products&#160;have&#160;<br/>
+&#160;<br/>
+specific&#160;characteristics such&#160;as the&#160;occurrence&#160;of&#160;failure&#160;at&#160;a&#160;certain&#160;rate&#160;and&#160;malfunctions&#160;under&#160;certain&#160;use&#160;conditions.&#160;Further,&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics&#160;products&#160;are&#160;not&#160;subject&#160;to&#160;radiation&#160;resistance&#160;design.&#160;Please&#160;ensure&#160;to&#160;implement&#160;safety&#160;measures to&#160;guard&#160;them&#160;against&#160;the&#160;<br/>
+&#160;<br/>
+possibility&#160;of&#160;bodily&#160;injury,&#160;injury&#160;or&#160;damage&#160;caused&#160;by&#160;fire,&#160;and&#160;social&#160;damage&#160;in&#160;the&#160;event&#160;of&#160;failure&#160;or&#160;malfunction&#160;of&#160;Renesas&#160;Electronics&#160;<br/>
+&#160;<br/>
+products,&#160;such&#160;as safety&#160;design&#160;for&#160;hardware&#160;and&#160;software&#160;including&#160;but&#160;not&#160;limited&#160;to&#160;redundancy,&#160;fire&#160;control&#160;and&#160;malfunction&#160;prevention,&#160;<br/>
+&#160;<br/>
+appropriate&#160;treatment&#160;for&#160;aging&#160;degradation&#160;or&#160;any&#160;other&#160;appropriate&#160;measures by&#160;your&#160;own&#160;responsibility&#160;as warranty&#160;for&#160;your&#160;products/system.&#160;<br/>
+&#160;<br/>
+Because&#160;the&#160;evaluation&#160;of&#160;microcomputer&#160;software&#160;alone&#160;is very&#160;difficult&#160;and&#160;not&#160;practical,&#160;please&#160;evaluate&#160;the&#160;safety&#160;of&#160;the&#160;final&#160;products or&#160;<br/>
+&#160;<br/>
+systems manufactured&#160;by&#160;you.&#160;<br/>
+&#160;<br/>
+8.&#160;<br/>
+Please&#160;contact&#160;a&#160;Renesas&#160;Electronics sales office&#160;for&#160;details as&#160;to&#160;environmental&#160;matters such&#160;as&#160;the&#160;environmental&#160;compatibility&#160;of&#160;each&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics&#160;product.&#160;Please&#160;investigate&#160;applicable&#160;laws and&#160;regulations&#160;that&#160;regulate&#160;the&#160;inclusion&#160;or&#160;use&#160;of&#160;controlled&#160;substances,&#160;including&#160;<br/>
+&#160;<br/>
+without&#160;limitation,&#160;the&#160;EU&#160;RoHS&#160;Directive&#160;carefully&#160;and&#160;sufficiently&#160;and&#160;use&#160;Renesas&#160;Electronics&#160;products&#160;in&#160;compliance&#160;with&#160;all&#160;these&#160;applicable&#160;<br/>
+&#160;<br/>
+laws and&#160;regulations.&#160;Renesas&#160;Electronics&#160;disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;damages or&#160;losses occurring&#160;as&#160;a&#160;result&#160;of&#160;your&#160;noncompliance&#160;with&#160;<br/>
+&#160;<br/>
+applicable&#160;laws and&#160;regulations.&#160;<br/>
+&#160;<br/>&#160;<br/>
+9.&#160;<br/>
+Renesas&#160;Electronics&#160;products and&#160;technologies shall&#160;not&#160;be&#160;used&#160;for&#160;or&#160;incorporated&#160;into&#160;any&#160;products&#160;or&#160;systems&#160;whose&#160;manufacture,&#160;use,&#160;or&#160;sale&#160;<br/>
+&#160;<br/>
+is&#160;prohibited&#160;under&#160;any&#160;applicable&#160;domestic&#160;or&#160;foreign&#160;laws or&#160;regulations.&#160;You&#160;shall&#160;not&#160;use&#160;Renesas&#160;Electronics&#160;products or&#160;technologies for&#160;(1)&#160;<br/>
+&#160;<br/>
+any&#160;purpose&#160;relating&#160;to&#160;the&#160;development,&#160;design,&#160;manufacture,&#160;use,&#160;stockpiling,&#160;etc.,&#160;of&#160;weapons of&#160;mass&#160;destruction,&#160;such&#160;as&#160;nuclear&#160;weapons,&#160;<br/>
+&#160;<br/>
+chemical&#160;weapons,&#160;or&#160;biological&#160;weapons,&#160;or&#160;missiles (including&#160;unmanned&#160;aerial&#160;vehicles (UAVs))&#160;for&#160;delivering&#160;such&#160;weapons,&#160;(2)&#160;any&#160;purpose&#160;<br/>
+&#160;<br/>
+relating&#160;to&#160;the&#160;development,&#160;design,&#160;manufacture,&#160;or&#160;use&#160;of&#160;conventional&#160;weapons,&#160;or&#160;(3)&#160;any&#160;other&#160;purpose&#160;of&#160;disturbing&#160;international&#160;peace&#160;and&#160;<br/>
+&#160;<br/>
+security,&#160;and&#160;you&#160;shall&#160;not&#160;sell,&#160;export,&#160;lease,&#160;transfer,&#160;or&#160;release&#160;Renesas&#160;Electronics&#160;products or&#160;technologies to&#160;any&#160;third&#160;party&#160;whether&#160;directly&#160;<br/>or&#160;indirectly&#160;with&#160;knowledge&#160;or&#160;reason&#160;to&#160;know&#160;that&#160;the&#160;third&#160;party&#160;or&#160;any&#160;other&#160;party&#160;will&#160;engage&#160;in&#160;the&#160;activities&#160;described&#160;above.&#160;When&#160;<br/>
+&#160;<br/>
+exporting,&#160;selling,&#160;transferring,&#160;etc.,&#160;Renesas&#160;Electronics&#160;products or&#160;technologies,&#160;you&#160;shall&#160;comply&#160;with&#160;any&#160;applicable&#160;export&#160;control&#160;laws and&#160;<br/>
+&#160;<br/>
+regulations&#160;promulgated&#160;and&#160;administered&#160;by&#160;the&#160;governments of&#160;the&#160;countries asserting&#160;jurisdiction&#160;over&#160;the&#160;parties or&#160;transactions.&#160;<br/>
+&#160;<br/>&#160;<br/>
+10.&#160;&#160;Please&#160;acknowledge&#160;and&#160;agree&#160;that&#160;you&#160;shall&#160;bear&#160;all&#160;the&#160;losses and&#160;damages which&#160;are&#160;incurred&#160;from&#160;the&#160;misuse&#160;or&#160;violation&#160;of&#160;the&#160;terms and&#160;<br/>
+&#160;<br/>
+conditions&#160;described&#160;in&#160;this&#160;document,&#160;including&#160;this&#160;notice,&#160;and&#160;hold&#160;Renesas Electronics&#160;harmless,&#160;if&#160;such&#160;misuse&#160;or&#160;violation&#160;results from your&#160;<br/>
+&#160;<br/>
+resale&#160;or&#160;making&#160;Renesas&#160;Electronics&#160;products&#160;available&#160;any&#160;third&#160;party.&#160;<br/>
+&#160;<br/>
+11.&#160;&#160;This document&#160;shall&#160;not&#160;be&#160;reprinted,&#160;reproduced&#160;or&#160;duplicated&#160;in&#160;any&#160;form,&#160;in&#160;whole&#160;or&#160;in&#160;part,&#160;without&#160;prior&#160;written&#160;consent&#160;of&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics.&#160;<br/>
+&#160;<br/>
+12.&#160;&#160;Please&#160;contact&#160;a&#160;Renesas&#160;Electronics sales office&#160;if&#160;you&#160;have&#160;any&#160;questions regarding&#160;the&#160;information&#160;contained&#160;in&#160;this&#160;document&#160;or&#160;Renesas&#160;<br/>
+&#160;<br/>
+Electronics&#160;products.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+(Note&#160;1)&#160;&#160;&#160;&#34;Renesas&#160;Electronics&#34;&#160;as&#160;used&#160;in&#160;this&#160;document&#160;means&#160;Renesas&#160;Electronics&#160;Corporation&#160;and&#160;also&#160;includes its majority-owned&#160;<br/>
+&#160;<br/>
+subsidiaries.&#160;<br/>
+&#160;<br/>
+(Note&#160;2)&#160;&#160;&#160;&#34;Renesas&#160;Electronics&#160;product(s)&#34;&#160;means&#160;any&#160;product&#160;developed&#160;or&#160;manufactured&#160;by&#160;or&#160;for&#160;Renesas&#160;Electronics.<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>3</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=4></a>&#160;<br/>
+&#160;<br/>
+<b>4</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=5></a>&#160;<br/>
+<b>Abbreviations&#160;and&#160;Acronyms</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Abbreviation&#160;/&#160;Acronym</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+API&#160;<br/>
+Application&#160;Programming&#160;Interface&#160;<br/>
+AUTOSAR&#160;<br/>
+AUTomotive&#160;Open&#160;System&#160;ARchitecture&#160;<br/>
+BSWMDT&#160;<br/>
+Basic&#160;Software&#160;Module&#160;Description&#160;Template&#160;<br/>
+DEM/Dem&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+FACI&#160;<br/>
+Flash&#160;Application&#160;Command&#160;Interface&#160;<br/>
+FLS&#160;<br/>
+FLash&#160;Driver&#160;<br/>
+FCU&#160;<br/>
+Flash&#160;Control&#160;Unit&#160;<br/>
+id&#160;<br/>
+Identifier&#160;<br/>
+MCAL&#160;<br/>
+Microcontroller&#160;Abstraction&#160;Layer&#160;<br/>
+MCU&#160;<br/>
+MicroController&#160;Unit&#160;<br/>
+PDF&#160;<br/>
+Parameter Definition&#160;File&#160;<br/>
+XML&#160;<br/>
+eXtensible&#160;Mark-up&#160;Language&#160;<br/>
+RUCG&#160;<br/>
+Renesas&#160;Unified&#160;Code&#160;Generator&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Definitions</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Terminology</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+BSWMDT&#160;File&#160;<br/>
+This&#160;file&#160;is&#160;the&#160;template&#160;for&#160;the&#160;Basic&#160;Software&#160;Module&#160;Description.&#160;<br/>
+Configuration&#160;XML&#160;File&#160;<br/>
+This&#160;file&#160;contains&#160;the&#160;setting&#160;of&#160;command&#160;line&#160;options.&#160;<br/>
+ECU&#160;Configuration&#160;Description&#160;<br/>
+Input&#160;file&#160;to&#160;FLS&#160;Driver&#160;Generation&#160;Tool.&#160;It&#160;is&#160;generated&#160;by&#160;ECU&#160;<br/>
+File&#160;<br/>
+Configuration&#160;Editor.&#160;<br/>
+Sl.No&#160;<br/>
+Serial&#160;Number.&#160;<br/>
+Translation&#160;XML&#160;File&#160;<br/>
+This&#160;file&#160;contains&#160;the&#160;translation&#160;and&#160;device&#160;specific&#160;header file&#160;path.&#160;<br/>
+&#160;<br/>
+<b>5</b>&#160;<br/>
+<hr/>
+<a name=6></a>&#160;<br/>
+&#160;<br/>
+<b>6</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=7></a>&#160;<br/>
+<b>Table&#160;of&#160;Contents&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#9"><b>Chapter 1</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#9"><b>Introduction&#160;...........................................................................................&#160;9</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#9"><b>1.1</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#9"><b>Document&#160;Overview&#160;..................................................................................................................&#160;9</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11"><b>Chapter 2</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11"><b>Reference&#160;.............................................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11"><b>2.1</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11"><b>Reference&#160;Documents&#160;.............................................................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11"><b>2.2</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11"><b>Trademark&#160;Notice&#160;....................................................................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#13"><b>Chapter 3</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#13"><b>FLS&#160;Driver Generation&#160;Tool Overview&#160;...............................................&#160;13</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#15"><b>Chapter 4</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#15"><b>Input&#160;Files&#160;............................................................................................&#160;15</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#17"><b>Chapter 5</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#17"><b>Output&#160;Files&#160;.........................................................................................&#160;17</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#19"><b>Chapter&#160;6</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#19"><b>Precautions&#160;..........................................................................................&#160;19</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#21"><b>Chapter 7</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#21"><b>User Configuration&#160;Validation&#160;............................................................&#160;21</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#23"><b>Chapter 8</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#23"><b>Messages&#160;.............................................................................................&#160;23</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#23"><b>8.1</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#23"><b>Error&#160;Messages&#160;........................................................................................................................&#160;23</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#28"><b>8.2</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#28"><b>Warning&#160;Messages&#160;..................................................................................................................&#160;28</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#28"><b>8.3</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#28"><b>Information&#160;Messages&#160;.............................................................................................................&#160;28</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#29"><b>Chapter&#160;9</b>&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#29"><b>Notes&#160;....................................................................................................&#160;29</b>&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/><b>&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>7</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=8></a>&#160;<br/>
+<b>List&#160;of&#160;Figures&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#13">Figure&#160;3-1&#160;</a><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#13">Overview&#160;of&#160;FLS&#160;Driver Generation&#160;Tool&#160;.......................................................................&#160;13&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>List&#160;of&#160;Tables&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3711EJ0101-AUTOSARs.html#11">Table 2-1 &#160;&#160; Reference&#160;Documents&#160;Description&#160;........................................................................................&#160;11&#160;<br/></a><a href="R20UT3711EJ0101-AUTOSARs.html#17">Table 5-1 &#160;&#160; Output&#160;Files&#160;Description&#160;.........................................................................................................&#160;17&#160;<br/></a><a href="R20UT3711EJ0101-AUTOSARs.html#23">Table 8-1 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092004&#160;........................................................&#160;23&#160;<br/></a><a href="R20UT3711EJ0101-AUTOSARs.html#24">Table 8-2 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092007&#160;........................................................&#160;24&#160;<br/></a><a href="R20UT3711EJ0101-AUTOSARs.html#25">Table 8-3 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092012&#160;........................................................&#160;25&#160;<br/>Table 8-4 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092015&#160;........................................................&#160;25&#160;<br/>Table 8-5 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092017&#160;........................................................&#160;25&#160;<br/></a><a href="R20UT3711EJ0101-AUTOSARs.html#26">Table 8-6 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092018&#160;........................................................&#160;26&#160;<br/>Table 8-7 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092019&#160;........................................................&#160;26&#160;<br/></a><a href="R20UT3711EJ0101-AUTOSARs.html#27">Table 8-8 &#160;&#160; Parameters&#160;and Container&#160;related to&#160;error&#160;ERR092028&#160;........................................................&#160;27&#160;</a><br/>
+<b>&#160;<br/>&#160;<br/>&#160;<br/></b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>8</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=9></a><b>Introduction&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;Chapter&#160;1&#160;</b><br/>
+&#160;<br/>
+<b>Chapter&#160;1&#160;</b><br/>
+<b>Introduction&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;FLS&#160;Software component&#160;provides&#160;the&#160;service for&#160;initializing&#160;the&#160;whole&#160;<br/>FLS&#160;structure&#160;of&#160;the&#160;microcontroller.&#160;<br/>
+&#160;<br/>
+&#160;<br/>The&#160;FLS&#160;Software Component comprises&#160;of&#160;two sections&#160;as&#160;Embedded&#160;<br/>Software and&#160;the&#160;Generation Tool&#160;to&#160;achieve scalability&#160;and configurability.&#160;<br/>
+&#160;<br/>&#160;<br/>
+The&#160;document describes&#160;the features&#160;of&#160;the FLS&#160;Software Generation&#160;Tool.&#160;<br/>FLS&#160;Software&#160;Generation&#160;Tool&#160;is&#160;a&#160;command line&#160;tool&#160;that extracts&#160;<br/>information&#160;from&#160;ECU Configuration&#160;Description&#160;File and generates&#160;FLS&#160;<br/>Software C&#160;Header&#160;files&#160;and Source Files&#160;(Fls_Cbk.h,&#160;Fls_Cfg.h&#160;and&#160;<br/>Fls_PBcfg.c).&#160;<br/>
+&#160;<br/>
+&#160;<br/>This&#160;document contains&#160;information&#160;on&#160;the&#160;options,&#160;input and&#160;output&#160;files&#160;of&#160;<br/>the&#160;FLS&#160;Software Generation&#160;Tool. In addition, this&#160;manual&#160;covers&#160;a&#160;step-<br/>by-step&#160;procedure for the&#160;usage of&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+ECU Configuration Description&#160;File contains&#160;information&#160;about FLS&#160;<br/>configuration.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>1.1&#160;</b><br/>
+<b>Document&#160;Overview&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;user&#160;manual&#160;is&#160;organized&#160;as&#160;given&#160;in&#160;the&#160;table&#160;below:&#160;<br/>
+<b>&#160;<br/></b>&#160;<br/>
+<b>Section</b>&#160;<br/>
+<b>Contents</b>&#160;<br/>
+Section&#160;1&#160;(Introduction)&#160;<br/>
+Provides&#160;an&#160;introduction&#160;to&#160;the&#160;document&#160;and&#160;explains&#160;how&#160;information&#160;<br/>is&#160;organized&#160;in&#160;this&#160;manual.&#160;<br/>
+Section&#160;2&#160;(Reference)&#160;<br/>
+Provides&#160;a&#160;list&#160;of&#160;documents&#160;referred&#160;while&#160;developing&#160;this&#160;document.&#160;<br/>
+Section&#160;3&#160;(FLS&#160;Driver&#160;<br/>
+Provides&#160;the&#160;component&#160;overview&#160;of&#160;FLS Driver.&#160;<br/>
+Generation&#160;Tool&#160;Overview)&#160;<br/>
+Section&#160;4&#160;(Input&#160;Files)&#160;<br/>
+Provides&#160;information&#160;about&#160;ECU Configuration&#160;Description&#160;File.&#160;<br/>
+Section&#160;5&#160;(Output Files)&#160;<br/>
+Explains&#160;the&#160;output&#160;files&#160;that&#160;are&#160;generated&#160;by&#160;the&#160;FLS Driver&#160;<br/>Generation&#160;Tool.&#160;<br/>
+Section&#160;6&#160;(Precautions)&#160;<br/>
+Contains&#160;precautions&#160;to&#160;be&#160;taken&#160;during&#160;configuration&#160;of&#160;ECU&#160;<br/>Configuration&#160;Description&#160;File.&#160;<br/>
+Section&#160;7&#160;(User&#160;Configuration&#160;<br/>
+Describes&#160;about&#160;user&#160;configuration&#160;validation&#160;done&#160;by&#160;the&#160;FLS Driver&#160;<br/>
+Validation)&#160;<br/>
+Generation&#160;Tool.&#160;<br/>
+Section&#160;8&#160;(Messages)&#160;<br/>
+Describes&#160;all&#160;the&#160;Error/Warning/Information&#160;messages&#160;of&#160;R4.0.3&#160;which&#160;<br/>helps&#160;the&#160;user to&#160;understand&#160;the&#160;probable&#160;reason&#160;for&#160;the&#160;same.&#160;<br/>
+Section&#160;9&#160;(Notes)&#160;<br/>
+Provides&#160;notes&#160;to&#160;help&#160;the&#160;user to&#160;understand&#160;this&#160;document&#160;better.&#160;<br/>
+&#160;<br/>
+<b>9</b>&#160;<br/>
+<hr/>
+<a name=10></a><b>Chapter&#160;1&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;Introduction&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;&#160;<b>10</b>&#160;<br/>
+<hr/>
+<a name=11></a><b>Reference&#160;</b><br/>
+<b>Chapter&#160;2</b>&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>Chapter&#160;2&#160;</b><br/>
+<b>Reference&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;following&#160;table&#160;lists&#160;the&#160;documents&#160;referred&#160;to&#160;develop this&#160;document:&#160;<br/>&#160;<br/>
+<b>Table 2-1 &#160; &#160;Reference&#160;Documents&#160;Description&#160;</b><br/>
+&#160;<br/>
+<b>Sl.No.</b>&#160;&#160;<b>Title</b>&#160;<br/>
+<b>Version</b>&#160;<br/>
+1.&#160;<br/>
+Specification&#160;of&#160;Flash&#160;Driver&#160;for R4.0.3&#160;<br/>
+3.2.0&#160;<br/>
+AUTOSAR_SWS_FlashDriver.pdf&#160;<br/>
+&#160;<br/>
+2.&#160;<br/>
+<b>P1x&#160;Parameter Definition&#160;File&#160;</b><br/>
+1.1.6&#160;<br/>
+&#160;<br/>
+R403_FLS_P1M_04_05_10_to_15.arxml&#160;<br/>
+3.&#160;<br/>
+<b>P1x&#160;Parameter Definition&#160;File&#160;</b><br/>
+1.0.6&#160;<br/>
+R403_FLS_P1M_18_to_23.arxml<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Trademark&#160;Notice&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Microsoft and&#160;Windows&#160;are&#160;trademarks/registered trademarks&#160;of&#160;Microsoft&#160;<br/>Corporation.&#160;<br/>
+&#160;<br/>
+<b>11</b>&#160;<br/>
+<hr/>
+<a name=12></a><b>Chapter&#160;2&#160;</b><br/>
+<b>Reference&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>12</b>&#160;<br/>
+<hr/>
+<a name=13></a><b>FLS&#160;Driver&#160;Generation&#160;Tool&#160;Overview&#160;</b><br/>
+<b>Chapter&#160;3&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Chapter&#160;3&#160;</b><br/>
+<b>FLS Driver&#160;Generation&#160;Tool&#160;Overview&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+FLS&#160;Driver Generation Tool&#160;overview&#160;is&#160;shown&#160;below.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>ECU&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Configuration&#160;</b><br/>
+&#160;<br/>
+<b>Fls_Cbk.h,&#160;</b><br/>
+<b>Description&#160;</b><br/>
+<b>RUCG&#160;Tool</b>&#160;<br/>
+<b>Fls_Cfg.h,&#160;</b><br/>
+<b>File,&#160;BSWMDT</b>&#160;<br/>
+<b>Fls_PBcfg.c</b><br/>
+<b>File,&#160;Translation&#160;</b><br/>
+<b>XML&#160;File,&#160;</b><br/>
+<b>Configuration&#160;</b><br/>
+<b>XML&#160;File&#160;and&#160;</b><br/>
+<b>Fls_X1x.dll</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Figure 3-1&#160;&#160;Overview&#160;of&#160;FLS&#160;Driver&#160;Generation&#160;Tool&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160;&#160;&#160;</b><br/>
+Renesas&#160;&#160;Unified&#160;&#160;Code&#160;&#160;Generator&#160;&#160;(RUCG)&#160;&#160;tool&#160;&#160;shall&#160;&#160;be&#160;&#160;used&#160;&#160;for&#160;&#160;FLS&#160;&#160;driver &#160; &#160;&#160;&#160;&#160;<br/>configuration&#160;generation.&#160;<br/>RUCG&#160;&#160;tool&#160;&#160;is&#160;&#160;a&#160;&#160;command&#160;&#160;line&#160;&#160;tool&#160;&#160;that&#160;&#160;extracts,&#160;&#160;analyzes&#160;&#160;the&#160;&#160;configuration&#160;<br/>details&#160;&#160;provided&#160;&#160;in&#160;&#160;the&#160;&#160;input&#160;&#160;file&#160;&#160;and&#160;&#160;validates&#160;&#160;correctness&#160;&#160;of&#160;&#160;the&#160;&#160;data&#160;&#160;and&#160;<br/>provides&#160;scalability&#160;and&#160;configurability&#160;for&#160;FLS&#160;Driver&#160;module.&#160;It&#160;accepts&#160;ECU&#160;<br/>Configuration&#160;&#160;Description&#160;&#160;File(s),&#160;&#160;BSWMDT&#160;&#160;File,&#160;&#160;Translation&#160;&#160;XML&#160;&#160;File,&#160;<br/>Configuration&#160;&#160;XML&#160;&#160;File&#160;&#160;and&#160;&#160;Fls_X1x.dll&#160;&#160;as&#160;&#160;input&#160;&#160;and&#160;&#160;displays&#160;&#160;appropriate&#160;<br/>context&#160;&#160;sensitive&#160;&#160;error&#160;&#160;messages&#160;&#160;for&#160;&#160;wrong&#160;&#160;input&#160;&#160;and&#160;&#160;exits.&#160;&#160;Tool&#160;&#160;creates&#160;&#160;the&#160;<br/>Log&#160;file&#160;Fls.log)&#160;that&#160;contains&#160;the&#160;list&#160;of&#160;Error/Warning/Information&#160;messages&#160;in&#160;<br/>the&#160;output&#160;directory.&#160;<br/>
+&#160;<br/>
+For the&#160;error free&#160;input&#160;file,&#160;the&#160;tool&#160;generates&#160;the following&#160;output files:&#160;<br/>
+&#160;<br/>
+FLS&#160;Driver&#160;generation&#160;tool&#160;will&#160;generate&#160;Fls_Cfg.h,&#160;Fls_Cbk.h&#160;and&#160;Fls_PBcfg.c&#160;<br/>files.&#160;<br/>
+&#160;<br/>
+Fls_Cfg.h&#160;&#160;and&#160;&#160;Fls_Cbk.h&#160;&#160;will&#160;&#160;be&#160;&#160;compiled&#160;&#160;and&#160;&#160;linked&#160;&#160;with&#160;&#160;FLS&#160;&#160;Driver&#160;<br/>Component.&#160;&#160;Fls_PBcfg.c&#160;&#160;will&#160;&#160;be&#160;&#160;compiled&#160;&#160;and&#160;&#160;linked&#160;&#160;separately&#160;&#160;from&#160;&#160;the&#160;<br/>other C&#160;Source files&#160;and&#160;placed&#160;in flash.&#160;<br/>
+&#160;<br/>
+ECU Configuration Description&#160;File can&#160;be&#160;created&#160;or&#160;edited&#160;using&#160;ECU&#160;<br/>Configuration Editor.&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>13</b>&#160;<br/>
+<hr/>
+<a name=14></a><b>Chapter&#160;3&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;FLS&#160;Driver&#160;Generation&#160;Tool&#160;Overview&#160;</b><br/>
+&#160;<br/>
+<b>Remark</b>&#160;<br/>
+&#160;<br/>•&#160;In&#160;case&#160;of&#160;errors&#160;the&#160;generation&#160;tool&#160;returns&#160;a&#160;1,&#160;in&#160;case&#160;of&#160;no&#160;errors&#160;the&#160;<br/>
+generation&#160;tool&#160;returns&#160;a&#160;0.&#160;<br/>
+&#160;<br/>
+•&#160;FLS&#160;Driver&#160;Generation&#160;Tool&#160;uses&#160;“Common&#160;Published&#160;Information”&#160;from&#160;<br/>
+FLS&#160;module&#160;specific&#160;BSWMDT&#160;File.&#160;FLS&#160;module&#160;specific&#160;BSWMDT&#160;File&#160;<br/>should not be&#160;updated&#160;manually&#160;since&#160;it&#160;is&#160;“Static&#160;Configuration”&#160;file.&#160;<br/>
+&#160;<br/>
+<b>14</b>&#160;<br/>
+<hr/>
+<a name=15></a><b>Input&#160;Files&#160;</b><br/>
+<b>Chapter&#160;4</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Chapter&#160;4&#160;&#160;Input Files&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+RUCG&#160;Tool&#160;accepts&#160;ECU&#160;Configuration&#160;Description&#160;File(s),&#160;BSWMDT&#160;File,&#160;<br/>Translation&#160;XML&#160;File,&#160;Configuration&#160;XML&#160;File&#160;and&#160;Fls_X1x.dll&#160;as&#160;input.&#160;FLS&#160;<br/>Driver&#160;Generation&#160;Tool&#160;needs&#160;information&#160;about&#160;FLS&#160;Driver&#160;module.&#160;Hence&#160;<br/>ECU&#160;&#160;Configuration&#160;&#160;Description&#160;&#160;File&#160;&#160;should&#160;&#160;contain&#160;&#160;configuration&#160;&#160;of&#160;&#160;FLS&#160;<br/>Driver&#160;module.&#160;Generation&#160;Tool&#160;ignores&#160;any&#160;other&#160;AUTOSAR&#160;component&#160;<br/>configured&#160;&#160;in&#160;&#160;the&#160;&#160;ECU&#160;&#160;Configuration&#160;&#160;Description&#160;&#160;File.&#160;&#160;ECU&#160;&#160;Configuration&#160;<br/>Description&#160;File can be generated&#160;using configuration&#160;editor.&#160;<br/>
+&#160;<br/>
+ECU Configuration Description&#160;File must comply&#160;with&#160;AUTOSAR standard&#160;<br/>ECU Configuration Description&#160;File format.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Remark&#160;&#160;</b>The&#160;detailed explanation&#160;about&#160;the&#160;parameters&#160;and containers&#160;are found in&#160;<br/>
+Parameter&#160;Definition File&#160;mentioned in the Reference&#160;Documents&#160;section.&#160;<br/>
+&#160;<br/>
+<b>15</b>&#160;<br/>
+<hr/>
+<a name=16></a><b>Chapter&#160;4&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;Input&#160;Files&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>16</b>&#160;<br/>
+<hr/>
+<a name=17></a><b>Output&#160;Files&#160;</b><br/>
+<b>Chapter&#160;5</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Chapter&#160;5&#160;&#160;Output&#160;Files&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+RUCG&#160;&#160;Tool&#160;&#160;generates&#160;&#160;configuration&#160;&#160;details&#160;&#160;in&#160;&#160;C&#160;&#160;Header&#160;&#160;and&#160;&#160;C&#160;&#160;Source&#160;&#160;files&#160;<br/>(Fls_Cbk.h,&#160;Fls_Cfg.h&#160;and&#160;Fls_PBcfg.c).&#160;<br/>&#160;<br/>The&#160;content&#160;of&#160;each output&#160;file is&#160;given&#160;in&#160;the&#160;table&#160;below:&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>Table 5-1 &#160; &#160;Output&#160;Files&#160;Description&#160;</b><br/>
+&#160;<br/>
+<b>Output&#160;File</b>&#160;<br/>
+<b>Details</b>&#160;<br/>
+Fls_Cbk.h&#160;<br/>
+This&#160;file&#160;contains&#160;call-back&#160;functions&#160;prototype&#160;declarations.&#160;<br/>
+Fls_Cfg.h&#160;<br/>
+This&#160;file&#160;contains&#160;pre-compile&#160;time&#160;parameters.&#160;<br/>
+Fls_PBcfg.c&#160;<br/>
+This&#160;file&#160;contains&#160;post-build&#160;time&#160;parameters.&#160;<br/>
+&#160;<br/>
+<b>Remark&#160;&#160;</b>Output&#160;files&#160;generated&#160;by&#160;FLS&#160;Driver Generation Tool&#160;should not&#160;be&#160;modified&#160;<br/>
+or edited&#160;manually.&#160;<br/>
+&#160;<br/>
+<b>17</b>&#160;<br/>
+<hr/>
+<a name=18></a><b>Chapter&#160;5&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;Output&#160;Files&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>18</b>&#160;<br/>
+<hr/>
+<a name=19></a><b>Precautions&#160;</b><br/>
+<b>Chapter&#160;6&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>Chapter&#160;6&#160;&#160;Precautions&#160;<br/>&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+•&#160;<br/>
+ECU&#160;&#160;Configuration&#160;&#160;Description&#160;&#160;File&#160;&#160;and&#160;&#160;BSWMDT&#160;&#160;File&#160;&#160;must&#160;&#160;comply&#160;&#160;with&#160;<br/>AUTOSAR&#160;&#160;standard&#160;&#160;for&#160;&#160;R4.0.3&#160;&#160;ECU&#160;&#160;Configuration&#160;&#160;Description&#160;&#160;File&#160;&#160;and&#160;<br/>BSWMDT&#160;File respectively.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+The&#160;input&#160;file must contain&#160;FLS&#160;Driver module.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Default&#160;&#160;Translation&#160;&#160;XML&#160;&#160;File&#160;&#160;(Fls_X1x.trxml)&#160;&#160;should&#160;&#160;be&#160;&#160;present&#160;&#160;in&#160;&#160;same&#160;<br/>location&#160;of&#160;Fls_X1x.dll&#160;when&#160;the&#160;variant&#160;specific&#160;trxml&#160;file&#160;is&#160;not&#160;given&#160;as&#160;input&#160;<br/>in command line.&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;<br/>
+Default&#160;Configuration&#160;XML&#160;File&#160;(Fls_X1x.cfgxml)&#160;must&#160;be&#160;present&#160;in&#160;same&#160;<br/>location&#160;of&#160;Fls_X1x.dll.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+If&#160;Translation&#160;XML&#160;File&#160;is&#160;not&#160;provided&#160;on&#160;the&#160;command&#160;line,&#160;Fls_X1x.trxml&#160;<br/>which&#160;&#160;is&#160;&#160;present&#160;in&#160;&#160;same&#160;&#160;location&#160;&#160;of&#160;&#160;Fls_X1x.dll&#160;&#160;is&#160;&#160;considered&#160;&#160;as&#160;&#160;‘default’&#160;<br/>Translation&#160;XML&#160;File.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+If&#160;&#160;Configuration&#160;&#160;XML&#160;&#160;File&#160;&#160;is&#160;&#160;not&#160;&#160;provided&#160;&#160;on&#160;&#160;the&#160;&#160;command&#160;&#160;line,&#160;<br/>Fls_X1x.cfgxml&#160;&#160;which&#160;&#160;is&#160;&#160;present&#160;&#160;in&#160;&#160;same&#160;&#160;location&#160;&#160;of&#160;&#160;Fls_X1x.dll&#160;&#160;is&#160;<br/>considered as&#160;‘default’&#160;Configuration XML&#160;File.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Translation&#160;XML File should contain&#160;the&#160;file extension&#160;‘.trxml’.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Configuration XML&#160;File should contain the&#160;file extension ‘.cfgxml’.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+All&#160;&#160;the&#160;&#160;function&#160;&#160;names&#160;&#160;and&#160;&#160;the&#160;&#160;string&#160;&#160;values&#160;&#160;configured&#160;&#160;should&#160;&#160;follow&#160;&#160;C&#160;<br/>syntax&#160;for&#160;variables.&#160;It&#160;can&#160;only&#160;contain&#160;alphanumeric&#160;characters&#160;and&#160;“_”.&#160;It&#160;<br/>should start&#160;with&#160;an&#160;alphabet.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+If&#160;&#160;the&#160;&#160;output&#160;&#160;files&#160;&#160;generated&#160;&#160;by&#160;&#160;FLS&#160;&#160;Driver&#160;&#160;Generation&#160;&#160;Tool&#160;&#160;are&#160;&#160;modified&#160;<br/>externally,&#160;then&#160;they&#160;may&#160;not&#160;produce&#160;the&#160;expected&#160;results&#160;or&#160;may&#160;lead&#160;to&#160;<br/>error/warning/Information&#160;messages.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Short&#160;Name for a container&#160;should be unique&#160;within&#160;a&#160;name space.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+An&#160;&#160;error&#160;&#160;free&#160;&#160;ECU&#160;&#160;Configuration&#160;&#160;Description&#160;&#160;File&#160;&#160;generated&#160;&#160;from&#160;<br/>configuration&#160;editor&#160;has&#160;to&#160;be&#160;provided&#160;as&#160;input&#160;to&#160;the&#160;FLS&#160;Driver&#160;Generation&#160;<br/>Tool.&#160;Otherwise&#160;Tool&#160;may&#160;not&#160;produce&#160;the&#160;expected&#160;results&#160;or&#160;may&#160;lead&#160;to&#160;<br/>errors/warnings/information&#160;messages.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+User&#160;has&#160;to&#160;make&#160;sure&#160;that&#160;the&#160;respective&#160;device&#160;specific&#160;configuration&#160;file&#160;<br/>is&#160;used&#160;otherwise Tool&#160;may&#160;not&#160;produce&#160;the&#160;expected results&#160;or may&#160;leads<br/>
+&#160;<br/>
+<b>19</b>&#160;<br/>
+<hr/>
+<a name=20></a><b>Chapter&#160;6&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;Precautions&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+to&#160;errors/warnings/information&#160;messages.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+The&#160;description&#160;file&#160;should&#160;always&#160;be&#160;generated&#160;using&#160;AUTOSAR&#160;specified&#160;<br/>configuration&#160;editor and&#160;it should not&#160;be edited&#160;manually.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Remark&#160;&#160;</b>Please refer the&#160;FLS&#160;Component User Manual&#160;for deviations&#160;from&#160;AUTOSAR&#160;<br/>
+Specifications, if&#160;any.&#160;<br/>
+<b>20</b>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=21></a><b>User&#160;Configuration&#160;Validation&#160;</b><br/>
+<b>Chapter&#160;7</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Chapter&#160;7&#160;&#160;User Configuration&#160;Validation&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+This&#160;&#160;section&#160;&#160;provides&#160;&#160;help&#160;&#160;to&#160;&#160;analyze&#160;&#160;the&#160;&#160;error,&#160;&#160;warning&#160;&#160;and&#160;&#160;information&#160;<br/>messages&#160;&#160;displayed&#160;&#160;during&#160;&#160;the&#160;&#160;execution&#160;&#160;of&#160;&#160;FLS&#160;&#160;Driver&#160;&#160;Generation&#160;&#160;Tool.&#160;&#160;It&#160;<br/>ensures&#160;conformance&#160;of&#160;input&#160;file&#160;with&#160;syntax&#160;and&#160;semantics.&#160;It&#160;also&#160;performs&#160;<br/>validation&#160;on&#160;the&#160;input&#160;file for correctness&#160;of&#160;the data.&#160;<br/>
+&#160;<br/>
+For&#160;&#160;more&#160;&#160;details&#160;&#160;on&#160;&#160;list&#160;&#160;of&#160;&#160;Error/Warning/Information&#160;&#160;messages&#160;&#160;that&#160;&#160;are&#160;<br/>displayed&#160;as&#160;a&#160;result of&#160;input&#160;file(s)&#160;validation,&#160;refer Chapter&#160;8&#160;“<i>Messages</i>”.&#160;<br/>
+&#160;<br/>
+The&#160;Generation&#160;Tool&#160;displays&#160;error or&#160;warning or&#160;information&#160;when the&#160;user&#160;<br/>has&#160;&#160;configured&#160;&#160;incorrect&#160;&#160;inputs.&#160;&#160;The&#160;&#160;format&#160;&#160;of&#160;&#160;Error/Warning/Information&#160;<br/>message is&#160;as&#160;shown below.&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;<br/>
+ERR/WRN/INF&lt;mid&gt;&lt;xxx&gt;: &lt;Error/Warning/Information&#160;Message&gt;.&#160;<br/>
+Where,&#160;<br/>
+&lt;mid&gt;: 092-&#160;FLS&#160;Driver&#160;Module id (092) for user configuration checks.&#160;<br/>
+&#160;<br/>
+000&#160;–&#160;for command line&#160;checks.&#160;<br/>
+&#160;<br/>
+&lt;xxx&gt;: 001-999&#160;–&#160;Message&#160;id.&#160;<br/>
+&#160;<br/>&#160;<br/>
+•&#160;<br/>
+File&#160;Name:&#160;Name of&#160;the file&#160;in&#160;which&#160;the&#160;error has&#160;occurred.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Path: Absolute&#160;path&#160;of&#160;the&#160;container&#160;in&#160;which the&#160;parameter&#160;is&#160;present.&#160;<br/>
+&#160;<br/>&#160;<br/>
+‘File Name’&#160;and&#160;‘Path’&#160;need&#160;not&#160;be&#160;present&#160;for all&#160;Error/Warning/Information&#160;<br/>messages.&#160;<br/>
+&#160;<br/>
+<b>21</b>&#160;<br/>
+<hr/>
+<a name=22></a><b>Chapter&#160;7&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;User&#160;Configuration&#160;Validation&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>22</b>&#160;<br/>
+<hr/>
+<a name=23></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Messages&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;8&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;</b><br/>
+&#160;<br/>
+<b>Chapter&#160;8&#160;&#160;Messages&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;&#160;messages&#160;&#160;help&#160;&#160;to&#160;&#160;identify&#160;&#160;the&#160;&#160;syntax&#160;&#160;or&#160;&#160;semantic&#160;&#160;errors&#160;&#160;in&#160;&#160;the&#160;&#160;ECU&#160;<br/>Configuration&#160;&#160;Description&#160;&#160;File.&#160;&#160;Hence&#160;&#160;it&#160;&#160;ensures&#160;&#160;validity&#160;&#160;and&#160;&#160;correctness&#160;&#160;of&#160;&#160;the&#160;<br/>information&#160;available&#160;in&#160;the&#160;ECU Configuration Description&#160;File.&#160;<br/>
+&#160;<br/>
+The&#160;&#160;following&#160;&#160;section&#160;&#160;gives&#160;&#160;the&#160;&#160;list&#160;&#160;of&#160;&#160;error,&#160;&#160;warning&#160;&#160;and&#160;&#160;information&#160;&#160;messages&#160;<br/>displayed&#160;by&#160;the&#160;Generation Tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>8.1&#160;&#160;Error&#160;Messages&#160;</b><br/>
+&#160;<br/>
+<b>ERR092001:&#160;Number&#160;of&#160;fields is&#160;not&#160;same&#160;for&#160;the entity&#160;‘Structure Name’.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;occurs,&#160;if&#160;the&#160;number&#160;of&#160;fields&#160;is&#160;not&#160;same&#160;in&#160;the&#160;structure&#160;that&#160;is&#160;to&#160;be&#160;<br/>generated&#160;in&#160;the&#160;output file.&#160;<br/>
+&#160;<br/>
+<b>ERR092002:&#160;Field&#160;‘Field&#160;Name’&#160;is empty in&#160;the entity&#160;‘Structure Name’.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;occurs,&#160;if&#160;the&#160;structure&#160;fields&#160;that&#160;are&#160;to&#160;be&#160;generated&#160;in&#160;the&#160;output&#160;file&#160;<br/>are empty.&#160;<br/>
+&#160;<br/>
+<b>ERR092003:&#160;‘FLS&#160;Driver&#160;/&#160;MCU&#160;Driver’&#160;Component&#160;is&#160;not&#160;present&#160;in&#160;the&#160;input&#160;<br/>file(s).</b>&#160;<br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;FLS&#160;&#160;Driver&#160;&#160;or&#160;&#160;MCU&#160;&#160;Driver&#160;&#160;component&#160;&#160;is&#160;&#160;not&#160;&#160;present&#160;&#160;in&#160;&#160;the&#160;<br/>input&#160;ECU Configuration Description File(s).&#160;<br/>&#160;<br/><b>ERR092004:&#160;&#160;The&#160;&#160;parameter&#160;&#160;‘parameter&#160;&#160;name’&#160;&#160;in&#160;&#160;the&#160;&#160;container&#160;&#160;‘container&#160;<br/>name’ should be configured.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error&#160;occurs,&#160;if&#160;any&#160;of&#160;the&#160;mandatory&#160;configuration&#160;parameter(s)&#160;mentioned&#160;<br/>below&#160;&#160;is&#160;&#160;(are)&#160;&#160;not&#160;&#160;configured&#160;&#160;in&#160;&#160;ECU&#160;&#160;Configuration&#160;&#160;Description&#160;&#160;File.&#160;&#160;The&#160;&#160;list&#160;&#160;of&#160;<br/>mandatory&#160;parameters&#160;with&#160;respect to&#160;container&#160;is&#160;listed below:&#160;<br/>&#160;<br/>
+<b>Table 8-1 &#160; &#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092004&#160;<br/>&#160;</b><br/>
+&#160;<br/>
+<b>Parameter Name</b>&#160;<br/>
+<b>Container Name</b>&#160;<br/>
+FlsDevErrorDetect&#160;<br/>
+&#160;<br/>&#160;<br/>
+FlsCancelApi&#160;<br/>
+&#160;<br/>
+FlsCompareApi&#160;<br/>
+&#160;<br/>
+FlsSetModeApi&#160;<br/>
+&#160;<br/>&#160;<br/>
+FlsUseInterrupts&#160;<br/>
+&#160;<br/>
+FlsVersionInfoApi&#160;<br/>
+&#160;<br/>
+FlsVersionCheckExternalModules&#160;<br/>
+FlsGeneral&#160;<br/>
+FlsCriticalSectionProtection&#160;<br/>
+&#160;<br/>
+FlsFaciEccCheck&#160;<br/>
+FlsInterruptConsistencyCheck&#160;<br/>
+FlsWriteVerify&#160;<br/>
+FlsUseWVErrorInterface&#160;<br/>
+FlsLoopCount&#160;<br/>
+FlsVirtualBoundaryAddress&#160;<br/>
+FlsDeviceName&#160;<br/>
+FlsTimeoutMonitoring&#160;<br/>
+FlsEraseTime&#160;<br/>
+&#160;<br/>
+FlsWriteTime&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>23</b>&#160;<br/>
+<hr/>
+<a name=24></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8&#160;</b><br/>
+<b>&#160;&#160;&#160;Messages&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;</b><br/>
+<b>Parameter Name</b>&#160;<br/>
+<b>Container Name</b>&#160;<br/>
+FlsErasedValue&#160;<br/>
+FlsPublishedInformation&#160;<br/>
+FlsBlankCheckTime&#160;<br/>
+FlsCallCycle&#160;<br/>
+FlsDefaultMode&#160;<br/>
+FlsMaxReadFastMode&#160;<br/>
+FlsMaxReadNormalMode&#160;<br/>
+FlsSectorIndex&#160;<br/>
+&#160;<br/>&#160;<br/>
+FlsNumberOfSectors&#160;<br/>
+&#160;<br/>&#160;<br/>
+FlsPageSize&#160;<br/>
+FlsSector&#160;<br/>
+FlsSectorSize&#160;<br/>
+FlsSectorStartaddress&#160;<br/>
+FlsDFBaseAddress&#160;<br/>
+&#160;<br/>&#160;<br/>
+FlsDFBlockSize&#160;<br/>
+&#160;<br/>&#160;<br/>
+FlsDFTotalBlocks&#160;<br/>
+&#160;<br/>
+FlsDataFlashSize&#160;<br/>
+&#160;<br/>
+FlsFdlCpuFrequency&#160;<br/>
+FlsDataFlash&#160;<br/>
+FlsBlankCheckApi&#160;<br/>
+FlsReadImmediateApi&#160;<br/>
+FlsSuspendApi&#160;<br/>
+FlsResumeApi&#160;<br/>
+FLS_E_READ_FAILED&#160;<br/>
+&#160;<br/>&#160;<br/>
+FLS_E_WRITE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_READ_FAILED_DED&#160;<br/>
+FlsDemEventParameterRefs&#160;<br/>
+FLS_E_ERASE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_COMPARE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_HW_FAILURE&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Remark&#160;<br/>&#160;</b><br/>
+&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;•&#160;&#160;&#160;The&#160;container FlsDataFlash&#160;and&#160;its&#160;parameters&#160;are mandatory.&#160;<br/>&#160;<br/>
+<b>ERR092007:&#160;&#160;The&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;parameter&#160;&#160;‘parameter&#160;&#160;name’&#160;&#160; &#160;&#160;&#160;<br/>should follow&#160;C syntax&#160;&lt;&#160;[a-zA-Z]&#160;[a-zA-Z0-9_]&gt;.&#160;</b><br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;value&#160;&#160;of&#160;&#160;configuration&#160;&#160;parameters&#160;&#160;mentioned&#160;&#160;in&#160;&#160;below&#160;<br/>table&#160;does&#160;not&#160;adhere&#160;to&#160;C&#160;syntax&#160;as&#160;if&#160;the&#160;value&#160;contains&#160;characters&#160;other&#160;than&#160;<br/>(a-z, A-Z,&#160;0-9 or&#160;“_”). The&#160;parameter&#160;value&#160;should always&#160;start&#160;with&#160;an alphabet.&#160;<br/>
+&#160;<br/>
+<b>Table 8-2&#160; &#160;&#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092007&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Parameter Name</b>&#160;<br/>
+<b>Container Name</b>&#160;<br/>
+FlsJobEndNotification&#160;<br/>
+FlsConfigSet&#160;<br/>
+FlsJobErrorNotification&#160;<br/>FlsEccSedNotification&#160;<br/>
+FlsDataFlash&#160;<br/>
+&#160;FlsEccDedNotification&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR092012:&#160;&#160;The&#160;&#160;reference&#160;&#160;path&#160;&#160;&lt;reference&#160;&#160;value&gt;&#160;&#160;provided&#160;&#160;for&#160;&#160;the&#160;<br/>parameter&#160;‘parameter&#160;name’ within the container</b>&#160;<br/><b>‘FlsDemEventParameterRefs’&#160;is&#160;incorrect.</b>&#160;<br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;reference&#160;&#160;path&#160;&#160;&lt;reference&#160;&#160;value&gt;&#160;&#160;provided&#160;&#160;for&#160;&#160;the&#160;<br/>
+&#160;<br/>
+<b>24</b>&#160;<br/>
+<hr/>
+<a name=25></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Messages&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;8&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;</b><br/>
+&#160;<br/>
+following&#160;&#160;parameters&#160;&#160;within&#160;&#160;the&#160;&#160;container&#160;&#160;‘FlsDemEventParameterRefs’&#160;&#160;is&#160;<br/>incorrect.&#160;<br/>
+<b>Table 8-3&#160; &#160;&#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092012&#160;</b><br/>
+&#160;<br/>
+<b>Parameter Name</b>&#160;<br/>
+<b>Container Name</b>&#160;<br/>
+FLS_E_COMPARE_FAILED&#160;<br/>
+&#160;<br/>&#160;<br/>
+FLS_E_ERASE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_READ_FAILED&#160;<br/>
+FlsDemEventParameterRefs&#160;<br/>
+FLS_E_WRITE_FAILED&#160;<br/>
+FLS_E_READ_FAILED_DED&#160;<br/>
+FLS_E_REG_WRITE_VERIFY&#160;<br/>
+FLS_E_HW_FAILURE&#160;<br/>
+FLS_E_ECC_FAILED&#160;<br/>
+FLS_E_INT_INCONSISTENT&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>ERR092015:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;‘parameter&#160;name’&#160;in&#160;<br/>the&#160;container&#160;‘FlsSector’&#160;should&#160;be&#160;&lt;actual&#160;value&gt;,&#160;since&#160;the&#160;sector&#160;used&#160;<br/>is&#160;data flash&#160;sector.</b>&#160;<br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;following&#160;&#160;parameters&#160;&#160;in&#160;&#160;the&#160;<br/>container&#160;FlsSector&#160;is&#160;not&#160;as&#160;per&#160;below&#160;table.&#160;<br/>&#160;<br/>
+<b>Table 8-4 &#160; &#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092015&#160;</b><br/>
+&#160;<br/>
+<b>FlsNumberOfSector</b>&#160;<br/>
+<b>FlsSectorSize</b>&#160;<br/>
+512&#160;<br/>
+64&#160;<br/>
+<b>&#160;</b><br/>
+<b>Remark&#160;</b><br/>
+&#160;&#160;For&#160;&#160;R7F701318,&#160;&#160;R7F701319,&#160;&#160;R7F701320,&#160;&#160;R7F701321,&#160;&#160;R7F701322&#160;&#160;and&#160;<br/>
+R7F701323&#160;devices&#160;the&#160;value&#160;for FlsNumberOfSector is&#160;1024.&#160;<br/>
+<b>&#160;<br/>ERR092017:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;‘parameter&#160;name’&#160;in&#160;<br/>the container&#160;‘container&#160;name’&#160;should be same for&#160;the FlsSectorIndex</b>&#160;<br/><b>&lt;Value&#160;of&#160;FlsSectorIndex&gt;&#160;across the multiple&#160;configuration&#160;set&#160;of</b>&#160;<br/><b>‘FlsConfigSet’.</b>&#160;<br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;following&#160;&#160;parameters&#160;&#160;in&#160;&#160;the&#160;<br/>respective&#160;&#160;container&#160;&#160;is&#160;&#160;not&#160;&#160;same&#160;&#160;for&#160;&#160;the&#160;&#160;FlsSectorIndex&#160;&#160;across&#160;&#160;the&#160;&#160;multiple&#160;<br/>configuration&#160;set of&#160;FlsConfigSet.&#160;<br/>&#160;<br/>
+<b>Table 8-5&#160; &#160;&#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092017&#160;</b><br/>
+<b>&#160;</b><br/>
+<b>Parameter Name</b>&#160;<br/>
+<b>Container Name</b>&#160;<br/>
+FlsSectorSize&#160;<br/>
+&#160;<br/>
+&#160;FlsSector&#160;<br/>
+FlsNumberOfSectors&#160;<br/>FlsSectorStartaddress&#160;<br/>
+<b>&#160;<br/>&#160;<br/>ERR092018:&#160;</b><br/>
+<b>The&#160;</b><br/>
+<b>values&#160;</b><br/>
+<b>configured&#160;</b><br/>
+<b>for&#160;</b><br/>
+<b>the&#160;</b><br/>
+<b>parameters&#160;</b><br/>
+<b>‘FlsEccSedNotification’&#160;&#160;and&#160;&#160;‘FlsEccDedNotification’&#160;&#160;in&#160;&#160;the&#160;&#160;container&#160;<br/>‘FlsDataFlash’&#160;&#160;and&#160;&#160;the&#160;&#160;values&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;parameters&#160;<br/>‘FlsJobEndNotification’&#160;&#160;and&#160;&#160;‘FlsJobErrorNotification’&#160;&#160;in&#160;&#160;any&#160;&#160;of&#160;&#160;the&#160;<br/>‘FlsConfigSet’&#160;container&#160;should be unique.&#160;<br/></b>&#160;<br/>
+&#160;<br/>
+<b>25</b>&#160;<br/>
+<hr/>
+<a name=26></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8&#160;</b><br/>
+<b>&#160;&#160;&#160;Messages&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;</b><br/>
+This&#160;<br/>
+error&#160;<br/>
+occurs,&#160;<br/>
+if&#160;<br/>
+the&#160;<br/>
+values&#160;<br/>
+configured&#160;<br/>
+for&#160;<br/>
+the&#160;<br/>
+parameters&#160;<br/>
+‘FlsEccSedNotification’&#160;<br/>
+and&#160;<br/>
+‘FlsEccDedNotification’&#160;<br/>
+in&#160;<br/>
+the&#160;<br/>
+container&#160;<br/>
+‘FlsDataFlash’&#160;<br/>
+and&#160;<br/>
+the&#160;<br/>
+values&#160;<br/>
+configured&#160;<br/>
+for&#160;<br/>
+the&#160;<br/>
+parameters&#160;<br/>
+‘FlsJobEndNotification’&#160;&#160;and&#160;&#160;‘FlsJobErrorNotification’&#160;&#160;in&#160;&#160;any&#160;&#160;of&#160;&#160;the&#160;&#160;‘FlsConfigSet’&#160;<br/>container&#160;&#160;is&#160;&#160;not&#160;&#160;unique.&#160;&#160;For&#160;&#160;example,&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;shows&#160;&#160;the&#160;&#160;conditions&#160;<br/>when&#160;the&#160;error message occurs.&#160;<br/>
+&#160;<br/>
+<b>Table 8-6&#160; &#160;&#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092018&#160;</b><br/>
+&#160;<br/>
+<b>Container&#160;: FlsDataFlash</b>&#160;<br/>
+<b>Container</b>&#160;:&#160;<b>FlsConfigSet</b>&#160;<br/>
+<b>FlsEccSedNotification</b>&#160;&#160;<b>FlsEccDedNotification</b>&#160;&#160;<b>FlsJobEndNotification</b>&#160;&#160;<b>FlsJobErrorNotification</b>&#160;<br/>
+EccSedNotification&#160;<br/>
+EccSedNotification&#160;<br/>
+EccSedNotification&#160;<br/>
+EccSedNotification&#160;<br/>
+EccSedNotification&#160;<br/>
+EccSedNotification&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+EccSedNotification&#160;<br/>
+EccSedNotification&#160;<br/>
+-&#160;<br/>
+EccSedNotification&#160;<br/>
+-&#160;<br/>
+EccSedNotification&#160;&#160;<br/>
+EccSedNotification&#160;<br/>
+-&#160;<br/>
+-&#160;<br/>
+EccSedNotification&#160;&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>ERR092019:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;‘parameter&#160;name’&#160;in&#160;the&#160;<br/>container&#160;‘FlsDemEventParameterRefs’&#160;should&#160;be&#160;same&#160;across&#160;the&#160;multiple&#160;<br/>configuration&#160;set&#160;of&#160;‘FlsConfigSet’.</b>&#160;<br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;following&#160;&#160;parameters&#160;&#160;in&#160;&#160;the&#160;<br/>container&#160;&#160;FlsDemEventParameterRefs&#160;&#160;is&#160;&#160;not&#160;&#160;same&#160;&#160;across&#160;&#160;the&#160;&#160;multiple&#160;<br/>configuration&#160;set of&#160;FlsConfigSet.&#160;<br/>&#160;<br/>
+<b>Table 8-7&#160; &#160;&#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092019&#160;<br/>&#160;<br/>&#160;</b><br/>
+<b>Parameter Name</b>&#160;<br/>
+<b>Container Name</b>&#160;<br/>
+FLS_E_COMPARE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_ERASE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_READ_FAILED&#160;<br/>
+&#160;<br/>FlsDemEventParameterRefs&#160;<br/>
+FLS_E_WRITE_FAILED&#160;<br/>
+&#160;<br/>
+FLS_E_READ_FAILED_DED&#160;<br/>
+&#160;<br/>
+FLS_E_REG_WRITE_VERIFY&#160;<br/>
+&#160;<br/>
+FLS_E_HW_FAILURE&#160;<br/>
+FLS_E_INT_INCONSISTENT&#160;<br/>
+FLS_E_ECC_FAILED&#160;<br/>
+<b>&#160;</b><br/>
+<b>ERR092020:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;‘FlsSectorIndex’&#160;in&#160;the&#160;<br/>container&#160;‘FlsSector’&#160;should&#160;be same&#160;across&#160;the&#160;multiple&#160;configuration&#160;set&#160;<br/>of&#160;'FlsConfigSet'.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error occurs, if&#160;the value&#160;configured&#160;for the&#160;parameter&#160;FlsSectorIndex&#160;in&#160;the&#160;<br/>container&#160;&#160;FlsSector&#160;&#160;is&#160;&#160;not&#160;&#160;same&#160;&#160;across&#160;&#160;the&#160;&#160;multiple&#160;&#160;configuration&#160;&#160;set&#160;&#160;of&#160;<br/>FlsConfigSet.&#160;<br/><b>ERR092023:&#160;&#160;The&#160;&#160;reference&#160;&#160;path&#160;&#160;of&#160;&#160;MCU&#160;&#160;&lt;configured&#160;&#160;value&#160;&#160;of&#160;<br/>FlsFdlCpuFrequency&gt;&#160;&#160;provided&#160;&#160;for&#160;&#160;the&#160;&#160;parameter&#160;&#160;‘FlsFdlCpuFrequency’&#160;<br/>in the container&#160;'FlsDataFlash'&#160;is&#160;incorrect.</b>&#160;<br/>
+&#160;<br/>
+This&#160;error occurs, if&#160;the reference path of&#160;MCU&#160;provided for the&#160;parameter&#160;<br/>FlsFdlCpuFrequency&#160;in the&#160;container&#160;FlsDataFlash&#160;is&#160;incorrect.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>ERR092028:&#160;The value configured for&#160;the parameter</b>&#160;<br/><b>'FlsSectorStartaddress'&#160;should&#160;be&#160;within&#160;the&#160;range&#160;of&#160;&lt;range&#160;of&#160;value&gt;&#160;for&#160;</b><br/>
+&#160;<br/>
+<b>26</b>&#160;<br/>
+<hr/>
+<a name=27></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Messages&#160;</b><br/>
+<b>&#160;&#160;&#160;&#160;Chapter&#160;8&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;</b><br/>
+&#160;<br/>
+<b>the&#160;&lt;configured value of&#160;FlsSectorOption&gt;.</b>&#160;<br/>
+&#160;<br/>
+This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;parameter&#160;<br/>FlsSectorStartaddress&#160;is&#160;not&#160;within the&#160;below&#160;range.&#160;<br/>&#160;<br/>
+<b>Table&#160;8-8&#160; &#160;&#160;Parameters and&#160;Container&#160;related&#160;to&#160;error&#160;ERR092028&#160;</b><br/>
+&#160;<br/>
+<b>Range of&#160;value&#160;for&#160;FlsSectorStartaddress&#160;<br/></b>0&#160;to&#160;(value&#160;configured&#160;for FlsVirtualBoundaryAddress&#160;-&#160;1)&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>ERR092029:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;'FlsTotalSize'&#160;should&#160;be&#160;<br/>(FlsNumberOfSectors&#160;&#160;*&#160;&#160;FlsSectorSize)&#160;&#160;since&#160;&#160;the&#160;&#160;sector&#160;&#160;used&#160;&#160;is&#160;&#160;data&#160;&#160;flash&#160;<br/>sector.&#160;<br/>&#160;<br/></b>This&#160;error&#160;occurs,&#160;if&#160;the&#160;parameter&#160;FlsTotalSize&#160;in&#160;the&#160;container&#160;FlsGeneral&#160;is&#160;not&#160;<br/>configured&#160;with value&#160;equal&#160;to&#160;(FlsNumberOfSectors&#160;*&#160;FlsSectorSize).&#160;<br/>&#160;<br/><b>ERR092032:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;&#160;FlsMaxReadFastMode&#160;<br/>should&#160;be&#160;greater&#160;than&#160;or&#160;equal&#160;to&#160;FlsMaxReadNormalMode&#160;in&#160;the&#160;container&#160;<br/>FlsConfigSet</b>&#160;&lt;<b>config_index&gt;.&#160;<br/>&#160;<br/></b>This&#160;error&#160;occurs,&#160;if&#160;the&#160;parameter&#160;FlsMaxReadFastMode&#160;&#160;is&#160;not&#160;configured&#160;&#160;with&#160;<br/>value&#160;<br/>
+greater&#160;<br/>
+than&#160;<br/>
+the&#160;<br/>
+value&#160;<br/>
+configured&#160;<br/>
+for&#160;<br/>
+the&#160;<br/>
+parameter&#160;<br/>
+FlsMaxReadNormalMode&#160;in the&#160;container&#160;FlsConfigSet.&#160;<br/>&#160;<br/><b>ERR092033:&#160;The value&#160;configured for&#160;the parameter&#160;FlsCallCycle&#160;should be&#160;<br/>greater&#160;than '0' if&#160;the parameter&#160;FlsTimeoutMonitoring&#160;is&#160;set&#160;as&#160;TRUE.&#160;<br/>&#160;<br/></b>This&#160;error&#160;occurs,&#160;if&#160;the&#160;parameter&#160;FlsTimeoutMonitoring&#160;is&#160;set&#160;to&#160;TRUE&#160;and&#160;the&#160;<br/>value&#160;configured for the&#160;FlsCallCycle&#160;is&#160;0.&#160;<br/>&#160;<br/><b>ERR092034:&#160;&#160;If&#160;&#160;the&#160;&#160;parameter&#160;FlsFaciEccCheck&#160;&#160;is&#160;&#160;configured&#160;&#160;as&#160;&#160;true,&#160;&#160;then&#160;<br/>FLS_E_ECC_FAILED&#160;in&#160;the&#160;container&#160;FlsDemEventParameterRefs&#160;must&#160;be&#160;<br/>configured.&#160;<br/></b>&#160;<br/>This&#160;&#160;error&#160;&#160;will&#160;&#160;occur&#160;&#160;if&#160;&#160;no&#160;&#160;reference&#160;&#160;path&#160;&#160;is&#160;&#160;provided&#160;&#160;for&#160;&#160;the&#160;&#160;DEM&#160;&#160;parameter&#160;<br/>FLS_E_ECC_FAILED&#160;&#160;in&#160;&#160;the&#160;&#160;container&#160;&#160;FlsDemEventParameterRefs&#160;&#160;when&#160;&#160;the&#160;<br/>parameter&#160;FlsFaciEccCheck&#160;is&#160;configured&#160;as&#160;true.&#160;<br/>&#160;<br/><b>ERR092035:&#160;&#160;If&#160;&#160;the&#160;&#160;parameter&#160;&#160;FlsInterruptConsistencyCheck&#160;&#160;is&#160;&#160;configured&#160;<br/>as&#160;</b><br/>
+<b>true,&#160;</b><br/>
+<b>then&#160;</b><br/>
+<b>FLS_E_INT_INCONSISTENT&#160;</b><br/>
+<b>in&#160;</b><br/>
+<b>the&#160;</b><br/>
+<b>container&#160;</b><br/>
+<b>FlsDemEventParameterRefs must be&#160;configured.&#160;<br/></b>&#160;<br/>This&#160;&#160;error&#160;&#160;will&#160;&#160;occur&#160;&#160;if&#160;&#160;no&#160;&#160;reference&#160;&#160;path&#160;&#160;is&#160;&#160;provided&#160;&#160;for&#160;&#160;the&#160;&#160;DEM&#160;&#160;parameter&#160;<br/>FLS_E_INT_INCONSISTENT&#160;in&#160;the&#160;container&#160;FlsDemEventParameterRefs&#160;when&#160;<br/>the&#160;parameter&#160;FlsInterruptConsistencyCheck&#160;is&#160;configured&#160;as&#160;true.&#160;<br/>&#160;<br/><b>ERR092036:&#160;</b><br/>
+<b>If&#160;</b><br/>
+<b>the&#160;</b><br/>
+<b>parameter&#160;</b><br/>
+<b>FlsWriteVerify&#160;</b><br/>
+<b>is&#160;</b><br/>
+<b>configured&#160;</b><br/>
+<b>as&#160;</b><br/>
+<b>FLS_INIT_ONLY&#160;</b><br/>
+<b>or&#160;</b><br/>
+<b>FLS_INIT_AND_RUNTIME,&#160;</b><br/>
+<b>then&#160;</b><br/>
+<b>the&#160;</b><br/>
+<b>parameter&#160;</b><br/>
+<b>'FLS_E_REG_WRITE_VERIFY'&#160;in&#160;the&#160;container&#160;FlsDemEventParameterRefs&#160;<br/>should be configured.&#160;<br/></b>&#160;<br/>This&#160;&#160;error&#160;&#160;will&#160;&#160;occur&#160;&#160;if&#160;&#160;no&#160;&#160;reference&#160;&#160;path&#160;&#160;is&#160;&#160;provided&#160;&#160;for&#160;&#160;the&#160;&#160;DEM&#160;&#160;parameter&#160;<br/>FLS_E_REG_WRITE_VERIFY&#160;&#160;in&#160;&#160;the&#160;&#160;container&#160;&#160;FlsDemEventParameterRefs&#160;<br/>when&#160;the&#160;parameter&#160;FlsUseWVErrorInterface&#160;is&#160;configured&#160;as&#160;true.&#160;<br/>&#160;<br/><b>ERR092037:&#160;&#160;FlsWriteVerifyErrorInterface&#160;&#160;parameter&#160;&#160;should&#160;&#160;have&#160;&#160;a&#160;&#160;value&#160;<br/>when the parameter&#160;FlsUseWVErrorInterface&#160;is configured as&#160;true.&#160;<br/></b>&#160;<br/>
+&#160;<br/>
+<b>27</b>&#160;<br/>
+<hr/>
+<a name=28></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8&#160;</b><br/>
+<b>&#160;&#160;&#160;Messages&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;</b><br/>
+This&#160;&#160;error&#160;&#160;will&#160;&#160;occur,&#160;&#160;if&#160;&#160;the&#160;&#160;parameter&#160;&#160;FlsWriteVerifyErrorInterface&#160;&#160;is&#160;&#160;not&#160;<br/>configured&#160;when&#160;the&#160;parameters&#160;FlsWriteVerify&#160;is&#160;configured&#160;as&#160;FLS_INIT_ONLY&#160;<br/>or&#160;FLS_INIT_AND_RUNTIME&#160;and&#160;FlsUseWVErrorInterface&#160;is&#160;configured&#160;as&#160;true.&#160;<br/>&#160;<br/><b>ERR092038:&#160;&#160;If&#160;&#160;the&#160;&#160;parameters&#160;&#160;FlsUseInterrupts&#160;&#160;and&#160;&#160;FlsTimeoutMonitoring&#160;<br/>are&#160;&#160;configured&#160;&#160;as&#160;&#160;true,&#160;&#160;then&#160;&#160;the&#160;&#160;parameter&#160;&#160;FlsTimeOutCountValue&#160;&#160;in&#160;&#160;the&#160;<br/>container&#160;FlsConfigSet&#160;should have a&#160;value.&#160;<br/></b>&#160;<br/>This&#160;&#160;error&#160;&#160;will&#160;&#160;occur&#160;&#160;if&#160;&#160;the&#160;&#160;FlsTimeOutCountValue&#160;&#160;is&#160;&#160;not&#160;&#160;configured&#160;&#160;when&#160;&#160;the&#160;<br/>parameters&#160;&#160;FlsUseInterrupts&#160;&#160;and&#160;&#160;FlsTimeoutMonitoring&#160;&#160;in&#160;&#160;the&#160;&#160;container&#160;<br/>FlsGeneral&#160;is&#160;configured&#160;as&#160;true.&#160;<br/>&#160;<br/><b>ERR092039:&#160;&#160;The&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;parameter&#160;&#160;FlsCallCycle&#160;&#160;in&#160;&#160;the&#160;<br/>container&#160;&#160;FlsConfigSet&#160;&#160;should&#160;&#160;be&#160;&#160;same&#160;&#160;across&#160;&#160;the&#160;&#160;multiple&#160;&#160;configuration&#160;<br/>set.&#160;<br/></b>&#160;<br/>This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;the&#160;&#160;value&#160;&#160;configured&#160;&#160;for&#160;&#160;the&#160;&#160;parameter&#160;&#160;FlsCallCycle<b>&#160;&#160;</b>is&#160;&#160;not&#160;<br/>same across&#160;the multiple configuration set&#160;of&#160;FlsConfigSet.&#160;<br/>&#160;<br/><b>ERR092040:&#160;The&#160;value&#160;configured&#160;for&#160;the&#160;parameter&#160;FlsTimeOutCountValue&#160;<br/>in&#160;&#160;the&#160;&#160;container&#160;&#160;FlsConfigSet&#160;&#160;should&#160;&#160;be&#160;&#160;same&#160;&#160;across&#160;&#160;the&#160;&#160;multiple&#160;<br/>configuration&#160;set.&#160;<br/></b>&#160;<br/>This&#160;<br/>
+error&#160;<br/>
+occurs,&#160;<br/>
+if&#160;<br/>
+the&#160;<br/>
+value&#160;<br/>
+configured&#160;<br/>
+for&#160;<br/>
+the&#160;<br/>
+parameter&#160;<br/>
+FlsTimeOutCountValue&#160;&#160;is&#160;&#160;not&#160;&#160;same&#160;&#160;across&#160;&#160;the&#160;&#160;multiple&#160;&#160;configuration&#160;&#160;set&#160;&#160;of&#160;<br/>FlsConfigSet.&#160;<br/>&#160;<br/><b>ERR092041:&#160;User&#160;shall&#160;not&#160;configure&#160;multiple&#160;sectors.&#160;Since&#160;data&#160;flash&#160;is&#160;a&#160;<br/>monolithic&#160;&#160;on-chip&#160;&#160;NV&#160;&#160;memory&#160;&#160;with&#160;&#160;homogeneous&#160;&#160;block&#160;&#160;size,&#160;&#160;it&#160;&#160;is&#160;&#160;not&#160;<br/>required to&#160;have multiple&#160;sectors&#160;with&#160;the same sector&#160;sizes.&#160;<br/></b>&#160;<br/>This&#160;&#160;error&#160;&#160;occurs,&#160;&#160;if&#160;&#160;more&#160;&#160;than&#160;&#160;one&#160;&#160;&#34;FlsSector&#34;&#160;&#160;is&#160;&#160;configured&#160;&#160;in&#160;&#160;the&#160;&#160;container&#160;<br/>FlsConfigSet.&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>8.2&#160;&#160;Warning&#160;Messages&#160;</b><br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;None&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>8.3&#160;&#160;Information&#160;Messages&#160;</b><br/>
+&#160;<br/>
+<b>INF092001: The parameter&#160;'parameter&#160;name' in the&#160;container</b>&#160;<br/><b>‘FlsConfigSet' is not&#160;configured.</b>&#160;<br/>
+&#160;<br/>
+This&#160;information&#160;occurs, if&#160;the&#160;parameters&#160;FlsJobEndNotification&#160;or&#160;<br/>FlsJobErrorNotification&#160;or&#160;FlsEccSedNotification&#160;or&#160;FlsEccDedNotification&#160;in&#160;the&#160;<br/>container&#160;FlsConfigSet&#160;are&#160;not&#160;configured&#160;or&#160;configured&#160;with&#160;NULL&#160;or&#160;NULL_PTR.&#160;<br/>&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>28</b>&#160;<br/>
+<hr/>
+<a name=29></a><b>Notes&#160;&#160;</b><br/>
+<b>&#160;&#160;Chapter&#160;9&#160;</b><br/>
+&#160;<br/>
+<b>Chapter&#160;9&#160;&#160;Notes&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+“Generation&#160;Tool”&#160;and&#160;“Tool”&#160;terminologies&#160;are&#160;used&#160;interchangeably&#160;to&#160;refer&#160;<br/>FLS&#160;Driver&#160;Generation&#160;Tool.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>29</b>&#160;<br/>
+<hr/>
+<a name=30></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;9&#160;</b><br/>
+<b>&#160; &#160; &#160; &#160;Notes&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+<b>30</b>&#160;<br/>
+<hr/>
+<a name=31></a>&#160;<br/>
+<b>&#160;</b><br/>
+<b>Revision&#160;History</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Sl.No.</b>&#160;&#160;<b>Description</b>&#160;<br/>
+<b>Version</b>&#160;<br/>
+<b>Date</b>&#160;<br/>
+1.&#160;<br/>
+Initial&#160;Version&#160;<br/>
+1.0.0&#160;<br/>
+29-Oct-2013&#160;<br/>
+2.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.1&#160;<br/>
+28-Jan-2014&#160;<br/>
+•&#160;<br/>
+Error messages&#160;ERR092010,&#160;ERR092018,&#160;ERR092029,&#160;<br/>ERR092030&#160;and&#160;ERR092031&#160;are&#160;added.&#160;<br/>
+•&#160;<br/>
+Error message&#160;ERR092007is&#160;updated.&#160;<br/>
+3.&#160;<br/>
+Following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.2&#160;<br/>
+2-Sep-2014&#160;<br/>
+•&#160;<br/>
+FlsUseInterrupts&#160;parameter&#160;is&#160;added&#160;in&#160;FlsGeneral&#160;container&#160;<br/>in&#160;error&#160;message&#160;ERR092004&#160;in&#160;section&#160;8.1.&#160;Error Messages&#160;<br/>
+•&#160;<br/>
+FlsSuspendTime&#160;parameter is&#160;added&#160;in&#160;<br/>FlsPublishedInformation&#160;container in&#160;error message&#160;<br/>ERR092004&#160;in&#160;section&#160;8.1.1.&#160;Error Messages.&#160;<br/>
+•&#160;<br/>
+FlsBlankCheckApi,&#160;FlsReadImmediateApi,&#160;FlsSuspendApi&#160;<br/>and&#160;FlsResumeApi&#160;parameters&#160;are&#160;added&#160;in&#160;FlsDataFlash&#160;<br/>container&#160;in&#160;error&#160;message&#160;ERR092004&#160;in&#160;section&#160;8.1.1.&#160;<br/>Error Messages.&#160;<br/>
+•&#160;<br/>
+Error messages&#160;ERR092008,&#160;ERR092009&#160;and&#160;ERR092010&#160;<br/>are&#160;deleted&#160;and&#160;error&#160;message&#160;ERR092018&#160;is&#160;updated&#160;in&#160;<br/>section&#160;8.1&#160;Error Messages.&#160;<br/>
+4&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.3&#160;<br/>
+24-Apr-2015&#160;<br/>
+•&#160;<br/>
+PDF&#160;name&#160;and&#160;version&#160;are&#160;updated&#160;in&#160;&#160;Section&#160;2.1&#160;<br/>
+•&#160;<br/>
+Added&#160;parameters&#160;FlsCancelTime&#160;and&#160;FlsCFCancelTime&#160;in&#160;<br/>the&#160;list of&#160;mandatory&#160;parameters&#160;in&#160;Section&#160;8.1.&#160;&#160;<br/>
+•&#160;<br/>
+The&#160;description&#160;of&#160;error&#160;ERR092029&#160;is&#160;updated&#160;in&#160;Section&#160;<br/>8.1.&#160;<br/>
+•&#160;<br/>
+Updated&#160;version&#160;number and&#160;copyright&#160;year.&#160;<br/>
+5&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.4&#160;<br/>
+15-Feb-2016&#160;<br/>
+•&#160;<br/>
+Updated&#160;Abbreviations&#160;and&#160;Acronyms&#160;section&#160;to&#160;include&#160;FACI&#160;<br/>and&#160;FCU.&#160;<br/>
+•&#160;<br/>
+Removed&#160;fcl_cfg.h,&#160;fdl_descriptor.h,&#160;fcl_descriptor.h&#160;details&#160;<br/>and&#160;references&#160;from&#160;Chapter&#160;1,&#160;Chapter&#160;3&#160;and&#160;5.&#160;&#160;<br/>
+•&#160;<br/>
+FLS_E_REG_WRITE_VERIFY&#160;is&#160;added&#160;to&#160;the&#160;existing&#160;Dem&#160;<br/>parameter&#160;list.&#160;<br/>
+•&#160;<br/>
+FlsAccess,&#160;FlsSectorOption&#160;and&#160;CODE FLASH related&#160;<br/>parameters&#160;and&#160;container&#160;details&#160;are&#160;removed&#160;from&#160;<br/>ERR092004&#160;in&#160;Section&#160;8.1.&#160;<br/>
+•&#160;<br/>
+Error messages&#160;and&#160;Information&#160;messages&#160;for&#160;the&#160;<br/>parameters&#160;FlsAccess&#160;and&#160;FlsSectorOption&#160;are&#160;removed&#160;<br/>from&#160;section&#160;8.1&#160;and&#160;8.3&#160;respectively.&#160;&#160;<br/>
+•&#160;<br/>
+Error message&#160;ERR092032&#160;is&#160;added&#160;and&#160;ERR092014,&#160;<br/>ERR092021,&#160;ERR092022,&#160;ERR092024,&#160;ERR092025,&#160;<br/>ERR092026,&#160;ERR092030&#160;and&#160;ERR092031&#160;are&#160;removed&#160;<br/>
+•&#160;<br/>
+Information&#160;messages&#160;INF092002,&#160;INF092003,&#160;INF092004&#160;<br/>and&#160;INF092005&#160;related&#160;to&#160;FlsAccess&#160;and&#160;FlsSectorOption&#160;<br/>parameters&#160;are&#160;removed.&#160;<br/>
+•&#160;<br/>
+Error Messages&#160;ERR092032&#160;and&#160;ERR092034&#160;are&#160;added.&#160;<br/>
+•&#160;<br/>
+Updated&#160;Chapters&#160;3,&#160;4,&#160;5&#160;and&#160;6&#160;for RUCG&#160;tool&#160;and&#160;DLL&#160;file.&#160;<br/>
+•&#160;<br/>
+Added&#160;FLS_E_ECC_FAILED in&#160;the&#160;parameter&#160;name&#160;of&#160;<br/>ERR092019.&#160;<br/>
+•&#160;<br/>
+Added&#160;the&#160;parameter&#160;‘FlsFaciEccCheck’&#160;in&#160;the&#160;parameter&#160;<br/>name&#160;of&#160;ERR092004.&#160;<br/>
+•&#160;<br/>
+Error message&#160;ERR092035,&#160;ERR092036,&#160;ERR092037,&#160;<br/>ERR092038,&#160;ERR092039,&#160;ERR092040&#160;are&#160;added&#160;<br/>
+•&#160;<br/>
+Modified&#160;ERR092004,&#160;ERR092012&#160;and&#160;ERR092019&#160;<br/>
+•&#160;<br/>
+Publication&#160;date&#160;and&#160;copyright&#160;updated&#160;<br/>
+&#160;<br/>
+<b>31</b>&#160;<br/>
+<hr/>
+<a name=32></a>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>Sl.No.</b>&#160;&#160;<b>Description</b>&#160;<br/>
+<b>Version</b>&#160;<br/>
+<b>Date</b>&#160;<br/>
+6.&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.5&#160;<br/>
+24-Mar-2016&#160;<br/>
+•&#160;<br/>
+Added&#160;R&#160;number at&#160;end&#160;of&#160;the&#160;document.&#160;<br/>
+•&#160;<br/>
+Renamed&#160;FlsDFTotalSize&#160;in&#160;ERR092004&#160;to&#160;<br/>FlsDataFlashSize.&#160;<br/>
+•&#160;<br/>
+Updated&#160;section&#160;2.1&#160;Reference&#160;Documents&#160;to&#160;correct&#160;the&#160;<br/>version&#160;of&#160;parameter&#160;definition&#160;files.&#160;<br/>
+7.&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.6&#160;<br/>
+16-Jul-2016&#160;<br/>
+•&#160;<br/>
+Updated&#160;section&#160;2.1&#160;Reference&#160;Documents&#160;to&#160;correct&#160;the&#160;file&#160;<br/>name&#160;and&#160;version&#160;of&#160;parameter definition&#160;files.&#160;<br/>
+•&#160;<br/>
+Updated&#160;R Number&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>
+•&#160;<br/>
+Removed&#160;not&#160;used&#160;mandatory&#160;parameters&#160;from&#160;section&#160;8.1&#160;<br/>
+8.&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.7&#160;<br/>
+19-Sep-2016&#160;<br/>
+•&#160;<br/>
+Error message&#160;ERR092041&#160;is&#160;added&#160;in&#160;section&#160;8.1&#160;<br/>
+•&#160;<br/>
+Table&#160;headers&#160;are&#160;added&#160;<br/>
+•&#160;<br/>
+Info&#160;message&#160;INF092001&#160;is&#160;updated.&#160;&#160;<br/>
+9.&#160;<br/>
+The&#160;following&#160;changes&#160;are&#160;made:&#160;<br/>
+1.0.8&#160;<br/>
+13-Feb-2017&#160;<br/>
+•&#160;<br/>
+Abbreviation&#160;&#160;and&#160;Acronyms&#160;list&#160;is&#160;updated.&#160;<br/>
+•&#160;<br/>
+Updated&#160;Section&#160;2.1&#160;for Document&#160;versions.&#160;<br/>
+•&#160;<br/>
+Table&#160;headers&#160;are&#160;updated&#160;in&#160;section&#160;8.1&#160;to&#160;specify&#160;correct&#160;<br/>ERR&#160;Ids.&#160;<br/>
+•&#160;<br/>
+Updated&#160;R Number.&#160;<br/>
+•&#160;<br/>
+Updated&#160;notice,&#160;address&#160;and&#160;copyright&#160;information’s.&#160;<br/>
+•&#160;<br/>
+Error message&#160;ERR092033&#160;is&#160;added&#160;in&#160;section&#160;8.1.&#160;<br/>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>32</b>&#160;<br/>
+<hr/>
+<a name=33></a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>33</b>&#160;<br/>
+<hr/>
+<a name=34></a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>AUTOSAR&#160;MCAL&#160;R4.0.3&#160;User's&#160;Manual</b>&#160;<br/><b>FLS&#160;Driver Component&#160;Ver.1.0.8</b>&#160;<br/><b>Generation Tool&#160;User's&#160;Manual</b>&#160;<br/>
+&#160;<br/>
+Publication Date:&#160;Rev.1.01,&#160;February&#160;13, 2017&#160;<br/>
+&#160;<br/>&#160;<br/>
+Published&#160;by:&#160;Renesas&#160;Electronics&#160;Corporation&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-35_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-35_2.png"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>SALES&#160;&#160;OFFICES</b>&#160;<br/>
+&#160;<br/>
+<a href="http://www.renesas.com/">http://www.renesas.com&#160;</a><br/>
+&#160;<br/>
+Refer&#160;&#160;<a href="http://www.renesas.com/">to&#160;&#34;http://www.renesas.com/&#34;&#160;f</a>or&#160;the&#160;latest&#160;&#160;and&#160;&#160;detailed&#160;&#160;information.&#160;<br/>
+<b>Renesas&#160;Electronics&#160;America&#160;Inc.&#160;<br/></b>2801&#160;Scott&#160;Boulevard&#160;Santa&#160;Clara,&#160;CA&#160;95050-2549,&#160;U.S.A.&#160;<br/>Tel:&#160;+1-408-588-6000,&#160;Fax:&#160;+1-408-588-6130&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Canada&#160;Limited&#160;<br/></b>9251&#160;Yonge&#160;Street,&#160;Suite&#160;8309&#160;Richmond&#160;Hill,&#160;Ontario&#160;Canada&#160;L4C&#160;9T3&#160;<br/>Tel:&#160;+1-905-237-2004&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Europe&#160;Limited&#160;<br/></b>Dukes&#160;Meadow,&#160;Millboard&#160;Road,&#160;Bourne&#160;End,&#160;Buckinghamshire,&#160;SL8&#160;5FH,&#160;U.K&#160;<br/>Tel:&#160;+44-1628-585-100,&#160;Fax:&#160;+44-1628-585-900&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Europe&#160;GmbH&#160;<br/></b>Arcadiastrasse&#160;10,&#160;40472&#160;Düsseldorf,&#160;Germany&#160;<br/>Tel:&#160;+49-211-6503-0,&#160;Fax:&#160;+49-211-6503-1327&#160;<br/>
+<b>Renesas&#160;Electronics&#160;(China)&#160;Co.,&#160;Ltd.&#160;<br/></b>Room&#160;1709,&#160;Quantum&#160;Plaza,&#160;No.27&#160;ZhiChunLu&#160;Haidian&#160;District,&#160;Beijing&#160;100191,&#160;P.R.China&#160;<br/>Tel:&#160;+86-10-8235-1155,&#160;Fax:&#160;+86-10-8235-7679&#160;<br/>
+<b>Renesas&#160;Electronics&#160;(Shanghai)&#160;Co.,&#160;Ltd.&#160;<br/></b>Unit&#160;301,&#160;Tower&#160;A,&#160;Central&#160;Towers,&#160;555&#160;Langao&#160;Road,&#160;Putuo&#160;District,&#160;Shanghai,&#160;P.&#160;R.&#160;China&#160;200333&#160;<br/>Tel:&#160;+86-21-2226-0888,&#160;Fax:&#160;+86-21-2226-0999&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Hong&#160;Kong&#160;Limited&#160;<br/></b>Unit&#160;1601-1611,&#160;16/F.,&#160;Tower&#160;2,&#160;Grand&#160;Century&#160;Place,&#160;193&#160;Prince&#160;Edward&#160;Road&#160;West,&#160;Mongkok,&#160;Kowloon,&#160;Hong&#160;Kong&#160;<br/>Tel:&#160;+852-2265-6688,&#160;Fax:&#160;+852&#160;2886-9022&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Taiwan&#160;Co.,&#160;Ltd.&#160;<br/></b>13F,&#160;No.&#160;363,&#160;Fu&#160;Shing&#160;North&#160;Road,&#160;Taipei&#160;10543,&#160;Taiwan&#160;<br/>Tel:&#160;+886-2-8175-9600,&#160;Fax:&#160;+886&#160;2-8175-9670&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Singapore&#160;Pte.&#160;Ltd.&#160;<br/></b>80&#160;Bendemeer&#160;Road,&#160;Unit&#160;#06-02&#160;Hyflux&#160;Innovation&#160;Centre,&#160;Singapore&#160;339949&#160;<br/>Tel:&#160;+65-6213-0200,&#160;Fax:&#160;+65-6213-0300&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Malaysia&#160;Sdn.Bhd.&#160;<br/></b>Unit&#160;1207,&#160;Block&#160;B,&#160;Menara&#160;Amcorp,&#160;Amcorp&#160;Trade&#160;Centre,&#160;No.&#160;18,&#160;Jln&#160;Persiaran&#160;Barat,&#160;46050&#160;Petaling&#160;Jaya,&#160;Selangor&#160;Darul&#160;Ehsan,&#160;Malaysia&#160;<br/>Tel:&#160;+60-3-7955-9390,&#160;Fax:&#160;+60-3-7955-9510&#160;<br/>
+<b>Renesas&#160;Electronics&#160;India&#160;Pvt.&#160;Ltd.&#160;<br/></b>No.777C,&#160;100&#160;Feet&#160;Road,&#160;HAL&#160;II&#160;Stage,&#160;Indiranagar,&#160;Bangalore,&#160;India&#160;<br/>Tel:&#160;+91-80-67208700,&#160;Fax:&#160;+91-80-67208777&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Korea&#160;Co.,&#160;Ltd.&#160;<br/></b>12F.,&#160;234&#160;Teheran-ro,&#160;Gangnam-Gu,&#160;Seoul,&#160;135-080,&#160;Korea&#160;<br/>Tel:&#160;+82-2-558-3737,&#160;Fax:&#160;+82-2-558-5141&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2006-2017&#160;Renesas&#160;&#160;Electronics&#160;&#160;Corporation.&#160;&#160;All&#160;rights&#160;reserved.&#160;<br/>
+Colophon&#160;&#160;4.1&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-36_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Fls/doc/R20UT3711EJ0101-AUTOSAR-36_2.jpg"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+AUTOSAR MCAL&#160;R4.0.3&#160;<br/>
+&#160;<br/>
+User’s Manual&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+R20UT3711EJ0101&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#9">Chapter 1 Introduction</a>
+<ul>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#9">1.1 Document Overview</a></li>
+</ul>
+</li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#11">Chapter 2 Reference</a>
+<ul>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#11">2.1 Reference Documents</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#11">2.2 Trademark Notice</a></li>
+</ul>
+</li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#13">Chapter 3 FLS Driver Generation Tool Overview</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#15">Chapter 4 Input Files</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#17">Chapter 5 Output Files</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#19">Chapter 6 Precautions</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#21">Chapter 7 User Configuration Validation</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#23">Chapter 8 Messages</a>
+<ul>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#23">8.1 Error Messages</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#28">8.2 Warning Messages</a></li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#28">8.3 Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3711EJ0101-AUTOSARs.html#29">Chapter 9 Notes</a></li>
+</ul>
+<hr/>
+</body>
+</html>

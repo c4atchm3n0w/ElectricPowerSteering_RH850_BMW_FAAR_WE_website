@@ -1,0 +1,1314 @@
+---
+title: TechnicalReference_FrTrcv_Tja1082s
+linkTitle: TechnicalReference_FrTrcv_Tja1082s
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR FlexRay&#160;Transceiver Driver&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>Tja1082&#160;<br/>Version&#160;2.00.00&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+2014-05-15&#160;<br/>
+1.00.00&#160;<br/>
+Creation&#160;of&#160;document&#160;<br/>
+2015-05-27&#160;<br/>
+1.00.01&#160;<br/>
+ESCAN00078929:&#160;Missing&#160;explanation of&#160;API&#160;<br/>FrTrcv_30_Tja1082_GetVersionInfo&#160;<br/>ESCAN00077241&#160;AR3-2679:&#160;Description BCD-coded return-value&#160;<br/>of&#160;XXX_GetVersionInfo()&#160;in&#160;TechRef&#160;<br/>
+2016-11-04&#160;<br/>
+1.01.00&#160;<br/>
+Support&#160;of&#160;AUTOSAR&#160;3&#160;<br/>
+2017-08-25&#160;<br/>
+2.00.00&#160;<br/>
+Rework&#160;for&#160;SafeBsw&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_FlexRayTransceiverDriver.pdf&#160;<br/>
+1.5.0&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DET.pdf&#160;<br/>
+2.2.1&#160;<br/>
+[3]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_DEM.pdf&#160;<br/>
+2.2.0&#160;<br/>
+[4]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_BasicSoftwareModules.pdf&#160;<br/>
+1.0.0&#160;<br/>
+[5]&#160;&#160;&#160;NXP&#160;<br/>
+TJA1082.pdf&#160;<br/>
+Rev.6&#160;<br/>
+[6]&#160;&#160;&#160;NXP&#160;<br/>
+TJA1083.pdf&#160;<br/>
+Rev.1&#160;<br/>
+&#160;<br/>
+Scope&#160;of&#160;the&#160;Document<b>&#160;&#160;</b><br/>
+This&#160;technical&#160;reference&#160;describes the&#160;general&#160;use&#160;of&#160;the&#160;FlexRay&#160;Transceiver&#160;Driver&#160;basis&#160;<br/>software&#160;&#160;for&#160;&#160;Tja1082&#160;&#160;or&#160;&#160;Tja1083.&#160;&#160;Please&#160;&#160;refer&#160;&#160;to&#160;&#160;your&#160;&#160;Release&#160;&#160;Notes&#160;&#160;to&#160;&#160;get&#160;&#160;a&#160;&#160;detailed&#160;<br/>description&#160;of&#160;the&#160;platform&#160;(Host,&#160;CC,&#160;Compiler,&#160;Transceiver)&#160;your&#160;Vector&#160;FlexRay&#160;Bundle&#160;<br/>has been&#160;configured&#160;for.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+&#160;&#160;questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+1&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Contents&#160;</b><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#6"><b>Component&#160;History&#160;......................................................................................................&#160;5</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#7"><b>Introduction...................................................................................................................&#160;6</b>&#160;<br/></a><a href="TechnicalReference_FrTrcv_Tja1082s.html#8">2.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#8">Supported&#160;Devices&#160;.............................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#8">2.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#8">Architecture&#160;Overview&#160;........................................................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9"><b>Functional&#160;Description&#160;.................................................................................................&#160;8</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">Features&#160;............................................................................................................&#160;8&#160;<br/>3.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">Deviations&#160;..........................................................................................&#160;8&#160;<br/>3.1.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">AUTOSAR&#160;4&#160;....................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">Limitations&#160;..........................................................................................&#160;8&#160;<br/>3.1.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">Error&#160;indication&#160;.................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">Initialization&#160;........................................................................................................&#160;8&#160;<br/>3.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#9">High-Level&#160;Initialization&#160;......................................................................&#160;8&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.2.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">Low-Level&#160;Initialization&#160;.......................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.3&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">States&#160;................................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.4&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">Main Functions&#160;..................................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.5&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">Error&#160;Handling&#160;....................................................................................................&#160;9&#160;<br/>3.5.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#10">Development&#160;Error&#160;Reporting&#160;.............................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">3.5.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Production Code&#160;Error&#160;Reporting&#160;.....................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12"><b>Integration&#160;...................................................................................................................&#160;11</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Scope of&#160;Delivery&#160;.............................................................................................&#160;11&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Static Files&#160;.......................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Dynamic&#160;Files&#160;..................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Critical&#160;Sections&#160;...............................................................................................&#160;11&#160;<br/>4.2.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">FRTRCV_30_TJA1082_EXCLUSIVE_AREA_0&#160;...............................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.3&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">The&#160;Software&#160;Timers&#160;........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#14"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#14"><b>API&#160;Description&#160;...........................................................................................................&#160;13</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#14">Type&#160;Definitions&#160;...............................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">5.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">Services provided by&#160;FlexRay&#160;Transceiver&#160;Driver&#160;............................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">5.2.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">FrTrcv_30_Tja1082_InitMemory:&#160;Initialization of&#160;<br/>Transceiver&#160;Driver&#160;..........................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">5.2.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">FrTrcv_30_Tja1082_Init:&#160;Initialization of&#160;Transceiver&#160;<br/>Driver&#160;.............................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">5.2.1.3&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">FrTrcv_30_Tja1082_MainFunction:&#160;Main Function of&#160;<br/>Transceiver&#160;Driver&#160;..........................................................&#160;16&#160;</a><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">5.2.1.4&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">FrTrcv_30_Tja1082_GetVersionInfo:&#160;Read&#160;Version&#160;<br/>Information&#160;of&#160;the&#160;Driver&#160;................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#18">5.2.1.5&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#18">FrTrcv_30_Tja1082_SetTransceiverMode:&#160;Set&#160;the&#160;<br/>Transceiver&#160;in&#160;the&#160;requested&#160;mode&#160;................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#19">5.2.1.6&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#19">FrTrcv_30_Tja1082_GetTransceiverMode:&#160;Get&#160;the&#160;<br/>current&#160;Transceiver&#160;mode&#160;..............................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#20">5.2.1.7&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#20">FrTrcv_30_Tja1082_GetTransceiverWUReason:&#160;Get&#160;<br/>the&#160;wake&#160;up&#160;reason........................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">5.2.1.8&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">FrTrcv_30_Tja1082_ClearTransceiverWakeup:&#160;Clear&#160;<br/>pending&#160;wake&#160;up&#160;events&#160;................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">5.2.1.9&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">FrTrcv_30_Tja1082_GetTransceiverError:&#160;Read current&#160;<br/>Transceiver&#160;error&#160;............................................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#22">5.2.1.10&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#22">FrTrcv_30_Tja1082_DisableTransceiverBranch:&#160;Disable&#160;<br/>an&#160;individual&#160;branch&#160;.......................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#23">5.2.1.11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#23">FrTrcv_30_Tja1082_EnableTransceiverBranch:&#160;Disable&#160;<br/>an&#160;individual&#160;branch&#160;.......................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">5.3&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">Services used by&#160;FlexRay&#160;Transceiver&#160;Driver&#160;..................................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">5.4&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">Callback&#160;Functions&#160;...........................................................................................&#160;23&#160;<br/>5.4.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">FrTrcv_30_Tja1082_CheckWakeupByTransceiver&#160;...........................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">5.5&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Configurable Interfaces&#160;....................................................................................&#160;24&#160;<br/>5.5.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Notifications&#160;.....................................................................................&#160;24&#160;<br/>5.5.1.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Appl_FrTrcv_30_Tja1082_ReportErrorStatusPreFailed&#160;.&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">5.5.1.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Appl_FrTrcv_30_Tja1082_ReportErrorStatusPrePassed&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">5.5.2&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">Callout&#160;Functions&#160;.............................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">5.5.3&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">Appl_FrTrcv_30_Tja1082_Wait&#160;........................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#27"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#27"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;26</b>&#160;<br/>6.1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#27">Abbreviations&#160;...................................................................................................&#160;26&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#28"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#28"><b>Contact&#160;........................................................................................................................&#160;27</b>&#160;</a><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Illustrations&#160;<br/></b><a href="TechnicalReference_FrTrcv_Tja1082s.html#8">Figure&#160;2-1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#8">AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;.........................................................&#160;7&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#14">Figure&#160;5-1&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#14">Interface&#160;Overview&#160;FlexRay&#160;Transceiver&#160;Driver&#160;........................................&#160;13&#160;</a><br/>
+<b>&#160;</b><br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_FrTrcv_Tja1082s.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#6">Component&#160;history......................................................................................&#160;5&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Service IDs&#160;...............................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Table&#160;3-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Errors&#160;reported&#160;to DET&#160;.............................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Table&#160;3-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#11">Errors&#160;reported&#160;to DEM&#160;.............................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Static&#160;files&#160;.................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">Generated&#160;files&#160;.........................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#15">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#15">Type&#160;definitions&#160;.........................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#15">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#15">FrTrcv_30_Tja1082_GenConfigType&#160;........................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#15">Table&#160;5-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#15">FrTrcv_30_Tja1082_ChannelType&#160;............................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">Table&#160;5-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#16">FrTrcv_30_Tja1082_InitMemory&#160;...............................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">Table&#160;5-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">FrTrcv_30_Tja1082_Init&#160;............................................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">Table&#160;5-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#17">FrTrcv_30_Tja1082_MainFunction&#160;...........................................................&#160;16&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#18">Table&#160;5-7&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#18">FrTrcv_30_Tja1082_GetVersionInfo&#160;.........................................................&#160;17&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#19">Table&#160;5-8&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#19">FrTrcv_30_Tja1082_SetTransceiverMode&#160;................................................&#160;18&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#20">Table&#160;5-9&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#20">FrTrcv_30_Tja1082_GetTransceiverMode&#160;................................................&#160;19&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">Table&#160;5-10&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">FrTrcv_30_Tja1082_GetTransceiverWUReason.......................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">Table&#160;5-11&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#21">FrTrcv_30_Tja1082_ClearTransceiverWakeup&#160;.........................................&#160;20&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#22">Table&#160;5-12&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#22">FrTrcv_30_Tja1082_GetTransceiverError&#160;.................................................&#160;21&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#23">Table&#160;5-13&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#23">FrTrcv_30_Tja1082_DisableTransceiverBranch&#160;.......................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">Table&#160;5-14&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">FrTrcv_30_Tja1082_DisableTransceiverBranch&#160;.......................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">Table&#160;5-15&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#24">Services used by&#160;the&#160;FlexRay&#160;Transceiver&#160;Driver&#160;.....................................&#160;23&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Table&#160;5-16&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">FrTrcv_30_Tja1082_CheckWakeupByTransceiver&#160;...................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Table&#160;5-17&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#25">Appl_FrTrcv_30_Tja1082_ReportErrorStatusPreFailed&#160;............................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">Table&#160;5-18&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">Appl_FrTrcv_30_Tja1082_ReportErrorStatusPrePassed&#160;..........................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">Table&#160;5-19&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#26">Appl_FrTrcv_30_Tja1082_Wait&#160;.................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#27">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_FrTrcv_Tja1082s.html#27">Abbreviations&#160;............................................................................................&#160;26&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>1&#160;&#160;Component&#160;History&#160;</b><br/>
+The&#160;&#160;component&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;component.&#160;&#160;<br/>
+<b>Component&#160;Version&#160;&#160;New&#160;Features&#160;<br/></b>1.00.00&#160;<br/>
+ESCAN00075721&#160;Creation&#160;of&#160;component&#160;<br/>
+1.01.00&#160;<br/>
+ESCAN00092491&#160;Support&#160;AR3&#160;<br/>
+2.00.00&#160;<br/>
+STORY-1874&#160;&#160;&#160;&#160;Create&#160;Safe BSW&#160;Transceiver&#160;Driver&#160;for&#160;Tja1082&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;Component&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;functionality,&#160;API&#160;&#160;and&#160;&#160;configuration&#160;&#160;of&#160;&#160;the&#160;AUTOSAR&#160;&#160;BSW&#160;<br/>module&#160;FlexRay&#160;Transceiver Driver&#160;as specified&#160;in<a href="TechnicalReference_FrTrcv_Tja1082s.html#2">&#160;[1].&#160;</a>&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;AUTOSAR&#160;R<a href="TechnicalReference_FrTrcv_Tja1082s.html#7">elease*:</a></b><b>&#160;</b><br/>
+4&#160;<br/>
+<b>Supported&#160;Configuration&#160;Variants:&#160;</b><br/>
+pre-compile&#160;<br/>
+<b>Vendor&#160;ID:&#160;</b><br/>
+FlexRay&#160;<br/>
+Transceiver&#160;&#160;30&#160;decimal&#160;<br/>
+Driver_VENDOR_ID&#160;<br/>
+(=&#160;Vector-Informatik,&#160;<br/>according&#160;to&#160;HIS)&#160;<br/>
+<b>Module&#160;ID:&#160;</b><br/>
+FlexRay&#160;<br/>
+Transceiver&#160;&#160;71&#160;decimal&#160;<br/>
+Driver_MODULE_ID &#160;&#160;<br/>
+(according&#160;to ref.&#160;see<a href="TechnicalReference_FrTrcv_Tja1082s.html#2">&#160;[4])</a>&#160;<br/>
+*&#160;For the&#160;precise&#160;AUTOSAR Release&#160;4.x&#160;please see the&#160;release specific&#160;documentation.&#160;&#160;<br/>&#160;<br/>&#160;<br/>The&#160;FlexRay&#160;Transceiver Driver provides hardware independent&#160;access to&#160;control&#160;&#160;<br/>connected&#160;Transceivers in&#160;a&#160;generic way.&#160;It&#160;offers the&#160;functionality&#160;to&#160;control the&#160;mode&#160;of&#160;&#160;<br/>operation&#160;of&#160;connected&#160;Transceivers as&#160;well&#160;as to&#160;determine&#160;their&#160;current&#160;state,&#160;e.g.&#160;if&#160;&#160;<br/>events&#160;like&#160;wake&#160;up&#160;or&#160;bus errors happened.&#160;&#160;<br/>&#160;&#160;<br/>The&#160;Transceiver itself&#160;is a&#160;hardware device,&#160;which&#160;mainly&#160;transforms&#160;the&#160;logical 1/0&#160;signals&#160;&#160;<br/>of&#160;the&#160;FlexRay&#160;Controller to&#160;the&#160;bus compliant&#160;electrical levels, currents&#160;and&#160;timings.&#160;<br/>&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-8_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>2.1&#160;</b><br/>
+<b>Supported&#160;Devices&#160;</b><br/>
+There&#160;&#160;are&#160;&#160;devices&#160;&#160;that&#160;&#160;are&#160;&#160;compatible&#160;&#160;to&#160;&#160;the&#160;&#160;Tja1082&#160;&#160;regarding&#160;&#160;the&#160;&#160;host&#160;&#160;side&#160;&#160;interface.&#160;<br/>The&#160;devices,&#160;supported&#160;by&#160;this&#160;Transceiver Driver,&#160;are:&#160;<br/><b>Device&#160;</b><br/>
+<b>Device&#160;Data Sheet&#160;</b><br/>
+<b>Version&#160;</b><br/>
+TJA1082&#160;<br/>
+TJA1082.pdf&#160;<br/>
+Rev.&#160;6&#160;<br/>
+TJA1083&#160;<br/>
+TJA1083.pdf&#160;<br/>
+Rev.&#160;1&#160;<br/>
+&#160;<br/>
+<b>2.2&#160;</b><br/>
+<b>Architecture&#160;Overview&#160;</b><br/>
+The&#160;&#160;following&#160;&#160;figure&#160;&#160;shows&#160;&#160;where&#160;&#160;the&#160;&#160;FlexRay&#160;&#160;Transceiver&#160;&#160;Driver&#160;&#160;is&#160;&#160;located&#160;&#160;in&#160;&#160;the&#160;<br/>AUTOSAR architecture.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Figure&#160;2-1&#160;&#160;AUTOSAR&#160;4.x&#160;Architecture&#160;Overview&#160;&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+<b>3.1&#160;</b><br/>
+<b>Features&#160;</b><br/>
+The&#160;AUTOSAR&#160;standard&#160;functionality&#160;is specified&#160;in<a href="TechnicalReference_FrTrcv_Tja1082s.html#2">&#160;[1].</a>&#160;<br/>
+<b>3.1.1&#160;</b><br/>
+<b>Deviations&#160;</b><br/>
+<b>3.1.1.1&#160;</b><br/>
+<b>AUTOSAR 4&#160;</b><br/>
+The&#160;general&#160;environment&#160;of&#160;the&#160;driver follows the&#160;AUTOSAR 4.1.2&#160;specification.&#160;<br/>The&#160;following&#160;features&#160;are not&#160;supported:&#160;<br/>
+<b>Not&#160;supported&#160;AUTOSAR&#160;Standard&#160;Conform&#160;Features&#160;<br/></b>&#34;Active&#160;Star&#34;&#160;Mode&#160;(not&#160;supported&#160;by&#160;HW)&#160;<br/>
+Debugging&#160;Support (AUTOSAR Debugging&#160;Concept)&#160;<br/>
+Init Pointer&#160;<br/>
+Branch&#160;Handling&#160;(not&#160;supported&#160;by&#160;HW)&#160;<br/>
+Configurable&#160;DEM&#160;APIs&#160;<br/>
+Initialization&#160;Retries&#160;<br/>
+Usage&#160;of&#160;TM&#160;module&#160;for busy&#160;waiting&#160;<br/>
+&#160;<br/>
+<b>3.1.2&#160;</b><br/>
+<b>Limitations&#160;</b><br/>
+<b>3.1.2.1&#160;</b><br/>
+<b>Error&#160;indication&#160;</b><br/>
+Currently&#160;&#160;only&#160;&#160;simple&#160;&#160;error&#160;&#160;mode&#160;&#160;is&#160;&#160;supported&#160;&#160;and&#160;&#160;hence&#160;&#160;no&#160;&#160;detailed&#160;&#160;error&#160;&#160;analysis&#160;&#160;is&#160;<br/>possible.&#160;<br/>If&#160;your&#160;Transceiver&#160;is&#160;not&#160;connected&#160;to&#160;the&#160;SPI&#160;it&#160;should&#160;be&#160;externally&#160;wired&#160;such&#160;that&#160;it&#160;is&#160;<br/>automatically&#160;in&#160;simple&#160;error indication&#160;mode.&#160;<br/>If&#160;your&#160;Transceiver&#160;is&#160;connected&#160;to&#160;the&#160;SPI&#160;use&#160;the&#160;Chip&#160;Select&#160;line&#160;and&#160;the&#160;Clock&#160;line&#160;to&#160;<br/>bring&#160;&#160;your&#160;&#160;Transceiver&#160;&#160;into&#160;&#160;simple&#160;&#160;error&#160;&#160;indication&#160;&#160;mode&#160;&#160;before&#160;&#160;initializing&#160;&#160;the&#160;&#160;SPI&#160;<br/>Interface.&#160;Keep&#160;your&#160;Chip&#160;Select&#160;line&#160;as&#160;DIO&#160;port&#160;instead&#160;of&#160;using&#160;it&#160;for&#160;the&#160;SPI&#160;interface.&#160;<br/>This&#160;way&#160;the&#160;Transceiver&#160;can&#160;be&#160;safely&#160;kept&#160;in&#160;the&#160;simple&#160;error&#160;indication&#160;mode.&#160;Refer&#160;to&#160;<br/>the&#160;device&#160;datasheet&#160;for timing&#160;limitations.&#160;<br/>
+<b>3.2&#160;</b><br/>
+<b>Initialization&#160;</b><br/>
+<b>3.2.1&#160;</b><br/>
+<b>High-Level&#160;Initialization&#160;</b><br/>
+The&#160;&#160;&#160;&#160;Transceiver&#160;&#160;&#160;&#160;Driver&#160;&#160;&#160;&#160;is&#160;&#160;&#160;&#160;initialized&#160;&#160;&#160;&#160;by&#160;&#160;&#160;&#160;calling&#160;&#160;&#160;&#160;the&#160;&#160;&#160;&#160;FrTrcv_30_Tja1082_Init.&#160;&#160;&#160;&#160;The&#160;<br/>default&#160;operation&#160;mode&#160;of&#160;the&#160;Transceiver&#160;after&#160;Init&#160;is&#160;pre-defined&#160;in&#160;the&#160;configuration&#160;tool&#160;<br/>during&#160;configuration&#160;process.&#160;&#160;<br/>If&#160;&#160;&#160;&#160;a&#160;&#160;&#160;&#160;startup&#160;&#160;&#160;&#160;code&#160;&#160;&#160;&#160;is&#160;&#160;&#160;&#160;used&#160;&#160;&#160;&#160;that&#160;&#160;&#160;&#160;does&#160;&#160;&#160;&#160;not&#160;&#160;&#160;&#160;initialize&#160;&#160;&#160;&#160;the&#160;&#160;&#160;&#160;memory&#160;&#160;&#160;&#160;please&#160;&#160;&#160;&#160;call&#160;<br/>FrTrcv_30_Tja1082_InitMemory&#160;first.&#160;&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>3.2.2&#160;</b><br/>
+<b>Low-Level&#160;Initialization&#160;</b><br/>
+The&#160;&#160;user&#160;&#160;is&#160;&#160;responsible&#160;&#160;to&#160;&#160;initialize&#160;&#160;all&#160;&#160;I/O-ports&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;&#160;Transceiver&#160;&#160;before&#160;&#160;<br/>any&#160;Transceiver&#160;Driver&#160;function&#160;is&#160;called.&#160;The&#160;same&#160;holds&#160;true&#160;for&#160;the&#160;ICU&#160;module,&#160;if&#160;it&#160;is&#160;<br/>used.&#160;<br/>
+<b>3.3&#160;</b><br/>
+<b>States&#160;</b><br/>
+The&#160;Transceiver supports two&#160;states that&#160;can&#160;be&#160;set:&#160;<br/>
+&#160;<br/>
+FRTRCV_TRCVMODE_NORMAL&#160;<br/>
+&#160;<br/>
+FRTRCV_TRCVMODE_STANDBY&#160;<br/>
+After&#160;initialization&#160;the&#160;Transceiver&#160;is&#160;in&#160;a&#160;predetermined&#160;state&#160;which&#160;has&#160;been&#160;configured&#160;in&#160;<br/>the&#160;configuration&#160;tool..&#160;<br/>
+<b>3.4&#160;</b><br/>
+<b>Main Functions&#160;</b><br/>
+The&#160;Transceiver&#160;Driver&#160;has&#160;one&#160;FrTrcv_30_Tja1082_MainFunction&#160;which&#160;has&#160;to&#160;be&#160;called&#160;<br/>cyclically.&#160;This task is responsible&#160;for polling&#160;all&#160;connected&#160;Transceivers and&#160;perform&#160;action&#160;<br/>if&#160;so&#160;required.&#160;<br/>
+&#160;<br/>
+<b>3.5&#160;</b><br/>
+<b>Error&#160;Handling&#160;</b><br/>
+<b>3.5.1&#160;</b><br/>
+<b>Development&#160;Error&#160;Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;development&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DET&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Det_ReportError()&#160;as specified&#160;in<a href="TechnicalReference_FrTrcv_Tja1082s.html#2">&#160;[2],&#160;</a>if&#160;development&#160;error reporting&#160;is enabled.&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;development&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Det_ReportError().&#160;<br/>
+The&#160;reported&#160;FlexRay&#160;Transceiver Driver&#160;ID is&#160;71.&#160;<br/>The&#160;&#160;reported&#160;&#160;service&#160;&#160;IDs&#160;&#160;identify&#160;&#160;the&#160;&#160;services&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;<a href="TechnicalReference_FrTrcv_Tja1082s.html#2">in&#160;&#160;[1].&#160;&#160;</a>The&#160;&#160;following&#160;<br/>table&#160;presents&#160;the&#160;service&#160;IDs and&#160;the&#160;related&#160;services:&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+-&#160;<br/>
+FrTrcv_30_Tja1082_InitMemory()&#160;<br/>
+0&#160;<br/>
+FrTrcv_30_Tja1082_Init()&#160;<br/>
+13&#160;<br/>
+FrTrcv_30_Tja1082_MainFunction()&#160;<br/>
+7&#160;<br/>
+FrTrcv_30_Tja1082_GetVersionInfo()&#160;<br/>
+1&#160;<br/>
+FrTrcv_30_Tja1082_SetTransceiverMode()&#160;<br/>
+5&#160;<br/>
+FrTrcv_30_Tja1082_GetTransceiverMode()&#160;<br/>
+6&#160;<br/>
+FrTrcv_30_Tja1082_GetTransceiverWUReason()&#160;<br/>
+12&#160;<br/>
+FrTrcv_30_Tja1082_ClearTransceiverWakeup()&#160;<br/>
+15&#160;<br/>
+FrTrcv_30_Tja1082_DisableTransceiverBranch()&#160;<br/>
+16&#160;<br/>
+FrTrcv_30_Tja1082_EnableTransceiverBranch()&#160;<br/>
+8&#160;<br/>
+FrTrcv_30_Tja1082_GetTransceiverError()&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+<b>Service&#160;</b><br/>
+14&#160;<br/>
+FrTrcv_30_Tja1082_CheckWakeupByTransceiver()&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Service&#160;IDs&#160;<br/>
+The&#160;errors reported&#160;to&#160;DET&#160;are&#160;described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+0x01&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_INVALID_TRCVIDX&#160;<br/>
+0x03&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_INVALID_MODE&#160;<br/>
+0x10&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_UNINIT&#160;<br/>
+0x11&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_TRCV_NOT_STANDBY&#160;<br/>
+0x12&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_TRCV_NOT_NORMAL&#160;<br/>
+0x15&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_TRCV_NULL_PTR&#160;<br/>
+0x16&#160;<br/>
+FRTRCV_30_TJA1082_E_FR_NO_CONTROL_TRCV&#160;<br/>
+Table&#160;3-2&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DET&#160;<br/>
+<b>3.5.2&#160;</b><br/>
+<b>Production Code&#160;Error Reporting&#160;</b><br/>
+By&#160;&#160;default,&#160;&#160;production&#160;&#160;code&#160;&#160;related&#160;&#160;errors&#160;&#160;are&#160;&#160;reported&#160;&#160;to&#160;&#160;the&#160;&#160;DEM&#160;&#160;using&#160;&#160;the&#160;&#160;service&#160;<br/>Dem_ReportErrorStatus()&#160;as specified&#160;in<a href="TechnicalReference_FrTrcv_Tja1082s.html#2">&#160;[3],&#160;</a>if&#160;production&#160;error&#160;reporting&#160;is enabled.&#160;<br/>
+If&#160;&#160;another&#160;&#160;module&#160;&#160;is&#160;&#160;used&#160;&#160;for&#160;&#160;production&#160;&#160;code&#160;&#160;error&#160;&#160;reporting,&#160;&#160;the&#160;&#160;function&#160;&#160;prototype&#160;&#160;for&#160;<br/>reporting&#160;the&#160;error&#160;can&#160;be&#160;configured&#160;by&#160;the&#160;integrator,&#160;but&#160;must&#160;have&#160;the&#160;same&#160;signature&#160;<br/>as the&#160;service&#160;Dem_ReportErrorStatus().&#160;<br/>
+The&#160;errors reported&#160;to&#160;DEM are described&#160;in&#160;the&#160;following&#160;table:&#160;<br/>
+<b>Error&#160;Code&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FRTRCV_30_TJA1082_E_FR_ERRN_TRCV<b>x</b>&#160;<br/>
+If&#160;the&#160;Transceiver&#160;signals&#160;an&#160;error&#160;condition&#160;the&#160;<br/>Transceiver&#160;Driver&#160;will&#160;notify&#160;the&#160;DEM&#160;with this&#160;error&#160;<br/>code.&#160;<br/>
+Table&#160;3-3&#160;&#160;&#160;Errors&#160;reported&#160;to&#160;DEM&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-12_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-12_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-12_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-12_4.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>4&#160;&#160;Integration&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;gives&#160;&#160;necessary&#160;&#160;information&#160;&#160;for&#160;&#160;the&#160;&#160;integration&#160;&#160;of&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;FlexRay&#160;<br/>Transceiver Driver&#160;into&#160;an&#160;application&#160;environment&#160;of&#160;an&#160;ECU.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;&#160;delivery&#160;&#160;of&#160;&#160;the&#160;&#160;FlexRay&#160;Transceiver&#160;&#160;Driver&#160;&#160;contains&#160;&#160;the&#160;&#160;files&#160;&#160;which&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;<br/>the&#160;chapte<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">rs&#160;4.1.1&#160;</a>and<a href="TechnicalReference_FrTrcv_Tja1082s.html#12">&#160;4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrTrcv_30_Tja1082.c&#160;<br/>
+Source code&#160;of&#160;Transceiver&#160;Driver.&#160;<br/>
+&#160;<br/>
+FrTrcv_30_Tja1082.h&#160;<br/>
+API&#160;definitions&#160;of&#160;the&#160;Transceiver&#160;Driver.&#160;<br/>
+&#160;<br/>
+FrTrcv_30_Tja1082_Cbk.h&#160;&#160;Call-back&#160;header&#160;of&#160;the&#160;Transceiver&#160;Driver&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool [config&#160;tool].&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrTrcv_30_Tja1082_Cfg.c&#160;<br/>
+Parameter&#160;Configuration&#160;source&#160;file&#160;for&#160;Transceiver&#160;Driver.&#160;<br/>
+FrTrcv_30_Tja1082_Cfg.h&#160;<br/>
+Parameter&#160;Configuration&#160;header&#160;file&#160;for&#160;Transceiver&#160;Driver.&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Critical&#160;Sections&#160;</b><br/>
+The&#160;FlexRay&#160;Transceiver&#160;Driver&#160;calls&#160;service&#160;functions&#160;of&#160;upper&#160;layers&#160;in&#160;order&#160;to&#160;prevent&#160;<br/>interruption&#160;of&#160;critical sections (e.g.&#160;accessing&#160;Transceiver pins).&#160;<br/>These&#160;&#160;service&#160;&#160;functions&#160;&#160;have&#160;&#160;to&#160;&#160;be&#160;&#160;provided&#160;&#160;(normally&#160;&#160;by&#160;&#160;the&#160;&#160;Schedule&#160;&#160;Manager)&#160;&#160;and&#160;<br/>configured&#160;accordingly.&#160;The&#160;following&#160;critical areas are&#160;used:&#160;<br/>
+<b>4.2.1&#160;</b><br/>
+<b>FRTRCV_30_TJA1082_EXCLUSIVE_AREA_0&#160;</b><br/>
+This&#160;&#160;exclusive&#160;&#160;area&#160;&#160;is&#160;&#160;used&#160;&#160;to&#160;&#160;lock&#160;&#160;transceiver&#160;&#160;functionality&#160;&#160;against&#160;&#160;interruption&#160;&#160;by&#160;&#160;each&#160;<br/>other.&#160;They&#160;may&#160;be&#160;interrupted&#160;by&#160;application&#160;functionality&#160;or time&#160;critical CAT1&#160;interrupts.&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>The&#160;Software&#160;Timers&#160;</b><br/>
+In&#160;order&#160;to&#160;access&#160;the&#160;Transceiver,&#160;a&#160;certain&#160;timing&#160;is&#160;required&#160;by&#160;the&#160;Transceiver&#160;Driver&#160;<br/>software.&#160;&#160;To&#160;&#160;generate&#160;&#160;this&#160;&#160;timing&#160;&#160;a&#160;&#160;software&#160;&#160;timer&#160;&#160;callback&#160;&#160;function&#160;&#160;named&#160;&#160;<br/>Appl_FrTrcv_30_Tja1082_Wait&#160;is&#160;used.&#160;This&#160;function&#160;has&#160;to&#160;be&#160;implemented&#160;by&#160;the&#160;user&#160;to&#160;<br/>generate&#160;&#160;the&#160;&#160;correct&#160;&#160;timing.&#160;&#160;The&#160;&#160;following&#160;&#160;implementation&#160;&#160;is&#160;&#160;an&#160;&#160;example&#160;&#160;and&#160;&#160;has&#160;&#160;to&#160;&#160;be&#160;<br/>completed&#160;to&#160;generate&#160;the&#160;correct&#160;timing:&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-13_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-13_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Example&#160;<br/></b>&#160;<br/>
+&#160;&#160;#include&#160;&#34;FrTrcv_30_Tja1082.h&#34;&#160;<br/>
+#include&#160;&#34;FrTrcv_30_Tja1082_Cbk.h&#34;&#160;<br/>
+&#160;<br/>
+FUNC(void,&#160;FRTRCV_30_TJA1082_CODE)&#160;Appl_FrTrcv_30_Tja1082_Wait(uint8&#160;TimerIndex)&#160;<br/>{&#160;<br/>&#160;&#160;switch(TimerIndex)&#160;<br/>&#160;&#160;{&#160;<br/>&#160;&#160;&#160;&#160;case&#160;kFrTrcv_30_Tja1082_SetMode:&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;/*&#160;Insert&#160;code&#160;to&#160;delay&#160;for&#160;td(norm-stb)&#160;and&#160;td(stb-norm)&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Please&#160;refer&#160;to&#160;the&#160;device&#160;datasheet&#160;for&#160;correct&#160;numbers&#160;*/&#160;<br/>&#160;&#160;&#160;&#160;break;&#160;<br/>&#160;<br/>&#160;&#160;&#160;&#160;case&#160;kFrTrcv_30_Tja1082_ModeChange:&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;/*&#160;Insert&#160;code&#160;to&#160;delay&#160;until&#160;the&#160;Mode&#160;change&#160;is&#160;completed&#160;by&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the&#160;Transceiver&#160;device&#160;*/&#160;<br/>&#160;&#160;&#160;&#160;break;&#160;<br/>&#160;&#160;}&#160;<br/>}&#160;<br/>&#160;<br/>&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+To&#160;verify&#160;correct&#160;Timing,&#160;measurement&#160;of&#160;the&#160;delay&#160;with&#160;an&#160;Oscilloscope&#160;is&#160;recommended.&#160;<br/>Please&#160;take&#160;into&#160;consideration&#160;to&#160;map&#160;this&#160;function&#160;to&#160;the&#160;same&#160;context&#160;as&#160;the&#160;Transceiver&#160;<br/>Driver.&#160;&#160;Otherwise&#160;&#160;a&#160;&#160;call&#160;&#160;of&#160;&#160;this&#160;&#160;function&#160;&#160;might&#160;&#160;cause&#160;&#160;an&#160;&#160;context&#160;&#160;switch&#160;&#160;which&#160;&#160;would&#160;<br/>increase&#160;the&#160;delay&#160;considerably.&#160;<br/>
+&#160;<br/>
+Used&#160;Timer:&#160;kFrTrcv_30_Tja1082_SetMode&#160;<br/>
+This&#160;&#160;timer&#160;&#160;is&#160;used&#160;&#160;to&#160;make&#160;&#160;certain&#160;&#160;the&#160;&#160;ERRN&#160;&#160;pin&#160;&#160;is&#160;&#160;stable&#160;&#160;in&#160;&#160;the&#160;&#160;requested&#160;&#160;mode.&#160;&#160;If&#160;&#160;this&#160;<br/>delay&#160;is not&#160;used,&#160;it&#160;might&#160;be&#160;possible&#160;that&#160;an&#160;error might&#160;trigger a&#160;wake&#160;up&#160;notification.&#160;<br/>
+&#160;<br/>
+Used&#160;Timer:&#160;kFrTrcv_30_Tja1082_ModeChange&#160;<br/>
+This timer is used&#160;to&#160;make&#160;certain&#160;that&#160;the&#160;Transceiver device&#160;completed&#160;the&#160;mode&#160;change&#160;<br/>until code&#160;execution&#160;is&#160;continued.&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>5&#160;&#160;API&#160;Description&#160;</b><br/>
+The&#160;AUTOSAR&#160;Transceiver Driver provides the&#160;following&#160;services:&#160;<br/>
+<b>&#160;class&#160;Interactions</b><br/>
+«interface»<br/>
+<b>FrTrcv&#160;::FrTrcv</b><br/>
++&#160;&#160;FrTrcv_30_Tja1082_InitMemory()&#160;&#160;:void<br/>+&#160;&#160;FrTrcv_30_Tja1082_Init()&#160;&#160;:void<br/>+&#160;&#160;FrTrcv_30_Tja1082_GetVersionInfo(Std_VersionInfoType)&#160;&#160;:void<br/>+&#160;&#160;FrTrcv_30_Tja1082_SetTransceiverMode(uint8,&#160;FrTrcv_TrcvModeType)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_GetTransceiverMode(uint8,&#160;FrTrcv_TrcvModeType*)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_GetTransceiverWUReason(uint8,&#160;FrTrcv_TrcvWUReasonType*)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_ClearTransceiverWakeup(uint8)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_DisableTransceiverBranch(uint8,&#160;uint8)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_EnableTransceiverBranch(uint8,&#160;uint8)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_GetTransceiverError(uint8,&#160;uint8,&#160;uint32*)&#160;&#160;:Std_ReturnType<br/>+&#160;&#160;FrTrcv_30_Tja1082_CheckWakeupByTransceiver(uint8)&#160;&#160;:void<br/>+&#160;&#160;FrTrcv_30_Tja1082_MainFunction()&#160;&#160;:void<br/>
+&#160;<br/>
+&#160;<br/>Figure&#160;5-1&#160;&#160;Interface&#160;Overview&#160;FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>5.1&#160;</b><br/>
+<b>Type&#160;Definitions&#160;</b><br/>
+The&#160;types defined&#160;by&#160;the&#160;FlexRay&#160;Transceiver Driver&#160;are described&#160;in&#160;this chapter.&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-</b><br/>
+<b>Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+<b>Type&#160;</b><br/>
+FrTrcv_TrcvModeType&#160;&#160;uint8&#160;<br/>
+Defines&#160;all&#160;possible&#160;<br/>
+FRTRCV_TRCVMODE_UNKNOWN&#160;<br/>
+Transceiver&#160;modes&#160;<br/>
+Temporary state before&#160;<br/>initalization&#160;<br/>FRTRCV_TRCVMODE_NORMAL&#160;<br/>Normal operation mode&#160;<br/>
+FRTRCV_TRCVMODE_STANDBY&#160;<br/>Standby operation mode&#160;<br/>
+FrTrcv_&#160;<br/>
+uint8&#160;<br/>
+The&#160;reason&#160;for&#160;the&#160;last&#160;<br/>
+FRTRCV_WU_NOT_SUPPORTED&#160;<br/>
+TrcvWUReasonType&#160;<br/>
+recent&#160;wakeup&#160;<br/>
+The&#160;Transceiver does not&#160;<br/>support any information for&#160;<br/>the wake up reason.&#160;<br/>FRTRCV_WU_BY_BUS&#160;<br/>The&#160;Transceiver has&#160;detected&#160;<br/>that the bus has caused the&#160;<br/>wake up of the ECU.&#160;<br/>FRTRCV_WU_INTERNALLY&#160;<br/>The transceiver has detected&#160;<br/>that the &#34;wake up&#34; is due to&#160;<br/>an internal mode change.&#160;<br/>FRTRCV_WU_RESET&#160;<br/>The&#160;Transceiver has detected&#160;<br/>that the &#34;wake up&#34; is due to&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Type&#160;Name&#160;</b><br/>
+<b>C-</b><br/>
+<b>Description&#160;</b><br/>
+<b>Value&#160;Range&#160;</b><br/>
+<b>Type&#160;</b><br/>
+an ECU reset.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Type&#160;definitions&#160;<br/>
+&#160;<br/>
+The&#160;following&#160;structures are used&#160;in&#160;the&#160;configuration&#160;file.&#160;<br/>
+<b>&#160;FrTrcv_30_Tja1082_GenConfigType&#160;</b><br/>
+This structure contains&#160;general configuration&#160;information&#160;per channel&#160;<br/>
+<b>Struct&#160;Element&#160;Name&#160;&#160;C-Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+FrTrcv_InitState&#160;<br/>
+FrTrcv_Trcv<br/>
+Contains the&#160;initial&#160;Transceiver&#160;state&#160;after&#160;initialization&#160;<br/>
+ModeType&#160;<br/>
+FrTrcv_WakeupSourc<br/>
+EcuM_Wakeup<br/>
+Contains the&#160;Wakeup bit&#160;mask&#160;used&#160;to&#160;trigger&#160;an&#160;wake&#160;<br/>
+eRef&#160;<br/>
+SourceType&#160;<br/>
+up&#160;event&#160;in&#160;the&#160;EcuM&#160;<br/>
+FrTrcv_WakeupSuppo<br/>
+uint8&#160;<br/>
+Defines&#160;whether&#160;wake&#160;up is supported&#160;on&#160;this&#160;channel<br/>
+rted&#160;<br/>
+&#160;<br/>
+FrTrcv_WakeupPolli<br/>
+uint8&#160;<br/>
+Defines&#160;whether&#160;wake&#160;up event&#160;shall&#160;be&#160;polled<br/>
+ng&#160;<br/>
+&#160;<br/>
+FrTrcv_ChannelUsed&#160;&#160;uint8&#160;<br/>
+Defined&#160;whether&#160;this&#160;channel&#160;is&#160;used at&#160;all&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;FrTrcv_30_Tja1082_GenConfigType&#160;<br/>
+<b>FrTrcv_30_Tja1082_ChannelType&#160;</b><br/>
+This structure contains&#160;DIO&#160;pin&#160;name&#160;configuration&#160;information&#160;per channel&#160;<br/>
+<b>Struct&#160;Element&#160;Name&#160;&#160;C-Type&#160;</b><br/>
+<b>Description&#160;</b><br/>
+TrcvPinSTBN&#160;<br/>
+Dio_ChannelType&#160;<br/>
+STBN&#160;pin name&#160;<br/>
+TrcvPinERRN&#160;<br/>
+Dio_ChannelType&#160;<br/>
+ERRN&#160;pin name&#160;<br/>
+Table&#160;5-3&#160;&#160;&#160;FrTrcv_30_Tja1082_ChannelType&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Services&#160;provided by&#160;FlexRay&#160;Transceiver&#160;Driver&#160;</b><br/>
+&#160;<br/>
+<b>5.2.1.1&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_InitMemory:&#160;Initialization of&#160;Transceiver Driver&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_InitMemory&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrTrcv_30_Tja1082_InitMemory(&#160;void&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+Void&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialization&#160;of&#160;the&#160;Transceiver Driver memory&#160;in case&#160;no&#160;start-up&#160;code&#160;is&#160;used&#160;that&#160;zeroes&#160;out&#160;the memory.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+The&#160;Transceiver Driver memory&#160;is&#160;initialized.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-4&#160;&#160;&#160;FrTrcv_30_Tja1082_InitMemory&#160;<br/>
+<b>5.2.1.2&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_Init:&#160;Initialization of&#160;Transceiver Driver&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_Init&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrTrcv_30_Tja1082_Init(&#160;void&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+Void&#160;<br/>
+-&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+0&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Initialization&#160;of&#160;the&#160;Transceiver Driver module as&#160;well&#160;as&#160;the physical&#160;Transceiver itself.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;I/O ports, used&#160;to&#160;access&#160;the&#160;Transceiver, have to&#160;be&#160;initialized!&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+The&#160;Transceiver&#160;will&#160;be&#160;initialized to&#160;the&#160;configured operation state.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-5&#160;&#160;&#160;FrTrcv_30_Tja1082_Init&#160;<br/>
+<b>5.2.1.3&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_MainFunction:&#160;Main&#160;Function of&#160;Transceiver Driver&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_MainFunction&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrTrcv_30_Tja1082_MainFunction(&#160;void&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+-&#160;<br/>
+&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+13&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Main function of&#160;the&#160;Transceiver Driver for one instance.&#160;This&#160;service polls&#160;the respective&#160;Transceiver for&#160;<br/>any&#160;wake up events. In&#160;case a&#160;wake up is&#160;detected and notifications&#160;are&#160;allowed&#160;the&#160;ECU Manager&#160;is&#160;<br/>notified&#160;via&#160;EcuM_SetWakeupEvent.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+If&#160;enabled&#160;a callback&#160;in case of&#160;a&#160;wake-up&#160;event&#160;is&#160;triggered.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-6&#160;&#160;&#160;FrTrcv_30_Tja1082_MainFunction&#160;<br/>
+<b>5.2.1.4&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetVersionInfo:&#160;Read&#160;Version Information&#160;of&#160;the&#160;<br/>Driver&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetVersionInfo&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Prototype&#160;</b><br/>
+void&#160;FrTrcv_30_Tja1082_GetVersionInfo(&#160;P2VAR(Std_VersionInfoType, AUTOMATIC,&#160;<br/>FRTRCV_APPL_DATA) versioninfo&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+Versioninfo [out]&#160;<br/>
+Pointer&#160;to the location&#160;where the&#160;Version&#160;information&#160;shall&#160;be stored.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+7&#160;<br/>
+<b>Functional&#160;Description&#160;<br/></b>FrTrcv_30_Tja1082_GetVersionInfo()&#160;returns&#160;version&#160;information,&#160;vendor&#160;ID&#160;and&#160;AUTOSAR module ID&#160;<br/>of&#160;the component.&#160;The&#160;versions&#160;are&#160;BCD-coded.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;API&#160;is&#160;only&#160;available&#160;if&#160;the feature&#160;is&#160;enabled.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-7&#160;&#160;&#160;FrTrcv_30_Tja1082_GetVersionInfo&#160;<br/>
+&#160;<br/>
+<b>5.2.1.5&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_SetTransceiverMode:&#160;Set the&#160;Transceiver in the&#160;<br/>requested&#160;mode&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_SetTransceiverMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_SetTransceiverMode&#160;<br/>(&#160;<br/>
+&#160;&#160;uint8 FrTrcv_TrcvIdx,&#160;&#160;<br/>
+&#160;&#160;FrTrcv_TrcvModeType FrTrcv_TrcvMode&#160;<br/>
+);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;the&#160;<br/>Transceiver driver to&#160;which&#160;the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+FrTrcv_TrcvMode [in]&#160;&#160;This&#160;parameter&#160;describes&#160;the&#160;mode the&#160;Transceiver shall&#160;be set&#160;in.&#160;It can&#160;<br/>
+have one&#160;of&#160;the following&#160;values:&#160;<br/>&#160;<br/>
+FRTRCV_TRCVMODE_NORMAL&#160;<br/>
+&#160;<br/>
+FRTRCV_TRCVMODE_STANDBY&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_NOT_OK&#160;if&#160;the&#160;Transceiver could not&#160;be&#160;set to&#160;the&#160;<br/>requested mode,&#160;otherwise&#160;E_OK&#160;is&#160;returned.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+1&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service sets&#160;the&#160;Transceiver in&#160;the&#160;requested&#160;mode.&#160;If&#160;NORMAL&#160;mode is&#160;requested&#160;the&#160;wake up&#160;<br/>reason&#160;is&#160;set&#160;to&#160;FRTRCV_WU_INTERNALLY.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-8&#160;&#160;&#160;FrTrcv_30_Tja1082_SetTransceiverMode&#160;<br/>
+<b>5.2.1.6&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetTransceiverMode:&#160;Get the&#160;current&#160;Transceiver&#160;<br/>mode&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetTransceiverMode&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_GetTransceiverMode&#160;<br/>
+(&#160;<br/>&#160;&#160;uint8 FrTrcv_TrcvIdx,&#160;<br/>
+&#160;&#160;FrTrcv_TrcvModeType *FrTrcv_TrcvModePtr&#160;<br/>
+);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;<br/>the&#160;Transceiver driver to&#160;which the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+FrTrcv_TrcvModePtr&#160;[out]&#160;&#160;This&#160;parameter&#160;describes&#160;the&#160;current&#160;Transceiver mode.&#160;It can&#160;have&#160;<br/>
+one&#160;of&#160;the following&#160;values:&#160;<br/>&#160;<br/>
+FRTRCV_TRCVMODE_NORMAL&#160;<br/>
+&#160;<br/>
+FRTRCV_TRCVMODE_STANDBY&#160;<br/>&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_NOT_OK&#160;if&#160;the&#160;Transceiver status&#160;could&#160;not&#160;be&#160;<br/>determined,&#160;otherwise&#160;E_OK&#160;is&#160;returned.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+5&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service determines&#160;the&#160;current&#160;Transceiver mode.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-9&#160;&#160;&#160;FrTrcv_30_Tja1082_GetTransceiverMode&#160;<br/>
+<b>5.2.1.7&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetTransceiverWUReason:&#160;Get the&#160;wake&#160;up reason&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetTransceiverWUReason&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_GetTransceiverWUReason&#160;<br/>(&#160;<br/>
+&#160;&#160;uint8 FrTrcv_TrcvIdx,&#160;<br/>
+&#160;&#160;FrTrcv_TrcvWUReasonType *FrTrcv_TrcvWUReasonPtr&#160;<br/>
+);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;the&#160;<br/>Transceiver driver to&#160;which&#160;the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+FrTrcv_TrcvWUReasonPtr&#160;&#160;This&#160;parameter&#160;contains&#160;the&#160;wake up reason&#160;of&#160;the last wake-up&#160;event.&#160;It&#160;<br/>[out]&#160;<br/>
+can&#160;have&#160;one&#160;of&#160;the following&#160;values:&#160;<br/>&#160;<br/>
+FRTRCV_WU_POWER_ON&#160;<br/>
+&#160;<br/>
+FRTRCV_WU_BY_BUS&#160;<br/>
+&#160;<br/>
+FRTRCV_WU_INTERNALLY&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_NOT_OK&#160;if&#160;the&#160;wake up reason&#160;could&#160;not&#160;be&#160;<br/>determined,&#160;otherwise&#160;E_OK&#160;is&#160;returned.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+6&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service determines&#160;the&#160;wake up reason of&#160;the&#160;last&#160;wake up event. It&#160;can be&#160;used&#160;after an&#160;<br/>EcuM_SetWakeupEvent&#160;callback&#160;to&#160;determine&#160;if&#160;the&#160;wake up event&#160;happened&#160;locally&#160;or&#160;was&#160;triggered&#160;by&#160;<br/>the&#160;bus.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-10&#160;&#160;&#160;FrTrcv_30_Tja1082_GetTransceiverWUReason&#160;<br/>
+<b>5.2.1.8&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_ClearTransceiverWakeup:&#160;Clear pending&#160;wake&#160;up&#160;<br/>events&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_ClearTransceiverWakeup&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_ClearTransceiverWakeup(&#160;uint8 FrTrcv_TrcvIdx&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;the&#160;<br/>Transceiver driver to&#160;which&#160;the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_NOT_OK&#160;if&#160;wake up events&#160;could not&#160;be&#160;disabled,&#160;<br/>otherwise&#160;E_OK&#160;is&#160;returned.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+12&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service clears&#160;pending&#160;wake up events. Furthermore the&#160;wake up reason&#160;is&#160;reset&#160;to&#160;<br/>FRTRCV_WU_RESET.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-11&#160;&#160;&#160;FrTrcv_30_Tja1082_ClearTransceiverWakeup&#160;<br/>
+<b>5.2.1.9&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetTransceiverError:&#160;Read current&#160;Transceiver error&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_GetTransceiverError&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_GetTransceiverError&#160;(&#160;uint8 FrTrcv_TrcvIdx,&#160;<br/>uint8 FrTrcv_BranchIdx, uint32* FrTrcv_BusErrorState&#160;);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;the&#160;<br/>Transceiver driver to&#160;which&#160;the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+FrTrcv_BranchIdx [in]&#160;&#160;This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;branch. On&#160;Transceivers&#160;<br/>
+without&#160;branches&#160;this&#160;parameter&#160;will&#160;be ignored.&#160;<br/>
+FrTrcv_BusErrorState&#160;<br/>
+Pointer&#160;to&#160;variable&#160;where the error status&#160;word&#160;will&#160;be&#160;stored.&#160;<br/>
+[out]&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_OK&#160;if&#160;the function&#160;call&#160;was&#160;successful, otherwise&#160;<br/>E_NOT_OK.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+8&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service return&#160;error information&#160;should an error be notified&#160;to&#160;the&#160;DEM.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-12&#160;&#160;&#160;FrTrcv_30_Tja1082_GetTransceiverError&#160;<br/>
+&#160;<br/>
+<b>5.2.1.10&#160;&#160;FrTrcv_30_Tja1082_DisableTransceiverBranch:&#160;Disable&#160;an&#160;individual&#160;</b><br/>
+<b>branch&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_DisableTransceiverBranch&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_DisableTransceiverBranch&#160;<br/>
+(&#160;<br/>
+&#160;&#160;uint8 FrTrcv_TrcvIdx,&#160;<br/>&#160;&#160;uint8 FrTrcv_BranchIdx&#160;<br/>
+);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;<br/>the&#160;Transceiver driver to&#160;which the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+FrTrcv_BranchIdx&#160;[in]&#160;<br/>
+Index&#160;of&#160;the branch to&#160;disable.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_NOT_OK&#160;always.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+5&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;intended to&#160;disable&#160;an&#160;individual&#160;branch of&#160;Active Star&#160;Transceivers.&#160;As&#160;the&#160;TJA1082&#160;is&#160;a&#160;<br/>node&#160;transceiver&#160;and&#160;does&#160;not support branches, this&#160;API&#160;does&#160;not&#160;perform&#160;anything&#160;but return&#160;E_NOT_OK.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-13&#160;&#160;&#160;FrTrcv_30_Tja1082_DisableTransceiverBranch&#160;<br/>
+<b>5.2.1.11&#160;&#160;FrTrcv_30_Tja1082_EnableTransceiverBranch:&#160;Disable&#160;an individual&#160;</b><br/>
+<b>branch&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_EnableTransceiverBranch&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+Std_ReturnType&#160;FrTrcv_30_Tja1082_EnableTransceiverBranch&#160;<br/>(&#160;<br/>
+&#160;&#160;uint8 FrTrcv_TrcvIdx,&#160;<br/>
+&#160;&#160;uint8 FrTrcv_BranchIdx&#160;<br/>
+);&#160;<br/>
+<b>Parameters&#160;[in/out/both]&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;<br/>the&#160;Transceiver driver to&#160;which the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+FrTrcv_BranchIdx&#160;[in]&#160;<br/>
+Index&#160;of&#160;the branch to&#160;enable.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+Std_ReturnType&#160;<br/>
+The&#160;service returns&#160;E_OK&#160;always.&#160;<br/>
+<b>Service&#160;ID&#160;</b><br/>
+Service ID&#160;<br/>
+5&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;service is&#160;intended to&#160;enable&#160;an&#160;individual&#160;branch&#160;of&#160;Active&#160;Star&#160;Transceivers.&#160;As&#160;the&#160;TJA1082&#160;is&#160;a&#160;node&#160;<br/>transceiver and does&#160;not&#160;support&#160;branches, this&#160;API&#160;does&#160;not&#160;perform&#160;anything&#160;but&#160;return&#160;E_OK.&#160;<br/>
+<b>Preconditions&#160;</b><br/>
+The&#160;Transceiver Driver module must be initialized.&#160;<br/>
+<b>Postconditions&#160;</b><br/>
+None.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-14&#160;&#160;&#160;FrTrcv_30_Tja1082_DisableTransceiverBranch&#160;<br/>
+&#160;<br/>
+<b>5.3&#160;</b><br/>
+<b>Services&#160;used&#160;by&#160;FlexRay&#160;Transceiver Driver&#160;</b><br/>
+In&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;services&#160;&#160;provided&#160;&#160;by&#160;&#160;other&#160;&#160;components,&#160;&#160;which&#160;&#160;are&#160;&#160;used&#160;&#160;by&#160;&#160;the&#160;<br/>FlexRay&#160;Transceiver&#160;Driver&#160;are&#160;listed.&#160;For&#160;details&#160;about&#160;prototype&#160;and&#160;functionality&#160;refer&#160;to&#160;<br/>the&#160;documentation&#160;of&#160;the&#160;providing&#160;component.&#160;<br/>
+<b>Component&#160;</b><br/>
+<b>API&#160;</b><br/>
+DET&#160;(optional)&#160;<br/>
+Det_ReportError&#160;<br/>
+DEM&#160;<br/>
+Dem_SetEventStatus&#160;<br/>
+ECU&#160;Manager&#160;<br/>
+EcuM_SetWakeupEvent&#160;<br/>
+Dio&#160;<br/>
+Dio_WriteChannel&#160;<br/>Dio_ReadChannel&#160;<br/>
+Table&#160;5-15&#160;&#160;&#160;Services&#160;used&#160;by&#160;the&#160;FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>5.4&#160;</b><br/>
+<b>Callback&#160;Functions&#160;</b><br/>
+This&#160;&#160;chapter&#160;&#160;describes&#160;&#160;the&#160;&#160;callback&#160;&#160;functions&#160;&#160;that&#160;&#160;are&#160;&#160;implemented&#160;&#160;by&#160;&#160;the&#160;&#160;FlexRay&#160;<br/>Transceiver&#160;Driver&#160;and&#160;can&#160;be&#160;invoked&#160;by&#160;other&#160;modules.&#160;The&#160;prototypes&#160;of&#160;the&#160;callback&#160;<br/>functions&#160;&#160;are&#160;&#160;provided&#160;&#160;in&#160;&#160;the&#160;&#160;header&#160;&#160;file&#160;&#160;FrTrc_30_Tja1082_Cbk.h&#160;&#160;by&#160;&#160;the&#160;&#160;FlexRay&#160;<br/>Transceiver Driver.&#160;<br/>
+<b>5.4.1&#160;</b><br/>
+<b>FrTrcv_30_Tja1082_CheckWakeupByTransceiver&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void&#160;FrTrcv_30_Tja1082_CheckWakeupByTransceiver(&#160;uint8 FrTrcv_TrcvIdx&#160;);&#160;<br/>
+<b>Parameter&#160;</b><br/>
+FrTrcv_TrcvIdx [in]&#160;&#160;This&#160;zero based&#160;index&#160;identifies&#160;the&#160;Transceiver&#160;within&#160;the&#160;context of&#160;the&#160;<br/>
+Transceiver driver to&#160;which&#160;the&#160;API call&#160;has&#160;to&#160;be&#160;applied.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Callback&#160;to&#160;trigger&#160;wake up&#160;detection&#160;in&#160;case of&#160;an&#160;interrupt or&#160;non periodically. If&#160;the&#160;component&#160;is&#160;not&#160;<br/>initialized this&#160;service&#160;will&#160;not&#160;generate a&#160;DET&#160;call. In this&#160;case the function&#160;will&#160;simply&#160;return.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;Particularities,&#160;limitations,&#160;post-conditions,&#160;pre-conditions&#160;<br/>Expected&#160;Caller&#160;Context&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-25_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-16&#160;&#160;&#160;FrTrcv_30_Tja1082_CheckWakeupByTransceiver&#160;<br/>
+<b>5.5&#160;</b><br/>
+<b>Configurable&#160;Interfaces&#160;</b><br/>
+<b>5.5.1&#160;</b><br/>
+<b>Notifications&#160;</b><br/>
+At&#160;its&#160;configurable&#160;interfaces&#160;the&#160;FlexRay&#160;Transceiver&#160;Driver&#160;defines&#160;notifications&#160;that&#160;can&#160;<br/>be&#160;mapped&#160;to&#160;callback&#160;functions&#160;provided&#160;by&#160;other&#160;modules.&#160;The&#160;mapping&#160;is&#160;not&#160;statically&#160;<br/>defined&#160;by&#160;the&#160;FlexRay&#160;Transceiver&#160;Driver&#160;but&#160;can&#160;be&#160;performed&#160;at&#160;configuration&#160;time.&#160;The&#160;<br/>function&#160;prototypes&#160;that&#160;can&#160;be&#160;used&#160;for&#160;the&#160;configuration&#160;have&#160;to&#160;match&#160;the&#160;appropriate&#160;<br/>function&#160;prototype&#160;signatures,&#160;which&#160;are&#160;described&#160;in&#160;the&#160;following&#160;sub-chapters.&#160;&#160;<br/>
+<b>5.5.1.1&#160;</b><br/>
+<b>Appl_FrTrcv_30_Tja1082_ReportErrorStatusPreFailed&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Appl_FrTrcv_30_Tja1082_ReportErrorStatusPreFailed</b>&#160;(&#160;Dem_EventIdType eventId&#160;<br/>)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+eventId&#160;<br/>
+Unique&#160;ID that&#160;specified the error&#160;and the&#160;Transceiver&#160;that&#160;caused&#160;it.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;notification&#160;is&#160;called&#160;when&#160;an&#160;error&#160;is&#160;detected.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Particularities,&#160;limitations,&#160;post-conditions,&#160;pre-conditions&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>interrupt&#160;or&#160;task&#160;context&#160;<br/>
+Table&#160;5-17&#160;&#160;&#160;Appl_FrTrcv_30_Tja1082_ReportErrorStatusPreFailed&#160;<br/>
+<b>5.5.1.2&#160;</b><br/>
+<b>Appl_FrTrcv_30_Tja1082_ReportErrorStatusPrePassed&#160;</b><br/>
+<b>Prototype&#160;</b><br/>
+void&#160;<b>Appl_FrTrcv_30_Tja1082_ReportErrorStatusPrePassed</b>&#160;(&#160;Dem_EventIdType eventId&#160;<br/>)&#160;<br/>
+<b>Parameter&#160;</b><br/>
+eventId&#160;<br/>
+Unique&#160;ID that&#160;specified the error and the&#160;Transceiver&#160;that&#160;caused&#160;it.&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+This&#160;notification&#160;is&#160;called&#160;when&#160;no&#160;error&#160;is&#160;detected.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-26_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+<b>&gt;&#160;&#160;</b>Particularities,&#160;limitations,&#160;post-conditions,&#160;pre-conditions&#160;<br/>
+Call&#160;context&#160;<br/>
+<b>&gt;&#160;&#160;</b>interrupt&#160;or&#160;task&#160;context&#160;<br/>
+Table&#160;5-18&#160;&#160;&#160;Appl_FrTrcv_30_Tja1082_ReportErrorStatusPrePassed&#160;<br/>
+&#160;<br/>
+<b>5.5.2&#160;</b><br/>
+<b>Callout Functions&#160;</b><br/>
+At&#160;its&#160;configurable&#160;interfaces&#160;the&#160;FlexRay&#160;Transceiver&#160;Driver&#160;defines&#160;callout&#160;functions.&#160;The&#160;<br/>declarations&#160;&#160;of&#160;&#160;the&#160;&#160;callout&#160;&#160;functions&#160;&#160;are&#160;&#160;provided&#160;&#160;by&#160;&#160;the&#160;&#160;BSW&#160;&#160;module,&#160;&#160;i.e.&#160;&#160;the&#160;&#160;FlexRay&#160;<br/>Transceiver&#160;&#160;Driver.&#160;&#160;It&#160;&#160;is&#160;&#160;the&#160;&#160;integrator's&#160;&#160;task&#160;&#160;to&#160;&#160;provide&#160;&#160;the&#160;&#160;corresponding&#160;&#160;function&#160;<br/>definitions.&#160;&#160;The&#160;&#160;definitions&#160;&#160;of&#160;&#160;the&#160;&#160;callouts&#160;&#160;can&#160;&#160;be&#160;&#160;adjusted&#160;&#160;to&#160;&#160;the&#160;&#160;system's&#160;&#160;needs.&#160;&#160;The&#160;<br/>FlexRay&#160;&#160;Transceiver&#160;&#160;Driver&#160;&#160;callout&#160;&#160;function&#160;&#160;declarations&#160;&#160;are&#160;&#160;described&#160;&#160;in&#160;&#160;the&#160;&#160;following&#160;<br/>tables:&#160;<br/>
+<b>5.5.3&#160;</b><br/>
+<b>Appl_FrTrcv_30_Tja1082_Wait&#160;</b><br/>
+<b>Prototype&#160;<br/></b>void Appl_FrTrcv_30_Tja1082_Wait(&#160;uint8 TimerIndex&#160;);&#160;<br/>
+<b>Parameter&#160;</b><br/>
+TimerIndex&#160;[in]&#160;<br/>
+This&#160;zero based&#160;index&#160;identifies&#160;the&#160;timer which shall&#160;be used.&#160;<br/>kFrTrcv_30_Tja1082_SetMode:&#160;Delay&#160;time until&#160;ERRN stabilized&#160;<br/>kFrTrcv_30_Tja1082_ModeChange: Delay&#160;time until&#160;mode change&#160;<br/>complete&#160;<br/>
+<b>Return&#160;code&#160;</b><br/>
+void&#160;<br/>
+-&#160;<br/>
+<b>Functional&#160;Description&#160;</b><br/>
+Mandatory&#160;call&#160;out&#160;to delay&#160;a certain time in&#160;order&#160;to provide&#160;the&#160;Transceiver&#160;Driver&#160;with&#160;a deterministic&#160;<br/>timing.&#160;<br/>
+<b>Particularities&#160;and&#160;Limitations&#160;</b><br/>
+&#160;&#160;Particularities,&#160;limitations,&#160;post-conditions,&#160;pre-conditions&#160;<br/>Expected&#160;Caller&#160;Context&#160;<br/>
+<b>&gt;&#160;&#160;</b>Call&#160;context:&#160;task&#160;level&#160;<br/>
+<b>&gt;&#160;&#160;</b>Not&#160;re-entrant&#160;<br/>
+<b>&gt;&#160;&#160;</b>Synchronous&#160;<br/>
+Table&#160;5-19&#160;&#160;&#160;Appl_FrTrcv_30_Tja1082_Wait&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-27_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>6&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>6.1&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+Dio&#160;<br/>
+Digital&#160;Input/Output&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+FrTrcv&#160;<br/>
+FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ICU&#160;<br/>
+Input&#160;Capture&#160;Unit&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/FrTrcv_30_Tja1082/doc/TechnicalReference_FrTrcv_Tja1082-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR FlexRay&#160;Transceiver&#160;Driver&#160;<br/>
+<b>7&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;2.00.00&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.7.1&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#6">1 Component History</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#7">2 Introduction</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#8">2.1 Supported Devices</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#8">2.2 Architecture Overview</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3 Functional Description</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.1 Features</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.1.1 Deviations</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.1.1.1 AUTOSAR 4</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.1.2 Limitations</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.1.2.1 Error indication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.2 Initialization</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#9">3.2.1 High-Level Initialization</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.2.2 Low-Level Initialization</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.3 States</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.4 Main Functions</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.5 Error Handling</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#10">3.5.1 Development Error Reporting</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#11">3.5.2 Production Code Error Reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4 Integration</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.2 Critical Sections</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.2.1 FRTRCV_30_TJA1082_EXCLUSIVE_AREA_0</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#12">4.3 The Software Timers</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#14">5 API Description</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#14">5.1 Type Definitions</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#16">5.2 Services provided by FlexRay Transceiver Driver</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#16">5.2.1.1 FrTrcv_30_Tja1082_InitMemory: Initialization of Transceiver Driver</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#16">5.2.1.2 FrTrcv_30_Tja1082_Init: Initialization of Transceiver Driver</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#17">5.2.1.3 FrTrcv_30_Tja1082_MainFunction: Main Function of Transceiver Driver</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#17">5.2.1.4 FrTrcv_30_Tja1082_GetVersionInfo: Read Version Information of the Driver</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#18">5.2.1.5 FrTrcv_30_Tja1082_SetTransceiverMode: Set the Transceiver in the requested mode</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#19">5.2.1.6 FrTrcv_30_Tja1082_GetTransceiverMode: Get the current Transceiver mode</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#20">5.2.1.7 FrTrcv_30_Tja1082_GetTransceiverWUReason: Get the wake up reason</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#21">5.2.1.8 FrTrcv_30_Tja1082_ClearTransceiverWakeup: Clear pending wake up events</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#21">5.2.1.9 FrTrcv_30_Tja1082_GetTransceiverError: Read current Transceiver error</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#22">5.2.1.10 FrTrcv_30_Tja1082_DisableTransceiverBranch: Disable an individual branch</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#23">5.2.1.11 FrTrcv_30_Tja1082_EnableTransceiverBranch: Disable an individual branch</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#24">5.3 Services used by FlexRay Transceiver Driver</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#24">5.4 Callback Functions</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#24">5.4.1 FrTrcv_30_Tja1082_CheckWakeupByTransceiver</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#25">5.5 Configurable Interfaces</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#25">5.5.1 Notifications</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#25">5.5.1.1 Appl_FrTrcv_30_Tja1082_ReportErrorStatusPreFailed</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#25">5.5.1.2 Appl_FrTrcv_30_Tja1082_ReportErrorStatusPrePassed</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#26">5.5.2 Callout Functions</a></li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#26">5.5.3 Appl_FrTrcv_30_Tja1082_Wait</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#27">6 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#27">6.1 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_FrTrcv_Tja1082s.html#28">7 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

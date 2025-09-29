@@ -1,0 +1,133 @@
+---
+title: SwcSuprt_Usage
+linkTitle: SwcSuprt_Usage
+weight: 2
+---
+
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>01-Dec-2016</td>
+<td>Owen Tosh</td>
+<td>Initial version</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>07-Dec-2016</td>
+<td>Owen Tosh</td>
+<td>Added Polyspace report generation</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>30-Mar-2017</td>
+<td>Matt Leser</td>
+<td>Added Sandbox Project Creation</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>18-May-2017</td>
+<td>Matt Leser</td>
+<td>Expanded on descriptions, Updated Graph to show where Sandbox Project is located</td>
+</tr>
+</tbody>
+</table>
+<h1 class="TOC-Heading" id="table-of-contents">Table of Contents</h1>
+<p><a href="#introduction">Introduction <span>3</span></a></p>
+<p><a href="#running-the-tool">Running the Tool <span>4</span></a></p>
+<p><a href="#the-main-menu">The Main Menu <span>5</span></a></p>
+<p><a href="#the-component-menu">The Component Menu <span>6</span></a></p>
+<p><a href="#file-and-directory-structure">File and Directory Structure <span>8</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<p>SwcSuprt is a component support script for EA4 component development. It automates many redundant tasks, and is useful to easily update a component to the latest standards.</p>
+<p>Both GUI and command-line interfaces are supported. If this script is run with both a path to a component and a command, the script continues running in the command line. Otherwise, the GUI is initialized.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>This tool requires the TL112A_Python component. This component contains the Nexteer Python library nxtr.py, which is required by this tool (a vanilla Python environment will not contain this library).</p>
+<h1 id="running-the-tool">Running the Tool</h1>
+<h2 id="launch.bat">Launch.bat</h2>
+<p>In the tools directory, running Launch.bat will load the tool directly with no arguments. The tool prompts the user with the main menu, which can be used to create a new component or select an existing component. Once this is done, the user is prompted with the component menu.</p>
+<h2 id="swcsupport.bat">SWCSupport.bat</h2>
+<p>Once the tool is integrated with a component, it can be launched with SWCSupport.bat, located in the component’s tools directory. This will immediately launch the component menu.</p>
+<h2 id="command-line-usage">Command Line Usage</h2>
+<p>The expected command line format is as follows:</p>
+<p>swcsuprt.py ["/path/to/component" [command]]</p>
+<p>If no arguments are provided, the tool will present the main menu. If run with a single argument, the tool will open the component menu for the component at the path provided. The path may be relative or absolute.</p>
+<p>If run with two arguments, the tool will run in a non-interactive command line format. command may be one of the following:</p>
+<ul>
+<li><p>initialize – create basic directories if they don't already exist</p></li>
+<li><p>migrate – perform component migration to latest directory format. Also runs:</p>
+<ul>
+<li><p>generate_greenhills</p></li>
+<li><p>generate_davinci</p></li>
+<li><p>generate_integration_files</p></li>
+<li><p>generate_generation_script</p></li>
+</ul></li>
+<li><p>generate_greenhills – generate Green Hills project file</p></li>
+<li><p>generate_davinci – generate DaVinci component files</p></li>
+<li><p>generate_integration_files – generate integration files</p></li>
+<li><p>generate_generation_script – generate generation batch script, or remove it if not necessary</p></li>
+<li><p>generate_sandbox – generate sandbox project</p></li>
+<li><p>generate_local_headers – generate local header files from Configurator</p></li>
+<li><p>generate_polyspace_files – generate Polyspace project files and stubs</p></li>
+<li><p>unzip_poly space – unzip Polyspace archives</p></li>
+<li><p>open_bugfinder – open Polyspace Bug Finder project</p></li>
+<li><p>open_codeprover – open Polyspace Code Prover project</p></li>
+<li><p>zip_polyspace – zip current Polyspace results into archives</p></li>
+</ul>
+<p>See the description of the functions in the component menu for more details on each command.</p>
+<h1 id="the-main-menu">The Main Menu</h1>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image1.png" style="width:1.66944in;height:2.31319in" /></p>
+<p>Click <strong>New Component</strong> to create a folder template for a new component. The tool will prompt for a full component name and parent directory, and then present the component menu for the newly created component. The new component will only contain the basic folder structure, and the SWCSupport.bat script.</p>
+<p>Click <strong>Select Existing</strong> to open the component menu for an existing component. The tool will prompt for the main component directory. If the selected directory is missing the standard component subfolders (e.g. autosar, src, include), the tool will display a warning.</p>
+<p>Click <strong>?</strong> to open this usage document.</p>
+<p>Click <strong>Quit</strong> to close the tool.</p>
+<h1 id="the-component-menu">The Component Menu</h1>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:1.4729in;height:5.2907in" /></p>
+<p>The main menu contains five sections:</p>
+<h2 id="component">Component</h2>
+<p>The component short name is shown here.</p>
+<p>If the component appears to be of an older format (e.g. contains a tools/contract directory), this section will also contain an additional button. Click <strong>Migrate</strong> to automatically update this component to the latest format, moving files as needed. Note that this will also run all commands in the Create/Update section.</p>
+<h2 id="createupdate">Create/Update</h2>
+<p>Click <strong>Green Hills</strong> to generate the Green Hills project file (.gpj).</p>
+<p>Click <strong>DaVinci</strong> to generate the DaVinci Configurator project files. This includes the DaVinci Project file (.dpa) and some files in the tools/local/autosar directory. Note that if a .bswmd.arxml file is added to the autosar folder, this function must be run in order to include it in the component configuration.</p>
+<p>Click <strong>Integration Files</strong> to generate files for integration. This feature checks for any .bswmd.arxml files in the autosar directory, then creates an integration script in the tools/integrate folder. If no .bswmd.arxml files are found, no integration script is needed and it is removed.</p>
+<p>Click <strong>Generation Script</strong> to generate the batch script used by Configurator when generating configuration files from ARTT text template files. This feature checks for any template files (.tt) in the tools/template directory, and creates a generation script if found. Otherwise, the generation script is removed.</p>
+<p>Click <strong>Sandbox Project</strong> to generate the sandbox project used from the Green Hills project file. (.gpj). The project file will open as well even if no update/creation took place. The sandbox is an area used to test if component level source codes compile. This will also generate the .d, .dbo, and .o files in a folder called SandboxOutput that is located on the same level as the components.</p>
+<h2 id="davinci">Davinci</h2>
+<p>Click <strong>Generate</strong> to generate the RTE files, contract header files, and any configurable files of the component for local compilation testing and static analysis. If an error occurs, log files may exist in the tools directory, as well as the tools/local/generate directory.</p>
+<h2 id="polyspace">Polyspace</h2>
+<p>Click <strong>Generate Files</strong> to generate all project and related files to the tools/Polyspace directory. This function checks for all source files and include directories, adding them to the Polyspace projects. It also looks for a corresponding design component in the component’s parent directory. If not automatically found, the user is prompted to locate it manually or proceed without using a data dictionary. Note that not using a data dictionary causes many orange errors in Code Prover. It is recommended to run this function before analysis is performed.</p>
+<p>Click <strong>Unzip Results</strong> to decompress any saved results from previous analyses. Previous results are stored in the tools/Polyspace/Saved directory.</p>
+<p>Click <strong>Open Bug Finder</strong> to open the Bug Finder Polyspace project.</p>
+<p>Click <strong>Open Code Prover</strong> to open the Code Prover Polyspace project.</p>
+<p>Click <strong>Create Reports</strong> to generate XML reports from the Bug Finder and Code Prover results. These reports may be used in the future to gather information at the request of the customer. Currently, they will be stored in Synergy to prepare for potential use.</p>
+<p>Click <strong>Zip Results</strong> to delete backup comment folders and archive the current results to the tools/Polyspace/Saved directory.</p>
+<h2 id="other-buttons">Other Buttons</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image3.emf" />Click <strong>?</strong> to open this usage document.</p>
+<p>Click <strong>Quit</strong> to close the tool.</p>
+<h1 id="file-and-directory-structure">File and Directory Structure</h1>
+<p>The following directories exist in every software component:</p>
+<p>autosar – contains all Developer/Configurator files</p>
+<p>doc – documentation</p>
+<p>generate – all generated source and header files (used in the integration project)</p>
+<p>include – component header files</p>
+<p>src – component source files</p>
+<p>tools – contains the component DaVinci project file, the Green Hills Project file, and a script to launch the SwcSuprt tool</p>
+<p>tools/integrate – all integration-related files</p>
+<p>tools/local – all files used in local component development, but not used at the integration project level. This contains any stubs required for static analysis, as well as configurator files used to create a local environment. Each directory in this path resembles the base directory structure (e.g. autosar, generate, include, src).</p>
+<p>tools/Polyspace – Polyspace Bug Finder and Code Prover project files, along with project-related files. Also contains the archived results from previous analyses.</p>
+<p>tools/template – any files involved in generation from text templates at both the component and integration project level</p>

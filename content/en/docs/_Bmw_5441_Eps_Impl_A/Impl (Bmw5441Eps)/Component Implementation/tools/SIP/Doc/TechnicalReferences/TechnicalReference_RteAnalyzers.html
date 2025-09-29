@@ -1,0 +1,1045 @@
+---
+title: TechnicalReference_RteAnalyzers
+linkTitle: TechnicalReference_RteAnalyzers
+weight: 283
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-1_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>MICROSAR RTE&#160;Analyzer&#160;<br/></b>Technical Reference&#160;<br/>&#160;<br/>&#160;&#160;<br/>Version&#160;1.0.0&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Authors&#160;<br/>
+Sascha Sommer&#160;<br/>
+Status&#160;<br/>
+Released&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-2_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>Document&#160;Information&#160;</b><br/>
+<b>History&#160;</b><br/>
+<b>Author&#160;</b><br/>
+<b>Date&#160;</b><br/>
+<b>Version&#160;</b><br/>
+<b>Remarks&#160;</b><br/>
+Sascha Sommer&#160;<br/>
+2015-09-25&#160;<br/>
+0.5&#160;<br/>
+Initial&#160;creation&#160;for&#160;RTE&#160;Analyzer&#160;0.5.0&#160;<br/>
+Sascha Sommer&#160;<br/>
+2016-02-26&#160;<br/>
+0.6&#160;<br/>
+Update&#160;for&#160;RTE&#160;Analyzer&#160;0.6.0&#160;<br/>
+Sascha Sommer&#160;<br/>
+2016-07-07&#160;<br/>
+0.7&#160;<br/>
+Described&#160;Configuration&#160;Feedback&#160;and&#160;<br/>Template&#160;Variant&#160;Check&#160;<br/>
+Sascha Sommer&#160;<br/>
+2016-10-20&#160;<br/>
+0.8&#160;<br/>
+Configuration Feedback&#160;extensions&#160;<br/>
+Sascha Sommer&#160;<br/>
+2017-03-23&#160;<br/>
+0.9&#160;<br/>
+Updated&#160;for&#160;RTE&#160;Analyzer&#160;0.9.0&#160;<br/>
+Charu Pathni&#160;<br/>
+Removed&#160;BETA&#160;disclaimer&#160;<br/>Fixed&#160;chapter&#160;numbering&#160;<br/>
+Sascha Sommer&#160;<br/>
+2017-05-09&#160;<br/>
+1.0&#160;<br/>
+Update&#160;for&#160;RTE&#160;Analyzer&#160;1.0.0&#160;<br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+<b>No.&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+[1]&#160;&#160;&#160;ISO&#160;<br/>
+ISO/IEC&#160;9899:1990,&#160;Programming&#160;languages&#160;-C&#160;<br/>
+Second&#160;<br/>edition&#160;<br/>
+[2]&#160;&#160;&#160;AUTOSAR&#160;<br/>
+AUTOSAR_SWS_RTE.pdf&#160;<br/>
+4.2.2&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Scope&#160;of&#160;the&#160;Document&#160;<br/>This&#160;technical&#160;reference&#160;describes&#160;the&#160;general&#160;use&#160;of&#160;the&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;static&#160;<br/>code&#160;&#160;analysis&#160;&#160;tool.&#160;&#160;This&#160;&#160;document&#160;&#160;is&#160;&#160;relevant&#160;&#160;for&#160;&#160;developers&#160;&#160;that&#160;&#160;want&#160;&#160;to&#160;&#160;integrate&#160;&#160;a&#160;<br/>generated&#160;RTE&#160;into&#160;an&#160;ECU&#160;with&#160;functional&#160;safety&#160;requirements.&#160;All&#160;aspects&#160;that&#160;concern&#160;<br/>the&#160;generation&#160;of&#160;the&#160;RTE&#160;are described&#160;in&#160;the&#160;technical reference&#160;of&#160;the&#160;RTE.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>We&#160;have configured&#160;the&#160;programs&#160;in&#160;accordance&#160;with your&#160;specifications&#160;in the&#160;<br/>
+<b>&#160;&#160;</b>questionnaire.&#160;Whereas&#160;the&#160;programs&#160;do&#160;support&#160;other&#160;configurations&#160;than&#160;the&#160;one&#160;<br/>
+specified&#160;in your&#160;questionnaire,&#160;Vector´s&#160;release&#160;of&#160;the&#160;programs&#160;delivered to&#160;your&#160;<br/>company&#160;is&#160;expressly&#160;restricted&#160;to&#160;the&#160;configuration&#160;you&#160;have specified&#160;in&#160;the&#160;<br/>questionnaire.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+2&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-3_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+3&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-4_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>Contents&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="TechnicalReference_RteAnalyzers.html#6"><b>1</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#6"><b>RTE&#160;Analyzer&#160;History&#160;...................................................................................................&#160;6</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#7"><b>2</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#7"><b>Introduction...................................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#8"><b>3</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#8"><b>Functional&#160;Description&#160;.................................................................................................&#160;8</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#10"><b>4</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#10"><b>RTE&#160;Analysis&#160;and Integration&#160;....................................................................................&#160;10</b>&#160;<br/>4.1&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#10">Scope of&#160;Delivery&#160;.............................................................................................&#160;10&#160;<br/>4.1.1&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#10">Static Files&#160;.......................................................................................&#160;10&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#12">4.1.2&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#12">Dynamic&#160;Files&#160;..................................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#13">4.2&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#13">Restrictions&#160;......................................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#13">4.3&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#13">RTE&#160;Analyzer&#160;Command&#160;Line&#160;Options&#160;.............................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">4.4&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">Analysis&#160;Report&#160;Contents&#160;.................................................................................&#160;14&#160;<br/>4.4.1&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">Analyzed&#160;Files&#160;..................................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">4.4.2&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">Configuration Parameters&#160;................................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#15">4.4.3&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#15">Findings&#160;...........................................................................................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#22">4.4.4&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#22">Configuration Feedback&#160;...................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#24">4.4.5&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#24">Template&#160;Variant&#160;Check&#160;...................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#24">4.5&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#24">Integration&#160;into DaVinci&#160;CFG............................................................................&#160;24&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28"><b>5</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28"><b>Glossary&#160;and&#160;Abbreviations&#160;......................................................................................&#160;28</b>&#160;<br/>5.1&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">Glossary&#160;..........................................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">5.2&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">Abbreviations&#160;...................................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#29"><b>6</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#29"><b>Additional&#160;Copyrights&#160;................................................................................................&#160;29</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#30"><b>7</b>&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#30"><b>Contact&#160;........................................................................................................................&#160;30</b>&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+4&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-5_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>Tables&#160;<br/></b><a href="TechnicalReference_RteAnalyzers.html#6">Table&#160;1-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#6">RTE&#160;Analyzer&#160;history&#160;..................................................................................&#160;6&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#9">Table&#160;3-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#9">Supported&#160;&#160;features&#160;....................................................................................&#160;9&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#11">Table&#160;4-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#11">Static&#160;files&#160;.................................................................................................&#160;11&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#12">Table&#160;4-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#12">Assumed&#160;platform&#160;type&#160;sizes&#160;....................................................................&#160;12&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#13">Table&#160;4-3&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#13">Generated&#160;files&#160;.........................................................................................&#160;13&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">Table&#160;4-4&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#14">RTE&#160;Analyzer&#160;Command&#160;Line&#160;Options&#160;......................................................&#160;14&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#15">Table&#160;4-5&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#15">Analysis&#160;parameters&#160;that&#160;are&#160;extracted&#160;from&#160;the&#160;configuration&#160;..................&#160;15&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#22">Table&#160;4-6&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#22">RTE&#160;Analyzer&#160;Findings&#160;.............................................................................&#160;22&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">Table&#160;5-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">Glossary&#160;...................................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">Table&#160;5-2&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#28">Abbreviations&#160;............................................................................................&#160;28&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#29">Table&#160;6-1&#160;&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#29">Free and&#160;Open&#160;Source&#160;Software&#160;Licenses&#160;...............................................&#160;29&#160;</a><br/>
+<b>Figures&#160;<br/></b><a href="TechnicalReference_RteAnalyzers.html#25">Figure&#160;4-1&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#25">Project&#160;menu&#160;............................................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#25">Figure&#160;4-2&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#25">External&#160;generation&#160;steps&#160;.........................................................................&#160;25&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#26">Figure&#160;4-3&#160;</a><br/>
+<a href="TechnicalReference_RteAnalyzers.html#26">Code generation&#160;.......................................................................................&#160;26&#160;</a><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+5&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-6_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>1&#160;&#160;RTE&#160;Analyzer&#160;History&#160;</b><br/>
+The&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;history&#160;&#160;gives&#160;&#160;an&#160;&#160;overview&#160;&#160;over&#160;&#160;the&#160;&#160;important&#160;&#160;milestones&#160;&#160;that&#160;&#160;are&#160;<br/>supported&#160;in&#160;the&#160;different&#160;versions of&#160;the&#160;RTE&#160;Analyzer.&#160;&#160;<br/>
+<b>RTE&#160;Analyzer&#160;</b><br/>
+<b>New&#160;Features&#160;</b><br/>
+<b>Version&#160;<br/></b>0.5.0&#160;<br/>
+Initial&#160;version of&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;for&#160;MICROSAR&#160;RTE&#160;4.9.x&#160;<br/>Supported&#160;Features:&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;RTE&#160;code&#160;that&#160;cannot&#160;be&#160;compiled&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;Out&#160;Of&#160;Bounds&#160;write accesses&#160;within RTE&#160;APIs&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;Interrupt&#160;Lock&#160;API&#160;sequence&#160;mismatches&#160;within RTE&#160;<br/>APIs&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;Unreachable&#160;RTE&#160;APIs&#160;and&#160;runnables&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;RTE&#160;variables that&#160;are accessed&#160;from&#160;concurrent&#160;<br/>execution&#160;contexts&#160;without&#160;protection&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;concurrent&#160;calls&#160;to non-reentrant&#160;APIs&#160;within the&#160;RTE&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;variables&#160;that&#160;are accessed&#160;from&#160;multiple cores and&#160;<br/>that&#160;are&#160;not&#160;mapped&#160;to non-cacheable memory&#160;sections&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;non-typesafe&#160;interfaces&#160;to&#160;the&#160;BSW&#160;and SWCs&#160;where&#160;<br/>a call&#160;with a&#160;wrong&#160;parameter&#160;might&#160;cause out&#160;of&#160;bounds writes&#160;by&#160;<br/>the&#160;RTE&#160;or&#160;a&#160;called&#160;runnable/BSW&#160;API.&#160;<br/>
+-&#160;<br/>
+Detection&#160;of&#160;recursive call&#160;sequences&#160;<br/>
+0.6.0&#160;<br/>
+Updated&#160;for&#160;MICROSAR&#160;RTE&#160;4.10.x&#160;<br/>
+0.6.1&#160;<br/>
+Updated&#160;for&#160;MICROSAR&#160;RTE&#160;4.11.x&#160;<br/>
+0.7.0&#160;<br/>
+Updated&#160;for&#160;MICROSAR&#160;RTE&#160;4.12.x&#160;<br/>New&#160;optimized&#160;Range&#160;Analysis&#160;algorithm&#160;<br/>Added&#160;Configuration&#160;Feedback&#160;<br/>Added&#160;Template&#160;Variant&#160;Check&#160;<br/>
+0.8.0&#160;<br/>
+Extended Configuration&#160;Feedback&#160;<br/>Findings&#160;that&#160;are&#160;expected&#160;to&#160;always&#160;occur&#160;were&#160;moved&#160;to&#160;the&#160;<br/>configuration&#160;feedback&#160;section in&#160;the&#160;Analysis&#160;report&#160;<br/>RTE&#160;Analyzer&#160;now&#160;automatically&#160;extracts&#160;the&#160;number&#160;of&#160;bytes written&#160;by&#160;<br/>the&#160;COM&#160;signal&#160;reception&#160;APIs&#160;from&#160;the&#160;generated MICROSAR&#160;COM&#160;<br/>sources&#160;<br/>RTE&#160;Analyzer&#160;now&#160;automatically&#160;extracts&#160;the&#160;size of&#160;the&#160;buffer&#160;that&#160;is&#160;<br/>passed&#160;by&#160;the&#160;NVM&#160;module&#160;from&#160;the&#160;generated&#160;MICROSAR&#160;NVM&#160;<br/>sources&#160;<br/>RTE&#160;Analyzer&#160;now&#160;checks&#160;for&#160;memcpy&#160;with overlapping&#160;source&#160;and&#160;<br/>destination&#160;<br/>
+0.9.0&#160;<br/>
+Compilation support&#160;is&#160;now&#160;included&#160;in&#160;MicrosarIRAnalyzer&#160;<br/>Added&#160;new&#160;checks&#160;for&#160;flags&#160;and overlapping&#160;memcpy&#160;arguments&#160;<br/>
+1.0.0&#160;<br/>
+First&#160;major&#160;release&#160;<br/>
+Table&#160;1-1&#160;&#160;&#160;RTE&#160;Analyzer&#160;history&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+6&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-7_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>2&#160;&#160;Introduction&#160;</b><br/>
+This&#160;&#160;document&#160;&#160;describes&#160;&#160;the&#160;&#160;static&#160;&#160;code&#160;&#160;analysis&#160;&#160;tool&#160;&#160;MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer.&#160;<br/>MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;is&#160;&#160;part&#160;&#160;of&#160;&#160;MICROSAR&#160;&#160;Safe&#160;&#160;RTE.&#160;&#160;MICROSAR&#160;&#160;Safe&#160;&#160;RTE&#160;<br/>provides&#160;&#160;an&#160;&#160;AUTOSAR&#160;&#160;RTE&#160;&#160;generator&#160;&#160;that&#160;&#160;is&#160;&#160;developed&#160;&#160;with&#160;&#160;an&#160;&#160;ISO26262&#160;&#160;compliant&#160;<br/>development&#160;process,&#160;to&#160;allow&#160;the&#160;usage&#160;of&#160;the&#160;generated&#160;RTE&#160;code&#160;within&#160;an&#160;ECU&#160;with&#160;<br/>functional safety&#160;requirements.&#160;<br/>MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;analyzes&#160;&#160;the&#160;&#160;generated&#160;&#160;RTE&#160;&#160;code&#160;&#160;for&#160;&#160;errors&#160;&#160;with&#160;&#160;a&#160;&#160;special&#160;<br/>emphasis&#160;on&#160;sporadic&#160;runtime&#160;errors that&#160;are&#160;hard to&#160;detect&#160;during&#160;ECU&#160;integration&#160;tests.&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+7&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-8_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>3&#160;&#160;Functional&#160;Description&#160;</b><br/>
+The&#160;&#160;features&#160;&#160;listed&#160;&#160;in&#160;&#160;the&#160;&#160;following&#160;&#160;table&#160;&#160;cover&#160;&#160;the&#160;&#160;complete&#160;&#160;functionality&#160;&#160;of&#160;&#160;MICROSAR&#160;<br/>RTE&#160;Analyzer.&#160;<br/>
+&#160;<br/>
+<b>Supported&#160;Features&#160;<br/></b>Compilation&#160;check&#160;for&#160;RTE&#160;code&#160;<br/>Detection&#160;of&#160;disallowed&#160;inline&#160;assembly&#160;usage&#160;in&#160;RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;template&#160;variants&#160;that&#160;are&#160;not&#160;allowed&#160;for&#160;SafeRTE&#160;<br/>Detection&#160;of&#160;template&#160;combinations&#160;that&#160;are&#160;not&#160;allowed&#160;for&#160;SafeRTE&#160;<br/>Detection&#160;of&#160;accesses&#160;to&#160;invalid pointers&#160;in RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;out&#160;of&#160;bounds write accesses&#160;in&#160;RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;memcpy&#160;operations&#160;with overlapping&#160;pointers&#160;in RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;global&#160;RTE&#160;variables that&#160;are not&#160;initialized&#160;<br/>Detection&#160;of&#160;interrupt&#160;lock&#160;API&#160;sequence&#160;mismatches&#160;in&#160;RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;OS&#160;APIs&#160;that&#160;are wrongly&#160;called&#160;with locked&#160;interrupts&#160;in RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;data&#160;consistency&#160;APIs&#160;that&#160;are&#160;called&#160;from&#160;the&#160;wrong context&#160;in RTE&#160;APIs&#160;<br/>Detection&#160;of&#160;RTE&#160;variables that&#160;are accessed&#160;from&#160;concurrent&#160;execution&#160;contexts&#160;without&#160;<br/>protection&#160;<br/>Detection&#160;of&#160;RTE&#160;variables that&#160;are accessed&#160;from&#160;multiple cores&#160;and&#160;that&#160;are not&#160;mapped&#160;to&#160;<br/>non-cacheable memory&#160;sections&#160;<br/>Detection&#160;of&#160;concurrent&#160;calls&#160;to non-reentrant&#160;APIs&#160;within RTE&#160;APIs&#160;<br/>Configuration Feedback&#160;for&#160;scheduling&#160;properties&#160;<br/>Configuration Feedback&#160;for&#160;executable entities&#160;<br/>Configuration Feedback&#160;for&#160;unreachable&#160;RTE&#160;APIs&#160;and&#160;entities&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;that&#160;require&#160;a valid COM&#160;buffer&#160;configuration&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;that&#160;require&#160;a valid NVM&#160;buffer&#160;configuration&#160;<br/>Automatic&#160;verification of&#160;COM&#160;buffer&#160;assumptions&#160;for&#160;MICROSAR&#160;COM&#160;<br/>Automatic&#160;verification&#160;of&#160;NVM&#160;buffer&#160;assumptions&#160;for&#160;MICROSAR&#160;NVM&#160;<br/>Configuration Feedback&#160;for&#160;non-typesafe&#160;interfaces to&#160;the&#160;BSW&#160;and SWCs&#160;where a&#160;call&#160;with a&#160;<br/>wrong&#160;parameter&#160;might&#160;cause out&#160;of&#160;bounds&#160;writes by&#160;the&#160;RTE&#160;or&#160;a&#160;called&#160;runnable/BSW&#160;API&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;for&#160;which a&#160;call&#160;from&#160;a&#160;wrong context&#160;might&#160;cause&#160;data&#160;<br/>consistency&#160;problems&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;that&#160;are&#160;blocking&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;that&#160;communicate&#160;with other&#160;ECUs&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with&#160;queues&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with alive timeout&#160;handling&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with invalidation handling&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with never&#160;received&#160;handling&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+8&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-9_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>Supported&#160;Features&#160;<br/></b>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with initial&#160;value&#160;handling&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with E2E&#160;transformer&#160;handling&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;with data&#160;conversion&#160;&#160;<br/>Configuration Feedback&#160;for&#160;RTE&#160;APIs&#160;that&#160;access&#160;non-volatile memory&#160;<br/>Configuration Feedback&#160;for&#160;exclusive areas&#160;<br/>Configuration Feedback&#160;for&#160;connections&#160;<br/>Configuration Feedback&#160;for&#160;recursive calls&#160;<br/>Configuration Feedback&#160;for&#160;spinlocks&#160;that&#160;need&#160;to&#160;protect&#160;from&#160;task&#160;interruptions&#160;<br/>RTE&#160;Analyzer&#160;Configuration&#160;generation by&#160;DaVinci&#160;CFG&#160;<br/>Analysis&#160;report&#160;generation&#160;<br/>Configuration&#160;Feedback&#160;Generation&#160;for&#160;QM&#160;and&#160;ASIL&#160;partitions&#160;<br/>
+Table&#160;3-1&#160;&#160;&#160;Supported&#160;&#160;features&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+9&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-10_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>4&#160;&#160;RTE&#160;Analysis&#160;and&#160;Integration&#160;</b><br/>
+This&#160;chapter&#160;gives&#160;necessary&#160;information&#160;&#160;about&#160;&#160;the&#160;content&#160;&#160;of&#160;the&#160;delivery,&#160;&#160;the&#160;usage&#160;of&#160;<br/>MICROSAR RTE&#160;Analyzer&#160;and&#160;a&#160;description&#160;of&#160;the&#160;generated&#160;report.&#160;<br/>
+<b>4.1&#160;</b><br/>
+<b>Scope&#160;of&#160;Delivery&#160;</b><br/>
+The&#160;delivery&#160;contains&#160;the&#160;files which&#160;are&#160;described&#160;in&#160;the&#160;chapte<a href="TechnicalReference_RteAnalyzers.html#10">rs&#160;4.1.1&#160;</a>and<a href="TechnicalReference_RteAnalyzers.html#12">&#160;4.1.2:</a>&#160;<br/>
+<b>4.1.1&#160;</b><br/>
+<b>Static&#160;Files&#160;</b><br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+MicrosarRteAnalyzer.exe&#160;<br/>
+MICROSAR&#160;RTE&#160;Analyzer&#160;command&#160;line&#160;frontend&#160;<br/>
+MicrosarRteAnalyzerCfgGen.exe&#160;<br/>
+MICROSAR&#160;RTE&#160;Analyzer&#160;configuration&#160;file&#160;generator&#160;<br/>(automatically&#160;invoked&#160;by&#160;DaVinci&#160;CFG&#160;during&#160;RTE&#160;<br/>generation)&#160;<br/>
+Settings_RteAnalyzer.xml&#160;<br/>
+DaVinci&#160;CFG&#160;adaption&#160;module&#160;<br/>
+TechnicalReference_RteAnalyzer.pdf&#160;<br/>
+This&#160;document&#160;<br/>
+MicrosarIRAnalyzer.exe&#160;<br/>
+Analysis&#160;backend&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe)&#160;<br/>
+License_Artistic.txt&#160;<br/>
+Perl license&#160;<br/>
+License_LLVM.txt&#160;<br/>
+LLVM/CLANG&#160;license&#160;<br/>
+Com.h&#160;<br/>
+Stub&#160;Com&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone&#160;RTE&#160;<br/>verification)&#160;<br/>
+Compiler.h&#160;<br/>
+Stub&#160;Compiler&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Compiler_Cfg.h&#160;<br/>
+Stub&#160;Compiler_Cfg header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+ComStack_Cfg.h&#160;<br/>
+Stub&#160;ComStack_Cfg header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+ComStack_Types.h&#160;<br/>
+Stub&#160;ComStack_Types&#160;header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Det.h&#160;<br/>
+Stub&#160;Det&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+E2EXf.h&#160;<br/>
+Stub&#160;E2EXf&#160;header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Float.h&#160;<br/>
+Stub&#160;Float&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Ioc.h&#160;<br/>
+Stub&#160;Ioc&#160;header&#160;(used internally&#160;by&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+10&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-11_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;<br/></b>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+LdCom.h&#160;<br/>
+Stub&#160;LdCom&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+MemMap.h&#160;<br/>
+Stub&#160;MemMap&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+NvM.h&#160;<br/>
+Stub&#160;NvM&#160;header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Os.h&#160;<br/>
+Stub&#160;Os&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Os_MemMap.h&#160;<br/>
+Stub&#160;Os_MemMap&#160;header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Platform_Types.h&#160;<br/>
+Stub&#160;Platform_Types&#160;header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Std_Types.h&#160;<br/>
+Stub&#160;Std_Types&#160;header&#160;(used internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+String.h&#160;<br/>
+Stub&#160;String&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone&#160;RTE&#160;<br/>verification)&#160;<br/>
+Xcp.h&#160;<br/>
+Stub&#160;Xcp&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+XcpProf.h&#160;<br/>
+Stub&#160;XcpProf&#160;header&#160;(used&#160;internally&#160;by&#160;<br/>MicrosarRteAnalyzer.exe&#160;for&#160;standalone RTE&#160;<br/>verification)&#160;<br/>
+Vstdlib.h&#160;<br/>
+Stub&#160;VStdlib&#160;header&#160;(used internally&#160;by&#160;<br/>MicroarRteAnalyzer.exe&#160;to extract&#160;the&#160;COM&#160;signal&#160;<br/>lengths)&#160;<br/>
+Table&#160;4-1&#160;&#160;&#160;Static&#160;files&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+11&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-12_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-12_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+RTE&#160;Analyzer assumes the&#160;following&#160;maximum&#160;data&#160;type&#160;sizes:&#160;<br/>
+&#160;<br/>
+<b>Type&#160;</b><br/>
+<b>Size&#160;in Bits&#160;</b><br/>
+sint8&#160;<br/>
+8&#160;<br/>
+uint8&#160;<br/>
+8&#160;<br/>
+sint16&#160;<br/>
+16&#160;<br/>
+uint16&#160;<br/>
+16&#160;<br/>
+sint32&#160;<br/>
+32&#160;<br/>
+uint32&#160;<br/>
+32&#160;<br/>
+sint64&#160;<br/>
+64&#160;<br/>
+uint64&#160;<br/>
+64&#160;<br/>
+float32&#160;<br/>
+32&#160;<br/>
+float64&#160;<br/>
+64&#160;<br/>
+enum&#160;<br/>
+32&#160;<br/>
+Table&#160;4-2&#160;&#160;&#160;Assumed&#160;platform&#160;type&#160;sizes&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Caution&#160;<br/></b>If&#160;the&#160;sizes of&#160;the&#160;platform&#160;types&#160;exceed the&#160;sizes describe<a href="TechnicalReference_RteAnalyzers.html#12">d&#160;Table&#160;4-2,</a>&#160;contact&#160;Vector&#160;<br/>
+<b>&#160;&#160;</b>as the&#160;size of&#160;the&#160;data&#160;types&#160;is&#160;used&#160;for&#160;the&#160;data&#160;consistency&#160;checks.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+<b>4.1.2&#160;</b><br/>
+<b>Dynamic&#160;Files&#160;</b><br/>
+The&#160;dynamic&#160;files&#160;are&#160;generated&#160;by&#160;the&#160;configuration&#160;tool&#160;DaVinci&#160;CFG&#160;to&#160;the&#160;RteAnalyzer&#160;<br/>subdirectory&#160;when&#160;the&#160;RTE&#160;is generated.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+RteAnalyzerConfiguration.json&#160;&#160;Configuration&#160;file&#160;for&#160;MICROSAR&#160;RTE&#160;Analyzer.&#160;<br/>&lt;BSW&gt;.c&#160;<br/>
+These&#160;files contain&#160;stub&#160;implementations&#160;for&#160;the schedulable&#160;<br/>entities&#160;that&#160;call&#160;all&#160;available RTE&#160;APIs.&#160;<br/>
+TestControl.c&#160;<br/>
+This&#160;file contains&#160;stubs&#160;for&#160;the&#160;BSW&#160;calls&#160;to&#160;the&#160;RTE.&#160;<br/>
+&lt;SWC&gt;.c&#160;<br/>
+These&#160;files&#160;contain stub&#160;implementations&#160;for&#160;the&#160;runnables that&#160;<br/>call&#160;all&#160;available RTE&#160;APIs.&#160;<br/>
+Com_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;configuration&#160;for&#160;the stub&#160;COM&#160;module.&#160;<br/>
+LdCom_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;configuration&#160;for&#160;the stub&#160;LDCOM&#160;module.&#160;<br/>
+Os_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;configuration&#160;for&#160;the stub&#160;OS&#160;module.&#160;<br/>
+Ioc_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;IOC&#160;configuration&#160;for&#160;the&#160;stub&#160;OS&#160;module.&#160;<br/>
+Xcp_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;configuration&#160;for&#160;the stub&#160;XCP&#160;module.&#160;<br/>
+NvM_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;configuration&#160;for&#160;the stub&#160;NVM&#160;module.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+12&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-13_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+E2EXf_Cfg.h&#160;<br/>
+This&#160;file contains&#160;the&#160;configuration&#160;for&#160;the stub&#160;E2EXf&#160;module.&#160;<br/>
+Table&#160;4-3&#160;&#160;&#160;Generated&#160;files&#160;<br/>
+Besides&#160;&#160;the&#160;&#160;files&#160;&#160;that&#160;&#160;are&#160;&#160;generated&#160;&#160;by&#160;&#160;DaVinci&#160;&#160;CFG,&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;generates&#160;&#160;the&#160;<br/>following&#160;files when&#160;invoked&#160;from&#160;the&#160;commandline.&#160;<br/>
+<b>File&#160;Name&#160;</b><br/>
+<b>Description&#160;</b><br/>
+AnalysisReport.txt&#160;<br/>
+Report&#160;that&#160;contains&#160;the&#160;results&#160;of&#160;the&#160;static&#160;code&#160;analysis&#160;and&#160;<br/>analysis&#160;assumptions&#160;that&#160;need&#160;to&#160;be&#160;reviewed&#160;by&#160;the&#160;user&#160;of&#160;<br/>MICROSAR&#160;RTE&#160;Analyzer.&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;</b><br/>
+<b>Restrictions&#160;&#160;</b><br/>
+MICROSAR&#160;RTE&#160;Analyzer&#160;uses&#160;a&#160;Compiler&#160;front&#160;end&#160;in&#160;order&#160;to&#160;compile&#160;the&#160;input&#160;source&#160;<br/>files.&#160;This&#160;&#160;Compiler&#160;front&#160;&#160;end&#160;&#160;requires&#160;ANSI-C&#160;&#160;90&#160;&#160;[1]&#160;&#160;conform&#160;&#160;source&#160;&#160;code.&#160;&#160;Some&#160;&#160;target&#160;<br/>compilers&#160;implement&#160;specific&#160;&#160;language&#160;&#160;extensions&#160;&#160;which&#160;&#160;might&#160;&#160;prevent&#160;&#160;MICROSAR&#160;<br/>RTE&#160;Analyzer&#160;&#160;&#160;&#160;from&#160;&#160;&#160;&#160;compiling&#160;&#160;&#160;&#160;the&#160;&#160;&#160;&#160;code&#160;successfully.&#160;The&#160;&#160;Vector&#160;&#160;BSW&#160;code&#160;&#160;does&#160;&#160;not&#160;<br/>contain&#160;&#160;such&#160;&#160;language&#160;&#160;extensions.&#160;&#160;However,&#160;&#160;these&#160;&#160;extensions&#160;&#160;may&#160;&#160;be&#160;&#160;included&#160;&#160;via&#160;<br/>customer&#160;&#160;header&#160;&#160;files.&#160;&#160;In&#160;&#160;such&#160;&#160;a&#160;&#160;case&#160;&#160;the&#160;&#160;customer&#160;&#160;shall&#160;&#160;take&#160;&#160;care&#160;&#160;that&#160;&#160;these&#160;&#160;language&#160;<br/>extensions&#160;&#160;are&#160;&#160;encapsulated&#160;&#160;via&#160;&#160;the&#160;&#160;preprocessor&#160;&#160;for&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;<br/>execution.&#160;&#160;The&#160;&#160;corresponding&#160;&#160;preprocessor&#160;&#160;switches&#160;&#160;can&#160;&#160;be&#160;&#160;specified&#160;&#160;via&#160;&#160;the&#160;&#160;command&#160;<br/>line&#160;when&#160;calling&#160;MICROSAR RTE&#160;Analyzer.&#160;<br/>
+&#160;<br/>
+<b>4.3&#160;</b><br/>
+<b>RTE&#160;Analyzer&#160;Command Line&#160;Options&#160;</b><br/>
+The&#160;&#160;frontend&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;starts&#160;&#160;the&#160;&#160;static&#160;&#160;code&#160;&#160;analysis.&#160;&#160;It&#160;&#160;can&#160;&#160;be&#160;&#160;started&#160;&#160;on&#160;&#160;the&#160;<br/>command&#160;&#160;line&#160;&#160;once&#160;&#160;the&#160;&#160;RTE&#160;&#160;and&#160;&#160;the&#160;&#160;MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;configuration&#160;&#160;were&#160;<br/>generated&#160;by&#160;DaVinci&#160;CFG.&#160;<br/>
+<b>Option&#160;</b><br/>
+<b>Description&#160;</b><br/>
+–c &lt;config&gt;&#160;<br/>
+Selects&#160;the&#160;configuration&#160;file of&#160;the project&#160;that&#160;shall&#160;be&#160;analyzed.&#160;<br/>&#160;<br/>
+-I &lt;dir&gt;&#160;<br/>
+Add&#160;directory&#160;name&#160;&lt;dir&gt;&#160;to include&#160;file&#160;search&#160;path&#160;<br/>
+-D&#160;&lt;name&gt;[=&lt;value&gt;]&#160;&#160;Defines&#160;macro&#160;with name &lt;name&gt;&#160;and value&#160;&lt;value&gt;&#160;<br/>–o &lt;path&gt;&#160;<br/>
+Selects&#160;the&#160;directory&#160;to&#160;which the&#160;analysis&#160;report&#160;will&#160;be&#160;written&#160;<br/>
+-e&#160;<br/>
+Extended&#160;Configuration&#160;Feedback.&#160;If&#160;not&#160;set,&#160;the&#160;Configuration&#160;<br/>Feedback will&#160;not&#160;include&#160;RTE&#160;functionality&#160;in&#160;OS&#160;Applications with&#160;<br/>SafetyLevel&#160;QM&#160;or&#160;OS&#160;Applications&#160;for&#160;which no&#160;SafetyLevel&#160;is&#160;<br/>configured&#160;in&#160;the&#160;ECUC&#160;module.&#160;<br/>
+-d&#160;<br/>
+Disable analysis&#160;of&#160;COM&#160;and NVM&#160;generation&#160;data&#160;<br/>
+-j&#160;<br/>
+Number&#160;of&#160;threads&#160;for&#160;compilation.&#160;Defaults&#160;to&#160;the&#160;number&#160;of&#160;<br/>processors.&#160;<br/>
+-V&#160;<br/>
+Shows&#160;the&#160;version&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+13&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-14_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+–h&#160;<br/>
+Shows&#160;the&#160;command&#160;line&#160;help&#160;<br/>
+-w&#160;<br/>
+Windows&#160;version (64Bit&#160;or&#160;32Bit)&#160;<br/>
+Table&#160;4-4&#160;&#160;&#160;RTE&#160;Analyzer&#160;Command&#160;Line&#160;Options&#160;<br/>
+<b>Example:&#160;<br/></b>MicrosarRteAnalyzer.exe&#160;-c&#160;RteAnalyzerConfiguration.json&#160;–o&#160;<br/>Reports&#160;&#160;<br/>
+&#160;<br/>
+<b>4.4&#160;</b><br/>
+<b>Analysis&#160;Report Contents&#160;</b><br/>
+RTE&#160;Analyzer&#160;prints&#160;errors that&#160;prevent&#160;the&#160;analysis of&#160;the&#160;system&#160;to&#160;the&#160;console.&#160;<br/>When&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;was&#160;&#160;executed&#160;&#160;without&#160;&#160;errors,&#160;&#160;an&#160;&#160;analysis&#160;&#160;report&#160;&#160;is&#160;&#160;written&#160;&#160;to&#160;&#160;the&#160;<br/>output&#160;directory&#160;that&#160;contains&#160;potential&#160;problems within&#160;the&#160;generated&#160;RTE.&#160;<br/>These&#160;problems&#160;are only&#160;listed&#160;in&#160;the&#160;report&#160;and&#160;not&#160;printed&#160;to&#160;the&#160;console.&#160;<br/>As&#160;not&#160;every&#160;detected&#160;violation&#160;necessarily&#160;leads&#160;to&#160;an&#160;error&#160;in&#160;the&#160;ECU,&#160;the&#160;final&#160;decision&#160;<br/>whether an&#160;issue&#160;is critical or not&#160;is up&#160;to&#160;the&#160;user of&#160;RTE&#160;Analyzer.&#160;<br/>Besides&#160;the&#160;detected&#160;constraint&#160;violations,&#160;the&#160;analysis&#160;report&#160;also&#160;contains&#160;assumptions&#160;<br/>about&#160;the&#160;system&#160;that&#160;were derived&#160;from&#160;the&#160;configuration.&#160;<br/>These&#160;assumptions need&#160;to&#160;be&#160;verified&#160;by&#160;the&#160;user of&#160;RTE&#160;Analyzer.&#160;<br/>
+&#160;<br/>
+<b>4.4.1&#160;</b><br/>
+<b>Analyzed Files&#160;</b><br/>
+The&#160;report&#160;starts&#160;with&#160;the&#160;version&#160;of&#160;the&#160;analysis&#160;report,&#160;the&#160;time&#160;of&#160;the&#160;analysis&#160;and&#160;the&#160;<br/>name&#160;of&#160;the&#160;windows user that&#160;initiated&#160;the&#160;analysis.&#160;<br/>Moreover&#160;the&#160;analyzed&#160;files&#160;are&#160;&#160;listed.&#160;It&#160;needs&#160;to&#160;be&#160;assured&#160;that&#160;&#160;the&#160;correct&#160;files&#160;were&#160;<br/>analyzed&#160;and&#160;no&#160;file&#160;is&#160;missing.&#160;<br/>
+&#160;<br/>
+<b>4.4.2&#160;</b><br/>
+<b>Configuration Parameters&#160;</b><br/>
+MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;relies&#160;&#160;on&#160;&#160;configuration&#160;&#160;parameters&#160;&#160;from&#160;&#160;DaVinci&#160;&#160;CFG&#160;&#160;to&#160;<br/>determine&#160;the&#160;scheduling&#160;properties&#160;of&#160;the&#160;individual tasks and&#160;BSW&#160;callbacks.&#160;<br/>These&#160;parameters&#160;need&#160;to&#160;be&#160;reviewed&#160;because&#160;a&#160;wrong&#160;parameter&#160;might&#160;lead&#160;to&#160;missed&#160;<br/>data&#160;consistency&#160;problems.&#160;<br/>The&#160;report&#160;contains&#160;the&#160;following&#160;parameters&#160;&#160;that&#160;&#160;need&#160;to&#160;be&#160;checked&#160;against&#160;&#160;the&#160;target&#160;<br/>system.&#160;<br/>
+&#160;<br/>
+<b>Parameter&#160;</b><br/>
+<b>Description&#160;</b><br/>
+MaxAtomicMemoryAccess&#160;<br/>
+Describes the&#160;maximum&#160;number&#160;of&#160;bytes&#160;for&#160;<br/>variable accesses up&#160;to&#160;which the&#160;compiler&#160;<br/>will&#160;emit&#160;an&#160;atomic&#160;access&#160;instruction.&#160;<br/>
+BswOsApplication&#160;<br/>
+Describes the&#160;OS&#160;Application&#160;from&#160;which the&#160;<br/>RTE&#160;Callbacks&#160;(Rte_COMCbk, Rte_LdCom,&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+14&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-15_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>Parameter&#160;</b><br/>
+<b>Description&#160;<br/></b>Rte_GetMirror, Rte_SetMirrors,&#160;…)&#160;<br/>are&#160;called.&#160;<br/>
+OsApplications&#160;<br/>
+Lists&#160;the&#160;OS&#160;Applications&#160;in the&#160;system&#160;<br/>
+OsApplicationName&#160;<br/>
+Name&#160;of&#160;the&#160;OS&#160;Application&#160;<br/>
+CoreId&#160;<br/>
+ID&#160;of&#160;the&#160;Core&#160;that&#160;contains the&#160;OS&#160;<br/>Application&#160;<br/>
+IsTrusted&#160;<br/>
+Describes if&#160;the&#160;OS&#160;Application runs&#160;without&#160;<br/>MPU&#160;(IsTrusted&#160;==&#160;1)&#160;or&#160;with MPU&#160;(IsTrusted&#160;<br/>==&#160;0)&#160;<br/>
+SafetyLevel&#160;<br/>
+SafetyLevel&#160;of&#160;the&#160;OS&#160;Application:&#160;QM,&#160;<br/>ASIL_A,&#160;ASIL_B,&#160;ASIL_C,&#160;ASIL_D&#160;<br/>
+Tasks&#160;<br/>
+List&#160;of&#160;OS&#160;Tasks&#160;that&#160;are&#160;assigned&#160;to&#160;the&#160;OS&#160;<br/>Application&#160;<br/>
+TaskName&#160;<br/>
+Name&#160;of&#160;the&#160;OS&#160;Task&#160;<br/>
+Priority&#160;<br/>
+Priority&#160;of&#160;the&#160;OS&#160;Task&#160;<br/>
+Preemption&#160;<br/>
+Preemption&#160;setting&#160;of&#160;the&#160;OS&#160;Task&#160;<br/>
+Callbacks&#160;<br/>
+List&#160;of&#160;callbacks&#160;that&#160;are&#160;assigned&#160;to&#160;the&#160;<br/>BswOsApplication&#160;<br/>
+CallbackName&#160;<br/>
+Name&#160;of&#160;the&#160;callback&#160;<br/>
+ExecutedOnTaskLevel&#160;<br/>
+Describes if&#160;the&#160;callback&#160;is&#160;called&#160;from&#160;a&#160;task&#160;<br/>(1)&#160;or&#160;from&#160;an&#160;ISR&#160;(0).&#160;<br/>
+Table&#160;4-5&#160;&#160;&#160;Analysis&#160;parameters&#160;that&#160;are&#160;extracted&#160;from&#160;the&#160;configuration&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>4.4.3&#160;</b><br/>
+<b>Findings&#160;</b><br/>
+RTE&#160;&#160;Analyzer&#160;&#160;currently&#160;&#160;reports&#160;&#160;the&#160;&#160;findings&#160;&#160;described&#160;&#160;in&#160;&#160;<a href="TechnicalReference_RteAnalyzers.html#22">Table&#160;&#160;4-6.&#160;&#160;</a>The&#160;&#160;description&#160;<br/>describes&#160;the&#160;possible&#160;findings&#160;in&#160;more&#160;detail&#160;and&#160;the&#160;actions&#160;that&#160;need&#160;to&#160;be&#160;taken&#160;when&#160;<br/>they&#160;are&#160;contained&#160;in&#160;the&#160;analysis report.&#160;<br/>
+&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;</b><br/>
+11000&#160;<br/>
+Unsupported&#160;integer&#160;to&#160;pointer&#160;conversion&#160;&#160;RTE&#160;code&#160;uses&#160;an&#160;integer&#160;value&#160;that&#160;was&#160;<br/>
+casted&#160;to&#160;a pointer&#160;type.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>uint8*&#160;ptr&#160;=&#160;0xdeadbeef;&#160;<br/>*ptr&#160;=&#160;5;&#160;<br/>&#160;<br/></i>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+11001&#160;<br/>
+Unsupported&#160;inline&#160;assembly&#160;<br/>
+RTE&#160;code&#160;uses&#160;inline&#160;assembly.&#160;<br/>Example:&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+15&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-16_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;<br/></b>&#160;<br/><i>asm(&#34;add&#160;%al,&#160;(%rax)&#34;);&#160;<br/>&#160;<br/></i>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+11006&#160;<br/>
+Unsupported&#160;path&#160;to&#160;pointer&#160;target&#160;<br/>
+The&#160;pointer&#160;analysis&#160;detected&#160;a&#160;code&#160;<br/>construct&#160;that&#160;it&#160;cannot&#160;handle.&#160;This&#160;code&#160;<br/>construct&#160;must&#160;not&#160;be&#160;used&#160;in RTE&#160;code.&#160;<br/>Contact&#160;Vector.&#160;<br/>
+11007&#160;<br/>
+Unsupported&#160;usage of&#160;memcpy&#160;or&#160;memset&#160;&#160;Memcpy&#160;or&#160;memset&#160;is&#160;used&#160;through an&#160;<br/>
+indirect&#160;function&#160;call.&#160;This&#160;code&#160;construct&#160;<br/>must&#160;not&#160;be&#160;used in&#160;RTE&#160;code.&#160;Contact&#160;<br/>Vector.&#160;<br/>
+11009&#160;<br/>
+Unsupported&#160;instruction&#160;<br/>
+An instruction&#160;was encountered.&#160;&#160;This&#160;<br/>code construct&#160;must&#160;not&#160;be&#160;used in&#160;RTE&#160;<br/>code.&#160;Contact&#160;Vector.&#160;<br/>
+12000&#160;<br/>
+Potential&#160;out&#160;of&#160;bounds&#160;write&#160;<br/>
+A&#160;pointer&#160;that&#160;was already&#160;used in&#160;the&#160;<br/>preparation&#160;of&#160;the&#160;analysis&#160;is&#160;outside&#160;of&#160;<br/>the&#160;assumptions&#160;that&#160;were&#160;used during&#160;<br/>the&#160;preparations.&#160;<br/>Example:&#160;<br/><i>&#160;<br/>typedef&#160;struct&#160;{&#160;<br/>&#160;&#160;&#160;uint8*&#160;a;&#160;<br/>&#160;&#160;&#160;uint8*&#160;b;&#160;<br/>}&#160;struct_t;&#160;<br/>&#160;<br/>struct_t&#160;s;&#160;<br/>&#160;<br/>uint8**&#160;ptr&#160;=&#160;&amp;s.a;&#160;<br/>ptr[1][0]&#160;=&#160;7;&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+12001&#160;<br/>
+Potential&#160;null&#160;pointer&#160;write&#160;<br/>
+An RTE&#160;API&#160;writes&#160;to a&#160;pointer&#160;that&#160;may&#160;<br/>be&#160;null.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+12002&#160;<br/>
+Potential&#160;out&#160;of&#160;bounds&#160;write&#160;<br/>
+An RTE&#160;API&#160;writes outside of&#160;the&#160;bounds&#160;<br/>of&#160;a&#160;variable.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>uint8&#160;a[5];&#160;<br/>a[5]&#160;=&#160;1;&#160;<br/>&#160;<br/></i>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+16&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-17_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;<br/></b>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+12003&#160;<br/>
+Potential&#160;access&#160;of&#160;invalid pointer&#160;<br/>
+An RTE&#160;API&#160;accesses an&#160;invalid pointer.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13000&#160;<br/>
+Unexpected&#160;lock sequence&#160;<br/>
+A&#160;lock&#160;function is&#160;not&#160;followed&#160;by&#160;an&#160;<br/>appropriate&#160;unlock&#160;function.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>SuspendAllInterrupts();&#160;<br/>a =&#160;5;&#160;<br/>ResumeOSInterrupts();&#160;<br/>&#160;<br/></i>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13001&#160;<br/>
+Different&#160;lock&#160;states&#160;for&#160;loop&#160;<br/>
+A&#160;function&#160;uses&#160;different&#160;lock states&#160;in&#160;<br/>different&#160;loop iterations.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>for&#160;(i&#160;=&#160;0;&#160;i&#160;&lt;&#160;20;&#160;i++)&#160;<br/>{&#160;<br/>&#160;&#160;&#160;&#160;if&#160;(i&#160;==&#160;5)&#160;<br/>&#160;&#160;&#160;{&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DisableAllInterupts();&#160;<br/>&#160;&#160;&#160;&#160;}&#160;<br/>&#160;&#160;&#160;&#160;if&#160;(i&#160;==&#160;6)&#160;<br/>&#160;&#160;&#160;&#160;{&#160;<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;EnableAllInterrupts();&#160;<br/>&#160;&#160;&#160;&#160;}&#160;<br/>}&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13002&#160;<br/>
+Different&#160;lock&#160;states&#160;for&#160;call&#160;<br/>
+A&#160;call&#160;may&#160;be&#160;done&#160;with and without&#160;prior&#160;<br/>locking.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>if&#160;(a&#160;==&#160;0)&#160;<br/>{&#160;<br/>&#160;&#160;&#160;DisableAllInterrupts();&#160;<br/>}&#160;<br/>Function();&#160;<br/>&#160;<br/></i>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.<i>&#160;</i><br/>
+13003&#160;<br/>
+Different&#160;lock&#160;states&#160;for&#160;recursive call&#160;<br/>
+A&#160;recursive&#160;function&#160;changes&#160;the&#160;lock&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+17&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-18_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;<br/></b>state&#160;prior&#160;to&#160;the&#160;next&#160;recursion.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>void func()&#160;<br/>{&#160;<br/>&#160;&#160;&#160;&#160;DisableAllInterrupts();&#160;<br/>&#160;&#160;&#160;&#160;func();&#160;<br/>&#160;&#160;&#160;&#160;EnableAllInterrupts();&#160;<br/>}&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13004&#160;<br/>
+Different&#160;lock&#160;states&#160;for&#160;return&#160;<br/>
+A&#160;function&#160;may&#160;return a&#160;with different&#160;lock&#160;<br/>state.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>DisableAllInterrupts();&#160;<br/>if&#160;(a)&#160;<br/>{&#160;<br/>&#160;&#160;&#160;return;&#160;<br/>}&#160;<br/>EnableAllInterrupts();&#160;<br/>return;&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13005&#160;<br/>
+Task&#160;or&#160;ISR&#160;returns&#160;with locked&#160;interrupts&#160;<br/>
+A&#160;RTE&#160;Task&#160;or&#160;callback&#160;returns&#160;with&#160;<br/>locked&#160;interrupts&#160;in at&#160;least&#160;one&#160;code&#160;<br/>branch.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13006&#160;<br/>
+OS&#160;API&#160;called&#160;with locked interrupt&#160;<br/>
+An OS&#160;API&#160;e.g.&#160;WaitEvent&#160;is&#160;called&#160;with&#160;<br/>locked&#160;interrupts.&#160;This&#160;is&#160;prohibited&#160;by&#160;the&#160;<br/>OS&#160;specification.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13007&#160;<br/>
+OS&#160;API&#160;called&#160;with disabled&#160;interrupts&#160;<br/>
+An OS&#160;API&#160;e.g.&#160;SuspendOSInterrupts&#160;<br/>is&#160;called&#160;within a&#160;section&#160;that&#160;is&#160;locked&#160;<br/>with DisableAllInterrupts.&#160;This&#160;is&#160;<br/>prohibited&#160;by&#160;the&#160;OS&#160;specification.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13008&#160;<br/>
+OS&#160;API&#160;called&#160;in wrong context&#160;<br/>
+An optimized&#160;MICROSAR&#160;interrupt&#160;lock&#160;<br/>API&#160;is&#160;called&#160;from&#160;the&#160;wrong context.&#160;E.g.&#160;<br/>an&#160;optimized&#160;lock&#160;API&#160;for&#160;trusted&#160;OS&#160;<br/>application is called&#160;from&#160;an&#160;untrusted&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+18&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-19_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;<br/></b>application.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13009&#160;<br/>
+Accesses&#160;can&#160;interrupt&#160;each&#160;other&#160;<br/>
+RTE&#160;Analyzer&#160;detected&#160;that&#160;a&#160;variable is&#160;<br/>accessed&#160;from&#160;multiple&#160;tasks&#160;that&#160;can&#160;<br/>interrupt&#160;each&#160;other.&#160;The&#160;variable is not&#160;<br/>protected&#160;by&#160;an&#160;OS&#160;API&#160;e.g.&#160;interrupt&#160;<br/>lock or spinlock.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13010&#160;<br/>
+Non-reentrant&#160;function&#160;with non-constant&#160;<br/>
+RTE&#160;Analyzer&#160;checks&#160;the&#160;RTE&#160;for&#160;<br/>
+handle&#160;<br/>
+concurrent&#160;calls&#160;to&#160;BSW&#160;APIs.&#160;If&#160;the&#160;<br/>reentrancy&#160;depends&#160;on&#160;the&#160;handle,&#160;the&#160;<br/>handle needs&#160;to be&#160;constant&#160;so&#160;that&#160;it&#160;can&#160;<br/>be&#160;analyzed&#160;by&#160;RTE&#160;Analyzer.&#160;This&#160;code&#160;<br/>construct&#160;must&#160;not&#160;be&#160;used&#160;in the&#160;RTE&#160;<br/>code.&#160;Contact&#160;Vector.&#160;<br/>
+13011&#160;<br/>
+Non-reentrant&#160;function&#160;invoked&#160;<br/>
+RTE&#160;Analyzer&#160;detects&#160;concurrently&#160;called&#160;<br/>
+concurrently&#160;<br/>
+functions&#160;for&#160;which the&#160;caller&#160;would have&#160;<br/>needed&#160;to&#160;assure non-reentrant&#160;calls.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13012&#160;<br/>
+Different&#160;resources&#160;used&#160;on&#160;same&#160;core&#160;<br/>
+The&#160;RTE&#160;code uses&#160;different&#160;resources&#160;to&#160;<br/>protect&#160;the&#160;same&#160;variable.&#160;If&#160;a variable&#160;<br/>needs&#160;to&#160;be&#160;protected&#160;from&#160;concurrent&#160;<br/>accesses in&#160;multiple&#160;tasks,&#160;the&#160;same&#160;<br/>resource&#160;needs&#160;to&#160;be&#160;used&#160;for&#160;all&#160;<br/>accesses.&#160;This&#160;code&#160;construct&#160;must&#160;not&#160;<br/>be&#160;used in&#160;the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13013&#160;<br/>
+Different&#160;spinlocks&#160;used&#160;<br/>
+The&#160;RTE&#160;code uses&#160;different&#160;spinlocks&#160;to&#160;<br/>protect&#160;the&#160;same&#160;variable on&#160;a&#160;single&#160;<br/>core.&#160;If&#160;a&#160;variable needs&#160;to be&#160;protected&#160;<br/>from&#160;concurrent&#160;accesses&#160;on&#160;multiple&#160;<br/>cores,&#160;the&#160;same&#160;spinlock needs&#160;to be&#160;<br/>used&#160;for&#160;all&#160;accesses.&#160;This&#160;code construct&#160;<br/>must&#160;not&#160;be&#160;used in&#160;the&#160;RTE&#160;code.&#160;<br/>Contact&#160;Vector.&#160;<br/>
+13014&#160;<br/>
+Not&#160;all&#160;accesses&#160;protected&#160;with resource&#160;<br/>
+The&#160;RTE&#160;code does&#160;not&#160;always&#160;use&#160;<br/>resources&#160;to protect&#160;a&#160;variable.&#160;If&#160;a&#160;<br/>variable needs&#160;to be&#160;protected&#160;from&#160;<br/>concurrent&#160;accesses&#160;in&#160;multiple tasks,&#160;the&#160;<br/>same&#160;resource needs&#160;to&#160;be&#160;used&#160;for&#160;all&#160;<br/>accesses.&#160;This&#160;code&#160;construct&#160;must&#160;not&#160;<br/>be&#160;used in&#160;the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+13015&#160;<br/>
+Bitfield write access&#160;without&#160;interrupt&#160;locks&#160;&#160;The&#160;RTE&#160;uses interrupt&#160;locks&#160;to prevent&#160;<br/>
+read&#160;modify&#160;write problems&#160;in&#160;bitfields.&#160;<br/>RTE&#160;Analyzer&#160;detected&#160;an access&#160;without&#160;<br/>locks.&#160;This&#160;code&#160;construct&#160;must&#160;not&#160;be&#160;<br/>used in&#160;the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+19&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-20_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;</b><br/>
+13017&#160;<br/>
+Lock&#160;type&#160;cannot&#160;be&#160;nested&#160;<br/>
+The&#160;RTE&#160;uses a&#160;non-nestable interrupt&#160;<br/>lock nestedly.&#160;This&#160;code&#160;construct&#160;must&#160;<br/>not&#160;be&#160;used in&#160;the&#160;RTE&#160;code.&#160;Contact&#160;<br/>Vector.&#160;&#160;<br/>
+13018&#160;<br/>
+Lock&#160;uses&#160;unsupported&#160;handle parameter&#160;<br/>
+The&#160;RTE&#160;uses a&#160;nonconstant&#160;handle&#160;for&#160;<br/>spinlocks&#160;or&#160;resources.&#160;This&#160;code&#160;<br/>construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;the&#160;RTE&#160;<br/>code.&#160;Contact&#160;Vector.&#160;<br/>
+14000&#160;<br/>
+Unmatched&#160;memory&#160;section&#160;<br/>
+A&#160;memory&#160;section&#160;was not&#160;closed&#160;<br/>correctly.&#160;Example:&#160;<br/>&#160;<br/><i>#define RTE_START_SEC_VAR&#160;<br/>#include “MemMap.h”&#160;<br/>uint8&#160;var;&#160;<br/>#define RTE_STOP_SEC_CONST&#160;<br/>#include “MemMap.h”&#160;<br/>&#160;<br/></i>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+14001&#160;<br/>
+Variable not&#160;mapped&#160;to&#160;memory&#160;section&#160;<br/>
+A&#160;variable is declared&#160;without&#160;being&#160;<br/>mapped&#160;to a&#160;memory&#160;section.&#160;<br/>&#160;<br/>Example:&#160;<br/>&#160;<br/><i>uint8&#160;var;&#160;<br/>&#160;<br/>#define RTE_START_SEC_VAR&#160;<br/>#include “MemMap.h”&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+14002&#160;<br/>
+Variable not&#160;mapped&#160;to&#160;NOCACHE&#160;<br/>
+A&#160;variable that&#160;is&#160;accessed&#160;from&#160;multiple&#160;<br/>
+memory&#160;section&#160;<br/>
+cores&#160;is&#160;not&#160;mapped&#160;to a&#160;NOCACHE&#160;<br/>memory&#160;section.&#160;This&#160;may&#160;lead to data&#160;<br/>consistency&#160;problems.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>#define RTE_START_SEC_VAR&#160;<br/>#include “MemMap.h”&#160;<br/>&#160;<br/>uint8&#160;var;&#160;<br/>&#160;<br/>#define RTE_STOP_SEC_VAR&#160;<br/>#include “MemMap.h”&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+20&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-21_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;<br/></b>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+16000&#160;<br/>
+Missing&#160;task&#160;info&#160;<br/>
+The&#160;configuration&#160;contains no&#160;task&#160;<br/>settings&#160;for&#160;the&#160;task.&#160;Possible reason:&#160;a&#160;<br/>function&#160;ends&#160;with the&#160;name&#160;func&#160;and&#160;is&#160;<br/>missdetected&#160;as&#160;OS&#160;Task&#160;by&#160;RTE&#160;<br/>Analyzer.&#160;Rename&#160;the&#160;function or&#160;ignore&#160;<br/>the&#160;message.&#160;<br/>
+17000&#160;<br/>
+Potential&#160;illegal&#160;memcpy&#160;<br/>
+Memcpy&#160;is&#160;called&#160;with overlapping&#160;source&#160;<br/>and destination&#160;arguments.&#160;<br/>Example:&#160;<br/>&#160;<br/><i>Rte_MemCpy(dst,&#160;dst,&#160;5);&#160;<br/></i>&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+17001&#160;<br/>
+Potential&#160;illegal&#160;memcpy&#160;(undeterminable)&#160;&#160;Memcpy&#160;may&#160;be&#160;called&#160;with overlapping&#160;<br/>
+source and&#160;destination&#160;arguments.&#160;The&#160;<br/>size could not&#160;be&#160;resolved.&#160;This&#160;code&#160;<br/>construct&#160;must&#160;not&#160;be&#160;used&#160;in the&#160;RTE&#160;<br/>code.&#160;Contact&#160;Vector.&#160;<br/>
+20000&#160;<br/>
+Use of&#160;uninitialized&#160;variables&#160;<br/>
+RTE&#160;code&#160;reads&#160;variables that&#160;are not&#160;<br/>initialized&#160;in&#160;Rte_Start&#160;or&#160;<br/>Rte_InitMemory.&#160;This&#160;code construct&#160;<br/>must&#160;not&#160;be&#160;used in&#160;the&#160;RTE&#160;code.&#160;<br/>Contact&#160;Vector.&#160;<br/>
+20001&#160;<br/>
+Inconsistent&#160;handling&#160;of&#160;never&#160;received&#160;<br/>
+RTE&#160;code&#160;accesses&#160;never&#160;received&#160;flags&#160;<br/>
+flags&#160;<br/>
+that&#160;are&#160;not&#160;set&#160;on&#160;the&#160;sending&#160;side.&#160;&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+20002&#160;<br/>
+Inconsistent&#160;handling&#160;of&#160;invalidate&#160;flags&#160;<br/>
+RTE&#160;code&#160;accesses&#160;invalidate&#160;flags&#160;that&#160;<br/>are&#160;not&#160;set&#160;on&#160;the&#160;sending side.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+20003&#160;<br/>
+Inconsistent&#160;handling&#160;of&#160;update&#160;flags&#160;<br/>
+RTE&#160;code&#160;accesses&#160;invalidate&#160;flags&#160;that&#160;<br/>are&#160;not&#160;set&#160;on&#160;the&#160;sending side.&#160;<br/>This&#160;code construct&#160;must&#160;not&#160;be&#160;used&#160;in&#160;<br/>the&#160;RTE&#160;code.&#160;Contact&#160;Vector.&#160;<br/>
+20004&#160;<br/>
+Inconsistent&#160;handling&#160;of&#160;idle&#160;flags&#160;<br/>
+RTE&#160;code&#160;accesses&#160;idle&#160;flags&#160;in an&#160;<br/>unsupported&#160;way.&#160;This&#160;code construct&#160;<br/>must&#160;not&#160;be&#160;used in&#160;the&#160;RTE&#160;code.&#160;<br/>Contact&#160;Vector.&#160;<br/>
+20005&#160;<br/>
+Inconsistent&#160;handling&#160;of&#160;overflow&#160;flags&#160;<br/>
+RTE&#160;code&#160;accesses&#160;overflow&#160;flags&#160;in&#160;an&#160;<br/>unsupported&#160;way.&#160;This&#160;code construct&#160;<br/>must&#160;not&#160;be&#160;used in&#160;the&#160;RTE&#160;code.&#160;<br/>Contact&#160;Vector.&#160;<br/>
+20006&#160;<br/>
+Inconsistent&#160;handling&#160;of&#160;call&#160;completed&#160;<br/>
+RTE&#160;code&#160;accesses&#160;call&#160;completed&#160;flags&#160;<br/>
+flags&#160;<br/>
+in an&#160;unsupported&#160;way.&#160;This&#160;code&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+21&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-22_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>ID&#160;</b><br/>
+<b>Headline&#160;</b><br/>
+<b>Description&#160;<br/></b>construct&#160;must&#160;not&#160;be&#160;used&#160;in the&#160;RTE&#160;<br/>code.&#160;Contact&#160;Vector.&#160;<br/>
+Table&#160;4-6&#160;&#160;&#160;RTE&#160;Analyzer&#160;Findings&#160;<br/>
+<b>4.4.4&#160;</b><br/>
+<b>Configuration Feedback&#160;</b><br/>
+The&#160;&#160;findings&#160;&#160;from&#160;&#160;chapter&#160;&#160;<a href="TechnicalReference_RteAnalyzers.html#15">4.4.3&#160;&#160;</a>describe&#160;&#160;inconsistencies&#160;&#160;within&#160;&#160;the&#160;&#160;generated&#160;&#160;RTE.&#160;<br/>However,&#160;&#160;also&#160;&#160;a&#160;&#160;consistently&#160;&#160;generated&#160;&#160;RTE&#160;&#160;may&#160;&#160;violate&#160;&#160;functional&#160;&#160;safety&#160;&#160;requirements&#160;<br/>when&#160;&#160;the&#160;&#160;generated&#160;&#160;RTE&#160;&#160;does&#160;&#160;not&#160;&#160;match&#160;&#160;the&#160;&#160;intentions&#160;&#160;of&#160;&#160;the&#160;&#160;user&#160;&#160;e.g.&#160;&#160;when&#160;&#160;wrong&#160;<br/>configuration&#160;parameters were chosen&#160;for the&#160;intended&#160;use&#160;case.&#160;&#160;<br/>Therefore,&#160;during&#160;development&#160;of&#160;the&#160;RTE&#160;Generator&#160;a&#160;safety&#160;analysis&#160;is&#160;performed&#160;on&#160;all&#160;<br/>input&#160;&#160;parameters&#160;&#160;of&#160;&#160;the&#160;&#160;generator&#160;&#160;in&#160;&#160;order&#160;&#160;to&#160;&#160;detect&#160;&#160;functionality&#160;&#160;for&#160;&#160;which&#160;&#160;a&#160;&#160;slightly&#160;<br/>different&#160;&#160;configuration&#160;&#160;leads&#160;&#160;to&#160;&#160;the&#160;&#160;generation&#160;&#160;of&#160;&#160;APIs&#160;&#160;with&#160;&#160;compatible&#160;&#160;C&#160;&#160;signature&#160;&#160;but&#160;<br/>different&#160;runtime&#160;behavior.&#160;<br/>RTE&#160;Analyzer&#160;lists&#160;the&#160;&#160;detected&#160;functionality&#160;in&#160;the&#160;analysis&#160;report,&#160;so&#160;that&#160;an&#160;integration&#160;<br/>test&#160;&#160;as&#160;&#160;required&#160;&#160;by&#160;&#160;ISO26262&#160;&#160;can&#160;&#160;confirm&#160;&#160;that&#160;&#160;only&#160;&#160;the&#160;&#160;intended&#160;&#160;and&#160;&#160;no&#160;&#160;unintended&#160;<br/>functionality&#160;is&#160;implemented&#160;in&#160;the&#160;generated&#160;RTE.&#160;<br/>This&#160;also&#160;makes&#160;it&#160;&#160;possible&#160;to&#160;use&#160;MICROSAR&#160;RTE&#160;Generator&#160;in&#160;&#160;combination&#160;with&#160;&#160;non-<br/>TCL1&#160;configuration&#160;tools&#160;as&#160;unintended&#160;configuration&#160;modifications&#160;by&#160;the&#160;tool&#160;will&#160;lead&#160;to&#160;<br/>an&#160;unexpected&#160;configuration&#160;feedback.&#160;&#160;<br/>By&#160;&#160;default&#160;&#160;the&#160;&#160;configuration&#160;&#160;feedback&#160;&#160;is&#160;&#160;only&#160;&#160;printed&#160;&#160;for&#160;&#160;the&#160;&#160;OS&#160;&#160;Applications&#160;&#160;with&#160;&#160;ASIL&#160;<br/>safety&#160;&#160;levels.&#160;&#160;When&#160;&#160;the&#160;&#160;–e&#160;&#160;configuration&#160;&#160;switch&#160;&#160;is&#160;&#160;enabled,&#160;&#160;the&#160;&#160;RTE&#160;&#160;functionality&#160;&#160;in&#160;&#160;OS&#160;<br/>Applications&#160;with&#160;SafetyLevel&#160;QM&#160;&#160;is&#160;&#160;also&#160;&#160;included.&#160;Analysis&#160;report&#160;contains&#160;the&#160;following&#160;<br/>information:&#160;<br/>
+&#160;&#160;Function&#160;may&#160;be&#160;called&#160;recursively&#160;-&#160;The&#160;software&#160;design&#160;contains&#160;e.g.&#160;configured&#160;<br/>
+client&#160;&#160;server&#160;&#160;calls&#160;&#160;that&#160;&#160;may&#160;&#160;lead&#160;&#160;to&#160;&#160;recursive&#160;&#160;calls.&#160;&#160;ISO26262&#160;&#160;recommends&#160;&#160;that&#160;<br/>recursion&#160;is not&#160;used&#160;in&#160;the&#160;software design&#160;and&#160;implementation.&#160;<br/>
+&#160;&#160;Uncalled&#160;function&#160;-&#160;A&#160;function&#160;e.g.&#160;a&#160;server&#160;runnable&#160;without&#160;connected&#160;client&#160;was&#160;<br/>
+encountered&#160;during&#160;the&#160;analysis.&#160;Functions&#160;that&#160;are&#160;not&#160;called&#160;are&#160;not&#160;analyzed&#160;by&#160;<br/>RTE&#160;Analyzer.&#160;Assure that&#160;the&#160;function&#160;is&#160;not&#160;called&#160;in&#160;the&#160;target&#160;system,&#160;either.&#160;<br/>
+&#160;&#160;Call&#160;&#160;with&#160;&#160;non-typesafe&#160;&#160;parameters&#160;&#160;-&#160;&#160;Some&#160;&#160;APIs&#160;&#160;contain&#160;&#160;pointers&#160;&#160;that&#160;&#160;are&#160;&#160;not&#160;<br/>
+typesafe&#160;&#160;e.g.&#160;&#160;because&#160;&#160;the&#160;&#160;parameter&#160;&#160;type&#160;&#160;is&#160;&#160;a&#160;&#160;pointer&#160;&#160;to&#160;&#160;the&#160;&#160;base&#160;&#160;type&#160;&#160;and&#160;&#160;the&#160;<br/>function&#160;writes&#160;more&#160;than&#160;a&#160;single&#160;element&#160;of&#160;this&#160;type.&#160;The&#160;parameter&#160;may&#160;also&#160;be&#160;<br/>a&#160;void&#160;pointer&#160;type.&#160;RTE&#160;Analyzer&#160;lists&#160;these&#160;functions&#160;so&#160;that&#160;it&#160;can&#160;be&#160;verified&#160;that&#160;<br/>the&#160;passed&#160;buffer&#160;matches&#160;the&#160;expectations&#160;of&#160;the&#160;called&#160;function.&#160;Please&#160;note&#160;that&#160;<br/>the&#160;buffer&#160;that&#160;is&#160;listed&#160;by&#160;RTE&#160;Analyzer&#160;might&#160;be&#160;larger&#160;than&#160;the&#160;actual&#160;number&#160;of&#160;<br/>bytes that&#160;are written&#160;by&#160;the&#160;called&#160;function.&#160;<br/>
+&#160;&#160;COM&#160;call&#160;with&#160;non-typesafe&#160;parameters&#160;–&#160;The&#160;COM&#160;APIs&#160;for&#160;data&#160;reception&#160;are&#160;not&#160;<br/>
+typesafe.&#160;It&#160;has&#160;to&#160;be&#160;assured,&#160;that&#160;COM&#160;does&#160;not&#160;write&#160;more&#160;bytes&#160;than&#160;expected&#160;<br/>by&#160;&#160;the&#160;&#160;RTE.&#160;&#160;If&#160;&#160;MICROSAR&#160;&#160;COM&#160;&#160;is&#160;&#160;used,&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;extracts&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;<br/>written&#160;bytes&#160;from&#160;the&#160;generated&#160;COM sources.&#160;<br/>
+&#160;&#160;NVM&#160;&#160;callback&#160;&#160;with&#160;&#160;non-typesafe&#160;&#160;parameters&#160;&#160;–&#160;The&#160;&#160;NVM&#160;&#160;GetMirror&#160;&#160;callback&#160;&#160;does&#160;<br/>
+not&#160;have&#160;typesafe&#160;parameters.&#160;It&#160;has&#160;to&#160;be&#160;assured&#160;that&#160;the&#160;buffer&#160;that&#160;is&#160;passed&#160;by&#160;<br/>the&#160;&#160;NVM&#160;&#160;is&#160;&#160;not&#160;&#160;smaller&#160;&#160;than&#160;&#160;the&#160;&#160;number&#160;&#160;of&#160;&#160;bytes&#160;&#160;that&#160;&#160;are&#160;&#160;written&#160;&#160;by&#160;&#160;the&#160;&#160;RTE.&#160;&#160;If&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+22&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-23_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+MICROSAR&#160;&#160;NVM&#160;&#160;is&#160;&#160;used,&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;extracts&#160;&#160;the&#160;&#160;available&#160;&#160;number&#160;&#160;of&#160;&#160;bytes&#160;<br/>from&#160;the&#160;generated&#160;NVM&#160;sources.&#160;<br/>
+&#160;&#160;API&#160;&#160;for&#160;&#160;Safe&#160;&#160;component&#160;&#160;must&#160;&#160;not&#160;&#160;be&#160;&#160;called&#160;&#160;from&#160;&#160;wrong&#160;&#160;context&#160;&#160;-&#160;&#160;The&#160;&#160;RTE&#160;<br/>
+generator&#160;&#160;disables&#160;&#160;task&#160;&#160;priority&#160;&#160;optimizations&#160;&#160;for&#160;&#160;partitions&#160;&#160;with&#160;&#160;an&#160;&#160;ASIL&#160;&#160;Safety&#160;<br/>Level. If&#160;an&#160;API&#160;is used&#160;only&#160;on&#160;a&#160;single&#160;task according&#160;to&#160;the&#160;configuration,&#160;the&#160;RTE&#160;<br/>generator&#160;&#160;optimizes&#160;&#160;nevertheless.&#160;&#160;RTE&#160;Analyzer&#160;&#160;lists&#160;&#160;these&#160;APIs&#160;&#160;so&#160;&#160;that&#160;&#160;it&#160;&#160;can&#160;&#160;be&#160;<br/>confirmed&#160;that&#160;the&#160;APIs&#160;are&#160;not&#160;accidently&#160;called&#160;from&#160;a&#160;runnable&#160;for&#160;which&#160;no&#160;port&#160;<br/>access was configured&#160;in&#160;the&#160;configuration.&#160;<br/>
+&#160;&#160;Non-Queued&#160;connections&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;non-queued&#160;intra-ECU&#160;sender-<br/>
+receiver&#160;&#160;connections&#160;&#160;between&#160;&#160;Rte_Write,&#160;&#160;Rte_IWrite,&#160;&#160;Rte_Read,&#160;<br/>Rte_DRead, Rte_IRead.&#160;<br/>
+&#160;&#160;Queued&#160;&#160;connections&#160;&#160;–&#160;&#160;This&#160;&#160;contains&#160;&#160;list&#160;&#160;of&#160;&#160;all&#160;&#160;queued&#160;&#160;intra-ECU&#160;&#160;sender-receiver&#160;<br/>
+communication&#160;connections&#160;between&#160;Rte_Send&#160;and&#160;Rte_Receive.&#160;<br/>
+&#160;&#160;Inter-runnable&#160;&#160;connections&#160;&#160;–&#160;&#160;This&#160;&#160;contains&#160;&#160;list&#160;&#160;of&#160;&#160;all&#160;&#160;inter-runnable&#160;&#160;variable&#160;<br/>
+connections.&#160;<br/>
+&#160;&#160;External&#160;connections&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;the&#160;APIs&#160;and&#160;server&#160;runnables&#160;that&#160;<br/>
+communicate&#160;with&#160;other ECUs.&#160;<br/>
+&#160;&#160;Switch-mode&#160;&#160;connections&#160;&#160;–&#160;&#160;This&#160;&#160;contains&#160;&#160;list&#160;&#160;of&#160;&#160;all&#160;&#160;mode&#160;&#160;connections&#160;&#160;between&#160;<br/>
+Rte_Switch&#160;and&#160;Rte_Mode.&#160;<br/>
+&#160;&#160;Exclusive&#160;areas&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;exclusive&#160;areas&#160;and&#160;their&#160;implementation&#160;<br/>
+methods.&#160;&#160;This&#160;&#160;includes&#160;&#160;explicit&#160;&#160;and&#160;&#160;implicit&#160;&#160;exclusive&#160;&#160;areas.&#160;&#160;The&#160;&#160;implementation&#160;<br/>methods&#160;need&#160;to&#160;be&#160;set&#160;according&#160;to&#160;the&#160;requirements&#160;of&#160;the&#160;application.&#160;&#160;<br/>
+&#160;&#160;Initial&#160;values&#160;of&#160;APIs&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;the&#160;APIs&#160;that&#160;&#160;return&#160;an&#160;initial&#160;value.&#160;<br/>
+The&#160;calling&#160;runnable&#160;needs&#160;to&#160;handle&#160;the&#160;initial&#160;value.&#160;When&#160;RteAnalyzer&#160;was&#160;able&#160;<br/>to&#160;extract&#160;the&#160;initial value&#160;from&#160;the&#160;code,&#160;the&#160;value&#160;is&#160;also&#160;printed.&#160;&#160;<br/>
+&#160;&#160;Blocking&#160;&#160;APIs&#160;&#160;–&#160;&#160;This&#160;&#160;contains&#160;&#160;list&#160;&#160;of&#160;&#160;all&#160;&#160;APIs&#160;&#160;that&#160;&#160;are&#160;&#160;blocking.&#160;&#160;These&#160;&#160;may&#160;<br/>
+unexpectedly&#160;delay&#160;the&#160;calling&#160;function.&#160;<br/>
+&#160;&#160;Executable&#160;Entities&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;the&#160;executable&#160;entities.&#160;The&#160;entities&#160;are&#160;<br/>
+listed&#160;together with&#160;the&#160;tasks in&#160;which&#160;they&#160;are executed.&#160;<br/>
+&#160;&#160;APIs&#160;with&#160;special&#160;return&#160;values&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;the&#160;APIs&#160;that&#160;return&#160;special&#160;<br/>
+error&#160;&#160;codes&#160;&#160;such&#160;&#160;as&#160;&#160;RTE_E_MAX_AGE_EXCEEDED,&#160;&#160;RTE_E_INVALID&#160;&#160;and&#160;<br/>RTE_E_NEVER_RECEIVED.&#160;<br/>
+&#160;&#160;APIs&#160;with&#160;queues&#160;–&#160;This&#160;contains&#160;the&#160;list&#160;of&#160;APIs&#160;with&#160;queues&#160;along&#160;with&#160;the&#160;queue&#160;<br/>
+sizes.&#160;&#160;<br/>
+&#160;&#160;APIs&#160;with&#160;E2E&#160;transformers&#160;–&#160;This&#160;contains&#160;the&#160;list&#160;of&#160;APIs&#160;that&#160;read&#160;or&#160;write&#160;data&#160;<br/>
+with&#160;the&#160;help&#160;of&#160;the&#160;E2E&#160;transformer.&#160;The&#160;communication&#160;partner&#160;needs&#160;to&#160;handle&#160;<br/>the&#160;converted&#160;data.&#160;<br/>
+&#160;&#160;Reentrant&#160;Executable&#160;Entities&#160;–&#160;This&#160;contains&#160;list&#160;of&#160;all&#160;executable&#160;entities&#160;that&#160;are&#160;<br/>
+called&#160;reentrantly.&#160;This&#160;is&#160;based&#160;on&#160;the&#160;core&#160;id,&#160;priority&#160;and&#160;the&#160;preemption&#160;setting&#160;<br/>of&#160;the&#160;tasks in&#160;which&#160;the&#160;entity&#160;is executed.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+23&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-24_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+&#160;&#160;APIs&#160;&#160;using&#160;&#160;data&#160;&#160;conversion&#160;&#160;–&#160;&#160;This&#160;&#160;contains&#160;&#160;list&#160;&#160;of&#160;&#160;all&#160;&#160;the&#160;&#160;APIs&#160;&#160;that&#160;&#160;do&#160;&#160;data&#160;<br/>
+conversion.&#160;The&#160;communication&#160;partner&#160;needs to&#160;handle&#160;the&#160;converted&#160;data.&#160;<br/>
+&#160;&#160;APIs&#160;&#160;that&#160;&#160;may&#160;&#160;use&#160;&#160;NVM&#160;&#160;–&#160;&#160;This&#160;&#160;contains&#160;&#160;list&#160;&#160;of&#160;&#160;all&#160;&#160;Per&#160;&#160;Instance&#160;&#160;Memories&#160;&#160;and&#160;<br/>
+sender-receiver&#160;APIs&#160;that&#160;access&#160;NV&#160;Block&#160;SWCs.&#160;The&#160;NVM&#160;module&#160;needs&#160;to&#160;be&#160;<br/>configured&#160;correctly.&#160;<br/>
+Please&#160;&#160;note&#160;&#160;that&#160;&#160;the&#160;&#160;configuration&#160;&#160;feedback&#160;&#160;describes&#160;&#160;the&#160;&#160;actual&#160;&#160;properties&#160;&#160;of&#160;&#160;the&#160;&#160;code.&#160;<br/>This&#160;can&#160;be&#160;different&#160;from&#160;the&#160;configured&#160;values,&#160;especially&#160;if&#160;the&#160;APIs&#160;are&#160;generated&#160;for&#160;<br/>unconnected&#160;ports.&#160;<br/>
+Example:&#160;<br/>
+An&#160;<br/>
+unconnected&#160;<br/>
+Rte_Read&#160;<br/>
+API&#160;<br/>
+is&#160;<br/>
+configured&#160;<br/>
+to&#160;<br/>
+return&#160;<br/>
+RTE_E_NEVER_RECEIVED.&#160;&#160;According&#160;&#160;to&#160;&#160;the&#160;&#160;RTE&#160;&#160;specification,&#160;&#160;the&#160;&#160;return&#160;&#160;value&#160;&#160;is&#160;<br/>RTE_E_UNCONNECTED&#160;&#160;independently&#160;&#160;of&#160;&#160;the&#160;&#160;never&#160;&#160;received&#160;&#160;handling,&#160;&#160;therefore&#160;&#160;the&#160;<br/>generated&#160;API&#160;has&#160;no&#160;code&#160;to&#160;return&#160;RTE_E_NEVER_RECEIVED&#160;and&#160;the&#160;analysis&#160;report&#160;<br/>does&#160;not&#160;list the&#160;API&#160;in&#160;the&#160;“APIs&#160;with&#160;special return values”&#160;section.&#160;<br/>The&#160;safety&#160;manual&#160;describes&#160;how&#160;the&#160;configuration&#160;feedback&#160;can&#160;be&#160;used&#160;for&#160;integration&#160;<br/>testing.&#160;<br/>
+<b>4.4.5&#160;</b><br/>
+<b>Template Variant&#160;Check&#160;</b><br/>
+MICROSAR&#160;&#160;RTE&#160;&#160;Generator&#160;&#160;is&#160;&#160;a&#160;&#160;template&#160;&#160;based&#160;&#160;code&#160;&#160;generator.&#160;&#160;During&#160;&#160;generation,&#160;<br/>MICROSAR&#160;RTE&#160;Generator&#160;&#160;calculates&#160;checksums&#160;for&#160;the&#160;template&#160;sequences&#160;that&#160;were&#160;<br/>used&#160;to&#160;generate&#160;the&#160;RTE&#160;APIs.&#160;The&#160;delivery&#160;of&#160;the&#160;generator&#160;contains&#160;a&#160;list&#160;of&#160;checksums&#160;<br/>that&#160;were approved&#160;for the&#160;usage&#160;in&#160;an&#160;ECU&#160;with&#160;functional safety&#160;requirements.&#160;<br/>MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;checks&#160;&#160;that&#160;&#160;the&#160;&#160;template&#160;&#160;sequences&#160;&#160;that&#160;&#160;were&#160;&#160;used&#160;&#160;to&#160;<br/>generate&#160;the&#160;analyzed&#160;RTE&#160;are&#160;within&#160;the&#160;allowed&#160;sequences.&#160;<br/>Please&#160;contact&#160;&#160;Vector&#160;if&#160;the&#160;analysis&#160;report&#160;lists&#160;&#160;template&#160;variants&#160;that&#160;are&#160;not&#160;&#160;within&#160;&#160;the&#160;<br/>allowed&#160;ones.&#160;<br/>
+&#160;<br/>
+<b>4.5&#160;</b><br/>
+<b>Integration into&#160;DaVinci&#160;CFG&#160;</b><br/>
+Since&#160;&#160;MICROSAR&#160;&#160;RTE&#160;&#160;Analyzer&#160;&#160;checks&#160;&#160;the&#160;&#160;consistency&#160;&#160;of&#160;&#160;the&#160;&#160;generated&#160;&#160;RTE&#160;&#160;it&#160;&#160;is&#160;<br/>convenient&#160;to&#160;run&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;automatically&#160;after&#160;the&#160;data&#160;is&#160;generated.&#160;To&#160;<br/>integrate&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;into&#160;DaVinci&#160;CFG,&#160;an&#160;external&#160;generation&#160;step&#160;can&#160;be&#160;<br/>configured.&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+24&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-25_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-25_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-25_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+&#160;<br/>
+Figure&#160;4-1&#160;&#160;Project&#160;menu&#160;<br/>
+Start DaVinci&#160;CFG&#160;and&#160;select&#160;the&#160;menu&#160;“Project”. Next&#160;select&#160;the&#160;menu&#160;item&#160;“Settings”.&#160;<br/>
+&#160;<br/>
+To&#160;&#160;add&#160;&#160;a&#160;&#160;new&#160;&#160;external&#160;&#160;generation&#160;&#160;step,&#160;&#160;select&#160;&#160;“External&#160;&#160;Generation&#160;&#160;Steps”.&#160;&#160;This&#160;&#160;will&#160;<br/>display&#160;the&#160;following&#160;window:&#160;<br/>
+&#160;<br/>
+Figure&#160;4-2&#160;&#160;External&#160;generation&#160;steps&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+25&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-26_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-26_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-26_3.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+Click&#160;on&#160;the&#160;Add&#160;button&#160;with&#160;the&#160;“+”&#160;symbol&#160;and&#160;enter&#160;the&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;path&#160;<br/>e.g.&#160;&#160;<br/>$(SipRootPath)/Misc/RteAnalyzer/MicrosarRteAnalyzer.exe&#160;<br/>
+and&#160;command&#160;line&#160;arguments&#160;e.g.&#160;<br/>-c $(GenDataFolder)/RteAnalyzer/RteAnalyzerConfiguration.json&#160;-o&#160;<br/>$(GenDataFolder)/RteAnalyzer/Reports&#160;<br/>
+For Virtual&#160;Target,&#160;$(GenDataVTTFolder)&#160;needs to&#160;be&#160;used.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>It&#160;is&#160;required&#160;to set&#160;a&#160;working&#160;directory&#160;for&#160;a post&#160;generation step.&#160;<br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+Now&#160;&#160;the&#160;&#160;external&#160;&#160;generation&#160;&#160;step&#160;&#160;needs&#160;&#160;to&#160;&#160;be&#160;&#160;configured&#160;&#160;to&#160;&#160;be&#160;&#160;run&#160;&#160;after&#160;&#160;the&#160;&#160;DaVinci&#160;<br/>Generators.&#160;To&#160;configure this click on&#160;the&#160;item&#160;“Code&#160;Generation”.&#160;<br/>
+&#160;<br/>
+Figure&#160;4-3&#160;&#160;Code&#160;generation&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+26&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-27_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-27_2.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+Now&#160;select&#160;the&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;Generation&#160;Step&#160;and&#160;enable&#160;it&#160;by&#160;checking&#160;the&#160;<br/>check&#160;box&#160;in&#160;front&#160;of&#160;it.&#160;Additionally&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;should&#160;be&#160;run&#160;after&#160;DaVinci&#160;<br/>CFG&#160;&#160;generated&#160;&#160;the&#160;&#160;data.&#160;&#160;Therefore&#160;&#160;it&#160;&#160;is&#160;&#160;necessary&#160;&#160;to&#160;&#160;move&#160;&#160;it&#160;&#160;after&#160;&#160;the&#160;&#160;DaVinci&#160;&#160;Code&#160;<br/>Generation&#160;using&#160;the&#160;Down&#160;button&#160;with&#160;the&#160;“” symbol.&#160;<br/>Now&#160;MICROSAR&#160;RTE&#160;Analyzer&#160;will&#160;be&#160;automatically&#160;executed&#160;after&#160;the&#160;DaVinci&#160;CFG&#160;has&#160;<br/>generated&#160;the&#160;data.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;<br/>Note&#160;<br/></b>MICROSAR&#160;RTE&#160;Analyzer&#160;will&#160;also be&#160;executed&#160;if&#160;the&#160;data was not&#160;successfully&#160;<br/>
+&#160;&#160;generated.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+<b>&#160;</b><br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+27&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-28_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>5&#160;&#160;Glossary&#160;and&#160;Abbreviations&#160;</b><br/>
+<b>5.1&#160;</b><br/>
+<b>Glossary&#160;</b><br/>
+<b>Term&#160;</b><br/>
+<b>Description&#160;</b><br/>
+DaVinci&#160;CFG&#160;&#160;&#160;<br/>
+DaVinci&#160;Configurator&#160;5:&#160;The&#160;BSW&#160;and&#160;RTE&#160;Configuration Editor.&#160;<br/>
+Table&#160;5-1&#160;&#160;&#160;Glossary&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>5.2&#160;</b><br/>
+<b>Abbreviations&#160;</b><br/>
+<b>Abbreviation&#160;</b><br/>
+<b>Description&#160;</b><br/>
+API&#160;<br/>
+Application Programming&#160;Interface&#160;&#160;&#160;<br/>
+AUTOSAR&#160;<br/>
+Automotive Open System&#160;Architecture&#160;<br/>
+BSW&#160;<br/>
+Basis&#160;Software&#160;<br/>
+COM&#160;<br/>
+Communication&#160;<br/>
+DEM&#160;<br/>
+Diagnostic&#160;Event&#160;Manager&#160;<br/>
+DET&#160;<br/>
+Development&#160;Error&#160;Tracer&#160;<br/>
+EAD&#160;<br/>
+Embedded&#160;Architecture&#160;Designer&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+E2EXF&#160;<br/>
+E2E&#160;Transformer&#160;<br/>
+HIS&#160;<br/>
+Hersteller&#160;Initiative Software&#160;<br/>
+ISR&#160;<br/>
+Interrupt&#160;Service Routine&#160;<br/>
+LDCOM&#160;<br/>
+Efficient&#160;COM&#160;for&#160;Large&#160;Data&#160;<br/>
+MICROSAR&#160;<br/>
+Microcontroller&#160;Open&#160;System&#160;Architecture&#160;(the&#160;Vector&#160;AUTOSAR&#160;<br/>solution)&#160;<br/>
+PPORT&#160;<br/>
+Provide&#160;Port&#160;<br/>
+RPORT&#160;<br/>
+Require Port&#160;<br/>
+RTE&#160;<br/>
+Runtime Environment&#160;<br/>
+SRS&#160;<br/>
+Software&#160;Requirement&#160;Specification&#160;<br/>
+SWC&#160;<br/>
+Software&#160;Component&#160;<br/>
+SWS&#160;<br/>
+Software&#160;Specification&#160;<br/>
+Table&#160;5-2&#160;&#160;&#160;Abbreviations&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+28&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-29_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>6&#160;&#160;Additional&#160;Copyrights&#160;</b><br/>
+&#160;<br/>
+MICROSAR RTE&#160;Analyzer contains&#160;Free&#160;and&#160;Open&#160;Source&#160;Software (FOSS).&#160;The&#160;&#160;<br/>following&#160;table&#160;lists&#160;the&#160;files&#160;which&#160;contain&#160;this&#160;software,&#160;the&#160;kind&#160;and&#160;version&#160;of&#160;the&#160;FOSS,&#160;&#160;<br/>the&#160;license&#160;under which&#160;this FOSS&#160;is distributed&#160;and&#160;a&#160;reference&#160;to&#160;a&#160;license&#160;file&#160;which&#160;&#160;<br/>contains the&#160;original text&#160;of&#160;the&#160;license&#160;terms&#160;and&#160;conditions.&#160;The&#160;referenced&#160;license&#160;files&#160;&#160;<br/>can&#160;be&#160;found&#160;in&#160;the&#160;directory&#160;of&#160;MICROSAR&#160;RTE&#160;Analyzer.&#160;&#160;<br/>&#160;&#160;<br/>
+&#160;<br/>
+<b>File&#160;</b><br/>
+<b>FOSS&#160;</b><br/>
+<b>License&#160;</b><br/>
+<b>License&#160;Reference&#160;</b><br/>
+MicrosarRteAnalyzer.exe&#160;<br/>
+Perl 5.20.2&#160;<br/>
+Artistic&#160;License&#160;<br/>
+License_Artistic.txt&#160;&#160;&#160;<br/>
+MicrosarRteAnalyzerCfgGen.exe&#160;<br/>MicrosarIRAnalyzer.exe&#160;<br/>
+llvm&#160;3.6.2&#160;<br/>
+LLVM&#160;<br/>
+License_LLVM.txt&#160;<br/>
+&#160;<br/>
+vssa&#160;r343&#160;<br/>
+License&#160;<br/>
+Clang&#160;3.6.2&#160;<br/>
+Table&#160;6-1&#160;&#160;&#160;Free&#160;and&#160;Open&#160;Source&#160;Software&#160;Licenses&#160;<br/>
+&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+29&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/TechnicalReferences/TechnicalReference_RteAnalyzer-30_1.png"/><br/>
+Technical&#160;Reference&#160;MICROSAR RTE&#160;Analyzer&#160;<br/>
+<b>7&#160;&#160;Contact&#160;</b><br/>
+Visit&#160;our website&#160;for&#160;more information&#160;on&#160;<br/>&#160;<br/><b>&gt;&#160;&#160;</b>News&#160;<br/>
+<b>&gt;&#160;&#160;</b>Products&#160;<br/>
+<b>&gt;&#160;&#160;</b>Demo&#160;software&#160;<br/>
+<b>&gt;&#160;&#160;</b>Support&#160;<br/>
+<b>&gt;&#160;&#160;</b>Training&#160;data&#160;<br/>
+<b>&gt;&#160;&#160;</b>Addresses&#160;<br/>
+&#160;<br/>www.vector.com&#160;<br/>
+&#160;<br/>&#160;<br/>
+©&#160;2017&#160;Vector&#160;Informatik&#160;GmbH&#160;<br/>
+Version&#160;1.0.0&#160;<br/>
+30&#160;<br/>
+based&#160;on&#160;template&#160;version&#160;5.12.0&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="TechnicalReference_RteAnalyzers.html#6">1 RTE Analyzer History</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#7">2 Introduction</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#8">3 Functional Description</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#10">4 RTE Analysis and Integration</a>
+<ul>
+<li><a href="TechnicalReference_RteAnalyzers.html#10">4.1 Scope of Delivery</a>
+<ul>
+<li><a href="TechnicalReference_RteAnalyzers.html#10">4.1.1 Static Files</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#12">4.1.2 Dynamic Files</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_RteAnalyzers.html#13">4.2 Restrictions</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#13">4.3 RTE Analyzer Command Line Options</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#14">4.4 Analysis Report Contents</a>
+<ul>
+<li><a href="TechnicalReference_RteAnalyzers.html#14">4.4.1 Analyzed Files</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#14">4.4.2 Configuration Parameters</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#15">4.4.3 Findings</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#22">4.4.4 Configuration Feedback</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#24">4.4.5 Template Variant Check</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_RteAnalyzers.html#24">4.5 Integration into DaVinci CFG</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_RteAnalyzers.html#28">5 Glossary and Abbreviations</a>
+<ul>
+<li><a href="TechnicalReference_RteAnalyzers.html#28">5.1 Glossary</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#28">5.2 Abbreviations</a></li>
+</ul>
+</li>
+<li><a href="TechnicalReference_RteAnalyzers.html#29">6 Additional Copyrights</a></li>
+<li><a href="TechnicalReference_RteAnalyzers.html#30">7 Contact</a></li>
+</ul>
+<hr/>
+</body>
+</html>

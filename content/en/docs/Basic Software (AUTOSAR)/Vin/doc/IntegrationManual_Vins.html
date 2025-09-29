@@ -1,0 +1,582 @@
+---
+title: IntegrationManual_Vins
+linkTitle: IntegrationManual_Vins
+weight: 5
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-1_1.png"/><br/>
+Integration&#160;Manual&#160;Vin<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;2<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-02-23<br/>
+Version<br/>
+3.5.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Changed&#160;by</b><br/>
+<b>Description</b><br/>
+3.5.0<br/>
+2017-02-23<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+3.4.2<br/>
+2016-10-27<br/>
+Björn<br/>
+Add&#160;a&#160;note&#160;on&#160;NVM&#160;block&#160;length<br/>
+Sachsenberg<br/>
+3.4.1<br/>
+2016-08-25<br/>
+Björn<br/>
+Fix&#160;NVM&#160;configuration<br/>
+Sachsenberg<br/>
+<b>Company</b><br/>
+3.4.0<br/>
+2016-03-17<br/>
+Björn<br/>
+Specify&#160;write&#160;frequency&#160;of&#160;NVM&#160;blocks,&#160;updated<br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Sachsenberg<br/>
+section&#160;Data&#160;Mapping<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+3.3.0<br/>
+2015-12-11<br/>
+Björn<br/>
+Clarified&#160;data&#160;mapping<br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+Sachsenberg<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+3.2.0<br/>
+2015-07-10<br/>
+Björn<br/>
+Added&#160;SI&#160;adapter<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Sachsenberg<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+3.1.0<br/>
+2015-03-13<br/>
+Björn<br/>
+Added&#160;SSV&#160;functionality<br/>
+<b>Telephone</b><br/>
+Sachsenberg<br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+3.0.0<br/>
+2014-10-29<br/>
+Björn<br/>
+Initial&#160;version<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+Sachsenberg<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;11<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="IntegrationManual_Vins.html#3"><b>1&#160;Introduction</b></a><br/>
+<b>3</b><br/>
+<a href="IntegrationManual_Vins.html#3">1.1</a><br/>
+<a href="IntegrationManual_Vins.html#3">General</a><br/>
+3<br/>
+<a href="IntegrationManual_Vins.html#3">1.2</a><br/>
+<a href="IntegrationManual_Vins.html#3">Functional&#160;overview</a><br/>
+3<br/>
+<a href="IntegrationManual_Vins.html#3"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>3</b><br/>
+<a href="IntegrationManual_Vins.html#5"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="IntegrationManual_Vins.html#5">3.1</a><br/>
+<a href="IntegrationManual_Vins.html#5">BMW&#160;Specifications</a><br/>
+5<br/>
+<a href="IntegrationManual_Vins.html#5">3.2</a><br/>
+<a href="IntegrationManual_Vins.html#5">AUTOSAR&#160;Specifications</a><br/>
+5<br/>
+<a href="IntegrationManual_Vins.html#6"><b>4&#160;Limitations</b></a><br/>
+<b>6</b><br/>
+<a href="IntegrationManual_Vins.html#7"><b>5&#160;Software&#160;Architecture</b></a><br/>
+<b>7</b><br/>
+<a href="IntegrationManual_Vins.html#7">5.1</a><br/>
+<a href="IntegrationManual_Vins.html#7">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+7<br/>
+<a href="IntegrationManual_Vins.html#7">5.1.1</a><br/>
+<a href="IntegrationManual_Vins.html#7">RTE</a><br/>
+7<br/>
+<a href="IntegrationManual_Vins.html#7">5.1.2</a><br/>
+<a href="IntegrationManual_Vins.html#7">NvM</a><br/>
+7<br/>
+<a href="IntegrationManual_Vins.html#7">5.2</a><br/>
+<a href="IntegrationManual_Vins.html#7">Dependencies&#160;on&#160;BMW&#160;modules</a><br/>
+7<br/>
+<a href="IntegrationManual_Vins.html#7">5.2.1</a><br/>
+<a href="IntegrationManual_Vins.html#7">Dlog</a><br/>
+7<br/>
+<a href="IntegrationManual_Vins.html#7">5.2.2</a><br/>
+<a href="IntegrationManual_Vins.html#7">Fscsm</a><br/>
+7<br/>
+<a href="IntegrationManual_Vins.html#8"><b>6&#160;Integration</b></a><br/>
+<b>8</b><br/>
+<a href="IntegrationManual_Vins.html#8">6.1</a><br/>
+<a href="IntegrationManual_Vins.html#8">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+8<br/>
+<a href="IntegrationManual_Vins.html#8">6.1.1</a><br/>
+<a href="IntegrationManual_Vins.html#8">Communication&#160;Stack</a><br/>
+8<br/>
+<a href="IntegrationManual_Vins.html#8">6.1.2</a><br/>
+<a href="IntegrationManual_Vins.html#8">Nvm</a><br/>
+8<br/>
+<a href="IntegrationManual_Vins.html#9">6.1.3</a><br/>
+<a href="IntegrationManual_Vins.html#9">Fscsm</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#9">6.2</a><br/>
+<a href="IntegrationManual_Vins.html#9">Configuration</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#9">6.3</a><br/>
+<a href="IntegrationManual_Vins.html#9">Configuration&#160;of&#160;the&#160;RTE</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#9">6.3.1</a><br/>
+<a href="IntegrationManual_Vins.html#9">Assembly&#160;connectors</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#9">6.3.1.1</a><br/>
+<a href="IntegrationManual_Vins.html#9">Always</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#9">6.3.1.2</a><br/>
+<a href="IntegrationManual_Vins.html#9">If&#160;SecureVin&#160;is&#160;configured</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#9">6.3.2</a><br/>
+<a href="IntegrationManual_Vins.html#9">Event&#160;Mapping</a><br/>
+9<br/>
+<a href="IntegrationManual_Vins.html#10">6.3.3</a><br/>
+<a href="IntegrationManual_Vins.html#10">Data&#160;Mapping</a><br/>
+10<br/>
+<a href="IntegrationManual_Vins.html#10">6.3.3.1</a><br/>
+<a href="IntegrationManual_Vins.html#10">If&#160;EnableSIAdapter=false</a><br/>
+10<br/>
+<a href="IntegrationManual_Vins.html#10">6.3.3.2</a><br/>
+<a href="IntegrationManual_Vins.html#10">If&#160;SecureVin&#160;is&#160;configured&#160;with&#160;EnableSIAdapter=false</a><br/>
+10<br/>
+<a href="IntegrationManual_Vins.html#10">6.3.3.3</a><br/>
+<a href="IntegrationManual_Vins.html#10">If&#160;EnableSIAdapter=true</a><br/>
+10<br/>
+<a href="IntegrationManual_Vins.html#10">6.3.3.4</a><br/>
+<a href="IntegrationManual_Vins.html#10">If&#160;SecureVin&#160;is&#160;configured&#160;with&#160;EnableSIAdapter=true</a><br/>
+10<br/>
+<a href="IntegrationManual_Vins.html#11">6.3.4</a><br/>
+<a href="IntegrationManual_Vins.html#11">Exclusive&#160;Areas</a><br/>
+11<br/>
+<a href="IntegrationManual_Vins.html#11">6.4</a><br/>
+<a href="IntegrationManual_Vins.html#11">Software&#160;Integration</a><br/>
+11<br/>
+<a href="IntegrationManual_Vins.html#11">6.4.1</a><br/>
+<a href="IntegrationManual_Vins.html#11">Startup/Initialisation</a><br/>
+11<br/>
+<a href="IntegrationManual_Vins.html#11">6.4.2</a><br/>
+<a href="IntegrationManual_Vins.html#11">Normal&#160;Operation</a><br/>
+11<br/>
+<a href="IntegrationManual_Vins.html#11">6.4.3</a><br/>
+<a href="IntegrationManual_Vins.html#11">Shutdown/Deactivation</a><br/>
+11<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;11<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+<b>1.1&#160;General</b><br/>
+For&#160;a&#160;general&#160;introduction&#160;to&#160;the&#160;BAC4&#160;Platform&#160;Modules&#160;please&#160;refer&#160;to&#160;<a href="IntegrationManual_Vins.html#5">[1].</a><br/>
+This&#160;document&#160;only&#160;describes&#160;topics&#160;related&#160;to&#160;the&#160;SWT&#160;BAC4&#160;Module.<br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;of&#160;the&#160;BMW&#160;system<br/>function&#160;VIN.<br/>
+<b>1.2&#160;Functional&#160;overview</b><br/>
+The&#160;Vin&#160;module&#160;is&#160;used&#160;to&#160;request&#160;the&#160;VIN&#160;over&#160;the&#160;bus,&#160;set&#160;the&#160;qualifier&#160;and&#160;hand&#160;it&#160;over&#160;to&#160;application<br/>software&#160;components.<br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+A&amp;S<br/>
+Authentication&#160;and&#160;Signature&#160;(Grundschutzmechanismen)<br/>
+AllgGB<br/>
+Allgemeine&#160;Gültigkeitsbedingung<br/>
+AN<br/>
+Applikationsnummer<br/>
+API<br/>
+Application&#160;Programming&#160;Interface<br/>
+AppGB<br/>
+Applikationsspezifische&#160;Gültigkeitsbedingung<br/>
+AUTOSAR&#160;Automotive&#160;Open&#160;System&#160;Architecture<br/>CA<br/>
+Certification&#160;Authority<br/>
+CAL<br/>
+Cryptographic&#160;Abstraction&#160;Layer<br/>
+CAS<br/>
+Car&#160;Access&#160;System&#160;(Steuergerät)<br/>
+CCC<br/>
+Car&#160;Communication&#160;Computer<br/>
+CKD<br/>
+Completely&#160;Knocked&#160;Down.&#160;A&#160;BMW&#160;plant&#160;that&#160;is&#160;not&#160;connected&#160;to&#160;the<br/>central&#160;BMW&#160;IT.<br/>
+CSM<br/>
+Client&#160;Security&#160;Module<br/>
+CRL<br/>
+Certificate&#160;Revocation&#160;List<br/>
+DEK<br/>
+Data&#160;Encryption&#160;Key<br/>
+DER<br/>
+Distinguished&#160;Encoding&#160;Rules&#160;(As&#160;described&#160;by&#160;ASN.1)<br/>
+DES<br/>
+Data&#160;Encryption&#160;Standard<br/>
+DN<br/>
+Distinguished&#160;Name<br/>
+DTC<br/>
+Diagnostic&#160;Trouble&#160;Code&#160;-&gt;&#160;Fehlercode&#160;des&#160;Fehlerspeichereintrages<br/>
+ECU<br/>
+Electronic&#160;Control&#160;Unit<br/>
+FAT<br/>
+Flash-Absicherungs-Tool<br/>
+FSC<br/>
+Freischaltcode<br/>
+FSCS<br/>
+Freischaltcode-Stelle<br/>
+FZG<br/>
+Fahrzeug<br/>
+FZG-R<br/>
+BMW&#160;Fahrzeug-Root-CA<br/>
+GB<br/>
+Gültigkeitsbedingung<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;11<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-4_1.png"/><br/>
+GG<br/>
+Gültigkeitsgruppe<br/>
+GMT<br/>
+Greenwich&#160;Mean&#160;Time<br/>
+HO<br/>
+Handelsorganisation&#160;(BMW)<br/>
+HW<br/>
+Hardware<br/>
+M-FSCS<br/>
+Master-Freischaltcodestelle<br/>
+OS<br/>
+Operating&#160;System<br/>
+PKI<br/>
+Public&#160;Key&#160;Infrastrucutre<br/>
+RCn<br/>
+Routine&#160;Control&#160;Option&#160;n&#160;/&#160;Exit&#160;Result&#160;n<br/>
+RI<br/>
+Routine&#160;Identifier<br/>
+RSA<br/>
+Asymmetric&#160;Cryptoalgorithm&#160;by&#160;Rivest,&#160;Shamir&#160;und&#160;Adleman<br/>
+RTE<br/>
+Runtime&#160;Environment<br/>
+SG<br/>
+Steuergerät<br/>
+SGID<br/>
+Steuergeräte-ID,&#160;Diagnoseadresse,&#160;Steuergeräte-Adresse<br/>
+SID<br/>
+Service&#160;Identifier<br/>
+SigS<br/>
+SW-Signatur-Stelle<br/>
+SW<br/>
+Software<br/>
+SW-C<br/>
+Software&#160;Component<br/>
+SWID<br/>
+Software-ID&#160;consisting&#160;of&#160;application&#160;number&#160;and&#160;upgrade&#160;index<br/>
+SWT<br/>
+SWEEPING&#160;Technologies&#160;(SoftWare&#160;Enabled&#160;Electronic&#160;Platform&#160;for&#160;Inno-<br/>vative&#160;Next&#160;Generation&#160;Technologies)<br/>
+UDS<br/>
+Universal&#160;Diagnostic&#160;Services<br/>
+UI<br/>
+Upgrade&#160;Index<br/>
+UTC<br/>
+Coordinated&#160;Universal&#160;Time<br/>
+VCM<br/>
+Vehicle&#160;Configuration&#160;Management<br/>
+VIN<br/>
+Vehicle&#160;Identification&#160;Number<br/>
+VIN7<br/>
+The&#160;last&#160;7&#160;digits&#160;of&#160;the&#160;17-digit&#160;VIN<br/>
+All&#160;abbreviations&#160;used&#160;throughout&#160;this&#160;document&#160;--&#160;except&#160;the&#160;ones&#160;listed&#160;here&#160;--&#160;can&#160;be&#160;found&#160;in&#160;the<br/>official&#160;AUTOSAR&#160;glossary&#160;<a href="IntegrationManual_Vins.html#5">[6].</a><br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;11<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-5_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>3.1&#160;BMW&#160;Specifications</b><br/>
+[1]&#160;BAC4&#160;General&#160;Concept&#160;for&#160;the&#160;Module&#160;Integration<br/>
+BAC4_General_Concepts_for_the_Module_Integration.pdf<br/>
+[2]&#160;Specification&#160;of&#160;Module&#160;DataLogistic<br/>
+ModuleSpecification_Dlog.pdf<br/>
+[3]&#160;Specification&#160;of&#160;Module&#160;FSCSM<br/>
+ModuleSpecification_Fscsm.pdf<br/>
+[4]&#160;Integration&#160;Manual&#160;FSCSM<br/>
+IntegrationManual_Fscsm.pdf<br/>
+[5]&#160;Specification&#160;of&#160;Module&#160;Vin<br/>
+ModuleSpecification_Vin.pdf<br/>
+<b>3.2&#160;AUTOSAR&#160;Specifications</b><br/>
+[6]&#160;Glossary<br/>
+AUTOSAR_TR_Glossary<br/>
+[7]&#160;Specification&#160;of&#160;RTE&#160;Software<br/>
+AUTOSAR_SWS_RTE<br/>
+[8]&#160;Specification&#160;of&#160;NVRAM&#160;Manager<br/>
+AUTOSAR_SWS_NVRAMManager<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;11<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-6_1.png"/><br/>
+<b>4</b><br/>
+<b>Limitations</b><br/>
+Autosar&#160;4.2.1&#160;or&#160;later&#160;is&#160;required.<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;11<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-7_1.png"/><br/>
+<b>5</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>5.1&#160;Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+<b>5.1.1&#160;RTE</b><br/>
+The&#160;module&#160;Vin&#160;is&#160;realized&#160;as&#160;a&#160;software&#160;component&#160;and&#160;is&#160;using&#160;RTE&#160;services&#160;<a href="IntegrationManual_Vins.html#5">[7]&#160;</a>for&#160;client/server&#160;as&#160;well<br/>as&#160;sender/receiver&#160;communication&#160;to&#160;communicate&#160;with&#160;other&#160;SWCs.<br/>
+<b>5.1.2&#160;NvM</b><br/>
+The&#160;NVRAM&#160;Manager&#160;<a href="IntegrationManual_Vins.html#5">[8]&#160;</a>is&#160;used&#160;to&#160;store&#160;the&#160;last&#160;VIN&#160;and&#160;the&#160;SSV&#160;state.<br/>
+<b>5.2&#160;Dependencies&#160;on&#160;BMW&#160;modules</b><br/>
+<b>5.2.1&#160;Dlog</b><br/>
+The&#160;Dlog&#160;module&#160;<a href="IntegrationManual_Vins.html#5">[2]&#160;</a>is&#160;used&#160;to&#160;get&#160;the&#160;internal&#160;VIN.<br/>
+<b>5.2.2&#160;Fscsm</b><br/>
+The&#160;Fscsm&#160;module&#160;<a href="IntegrationManual_Vins.html#5">[3]&#160;</a>is&#160;needed&#160;for&#160;receiving&#160;the&#160;secure&#160;VIN.<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;11<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-8_1.png"/><br/>
+<b>6</b><br/>
+<b>Integration</b><br/>
+<b>6.1&#160;Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;the&#160;module&#160;Vin&#160;is&#160;compiled&#160;and&#160;linked.<br/>
+<b>6.1.1&#160;Communication&#160;Stack</b><br/>
+The&#160;communication&#160;stack&#160;shall&#160;be&#160;configured&#160;to&#160;provide&#160;the&#160;Vehicle&#160;Identification&#160;Number&#160;(VIN)&#160;message<br/>from&#160;the&#160;corresponding&#160;bus.<br/>
+For&#160;i&#160;∈&#160;{1,&#160;.&#160;.&#160;.&#160;,&#160;7}&#160;configure&#160;the&#160;signals<br/>
+Shortname&#160;(according&#160;to&#160;BMW&#160;BNE):&#160;NO_VECH_&lt;i&gt;<br/>ComBitPosition:<br/>
+8(i&#160;−&#160;1)<br/>
+ComBitSize:<br/>
+8<br/>
+ComSignalEndianness:<br/>
+OPAQUE<br/>
+ComSignalLength:<br/>
+1<br/>
+ComSignalType:<br/>
+UINT8_N<br/>
+ComTransferProperty:<br/>
+TRIGGERED<br/>
+<b>Note:&#160;</b>The&#160;Signals&#160;NO_VECH_&lt;i&gt;&#160;(1&#160;≤&#160;i&#160;≤&#160;7)&#160;have&#160;to&#160;be&#160;configured&#160;as&#160;a&#160;Signalgroup!<br/>
+<b>Note:&#160;</b>In&#160;Ethernet,&#160;these&#160;signals&#160;are&#160;modeled&#160;as&#160;structure&#160;in&#160;the&#160;field&#160;ChassisNumber&#160;of&#160;the&#160;Service<br/>Interface&#160;VehicleInformation.<br/>
+<b>6.1.2&#160;Nvm</b><br/>
+Following&#160;NvM&#160;blocks&#160;shall&#160;be&#160;configured:<br/>
+<b>NVM_BLOCK_Vin<br/></b>NvMBlockCrcType<br/>
+NVM_CRC16<br/>
+NvMBlockHeaderInclude<br/>
+Vin_NvM.h<br/>
+NvMBlockManagementType<br/>
+NVM_BLOCK_NATIVE<br/>
+NvMBlockUseCrc<br/>
+true<br/>
+NvMBlockWriteProt<br/>
+false<br/>
+NvMExtraBlockChecks<br/>
+true<br/>
+NvMNvBlockLength<br/>
+<a href="IntegrationManual_Vins.html#8">81</a><br/>
+NvMNvBlockNum<br/>
+1<br/>
+NvMProvideRteServicePort<br/>
+true<br/>
+NvMRamBlockDataAddress<br/>
+-<br/>
+NvMResistantToChangedSw&#160;true,&#160;if&#160;NvMDynamicConfiguration&#160;=&#160;true<br/>NvMRomBlockDataAddress<br/>
+&amp;Vin_NVStateDefault<br/>
+NvMRomBlockNum<br/>
+0<br/>
+1block&#160;length&#160;might&#160;differ&#160;depending&#160;on&#160;the&#160;used&#160;compiler&#160;and&#160;compiler&#160;settings<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;11<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-9_1.png"/><br/>
+NvMSelectBlockForReadAll<br/>
+false<br/>
+NvMSelectBlockForWriteAll<br/>
+false<br/>
+NvMWriteBlockOnce<br/>
+False<br/>
+<b>Write&#160;Frequency:&#160;</b>The&#160;block&#160;will&#160;be&#160;written&#160;every&#160;time&#160;a&#160;different&#160;VIN&#160;than&#160;the&#160;last&#160;VIN&#160;is&#160;received&#160;on<br/>the&#160;bus&#160;and&#160;once&#160;on&#160;switch&#160;to&#160;safe&#160;environment.&#160;In&#160;practice&#160;this&#160;means,&#160;it&#160;is&#160;written&#160;once&#160;in&#160;the&#160;plant&#160;and<br/>every&#160;time,&#160;the&#160;ECU&#160;is&#160;transferred&#160;into&#160;a&#160;different&#160;vehicle.<br/>
+<b>6.1.3&#160;Fscsm</b><br/>
+For&#160;the&#160;secure&#160;VIN,&#160;FscsmActivateVerifyMessage&#160;shall&#160;be&#160;enabled&#160;in&#160;Fscsm,&#160;see&#160;<a href="IntegrationManual_Vins.html#5">[3,&#160;4]&#160;</a>for&#160;details.<br/>
+<b>6.2&#160;Configuration</b><br/>
+For&#160;a&#160;detailed&#160;description&#160;of&#160;the&#160;configuration&#160;parameters,&#160;please&#160;consult&#160;the&#160;Vin&#160;Software&#160;Specification<br/><a href="IntegrationManual_Vins.html#5">[5].</a><br/>
+<b>6.3&#160;Configuration&#160;of&#160;the&#160;RTE</b><br/>
+<b>6.3.1&#160;Assembly&#160;connectors</b><br/>
+<b>6.3.1.1&#160;Always</b><br/>
+&lt;BSW-Servicename&gt;*&#160;shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;BSW&#160;port.<br/>&lt;Modulename&gt;&lt;Portname&gt;&#160;shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;&lt;Portname&gt;&#160;of&#160;the&#160;module<br/>&lt;Modulename&gt;.<br/>
+<b>6.3.1.2&#160;If&#160;SecureVin&#160;is&#160;configured</b><br/>
+SSVErrorCode&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;DEM&#160;Environment&#160;Data&#160;for&#160;the&#160;FscsmError,&#160;see&#160;<a href="IntegrationManual_Vins.html#5">[3,&#160;4]&#160;</a>for<br/>details.<br/>RandomNumberGenerator&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;corresponding&#160;Port&#160;of&#160;the&#160;Fscsm&#160;module.<br/>
+<b>6.3.2&#160;Event&#160;Mapping</b><br/>
+All&#160;events&#160;must&#160;be&#160;mapped&#160;to&#160;the&#160;same&#160;or&#160;to&#160;non-preemptive&#160;tasks.<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;11<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-10_1.png"/><br/>
+<b>6.3.3&#160;Data&#160;Mapping</b><br/>
+<b>6.3.3.1&#160;If&#160;EnableSIAdapter=false</b><br/>
+For&#160;the&#160;R-Port&#160;ComVin,&#160;the&#160;data&#160;elements&#160;Vin_ComVinType/Vin&lt;i&gt;&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;signals<br/>NO_VECH_&lt;i&gt;&#160;for&#160;i&#160;∈&#160;{1,&#160;.&#160;.&#160;.&#160;,&#160;7}.<br/>
+For&#160;the&#160;P-Port&#160;VinRequest,&#160;the&#160;data&#160;element&#160;RequestMessageIdentifier&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;signal<br/>ID_FN_INQY.<br/>
+<b>6.3.3.2&#160;If&#160;SecureVin&#160;is&#160;configured&#160;with&#160;EnableSIAdapter=false</b><br/>
+For&#160;the&#160;P-Port&#160;SSVChallengeToSSS,&#160;the&#160;data&#160;element&#160;Challenge&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;PDU<br/>SECU_CHAL&#160;as&#160;follows:<br/>
+SsvId<br/>
+→&#160;SSV_IDENT_CHAL<br/>
+SSssId<br/>
+→&#160;SSS_IDENT_CHAL<br/>
+Challenge&#160;→&#160;SECU_CHAL<br/>
+For&#160;the&#160;R-Port&#160;SSVResponseFromSSS,&#160;the&#160;data&#160;element&#160;Response&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;PDU<br/>SECU_RESP&#160;as&#160;follows:<br/>
+SsvId<br/>
+→&#160;SSV_IDENT_RESP<br/>
+CounterBase&#160;→&#160;COU_BS_RESP<br/>Signature<br/>
+→&#160;STU_RESP<br/>
+For&#160;the&#160;R-Port&#160;SSVVinMacFromSSS,&#160;the&#160;data&#160;element&#160;Mac&#160;shall&#160;be&#160;mapped&#160;to&#160;the&#160;signal&#160;STU_8_BYTE.<br/>
+<b>6.3.3.3&#160;If&#160;EnableSIAdapter=true</b><br/>
+The&#160;R-Port&#160;ComVin&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;corresponding&#160;P-Port&#160;of&#160;the&#160;VinSIAdapter&#160;SWC.<br/>
+The&#160;P-Port&#160;VinRequest&#160;shall&#160;be&#160;connected&#160;to&#160;the&#160;corresponding&#160;R-Port&#160;of&#160;the&#160;VinSIAdapter&#160;SWC.<br/>
+The&#160;R-Port&#160;ChassisNumberNotifier&#160;of&#160;the&#160;VinSIAdapter&#160;SWC&#160;shall&#160;be&#160;connected&#160;with&#160;the&#160;notifier&#160;of&#160;the<br/>Field&#160;ChassisNumber&#160;of&#160;the&#160;Service&#160;Interface&#160;VehicleInformation.<br/>
+The&#160;R-Port&#160;ChassisNumber&#160;of&#160;the&#160;VinSIAdapter&#160;SWC&#160;shall&#160;be&#160;connected&#160;with&#160;the&#160;getter&#160;of&#160;the&#160;Field<br/>ChassisNumber&#160;of&#160;the&#160;Service&#160;Interface&#160;VehicleInformation.<br/>
+<b>6.3.3.4&#160;If&#160;SecureVin&#160;is&#160;configured&#160;with&#160;EnableSIAdapter=true</b><br/>
+The&#160;P-Port&#160;SSVChallengeToSSS&#160;and&#160;the&#160;R-Ports&#160;SSVResponseFromSSS,&#160;SSVVinMacFromSSS&#160;shall<br/>be&#160;connected&#160;to&#160;the&#160;corresponding&#160;ports&#160;of&#160;the&#160;VinSIAdapter&#160;SWC.<br/>
+The&#160;R-Port&#160;ChassisNumberAuthentication&#160;of&#160;the&#160;VinSIAdapter&#160;SWC&#160;shall&#160;be&#160;connected&#160;with&#160;the&#160;Service<br/>Interface&#160;ChassisNumberAuthentication.<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;11<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/IntegrationManual_Vin-11_1.png"/><br/>
+<b>6.3.4&#160;Exclusive&#160;Areas</b><br/>
+The&#160;exclusive&#160;area&#160;VinState&#160;shall&#160;be&#160;configured.<br/>
+<b>6.4&#160;Software&#160;Integration</b><br/>
+<b>6.4.1&#160;Startup/Initialisation</b><br/>
+The&#160;INITIALIZED&#160;mode&#160;shall&#160;be&#160;requested.<br/>
+<b>6.4.2&#160;Normal&#160;Operation</b><br/>
+When&#160;the&#160;LifeCycle&#160;mode&#160;is&#160;in&#160;INITIALIZED,&#160;the&#160;RUNNING&#160;mode&#160;shall&#160;be&#160;requested.<br/>
+<b>6.4.3&#160;Shutdown/Deactivation</b><br/>
+The&#160;STOPPED&#160;mode&#160;shall&#160;be&#160;requested.<br/>
+IntegrationManual_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;11<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="IntegrationManual_Vins.html#3">1 Introduction</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#3">1.1 General</a></li>
+<li><a href="IntegrationManual_Vins.html#3">1.2 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#3">2 Acronyms and Abbreviations</a></li>
+<li><a href="IntegrationManual_Vins.html#5">3 Related documentation</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#5">3.1 BMW Specifications</a></li>
+<li><a href="IntegrationManual_Vins.html#5">3.2 AUTOSAR Specifications</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#6">4 Limitations</a></li>
+<li><a href="IntegrationManual_Vins.html#7">5 Software Architecture</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#7">5.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#7">5.1.1 RTE</a></li>
+<li><a href="IntegrationManual_Vins.html#7">5.1.2 NvM</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#7">5.2 Dependencies on BMW modules</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#7">5.2.1 Dlog</a></li>
+<li><a href="IntegrationManual_Vins.html#7">5.2.2 Fscsm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#8">6 Integration</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#8">6.1 Configuration of other Modules</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#8">6.1.1 Communication Stack</a></li>
+<li><a href="IntegrationManual_Vins.html#8">6.1.2 Nvm</a></li>
+<li><a href="IntegrationManual_Vins.html#9">6.1.3 Fscsm</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#9">6.2 Configuration</a></li>
+<li><a href="IntegrationManual_Vins.html#9">6.3 Configuration of the RTE</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#9">6.3.1 Assembly connectors</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#9">6.3.1.1 Always</a></li>
+<li><a href="IntegrationManual_Vins.html#9">6.3.1.2 If SecureVin is configured</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#9">6.3.2 Event Mapping</a></li>
+<li><a href="IntegrationManual_Vins.html#10">6.3.3 Data Mapping</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#10">6.3.3.1 If EnableSIAdapter=false</a></li>
+<li><a href="IntegrationManual_Vins.html#10">6.3.3.2 If SecureVin is configured with EnableSIAdapter=false</a></li>
+<li><a href="IntegrationManual_Vins.html#10">6.3.3.3 If EnableSIAdapter=true</a></li>
+<li><a href="IntegrationManual_Vins.html#10">6.3.3.4 If SecureVin is configured with EnableSIAdapter=true</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#11">6.3.4 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="IntegrationManual_Vins.html#11">6.4 Software Integration</a>
+<ul>
+<li><a href="IntegrationManual_Vins.html#11">6.4.1 Startup/Initialisation</a></li>
+<li><a href="IntegrationManual_Vins.html#11">6.4.2 Normal Operation</a></li>
+<li><a href="IntegrationManual_Vins.html#11">6.4.3 Shutdown/Deactivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

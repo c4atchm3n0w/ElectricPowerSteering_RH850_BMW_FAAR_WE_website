@@ -1,0 +1,356 @@
+---
+title: UserGuide_Vins
+linkTitle: UserGuide_Vins
+weight: 17
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-1_1.png"/><br/>
+User&#160;Guide&#160;Vin<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;2<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-02-23<br/>
+Version<br/>
+3.5.0<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version&#160;Date</b><br/>
+<b>Changed&#160;by</b><br/>
+<b>Description</b><br/>
+3.5.0<br/>
+2017-02-23<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+3.4.2<br/>
+2016-10-27<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+3.4.1<br/>
+2016-08-25<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+3.4.0<br/>
+2016-03-17<br/>
+Björn<br/>
+Added&#160;section&#160;&#34;Getting&#160;Notified&#160;about&#160;a<br/>
+Aktiengesellschaft<br/>
+Sachsenberg<br/>
+Changed&#160;VIN&#34;<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+3.3.0<br/>
+2015-12-11<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+<b>Office&#160;address</b><br/>
+Sachsenberg<br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+3.2.0<br/>
+2015-07-10<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+Sachsenberg<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
+3.1.0<br/>
+2015-03-13<br/>
+Björn<br/>
+Added&#160;content&#160;to&#160;section&#160;4.2:&#160;&#34;Evaluating&#160;the<br/>
++49&#160;89&#160;382-0<br/>
+Sachsenberg<br/>
+Qualifier&#34;<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+3.0.0<br/>
+2014-10-29<br/>
+Björn<br/>
+Initial&#160;version<br/>
+Sachsenberg<br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;7<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="UserGuide_Vins.html#3"><b>1&#160;Overview</b></a><br/>
+<b>3</b><br/>
+<a href="UserGuide_Vins.html#3">1.1</a><br/>
+<a href="UserGuide_Vins.html#3">Purpose</a><br/>
+3<br/>
+<a href="UserGuide_Vins.html#3"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>3</b><br/>
+<a href="UserGuide_Vins.html#5"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="UserGuide_Vins.html#5">3.1</a><br/>
+<a href="UserGuide_Vins.html#5">BMW&#160;Specifications</a><br/>
+5<br/>
+<a href="UserGuide_Vins.html#5">3.2</a><br/>
+<a href="UserGuide_Vins.html#5">AUTOSAR&#160;Specifications</a><br/>
+5<br/>
+<a href="UserGuide_Vins.html#6"><b>4&#160;Usage</b></a><br/>
+<b>6</b><br/>
+<a href="UserGuide_Vins.html#6">4.1</a><br/>
+<a href="UserGuide_Vins.html#6">Receiving&#160;the&#160;VIN&#160;and&#160;Qualifier</a><br/>
+6<br/>
+<a href="UserGuide_Vins.html#6">4.2</a><br/>
+<a href="UserGuide_Vins.html#6">Evaluating&#160;the&#160;Qualifier</a><br/>
+6<br/>
+<a href="UserGuide_Vins.html#6">4.3</a><br/>
+<a href="UserGuide_Vins.html#6">Getting&#160;Notified&#160;about&#160;a&#160;Changed&#160;VIN</a><br/>
+6<br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;7<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-3_1.png"/><br/>
+<b>1</b><br/>
+<b>Overview</b><br/>
+<b>1.1&#160;Purpose</b><br/>
+The&#160;Vin&#160;module&#160;is&#160;used&#160;to&#160;request&#160;the&#160;VIN&#160;over&#160;the&#160;bus,&#160;set&#160;the&#160;qualifier&#160;and&#160;hand&#160;it&#160;over&#160;to<br/>application&#160;software&#160;components.<br/>
+The&#160;Vin&#160;module&#160;is&#160;modeled&#160;as&#160;an&#160;AUTOSAR&#160;software&#160;component&#160;(SWC)&#160;residing&#160;above&#160;the<br/>RTE.<br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+A&amp;S<br/>
+Authentication&#160;and&#160;Signature&#160;(Grundschutzmechanismen)<br/>
+AllgGB<br/>
+Allgemeine&#160;Gültigkeitsbedingung<br/>
+AN<br/>
+Applikationsnummer<br/>
+API<br/>
+Application&#160;Programming&#160;Interface<br/>
+AppGB<br/>
+Applikationsspezifische&#160;Gültigkeitsbedingung<br/>
+AUTOSAR&#160;Automotive&#160;Open&#160;System&#160;Architecture<br/>CA<br/>
+Certification&#160;Authority<br/>
+CAL<br/>
+Cryptographic&#160;Abstraction&#160;Layer<br/>
+CAS<br/>
+Car&#160;Access&#160;System&#160;(Steuergerät)<br/>
+CCC<br/>
+Car&#160;Communication&#160;Computer<br/>
+CKD<br/>
+Completely&#160;Knocked&#160;Down.&#160;A&#160;BMW&#160;plant&#160;that&#160;is&#160;not&#160;connected&#160;to<br/>the&#160;central&#160;BMW&#160;IT.<br/>
+CSM<br/>
+Client&#160;Security&#160;Module<br/>
+CRL<br/>
+Certificate&#160;Revocation&#160;List<br/>
+DEK<br/>
+Data&#160;Encryption&#160;Key<br/>
+DER<br/>
+Distinguished&#160;Encoding&#160;Rules&#160;(As&#160;described&#160;by&#160;ASN.1)<br/>
+DES<br/>
+Data&#160;Encryption&#160;Standard<br/>
+DN<br/>
+Distinguished&#160;Name<br/>
+DTC<br/>
+Diagnostic&#160;Trouble&#160;Code&#160;-&gt;&#160;Fehlercode&#160;des&#160;Fehlerspeichereintrages<br/>
+ECU<br/>
+Electronic&#160;Control&#160;Unit<br/>
+FAT<br/>
+Flash-Absicherungs-Tool<br/>
+FSC<br/>
+Freischaltcode<br/>
+FSCS<br/>
+Freischaltcode-Stelle<br/>
+FZG<br/>
+Fahrzeug<br/>
+FZG-R<br/>
+BMW&#160;Fahrzeug-Root-CA<br/>
+GB<br/>
+Gültigkeitsbedingung<br/>
+GG<br/>
+Gültigkeitsgruppe<br/>
+GMT<br/>
+Greenwich&#160;Mean&#160;Time<br/>
+HO<br/>
+Handelsorganisation&#160;(BMW)<br/>
+HW<br/>
+Hardware<br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;7<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-4_1.png"/><br/>
+M-FSCS<br/>
+Master-Freischaltcodestelle<br/>
+OS<br/>
+Operating&#160;System<br/>
+PKI<br/>
+Public&#160;Key&#160;Infrastrucutre<br/>
+RCn<br/>
+Routine&#160;Control&#160;Option&#160;n&#160;/&#160;Exit&#160;Result&#160;n<br/>
+RI<br/>
+Routine&#160;Identifier<br/>
+RSA<br/>
+Asymmetric&#160;Cryptoalgorithm&#160;by&#160;Rivest,&#160;Shamir&#160;und&#160;Adleman<br/>
+RTE<br/>
+Runtime&#160;Environment<br/>
+SG<br/>
+Steuergerät<br/>
+SGID<br/>
+Steuergeräte-ID,&#160;Diagnoseadresse,&#160;Steuergeräte-Adresse<br/>
+SID<br/>
+Service&#160;Identifier<br/>
+SigS<br/>
+SW-Signatur-Stelle<br/>
+SW<br/>
+Software<br/>
+SW-C<br/>
+Software&#160;Component<br/>
+SWID<br/>
+Software-ID&#160;consisting&#160;of&#160;application&#160;number&#160;and&#160;upgrade&#160;index<br/>
+SWT<br/>
+SWEEPING&#160;Technologies&#160;(SoftWare&#160;Enabled&#160;Electronic&#160;Platform&#160;for<br/>Innovative&#160;Next&#160;Generation&#160;Technologies)<br/>
+UDS<br/>
+Universal&#160;Diagnostic&#160;Services<br/>
+UI<br/>
+Upgrade&#160;Index<br/>
+UTC<br/>
+Coordinated&#160;Universal&#160;Time<br/>
+VCM<br/>
+Vehicle&#160;Configuration&#160;Management<br/>
+VIN<br/>
+Vehicle&#160;Identification&#160;Number<br/>
+VIN7<br/>
+The&#160;last&#160;7&#160;digits&#160;of&#160;the&#160;17-digit&#160;VIN<br/>
+All&#160;abbreviations&#160;used&#160;throughout&#160;this&#160;document&#160;--&#160;except&#160;the&#160;ones&#160;listed&#160;here&#160;--&#160;can&#160;be&#160;found<br/>in&#160;the&#160;official&#160;AUTOSAR&#160;glossary&#160;<a href="UserGuide_Vins.html#5">[1].</a><br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;7<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-5_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>3.1&#160;BMW&#160;Specifications</b><br/>
+<b>3.2&#160;AUTOSAR&#160;Specifications</b><br/>
+[1]&#160;Glossary<br/>
+AUTOSAR_TR_Glossary<br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;7<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-6_1.png"/><br/>
+<b>4</b><br/>
+<b>Usage</b><br/>
+This&#160;section&#160;describes&#160;all&#160;functional&#160;Vin&#160;features&#160;to&#160;be&#160;used&#160;by&#160;an&#160;application.<br/>
+<b>4.1&#160;Receiving&#160;the&#160;VIN&#160;and&#160;Qualifier</b><br/>
+1<br/>
+Vin_VinType<br/>
+ExternalVIN;<br/>
+2<br/>
+3<br/>
+<b>if</b>(&#160;E_OK&#160;==&#160;Rte_Read_Vin_Vin_Vin(&amp;ExternalVIN))<br/>
+4<br/>
+{<br/>
+5<br/>
+/*&#160;ExternalVIN.Vin&#160;contains&#160;the&#160;VIN,<br/>
+6<br/>
+ExternalVIN.Qualifier&#160;contains&#160;the&#160;corresponding&#160;qualifier&#160;*/<br/>
+7<br/>
+}<br/>
+<b>4.2&#160;Evaluating&#160;the&#160;Qualifier</b><br/>
+There&#160;is&#160;a&#160;macro&#160;to&#160;easily&#160;evaluate&#160;the&#160;qualifier&#160;in&#160;Vin_Helper.h.&#160;The&#160;check,&#160;whether&#160;an<br/>external&#160;VIN&#160;has&#160;been&#160;received&#160;at&#160;all,&#160;use&#160;the&#160;following&#160;code&#160;snipped:<br/>
+1<br/>
+<b>#include&#160;</b>&#34;Vin_Helper.h&#34;<br/>
+2<br/>
+3<br/>
+<b>if&#160;</b>(VIN_CHECKQUALIFIER(ExternalVIN.Qualifier,&#160;VIN_CQ_VIN_RECEIVED))<br/>
+4<br/>
+{<br/>
+5<br/>
+/*&#160;An&#160;external&#160;VIN&#160;has&#160;been&#160;received&#160;*/<br/>
+6<br/>
+}<br/>
+To&#160;check&#160;for&#160;a&#160;verified&#160;secure&#160;VIN,&#160;use<br/>
+1<br/>
+<b>#include&#160;</b>&#34;Vin_Helper.h&#34;<br/>
+2<br/>
+3<br/>
+<b>if&#160;</b>(VIN_CHECKQUALIFIER(ExternalVIN.Qualifier,&#160;VIN_CQ_VIN_SECURE))<br/>
+4<br/>
+{<br/>
+5<br/>
+/*&#160;An&#160;external&#160;secured&#160;VIN&#160;has&#160;been&#160;received&#160;and&#160;verified&#160;*/<br/>
+6<br/>
+}<br/>
+For&#160;a&#160;plain&#160;VIN&#160;in&#160;an&#160;unsafe&#160;environment,&#160;use&#160;the&#160;same&#160;with&#160;VIN_CQ_VIN_UNSAFE.<br/>
+<b>4.3&#160;Getting&#160;Notified&#160;about&#160;a&#160;Changed&#160;VIN</b><br/>
+If&#160;a&#160;received&#160;VIN&#160;is&#160;different&#160;from&#160;the&#160;last&#160;received&#160;VIN,&#160;the&#160;mode&#160;VinChangeIndicator&#160;is<br/>switched&#160;to&#160;VIN_CI_CHANGED.<br/>
+The&#160;mode&#160;will&#160;stay&#160;in&#160;VIN_CI_CHANGED&#160;until&#160;shutdown&#160;of&#160;the&#160;ECU.&#160;On&#160;the&#160;next&#160;start-up,&#160;the<br/>mode&#160;will&#160;switch&#160;to&#160;VIN_CI_NOCHANGE&#160;if&#160;the&#160;same&#160;VIN&#160;is&#160;received.<br/>
+<b>Hint:&#160;</b>If&#160;you&#160;need&#160;to&#160;trigger&#160;a&#160;long-running&#160;operation&#160;on&#160;a&#160;VIN&#160;change,&#160;you&#160;should&#160;write&#160;a&#160;flag<br/>into&#160;NVM&#160;in&#160;your&#160;ON-ENTER&#160;Runnable&#160;and&#160;then&#160;trigger&#160;the&#160;operation.&#160;So&#160;if&#160;the&#160;ECU&#160;shuts&#160;down<br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;7<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/UserGuide_Vin-7_1.png"/><br/>
+before&#160;the&#160;long-running&#160;operation&#160;has&#160;finished,&#160;you&#160;can&#160;restart&#160;it&#160;in&#160;the&#160;next&#160;life&#160;cycle&#160;according<br/>to&#160;the&#160;flag.<br/>
+UserGuide_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;7<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="UserGuide_Vins.html#3">1 Overview</a>
+<ul>
+<li><a href="UserGuide_Vins.html#3">1.1 Purpose</a></li>
+</ul>
+</li>
+<li><a href="UserGuide_Vins.html#3">2 Acronyms and Abbreviations</a></li>
+<li><a href="UserGuide_Vins.html#5">3 Related documentation</a>
+<ul>
+<li><a href="UserGuide_Vins.html#5">3.1 BMW Specifications</a></li>
+<li><a href="UserGuide_Vins.html#5">3.2 AUTOSAR Specifications</a></li>
+</ul>
+</li>
+<li><a href="UserGuide_Vins.html#6">4 Usage</a>
+<ul>
+<li><a href="UserGuide_Vins.html#6">4.1 Receiving the VIN and Qualifier</a></li>
+<li><a href="UserGuide_Vins.html#6">4.2 Evaluating the Qualifier</a></li>
+<li><a href="UserGuide_Vins.html#6">4.3 Getting Notified about a Changed VIN</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

@@ -1,0 +1,727 @@
+---
+title: CodingClassic_IntegrationManuals
+linkTitle: CodingClassic_IntegrationManuals
+weight: 6
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-1_1.png"/><br/>
+Coding&#160;Classic&#160;Integration&#160;Manual<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;4&#160;Core&#160;Rel.&#160;3<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-12-14<br/>
+Version<br/>
+5.2.1<br/>
+Status<br/>
+Release<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Description</b><br/>
+5.2.1<br/>
+2017-12-14<br/>
+Version&#160;Update<br/>
+5.2.0<br/>
+2017-11-09<br/>
+Version&#160;Update<br/>
+5.1.0<br/>
+2017-10-12<br/>
+Version&#160;Update<br/>
+5.0.1<br/>
+2017-09-14<br/>
+Version&#160;Update<br/>
+5.0.0<br/>
+2017-06-08<br/>
+Initial&#160;version&#160;for&#160;SP2021<br/>
+<b>Company</b><br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+<b>Telephone</b><br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;23<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="CodingClassic_IntegrationManuals.html#4"><b>1&#160;Introduction</b></a><br/>
+<b>4</b><br/>
+<a href="CodingClassic_IntegrationManuals.html#4">1.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#4">General</a><br/>
+4<br/>
+<a href="CodingClassic_IntegrationManuals.html#4">1.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#4">Functional&#160;overview</a><br/>
+4<br/>
+<a href="CodingClassic_IntegrationManuals.html#5"><b>2&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="CodingClassic_IntegrationManuals.html#6"><b>3&#160;Limitations</b></a><br/>
+<b>6</b><br/>
+<a href="CodingClassic_IntegrationManuals.html#7"><b>4&#160;Software&#160;Architecture</b></a><br/>
+<b>7</b><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">Dependencies&#160;on&#160;AUTOSAR&#160;modules</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">NvM</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">Dem</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">Dcm</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">Com</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.5</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">Det</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.6</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">RTE</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#7">4.1.7</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#7">BswM</a><br/>
+7<br/>
+<a href="CodingClassic_IntegrationManuals.html#8">4.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#8">Dependencies&#160;to&#160;other&#160;modules</a><br/>
+8<br/>
+<a href="CodingClassic_IntegrationManuals.html#8">4.2.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#8">Dlog</a><br/>
+8<br/>
+<a href="CodingClassic_IntegrationManuals.html#8">4.2.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#8">Vin</a><br/>
+8<br/>
+<a href="CodingClassic_IntegrationManuals.html#8">4.2.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#8">Other&#160;SWC</a><br/>
+8<br/>
+<a href="CodingClassic_IntegrationManuals.html#9"><b>5&#160;Integration</b></a><br/>
+<b>9</b><br/>
+<a href="CodingClassic_IntegrationManuals.html#9">5.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#9">Configuration&#160;of&#160;other&#160;Modules</a><br/>
+9<br/>
+<a href="CodingClassic_IntegrationManuals.html#9">5.1.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#9">NvM</a><br/>
+9<br/>
+<a href="CodingClassic_IntegrationManuals.html#9">5.1.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#9">Dem</a><br/>
+9<br/>
+<a href="CodingClassic_IntegrationManuals.html#10">5.1.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#10">Dcm</a><br/>
+10<br/>
+<a href="CodingClassic_IntegrationManuals.html#10">5.1.3.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#10">DiagnosticSession</a><br/>
+10<br/>
+<a href="CodingClassic_IntegrationManuals.html#10">5.1.3.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#10">DiagnosticSessionControl</a><br/>
+10<br/>
+<a href="CodingClassic_IntegrationManuals.html#11">5.1.3.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#11">RoutineControl</a><br/>
+11<br/>
+<a href="CodingClassic_IntegrationManuals.html#12">5.1.3.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#12">ReadDataByIdentifier</a><br/>
+12<br/>
+<a href="CodingClassic_IntegrationManuals.html#14">5.1.3.5</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#14">DiagnosticSessionControl</a><br/>
+14<br/>
+<a href="CodingClassic_IntegrationManuals.html#15">5.1.3.6</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#15">Service&#160;Request&#160;Manufacturer&#160;Notification</a><br/>
+15<br/>
+<a href="CodingClassic_IntegrationManuals.html#15">5.1.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#15">Com</a><br/>
+15<br/>
+<a href="CodingClassic_IntegrationManuals.html#15">5.1.5</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#15">Det</a><br/>
+15<br/>
+<a href="CodingClassic_IntegrationManuals.html#15">5.1.6</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#15">BswM</a><br/>
+15<br/>
+<a href="CodingClassic_IntegrationManuals.html#16">5.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#16">Configuration&#160;of&#160;generic&#160;part</a><br/>
+16<br/>
+<a href="CodingClassic_IntegrationManuals.html#16">5.2.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#16">CodingCrypto</a><br/>
+16<br/>
+<a href="CodingClassic_IntegrationManuals.html#16">5.2.1.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#16">CryptoLib</a><br/>
+16<br/>
+<a href="CodingClassic_IntegrationManuals.html#16">5.2.1.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#16">Csm</a><br/>
+16<br/>
+<a href="CodingClassic_IntegrationManuals.html#16">5.2.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#16">CodingGeneral</a><br/>
+16<br/>
+<a href="CodingClassic_IntegrationManuals.html#16">5.2.2.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#16">CodingDevErrorDetect</a><br/>
+16<br/>
+<a href="CodingClassic_IntegrationManuals.html#17">5.2.2.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#17">CodingSignatureSize</a><br/>
+17<br/>
+<a href="CodingClassic_IntegrationManuals.html#17">5.2.2.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#17">CodingCryptoEnable</a><br/>
+17<br/>
+<a href="CodingClassic_IntegrationManuals.html#17">5.2.2.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#17">CodingProdErrorCEUDDetection</a><br/>
+17<br/>
+<a href="CodingClassic_IntegrationManuals.html#17">5.2.2.5</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#17">CodingConditionCheck</a><br/>
+17<br/>
+<a href="CodingClassic_IntegrationManuals.html#17">5.2.2.6</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#17">CodingReceiveBufferSize</a><br/>
+17<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;23<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-3_1.png"/><br/>
+<a href="CodingClassic_IntegrationManuals.html#18">5.2.2.7</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#18">CodingSendBufferSize</a><br/>
+18<br/>
+<a href="CodingClassic_IntegrationManuals.html#18">5.2.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#18">CodingArea</a><br/>
+18<br/>
+<a href="CodingClassic_IntegrationManuals.html#18">5.2.3.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#18">CodingAreaDefVal</a><br/>
+18<br/>
+<a href="CodingClassic_IntegrationManuals.html#20">5.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#20">Configuration&#160;of&#160;adapter&#160;part</a><br/>
+20<br/>
+<a href="CodingClassic_IntegrationManuals.html#20">5.3.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#20">CodingClassicGeneral</a><br/>
+20<br/>
+<a href="CodingClassic_IntegrationManuals.html#20">5.3.1.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#20">CodingCycleTime</a><br/>
+20<br/>
+<a href="CodingClassic_IntegrationManuals.html#20">5.3.1.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#20">Other&#160;Application&#160;SWC</a><br/>
+20<br/>
+<a href="CodingClassic_IntegrationManuals.html#21">5.3.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#21">Event&#160;Mapping</a><br/>
+21<br/>
+<a href="CodingClassic_IntegrationManuals.html#21">5.3.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#21">Data&#160;Mapping</a><br/>
+21<br/>
+<a href="CodingClassic_IntegrationManuals.html#21">5.3.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#21">Exclusive&#160;Areas</a><br/>
+21<br/>
+<a href="CodingClassic_IntegrationManuals.html#22">5.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#22">Software&#160;Integration</a><br/>
+22<br/>
+<a href="CodingClassic_IntegrationManuals.html#22">5.4.1</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#22">Startup/Initialization</a><br/>
+22<br/>
+<a href="CodingClassic_IntegrationManuals.html#22">5.4.2</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#22">Normal&#160;Operation</a><br/>
+22<br/>
+<a href="CodingClassic_IntegrationManuals.html#22">5.4.3</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#22">Shutdown/Deactivation</a><br/>
+22<br/>
+<a href="CodingClassic_IntegrationManuals.html#22">5.4.4</a><br/>
+<a href="CodingClassic_IntegrationManuals.html#22">SWCD</a><br/>
+22<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;23<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction</b><br/>
+The&#160;Coding&#160;system&#160;consists&#160;of&#160;a&#160;Coding&#160;module&#160;that&#160;is&#160;part&#160;of&#160;the&#160;ECU&#160;application&#160;and&#160;the&#160;Coder.<br/>
+Almost&#160;in&#160;the&#160;same&#160;manner&#160;as&#160;the&#160;Bootloader&#160;programs&#160;the&#160;ROM&#160;of&#160;an&#160;ECU,&#160;the&#160;Coding&#160;module&#160;codes<br/>the&#160;NV&#160;memory&#160;of&#160;an&#160;ECU&#160;with&#160;vehicle&#160;specific&#160;data&#160;derived&#160;from&#160;the&#160;vehicle&#160;description&#160;document&#160;e.g.<br/>type&#160;key,&#160;extra&#160;equipment,&#160;country&#160;specifics,&#160;year&#160;of&#160;model/construction&#160;stage,&#160;additional&#160;comments&#160;or<br/>service&#160;upgrade&#160;options.<br/>
+<b>General</b><br/>
+For&#160;a&#160;general&#160;introduction&#160;to&#160;the&#160;BAC4/aBAC&#160;Modules&#160;please&#160;refer&#160;to&#160;<a href="CodingClassic_IntegrationManuals.html#5">[1].</a><br/>
+This&#160;document&#160;only&#160;describes&#160;topics&#160;related&#160;to&#160;the&#160;Coding&#160;BAC4/aBAC&#160;Module.<br/>
+This&#160;Integration&#160;Manual&#160;describes&#160;the&#160;basis&#160;functionality,&#160;API&#160;and&#160;the&#160;configuration&#160;of&#160;the&#160;BMW&#160;system<br/>function&#160;Coding.<br/>
+<b>Functional&#160;overview</b><br/>
+The&#160;Coding&#160;module&#160;implements&#160;the&#160;coding&#160;process&#160;that&#160;is&#160;part&#160;of&#160;the&#160;vehicle&#160;programming&#160;process.&#160;It<br/>provides&#160;functions&#160;to&#160;the&#160;application&#160;to&#160;read&#160;coded&#160;data&#160;stored&#160;in&#160;the&#160;NV&#160;memory.&#160;If&#160;the&#160;NV&#160;memory<br/>contains&#160;no&#160;valid&#160;data&#160;default&#160;values&#160;are&#160;provided.&#160;The&#160;coded&#160;data&#160;in&#160;NV&#160;memory&#160;can&#160;only&#160;be&#160;changed&#160;via<br/>a&#160;diagnostic&#160;coding&#160;session.<br/>
+The&#160;Coding&#160;module&#160;provides&#160;the&#160;following&#160;functionalities:<br/>
+Manages&#160;coding&#160;data&#160;stored&#160;in&#160;NV&#160;memory<br/>Provides&#160;read/write&#160;access&#160;via&#160;a&#160;special&#160;UDS&#160;diagnostics&#160;Session&#160;to&#160;the&#160;Coder<br/>Provides&#160;read&#160;only&#160;access&#160;via&#160;API&#160;to&#160;the&#160;ECU&#160;application<br/>Informs&#160;the&#160;ECU&#160;application&#160;about&#160;its&#160;current&#160;status<br/>Performs&#160;signature&#160;checks&#160;over&#160;the&#160;Coding&#160;data<br/>Restores&#160;safe&#160;default&#160;values&#160;in&#160;case&#160;of&#160;errors<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;23<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-5_1.png"/><br/>
+<b>2</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>References</b><br/>
+[1]&#160;BAC4&#160;General&#160;Concept&#160;for&#160;the&#160;Module&#160;Integration<br/>
+BAC4_General_Concepts_for_the_Module_Integration.pdf<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;23<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-6_1.png"/><br/>
+<b>3</b><br/>
+<b>Limitations</b><br/>
+The&#160;Coding&#160;module&#160;supports&#160;only&#160;one&#160;asymmetric&#160;key&#160;to&#160;calculate&#160;the&#160;signature&#160;for&#160;all&#160;Coding&#160;areas.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;23<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-7_1.png"/><br/>
+<b>4</b><br/>
+<b>Software&#160;Architecture</b><br/>
+<b>Dependencies&#160;on&#160;AUTOSAR&#160;modules</b><br/>
+The&#160;current&#160;version&#160;of&#160;the&#160;Module&#160;Coding&#160;depends&#160;on&#160;the&#160;following&#160;BSW&#160;modules:<br/>
+<b>NvM</b><br/>
+The&#160;Coding&#160;module&#160;uses&#160;the&#160;NVM&#160;to&#160;read&#160;Coding&#160;data&#160;from&#160;NV&#160;memory&#160;and&#160;to&#160;write&#160;it&#160;back.<br/>
+<b>Dem</b><br/>
+The&#160;Coding&#160;module&#160;uses&#160;the&#160;DEM&#160;API&#160;to&#160;report&#160;critical&#160;events&#160;and&#160;write&#160;error&#160;memory&#160;entries.<br/>
+<b>Dcm</b><br/>
+The&#160;Coding&#160;module&#160;uses&#160;the&#160;DCM&#160;to&#160;communicate&#160;with&#160;the&#160;Coder&#160;by&#160;sending&#160;and&#160;receiving&#160;diagnostic<br/>UDS&#160;messages&#160;via&#160;CAN,&#160;FlexRay,&#160;etc.<br/>
+<b>Com</b><br/>
+The&#160;Coding&#160;module&#160;use&#160;signals&#160;from&#160;COM&#160;to&#160;get&#160;the&#160;Vehicle&#160;Speed.<br/>
+<b>Det</b><br/>
+The&#160;Coding&#160;module&#160;optionally&#160;reports&#160;development&#160;errors&#160;to&#160;the&#160;Det.<br/>
+<b>RTE</b><br/>
+As&#160;a&#160;software&#160;component,&#160;the&#160;Coding&#160;module&#160;uses&#160;Rte&#160;client/server&#160;and&#160;sender/receiver&#160;communication<br/>to&#160;communicate&#160;with&#160;other&#160;SWCs&#160;and&#160;BSW&#160;modules.<br/>
+<b>BswM</b><br/>
+The&#160;Coding&#160;receives&#160;and&#160;requests&#160;mode&#160;switches&#160;from&#160;the&#160;BswM&#160;to&#160;switch&#160;the&#160;current&#160;Coding<br/>operational&#160;mode.&#160;It&#160;further&#160;receives&#160;a&#160;mode&#160;switch&#160;from&#160;the&#160;BswM&#160;when&#160;the&#160;active&#160;diagnostic&#160;session<br/>has&#160;changed&#160;and&#160;when&#160;the&#160;bus&#160;communication&#160;status&#160;has&#160;changed.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;23<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-8_1.png"/><br/>
+<b>Dependencies&#160;to&#160;other&#160;modules</b><br/>
+<b>Dlog</b><br/>
+The&#160;Dlog&#160;module&#160;is&#160;used&#160;to&#160;obtain&#160;the&#160;information&#160;during&#160;startup&#160;if&#160;the&#160;control&#160;unit&#160;has&#160;been&#160;coded&#160;after<br/>flash&#160;programming.<br/>
+<b>Vin</b><br/>
+The&#160;Vin&#160;module&#160;is&#160;used&#160;to&#160;obtain&#160;the&#160;current&#160;bus&#160;VIN.<br/>
+<b>Other&#160;SWC</b><br/>
+The&#160;Coding&#160;optionally&#160;calls&#160;another&#160;Application&#160;Software&#160;Component&#160;to&#160;perform&#160;a&#160;plausibility&#160;check&#160;of<br/>the&#160;net&#160;coding&#160;data&#160;received&#160;during&#160;the&#160;coding&#160;data&#160;transaction&#160;if&#160;implausible&#160;net&#160;coding&#160;data&#160;can&#160;lead&#160;to<br/>safety-critical&#160;states&#160;of&#160;the&#160;control&#160;unit.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;23<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-9_1.png"/><br/>
+<b>5</b><br/>
+<b>Integration</b><br/>
+<b>Configuration&#160;of&#160;other&#160;Modules</b><br/>
+The&#160;following&#160;modules&#160;shall&#160;be&#160;configured,&#160;before&#160;this&#160;module&#160;can&#160;be&#160;generated,&#160;compiled&#160;and&#160;linked.<br/>
+<b>NvM</b><br/>
+The&#160;NVRAM&#160;Manager&#160;shall&#160;be&#160;configured&#160;to&#160;hold&#160;one&#160;NVRAM&#160;block.&#160;The&#160;following&#160;parameters&#160;have&#160;to<br/>be&#160;configured:<br/>
+a&#160;container&#160;&#34;`NvMBlockDescriptor&#34;'&#160;with<br/>
+NvmNvBlockLength:&#160;&#34;`see&#160;CODING_DATA_SIZE&#160;in&#160;generated&#160;Coding_Cfg.h&#34;'<br/>NvmBlockCRCType:&#160;e.g.&#160;NVM_CRC16<br/>NvMBlockUseCrc:&#160;true<br/>NvMCalcRamBlockCrc:&#160;false<br/>NvmBlockManagementType:&#160;NVM_BLOCK_NATIVE<br/>NvmRamBlockDataAddress:&#160;&amp;Coding_CodingData<br/>NvmRomBlockDataAddress:&#160;&amp;Coding_CodingDataDefault<br/>NvmSelectBlockForReadAll:&#160;true<br/>NvmSelectBlockForWriteAll:&#160;false<br/>
+This&#160;NVRAM&#160;block&#160;needs<br/>
+Port&#160;and&#160;Port&#160;Interface&#160;for&#160;service&#160;ports<br/>Port&#160;and&#160;Port&#160;Interface&#160;for&#160;single&#160;block&#160;job&#160;end&#160;notifications<br/>
+This&#160;NVRAM&#160;block&#160;will&#160;be&#160;used&#160;to&#160;store&#160;Coding&#160;data&#160;and&#160;will&#160;be&#160;written&#160;on&#160;Coding&#160;process.<br/>
+<b>Dem</b><br/>
+The&#160;Coding&#160;module&#160;reports&#160;different&#160;errors&#160;to&#160;the&#160;DEM.&#160;The&#160;DEM&#160;shall&#160;be&#160;configured&#160;to&#160;provide&#160;the<br/>following&#160;Errors&#160;(aging/healing&#160;is&#160;disabled&#160;for&#160;all&#160;DTCs):<br/>
+CODING_EVENT_NOT_CODED<br/>
+Description:&#160;No&#160;valid&#160;Coding&#160;data&#160;is&#160;available&#160;and&#160;default&#160;values&#160;are&#160;used.<br/>Annotation:&#160;A&#160;Clear&#160;Event&#160;Allowed&#160;port&#160;shall&#160;be&#160;configured&#160;via&#160;Rte<br/>DTC&#160;Class<br/>∗&#160;DemUdsDtc:&#160;0x20000&#160;+&#160;0x100&#160;*&#160;ECU_Address&#160;+&#160;0x08<br/>∗&#160;DemDTCSeverity:&#160;DEM_DTC_SEV_NO_SEVERITY<br/>Event<br/>∗&#160;DemEventKind:&#160;DEM_EVENT_KIND_SWC<br/>∗&#160;DemEventDestination:&#160;DEM_DTC_ORIGIN_PRIMARY_MEMORY<br/>
+CODING_EVENT_WRONG_VEHICLE<br/>
+Description:&#160;CPS&#160;and&#160;VIN&#160;do&#160;not&#160;match.<br/>DTC&#160;Class<br/>∗&#160;DemUdsDtc:&#160;0x20000&#160;+&#160;0x100&#160;*&#160;ECU_Address&#160;+&#160;0x09<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;23<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-10_1.png"/><br/>
+∗&#160;DemDTCSeverity:&#160;DEM_DTC_SEV_NO_SEVERITY<br/>Event<br/>∗&#160;DemEventKind:&#160;DEM_EVENT_KIND_SWC<br/>∗&#160;DemEventDestination:&#160;DEM_DTC_ORIGIN_PRIMARY_MEMORY<br/>
+CODING_EVENT_UNQUALIFIED_DATA<br/>
+Description:&#160;CPS-VIN&#160;comparison&#160;has&#160;not&#160;been&#160;done.<br/>Annotation:&#160;Error&#160;entry&#160;depends&#160;on&#160;configuration&#160;parameter&#160;&#34;`CodingProdErrorCEUDDetection&#34;'<br/>DTC&#160;Class<br/>∗&#160;DemUdsDtc:&#160;0x20000&#160;+&#160;0x100&#160;*&#160;ECU_Address&#160;+&#160;0x0A<br/>∗&#160;DemDTCSeverity:&#160;DEM_DTC_SEV_NO_SEVERITY<br/>Event<br/>∗&#160;DemEventKind:&#160;DEM_EVENT_KIND_SWC<br/>∗&#160;DemEventDestination:&#160;DEM_DTC_ORIGIN_PRIMARY_MEMORY<br/>
+<b>Dcm</b><br/>
+<b>DiagnosticSession</b><br/>
+The&#160;writing&#160;of&#160;net&#160;coding&#160;data&#160;into&#160;a&#160;control&#160;unit&#160;must&#160;only&#160;be&#160;possible,&#160;if&#160;the&#160;control&#160;unit&#160;is&#160;in&#160;the<br/>CodingSession.<br/>
+The&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:<br/>
+a&#160;container&#160;&#34;`DcmDspSessionRow&#34;'&#160;with<br/>
+DcmDspSessionForBoot:&#160;DCM_NO_BOOT<br/>DcmDspSessionLevel:&#160;65&#160;(0x41)<br/>DcmDspSessionP2ServerMax:&#160;<b>[IM_CodingClassic_001]&#160;</b>dc<a href="CodingClassic_IntegrationManuals.html#1"><i>(DK_T3_266)<br/></i></a>DcmDspSessionP2StarServerMax:&#160;5.0<br/>
+<b>DiagnosticSessionControl</b><br/>
+<b>[IM_CodingClassic_002]&#160;</b>dThe&#160;Diagnostic&#160;Session&#160;Control&#160;service&#160;is&#160;used&#160;for&#160;changing&#160;codable&#160;control<br/>units&#160;into&#160;the&#160;Extended&#160;Diagnostic&#160;Session,&#160;the&#160;Coding&#160;Session&#160;and&#160;the&#160;Default&#160;Session.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_268)</i></a><br/>
+<b>[IM_CodingClassic_003]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_269,&#160;COD_272,<br/>COD_276,&#160;COD_280)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDsdService&#34;'&#160;with<br/>
+DcmDsdSidTabServiceId:&#160;0x10<br/>∗&#160;a&#160;container&#160;&#34;`DcmDsdSubService&#34;'&#160;with<br/>
+·&#160;DcmDsdSubServiceId:&#160;0x01<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;DEFAULT_SESSION<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;EXTENDED_SESSION<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;CODING_SESSION<br/>·&#160;DcmDsdSubServiceId:&#160;0x03<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;DEFAULT_SESSION<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;EXTENDED_SESSION<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;23<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-11_1.png"/><br/>
+·&#160;DcmDsdSubServiceId:&#160;0x41<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;EXTENDED_SESSION<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;CODING_SESSION<br/>
+<b>RoutineControl</b><br/>
+<b>[IM_CodingClassic_004]&#160;</b>dThe&#160;Routine&#160;Control&#160;service&#160;is&#160;used&#160;for&#160;reading,&#160;writing&#160;and&#160;verifying&#160;net<br/>coding&#160;data.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_289)</i></a><br/>
+<b>Reading&#160;of&#160;net&#160;coding&#160;data&#160;from&#160;control&#160;unit&#160;(0x31&#160;0x01&#160;0x37&#160;0xFC)</b><br/>
+<b>[IM_CodingClassic_005]&#160;</b>dThis&#160;request&#160;has&#160;a&#160;variable&#160;response&#160;length.&#160;The&#160;following&#160;parameters&#160;have<br/>to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_292,&#160;COD_294)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspRoutine&#34;'&#160;with<br/>
+DcmDspRoutineIdentifier:&#160;0x37FC<br/>DcmDspRoutineUsePort:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspRoutineInfo&#34;'&#160;and&#160;&#34;`DcmDspStartRoutineIn&#34;'&#160;with<br/>
+a&#160;&#34;`StartRoutineInSignal&#34;'&#160;with<br/>∗&#160;DcmDspRoutineSignalLength:&#160;48&#160;bits<br/>∗&#160;DcmDspRoutineSignalPos:&#160;0<br/>∗&#160;DcmDspRoutineSignalType:&#160;UINT8<br/>a&#160;&#34;`StartRoutineOutSignal&#34;'&#160;with<br/>∗&#160;DcmDspRoutineSignalLength:&#160;max.&#160;diagnostic&#160;buffer&#160;size&#160;(e.g.&#160;8192&#160;bits)<br/>∗&#160;DcmDspRoutineSignalPos:&#160;0<br/>∗&#160;DcmDspRoutineSignalType:&#160;VARIABLE_LENGTH<br/>
+<b>Writing&#160;of&#160;net&#160;coding&#160;data&#160;from&#160;control&#160;unit&#160;(0x31&#160;0x01&#160;0x37&#160;0xFD)</b><br/>
+<b>[IM_CodingClassic_006]&#160;</b>dThis&#160;request&#160;has&#160;a&#160;variable&#160;request&#160;length.&#160;The&#160;following&#160;parameters&#160;have<br/>to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_297,&#160;COD_299)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspRoutine&#34;'&#160;with<br/>
+DcmDspRoutineIdentifier:&#160;0x37FD<br/>DcmDspRoutineUsePort:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspRoutineInfo&#34;'&#160;and&#160;&#34;`DcmDspStartRoutineIn&#34;'&#160;with<br/>
+a&#160;&#34;`StartRoutineInSignal&#34;'&#160;with<br/>∗&#160;DcmDspRoutineSignalLength:&#160;max.&#160;diagnostic&#160;buffer&#160;size&#160;(e.g.&#160;8192&#160;bits)<br/>∗&#160;DcmDspRoutineSignalPos:&#160;0<br/>∗&#160;DcmDspRoutineSignalType:&#160;VARIABLE_LENGTH<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;23<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-12_1.png"/><br/>
+<b>Verification&#160;of&#160;net&#160;coding&#160;data&#160;from&#160;control&#160;unit&#160;(0x31&#160;0x01&#160;0x37&#160;0xFE)</b><br/>
+<b>[IM_CodingClassic_007]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_302,&#160;COD_304)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspRoutine&#34;'&#160;with<br/>
+DcmDspRoutineIdentifier:&#160;0x37FE<br/>DcmDspRoutineUsePort:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspRoutineInfo&#34;'&#160;and&#160;&#34;`DcmDspStartRoutineIn&#34;'&#160;with<br/>
+a&#160;&#34;`StartRoutineInSignal&#34;'&#160;with<br/>∗&#160;DcmDspRoutineSignalLength:&#160;144&#160;bits<br/>∗&#160;DcmDspRoutineSignalPos:&#160;0<br/>∗&#160;DcmDspRoutineSignalType:&#160;UINT8<br/>a&#160;&#34;`StartRoutineOutSignal&#34;'&#160;with<br/>∗&#160;DcmDspRoutineSignalLength:&#160;8&#160;bits<br/>∗&#160;DcmDspRoutineSignalPos:&#160;0<br/>∗&#160;DcmDspRoutineSignalType:&#160;UINT8<br/>
+<b>ReadDataByIdentifier</b><br/>
+<b>[IM_CodingClassic_008]&#160;</b>dThe&#160;Read&#160;Data&#160;By&#160;Identifier&#160;service&#160;is&#160;used&#160;in&#160;conjunction&#160;with&#160;coding&#160;for<br/>the&#160;following&#160;request&#160;to&#160;the&#160;control&#160;unit:<br/>
+Determining&#160;the&#160;value&#160;of&#160;the&#160;coding&#160;proof&#160;stamp&#160;(CPS)<br/>Determining&#160;the&#160;current&#160;session&#160;status&#160;(reading&#160;ActiveSessionState)<br/>Determining&#160;the&#160;current&#160;session<br/>Determining&#160;the&#160;protocol&#160;data&#160;(transport&#160;buffer&#160;sizes,&#160;coding&#160;area&#160;count&#160;and&#160;lengths)<br/>
+c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_289)</i></a><br/>
+<b>Read&#160;coding&#160;proof&#160;stamp&#160;(CPS)&#160;(0x22&#160;0x37&#160;0xFE)</b><br/>
+Reading&#160;out&#160;the&#160;coding&#160;proof&#160;stamp&#160;(CPS)&#160;from&#160;the&#160;control&#160;unit.<br/>
+<b>[IM_CodingClassic_009]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_314,&#160;COD_316)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspDataInfo&#34;'&#160;with<br/>
+DcmDspDataFixedLength:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspData&#34;'&#160;with<br/>
+DcmDspDataConditionCheckReadFncUsed:&#160;TRUE<br/>DcmDspDataInfoRef:&#160;reference&#160;to&#160;the&#160;&#34;`DcmDspDataInfo&#34;'&#160;container&#160;configured&#160;before.<br/>DcmDspDataSize:&#160;144&#160;bits<br/>DcmDspDataType:&#160;UINT8_N<br/>DcmDspDataUsePort:&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>
+a&#160;container&#160;&#34;`DcmDspDidInfo&#34;'&#160;with<br/>
+only&#160;read-access<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;23<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-13_1.png"/><br/>
+DcmDspDidReadSessionRef:&#160;CODING_SESSION,&#160;EXTENDED_SESSION,&#160;DEFAULT_SESSION<br/>
+a&#160;container&#160;&#34;`DcmDspDid&#34;'&#160;with<br/>
+DcmDspDidIdentifier:&#160;0x37FE<br/>one&#160;DID&#160;Signal&#160;&#34;`DcmDspDidSignal&#34;'&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;`DcmDspData&#34;'&#160;container&#160;configured&#160;before.<br/>
+<b>Read&#160;status&#160;of&#160;the&#160;active&#160;Session&#160;(0x22&#160;0xF1&#160;0x00)</b><br/>
+Reading&#160;out&#160;the&#160;status&#160;of&#160;the&#160;ActiveSessionState&#160;from&#160;the&#160;control&#160;unit.<br/>
+<b>[IM_CodingClassic_010]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_319,&#160;COD_321)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspDataInfo&#34;'&#160;with<br/>
+DcmDspDataFixedLength:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspData&#34;'&#160;with<br/>
+DcmDspDataConditionCheckReadFncUsed:&#160;TRUE<br/>DcmDspDataInfoRef:&#160;reference&#160;to&#160;the&#160;&#34;`DcmDspDataInfo&#34;'&#160;container&#160;configured&#160;before.<br/>DcmDspDataSize:&#160;32&#160;bits<br/>DcmDspDataType:&#160;UINT8_N<br/>DcmDspDataUsePort:&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>
+a&#160;container&#160;&#34;`DcmDspDidInfo&#34;'&#160;with<br/>
+only&#160;read-access<br/>DcmDspDidReadSessionRef:&#160;CODING_SESSION,&#160;EXTENDED_SESSION,&#160;DEFAULT_SESSION<br/>
+a&#160;container&#160;&#34;`DcmDspDid&#34;'&#160;with<br/>
+DcmDspDidIdentifier:&#160;0xF100<br/>one&#160;DID&#160;Signal&#160;&#34;`DcmDspDidSignal&#34;'&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;`DcmDspData&#34;'&#160;container&#160;configured&#160;before.<br/>
+<b>Read&#160;active&#160;session&#160;(0x22&#160;0xF1&#160;0x86)</b><br/>
+Reading&#160;out&#160;of&#160;the&#160;ActiveSession&#160;from&#160;the&#160;control&#160;unit.<br/>
+<b>[IM_CodingClassic_011]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_324,&#160;COD_326)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspDataInfo&#34;'&#160;with<br/>
+DcmDspDataFixedLength:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspData&#34;'&#160;with<br/>
+DcmDspDataConditionCheckReadFncUsed:&#160;TRUE<br/>DcmDspDataInfoRef:&#160;reference&#160;to&#160;the&#160;&#34;`DcmDspDataInfo&#34;'&#160;container&#160;configured&#160;before.<br/>DcmDspDataSize:&#160;8&#160;bits<br/>DcmDspDataType:&#160;UINT8_N<br/>DcmDspDataUsePort:&#160;USE_DATA_SYNCH_FNC<br/>
+a&#160;container&#160;&#34;`DcmDspDidInfo&#34;'&#160;with<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;23<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-14_1.png"/><br/>
+only&#160;read-access<br/>DcmDspDidReadSessionRef:&#160;CODING_SESSION,&#160;EXTENDED_SESSION,&#160;DEFAULT_SESSION<br/>
+a&#160;container&#160;&#34;`DcmDspDid&#34;'&#160;with<br/>
+DcmDspDidIdentifier:&#160;0xF186<br/>one&#160;DID&#160;Signal&#160;&#34;`DcmDspDidSignal&#34;'&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;`DcmDspData&#34;'&#160;container&#160;configured&#160;before.<br/>
+<b>Read&#160;protocol&#160;data&#160;(0x22&#160;0x37&#160;0xFF)</b><br/>
+Reading&#160;of&#160;the&#160;protocol&#160;data&#160;from&#160;the&#160;control&#160;unit.<br/>
+<b>[IM_CodingClassic_012]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_329,&#160;COD_331)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDspDataInfo&#34;'&#160;with<br/>
+DcmDspDataFixedLength:&#160;TRUE<br/>
+a&#160;container&#160;&#34;`DcmDspData&#34;'&#160;with<br/>
+DcmDspDataConditionCheckReadFncUsed:&#160;TRUE<br/>DcmDspDataInfoRef:&#160;reference&#160;to&#160;the&#160;&#34;`DcmDspDataInfo&#34;'&#160;container&#160;configured&#160;before.<br/>DcmDspDataSize:&#160;72&#160;bits<br/>DcmDspDataType:&#160;UINT8_N<br/>DcmDspDataUsePort:&#160;USE_DATA_SYNCH_CLIENT_SERVER<br/>
+a&#160;container&#160;&#34;`DcmDspDidInfo&#34;'&#160;with<br/>
+only&#160;read-access<br/>DcmDspDidReadSessionRef:&#160;CODING_SESSION,&#160;EXTENDED_SESSION,&#160;DEFAULT_SESSION<br/>
+a&#160;container&#160;&#34;`DcmDspDid&#34;'&#160;with<br/>
+DcmDspDidIdentifier:&#160;0x37FF<br/>one&#160;DID&#160;Signal&#160;&#34;`DcmDspDidSignal&#34;'&#160;with&#160;Data&#160;Position&#160;=&#160;0&#160;and&#160;a&#160;Data&#160;Reference&#160;to&#160;the<br/>&#34;`DcmDspData&#34;'&#160;container&#160;configured&#160;before.<br/>
+<b>DiagnosticSessionControl</b><br/>
+<b>[IM_CodingClassic_013]&#160;</b>dThe&#160;ECUReset&#160;service&#160;is&#160;used&#160;in&#160;order&#160;to&#160;prompt&#160;a&#160;control&#160;unit&#160;to&#160;exit&#160;the<br/>CodingSession&#160;following&#160;successfully&#160;completed&#160;coding.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_338)</i></a><br/>
+<b>[IM_CodingClassic_014]&#160;</b>dThe&#160;following&#160;parameters&#160;have&#160;to&#160;be&#160;configured:&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_341,&#160;COD_343)</i></a><br/>
+a&#160;container&#160;&#34;`DcmDsdService&#34;'&#160;with<br/>
+DcmDsdSidTabServiceId:&#160;0x11<br/>∗&#160;a&#160;container&#160;&#34;`DcmDsdSubService&#34;'&#160;with<br/>
+·&#160;DcmDsdSubServiceId:&#160;0x01<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;DEFAULT_SESSION<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;EXTENDED_SESSION<br/>·&#160;DcmDsdSubServiceSessionLevelRef:&#160;CODING_SESSION<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;14&#160;of&#160;23<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-15_1.png"/><br/>
+<b>Service&#160;Request&#160;Manufacturer&#160;Notification</b><br/>
+A&#160;Coding&#160;Service&#160;Request&#160;Manufacturer&#160;Notification&#160;shall&#160;be&#160;configured&#160;in&#160;the&#160;container<br/>&#34;DcmDslServiceRequestManufacturerNotification&#34;.&#160;The&#160;Mapping&#160;to&#160;the&#160;Coding&#160;module&#160;is&#160;done&#160;by<br/>connecting&#160;the&#160;corresponding&#160;ports.<br/>
+<b>Com</b><br/>
+The&#160;communication&#160;stack&#160;has&#160;to&#160;be&#160;configured&#160;for&#160;the&#160;reception&#160;and&#160;sending&#160;of&#160;bus&#160;messages.&#160;The<br/>following&#160;PDUs/Signals&#160;are&#160;expected&#160;to&#160;be&#160;present&#160;in&#160;the&#160;Com&#160;stack&#160;after&#160;import&#160;of&#160;the&#160;BMW&#160;BNE&#160;export<br/>(CodingSample):<br/>
+Speed&#160;Signal&#160;(Rx)&#160;-&#160;CAN<br/>
+Shortname:&#160;V_VEH<br/>Length:&#160;5&#160;Bytes<br/>Signal:&#160;V_VEH_COG<br/>Signal&#160;Size:&#160;16&#160;Bits<br/>Startbit&#160;Position:&#160;16<br/>
+Speed&#160;Signal&#160;(Rx)&#160;-&#160;Ethernet<br/>
+Service&#160;Interface&#160;ID:&#160;0x7533<br/>Service:&#160;SpeedAcceleration<br/>Ereignis/Field:&#160;VehicleSpeedAndDrivingCondition<br/>Parameter/Strukturelement:&#160;speedVehicleCentreOfGravity<br/>
+Important&#160;Note:&#160;For&#160;integration&#160;of&#160;the&#160;CodingSample&#160;module&#160;in&#160;an&#160;ECU,&#160;which&#160;is&#160;connected&#160;to&#160;Ethernet<br/>as&#160;&#34;`System&#160;Bus&#34;'&#160;there&#160;is&#160;an&#160;adaption&#160;to&#160;make&#160;(S/R-interface&#160;and&#160;code).&#160;A&#160;new&#160;implementation&#160;data&#160;type<br/>has&#160;to&#160;be&#160;created&#160;e.g.&#160;&#34;`CodingSample_VehicleSpeedAndDrivingRecordType&#34;'&#160;and&#160;the&#160;existing<br/>S/R-interface&#160;&#34;`Coding_VehicleSpeedInterface&#34;'&#160;must&#160;refer&#160;this&#160;new&#160;data&#160;implementation&#160;type.<br/>Furthermore&#160;the&#160;provided&#160;function&#160;&#34;`CodingSample_VehicleSpeedReceiveHandler()&#34;'&#160;must&#160;be&#160;modified<br/>to&#160;access&#160;the&#160;desired&#160;parameter&#160;of&#160;the&#160;new&#160;structure.<br/>
+<b>Det</b><br/>
+The&#160;DET&#160;shall&#160;be&#160;configured&#160;to&#160;provide&#160;development&#160;Errors.&#160;These&#160;errors&#160;are&#160;application&#160;programmer<br/>specific.<br/>
+<b>BswM</b><br/>
+The&#160;BswM&#160;has&#160;to&#160;provide:<br/>
+BswMModeRequestPort&#160;&#34;`LifeCycle&#34;'&#160;to&#160;receive&#160;mode&#160;switch&#160;notifications&#160;of&#160;the<br/>ModeDeclarationGroup&#160;&#34;`Coding_LifeCycle&#34;'&#160;from&#160;Coding<br/>BswMRteModeRequestPort&#160;&#34;`LifeCycleRequest&#34;'&#160;to&#160;request&#160;modes&#160;of&#160;the&#160;ModeDeclarationGroup<br/>&#34;`Coding_LifeCycle&#34;'<br/>BswMRules&#160;to&#160;request&#160;the&#160;Coding&#160;life&#160;cycle&#160;mode<br/>BswMRules&#160;to&#160;switch&#160;the&#160;Coding&#160;BusCom-Mode<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;15&#160;of&#160;23<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-16_1.png"/><br/>
+BswMRules&#160;to&#160;switch&#160;the&#160;Coding&#160;Session-Mode<br/>
+<b>Configuration&#160;of&#160;generic&#160;part</b><br/>
+<b>CodingCrypto</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;crypto&#160;part&#160;of&#160;the&#160;Coding&#160;module.<br/>
+<b>CryptoLib</b><br/>
+Choose&#160;this&#160;container&#160;to&#160;use&#160;the&#160;BMW&#160;crypto&#160;library&#160;for&#160;crypto&#160;operations.<br/>
+<b>Csm</b><br/>
+Choose&#160;this&#160;container&#160;to&#160;use&#160;the&#160;AUTOSAR&#160;Csm&#160;for&#160;crypto&#160;operations.<br/>
+<b>CodingHashSize</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;size&#160;of&#160;the&#160;hash&#160;depending&#160;on&#160;the&#160;Hash&#160;Method.<br/>
+The&#160;Coding&#160;module&#160;supports&#160;the&#160;following&#160;hash&#160;algorithm<br/>
+SHA-256&#160;-&#160;length&#160;32&#160;bytes<br/>SHA-384&#160;-&#160;length&#160;43&#160;bytes<br/>SHA-512&#160;-&#160;length&#160;64&#160;bytes<br/>
+<b>CodingGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;generic&#160;part&#160;of&#160;the&#160;Coding&#160;module.<br/>
+<b>CodingDevErrorDetect</b><br/>
+This&#160;parameter&#160;activates/deactivates&#160;the&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification.<br/>
+If&#160;set&#160;to&#160;true:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;is&#160;activated.<br/>If&#160;set&#160;to&#160;false:&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification&#160;is&#160;deactivated.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;16&#160;of&#160;23<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-17_1.png"/><br/>
+<b>CodingSignatureSize</b><br/>
+<b>[IM_Coding_001]&#160;</b>dThis&#160;parameter&#160;defines&#160;the&#160;size&#160;of&#160;the&#160;net&#160;Coding&#160;Data&#160;Signature&#160;depending&#160;on&#160;the<br/>Signature&#160;Method.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_147,&#160;COD_148)</i></a><br/>
+The&#160;Coding&#160;module&#160;supports&#160;the&#160;following&#160;asymmetric&#160;keys<br/>
+RSA&#160;key&#160;length&#160;2048&#160;bit<br/>RSA&#160;key&#160;length&#160;3072&#160;bit<br/>RSA&#160;key&#160;length&#160;4096&#160;bit<br/>ECC&#160;key&#160;length&#160;256&#160;bit<br/>ECC&#160;key&#160;length&#160;384&#160;bit<br/>ECC&#160;key&#160;length&#160;521&#160;bit<br/>
+<b>CodingCryptoEnable</b><br/>
+This&#160;parameter&#160;activates/deactivates&#160;the&#160;Service&#160;to&#160;check&#160;net&#160;Coding&#160;Data&#160;Signature.<br/>
+If&#160;set&#160;to&#160;true:&#160;Service&#160;to&#160;check&#160;net&#160;Coding&#160;Data&#160;Signature&#160;is&#160;activated.<br/>If&#160;set&#160;to&#160;false:&#160;Service&#160;to&#160;check&#160;net&#160;Coding&#160;Data&#160;Signature&#160;is&#160;deactivated.<br/>
+<b>CodingProdErrorCEUDDetection</b><br/>
+<b>[IM_Coding_002]&#160;</b>dThis&#160;parameter&#160;activates/deactivates&#160;the&#160;Production&#160;Error&#160;&#34;`Coding&#160;Event<br/>Unqualified&#160;Data&#34;'&#160;(CEUD)&#160;Detection&#160;and&#160;Reporting.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_114,&#160;COD_138)</i></a><br/>
+If&#160;set&#160;to&#160;true:&#160;Production&#160;Error&#160;CEUD&#160;Detection&#160;and&#160;Report&#160;is&#160;activated.<br/>If&#160;set&#160;to&#160;false:&#160;Production&#160;Error&#160;CEUD&#160;Detection&#160;and&#160;Report&#160;is&#160;deactivated.<br/>
+<b>CodingConditionCheck</b><br/>
+<b>[IM_Coding_003]&#160;</b>dThis&#160;parameter&#160;activates/deactivates&#160;the&#160;Coding&#160;Ability&#160;due&#160;to&#160;Operating&#160;Conditions<br/>Detection&#160;e.g.&#160;car&#160;is&#160;being&#160;driven&#160;or&#160;engine&#160;is&#160;running.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_060)</i></a><br/>
+If&#160;set&#160;to&#160;true:&#160;Operating&#160;Conditions&#160;Detection&#160;is&#160;activated.<br/>If&#160;set&#160;to&#160;false:&#160;Operating&#160;Conditions&#160;Detection&#160;is&#160;deactivated.<br/>
+<b>CodingReceiveBufferSize</b><br/>
+<b>[IM_Coding_004]&#160;</b>dThis&#160;parameter&#160;defines&#160;the&#160;size&#160;of&#160;the&#160;Coding&#160;Receive&#160;Buffer&#160;(Rx)&#160;of&#160;Control&#160;Unit&#160;in<br/>Bytes.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_171)</i></a><br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;17&#160;of&#160;23<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-18_1.png"/><br/>
+<b>CodingSendBufferSize</b><br/>
+<b>[IM_Coding_005]&#160;</b>dThis&#160;parameter&#160;defines&#160;the&#160;size&#160;of&#160;the&#160;Coding&#160;Send&#160;Buffer&#160;(Tx)&#160;of&#160;Control&#160;Unit&#160;in<br/>Bytes.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_171)</i></a><br/>
+<b>CodingArea</b><br/>
+<b>[IM_Coding_006]&#160;</b>dThis&#160;container&#160;contains&#160;the&#160;default&#160;value&#160;for&#160;unused&#160;bits&#160;and&#160;all&#160;user&#160;configurable<br/>functions&#160;of&#160;this&#160;Coding&#160;area.&#160;c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_097)</i></a><br/>
+<b>CodingAreaDefVal</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;Default&#160;Value&#160;for&#160;Unused&#160;Bits&#160;in&#160;the&#160;Coding&#160;Area.<br/>
+The&#160;Coding&#160;module&#160;supports&#160;the&#160;following&#160;default&#160;values<br/>
+AllBitsZero&#160;(0x00)<br/>AllBitsOne&#160;(0xFF)<br/>
+<b>CodingFunction</b><br/>
+This&#160;container&#160;contains&#160;one&#160;or&#160;more&#160;Coding&#160;Functions.<br/>
+<b>CodingFunctionStartByte</b><br/>
+This&#160;parameter&#160;contains&#160;the&#160;Startbyte&#160;of&#160;the&#160;Coding&#160;Function&#160;Value&#160;within&#160;the&#160;User&#160;Configurable&#160;Data.<br/>
+<b>CodingFunctionEndByte</b><br/>
+This&#160;parameter&#160;contains&#160;the&#160;Endbyte&#160;of&#160;the&#160;Coding&#160;Function&#160;Value&#160;within&#160;the&#160;User&#160;Configurable&#160;Data.<br/>
+<b>CodingFunctionMask</b><br/>
+This&#160;parameter&#160;contains&#160;the&#160;Mask&#160;of&#160;the&#160;Coding&#160;Function&#160;Value&#160;within&#160;the&#160;User&#160;Configurable&#160;Data.<br/>
+<b>CodingFunctionApplType</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;Function&#160;Type&#160;of&#160;the&#160;Coding&#160;Function&#160;Value&#160;towards&#160;the&#160;Application.<br/>
+The&#160;Coding&#160;module&#160;supports&#160;the&#160;following&#160;types<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;18&#160;of&#160;23<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-19_1.png"/><br/>
+boolean<br/>bytearray<br/>uint8<br/>uint16<br/>uint32<br/>uint64<br/>sint8<br/>sint16<br/>sint32<br/>sint64<br/>float32<br/>float64<br/>
+<b>CodingFunctionDataCheck</b><br/>
+<b>[IM_Coding_007]&#160;</b>dThis&#160;parameter&#160;activates/deactivates&#160;the&#160;Coding&#160;Function&#160;Value&#160;Check.&#160;Control<br/>Units&#160;must&#160;perform&#160;a&#160;Plausibility&#160;Check&#160;of&#160;the&#160;Net&#160;Coding&#160;Data&#160;received&#160;during&#160;the&#160;Coding&#160;Data<br/>Transaction&#160;if&#160;implausible&#160;Net&#160;Coding&#160;Data&#160;can&#160;lead&#160;to&#160;safety-critical&#160;states&#160;of&#160;the&#160;Control&#160;Unit.<br/>c<a href="CodingClassic_IntegrationManuals.html#1"><i>(COD_227)</i></a><br/>
+If&#160;set&#160;to&#160;true:&#160;Coding&#160;Function&#160;Value&#160;Check&#160;is&#160;activated.<br/>If&#160;set&#160;to&#160;false:&#160;Coding&#160;Function&#160;Value&#160;Check&#160;is&#160;deactivated.<br/>
+<b>CodingFunctionTransformationRule</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;Transformation&#160;Rule&#160;for&#160;the&#160;Coding&#160;Function&#160;Value&#160;from&#160;Non&#160;Volatile&#160;Memory<br/>to&#160;the&#160;User&#160;Interface&#160;(Application).&#160;This&#160;Rule&#160;shall&#160;be&#160;configured&#160;as&#160;a&#160;Simple&#160;C&#160;Operation&#160;e.g.&#160;&#34;`+10&#34;'&#160;or<br/>&#34;`*2&#34;'.<br/>
+<b>CodingFunctionLowerLimit</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;Lower&#160;Limit&#160;for&#160;the&#160;Coding&#160;Function&#160;Value&#160;passed&#160;to&#160;the&#160;User&#160;Interface<br/>(Application).<br/>
+<b>CodingFunctionUpperLimit</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;Upper&#160;Limit&#160;for&#160;the&#160;Coding&#160;Function&#160;Value&#160;passed&#160;to&#160;the&#160;User&#160;Interface<br/>(Application).<br/>
+<b>CodingFunctionNvramType</b><br/>
+This&#160;container&#160;defines&#160;the&#160;Function&#160;Type&#160;of&#160;the&#160;Coding&#160;Function&#160;Value&#160;in&#160;Non&#160;Volatile&#160;Memory.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;19&#160;of&#160;23<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-20_1.png"/><br/>
+The&#160;Coding&#160;module&#160;supports&#160;the&#160;following&#160;types<br/>
+boolean<br/>bytearray<br/>uint8<br/>uint16<br/>uint32<br/>uint64<br/>sint8<br/>sint16<br/>sint32<br/>sint64<br/>float32<br/>float64<br/>
+Choose&#160;the&#160;desired&#160;container&#160;to&#160;defines&#160;the&#160;Function&#160;Type&#160;of&#160;the&#160;Coding&#160;Function&#160;Value&#160;in&#160;Non&#160;Volatile<br/>Memory<br/>
+CodingFunctionDefaultValue<br/>
+This&#160;parameter&#160;contains&#160;the&#160;Default&#160;Value&#160;of&#160;the&#160;Coding&#160;Function&#160;within&#160;the&#160;User&#160;Configurable&#160;Data.<br/>
+<b>Configuration&#160;of&#160;adapter&#160;part</b><br/>
+<b>CodingClassicGeneral</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;parameters&#160;of&#160;the&#160;classic&#160;adapter&#160;of&#160;the&#160;Coding&#160;module.<br/>
+<b>CodingCycleTime</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;Call&#160;Cycle&#160;of&#160;the&#160;Coding&#160;Timer&#160;Function&#160;in&#160;Seconds.<br/>
+<b>Other&#160;Application&#160;SWC</b><br/>
+Application&#160;Connectors<br/>
+CheckCodingFunction_&lt;x&gt;:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;CodingSample&#160;ports.<br/>ConditionMode:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;CodingSample&#160;port.<br/>Data:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;CodingSample&#160;and&#160;CodingTestClient&#160;port.<br/>DataMode:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;CodingSample&#160;and&#160;CodingTestClient&#160;port.<br/>LifeCycle:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;BswM&#160;and&#160;CodingTestClient&#160;port.<br/>ProgId:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dlog&#160;port.<br/>SVK:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dlog&#160;port.<br/>Vin:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Vin&#160;port.<br/>
+Service&#160;Connectors<br/>
+BusCom:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;BswM&#160;port.<br/>CBClrEvt_EventNotCoded:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dem&#160;port.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;20&#160;of&#160;23<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-21_1.png"/><br/>
+CheckNCD:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dcm&#160;port.<br/>DETService:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Det&#160;port.<br/>EventNotCoded:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dem&#160;port.<br/>EventUnqualifiedData:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dem&#160;port.<br/>EventWrongVehicle:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dem&#160;port.<br/>LifeCycleRequest:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;BswM&#160;and&#160;CodingTestClient&#160;port.<br/>Notification:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dcm&#160;port.<br/>NvMNotifyJobFinished:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;NvM&#160;port.<br/>NvMService:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;NvM&#160;port.<br/>ReadCPS:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dcm&#160;port.<br/>ReadNCD:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dcm&#160;port.<br/>ReadProtocolData:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dcm&#160;port.<br/>SessionChangeIndication:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;BswM&#160;port.<br/>WriteNCD:&#160;Shall&#160;be&#160;connected&#160;with&#160;its&#160;corresponding&#160;Dcm&#160;port.<br/>
+<b>Event&#160;Mapping</b><br/>
+Coding_DemClearEventAllowedNotCoded:&#160;Operation&#160;Invoked&#160;Event<br/>Coding_TimerMain:&#160;Timing&#160;Event<br/>DCMConfirmation:&#160;Operation&#160;Invoked&#160;Event<br/>DCMIndication:&#160;Operation&#160;Invoked&#160;Event<br/>GetCafIds:&#160;Operation&#160;Invoked&#160;Event<br/>LifeCycleHandler:&#160;Data&#160;Receive&#160;Event<br/>R_CheckNCD:&#160;Operation&#160;Invoked&#160;Event<br/>R_ConditionCheckReadCPS:&#160;Operation&#160;Invoked&#160;Event<br/>R_ConditionCheckReadProtocolData:&#160;Operation&#160;Invoked&#160;Event<br/>R_GetCodingFunction_&lt;x&gt;:&#160;Operation&#160;Invoked&#160;Event<br/>R_ReadCPS:&#160;Operation&#160;Invoked&#160;Event<br/>R_ReadNCD:&#160;Operation&#160;Invoked&#160;Event<br/>R_ReadProtocolData:&#160;Operation&#160;Invoked&#160;Event<br/>R_WriteNCD:&#160;Operation&#160;Invoked&#160;Event<br/>SessionChange:&#160;Mode&#160;Switch&#160;Event<br/>VinReceiveHandler:&#160;Data&#160;Receive&#160;Event<br/>WriteDataBlockNotification:&#160;Operation&#160;Invoked&#160;Event<br/>
+<b>Data&#160;Mapping</b><br/>
+No&#160;Data&#160;Mapping&#160;necessary&#160;for&#160;the&#160;Coding&#160;module.<br/>
+<b>Exclusive&#160;Areas</b><br/>
+The&#160;exlusive&#160;areas&#160;CodingData&#160;and&#160;CodingState&#160;shall&#160;be&#160;configured.<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;21&#160;of&#160;23<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-22_1.png"/><br/>
+<b>Software&#160;Integration</b><br/>
+<b>Startup/Initialization</b><br/>
+Before&#160;the&#160;Coding&#160;operation&#160;mode&#160;CODING_INITIALIZED&#160;is&#160;requested,&#160;the&#160;following&#160;preconditions&#160;shall<br/>be&#160;satisfied:<br/>
+The&#160;Coding&#160;module&#160;is&#160;in&#160;STOPPED-Mode<br/>The&#160;NVRAM&#160;Manager&#160;is&#160;initialized<br/>The&#160;NVRAM&#160;Manager&#160;has&#160;finished&#160;the&#160;job&#160;Nvm_ReadAll().&#160;This&#160;implies&#160;that&#160;the&#160;NV&#160;block&#160;containing<br/>the&#160;Coding&#160;data&#160;has&#160;also&#160;been&#160;loaded.&#160;If&#160;the&#160;block&#160;is&#160;corrupted,&#160;the&#160;NVRAM&#160;Manager&#160;automatically<br/>loads&#160;the&#160;default&#160;ROM&#160;block&#160;containing&#160;the&#160;default&#160;values.<br/>The&#160;Dlog&#160;is&#160;in&#160;RUNNING-Mode<br/>
+The&#160;integrator&#160;has&#160;to&#160;assure,&#160;that&#160;the&#160;Coding&#160;operation&#160;mode&#160;CODING_INITIALIZED&#160;is&#160;requested,&#160;after<br/>NvM_ReadAll()&#160;is&#160;finished&#160;and&#160;Dlog&#160;module&#160;switched&#160;to&#160;RUNNING-Mode.<br/>
+<b>Normal&#160;Operation</b><br/>
+Before&#160;the&#160;Coding&#160;operation&#160;mode&#160;CODING_RUNNING&#160;is&#160;requested,&#160;the&#160;following&#160;preconditions&#160;shall&#160;be<br/>satisfied:<br/>
+The&#160;Coding&#160;module&#160;is&#160;in&#160;INITIALIZED-Mode<br/>
+The&#160;Coding_TimerMain()&#160;will&#160;be&#160;scheduled&#160;cyclically&#160;via&#160;RTE&#160;(a&#160;good&#160;value&#160;for&#160;this&#160;is&#160;a&#160;100ms&#160;cycle&#160;).<br/>After&#160;the&#160;Coding&#160;BusCom-Mode&#160;is&#160;set&#160;to&#160;CODING_BUSCOMON&#160;the&#160;Coding_TimerMain()&#160;may&#160;request<br/>the&#160;Vin&#160;module&#160;to&#160;get&#160;the&#160;onboard&#160;electrical&#160;system&#160;VIN&#160;to&#160;validate&#160;net&#160;Coding&#160;data&#160;if&#160;no&#160;VIN&#160;has&#160;been<br/>received&#160;until&#160;now.&#160;This&#160;qualification&#160;process&#160;is&#160;repeated&#160;3&#160;times&#160;at&#160;1000&#160;ms&#160;intervals,&#160;if&#160;a&#160;VIN&#160;has&#160;still&#160;not<br/>been&#160;received&#160;from&#160;the&#160;onboard&#160;electrical&#160;system.&#160;After&#160;this,&#160;qualification&#160;of&#160;the&#160;net&#160;coding&#160;data&#160;is&#160;not<br/>performed&#160;in&#160;this&#160;wake&#160;cycle,&#160;even&#160;if&#160;an&#160;onboard&#160;electrical&#160;system&#160;VIN&#160;is&#160;received&#160;at&#160;a&#160;later&#160;point.<br/>
+<b>Shutdown/Deactivation</b><br/>
+Before&#160;the&#160;Coding&#160;operation&#160;mode&#160;CODING_STOPPED&#160;is&#160;requested,&#160;the&#160;following&#160;preconditions&#160;shall<br/>be&#160;satisfied:<br/>
+The&#160;Coding&#160;module&#160;is&#160;either&#160;in&#160;INITIALIZED-&#160;or&#160;RUNNING-Mode<br/>Shutdown/Deactivation&#160;is&#160;requested<br/>
+The&#160;integrator&#160;has&#160;to&#160;assure,&#160;that&#160;the&#160;Coding&#160;operation&#160;mode&#160;CODING_STOPPED&#160;is&#160;requested,&#160;after&#160;a<br/>shutdown/deactivation&#160;request&#160;was&#160;received.<br/>
+<b>SWCD</b><br/>
+The&#160;Coding&#160;module&#160;provides&#160;the&#160;following&#160;Mode:<br/>ModeDeclarationGroup&#160;Coding_ConditionMode<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;22&#160;of&#160;23<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Coding/doc/CodingClassic_IntegrationManual-23_1.png"/><br/>
+{<br/>{<br/>CODING_ALLOWED<br/>CODING_NOT_ALLLOWED<br/>}<br/>initialMode&#160;=&#160;CODING_ALLOWED<br/>}<br/>This&#160;mode&#160;is&#160;used&#160;to&#160;enable&#160;or&#160;disable&#160;the&#160;start&#160;of&#160;a&#160;Coding&#160;process.&#160;An&#160;implementation&#160;how&#160;to&#160;change<br/>this&#160;Mode&#160;is&#160;done&#160;in&#160;CodingSample_VehicleSpeedReceiveHandler().&#160;The&#160;user&#160;can&#160;add&#160;additional&#160;rules.<br/>
+The&#160;Coding&#160;module&#160;provides&#160;the&#160;following&#160;Mode:<br/>ModeDeclarationGroup&#160;Coding_BusComMode<br/>{<br/>{<br/>CODING_BUSCOMOFF,<br/>CODING_BUSCOMON<br/>}<br/>initialMode&#160;=&#160;CODING_BUSCOMOFF<br/>}<br/>The&#160;integrator&#160;has&#160;to&#160;assure,&#160;that&#160;this&#160;Mode&#160;is&#160;set&#160;to&#160;CODING_BUSCOMON,&#160;after&#160;the&#160;bus<br/>communication&#160;has&#160;started.&#160;The&#160;Coding&#160;module&#160;requests&#160;the&#160;VIN&#160;from&#160;the&#160;Vin&#160;module&#160;after&#160;this&#160;Mode&#160;is<br/>set&#160;to&#160;CODING_BUSCOMON.<br/>
+No&#160;special&#160;callback&#160;functions&#160;have&#160;to&#160;be&#160;introduced&#160;by&#160;the&#160;application&#160;programmer&#160;for&#160;using&#160;the&#160;Coding<br/>module.&#160;The&#160;following&#160;application&#160;callback&#160;functions&#160;are&#160;already&#160;implemented&#160;in&#160;CodingSample.c&#160;and&#160;can<br/>be&#160;adapted&#160;by&#160;the&#160;application&#160;programmer:<br/>
+CodingSample_VehicleSpeedReceiveHandler()<br/>CodingSample_CheckCodingFunction_&lt;x&gt;()<br/>
+CodingClassic_IntegrationManual,&#160;Version&#160;5.2.1,&#160;Software&#160;Platforms<br/>
+Page&#160;23&#160;of&#160;23<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#4">1 Introduction</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#4">1.1 General</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#4">1.2 Functional overview</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#5">2 Related documentation</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#6">3 Limitations</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4 Software Architecture</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1 Dependencies on AUTOSAR modules</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.1 NvM</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.2 Dem</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.3 Dcm</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.4 Com</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.5 Det</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.6 RTE</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#7">4.1.7 BswM</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#8">4.2 Dependencies to other modules</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#8">4.2.1 Dlog</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#8">4.2.2 Vin</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#8">4.2.3 Other SWC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#9">5 Integration</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#9">5.1 Configuration of other Modules</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#9">5.1.1 NvM</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#9">5.1.2 Dem</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#10">5.1.3 Dcm</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#10">5.1.3.1 DiagnosticSession</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#10">5.1.3.2 DiagnosticSessionControl</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#11">5.1.3.3 RoutineControl</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#12">5.1.3.4 ReadDataByIdentifier</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#14">5.1.3.5 DiagnosticSessionControl</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#15">5.1.3.6 Service Request Manufacturer Notification</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#15">5.1.4 Com</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#15">5.1.5 Det</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#15">5.1.6 BswM</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#16">5.2 Configuration of generic part</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#16">5.2.1 CodingCrypto</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#16">5.2.1.1 CryptoLib</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#16">5.2.1.2 Csm</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#16">5.2.2 CodingGeneral</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#16">5.2.2.1 CodingDevErrorDetect</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#17">5.2.2.2 CodingSignatureSize</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#17">5.2.2.3 CodingCryptoEnable</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#17">5.2.2.4 CodingProdErrorCEUDDetection</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#17">5.2.2.5 CodingConditionCheck</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#17">5.2.2.6 CodingReceiveBufferSize</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#18">5.2.2.7 CodingSendBufferSize</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#18">5.2.3 CodingArea</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#18">5.2.3.1 CodingAreaDefVal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#20">5.3 Configuration of adapter part</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#20">5.3.1 CodingClassicGeneral</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#20">5.3.1.1 CodingCycleTime</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#20">5.3.1.2 Other Application SWC</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#21">5.3.2 Event Mapping</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#21">5.3.3 Data Mapping</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#21">5.3.4 Exclusive Areas</a></li>
+</ul>
+</li>
+<li><a href="CodingClassic_IntegrationManuals.html#22">5.4 Software Integration</a>
+<ul>
+<li><a href="CodingClassic_IntegrationManuals.html#22">5.4.1 Startup/Initialization</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#22">5.4.2 Normal Operation</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#22">5.4.3 Shutdown/Deactivation</a></li>
+<li><a href="CodingClassic_IntegrationManuals.html#22">5.4.4 SWCD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

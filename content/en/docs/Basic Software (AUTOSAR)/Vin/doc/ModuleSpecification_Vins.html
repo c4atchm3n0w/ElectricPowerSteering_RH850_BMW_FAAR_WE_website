@@ -1,0 +1,1933 @@
+---
+title: ModuleSpecification_Vins
+linkTitle: ModuleSpecification_Vins
+weight: 9
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-1_1.png"/><br/>
+Specification&#160;of&#160;Module&#160;Vin<br/>
+Project<br/>
+BMW&#160;AUTOSAR&#160;Core&#160;4&#160;Rel.&#160;2<br/>
+Author<br/>
+BMW&#160;AG<br/>
+Release&#160;Date<br/>
+2017-02-23<br/>
+Version<br/>
+3.5.0<br/>
+Status<br/>
+Released<br/>
+Hotline<br/>
++49&#160;89&#160;382&#160;-&#160;32233<br/>
+Contact<br/>
+bac@bmw.de<br/>https://asc.bmw.com/jira/browse/BSUP&#160;(extern)<br/>https://asc.bmwgroup.net/jira/browse/BSUP&#160;(intern)<br/>
+Revision&#160;History<br/>
+<b>Version</b><br/>
+<b>Date</b><br/>
+<b>Changed&#160;by</b><br/>
+<b>Description</b><br/>
+3.5.0<br/>
+2017-02-23<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+3.4.2<br/>
+2016-10-27<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+3.4.1<br/>
+2016-08-25<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+Sachsenberg<br/>
+<b>Company</b><br/>
+3.4.0<br/>
+2016-03-17<br/>
+Björn<br/>
+Added&#160;SWS&#160;IDs&#160;starting&#160;with&#160;SWS_Vin_0121,<br/>
+Bayerische<br/>
+Motoren&#160;Werke<br/>
+Sachsenberg<br/>
+changed&#160;SWS_Vin_0120<br/>
+Aktiengesellschaft<br/>
+<b>Postal&#160;address</b><br/>
+3.3.0<br/>
+2015-12-11<br/>
+Björn<br/>
+No&#160;changes&#160;-&#160;only&#160;version&#160;update<br/>
+BMW&#160;AG<br/>
+80788&#160;München<br/>
+Sachsenberg<br/>
+<b>Office&#160;address</b><br/>
+Forschungs-&#160;und<br/>
+3.2.0<br/>
+2015-07-10<br/>
+Björn<br/>
+Added&#160;SI&#160;adapter,&#160;added&#160;SWS&#160;IDs&#160;from<br/>
+Innovationszentrum<br/>
+(FIZ)<br/>
+Sachsenberg<br/>
+SWS_Vin_0109&#160;on<br/>
+Hufelandstr.&#160;1<br/>
+80937&#160;München<br/>
+3.1.0<br/>
+2015-03-13<br/>
+Björn<br/>
+Added&#160;SSV&#160;functionality&#160;from&#160;Fscsm,&#160;added&#160;SWS&#160;IDs<br/>
+<b>Telephone</b><br/>
+Sachsenberg<br/>
+from&#160;SWS_Vin_0034&#160;on<br/>
+Switchboard<br/>
++49&#160;89&#160;382-0<br/>
+3.0.0<br/>
+2014-10-29<br/>
+Björn<br/>
+Initial&#160;Release&#160;for&#160;SP2018.<br/>
+<b>Internet</b><br/>
+www.bmwgroup.com<br/>
+Sachsenberg<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;1&#160;of&#160;38<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-2_1.png"/><br/>
+<b>Table&#160;of&#160;Contents</b><br/>
+<a href="ModuleSpecification_Vins.html#4"><b>1&#160;Introduction&#160;and&#160;functional&#160;overview</b></a><br/>
+<b>4</b><br/>
+<a href="ModuleSpecification_Vins.html#4"><b>2&#160;Acronyms&#160;and&#160;Abbreviations</b></a><br/>
+<b>4</b><br/>
+<a href="ModuleSpecification_Vins.html#5"><b>3&#160;Related&#160;documentation</b></a><br/>
+<b>5</b><br/>
+<a href="ModuleSpecification_Vins.html#5">3.1</a><br/>
+<a href="ModuleSpecification_Vins.html#5">BMW&#160;Specifications</a><br/>
+5<br/>
+<a href="ModuleSpecification_Vins.html#5">3.2</a><br/>
+<a href="ModuleSpecification_Vins.html#5">AUTOSAR&#160;Specifications</a><br/>
+5<br/>
+<a href="ModuleSpecification_Vins.html#6"><b>4&#160;Constraints&#160;and&#160;assumptions</b></a><br/>
+<b>6</b><br/>
+<a href="ModuleSpecification_Vins.html#7"><b>5&#160;Dependencies&#160;to&#160;other&#160;Modules</b></a><br/>
+<b>7</b><br/>
+<a href="ModuleSpecification_Vins.html#7">5.1</a><br/>
+<a href="ModuleSpecification_Vins.html#7">Dlog</a><br/>
+7<br/>
+<a href="ModuleSpecification_Vins.html#7">5.2</a><br/>
+<a href="ModuleSpecification_Vins.html#7">Fscsm</a><br/>
+7<br/>
+<a href="ModuleSpecification_Vins.html#7">5.3</a><br/>
+<a href="ModuleSpecification_Vins.html#7">RTE</a><br/>
+7<br/>
+<a href="ModuleSpecification_Vins.html#8"><b>6&#160;Requirements&#160;traceability</b></a><br/>
+<b>8</b><br/>
+<a href="ModuleSpecification_Vins.html#9"><b>7&#160;Functional&#160;specification</b></a><br/>
+<b>9</b><br/>
+<a href="ModuleSpecification_Vins.html#9">7.1</a><br/>
+<a href="ModuleSpecification_Vins.html#9">Functional&#160;behavior</a><br/>
+9<br/>
+<a href="ModuleSpecification_Vins.html#12">7.2</a><br/>
+<a href="ModuleSpecification_Vins.html#12">SSV</a><br/>
+12<br/>
+<a href="ModuleSpecification_Vins.html#13">7.2.1</a><br/>
+<a href="ModuleSpecification_Vins.html#13">Secure&#160;environment</a><br/>
+13<br/>
+<a href="ModuleSpecification_Vins.html#13">7.2.2</a><br/>
+<a href="ModuleSpecification_Vins.html#13">Challenge/response&#160;and&#160;CounterBase</a><br/>
+13<br/>
+<a href="ModuleSpecification_Vins.html#14">7.2.3</a><br/>
+<a href="ModuleSpecification_Vins.html#14">Request/verify&#160;secure&#160;signal</a><br/>
+14<br/>
+<a href="ModuleSpecification_Vins.html#16">7.2.4</a><br/>
+<a href="ModuleSpecification_Vins.html#16">SSV&#160;ports&#160;and&#160;interfaces</a><br/>
+16<br/>
+<a href="ModuleSpecification_Vins.html#17">7.2.5</a><br/>
+<a href="ModuleSpecification_Vins.html#17">Message&#160;format</a><br/>
+17<br/>
+<a href="ModuleSpecification_Vins.html#18">7.3</a><br/>
+<a href="ModuleSpecification_Vins.html#18">Error&#160;classification</a><br/>
+18<br/>
+<a href="ModuleSpecification_Vins.html#18">7.4</a><br/>
+<a href="ModuleSpecification_Vins.html#18">Error&#160;detection</a><br/>
+18<br/>
+<a href="ModuleSpecification_Vins.html#18">7.5</a><br/>
+<a href="ModuleSpecification_Vins.html#18">Error&#160;notification</a><br/>
+18<br/>
+<a href="ModuleSpecification_Vins.html#19"><b>8&#160;API&#160;Specification</b></a><br/>
+<b>19</b><br/>
+<a href="ModuleSpecification_Vins.html#19">8.1</a><br/>
+<a href="ModuleSpecification_Vins.html#19">Imported&#160;types</a><br/>
+19<br/>
+<a href="ModuleSpecification_Vins.html#19">8.2</a><br/>
+<a href="ModuleSpecification_Vins.html#19">Type&#160;definitions</a><br/>
+19<br/>
+<a href="ModuleSpecification_Vins.html#19">8.3</a><br/>
+<a href="ModuleSpecification_Vins.html#19">Function&#160;definitions</a><br/>
+19<br/>
+<a href="ModuleSpecification_Vins.html#19">8.3.1</a><br/>
+<a href="ModuleSpecification_Vins.html#19">Vin_Main</a><br/>
+19<br/>
+<a href="ModuleSpecification_Vins.html#19">8.3.2</a><br/>
+<a href="ModuleSpecification_Vins.html#19">Vin_LifeCycleModeRequest</a><br/>
+19<br/>
+<a href="ModuleSpecification_Vins.html#20">8.3.3</a><br/>
+<a href="ModuleSpecification_Vins.html#20">Vin_SsvOnVkEstablished</a><br/>
+20<br/>
+<a href="ModuleSpecification_Vins.html#20">8.3.4</a><br/>
+<a href="ModuleSpecification_Vins.html#20">Vin_SsvReceiveResponseFromSss</a><br/>
+20<br/>
+<a href="ModuleSpecification_Vins.html#20">8.3.5</a><br/>
+<a href="ModuleSpecification_Vins.html#20">Vin_SsvReceiveMac</a><br/>
+20<br/>
+<a href="ModuleSpecification_Vins.html#21">8.3.6</a><br/>
+<a href="ModuleSpecification_Vins.html#21">Vin_SsvStateGet</a><br/>
+21<br/>
+<a href="ModuleSpecification_Vins.html#21">8.3.7</a><br/>
+<a href="ModuleSpecification_Vins.html#21">Modes,&#160;Types&#160;and&#160;Mappings</a><br/>
+21<br/>
+<a href="ModuleSpecification_Vins.html#24">8.3.8</a><br/>
+<a href="ModuleSpecification_Vins.html#24">Provided&#160;Interfaces</a><br/>
+24<br/>
+<a href="ModuleSpecification_Vins.html#26">8.3.9</a><br/>
+<a href="ModuleSpecification_Vins.html#26">Expected&#160;Interfaces</a><br/>
+26<br/>
+<a href="ModuleSpecification_Vins.html#28">8.3.10</a><br/>
+<a href="ModuleSpecification_Vins.html#28">Service&#160;Definition</a><br/>
+28<br/>
+<a href="ModuleSpecification_Vins.html#29">8.3.11</a><br/>
+<a href="ModuleSpecification_Vins.html#29">Runnables&#160;and&#160;Entry&#160;Points</a><br/>
+29<br/>
+<a href="ModuleSpecification_Vins.html#30">8.3.12</a><br/>
+<a href="ModuleSpecification_Vins.html#30">Runnables&#160;and&#160;Entry&#160;Points</a><br/>
+30<br/>
+<a href="ModuleSpecification_Vins.html#31"><b>9&#160;Sequence&#160;Diagrams</b></a><br/>
+<b>31</b><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;2&#160;of&#160;38<br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-3_1.png"/><br/>
+<a href="ModuleSpecification_Vins.html#32"><b>10&#160;Configuration</b></a><br/>
+<b>32</b><br/>
+<a href="ModuleSpecification_Vins.html#32">10.1&#160;How&#160;to&#160;read&#160;this&#160;chapter</a><br/>
+32<br/>
+<a href="ModuleSpecification_Vins.html#32">10.1.1</a><br/>
+<a href="ModuleSpecification_Vins.html#32">Configuration&#160;and&#160;configuration&#160;parameters</a><br/>
+32<br/>
+<a href="ModuleSpecification_Vins.html#32">10.1.2</a><br/>
+<a href="ModuleSpecification_Vins.html#32">Variants</a><br/>
+32<br/>
+<a href="ModuleSpecification_Vins.html#32">10.1.3</a><br/>
+<a href="ModuleSpecification_Vins.html#32">Containers</a><br/>
+32<br/>
+<a href="ModuleSpecification_Vins.html#33">10.2&#160;Containers&#160;and&#160;configuration&#160;parameters</a><br/>
+33<br/>
+<a href="ModuleSpecification_Vins.html#33">10.2.1</a><br/>
+<a href="ModuleSpecification_Vins.html#33">CommonPublishedInformation</a><br/>
+33<br/>
+<a href="ModuleSpecification_Vins.html#34">10.2.2</a><br/>
+<a href="ModuleSpecification_Vins.html#34">VinGeneral</a><br/>
+34<br/>
+<a href="ModuleSpecification_Vins.html#36">10.2.3</a><br/>
+<a href="ModuleSpecification_Vins.html#36">SecureVin</a><br/>
+36<br/>
+<a href="ModuleSpecification_Vins.html#38">10.2.4</a><br/>
+<a href="ModuleSpecification_Vins.html#38">MultiConfig</a><br/>
+38<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;3&#160;of&#160;38<br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-4_1.png"/><br/>
+<b>1</b><br/>
+<b>Introduction&#160;and&#160;functional&#160;overview</b><br/>
+The&#160;Vin&#160;module&#160;is&#160;used&#160;to&#160;request&#160;the&#160;VIN&#160;over&#160;the&#160;bus,&#160;set&#160;the&#160;qualifier&#160;and&#160;hand&#160;it&#160;over&#160;to&#160;application<br/>software&#160;components.<br/>
+<b>2</b><br/>
+<b>Acronyms&#160;and&#160;Abbreviations</b><br/>
+API<br/>
+Application&#160;Programming&#160;Interface<br/>
+AUTOSAR&#160;Automotive&#160;Open&#160;System&#160;Architecture<br/>BNDB<br/>
+Bordnetzdatenbank&#160;BNE&#160;ist&#160;der&#160;aktuelle&#160;Begriff;&#160;BNDB&#160;ist&#160;veraltet,&#160;wird&#160;aber<br/>gelegentlich&#160;noch&#160;gebraucht.<br/>
+BNE<br/>
+Bord&#160;Netz&#160;Engineer<br/>
+CAN<br/>
+Controller&#160;Area&#160;Network<br/>
+DTC<br/>
+Diagnostic&#160;Trouble&#160;Code&#160;-&gt;&#160;Fehlercode&#160;des&#160;Fehlerspeichereintrages<br/>
+ECU<br/>
+Electronic&#160;Control&#160;Unit<br/>
+EFS<br/>
+LH&#160;Eigenschafts-&#160;/&#160;Funktions-&#160;/&#160;Systemlastenheft<br/>
+FAT<br/>
+Flash-Absicherungs-Tool<br/>
+FZG<br/>
+Fahrzeug<br/>
+GMT<br/>
+Greenwich&#160;Mean&#160;Time<br/>
+HW<br/>
+Hardware<br/>
+IEEE<br/>
+Institute&#160;of&#160;Electrical&#160;and&#160;Electronics&#160;Engineers&#160;Technisches&#160;Normungs-<br/>gremium<br/>
+IETF<br/>
+Internet&#160;Engineering&#160;Task&#160;Force&#160;Normungsgremium&#160;für&#160;Internet-Standards<br/>
+IP<br/>
+Internet&#160;Protocol&#160;Netzwerkebene&#160;des&#160;TCP/IP&#160;Protokolls<br/>
+ISO/OSI<br/>
+Schichtenmodell&#160;der&#160;Kommunikationsprotokolle<br/>
+OS<br/>
+Operating&#160;System<br/>
+PTP<br/>
+Precision&#160;Time&#160;Protocol<br/>
+PWF<br/>
+Parken&#160;Wohnen&#160;Fahren&#160;Energie-Management&#160;Konzept&#160;bei&#160;BMW.<br/>
+RTE<br/>
+Runtime&#160;Environment<br/>
+SG<br/>
+Steuergerät<br/>
+SGID<br/>
+Steuergeräte-ID,&#160;Diagnoseadresse,&#160;Steuergeräte-Adresse<br/>
+SID<br/>
+Service&#160;Identifier<br/>
+SW<br/>
+Software<br/>
+SW-C<br/>
+Software&#160;Component<br/>
+UDS<br/>
+Universal&#160;Diagnostic&#160;Services<br/>
+VIN<br/>
+Vehicle&#160;Identification&#160;Number<br/>
+All&#160;abbreviations&#160;used&#160;throughout&#160;this&#160;document&#160;--&#160;except&#160;the&#160;ones&#160;listed&#160;here&#160;--&#160;can&#160;be&#160;found&#160;in&#160;the<br/>official&#160;AUTOSAR&#160;glossary&#160;<a href="ModuleSpecification_Vins.html#5">[5].</a><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;4&#160;of&#160;38<br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-5_1.png"/><br/>
+<b>3</b><br/>
+<b>Related&#160;documentation</b><br/>
+<b>3.1&#160;BMW&#160;Specifications</b><br/>
+[1]&#160;Specification&#160;of&#160;Module&#160;DataLogistic<br/>
+ModuleSpecification_Dlog.pdf<br/>
+[2]&#160;Specification&#160;of&#160;Module&#160;FSCSM<br/>
+ModuleSpecification_Fscsm.pdf<br/>
+[3]&#160;LH&#160;FP&#160;Teil&#160;4&#160;Codierung<br/>
+<i>SAP:&#160;10001491-000-13</i><br/>
+[4]&#160;Fahrzeug&#160;Security&#160;Client&#160;Security&#160;Module<br/>
+<i>SAP:&#160;10001096&#160;000&#160;11</i><br/>
+<b>3.2&#160;AUTOSAR&#160;Specifications</b><br/>
+[5]&#160;Glossary<br/>
+AUTOSAR_TR_Glossary<br/>
+[6]&#160;Specification&#160;of&#160;RTE&#160;Software<br/>
+AUTOSAR_SWS_RTE<br/>
+[7]&#160;Layered&#160;Software&#160;Architecture<br/>
+AUTOSAR_EXP_LayeredSoftwareArchitecture<br/>
+[8]&#160;Specification&#160;of&#160;ECU&#160;Configuration<br/>
+AUTOSAR_TPS_ECUConfiguration<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;5&#160;of&#160;38<br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-6_1.png"/><br/>
+<b>4</b><br/>
+<b>Constraints&#160;and&#160;assumptions</b><br/>
+<b>[SWS_Vin_0001]&#160;</b>dThere&#160;shall&#160;be&#160;only&#160;one&#160;Vin&#160;module&#160;available&#160;per&#160;ECU.&#160;c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;6&#160;of&#160;38<br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-7_1.png"/><br/>
+<b>5</b><br/>
+<b>Dependencies&#160;to&#160;other&#160;Modules</b><br/>
+<b>5.1&#160;Dlog</b><br/>
+The&#160;Dlog&#160;module&#160;<a href="ModuleSpecification_Vins.html#5">[1]&#160;</a>is&#160;used&#160;to&#160;get&#160;the&#160;internal&#160;VIN.<br/>
+<b>5.2&#160;Fscsm</b><br/>
+The&#160;Fscsm&#160;module&#160;<a href="ModuleSpecification_Vins.html#5">[2]&#160;</a>is&#160;needed&#160;for&#160;receiving&#160;the&#160;secure&#160;VIN.<br/>
+<b>5.3&#160;RTE</b><br/>
+The&#160;module&#160;Vin&#160;is&#160;realized&#160;as&#160;a&#160;software&#160;component&#160;and&#160;is&#160;using&#160;RTE&#160;services&#160;<a href="ModuleSpecification_Vins.html#5">[6]&#160;</a>for&#160;client/server&#160;as&#160;well<br/>as&#160;sender/receiver&#160;communication&#160;to&#160;communicate&#160;with&#160;other&#160;SWCs.<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;7&#160;of&#160;38<br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-8_1.png"/><br/>
+<b>6</b><br/>
+<b>Requirements&#160;traceability</b><br/>
+The&#160;Requirements&#160;are&#160;taken&#160;from&#160;<a href="ModuleSpecification_Vins.html#5">[3]&#160;</a>and&#160;<a href="ModuleSpecification_Vins.html#5">[4].</a><br/>
+<b>Requirement</b><br/>
+<b>Description</b><br/>
+<b>Satisfied&#160;by</b><br/>
+<b>[FP4_6292]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#9">[SWS_Vin_0002]</a><br/>
+<b>[FsCSM_1496]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+<b>[FsCSM_1497]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+<b>[FsCSM_1707]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0039]</a><br/>
+<b>[FsCSM_1708]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0039]</a><br/>
+<b>[FsCSM_1709]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0041]</a><br/>
+<b>[FsCSM_1710]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0039]</a><br/>
+<b>[FsCSM_391]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#18">[SWS_Vin_0078]</a><br/>
+<b>[FsCSM_4320]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+<b>[FsCSM_4336]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#14">[SWS_Vin_0049]</a><br/>
+<b>[FsCSM_4338]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#14">[SWS_Vin_0050]</a><br/>
+<b>[FsCSM_4418]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#14">[SWS_Vin_0056]</a><br/>
+<b>[FsCSM_4450]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#16">[SWS_Vin_0068]</a><br/>
+<b>[FsCSM_4451]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#16">[SWS_Vin_0069]</a><br/>
+<b>[FsCSM_4469]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#14">[SWS_Vin_0055]</a><br/>
+<b>[FsCSM_848]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+<b>[FsCSM_859]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+<b>[FsCSM_937]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+<b>[FsCSM_956]</b><br/>
+No&#160;description<br/>
+<a href="ModuleSpecification_Vins.html#13">[SWS_Vin_0048]</a><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;8&#160;of&#160;38<br/>
+<hr/>
+<a name=9></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-9_1.png"/><br/>
+<b>7</b><br/>
+<b>Functional&#160;specification</b><br/>
+<b>7.1&#160;Functional&#160;behavior</b><br/>
+<b>[SWS_Vin_0002]&#160;</b>dThe&#160;VIN&#160;shall&#160;be&#160;requested&#160;according&#160;to&#160;FP4_6292&#160;<a href="ModuleSpecification_Vins.html#5">[3].&#160;</a>c<a href="ModuleSpecification_Vins.html#8"><i>(FP4_6292)</i></a><br/>
+<b>[SWS_Vin_0003]&#160;</b>dThe&#160;Vin&#160;Qualifier&#160;shall&#160;be&#160;set&#160;according&#160;to&#160;<a href="ModuleSpecification_Vins.html#9">Figure&#160;7.1,&#160;``Vin&#160;Qualifier&#160;State''.&#160;</a>c<i>()</i><br/>
+<b>stm&#160;Vin&#160;Qualifier&#160;State</b><br/>
+No&#160;Fscsm<br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;not&#160;</b><br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;not&#160;</b><br/>
+<b>receiv&#160;ed,&#160;int.&#160;VIN&#160;</b><br/>
+<b>receiv&#160;ed,&#160;int.&#160;VIN&#160;not&#160;</b><br/>
+<b>equal,&#160;unsafe&#160;env</b><br/>
+<b>equal,&#160;unsafe&#160;env</b><br/>
+Init,&#160;VIN&#160;not&#160;received<br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;</b><br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;</b><br/>
+<b>pending,&#160;int.&#160;VIN&#160;equal</b><br/>
+<b>pending,&#160;int.&#160;VIN&#160;not&#160;</b><br/>
+<b>equal</b><br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;</b><br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;</b><br/>
+<b>receiv&#160;ed,&#160;Sig.&#160;not&#160;</b><br/>
+<b>receiv&#160;ed,&#160;Sig.&#160;v&#160;alid,&#160;</b><br/>
+<b>v&#160;alid,&#160;int.&#160;VIN&#160;equal</b><br/>
+<b>int.&#160;VIN&#160;not&#160;equal</b><br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;</b><br/>
+<b>VIN&#160;receiv&#160;ed,&#160;Sig.&#160;</b><br/>
+<b>receiv&#160;ed,&#160;Sig.&#160;v&#160;alid,&#160;</b><br/>
+<b>receiv&#160;ed,&#160;Sig.&#160;not&#160;</b><br/>
+<b>int.&#160;VIN&#160;equal</b><br/>
+<b>v&#160;alid,&#160;int.&#160;VIN&#160;not&#160;equal</b><br/>
+Only&#160;with&#160;WriteVin&#160;(Swt)<br/>
+<b>Figure&#160;7.1:&#160;Vin&#160;Qualifier&#160;State</b><br/>
+<b>[SWS_Vin_0034]&#160;</b>dThe&#160;general&#160;workflow&#160;is&#160;shall&#160;be&#160;done&#160;according&#160;to&#160;<a href="ModuleSpecification_Vins.html#10">Figure&#160;7.2,&#160;``SSV&#160;State<br/>Machine''.&#160;</a>c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;9&#160;of&#160;38<br/>
+<hr/>
+<a name=10></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-10_1.png"/><br/>
+<b>stm&#160;SSVState</b><br/>
+Initial<br/>
+<b>ReadNVM</b><br/>
+<b>WaitForVin</b><br/>
+[NOT_OK]<br/>
+T&#160;imeout<br/>
+ReceiveVin<br/>
+NotifyJobFinished<br/>
+<b>RequestVin</b><br/>
+<b>VinReceiv&#160;ed</b><br/>
+<b>Error</b><br/>
+<b>WaitForF50</b><br/>
+Timeout<br/>
+ReceiveVin<br/>
+<b>(set&#160;Vin&#160;and&#160;Qualifier)</b><br/>
+VK_Established<br/>
+<b>GetCounterbase</b><br/>
+<b>GetMac</b><br/>
+<b>CheckVin</b><br/>
+<b>(set&#160;Vin&#160;and&#160;Qualifier)</b><br/>
+Final<br/>
+<b>Figure&#160;7.2:&#160;SSV&#160;State&#160;Machine</b><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;10&#160;of&#160;38<br/>
+<hr/>
+<a name=11></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-11_1.png"/><br/>
+<b>stm&#160;GetCounterbase</b><br/>
+EntryPoint<br/>
+CounterbaseNotReceived<br/>
+<b>RequestCounterbase</b><br/>
+CounterbaseReceived<br/>
+CounterbaseReceived<br/>
+<b>VerifyCounterbase</b><br/>
+Timeout<br/>
+<b>CheckErrorLimit</b><br/>
+CounterbaseNotOk<br/>
+CounterbaseOk<br/>
+ErrorLimitReached<br/>
+ExitPoint<br/>
+<b>Figure&#160;7.3:&#160;Get&#160;Counterbase,&#160;SSV&#160;State&#160;Machine</b><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;11&#160;of&#160;38<br/>
+<hr/>
+<a name=12></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-12_1.png"/><br/>
+<b>stm&#160;GetMac</b><br/>
+EntryPoint<br/>
+MacNotYetReceived<br/>
+<b>Error</b><br/>
+<b>RequestMac</b><br/>
+T&#160;imeout<br/>
+MacReceived<br/>
+MacReceived<br/>
+ExitPoint<br/>
+<b>Figure&#160;7.4:&#160;Get&#160;Mac,&#160;SSV&#160;State&#160;Machine</b><br/>
+<b>7.2&#160;SSV</b><br/>
+SSV&#160;is&#160;the&#160;receiver&#160;of&#160;the&#160;secure&#160;signal&#160;that&#160;shall&#160;be&#160;verified.&#160;It&#160;shall&#160;recognize&#160;that&#160;the&#160;transmitted&#160;signal<br/>was&#160;not&#160;manipulated&#160;or&#160;transmitted&#160;by&#160;an&#160;untrustworthy&#160;sender.&#160;The&#160;key&#160;necessary&#160;for&#160;SSV&#160;functionality<br/>are&#160;transmitted&#160;by&#160;the&#160;MSM&#160;with&#160;the&#160;functionality&#160;F50&#160;of&#160;the&#160;Fscsm&#160;module,&#160;see&#160;<a href="ModuleSpecification_Vins.html#5">[2]&#160;</a>for&#160;details.<br/>
+<b>[SWS_Vin_0035]&#160;</b>dA&#160;secure&#160;signal&#160;always&#160;consists&#160;of&#160;the&#160;actual&#160;(unprotected)&#160;signal&#160;and&#160;a&#160;Message<br/>Authentication&#160;Code&#160;(MAC),&#160;which&#160;is&#160;sent&#160;in&#160;a&#160;separate&#160;signal.&#160;A&#160;receiver&#160;can&#160;only&#160;classify&#160;a&#160;secure&#160;signal<br/>as&#160;secure&#160;when&#160;it&#160;has&#160;checked&#160;the&#160;MAC&#160;against&#160;the&#160;unprotected&#160;signal.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0036]&#160;</b>dThe&#160;signal&#160;source&#160;(sender)&#160;does&#160;not&#160;know&#160;whether&#160;the&#160;signal&#160;is&#160;transferred&#160;securely.<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;12&#160;of&#160;38<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-13_1.png"/><br/>
+SSV&#160;receives&#160;both&#160;signal&#160;and&#160;MAC<br/>SSV&#160;always&#160;passes&#160;the&#160;actual&#160;signal&#160;and&#160;qualifier&#160;on&#160;to&#160;Application<br/>Task&#160;of&#160;SSV&#160;is&#160;to&#160;generate&#160;a&#160;correct&#160;qualifier&#160;for&#160;data<br/>
+Signal<br/>
+Signal<br/>
+Sender<br/>
+SSV<br/>
+Receiver<br/>
+SSS<br/>
+MAC<br/>
+Qualifier<br/>
+ECU1<br/>
+ECU2<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0037]&#160;</b>dAn&#160;SSV&#160;receives&#160;exactly&#160;one&#160;signed&#160;message&#160;and&#160;has&#160;a&#160;unique&#160;SSV-ID.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0038]&#160;</b>dThe&#160;Fscsm&#160;only&#160;supports&#160;one&#160;SSV&#160;for&#160;the&#160;VIN.&#160;c<i>()</i><br/>
+<b>7.2.1&#160;Secure&#160;environment</b><br/>
+<b>[SWS_Vin_0039]&#160;</b>dThe&#160;SSV&#160;can&#160;be&#160;found&#160;in&#160;a&#160;secure&#160;or&#160;unsecured&#160;environment&#160;with&#160;regard&#160;to&#160;the<br/>signal&#160;it&#160;receives.&#160;SSV&#160;saves&#160;this&#160;state&#160;in&#160;a&#160;non-volatile&#160;flag.&#160;Initial&#160;value&#160;of&#160;the&#160;flag&#160;is&#160;SecEnv&#160;=&#160;false.<br/>c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_1707,&#160;FsCSM_1708,&#160;FsCSM_1710)</i></a><br/>
+<b>[SWS_Vin_0040]&#160;</b>dAn&#160;SSV&#160;only&#160;then&#160;goes&#160;into&#160;the&#160;secure&#160;environment&#160;when&#160;it&#160;has&#160;received&#160;the&#160;secure<br/>signal&#160;successfully&#160;once,&#160;i.e.&#160;the&#160;SSV&#160;has&#160;the&#160;qualifier&#160;SecEnv_VerificationSuccess&#160;as&#160;a&#160;result&#160;after<br/>evaluation.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0041]&#160;</b>dOnce&#160;a&#160;SSV&#160;is&#160;in&#160;a&#160;secure&#160;environment,&#160;it&#160;cannot&#160;be&#160;reset&#160;to&#160;an&#160;unsecured<br/>environment,&#160;even&#160;by&#160;programming&#160;the&#160;control&#160;unit&#160;again.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_1709)</i></a><br/>
+<b>7.2.2&#160;Challenge/response&#160;and&#160;CounterBase</b><br/>
+<b>[SWS_Vin_0042]&#160;</b>dFor&#160;challenge/response,&#160;a&#160;common&#160;CounterBase&#160;is&#160;used&#160;between&#160;a&#160;SSS&#160;and&#160;its<br/>SSVs.&#160;CounterBase&#160;is&#160;defined&#160;in&#160;SSS.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0043]&#160;</b>dA&#160;CounterBase&#160;has&#160;a&#160;size&#160;of&#160;24&#160;bits.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0044]&#160;</b>dIf&#160;the&#160;SSV&#160;cannot&#160;verify&#160;a&#160;signal,&#160;it&#160;shall&#160;request&#160;the&#160;current&#160;CounterBase&#160;with<br/>challenge/response&#160;process&#160;immediately.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0045]&#160;</b>dIf&#160;F50&#160;was&#160;not&#160;successfully&#160;executed,&#160;the&#160;SSV&#160;does&#160;not&#160;execute&#160;the<br/>ChallengeResponse&#160;protocol.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0046]&#160;</b>dChallenge/response&#160;protocol&#160;is&#160;only&#160;needed&#160;by&#160;an&#160;SSV&#160;in&#160;a&#160;secure&#160;environment.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0047]&#160;</b>dChallenge/response&#160;process&#160;is&#160;done&#160;with&#160;N15.1&#160;and&#160;N15.2.<br/>
+Challenge&#160;(N15.1)<br/>
+SSS<br/>
+SSV<br/>
+Response&#160;(N15.2)<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;13&#160;of&#160;38<br/>
+<hr/>
+<a name=14></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-14_1.png"/><br/>
+<b>[SWS_Vin_0048]&#160;</b>dThe&#160;messages&#160;for&#160;updating&#160;the&#160;counter&#160;base&#160;between&#160;a&#160;SSV&#160;and&#160;a&#160;SSS&#160;are<br/>described&#160;in&#160;<a href="ModuleSpecification_Vins.html#8">[FsCSM_937],&#160;</a>ff.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_937,&#160;FsCSM_4320,&#160;FsCSM_956,&#160;FsCSM_848,&#160;FsCSM_1496,<br/>FsCSM_859,&#160;FsCSM_1497)</i></a><br/>
+<b>[SWS_Vin_0049]&#160;</b>dOperating&#160;sequence&#160;of&#160;challenge/response&#160;is&#160;described&#160;by&#160;<a href="ModuleSpecification_Vins.html#8">[FsCSM_4336]:<br/></a>c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_4336)</i></a><br/>
+<b>[SWS_Vin_0050]&#160;</b>dIf&#160;an&#160;SSV&#160;receives&#160;a&#160;response&#160;after&#160;a&#160;challenge&#160;is&#160;sent,&#160;it&#160;shall&#160;calculate&#160;the&#160;MAC&#160;and<br/>compares&#160;this&#160;with&#160;the&#160;received&#160;MAC.&#160;The&#160;counter&#160;base&#160;may&#160;only&#160;be&#160;considered&#160;valid&#160;and&#160;saved&#160;after<br/>successful&#160;verification.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_4338)</i></a><br/>
+<b>[SWS_Vin_0051]&#160;</b>dIf&#160;N15.1&#160;message&#160;is&#160;sent&#160;and&#160;SSV&#160;receives&#160;no&#160;response&#160;after&#160;configured<br/>TimeoutCounterbase&#160;(see&#160;<a href="ModuleSpecification_Vins.html#36">[SWS_Vin_0105])&#160;</a>or&#160;if&#160;verification&#160;of&#160;the&#160;received&#160;MAC&#160;fails,&#160;an&#160;error&#160;counter<br/>is&#160;incremented.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0053]&#160;</b>dThe&#160;challenge/response&#160;mechanism&#160;shall&#160;be&#160;repeated&#160;until&#160;it&#160;has&#160;been&#160;executed<br/>successfully&#160;or&#160;the&#160;error&#160;counter&#160;has&#160;exceeded&#160;the&#160;configured&#160;value&#160;ErrorlimitCounterbase&#160;(see<br/><a href="ModuleSpecification_Vins.html#37">[SWS_Vin_0106]).&#160;</a>In&#160;this&#160;case,&#160;an&#160;error&#160;memory&#160;entry&#160;with&#160;the&#160;error&#160;ERC_FSCSM_SSV_ERROR_STATE<br/>shall&#160;be&#160;set.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0055]&#160;</b>dError&#160;counter&#160;is&#160;stored&#160;volatile.&#160;Initial&#160;value&#160;is&#160;0.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_4469)</i></a><br/>
+<b>7.2.3&#160;Request/verify&#160;secure&#160;signal</b><br/>
+<b>[SWS_Vin_0056]&#160;</b>dIf&#160;functionality&#160;F50&#160;is&#160;not&#160;successfully&#160;executed&#160;(flag&#160;VK_Established&#160;not&#160;set),&#160;SSV<br/>only&#160;requests&#160;the&#160;signal&#160;but&#160;not&#160;the&#160;MAC.&#160;In&#160;the&#160;other&#160;case&#160;it&#160;requests&#160;signal&#160;and&#160;MAC.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_4418)</i></a><br/>
+<b>[SWS_Vin_0057]&#160;</b>dIf&#160;SSV&#160;requires&#160;a&#160;MAC&#160;for&#160;a&#160;signal,&#160;it&#160;sends&#160;a&#160;request&#160;message&#160;N12.1&#160;to&#160;SSS.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0058]&#160;</b>dIf&#160;SSV&#160;in&#160;a&#160;secured&#160;environment&#160;requests&#160;a&#160;MAC&#160;and&#160;does&#160;not&#160;receive&#160;it&#160;after<br/>configured&#160;time&#160;(TimeoutMac),&#160;the&#160;SSV&#160;shall&#160;make&#160;an&#160;error&#160;memory&#160;entry&#160;with&#160;the&#160;error&#160;code<br/>ERC_FSCSM_SSV_MESSAGE_TIMEOUT_REQ.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0059]&#160;</b>dAs&#160;long&#160;as&#160;an&#160;SSV&#160;has&#160;received&#160;neither&#160;a&#160;signal&#160;nor&#160;an&#160;MAC&#160;in&#160;a&#160;life&#160;cycle,&#160;signal<br/>qualifier&#160;shall&#160;be&#160;set&#160;to&#160;FSCSM_SAFE_ENV_SSV_NOT_INITIALIZED.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0060]&#160;</b>dIn&#160;all&#160;cases,&#160;SSV&#160;passes&#160;the&#160;received&#160;signal&#160;to&#160;application.&#160;Meta&#160;information,&#160;which<br/>qualifies&#160;the&#160;signal&#160;(qualifier),&#160;shall&#160;be&#160;added.&#160;It&#160;is&#160;task&#160;of&#160;receiving&#160;application&#160;to&#160;use&#160;or&#160;not&#160;use&#160;the&#160;signal.<br/>c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;14&#160;of&#160;38<br/>
+<hr/>
+<a name=15></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-15_1.png"/><br/>
+transition/to/idle<br/>
+external/event/received<br/>
+set/Qualifier1<br/>
+receivedMAC<br/>
+receivedSignal<br/>
+SecEnv=False<br/>
+idle<br/>
+SecEnv=True<br/>
+SignalIsInitialValue<br/>
+MACisInitialValue<br/>
+SignalHasBeenUpated<br/>
+MAChasBeenUpdated<br/>
+InThisPowerCycle<br/>
+set/Qualifier3<br/>
+InThisPowerCycle<br/>
+Set/NVM/<br/>
+5&#160;Evaluate/Signal/MAC<br/>
+Evaluate/Signal/MAC<br/>
+SecEnv=True<br/>
+5&#160;set/Qualifier5<br/>
+SecEnv=True<br/>
+set/Qualifier6<br/>
+set/Qualifier2<br/>
+set/Qualifier7<br/>
+SecEnv=<br/>
+False<br/>
+MACisInitialValue<br/>
+SecEnv=True<br/>
+set/Qualifier4<br/>
+SecEnv=False<br/>
+MACHasBeenUpated<br/>
+MacEvalNoSuccess<br/>
+InThisPowerCycle<br/>
+MACEvalNoSuccess<br/>
+Evaluate/Signal/MAC<br/>
+MACEvalSuccess&#160;MACEvalSuccess<br/>
+gültigVbeiVsetQualifierx<br/>
+<b>Qualifier</b><br/>
+<b>Wert</b><br/>
+<b>1</b><br/>
+<b>2</b><br/>
+<b>3</b><br/>
+<b>4</b><br/>
+<b>5</b><br/>
+<b>6</b><br/>
+<b>7</b><br/>
+NotInitialized<br/>
+0x00<br/>
+X<br/>
+UnsecEnv<br/>
+0x01<br/>
+X<br/>
+X<br/>
+SecEnv_Untrusted<br/>
+0x02<br/>
+X<br/>
+SecEnv_VerificationSuccess<br/>
+0x03<br/>
+X<br/>
+X<br/>
+SecEnv_VerificationFailed<br/>
+0x04<br/>
+X<br/>
+X<br/>
+SecEnv_Error<br/>
+0x05<br/>
+X<br/>
+X<br/>
+<b>Figure&#160;7.5:&#160;Evaluation&#160;of&#160;a&#160;secure&#160;signal&#160;by&#160;the&#160;SSV</b><br/>
+<b>[SWS_Vin_0061]&#160;</b>dIf&#160;SSV&#160;receives&#160;a&#160;plain&#160;signal&#160;and&#160;F50&#160;was&#160;not&#160;executed&#160;yet,&#160;signal&#160;qualifier&#160;shall&#160;be<br/>set&#160;to&#160;FSCSM_UNSAFE_ENV_MESSAGE_PLAIN&#160;in&#160;an&#160;unsecure&#160;environment.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0062]&#160;</b>dIf&#160;SSV&#160;receives&#160;a&#160;plain&#160;signal&#160;but&#160;no&#160;MAC&#160;and&#160;F50&#160;was&#160;executed,&#160;signal&#160;qualifier<br/>shall&#160;be&#160;set&#160;to&#160;FSCSM_SAFE_ENV_MESSAGE_PLAIN&#160;in&#160;a&#160;secure&#160;enviroment.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0063]&#160;</b>dIf&#160;SSV&#160;receives&#160;a&#160;plain&#160;signal&#160;and&#160;a&#160;correct&#160;MAC&#160;and&#160;F50&#160;was&#160;executed,&#160;signal<br/>qualifier&#160;shall&#160;be&#160;set&#160;to&#160;FSCSM_SAFE_ENV_MESSAGE_VERIFIED&#160;in&#160;a&#160;secure&#160;enviroment.&#160;c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;15&#160;of&#160;38<br/>
+<hr/>
+<a name=16></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-16_1.png"/><br/>
+<b>[SWS_Vin_0064]&#160;</b>dIf&#160;SSV&#160;receives&#160;a&#160;plain&#160;signal&#160;and&#160;an&#160;incorrect&#160;MAC&#160;and&#160;F50&#160;was&#160;executed,&#160;signal<br/>qualifier&#160;shall&#160;be&#160;set&#160;to&#160;FSCSM_SAFE_ENV_MESSAGE_NOT_VERIFIED&#160;in&#160;a&#160;secure&#160;enviroment.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0065]&#160;</b>dIf&#160;an&#160;error&#160;occurs&#160;while&#160;writing&#160;to&#160;NvM,&#160;signal&#160;qualifier&#160;shall&#160;be&#160;set&#160;to<br/>FSCSM_SAFE_ENV_ERROR_STATE&#160;in&#160;a&#160;secure&#160;enviroment.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0066]&#160;</b>dIf&#160;an&#160;SSV&#160;receives&#160;a&#160;MAC&#160;and&#160;has&#160;not&#160;yet&#160;received&#160;an&#160;associated&#160;signal.&#160;nothing&#160;is<br/>sent&#160;to&#160;application.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0067]&#160;</b>dIf&#160;an&#160;SSV&#160;receives&#160;a&#160;MAC&#160;and&#160;has&#160;yet&#160;received&#160;an&#160;associated&#160;signal.&#160;a&#160;verification<br/>shall&#160;be&#160;done.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0068]&#160;</b>dIf&#160;the&#160;verification&#160;produces&#160;a&#160;negative&#160;result&#160;or&#160;if&#160;the&#160;SSV&#160;has&#160;not&#160;yet&#160;received&#160;a<br/>counter&#160;base,&#160;a&#160;new&#160;counter&#160;base&#160;shall&#160;be&#160;requested.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_4450)</i></a><br/>
+<b>[SWS_Vin_0069]&#160;</b>dIf&#160;the&#160;request&#160;for&#160;a&#160;new&#160;counter&#160;base&#160;produces&#160;a&#160;positive&#160;result,&#160;the&#160;signal<br/>verification&#160;against&#160;the&#160;MAC&#160;is&#160;started&#160;again.&#160;c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_4451)</i></a><br/>
+<b>7.2.4&#160;SSV&#160;ports&#160;and&#160;interfaces</b><br/>
+u<br/>
+ECU1u<br/>
+Application<br/>
+Vin<br/>
+u<br/>
+SWCu<br/>
+SSVu<br/>
+u<br/>
+u<br/>
+RTEu<br/>
+S/Ruinterfaces:uTransmissionuofutheuMAC<br/>
+u<br/>
+S/Ruinterfaces:uTransmissionuofutheuplainumessageu<br/>
+S/Ruinterfaceutoutransmitumassageuandusignaluqualifieru<br/>
+S/RuinterfaceutoutransmituauResponseu<br/>
+Su/RuinterfaceutoutransmituauChallengeu<br/>
+<b>Figure&#160;7.6:&#160;Overview&#160;of&#160;interfaces&#160;provided&#160;by&#160;SSV</b><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;16&#160;of&#160;38<br/>
+<hr/>
+<a name=17></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-17_1.png"/><br/>
+<a href="ModuleSpecification_Vins.html#16">Figure&#160;7.6,&#160;``Overview&#160;of&#160;interfaces&#160;provided&#160;by&#160;SSV''&#160;</a>shows&#160;the&#160;interfaces&#160;provided&#160;by&#160;Fscsm<br/>functionality&#160;SSV:<br/>
+port&#160;to&#160;receive&#160;an&#160;unsigned&#160;message<br/>port&#160;to&#160;receive&#160;the&#160;corresponding&#160;signed&#160;message<br/>port&#160;to&#160;send&#160;message&#160;and&#160;qualifier&#160;to&#160;the&#160;Application&#160;SWC<br/>port&#160;to&#160;send&#160;a&#160;Challenge<br/>port&#160;to&#160;receive&#160;a&#160;Response<br/>
+<b>7.2.5&#160;Message&#160;format</b><br/>
+<b>[SWS_Vin_0070]&#160;</b>dAES&#160;and&#160;the&#160;vehicle&#160;key&#160;VK&#160;together&#160;with&#160;a&#160;CBC-MAC&#160;scheme&#160;are&#160;used&#160;for&#160;signing<br/>a&#160;message.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0071]&#160;</b>dIf&#160;(Information&#160;&lt;=&#160;64&#160;bit),&#160;the&#160;following&#160;block&#160;is&#160;encrypted&#160;with&#160;AES&#160;and&#160;a&#160;CBC-MAC<br/>scheme<br/>
+Block:<br/>
+<b>Information&#160;(padded&#160;with&#160;zeros)</b><br/>
+<b>CounterBase</b><br/>
+<b>Delta&#160;(padded&#160;with&#160;zeros)</b><br/>
+64-Bit<br/>
+24-Bit<br/>
+40-Bit<br/>
+Signature&#160;=&#160;MSB(AES-CBC-MAC(VK,IV,Block)&#160;|&#160;Length&#160;of&#160;Signature&#160;in&#160;bits).&#160;IV&#160;=&#160;0.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0072]&#160;</b>dIf&#160;(Information&#160;&gt;&#160;64&#160;bit),&#160;the&#160;following&#160;block&#160;is&#160;encrypted&#160;with&#160;AES&#160;and&#160;a&#160;CBC-MAC<br/>scheme.&#160;The&#160;block&#160;length&#160;is&#160;a&#160;multiple&#160;of&#160;128&#160;bits.&#160;Block&#160;length&#160;=&#160;(128-Bit)*n,&#160;n&gt;=2,&#160;n=<br/>ceil((Len(Information)-64)/128))&#160;+&#160;1.<br/>
+Block:<br/>
+<b>Information&#160;(padded&#160;with&#160;zeros)</b><br/>
+<b>CounterBase</b><br/>
+<b>Delta&#160;(padded&#160;with&#160;zeros)</b><br/>
+(n-1)*128-Bit&#160;+&#160;64-Bit<br/>
+24-Bit<br/>
+40-Bit<br/>
+Signature&#160;=&#160;MSB(AES-CBC-MAC(VK,IV,Block)&#160;|&#160;Length&#160;of&#160;Signature&#160;in&#160;bits).&#160;IV&#160;=&#160;0.&#160;The&#160;most&#160;significant<br/>bits&#160;are&#160;taken&#160;from&#160;the&#160;last&#160;128-bit&#160;block&#160;which&#160;was&#160;encrypted&#160;with&#160;AES&#160;and&#160;the&#160;CBC-MAC&#160;scheme.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0073]&#160;</b>dThe&#160;byte&#160;order&#160;of&#160;Information,&#160;CounterBase&#160;and&#160;Delta&#160;is&#160;big&#160;endian.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0074]&#160;</b>dWhen&#160;padding&#160;Delta&#160;the&#160;most&#160;significant&#160;bits&#160;are&#160;filled&#160;with&#160;zeros.<br/>
+0&#160;<br/>
+0&#160;<br/>
+0<br/>
+...&#160;&#160;<br/>
+.....<br/>
+&#160;<br/>
+...............&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+Dn&#160;<br/>
+Dn-1&#160;<br/>
+......&#160;<br/>
+D2<br/>
+D1<br/>
+D0<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+MSB(PaddedDelta)&#160;<br/>
+MSB(Delta)&#160;<br/>
+LSB(Delta)&#160;<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0075]&#160;</b>dInformation&#160;has&#160;to&#160;be&#160;padded&#160;by&#160;filling&#160;the&#160;least&#160;significant&#160;bits&#160;with&#160;zeros.<br/>
+Infon&#160;<br/>
+Infon-1&#160;<br/>
+..............<br/>
+Info1&#160;<br/>
+Info0&#160;<br/>
+0&#160;<br/>
+......&#160;<br/>
+0&#160;<br/>
+0&#160;<br/>
+&#160;<br/>
+MSB(Information)&#160;<br/>
+LSB(Information)&#160;<br/>
+LSB(PaddedInformation)&#160;<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;17&#160;of&#160;38<br/>
+<hr/>
+<a name=18></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-18_1.png"/><br/>
+<b>[SWS_Vin_0076]&#160;</b>dEach&#160;SSS&#160;uses&#160;a&#160;counter&#160;to&#160;sign&#160;message.&#160;The&#160;counter&#160;is&#160;incremented&#160;by&#160;1&#160;after&#160;a<br/>message&#160;was&#160;signed.&#160;c<i>()</i><br/>
+<b>[SWS_Vin_0077]&#160;</b>dEach&#160;SSV&#160;must&#160;ensure&#160;that&#160;the&#160;counter&#160;is&#160;increased&#160;by&#160;one&#160;with&#160;each&#160;received<br/>signed&#160;message.&#160;If&#160;this&#160;is&#160;not&#160;the&#160;case,&#160;the&#160;FSCSM&#160;considers&#160;the&#160;message&#160;verification&#160;as&#160;failed.&#160;c<i>()</i><br/>
+<b>7.3&#160;Error&#160;classification</b><br/>
+<b>[SWS_Vin_0078]&#160;</b>dThe&#160;Vin&#160;module&#160;shall&#160;provide&#160;the&#160;following&#160;errors.<br/>
+<b>Type&#160;of&#160;error</b><br/>
+<b>Relevance</b><br/>
+<b>Related&#160;error&#160;code</b><br/>
+<b>Value<br/>[hex]</b><br/>
+Fscsm&#160;Error<br/>
+Production<br/>
+FSCSM_ERROR<br/>
+0x800000<br/>+&#160;0x100&#160;*<br/>SGID&#160;+<br/>0x30<br/>
+c<a href="ModuleSpecification_Vins.html#8"><i>(FsCSM_391)</i></a><br/>
+<b>7.4&#160;Error&#160;detection</b><br/>
+<b>[SWS_Vin_0079]&#160;</b>dThe&#160;detection&#160;of&#160;production&#160;code&#160;errors&#160;cannot&#160;be&#160;switched&#160;off.&#160;c<i>()</i><br/>
+<b>7.5&#160;Error&#160;notification</b><br/>
+<b>[SWS_Vin_0080]&#160;</b>dProduction&#160;errors&#160;shall&#160;be&#160;reported&#160;to&#160;the&#160;Diagnostic&#160;Event&#160;Manager.&#160;c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;18&#160;of&#160;38<br/>
+<hr/>
+<a name=19></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-19_1.png"/><br/>
+<b>8</b><br/>
+<b>API&#160;Specification</b><br/>
+<b>8.1&#160;Imported&#160;types</b><br/>
+<b>Header&#160;File</b><br/>
+<b>Imported&#160;Type</b><br/>
+Std_Types.h<br/>
+Std_ReturnType<br/>
+<b>8.2&#160;Type&#160;definitions</b><br/>
+No&#160;type&#160;definitions&#160;required.<br/>
+<b>8.3&#160;Function&#160;definitions</b><br/>
+<b>8.3.1&#160;Vin_Main</b><br/>
+<b>[SWS_Vin_0004]&#160;</b>d<br/>
+<b>Service&#160;name</b><br/>
+Vin_Main<br/>
+<b>Syntax</b><br/>
+void&#160;Vin_Main(<br/>
+void<br/>
+)<br/>
+<b>Service&#160;ID[HEX]</b><br/>
+-<br/>
+<b>Sync/Async</b><br/>
+Synchronous<br/>
+<b>Reentrancy</b><br/>
+Non&#160;Reentrant<br/>
+<b>Description</b><br/>
+Main&#160;function.<br/>
+c<i>()</i><br/>
+<b>Note:&#160;</b>This&#160;function&#160;is&#160;cyclically&#160;triggered&#160;every&#160;0.1s,&#160;when&#160;life&#160;cycle&#160;mode&#160;is&#160;running&#160;and&#160;VIN<br/>communication&#160;mode&#160;is&#160;on.<br/>
+<b>8.3.2&#160;Vin_LifeCycleModeRequest</b><br/>
+<b>[SWS_Vin_0005]&#160;</b>d<br/>
+<b>Service&#160;name</b><br/>
+Vin_LifeCycleModeRequest<br/>
+<b>Syntax</b><br/>
+void&#160;Vin_LifeCycleModeRequest(<br/>
+void<br/>
+)<br/>
+<b>Service&#160;ID[HEX]</b><br/>
+-<br/>
+<b>Sync/Async</b><br/>
+Synchronous<br/>
+<b>Reentrancy</b><br/>
+Non&#160;Reentrant<br/>
+<b>Description</b><br/>
+Evaluates&#160;the&#160;requested&#160;mode&#160;and&#160;switches&#160;accordingly.<br/>
+c<i>()</i><br/>
+<b>Note:&#160;</b>This&#160;is&#160;a&#160;RTE&#160;runnable&#160;which&#160;runs&#160;inside&#160;the&#160;exclusive&#160;area&#160;VinState.<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;19&#160;of&#160;38<br/>
+<hr/>
+<a name=20></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-20_1.png"/><br/>
+<b>8.3.3&#160;Vin_SsvOnVkEstablished</b><br/>
+<b>[SWS_Vin_0081]&#160;</b>d<br/>
+<b>Service&#160;name</b><br/>
+Vin_SsvOnVkEstablished<br/>
+<b>Syntax</b><br/>
+void&#160;Vin_SsvOnVkEstablished(<br/>
+void<br/>
+)<br/>
+<b>Service&#160;ID[HEX]</b><br/>
+-<br/>
+<b>Sync/Async</b><br/>
+Synchronous<br/>
+<b>Reentrancy</b><br/>
+Non&#160;Reentrant<br/>
+<b>Description</b><br/>
+Called,&#160;when&#160;a&#160;new&#160;VKEstablished&#160;flag&#160;is&#160;available.<br/>
+c<i>()</i><br/>
+<b>Note:&#160;</b>This&#160;is&#160;a&#160;RTE&#160;runnable&#160;which&#160;runs&#160;inside&#160;the&#160;exclusive&#160;area&#160;VinState.<br/>
+<b>8.3.4&#160;Vin_SsvReceiveResponseFromSss</b><br/>
+<b>[SWS_Vin_0082]&#160;</b>d<br/>
+<b>Service&#160;name</b><br/>
+Vin_SsvReceiveResponseFromSss<br/>
+<b>Syntax</b><br/>
+void&#160;Vin_SsvReceiveResponseFromSss(<br/>
+void<br/>
+)<br/>
+<b>Service&#160;ID[HEX]</b><br/>
+-<br/>
+<b>Sync/Async</b><br/>
+Synchronous<br/>
+<b>Reentrancy</b><br/>
+Non&#160;Reentrant<br/>
+<b>Description</b><br/>
+Called&#160;on&#160;a&#160;data&#160;received&#160;event&#160;when&#160;the&#160;response&#160;has&#160;been&#160;received&#160;from&#160;the&#160;SSS.<br/>
+c<i>()</i><br/>
+<b>8.3.5&#160;Vin_SsvReceiveMac</b><br/>
+<b>[SWS_Vin_0083]&#160;</b>d<br/>
+<b>Service&#160;name</b><br/>
+Vin_SsvReceiveMac<br/>
+<b>Syntax</b><br/>
+void&#160;Vin_SsvReceiveMac(<br/>
+void<br/>
+)<br/>
+<b>Service&#160;ID[HEX]</b><br/>
+-<br/>
+<b>Sync/Async</b><br/>
+Synchronous<br/>
+<b>Reentrancy</b><br/>
+Non&#160;Reentrant<br/>
+<b>Description</b><br/>
+Called&#160;on&#160;a&#160;data&#160;received&#160;event&#160;when&#160;the&#160;MAC&#160;has&#160;been&#160;received.<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;20&#160;of&#160;38<br/>
+<hr/>
+<a name=21></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-21_1.png"/><br/>
+<b>8.3.6&#160;Vin_SsvStateGet</b><br/>
+<b>[SWS_Vin_0084]&#160;</b>d<br/>
+<b>Service&#160;name</b><br/>
+Vin_SsvStateGet<br/>
+<b>Syntax</b><br/>
+Std_ReturnType&#160;Vin_SsvStateGet(<br/>
+uint8&#160;*&#160;mac,<br/>uint8&#160;*&#160;errorCounter,<br/>uint32&#160;*&#160;counterbase<br/>
+)<br/>
+<b>Service&#160;ID[HEX]</b><br/>
+-<br/>
+<b>Sync/Async</b><br/>
+Synchronous<br/>
+<b>Reentrancy</b><br/>
+Non&#160;Reentrant<br/>
+<b>Parameters&#160;(out)</b><br/>
+mac<br/>
+current&#160;MAC<br/>
+errorCounter<br/>
+current&#160;error&#160;counter<br/>
+counterbase<br/>
+current&#160;counterbase<br/>
+<b>Description</b><br/>
+Returns&#160;the&#160;current&#160;SSV&#160;state.<br/>
+c<i>()</i><br/>
+<b>Note:&#160;</b>This&#160;function&#160;is&#160;needed&#160;by&#160;the&#160;Fscsm&#160;module&#160;for&#160;the&#160;FAT&#160;test<br/>
+<b>8.3.7&#160;Modes,&#160;Types&#160;and&#160;Mappings</b><br/>
+<b>[SWS_Vin_0006]&#160;</b>d<br/>
+CompuMethod&#160;CM_LifeCycleRequest&#160;{<br/>
+Category:&#160;TEXTTABLE<br/>
+VIN_INITIALIZED&#160;=&#160;0<br/>
+VIN_RUNNING&#160;=&#160;1<br/>
+VIN_STOPPED&#160;=&#160;2<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0008]&#160;</b>d<br/>
+CompuMethod&#160;CM_VinQualifier&#160;{<br/>
+Category:&#160;TEXTTABLE<br/>
+VIN_QUAL_INIT&#160;=&#160;0<br/>
+VIN_QUAL_RECEIVED&#160;=&#160;1<br/>
+VIN_QUAL_EQ_INTERNAL&#160;=&#160;2<br/>
+VIN_QUAL_SECURE_PENDING&#160;=&#160;4<br/>
+VIN_QUAL_SECURE_FINISHED&#160;=&#160;8<br/>
+VIN_QUAL_SECURE_OK&#160;=&#160;16<br/>
+VIN_QUAL_SECURE_MASK&#160;=&#160;28<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0009]&#160;</b>d<br/>
+ImplementationDataType&#160;VinArrayType&#160;{<br/>
+Category:&#160;ARRAY&#160;uint8[7]<br/>
+SizeSemantics:&#160;FIXED-SIZE<br/>
+}<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;21&#160;of&#160;38<br/>
+<hr/>
+<a name=22></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-22_1.png"/><br/>
+<b>[SWS_Vin_0085]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_ChallengeArrayType&#160;{<br/>
+Category:&#160;ARRAY&#160;uint8[5]<br/>
+SizeSemantics:&#160;FIXED-SIZE<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0086]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_ChallengeRecordType&#160;{<br/>
+Category:&#160;STRUCTURE<br/>
+Elements:<br/>
+{<br/>
+TYPE_REFERENCE&#160;uint8&#160;SssId;<br/>
+TYPE_REFERENCE&#160;uint8&#160;SsvId;<br/>
+TYPE_REFERENCE&#160;Vin_ChallengeArrayType&#160;Challenge;<br/>
+}<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0010]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_ComVinType&#160;{<br/>
+Category:&#160;STRUCTURE<br/>
+Elements:<br/>
+{<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin1;<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin2;<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin3;<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin4;<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin5;<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin6;<br/>
+TYPE_REFERENCE&#160;uint8&#160;Vin7;<br/>
+}<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0109]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_CounterBaseArrayType&#160;{<br/>
+Category:&#160;ARRAY&#160;uint8[3]<br/>
+SizeSemantics:&#160;FIXED-SIZE<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0011]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_LifeCycleRequestType&#160;{<br/>
+implementationDataType&#160;=&#160;uint8<br/>
+compuMethod&#160;=&#160;CM_LifeCycleRequest<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0012]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_QualifierType&#160;{<br/>
+implementationDataType&#160;=&#160;uint8<br/>
+compuMethod&#160;=&#160;CM_VinQualifier<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;22&#160;of&#160;38<br/>
+<hr/>
+<a name=23></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-23_1.png"/><br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0087]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_ResponseRecordType&#160;{<br/>
+Category:&#160;STRUCTURE<br/>
+Elements:<br/>
+{<br/>
+TYPE_REFERENCE&#160;uint8&#160;SsvId;<br/>
+TYPE_REFERENCE&#160;uint32&#160;CounterBase;<br/>
+TYPE_REFERENCE&#160;uint32&#160;Signature;<br/>
+}<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0088]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_SSVMACArrayType&#160;{<br/>
+Category:&#160;ARRAY&#160;uint8[8]<br/>
+SizeSemantics:&#160;FIXED-SIZE<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0089]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_SSVMACRecordType&#160;{<br/>
+Category:&#160;STRUCTURE<br/>
+Elements:<br/>
+{<br/>
+TYPE_REFERENCE&#160;Vin_SSVMACArrayType&#160;Mac;<br/>
+}<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0014]&#160;</b>d<br/>
+ImplementationDataType&#160;Vin_VinType&#160;{<br/>
+Category:&#160;STRUCTURE<br/>
+Elements:<br/>
+{<br/>
+TYPE_REFERENCE&#160;VinArrayType&#160;Vin;<br/>
+TYPE_REFERENCE&#160;Vin_QualifierType&#160;Qualifier;<br/>
+}<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0015]&#160;</b>d<br/>
+ModeDeclarationGroup&#160;Vin_ChangeIndicator&#160;{<br/>
+{<br/>
+VIN_CI_INIT&#160;=&#160;0,<br/>
+VIN_CI_NOCHANGE&#160;=&#160;1,<br/>
+VIN_CI_CHANGED&#160;=&#160;2<br/>
+}<br/>
+initialMode&#160;=&#160;VIN_CI_INIT<br/>
+}<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;23&#160;of&#160;38<br/>
+<hr/>
+<a name=24></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-24_1.png"/><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0016]&#160;</b>d<br/>
+ModeDeclarationGroup&#160;Vin_LifeCycle&#160;{<br/>
+{<br/>
+VIN_INITIALIZED&#160;=&#160;0,<br/>
+VIN_RUNNING&#160;=&#160;1,<br/>
+VIN_STOPPED&#160;=&#160;2<br/>
+}<br/>
+initialMode&#160;=&#160;VIN_STOPPED<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0017]&#160;</b>d<br/>
+ModeDeclarationGroup&#160;Vin_VinComMode&#160;{<br/>
+{<br/>
+VIN_VINCOMON&#160;=&#160;0,<br/>
+VIN_VINCOMOFF&#160;=&#160;1<br/>
+}<br/>
+initialMode&#160;=&#160;VIN_VINCOMOFF<br/>
+}<br/>
+c<i>()</i><br/>
+<b>8.3.8&#160;Provided&#160;Interfaces</b><br/>
+<b>[SWS_Vin_0110]&#160;</b>d<br/>
+ClientServerInterface&#160;ChassisNumberAuthentication&#160;{<br/>
+PossibleErrors&#160;{<br/>
+}<br/>
+generateAuthenticationCode(<br/>
+IN&#160;uint8&#160;secureSignalVerifierId,<br/>
+IN&#160;Vin_ChallengeArrayType&#160;challenge,<br/>
+OUT&#160;Vin_CounterBaseArrayType&#160;counterBase,<br/>
+OUT&#160;Vin_CounterBaseArrayType&#160;authCodeCounterBase,<br/>
+OUT&#160;Vin_SSVMACArrayType&#160;authCodeVIN,<br/>
+ERR{}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0121]&#160;</b>d<br/>
+ClientServerInterface&#160;FieldGetterSetterChassisNumber&#160;{<br/>
+PossibleErrors&#160;{<br/>
+}<br/>
+FieldGetterChassisNumber(<br/>
+OUT&#160;Vin_ComVinType&#160;Getter,<br/>
+ERR{}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0093]&#160;</b>d<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;24&#160;of&#160;38<br/>
+<hr/>
+<a name=25></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-25_1.png"/><br/>
+ClientServerInterface&#160;SSVState&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_NOT_OK&#160;=&#160;1<br/>
+}<br/>
+Get(<br/>
+OUT&#160;Vin_SSVMACArrayType&#160;mac,<br/>
+OUT&#160;uint8&#160;errorCounter,<br/>
+OUT&#160;uint32&#160;counterbase,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0090]&#160;</b>d<br/>
+SenderReceiverInterface&#160;Challenge&#160;{<br/>
+Vin_ChallengeRecordType&#160;Challenge;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0018]&#160;</b>d<br/>
+SenderReceiverInterface&#160;ComVin&#160;{<br/>
+Vin_ComVinType&#160;ComVin;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0020]&#160;</b>d<br/>
+SenderReceiverInterface&#160;ILifeCycleRequest&#160;{<br/>
+Vin_LifeCycleRequestType&#160;requestMode;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0091]&#160;</b>d<br/>
+SenderReceiverInterface&#160;Response&#160;{<br/>
+Vin_ResponseRecordType&#160;Response;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0092]&#160;</b>d<br/>
+SenderReceiverInterface&#160;SSVErrorCode&#160;{<br/>
+uint8&#160;ErrorCode;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0094]&#160;</b>d<br/>
+SenderReceiverInterface&#160;SSVVinMac&#160;{<br/>
+Vin_SSVMACRecordType&#160;Mac;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0021]&#160;</b>d<br/>
+SenderReceiverInterface&#160;Vin&#160;{<br/>
+Vin_VinType&#160;Vin;<br/>
+}<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;25&#160;of&#160;38<br/>
+<hr/>
+<a name=26></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-26_1.png"/><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0023]&#160;</b>d<br/>
+SenderReceiverInterface&#160;VinRequest&#160;{<br/>
+uint16&#160;RequestMessageIdentifier;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0112]&#160;</b>d<br/>
+SenderReceiverInterface&#160;Vin_InternalCheckVinTrigger&#160;{<br/>
+uint8&#160;Trigger;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0019]&#160;</b>d<br/>
+ModeSwitchInterface&#160;ILifeCycle&#160;{<br/>
+Vin_LifeCycle&#160;Mode;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0111]&#160;</b>d<br/>
+ModeSwitchInterface&#160;IVinChangeIndicator&#160;{<br/>
+Vin_ChangeIndicator&#160;ChangeIndicator;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0022]&#160;</b>d<br/>
+ModeSwitchInterface&#160;VinCom&#160;{<br/>
+Vin_VinComMode&#160;Mode;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>8.3.9&#160;Expected&#160;Interfaces</b><br/>
+<b>[SWS_Vin_0095]&#160;</b>d<br/>
+ClientServerInterface&#160;Vin_DiagnosticMonitor&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_NOT_OK&#160;=&#160;1<br/>
+}<br/>
+SetEventStatus(<br/>
+IN&#160;Dem_EventStatusType&#160;EventStatus,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0096]&#160;</b>d<br/>
+ClientServerInterface&#160;DETService&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_NOT_OK&#160;=&#160;1<br/>
+}<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;26&#160;of&#160;38<br/>
+<hr/>
+<a name=27></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-27_1.png"/><br/>
+ReportError(<br/>
+IN&#160;uint8&#160;InstanceId,<br/>
+IN&#160;uint8&#160;ApiId,<br/>
+IN&#160;uint8&#160;ErrorId,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0024]&#160;</b>d<br/>
+ClientServerInterface&#160;EcuInfo&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_NOT_OK&#160;=&#160;1<br/>
+}<br/>
+GetEcuId(<br/>
+OUT&#160;uint8&#160;ecuId,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+GetVin(<br/>
+OUT&#160;Dlog_VinArrayType&#160;Vin,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0098]&#160;</b>d<br/>
+ClientServerInterface&#160;FscsmApplSwcInterface&#160;{<br/>
+PossibleErrors&#160;{<br/>
+FSCSM_E_NOT_OK&#160;=&#160;1,<br/>
+FSCSM_E_MISSING_KEYS&#160;=&#160;2,<br/>
+FSCSM_E_NOT_VERIFIED&#160;=&#160;3,<br/>
+FSCSM_E_DOES_NOT_DECRYPT&#160;=&#160;4,<br/>
+FSCSM_E_DOES_NOT_ENCRYPT&#160;=&#160;5,<br/>
+FSCSM_E_NOT_EXPORTABLE&#160;=&#160;6<br/>
+}<br/>
+VerifyMessage(<br/>
+IN&#160;Fscsm_MessageArrayType&#160;messageToVerify,<br/>
+IN&#160;uint16&#160;messageLength,<br/>
+IN&#160;Fscsm_MessageArrayType&#160;macToVerify,<br/>
+IN&#160;uint16&#160;macLength,<br/>
+ERR{FSCSM_E_NOT_OK,FSCSM_E_NOT_VERIFIED,FSCSM_E_MISSING_KEYS}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0099]&#160;</b>d<br/>
+ClientServerInterface&#160;RandomNumberGenerator&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_NOT_OK&#160;=&#160;1<br/>
+}<br/>
+GenerateRandomNumber(<br/>
+OUT&#160;Fscsm_MessageArrayType&#160;buffer,<br/>
+IN&#160;uint32&#160;length,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;27&#160;of&#160;38<br/>
+<hr/>
+<a name=28></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-28_1.png"/><br/>
+<b>[SWS_Vin_0100]&#160;</b>d<br/>
+SenderReceiverInterface&#160;VK_Established&#160;{<br/>
+boolean&#160;Flag;<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0101]&#160;</b>d<br/>
+ClientServerInterface&#160;Vin_NvMNotifyJobFinished&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_OK&#160;=&#160;0<br/>
+}<br/>
+JobFinished(<br/>
+IN&#160;uint8&#160;ServiceId,<br/>
+IN&#160;NvM_RequestResultType&#160;JobResult,<br/>
+ERR{E_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0102]&#160;</b>d<br/>
+ClientServerInterface&#160;Vin_NvMService&#160;{<br/>
+PossibleErrors&#160;{<br/>
+E_NOT_OK&#160;=&#160;1<br/>
+}<br/>
+GetErrorStatus(<br/>
+OUT&#160;NvM_RequestResultType&#160;RequestResultPtr,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+ReadBlock(<br/>
+IN&#160;NvM_DstPtrType&#160;DstPtr,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+WriteBlock(<br/>
+IN&#160;NvM_SrcPtrType&#160;SrcPtr,<br/>
+ERR{E_NOT_OK}<br/>
+);<br/>
+}<br/>
+c<i>()</i><br/>
+<b>8.3.10&#160;Service&#160;Definition</b><br/>
+<b>[SWS_Vin_0026]&#160;</b>d<br/>
+Service&#160;Vin<br/>
+{<br/>
+ProvidePort<br/>
+Vin_NvMNotifyJobFinished&#160;NvMNotifyJobFinished_Vin<br/>
+ProvidePort<br/>
+Challenge&#160;SSVChallengeToSSS<br/>
+ProvidePort<br/>
+SSVErrorCode&#160;SSVErrorCode<br/>
+ProvidePort<br/>
+SSVState&#160;SSVState<br/>
+ProvidePort<br/>
+Vin&#160;Vin<br/>
+ProvidePort<br/>
+IVinChangeIndicator&#160;VinChangeIndicator<br/>
+ProvidePort<br/>
+VinRequest&#160;VinRequest<br/>
+RequirePort<br/>
+ComVin&#160;ComVin<br/>
+RequirePort<br/>
+DETService&#160;DETService_Vin<br/>
+RequirePort<br/>
+Vin_DiagnosticMonitor&#160;DiagnosticMonitor_FscsmErrorEvent<br/>
+RequirePort<br/>
+EcuInfo&#160;DlogEcuInfo<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;28&#160;of&#160;38<br/>
+<hr/>
+<a name=29></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-29_1.png"/><br/>
+RequirePort<br/>
+FscsmApplSwcInterface&#160;FscsmCryptographicFunctions<br/>
+RequirePort<br/>
+VK_Established&#160;FscsmVK_Established<br/>
+RequirePort<br/>
+ILifeCycleRequest&#160;LifeCycleRequest<br/>
+RequirePort<br/>
+Vin_NvMService&#160;NvMService_Vin<br/>
+RequirePort<br/>
+RandomNumberGenerator&#160;RandomNumberGenerator<br/>
+RequirePort<br/>
+Response&#160;SSVResponseFromSSS<br/>
+RequirePort<br/>
+SSVVinMac&#160;SSVVinMacFromSSS<br/>
+RequirePort<br/>
+VinCom&#160;VinCom<br/>
+ProvideRequirePort<br/>
+Vin_InternalCheckVinTrigger&#160;InternalCheckVinTrigger<br/>
+ProvideRequirePort<br/>
+ILifeCycle&#160;LifeCycle<br/>
+}<br/>
+c<i>()</i><br/>
+<b>8.3.11&#160;Runnables&#160;and&#160;Entry&#160;Points</b><br/>
+<b>[SWS_Vin_0027]&#160;</b>d<br/>
+Internal&#160;behavior&#160;of&#160;Vin<br/>
+{<br/>
+RunnableEntity&#160;Vin_LifeCycleModeRequest<br/>
+Symbol&#160;&#34;Vin_LifeCycleModeRequest&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_Main<br/>
+Symbol&#160;&#34;Vin_Main&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_NvmJobFinished<br/>
+Symbol&#160;&#34;Vin_NvmJobFinished&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_OnComOff<br/>
+Symbol&#160;&#34;Vin_OnComOff&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_OnComOn<br/>
+Symbol&#160;&#34;Vin_OnComOn&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_OnVinChangeIndicatorAck<br/>
+Symbol&#160;&#34;Vin_OnVinChangeIndicatorAck&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_ReceiveFromCom<br/>
+Symbol&#160;&#34;Vin_ReceiveFromCom&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SsvCheckVin<br/>
+Symbol&#160;&#34;Vin_SsvCheckVin&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SsvOnVkEstablished<br/>
+Symbol&#160;&#34;Vin_SsvOnVkEstablished&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SsvReceiveMac<br/>
+Symbol&#160;&#34;Vin_SsvReceiveMac&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SsvReceiveResponseFromSss<br/>
+Symbol&#160;&#34;Vin_SsvReceiveResponseFromSss&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SsvStateGet<br/>
+Symbol&#160;&#34;Vin_SsvStateGet&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+}<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;29&#160;of&#160;38<br/>
+<hr/>
+<a name=30></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-30_1.png"/><br/>
+<b>[SWS_Vin_0113]&#160;</b>d<br/>
+Service&#160;VinSIAdapter<br/>
+{<br/>
+ProvidePort<br/>
+ComVin&#160;ComVin<br/>
+ProvidePort<br/>
+Response&#160;SSVResponseFromSSS<br/>
+ProvidePort<br/>
+SSVVinMac&#160;SSVVinMacFromSSS<br/>
+RequirePort<br/>
+Challenge&#160;Challenge<br/>
+RequirePort<br/>
+FieldGetterSetterChassisNumber&#160;ChassisNumber<br/>
+RequirePort<br/>
+ChassisNumberAuthentication&#160;ChassisNumberAuthentication<br/>
+RequirePort<br/>
+ComVin&#160;ChassisNumberNotifier<br/>
+RequirePort<br/>
+VinRequest&#160;VinRequest<br/>
+}<br/>
+c<i>()</i><br/>
+<b>8.3.12&#160;Runnables&#160;and&#160;Entry&#160;Points</b><br/>
+<b>[SWS_Vin_0114]&#160;</b>d<br/>
+Internal&#160;behavior&#160;of&#160;VinSIAdapter<br/>
+{<br/>
+RunnableEntity&#160;Vin_SIAChallenge<br/>
+Symbol&#160;&#34;Vin_SIAChallenge&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SIAGetterChassisNumberReturn<br/>
+Symbol&#160;&#34;Vin_SIAGetterChassisNumberReturn&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SIANotifyChassisNumber<br/>
+Symbol&#160;&#34;Vin_SIANotifyChassisNumber&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+RunnableEntity&#160;Vin_SIARequest<br/>
+Symbol&#160;&#34;Vin_SIARequest&#34;<br/>
+canbeInvokedConcurrently&#160;=&#160;false<br/>
+}<br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;30&#160;of&#160;38<br/>
+<hr/>
+<a name=31></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-31_1.png"/><br/>
+<b>9</b><br/>
+<b>Sequence&#160;Diagrams</b><br/>
+None<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;31&#160;of&#160;38<br/>
+<hr/>
+<a name=32></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-32_1.png"/><br/>
+<b>10</b><br/>
+<b>Configuration</b><br/>
+In&#160;general,&#160;this&#160;chapter&#160;defines&#160;configuration&#160;parameters&#160;and&#160;their&#160;clustering&#160;into&#160;containers.&#160;In&#160;order&#160;to<br/>support&#160;the&#160;specification&#160;Chapter&#160;<a href="ModuleSpecification_Vins.html#32">10.1&#160;</a>describes&#160;fundamentals.&#160;It&#160;also&#160;specifies&#160;a&#160;template&#160;(table)&#160;you<br/>shall&#160;use&#160;for&#160;the&#160;parameter&#160;specification.&#160;We&#160;intend&#160;to&#160;leave&#160;Chapter&#160;<a href="ModuleSpecification_Vins.html#32">10.1&#160;</a>in&#160;the&#160;specification&#160;to&#160;guarantee<br/>comprehension.&#160;Chapter&#160;<a href="ModuleSpecification_Vins.html#33">10.2&#160;</a>specifies&#160;the&#160;structure&#160;(containers)&#160;and&#160;the&#160;parameters&#160;of&#160;the&#160;module&#160;Vin.<br/>
+<b>10.1&#160;How&#160;to&#160;read&#160;this&#160;chapter</b><br/>
+In&#160;addition&#160;to&#160;this&#160;section,&#160;it&#160;is&#160;highly&#160;recommended&#160;to&#160;read&#160;the&#160;document<br/>
+AUTOSAR&#160;Layered&#160;Software&#160;Architecture&#160;<a href="ModuleSpecification_Vins.html#5">[7]<br/></a>AUTOSAR&#160;ECU&#160;Configuration&#160;Specification&#160;<a href="ModuleSpecification_Vins.html#5">[8]<br/></a>This&#160;document&#160;describes&#160;the&#160;AUTOSAR&#160;configuration&#160;methodology&#160;and&#160;the&#160;AUTOSAR&#160;configuration<br/>metamodel&#160;in&#160;detail.<br/>
+The&#160;following&#160;is&#160;only&#160;a&#160;short&#160;survey&#160;of&#160;the&#160;topic&#160;and&#160;it&#160;will&#160;not&#160;replace&#160;the&#160;ECU&#160;Configuration&#160;Specification<br/>document.<br/>
+<b>10.1.1&#160;Configuration&#160;and&#160;configuration&#160;parameters</b><br/>
+Configuration&#160;parameters&#160;define&#160;the&#160;variability&#160;of&#160;the&#160;generic&#160;part(s)&#160;of&#160;an&#160;implementation&#160;of&#160;a&#160;module.<br/>This&#160;means&#160;that&#160;only&#160;generic&#160;or&#160;configurable&#160;module&#160;implementation&#160;can&#160;be&#160;adapted&#160;to&#160;the&#160;environment<br/>(software/hardware)&#160;in&#160;use&#160;during&#160;system&#160;and/or&#160;ECU&#160;configuration.<br/>
+The&#160;configuration&#160;of&#160;parameters&#160;can&#160;be&#160;achieved&#160;at&#160;different&#160;times&#160;during&#160;the&#160;software&#160;process:&#160;before<br/>compile&#160;time,&#160;before&#160;link&#160;time&#160;or&#160;after&#160;build&#160;time.&#160;In&#160;the&#160;following,&#160;the&#160;term&#160;&#34;Configuration&#160;class&#34;&#160;(of&#160;a<br/>parameter)&#160;shall&#160;be&#160;used&#160;in&#160;order&#160;to&#160;refer&#160;to&#160;a&#160;specific&#160;configuration&#160;point&#160;in&#160;time.<br/>
+<b>10.1.2&#160;Variants</b><br/>
+The&#160;SWT&#160;module&#160;has&#160;the&#160;following&#160;variants:<br/>
+<b>[SWS_StbP_0008]&#160;</b>dVARIANT-PRE-COMPILE:&#160;Only&#160;parameters&#160;with&#160;&#34;Pre-compile&#160;time&#34;&#160;configuration<br/>are&#160;allowed.&#160;c<i>()</i><br/>
+<b>10.1.3&#160;Containers</b><br/>
+Containers&#160;structure&#160;the&#160;set&#160;of&#160;configuration&#160;parameters.&#160;This&#160;means:<br/>
+all&#160;configuration&#160;parameters&#160;are&#160;kept&#160;in&#160;containers.<br/>(sub-)&#160;containers&#160;can&#160;reference&#160;(sub-)&#160;containers.&#160;It&#160;is&#160;possible&#160;to&#160;assign&#160;a&#160;multiplicity&#160;to&#160;these<br/>references.&#160;The&#160;multiplicity&#160;then&#160;defines&#160;the&#160;possible&#160;number&#160;of&#160;instances&#160;of&#160;the&#160;contained&#160;parameters.<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;32&#160;of&#160;38<br/>
+<hr/>
+<a name=33></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-33_1.png"/><br/>
+<b>10.2&#160;Containers&#160;and&#160;configuration&#160;parameters</b><br/>
+<b>Module&#160;Name</b><br/>
+Vin<br/>
+<b>Module&#160;Description</b><br/>
+Vin&#160;Module<br/>
+<b>Included&#160;Containers<br/>Container&#160;Name</b><br/>
+<b>Multiplicity</b><br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+CommonPublishedInformation<br/>
+1<br/>
+Common&#160;container,&#160;aggregated&#160;by&#160;all&#160;modules.&#160;It&#160;contains<br/>published&#160;information&#160;about&#160;vendor&#160;and&#160;versions.<br/>
+VinGeneral<br/>
+1<br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the<br/>Vin&#160;module.<br/>
+SecureVin<br/>
+0..1<br/>
+MultiConfig<br/>
+1<br/>
+<b>10.2.1&#160;CommonPublishedInformation</b><br/>
+<b>SWS&#160;Item</b><br/>
+SWS_Vin_0115<br/>
+<b>Container&#160;Name</b><br/>
+CommonPublishedInformation<br/>
+<b>Description</b><br/>
+Common&#160;container,&#160;aggregated&#160;by&#160;all&#160;modules.&#160;It&#160;contains&#160;published&#160;information<br/>about&#160;vendor&#160;and&#160;versions.<br/>
+<b>Configuration&#160;Parameters</b><br/>
+<b>[SWS_Vin_0116]&#160;</b>d<br/>
+<b>Name</b><br/>
+SwMajorVersion<br/>
+<b>Description</b><br/>
+Major&#160;version&#160;number&#160;of&#160;the&#160;vendor&#160;specific&#160;implementation&#160;of&#160;the&#160;module.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Default&#160;Value</b><br/>
+3<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+--<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0117]&#160;</b>d<br/>
+<b>Name</b><br/>
+SwMinorVersion<br/>
+<b>Description</b><br/>
+Minor&#160;version&#160;number&#160;of&#160;the&#160;vendor&#160;specific&#160;implementation&#160;of&#160;the&#160;module.&#160;The<br/>numbering&#160;is&#160;vendor&#160;specific.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Default&#160;Value</b><br/>
+4<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+--<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0118]&#160;</b>d<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;33&#160;of&#160;38<br/>
+<hr/>
+<a name=34></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-34_1.png"/><br/>
+<b>Name</b><br/>
+SwPatchVersion<br/>
+<b>Description</b><br/>
+Patch&#160;level&#160;version&#160;number&#160;of&#160;the&#160;vendor&#160;specific&#160;implementation&#160;of&#160;the&#160;module.<br/>The&#160;numbering&#160;is&#160;vendor&#160;specific.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Default&#160;Value</b><br/>
+1<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+--<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>10.2.2&#160;VinGeneral</b><br/>
+<b>SWS&#160;Item</b><br/>
+SWS_Vin_0028<br/>
+<b>Container&#160;Name</b><br/>
+VinGeneral<br/>
+<b>Description</b><br/>
+This&#160;container&#160;contains&#160;the&#160;configuration&#160;(parameters)&#160;of&#160;the&#160;Vin&#160;module.<br/>
+<b>Configuration&#160;Parameters</b><br/>
+<b>[SWS_Vin_0029]&#160;</b>d<br/>
+<b>Name</b><br/>
+VinDevErrorDetect<br/>
+<b>Description</b><br/>
+Activate/Deactivate&#160;the&#160;Development&#160;Error&#160;Detection&#160;and&#160;Notification.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucBooleanParamDef<br/>
+<b>Default&#160;Value</b><br/>
+false<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0031]&#160;</b>d<br/>
+<b>Name</b><br/>
+VinRequestMessageIdentifier<br/>
+<b>Description</b><br/>
+Defines&#160;the&#160;ID&#160;which&#160;must&#160;use&#160;to&#160;request&#160;the&#160;VIN&#160;signal.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Range</b><br/>
+0..65535<br/>
+<b>Default&#160;Value</b><br/>
+32771<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0032]&#160;</b>d<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;34&#160;of&#160;38<br/>
+<hr/>
+<a name=35></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-35_1.png"/><br/>
+<b>Name</b><br/>
+TimeoutInitialVinRequest<br/>
+<b>Description</b><br/>
+Timeout&#160;between&#160;init&#160;an&#160;first&#160;VIN&#160;request&#160;in&#160;s.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucFloatParamDef<br/>
+<b>Range</b><br/>
+0.0..25.0<br/>
+<b>Default&#160;Value</b><br/>
+0.3<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0033]&#160;</b>d<br/>
+<b>Name</b><br/>
+TimeoutSubsequentVinRequests<br/>
+<b>Description</b><br/>
+Timeout&#160;between&#160;a&#160;request&#160;and&#160;the&#160;next&#160;request&#160;in&#160;s.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucFloatParamDef<br/>
+<b>Range</b><br/>
+0.1..25.0<br/>
+<b>Default&#160;Value</b><br/>
+1.0<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0119]&#160;</b>d<br/>
+<b>Name</b><br/>
+MaxNumberVinRequests<br/>
+<b>Description</b><br/>
+Maximum&#160;number&#160;of&#160;VIN&#160;requests.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Range</b><br/>
+1..255<br/>
+<b>Default&#160;Value</b><br/>
+4<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0120]&#160;</b>d<br/>
+<b>Name</b><br/>
+EnableSIAdapter<br/>
+<b>Description</b><br/>
+Enables&#160;the&#160;Service&#160;Interface&#160;Adapter.&#160;This&#160;is&#160;needed&#160;for&#160;Ethernet<br/>communication.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucBooleanParamDef<br/>
+<b>Default&#160;Value</b><br/>
+0<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;35&#160;of&#160;38<br/>
+<hr/>
+<a name=36></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-36_1.png"/><br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>10.2.3&#160;SecureVin</b><br/>
+<b>SWS&#160;Item</b><br/>
+SWS_Vin_0030<br/>
+<b>Container&#160;Name</b><br/>
+SecureVin<br/>
+<b>Description<br/>Configuration&#160;Parameters</b><br/>
+<b>[SWS_Vin_0103]&#160;</b>d<br/>
+<b>Name</b><br/>
+SecureVinRequestMessageIdentifier<br/>
+<b>Description</b><br/>
+The&#160;parameter&#160;defines&#160;the&#160;ID&#160;which&#160;the&#160;SSV&#160;must&#160;use&#160;to&#160;request&#160;a&#160;signed&#160;VIN<br/>from&#160;its&#160;connected&#160;SSS.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Range</b><br/>
+0..65535<br/>
+<b>Default&#160;Value</b><br/>
+57857<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0104]&#160;</b>d<br/>
+<b>Name</b><br/>
+TimeoutMac<br/>
+<b>Description</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;time&#160;span&#160;in&#160;seconds&#160;in&#160;which&#160;the&#160;SSV&#160;expects&#160;to<br/>receive&#160;the&#160;MAC&#160;message&#160;for&#160;the&#160;VIN&#160;from&#160;the&#160;SSS&#160;after&#160;requesting&#160;it.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucFloatParamDef<br/>
+<b>Range</b><br/>
+0.1..3<br/>
+<b>Default&#160;Value</b><br/>
+1.0<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+PRECONFIGURED-<br/>CONFIGURATION<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0105]&#160;</b>d<br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;36&#160;of&#160;38<br/>
+<hr/>
+<a name=37></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-37_1.png"/><br/>
+<b>Name</b><br/>
+TimeoutCounterbase<br/>
+<b>Description</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;time&#160;span&#160;in&#160;seconds&#160;in&#160;which&#160;the&#160;SSV&#160;expects&#160;to<br/>receive&#160;an&#160;answer&#160;from&#160;a&#160;SSS&#160;after&#160;sending&#160;a&#160;challenge&#160;to&#160;the&#160;SSS.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucFloatParamDef<br/>
+<b>Range</b><br/>
+0.1..3<br/>
+<b>Default&#160;Value</b><br/>
+1.0<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+PRECONFIGURED-<br/>CONFIGURATION<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0106]&#160;</b>d<br/>
+<b>Name</b><br/>
+ErrorlimitCounterbase<br/>
+<b>Description</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;maximum&#160;number&#160;of&#160;times&#160;the&#160;CounterBase&#160;of&#160;an<br/>SSS&#160;can&#160;be&#160;requested&#160;by&#160;an&#160;SSV.&#160;If&#160;the&#160;SSV&#160;could&#160;not&#160;obtain&#160;a&#160;valid<br/>CounterBase&#160;within&#160;FscsmSSVChallengeFailedLimit&#160;times,&#160;the&#160;SSV&#160;enters&#160;an<br/>error&#160;state.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Range</b><br/>
+1..10<br/>
+<b>Default&#160;Value</b><br/>
+3<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+PRECONFIGURED-<br/>CONFIGURATION<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+<b>[SWS_Vin_0108]&#160;</b>d<br/>
+<b>Name</b><br/>
+RemoteSSSId<br/>
+<b>Description</b><br/>
+This&#160;parameter&#160;defines&#160;the&#160;ID&#160;of&#160;the&#160;SSS&#160;to&#160;which&#160;this&#160;SSV&#160;is&#160;connected.&#160;This<br/>information&#160;is&#160;needed&#160;to&#160;be&#160;able&#160;to&#160;perform&#160;the&#160;ChallengeResponse&#160;protocol<br/>correctly.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Range</b><br/>
+0..255<br/>
+<b>Default&#160;Value</b><br/>
+0<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+X<br/>
+VARIANT-PRE-COMPILE<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+--<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;37&#160;of&#160;38<br/>
+<hr/>
+<a name=38></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Vin/doc/ModuleSpecification_Vin-38_1.png"/><br/>
+<b>10.2.4&#160;MultiConfig</b><br/>
+<b>SWS&#160;Item<br/>Container&#160;Name</b><br/>
+MultiConfig<br/>
+<b>Description<br/>Configuration&#160;Parameters</b><br/>
+<b>[SWS_Vin_0107]&#160;</b>d<br/>
+<b>Name</b><br/>
+SSVId<br/>
+<b>Description</b><br/>
+The&#160;unique&#160;ID&#160;of&#160;the&#160;SSV.&#160;Only&#160;relevant,&#160;if&#160;SecureVin&#160;is&#160;configured.<br/>
+<b>Multiplicity</b><br/>
+1<br/>
+<b>Type</b><br/>
+EcucIntegerParamDef<br/>
+<b>Range</b><br/>
+0..255<br/>
+<b>Default&#160;Value</b><br/>
+0<br/>
+<b>Configuration&#160;Class</b><br/>
+<b>Pre-compile&#160;time</b><br/>
+--<br/>
+<b>Link&#160;time</b><br/>
+--<br/>
+<b>Post-build&#160;time</b><br/>
+X<br/>
+VARIANT-POST-BUILD<br/>
+<b>Scope&#160;/&#160;Dependency</b><br/>
+c<i>()</i><br/>
+ModuleSpecification_Vin,&#160;Version&#160;3.5.0,&#160;Software&#160;Platforms<br/>
+Page&#160;38&#160;of&#160;38<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#4">1 Introduction and functional overview</a></li>
+<li><a href="ModuleSpecification_Vins.html#4">2 Acronyms and Abbreviations</a></li>
+<li><a href="ModuleSpecification_Vins.html#5">3 Related documentation</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#5">3.1 BMW Specifications</a></li>
+<li><a href="ModuleSpecification_Vins.html#5">3.2 AUTOSAR Specifications</a></li>
+</ul>
+</li>
+<li><a href="ModuleSpecification_Vins.html#6">4 Constraints and assumptions</a></li>
+<li><a href="ModuleSpecification_Vins.html#7">5 Dependencies to other Modules</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#7">5.1 Dlog</a></li>
+<li><a href="ModuleSpecification_Vins.html#7">5.2 Fscsm</a></li>
+<li><a href="ModuleSpecification_Vins.html#7">5.3 RTE</a></li>
+</ul>
+</li>
+<li><a href="ModuleSpecification_Vins.html#8">6 Requirements traceability</a></li>
+<li><a href="ModuleSpecification_Vins.html#9">7 Functional specification</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#9">7.1 Functional behavior</a></li>
+<li><a href="ModuleSpecification_Vins.html#12">7.2 SSV</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#13">7.2.1 Secure environment</a></li>
+<li><a href="ModuleSpecification_Vins.html#13">7.2.2 Challenge/response and CounterBase</a></li>
+<li><a href="ModuleSpecification_Vins.html#14">7.2.3 Request/verify secure signal</a></li>
+<li><a href="ModuleSpecification_Vins.html#16">7.2.4 SSV ports and interfaces</a></li>
+<li><a href="ModuleSpecification_Vins.html#17">7.2.5 Message format</a></li>
+</ul>
+</li>
+<li><a href="ModuleSpecification_Vins.html#18">7.3 Error classification</a></li>
+<li><a href="ModuleSpecification_Vins.html#18">7.4 Error detection</a></li>
+<li><a href="ModuleSpecification_Vins.html#18">7.5 Error notification</a></li>
+</ul>
+</li>
+<li><a href="ModuleSpecification_Vins.html#19">8 API Specification</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#19">8.1 Imported types</a></li>
+<li><a href="ModuleSpecification_Vins.html#19">8.2 Type definitions</a></li>
+<li><a href="ModuleSpecification_Vins.html#19">8.3 Function definitions</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#19">8.3.1 Vin_Main</a></li>
+<li><a href="ModuleSpecification_Vins.html#19">8.3.2 Vin_LifeCycleModeRequest</a></li>
+<li><a href="ModuleSpecification_Vins.html#20">8.3.3 Vin_SsvOnVkEstablished</a></li>
+<li><a href="ModuleSpecification_Vins.html#20">8.3.4 Vin_SsvReceiveResponseFromSss</a></li>
+<li><a href="ModuleSpecification_Vins.html#20">8.3.5 Vin_SsvReceiveMac</a></li>
+<li><a href="ModuleSpecification_Vins.html#21">8.3.6 Vin_SsvStateGet</a></li>
+<li><a href="ModuleSpecification_Vins.html#21">8.3.7 Modes, Types and Mappings</a></li>
+<li><a href="ModuleSpecification_Vins.html#24">8.3.8 Provided Interfaces</a></li>
+<li><a href="ModuleSpecification_Vins.html#26">8.3.9 Expected Interfaces</a></li>
+<li><a href="ModuleSpecification_Vins.html#28">8.3.10 Service Definition</a></li>
+<li><a href="ModuleSpecification_Vins.html#29">8.3.11 Runnables and Entry Points</a></li>
+<li><a href="ModuleSpecification_Vins.html#30">8.3.12 Runnables and Entry Points</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="ModuleSpecification_Vins.html#31">9 Sequence Diagrams</a></li>
+<li><a href="ModuleSpecification_Vins.html#32">10 Configuration</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#32">10.1 How to read this chapter</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#32">10.1.1 Configuration and configuration parameters</a></li>
+<li><a href="ModuleSpecification_Vins.html#32">10.1.2 Variants</a></li>
+<li><a href="ModuleSpecification_Vins.html#32">10.1.3 Containers</a></li>
+</ul>
+</li>
+<li><a href="ModuleSpecification_Vins.html#33">10.2 Containers and configuration parameters</a>
+<ul>
+<li><a href="ModuleSpecification_Vins.html#33">10.2.1 CommonPublishedInformation</a></li>
+<li><a href="ModuleSpecification_Vins.html#34">10.2.2 VinGeneral</a></li>
+<li><a href="ModuleSpecification_Vins.html#36">10.2.3 SecureVin</a></li>
+<li><a href="ModuleSpecification_Vins.html#38">10.2.4 MultiConfig</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+</body>
+</html>

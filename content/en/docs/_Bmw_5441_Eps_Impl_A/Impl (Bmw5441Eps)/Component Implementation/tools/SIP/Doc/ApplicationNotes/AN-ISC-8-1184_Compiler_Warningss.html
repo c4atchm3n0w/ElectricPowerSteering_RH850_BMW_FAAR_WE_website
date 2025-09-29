@@ -1,0 +1,368 @@
+---
+title: AN-ISC-8-1184_Compiler_Warningss
+linkTitle: AN-ISC-8-1184_Compiler_Warningss
+weight: 59
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>&#160;<br/>
+<b>Compiler&#160;Warnings&#160;<br/></b>Version&#160;1.0&#160;<br/>2015-11-02&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1184&#160;<br/>
+<b>Author</b>&#160;<br/>
+Andreas&#160;Raisch&#160;<br/>
+<b>Restrictions</b>&#160;&#160;Customer&#160;confidential&#160;–&#160;Vector decides&#160;<br/><b>Abstract</b>&#160;<br/>
+Warning&#160;free&#160;code&#160;is&#160;an&#160;important&#160;quality&#160;goal&#160;for embedded software. Nevertheless,&#160;<br/>compiler&#160;warnings&#160;can&#160;occur&#160;for highly&#160;configurable software.&#160;Typical&#160;compiler&#160;<br/>warnings&#160;are&#160;listed and&#160;justified&#160;within this&#160;document.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#2"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#2"><b>Overview&#160;........................................................................................................................................&#160;2</b>&#160;<br/></a><a href="AN-ISC-8-1184_Compiler_Warningss.html#3">1.1&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#3">Deviation&#160;Procedure&#160;............................................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#3">1.2&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#3">Default&#160;BSW&#160;Delivery&#160;Process&#160;............................................................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#3"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#3"><b>Accepted Deviations&#160;.....................................................................................................................&#160;3</b>&#160;<br/></a><a href="AN-ISC-8-1184_Compiler_Warningss.html#4">2.1&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#4">Unused/unreferenced parameter/argument&#160;.........................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#4">2.2&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#4">Unused/unreferenced define,&#160;enum&#160;value&#160;...........................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#4">2.3&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#4">Unused/unreferenced variable&#160;.............................................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#5">2.4&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#5">Unused/unreferenced function&#160;.............................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#5">2.5&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#5">Condition&#160;evaluates&#160;always&#160;to&#160;true/false&#160;.............................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#6">2.6&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#6">Unreachable code/statement&#160;...............................................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#6">2.7&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#6">Dead&#160;assignment /&#160;variable&#160;set&#160;but&#160;not&#160;used&#160;.......................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#6">2.8&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#6">ASM statements&#160;used&#160;..........................................................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#7"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#7"><b>Additional&#160;Resources&#160;...................................................................................................................&#160;7</b>&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#8"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#8"><b>Contacts&#160;.........................................................................................................................................&#160;8</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1184_Compiler_Warnings-2_1.png"/><br/>
+Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Overview&#160;</b><br/>
+MICROSAR&#160;BasicSoftware&#160;(BSW)&#160;is&#160;developed in a&#160;product&#160;line approach, independent&#160;from&#160;specific&#160;<br/>ECU projects&#160;or compilers. MICROSAR&#160;BSW&#160;supports&#160;the&#160;AUTOSAR&#160;MemoryAbstraction&#160;and&#160;<br/>CompilerAbstraction&#160;concepts&#160;and&#160;supports&#160;a&#160;huge range&#160;of&#160;different compiler vendors, versions&#160;and&#160;<br/>options.&#160;<br/>
+MICROSAR&#160;BSW&#160;is&#160;delivered&#160;as&#160;static&#160;source code&#160;and&#160;code&#160;generators&#160;to&#160;support the&#160;ECU&#160;project&#160;<br/>specific&#160;adaption and&#160;optimization&#160;of&#160;the BSW&#160;behavior&#160;and feature set&#160;based&#160;on&#160;AUTOSAR&#160;<br/>configuration&#160;files&#160;and user&#160;defined&#160;selections.&#160;<br/>
+Additionally,&#160;MICROSAR BSW&#160;supports&#160;compile time configuration,&#160;link&#160;time configuration and&#160;post-<br/>build configuration.&#160;<br/>
+&#160;<br/>
+Figure&#160;1&#160;MICROSAR&#160;BSW&#160;Component&#160;<br/>
+A&#160;general&#160;quality&#160;goal&#160;for MICROSAR BSW&#160;is&#160;“warning&#160;free&#160;code”. The&#160;coding&#160;style guide&#160;for&#160;<br/>MICROSAR&#160;BSW&#160;is&#160;based&#160;on&#160;MISRA-C:2004.&#160;Checks&#160;for MISRA&#160;compliance&#160;are&#160;an&#160;essential&#160;part of&#160;<br/>our&#160;development process. Based&#160;on&#160;“HIS&#160;Gemeinsames&#160;Subset der&#160;MISRA&#160;C Guidelines&#160;v2.0“&#160;<br/>(http://www.automotive-his.de)&#160;all&#160;rules&#160;are&#160;active.&#160;<br/>
+Nevertheless,&#160;we&#160;accept deviations&#160;to the “warning&#160;free&#160;code” goal&#160;based&#160;on&#160;the&#160;here defined list of&#160;<br/>exceptions. Known and accepted deviations&#160;are reported&#160;within the&#160;delivery&#160;as&#160;ESCAN type&#160;“Warning&#160;<br/>in released product”.&#160;<br/>
+Document&#160;[2]&#160;explains&#160;the relationship&#160;between user-selected code generation (optimization)&#160;options&#160;<br/>and compiler&#160;warnings.&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1184_Compiler_Warnings-3_1.png"/><br/>
+Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>1.1&#160;&#160;Deviation&#160;Procedure&#160;</b><br/>
+<b>Priority&#160;&#160;Rule&#160;</b><br/>
+<b>Rationale&#160;</b><br/>
+MICROSAR&#160;BSW&#160;shall&#160;be&#160;compiler&#160;<br/>
+Detection&#160;of&#160;compiler&#160;warning&#160;either during&#160;<br/>
+warning&#160;free.&#160;Thus,&#160;compiler&#160;warnings&#160;<br/>
+component&#160;development or&#160;more&#160;frequently&#160;<br/>
+1&#160;<br/>
+shall&#160;be&#160;prevented&#160;wherever&#160;possible.&#160;<br/>
+when&#160;applying the&#160;customer specific&#160;<br/>compiler/options/BSW&#160;configuration&#160;during&#160;<br/>the&#160;delivery&#160;tests.&#160;<br/>
+If&#160;a&#160;compiler&#160;warning&#160;is&#160;detected, the&#160;code&#160;&#160;We&#160;want to&#160;prevent&#160;to&#160;deliver defect code to&#160;<br/>shall&#160;be&#160;analyzed&#160;and,&#160;if&#160;reasonable,&#160;be&#160;<br/>
+our&#160;customers.&#160;We&#160;also need&#160;to&#160;take into&#160;<br/>
+2&#160;<br/>
+changed/extended to become&#160;warning&#160;<br/>
+account&#160;e.g.&#160;runtime efficiency,&#160;maintainability&#160;<br/>
+free.&#160;<br/>
+and standardized&#160;code for&#160;many&#160;use-cases.&#160;<br/>
+If&#160;fixing&#160;the compiler&#160;warning is&#160;not&#160;a&#160;<br/>
+See&#160;list&#160;of&#160;accepted&#160;deviations&#160;in&#160;this&#160;<br/>
+solution,&#160;an&#160;ESCAN of&#160;type&#160;“Warning&#160;in&#160;<br/>
+document.&#160;<br/>
+3&#160;<br/>
+released product”&#160;shall&#160;be&#160;created&#160;to&#160;<br/>document the&#160;accepted&#160;deviation&#160;also&#160;in&#160;<br/>the&#160;report of&#160;known&#160;issues&#160;of&#160;deliveries.&#160;<br/>
+Table&#160;1&#160;Priority&#160;of&#160;measures&#160;to&#160;prevent&#160;compiler&#160;warnings&#160;<br/>
+&#160;<br/>
+<b>1.2&#160;&#160;Default&#160;BSW&#160;Delivery&#160;Process&#160;</b><br/>
+The&#160;configuration&#160;and&#160;compilation&#160;and&#160;linkage during&#160;the&#160;delivery&#160;test activities&#160;yield most of&#160;the&#160;<br/>compiler&#160;warnings,&#160;because the&#160;development tool&#160;chain and settings&#160;specified&#160;by&#160;you&#160;are used.&#160;<br/>
+The&#160;process&#160;in&#160;short&#160;is:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Customer specifies&#160;the compiler brand,&#160;version&#160;and&#160;options&#160;(via Questionnaire) and&#160;provides&#160;<br/>more information&#160;on&#160;the&#160;expected&#160;use-case&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Delivery&#160;engineer creates&#160;example configurations&#160;of&#160;the BSW&#160;and compiles&#160;and links&#160;the outcome&#160;<br/>
+<b>&gt;&#160;</b><br/>
+Compiler&#160;warnings&#160;are analyzed&#160;and&#160;either&#160;documented&#160;as&#160;ESCAN of&#160;type “Warning&#160;in released&#160;<br/>product”&#160;or reported to&#160;the&#160;development teams&#160;to&#160;trigger a fix.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+ESCANs&#160;of&#160;type “Issue&#160;in released&#160;product”&#160;and&#160;“Warning in released&#160;product”&#160;are reported&#160;within&#160;<br/>the&#160;delivery&#160;documentation&#160;as&#160;“known&#160;issues”&#160;<br/>
+&#160;<br/>
+<b>2&#160;</b><br/>
+<b>Accepted Deviations&#160;&#160;</b><br/>
+Deviations&#160;in this&#160;chapter&#160;are typically&#160;accepted&#160;as&#160;“Warning in released product”&#160;when&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+it has&#160;been checked&#160;that&#160;no&#160;incorrect behavior at&#160;ECU&#160;runtime occurs&#160;<br/>
+<b>&gt;&#160;</b><br/>
+no&#160;simple remedy&#160;exists&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Information&#160;<br/></b>If&#160;a&#160;compiler&#160;warning&#160;has&#160;passed&#160;the&#160;analyzing steps&#160;according<a href="AN-ISC-8-1184_Compiler_Warningss.html#3">&#160;<i>Table&#160;1&#160;Priority&#160;of&#160;</i></a><br/>
+&#160;<br/>
+<a href="AN-ISC-8-1184_Compiler_Warningss.html#3"><i>measures&#160;to prevent&#160;compiler warnings</i>&#160;</a>and&#160;the result&#160;is&#160;still&#160;“accepted&#160;deviation”,&#160;the&#160;<br/>compiler&#160;warning&#160;will&#160;not&#160;be fixed&#160;in the product.&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=4></a>Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>2.1&#160;&#160;Unused/unreferenced&#160;parameter/argument&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_001&#160;<br/>
+<b>Example compiler&#160;&#160;</b>„Unreferenced&#160;formal&#160;parameters“, „parameter&#160;is&#160;never used“, „has&#160;no-used&#160;<br/><b>warning&#160;strings&#160;</b><br/>
+argument“&#160;<br/>
+BSW&#160;provides&#160;APIs&#160;as&#160;described by&#160;standards. Not&#160;all&#160;parameters&#160;are&#160;<br/>
+<b>Reason&#160;</b><br/>
+necessary&#160;and&#160;used&#160;within&#160;the&#160;function&#160;in all&#160;possible&#160;usage scenarios.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+The&#160;function&#160;contains&#160;unused&#160;code.&#160;<br/>
+Code&#160;inspection has&#160;to&#160;check&#160;that&#160;the unused&#160;code&#160;is&#160;not critical&#160;concerning&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+the&#160;expected&#160;behavior. Small&#160;increase of&#160;ROM footprint&#160;is&#160;accepted.&#160;<br/>Workarounds&#160;for suppressing&#160;such compiler&#160;warnings&#160;often&#160;conflict&#160;with&#160;<br/>
+<b>Note&#160;</b><br/>
+MISRA-C:2004, rule 14.2&#160;(See&#160;MISRA&#160;Compliance Documentation, Deviation&#160;<br/>ID MD_MSR_14.2)&#160;<br/>
+Table&#160;2&#160;CW_001&#160;<br/>
+<b>2.2&#160;&#160;Unused/unreferenced&#160;define,&#160;enum&#160;value&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_002&#160;<br/>
+<b>Example compiler&#160;&#160;</b>„Unused&#160;enumeration&#160;values“, „Unused&#160;define&#160;value“&#160;<br/><b>warning&#160;strings&#160;</b><br/>
+Encapsulation of&#160;defines,&#160;enum-values&#160;and&#160;similar&#160;items&#160;for&#160;multiple complex&#160;<br/>
+<b>Reason&#160;</b><br/>
+configuration&#160;data sets&#160;(via&#160;#ifdef)&#160;reduces&#160;readability&#160;and maintainability.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+Defined&#160;but&#160;never used&#160;enums&#160;or&#160;defines&#160;may&#160;decrease readability&#160;and&#160;<br/>
+<b>Potential&#160;risk&#160;</b><br/>
+maintainability.&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+Execution&#160;of&#160;runtime tests&#160;with&#160;different configuration&#160;variants.&#160;<br/>
+<b>Note&#160;</b><br/>
+-&#160;<br/>
+Table&#160;3&#160;CW_002&#160;<br/>
+<b>2.3&#160;&#160;Unused/unreferenced&#160;variable&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_003&#160;<br/>
+„unreferenced&#160;local&#160;variable&#160;within abc.c“, „variable &#34;abc&#34;&#160;was&#160;declared but&#160;<br/>
+<b>Example compiler&#160;&#160;</b>never referenced“, „Variables&#160;related&#160;to message supervision&#160;are set&#160;but&#160;<br/>
+<b>warning&#160;strings&#160;</b><br/>
+never used“&#160;<br/>Because&#160;of&#160;goal&#160;&#34;minimize&#160;RAM footprint&#34;,&#160;unused&#160;variables&#160;shall&#160;be disabled&#160;<br/>via #ifdef&#160;based&#160;on configuration data&#160;sets.&#160;&#160;<br/>
+<b>Reason&#160;</b><br/>
+Nevertheless,&#160;warning can&#160;occur for rare cases&#160;where&#160;encapsulation&#160;for&#160;<br/>multiple complex&#160;configuration&#160;data sets&#160;(via&#160;#ifdef)&#160;reduces&#160;readability&#160;and&#160;<br/>maintainability.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+The&#160;function&#160;contains&#160;unused&#160;code.&#160;<br/>
+Code&#160;inspection has&#160;to&#160;check&#160;that&#160;the unused&#160;variable&#160;is&#160;not critical&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+concerning the expected&#160;behavior.&#160;Small&#160;increase of&#160;RAM footprint&#160;is&#160;<br/>accepted.&#160;<br/>
+<b>Note&#160;</b><br/>
+-&#160;<br/>
+Table&#160;4&#160;CW_003&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+4<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=5></a>Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>2.4&#160;&#160;Unused/unreferenced&#160;function&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_004&#160;<br/>
+<b>Example compiler&#160;&#160;</b>„Declared&#160;but&#160;unused&#160;function&#160;abc“, „unused&#160;static&#160;function&#160;abc“&#160;<br/><b>warning&#160;strings&#160;</b><br/>
+BSW&#160;provides&#160;APIs&#160;as&#160;described by&#160;standard.&#160;<br/>Because&#160;of&#160;goal&#160;&#34;minimize&#160;ROM footprint&#34;,&#160;unused&#160;functions&#160;shall&#160;be&#160;<br/>disabled&#160;via&#160;#ifdef&#160;based&#160;on configuration data&#160;sets.&#160;&#160;<br/>
+<b>Reason&#160;</b><br/>
+Not all&#160;provided&#160;functions&#160;might be used in the concrete&#160;ECU project&#160;<br/>(configuration&#160;and&#160;usage&#160;dependent). Encapsulation&#160;for multiple&#160;complex&#160;<br/>configuration&#160;data sets&#160;(via&#160;#ifdef)&#160;reduces&#160;readability&#160;and maintainability&#160;and&#160;<br/>is&#160;thus&#160;not&#160;provided on a&#160;per-function&#160;base for all&#160;APIs.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+The&#160;project contains&#160;unused code.&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+See&#160;“Reason”&#160;<br/>
+Partly&#160;addressed&#160;by&#160;MISRA-C:2004, rule&#160;8.10 (See&#160;MISRA&#160;Compliance&#160;<br/>
+<b>Note&#160;</b><br/>
+Documentation,&#160;Deviation&#160;ID MD_MSR_8.10)&#160;<br/>
+Table&#160;5&#160;CW_004&#160;<br/>
+<b>2.5&#160;&#160;Condition&#160;evaluates&#160;always to&#160;true/false&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_005&#160;<br/>
+„conditional&#160;expression&#160;is&#160;constant“, „conditional&#160;expression&#160;or&#160;part of&#160;it&#160;is&#160;<br/>
+<b>Example compiler&#160;&#160;</b>always&#160;true/false /&#160;statement not reached“, „condition&#160;is&#160;always&#160;true/false“,&#160;<br/><b>warning&#160;strings&#160;</b><br/>
+„compare out&#160;of&#160;range&#160;/ condition is&#160;always&#160;true/false“, „The&#160;result of&#160;this&#160;<br/>logical&#160;operation&#160;is&#160;always&#160;'false' or ‘true’“&#160;<br/>Typically&#160;caused&#160;by&#160;an&#160;if-statement applied&#160;on&#160;external&#160;configuration&#160;data.&#160;<br/>
+<b>Reason&#160;</b><br/>
+Configuration data&#160;is&#160;const&#160;for the&#160;given compilation&#160;context but&#160;might be&#160;<br/>changed at&#160;link-time or&#160;post-build time.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+The&#160;function&#160;contains&#160;useless&#160;conditions&#160;with&#160;possibly&#160;dead&#160;code.&#160;<br/>
+The&#160;code inspection&#160;is&#160;in charge&#160;to distinguish between useless&#160;conditions&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+with&#160;possibly&#160;dead&#160;code&#160;and correct code&#160;as&#160;described in&#160;“reason”.&#160;<br/>
+<b>Note&#160;</b><br/>
+-&#160;<br/>
+Table&#160;6&#160;CW_005&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+5<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=6></a>Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>2.6&#160;&#160;Unreachable code/statement&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_006&#160;<br/>
+„conditional&#160;expression&#160;or part of&#160;it is&#160;always&#160;true/false&#160;/ statement not&#160;<br/>
+<b>Example compiler&#160;&#160;</b>reached“, „statement will&#160;never&#160;be&#160;executed“, „this&#160;switch default label&#160;is&#160;<br/>
+<b>warning&#160;strings&#160;</b><br/>
+unreachable“&#160;<br/>Because&#160;of&#160;goal&#160;&#34;minimize&#160;ROM footprint&#34;,&#160;unreachable code shall&#160;be&#160;<br/>disabled&#160;via&#160;#ifdef&#160;based&#160;on configuration data&#160;sets.&#160;<br/>
+<b>Reason&#160;</b><br/>
+Nevertheless,&#160;warning might occur as&#160;secondary&#160;effect on&#160;e.g.&#160;&#34;condition&#160;<br/>evaluates&#160;to&#160;true/false&#34;&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+The&#160;function&#160;contains&#160;unused&#160;code.&#160;<br/>
+Code&#160;inspection has&#160;to&#160;check&#160;that&#160;the unused&#160;code&#160;is&#160;not critical&#160;concerning&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+the&#160;expected&#160;behavior. Small&#160;increase of&#160;ROM footprint&#160;is&#160;accepted.&#160;<br/>Addressed&#160;by&#160;MISRA-C:2004, rule 14.1 (See MISRA&#160;Compliance&#160;<br/>
+<b>Note&#160;</b><br/>
+Documentation,&#160;Deviation&#160;ID MD_MSR_14.1)&#160;<br/>
+Table&#160;7&#160;CW_006&#160;<br/>
+<b>2.7&#160;&#160;Dead assignment&#160;/&#160;variable set&#160;but&#160;not&#160;used&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_007&#160;<br/>
+“Variable 'abc'&#160;was&#160;set&#160;but&#160;never used“, „&#34;local&#160;variable is&#160;initialized but not&#160;<br/>
+<b>Example compiler&#160;&#160;</b>referenced&#34;, „dead&#160;assignment to &#34;abc&#34;&#160;eliminated“, „Dead&#160;assignment&#160;<br/>
+<b>warning&#160;strings&#160;</b><br/>
+(subtraction&#160;with&#160;zero)“, „Removed&#160;dead&#160;assignment“&#160;<br/>Variable shall&#160;be&#160;always&#160;assigned a&#160;valid value. Overwriting the value&#160;before&#160;<br/>
+<b>Reason&#160;</b><br/>
+use can&#160;therefore&#160;happen&#160;based&#160;on the assumed&#160;execution path.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+Yes&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+The&#160;function&#160;contains&#160;unused&#160;code and&#160;variables.&#160;<br/>
+Code&#160;inspection has&#160;to&#160;check&#160;that&#160;the unused&#160;code&#160;is&#160;not critical&#160;concerning&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+the&#160;expected&#160;behavior. Small&#160;increase of&#160;ROM/RAM footprint&#160;is&#160;accepted.&#160;<br/>
+<b>Note&#160;</b><br/>
+-&#160;<br/>
+Table&#160;8&#160;CW_007&#160;<br/>
+<b>2.8&#160;&#160;ASM&#160;statements used&#160;</b><br/>
+<b>Deviation&#160;ID&#160;</b><br/>
+CW_008&#160;<br/>
+<b>Example compiler&#160;&#160;</b>“asm&#160;statements&#160;used“&#160;<br/><b>warning&#160;strings&#160;</b><br/>
+MICROSAR&#160;is&#160;written&#160;in C&#160;but might use&#160;compiler specific&#160;ASM statements&#160;in&#160;<br/>
+<b>Reason&#160;</b><br/>
+rare cases. Usage&#160;of&#160;ASM&#160;is&#160;strictly&#160;limited&#160;by&#160;coding style guide.&#160;<br/>
+<b>Configuration&#160;</b><br/>
+No&#160;<br/>
+<b>dependent&#160;</b><br/>
+<b>Potential&#160;risk&#160;</b><br/>
+ASM syntax&#160;is&#160;compiler&#160;and compiler version&#160;dependent.&#160;<br/>
+<b>Prevention&#160;of&#160;risk&#160;</b><br/>
+Component&#160;release&#160;test and delivery&#160;test shows&#160;correct behavior.&#160;<br/>
+<b>Note&#160;</b><br/>
+-&#160;<br/>
+Table&#160;9&#160;CW_008&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+6<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=7></a>Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Additional&#160;Resources&#160;</b><br/>
+<b>No&#160;</b><br/>
+<b>Source&#160;</b><br/>
+<b>Title&#160;</b><br/>
+<b>Version&#160;</b><br/>
+Compliance Documentation MISRA<br/>
+2.3.0&#160;or later<br/>
+[1]<br/>
+-C:2004&#160;/&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Vector&#160;<br/>
+MICROSAR&#160;<br/>
+[2]&#160;<br/>
+Vector&#160;<br/>
+Technical&#160;Reference&#160;MICROSAR&#160;ComStackLib&#160;<br/>
+2.0.0&#160;or later&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+7<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=8></a>Compiler&#160;Warnings&#160;<br/>
+&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For a full&#160;list&#160;with all&#160;Vector&#160;locations&#160;and&#160;addresses&#160;worldwide, please&#160;visi<a href="http://vector.com/contact/">t&#160;http://vector.com/contact/.</a>&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;&#160;&#160;<br/>
+Copyright&#160;©&#160;2015&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+8<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+</body>
+</html>

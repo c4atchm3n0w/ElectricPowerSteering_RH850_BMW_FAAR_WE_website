@@ -1,0 +1,595 @@
+---
+title: MotCtrlMgr_MDD
+linkTitle: MotCtrlMgr_MDD
+weight: 4
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>MotCtrlMgr</strong></p>
+<p><strong>VERSION: 2</strong></p>
+<p><strong>DATE:</strong> <strong>10/28/15</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong>Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 12%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>Lucas Wendling</td>
+<td>1</td>
+<td>05/29/15</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updates for Signal Mapping</td>
+<td>Lucas Wendling</td>
+<td>2</td>
+<td>10/28/15</td>
+</tr>
+</tbody>
+</table>
+<p>Table of Contents</p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms 4</a></p>
+<p><a href="#references">2 References 5</a></p>
+<p><a href="#motctrlmgr-high-level-description">3 MotCtrlMgr High-Level Description 6</a></p>
+<p><a href="#design-details-of-software-module">4 Design details of software module 7</a></p>
+<p><a href="#graphical-representation-of-motctrlmgr">4.1 Graphical representation of MotCtrlMgr 7</a></p>
+<p><a href="#data-flow-diagram">4.2 Data Flow Diagram 7</a></p>
+<p><a href="#module-level-dfd">4.2.1 Module level DFD 7</a></p>
+<p><a href="#sub-module-level-dfd">4.2.2 Sub-Module level DFD 7</a></p>
+<p><a href="#component-flow-diagram">4.3 COMPONENT FLOW DIAGRAM 7</a></p>
+<p><a href="#variable-data-dictionary">5 Variable Data Dictionary 8</a></p>
+<p><a href="#user-defined-typedef-definitiondeclaration">5.1 User defined typedef definition/declaration 8</a></p>
+<p><a href="#variable-definition-for-enumerated-types">5.2 Variable definition for enumerated types 8</a></p>
+<p><a href="#constant-data-dictionary">6 Constant Data Dictionary 9</a></p>
+<p><a href="#programfixed-constants">6.1 Program(fixed) Constants 9</a></p>
+<p><a href="#embedded-constants"><em>6.1.1</em> Embedded Constants 9</a></p>
+<p><a href="#local">6.1.1.1 Local 9</a></p>
+<p><a href="#global">6.1.1.2 Global 9</a></p>
+<p><a href="#module-specific-lookup-tables-constants">6.1.2 Module specific Lookup Tables Constants 9</a></p>
+<p><a href="#software-module-implementation">7 Software Module Implementation 10</a></p>
+<p><a href="#generated-file-description-and-logic">7.1 Generated file description and logic 10</a></p>
+<p><a href="#initialization-functions">7.2 Initialization Functions 13</a></p>
+<p><a href="#periodic-functions">7.3 PERIODIC FUNCTIONS 13</a></p>
+<p><a href="#per1per2">7.3.1 Per1/Per2: 13</a></p>
+<p><a href="#non-periodic-functions">7.4 Non PERIODIC FUNCTIONS 13</a></p>
+<p><a href="#interrupt-functions">7.5 Interrupt Functions 13</a></p>
+<p><a href="#isr">7.5.1 Isr: &lt;ModuleName&gt;_Isr&lt;n)&gt; 13</a></p>
+<p><a href="#serial-communication-functions">7.6 Serial Communication Functions 14</a></p>
+<p><a href="#local-functionmacro-definitions">7.7 Local Function/Macro Definitions 14</a></p>
+<p><a href="#global-functionmacro-definitions">7.8 GLObAL Function/Macro Definitions 14</a></p>
+<p><a href="#transient-functions">7.9 TRANSIENT FUNCTIONS 14</a></p>
+<p><a href="#unit-test-considerations">8 Unit Test Considerations 15</a></p>
+<p><a href="#known-limitations-with-design">9 Known Limitations With Design 16</a></p>
+<p><a href="#appendix">10 Appendix 17</a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Abbreviation</td>
+<td>Description</td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="odd">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&lt;ADD more to the table if applicable&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Sr. No.</td>
+<td>Title</td>
+<td>Version</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>MDD Guidelines</td>
+<td>Process 04.00.00</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>Process 04.00.00</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Software Coding Standards</td>
+<td>Process 04.00.00</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>AR300A_MotCtrlMgr_Design</td>
+<td>See Synergy subproject version</td>
+</tr>
+</tbody>
+</table>
+<h1 id="motctrlmgr-high-level-description">MotCtrlMgr High-Level Description</h1>
+<p><em>None</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-motctrlmgr">Graphical representation of MotCtrlMgr</h2>
+<p><em>None</em></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<p><em>None</em></p>
+<h2 id="module-level-dfd">Module level DFD</h2>
+<p><em>None</em></p>
+<h2 id="sub-module-level-dfd">Sub-Module level DFD</h2>
+<p><em>None</em></p>
+<h2 id="component-flow-diagram">COMPONENT FLOW DIAGRAM</h2>
+<p><em>None</em></p>
+<h1 id="variable-data-dictionary">Variable Data Dictionary</h1>
+<h2 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h2>
+<p><em>&lt;This section documents any user types uniquely used for the module.&gt;</em></p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 31%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Typedef Name</td>
+<td>Element Name</td>
+<td>User Defined Type</td>
+<td><p>Legal Range</p>
+<p>(min)</p></td>
+<td><p>Legal Range</p>
+<p>(max)</p></td>
+</tr>
+<tr class="even">
+<td>MotCtrlToTwoMilliSecRec1</td>
+<td>Elements are project specific and generated</td>
+<td>struct</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>TwoMilliSecFromMotCtrlRec1</td>
+<td>Elements are project specific and generated</td>
+<td>struct</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>TwoMilliSecToMotCtrlRec1</td>
+<td>Elements are project specific and generated</td>
+<td>struct</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>MotCtrlFromTwoMilliSecRec1</td>
+<td>Elements are project specific and generated</td>
+<td>struct</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MotCtrlIntRec1</td>
+<td>Elements are project specific and generated</td>
+<td>struct</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-definition-for-enumerated-types">Variable definition for enumerated types</h2>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Enum Name</td>
+<td>Element Name</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>Enumerations are project specific and generated</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="programfixed-constants">Program(fixed) Constants</h2>
+<h2 id="embedded-constants">Embedded Constants</h2>
+<h2 id="local">Local</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Units</td>
+<td>Value</td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="global">Global</h2>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="module-specific-lookup-tables-constants">Module specific Lookup Tables Constants</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Constant Name</td>
+<td>Resolution</td>
+<td>Value</td>
+<td>Software Segment</td>
+</tr>
+<tr class="even">
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-module-implementation">Software Module Implementation</h1>
+<h2 id="generated-file-description-and-logic">Generated file description and logic</h2>
+<p>The following sections provide details on the logic used for generating the data and functions from the MotCtrlMgr configuration. The generator uses text templating to generate the appropriate file content based on the configuration details. The logic described in the following sections are implemented in the text template files provided in this component.</p>
+<ol type="1">
+<li><p>CDD_MotCtrlMgr_Irq.c</p></li>
+</ol>
+<p>This file contains the definition of the interrupt service routine that Motor Control Manager defines. This interrupt service routine primarily contains a task list for executing runnables that are required to be scheduled at the motor control rate or motor control x2 rate. The following table lists the configuration parameters that are required in generation of this file:</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Configuration Parameter</strong></td>
+<td><strong>File Generation Usage Notes</strong></td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/RunnableManagement/Runnable</td>
+<td>Used to determine the runnables needed to be called in the ISR task list</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/RunnableManagement/Runnable/RunnableRate</td>
+<td>Used to determine if runnable needs to be called every ISR loop (MotorControl) or every other ISR loop (MotorControlx2)</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/RunnableManagement/IncludeHeaders</td>
+<td>Used for include list required for this file for runnable prototype definitions</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/RunnableManagement/Runnable/SequenceOrder</td>
+<td>Used to help define the relative calling sequence of the runnables in the ISR task list</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1">
+<li><p>CDD_MotCtrlMgr.c</p></li>
+</ol>
+<p>This file contains the functions for the RTE interface. This file will receive appropriate signals from the RTE and provide appropriate signals to the RTE. Per1 provides updated signals to the RTE after the DMA transfer of the data successfully completed, and Per2 recieves signals from the RTE and then indicates to the DMA that the data is ready for transfer.</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Configuration Parameter</strong></td>
+<td><strong>File Generation Usage Notes</strong></td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal</td>
+<td>Used for the name of the signals being read/written by the runnables being defined.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenInMotCtrlRunnable</td>
+<td>Used in conjuction with “/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadIn2msRunnable” to determine when a signal is needed to be managed by Per1</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadIn2msRunnable</td>
+<td>Used in conjuction with “/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenInMotCtrlRunnable” to determine when a signal is needed to be managed by Per1</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenIn2msRunnable</td>
+<td>Used in conjuction with “/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadInMotCtrlRunnable” to determine when a signal is needed to be managed by Per2</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadInMotCtrlRunnable</td>
+<td>Used in conjuction with “/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenIn2msRunnable” to determine when a signal is needed to be managed by Per2</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Size</td>
+<td>Used to determine if the signals being read/written by the runnables being defined are arrays (Impacts RTE API name).</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ImplementationDataType</td>
+<td>Used to determine if the signals being read/written by the runnables being defined are boolean types (Impacts RTE API name).</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p>CDD_MotCtrlMgr_Data.c</p></li>
+</ol>
+<p>This file contains the definition of all of the structures containing the Motor Control ISR related signals. This includes providing initial values for all of the signals in the structure and padding the structure for proper structure size alignment restrictions.</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Configuration Parameter</strong></td>
+<td><strong>File Generation Usage Notes</strong></td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal</td>
+<td>Used to determine signal names as part of the logic to determine if special grouping is needed for TSG3 signals</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenInMotCtrlRunnable</td>
+<td>Used to determine which initial values are needed in which structure.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadIn2msRunnable</td>
+<td>Used to determine which initial values are needed in which structure.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenIn2msRunnable</td>
+<td>Used to determine which initial values are needed in which structure.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadInMotCtrlRunnable</td>
+<td>Used to determine which initial values are needed in which structure.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Size</td>
+<td>Used in the structure size calculation to determine how many pad bytes are needed for alignment at the end of the structure. Used also to add the appropriate braces for arrays on structure elements.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ImplementationDataType</td>
+<td>Used in the structure size calculation to determine how many pad bytes are needed for alignment at the end of the structure.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/InitialValue</td>
+<td>Used as the initializer value for a given signal in the structure</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/IncludeHeaders</td>
+<td>Used for include list required for this file for definition of any intial values that may be required</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" type="1">
+<li><p>CDD_MotCtrlMgr_Data.h</p></li>
+</ol>
+<p>This file defines the structure definition of the Motor Control Data structures containing all Motor Control ISR related signals. It also defines any enumerations that need to be accessed by Non-RTE related code. Prototype statements for all Motor Control Data structures are included in this file as well as the macros defined for accessing individual signals of the Motor Control Data structures.</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Configuration Parameter</strong></td>
+<td><strong>File Generation Usage Notes</strong></td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/NonRteEnum</td>
+<td>Used to define enumeration accessed by Non-RTE related code. Used for enumeration name.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/NonRteEnum/EnumImplementationDataType</td>
+<td>Used to define enumeration accessed by Non-RTE related code. Used for enumeration datatype.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/NonRteEnum/EnumElement</td>
+<td>Used to define enumeration accessed by Non-RTE related code. Used for enumeration element name.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/NonRteEnum/EnumElement/Value</td>
+<td>Used to define enumeration accessed by Non-RTE related code. Used for enumeration element value.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal</td>
+<td>Used to determine signal names as part of the logic to determine if special grouping is needed for TSG3 signals. Also used as signal name for structure element definitions. Used to also determine name of signal access macros that are generated.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenInMotCtrlRunnable</td>
+<td>Used to determine the structure the signal should be added to.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadIn2msRunnable</td>
+<td>Used to determine the structure the signal should be added to</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenIn2msRunnable</td>
+<td>Used to determine the structure the signal should be added to</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadInMotCtrlRunnable</td>
+<td>Used to determine the structure the signal should be added to</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ImplementationDataType</td>
+<td>Used to determine datatype of structure element. Also used as part of the structure size calculation to determine how many pad bytes are needed for alignment at the end of the structure.</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/EnumerationNameReference</td>
+<td>Used to determine if a given signal is an enumeration and used to determine the corresponding enumeration name</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Size</td>
+<td>Used in the structure size calculation to determine how many pad bytes are needed for alignment at the end of the structure. Used also to add the appropriate array size on signals that are arrays (having size &gt; 1).</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/SignalMapping</td>
+<td>Used for creation of motor control signal access macros for inputs that are named differently than outputs</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/SignalMapping/OutputSignalName</td>
+<td>Output name for signal mapping (used to define an input signal macro definition)</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/SignalMapping/InputSignalName</td>
+<td>Input name(s) for signal mapping (used to define the names of the signal macros)</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" type="1">
+<li><p>AR300A_MotCtrlMgr_DataDict.m</p></li>
+</ol>
+<p>This file is the generated data dictionary for MotCtrlMgr. This is intended to be used for documentation purposes as well as to aid in creating the AUTOSAR component description files.</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Configuration Parameter</strong></td>
+<td><strong>File Generation Usage Notes</strong></td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal</td>
+<td>Used to determine signal name for I/O depending on signal useage.</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ImplementationDataType</td>
+<td>Used to determine datatype of signal. Also used for stripping off c constant qualification (“U”, “L”, “F”) on standard datatypes that is assumed to be present in the initial value. Also used to convert boolean type initial values to “0/1” from “TRUE/FALSE”</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/EnumerationNameReference</td>
+<td>Used to determine if a given signal is an enumeration and used to determine the corresponding enumeration name</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/InitialValue</td>
+<td>Used for the initial value of a signal</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Size</td>
+<td>Used to determine if the signal is an array and to set the format of the initial value appropriately</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/ReadIn2msRunnable</td>
+<td>Used to determine if signal is an output from Per1 runnable</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/WrittenIn2msRunnable</td>
+<td>Used to determine if signal is an input to Per2 runnable</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Max</td>
+<td>Used for Maximum value property of signal</td>
+</tr>
+<tr class="even">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Min</td>
+<td>Used for Minimum value property of signal</td>
+</tr>
+<tr class="odd">
+<td>/Nexteer/MotCtrlMgr/MotCtrlMgrConfigSet/SignalManagement/Signal/Units</td>
+<td>Used for units property of signal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="initialization-functions">Initialization Functions</h2>
+<p><em>None</em></p>
+<h2 id="periodic-functions">PERIODIC FUNCTIONS </h2>
+<h2 id="per1per2">Per1/Per2: </h2>
+<p>See section 7.1.2</p>
+<h2 id="non-periodic-functions">Non PERIODIC FUNCTIONS </h2>
+<p><em>None</em></p>
+<h2 id="interrupt-functions">Interrupt Functions</h2>
+<h2 id="isr">Isr: </h2>
+<p>See section 7.1.1</p>
+<h2 id="serial-communication-functions">Serial Communication Functions</h2>
+<p><em>None</em></p>
+<h2 id="local-functionmacro-definitions">Local Function/Macro Definitions</h2>
+<p>None</p>
+<h2 id="global-functionmacro-definitions">GLObAL Function/Macro Definitions</h2>
+<p>None</p>
+<h2 id="transient-functions">TRANSIENT FUNCTIONS </h2>
+<p><em>None</em></p>
+<h1 id="unit-test-considerations">Unit Test Considerations</h1>
+<h1 id="known-limitations-with-design">Known Limitations With Design</h1>
+<ol type="1">
+<li><p>None</p></li>
+</ol>
+<h1 id="appendix">Appendix</h1>

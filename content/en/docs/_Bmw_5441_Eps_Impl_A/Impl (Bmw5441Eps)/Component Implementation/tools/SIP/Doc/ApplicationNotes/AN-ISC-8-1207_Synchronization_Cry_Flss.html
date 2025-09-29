@@ -1,0 +1,738 @@
+---
+title: AN-ISC-8-1207_Synchronization_Cry_Flss
+linkTitle: AN-ISC-8-1207_Synchronization_Cry_Flss
+weight: 67
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-1_1.png"/><br/>
+&#160;<br/>&#160;<br/>
+<b>Synchronization&#160;between&#160;AUTOSAR&#160;Cry&#160;and&#160;Fls&#160;<br/></b>Version&#160;1.00.03&#160;<br/>2017-08-14&#160;<br/>Application&#160;Note&#160;AN-ISC-8-1207&#160;<br/>
+<b>Author</b>&#160;<br/>
+Bernhard&#160;Wissinger&#160;<br/>
+<b>Restrictions</b>&#160;&#160;Customer Confidential&#160;–&#160;Vector decides&#160;<br/><b>Abstract</b>&#160;<br/>
+AUTOSAR Crypto&#160;and&#160;Flash&#160;Driver might access&#160;a&#160;common&#160;hardware resource.&#160;This&#160;<br/>application&#160;note describes&#160;possible synchronization&#160;mechanisms.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Table of&#160;Contents&#160;</b><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#2"><b>1</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#2"><b>Introduction&#160;...................................................................................................................................&#160;2</b>&#160;<br/>1.1&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#2">Access&#160;Conflict Types&#160;..........................................................................................................&#160;2&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3">1.2&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3">Dependency&#160;of&#160;Access&#160;Conflics&#160;to&#160;the ECU use case&#160;........................................................&#160;3&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3"><b>2</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3"><b>Use&#160;Case&#160;Description&#160;...................................................................................................................&#160;3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4"><b>3</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4"><b>Synchronization&#160;Methods&#160;of&#160;SecOC&#160;and&#160;Fls&#160;.............................................................................&#160;4</b>&#160;<br/>3.1&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">Prevent&#160;Execution&#160;of&#160;SecOC_MainFunction&#160;.......................................................................&#160;4&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">3.2&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">Prevent&#160;Execution&#160;of&#160;Cry&#160;Function&#160;......................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">3.3&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">Optimized&#160;Execution&#160;Prevention&#160;..........................................................................................&#160;5&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#6">3.4&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#6">Interrupt&#160;Fls&#160;Operation&#160;.........................................................................................................&#160;6&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#7">3.5&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#7">Asynchronous&#160;Operation&#160;of&#160;SecOC&#160;.....................................................................................&#160;7&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#8"><b>4</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#8"><b>Synchronization&#160;Method&#160;for&#160;Key Management&#160;..........................................................................&#160;8</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#8"><b>5</b>&#160;</a><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#8"><b>Contacts&#160;.........................................................................................................................................&#160;8</b>&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-2_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-2_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-2_3.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+<b>1&#160;</b><br/>
+<b>Introduction&#160;</b><br/>
+AUTOSAR defines&#160;Crypto&#160;Driver&#160;(Cry)&#160;and Flash Driver&#160;(Fls)&#160;as&#160;MCAL modules&#160;for independent&#160;<br/>hardware&#160;modules. But&#160;as&#160;the crypto module&#160;also&#160;provides&#160;key&#160;storage&#160;functionality,&#160;this&#160;is&#160;often&#160;<br/>implemented&#160;in the&#160;microcontroller by&#160;using&#160;a shared flash unit. This&#160;can&#160;lead&#160;to race conditions,&#160;if&#160;<br/>AUTOSAR Crypto&#160;Driver and&#160;Flash Driver&#160;are used concurrently.&#160;<br/>
+<i>No&#160;Synchronization</i><br/>
+Crypto Driver<br/>
+Flash Driver<br/>
+<i>Software<br/>Hardware</i><br/>
+Crypto Module<br/>
+Flash Module<br/>
+<i><b>Race&#160;Condition</b></i><br/>
+Flash Memory<br/>
+&#160;<br/>
+Figure&#160;1&#160;-&#160;Race&#160;Condition&#160;during&#160;Flash&#160;Memory&#160;Access&#160;<br/>
+This&#160;application&#160;note&#160;describes&#160;several&#160;synchronization methods&#160;and&#160;gives&#160;advice&#160;which method&#160;<br/>should be&#160;applied. The&#160;synchronization&#160;itself&#160;must be&#160;implemented&#160;by&#160;the application&#160;during&#160;the&#160;<br/>integration&#160;of&#160;the&#160;MICROSAR&#160;stack, as&#160;the used method&#160;depends&#160;on&#160;the&#160;system&#160;layout&#160;and&#160;<br/>requirements.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Caution&#160;<br/></b>The&#160;occurrence and&#160;effect&#160;of&#160;the race condition&#160;heavily&#160;depends&#160;on&#160;the&#160;used&#160;<br/>
+<b>&#160;</b><br/>
+microcontroller.&#160;Please&#160;double-check&#160;whether&#160;your specific&#160;hardware&#160;is&#160;affected&#160;and&#160;<br/>confirm&#160;whether&#160;the&#160;methods&#160;described in this&#160;application&#160;note&#160;are&#160;applicable to&#160;your&#160;<br/>system.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Caution&#160;<br/></b>The&#160;examples&#160;in this&#160;application&#160;note&#160;are not&#160;thoroughly&#160;tested.&#160;The&#160;user must verify&#160;the&#160;<br/>
+<b>&#160;</b><br/>
+functionality&#160;for the intended use case.&#160;Vector´s&#160;liability&#160;shall&#160;be&#160;expressly&#160;excluded&#160;to&#160;the&#160;<br/>extent&#160;admissible by&#160;law&#160;or&#160;statute.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>1.1&#160;&#160;Access&#160;Conflict&#160;Types&#160;</b><br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3">Table&#160;1&#160;</a>lists&#160;possible access&#160;conflict types. In&#160;this&#160;application&#160;note,&#160;it is&#160;assumed&#160;that&#160;each&#160;of&#160;these&#160;<br/>combinations&#160;will&#160;lead to&#160;a&#160;race condition&#160;and&#160;must&#160;be&#160;prevented.&#160;E.g.&#160;even&#160;if&#160;the&#160;Crypto&#160;driver&#160;<br/>performs&#160;only&#160;a&#160;read&#160;access&#160;to&#160;the key&#160;(like MacVerify), a&#160;parallel&#160;read&#160;access&#160;of&#160;the flash&#160;driver to&#160;<br/>the&#160;hardware&#160;is&#160;not&#160;allowed.&#160;<br/>
+If&#160;the used&#160;microcontroller is&#160;less&#160;restrictive,&#160;a&#160;less&#160;restrictive synchronization scheme&#160;might be&#160;<br/>applied.&#160;Such&#160;optimized&#160;synchronization scheme is&#160;not covered by&#160;this&#160;application note.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+2<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=3></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-3_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-3_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-3_3.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+<b>Crypto&#160;Driver&#160;</b><br/>
+<b>Flash&#160;Driver&#160;</b><br/>
+<b>Conflict&#160;</b><br/>
+Use Key&#160;(e.g.&#160;MacVerify, MacGenerate)&#160;<br/>
+Read&#160;Flash&#160;Memory&#160;<br/>
+Read&#160;/ Read&#160;&#160;<br/>
+Write&#160;Key&#160;(e.g. KeyElementSet)&#160;<br/>
+Read&#160;Flash&#160;Memory&#160;<br/>
+Write&#160;/ Read&#160;<br/>
+Use Key&#160;(e.g.&#160;MacVerify, MacGenerate)&#160;<br/>
+Write&#160;Flash Memory&#160;<br/>
+Read&#160;/&#160;Write&#160;<br/>
+Write&#160;Key&#160;(e.g. KeyElementSet)&#160;<br/>
+Write&#160;Flash Memory&#160;<br/>
+Write&#160;/&#160;Write&#160;<br/>
+Table&#160;1&#160;-&#160;Access&#160;Conflict&#160;Types&#160;<br/>
+<b>1.2&#160;&#160;Dependency&#160;of&#160;Access&#160;Conflics&#160;to&#160;the&#160;ECU&#160;use case&#160;</b><br/>
+The&#160;possibility&#160;of&#160;an&#160;access&#160;conflict heavily&#160;depends&#160;on the&#160;ECU&#160;use case.&#160;As&#160;an&#160;access&#160;conflict can&#160;<br/>only&#160;happen&#160;if&#160;the&#160;Flash&#160;module and&#160;Crypto&#160;module&#160;are used&#160;at the same time,&#160;a detailed&#160;analysis&#160;of&#160;<br/>this&#160;use case&#160;is&#160;needed.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+E.g.&#160;if&#160;the&#160;Crypto module&#160;is&#160;used&#160;only&#160;during ECU run&#160;state for secure communication,&#160;whereas&#160;<br/>Flash module&#160;access&#160;is&#160;limited&#160;to ECU startup and shutdown, no&#160;access&#160;conflict might&#160;occur.&#160;&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;access&#160;conflict&#160;might be limited&#160;to&#160;system&#160;startup,&#160;in case the&#160;Crypto module&#160;can&#160;cache&#160;the&#160;<br/>keys&#160;in&#160;secure RAM&#160;and&#160;therefore has&#160;no&#160;need&#160;to access&#160;data&#160;flash&#160;during&#160;later usage.&#160;<br/>
+The&#160;potential&#160;access&#160;conflicts&#160;need&#160;to be analyzed&#160;by&#160;the&#160;user. This&#160;application note&#160;gives&#160;an&#160;<br/>example how&#160;to solve&#160;such&#160;a&#160;conflict for secure communication and data&#160;flash&#160;access.&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Caution&#160;<br/></b>The&#160;occurrence and&#160;effect&#160;of&#160;access&#160;conflicts&#160;heavily&#160;depend&#160;on&#160;the&#160;ECU&#160;use case.&#160;<br/>
+<b>&#160;</b><br/>
+Please&#160;analyze&#160;the&#160;specific&#160;Crypto and Flash use cases&#160;in&#160;your&#160;ECU to confirm&#160;potential&#160;<br/>conflicts&#160;and&#160;to&#160;judge&#160;for the appropriate&#160;resolution&#160;method.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>2&#160;</b><br/>
+<b>Use&#160;Case&#160;Description&#160;</b><br/>
+The&#160;synchronization methods&#160;are discussed&#160;based on&#160;three different users&#160;of&#160;Crypto&#160;and&#160;Flash Driver.&#160;<br/>Please adapt the described&#160;concepts&#160;in case&#160;of&#160;a&#160;different use&#160;case shall&#160;be&#160;implemented.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Caution&#160;<br/></b>The&#160;described&#160;behavior of&#160;the&#160;Fls&#160;module&#160;is&#160;implementation-specific. Please&#160;confirm&#160;this&#160;<br/>
+<b>&#160;</b><br/>
+behavior for the&#160;used&#160;Fls&#160;module.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>User&#160;</b><br/>
+<b>Functionality&#160;</b><br/>
+<b>Call&#160;context of&#160;hardware&#160;access&#160;</b><br/>
+Nonvolatile&#160;Memory&#160;<br/>
+Fls:&#160;Read and&#160;Write&#160;<br/>
+Fls_MainFunction&#160;<br/>
+SecOC&#160;<br/>
+Cry: MAC&#160;Processing&#160;<br/>
+SecOC_MainFunction&#160;<br/>
+Key&#160;Management&#160;<br/>
+Cry:&#160;Key&#160;Update&#160;<br/>
+KM_MainFunction&#160;<br/>
+Table&#160;2&#160;-&#160;Users&#160;of&#160;Crypto&#160;Driver&#160;and&#160;Flash&#160;Driver&#160;<br/>
+The&#160;Fls&#160;is&#160;used&#160;asynchronously:&#160;the&#160;flash operation&#160;is&#160;started&#160;in&#160;Fls_MainFunction, but&#160;will&#160;be&#160;<br/>
+finished&#160;later.&#160;&#160;<br/>
+The&#160;Cry&#160;is&#160;used synchronously:&#160;the&#160;crypto&#160;hardware&#160;is&#160;idle after the execution of&#160;<br/>SecOC_MainFunction&#160;and&#160;KM_MainFunction&#160;is&#160;completed.&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+3<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=4></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-4_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-4_2.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+<i>asynchronous&#160;handling&#160;of&#160;Fls&#160;HW</i><br/>
+Fls<br/>
+<i>Fls&#160;HW&#160;busy</i><br/>
+<i>Cry&#160;HW&#160;busy</i><br/>
+<b>conflict</b><br/>
+Cry&#160;<i>n</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>o</i><br/>
+<i>o</i><br/>
+<i>o</i><br/>
+<i>cti</i><br/>
+<i>cti</i><br/>
+<i>no&#160;Fls&#160;HW&#160;</i><br/>
+<i>cti</i><br/>
+<i>n</i><br/>
+<i>no</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>u</i><br/>
+<i>o</i><br/>
+<i>access&#160;in&#160;</i><br/>
+<i>u</i><br/>
+<i>F</i><br/>
+<i>cti</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>cti</i><br/>
+<i>this&#160;call&#160;</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>n<br/>u</i><br/>
+<i>cycle</i><br/>
+<i>Mai</i><br/>
+<i>F<br/>n</i><br/>
+<i>Mai</i><br/>
+<i>F<br/>n</i><br/>
+<i>Mai</i><br/>
+<i>C_</i><br/>
+<i>C_</i><br/>
+<i>C_</i><br/>
+<i>O</i><br/>
+<i>O</i><br/>
+<i>O</i><br/>
+<i>s_Mail</i><br/>
+<i>s_Mai</i><br/>
+<i>Sec</i><br/>
+<i>F</i><br/>
+<i>Sec</i><br/>
+<i>lF</i><br/>
+<i>Sec</i><br/>
+<i>cycle&#160;time</i><br/>
+&#160;<br/>
+Figure&#160;2&#160;-&#160;Conflict&#160;between&#160;Fls&#160;and&#160;Cry&#160;<br/>
+<b>3&#160;</b><br/>
+<b>Synchronization Methods&#160;of&#160;SecOC&#160;and Fls&#160;</b><br/>
+This&#160;chapter&#160;describes&#160;synchronization&#160;methods&#160;between&#160;Fls&#160;and&#160;Cry&#160;for the SecOC use case.&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>Caution&#160;<br/></b>It&#160;is&#160;assumed&#160;that&#160;Fls_MainFunction&#160;cannot&#160;interrupt&#160;<br/>
+<b>&#160;</b><br/>
+SecOC_MainFunction.&#160;E.g.&#160;Fls_MainFunction&#160;is&#160;mapped&#160;to&#160;the&#160;same or&#160;a&#160;<br/>lower&#160;priority&#160;OS&#160;task&#160;as&#160;SecOC_MainFunction.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">Table&#160;3&#160;</a>gives&#160;an overview&#160;and comparison&#160;of&#160;the different methods&#160;which are&#160;described in this&#160;<br/>chapter.&#160;<br/>
+<b>Method&#160;&#160;Characteristics&#160;</b><br/>
+<b>AUTOSAR&#160;Extensions&#160;</b><br/>
+SecOC messages&#160;will&#160;not&#160;be sent&#160;during Fls&#160;<br/>
+None&#160;<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">3.1&#160;</a><br/>
+operation.&#160;Especially&#160;Fls&#160;erase might take a&#160;long&#160;<br/>time.&#160;<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">3.2&#160;</a><br/>
+Same as<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">&#160;3.1&#160;</a><br/>
+Cry&#160;extension “Read Start”&#160;interface&#160;<br/>
+Less&#160;impact on SecOC messages&#160;for “short”&#160;Fls&#160;<br/>
+Fls&#160;extension&#160;“GetHWStatus”<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">3.3</a><br/>
+&#160;<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">&#160;</a><br/>
+operations&#160;<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#6">3.4&#160;</a><br/>
+Difficult&#160;if&#160;Suspend/Resume&#160;needs&#160;a long&#160;time&#160;<br/>
+Fls&#160;extension&#160;“Suspend/Resume”&#160;<br/>
+Fls&#160;extensions&#160;“Suspend/Resume”&#160;<br/>
+<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#7">3.5&#160;</a><br/>
+Most complex&#160;approach&#160;<br/>
+and&#160;“asynchronous&#160;notification”&#160;<br/>
+Table&#160;3&#160;–&#160;Comparison&#160;Matrix&#160;<br/>
+<b>3.1&#160;&#160;Prevent&#160;Execution&#160;of&#160;SecOC_MainFunction&#160;</b><br/>
+The&#160;current state of&#160;Fls&#160;can&#160;be&#160;polled&#160;by&#160;the function&#160;Fls_GetStatus.&#160;Therefore&#160;<br/>SecOC_MainFunction&#160;should not be&#160;called&#160;in&#160;case&#160;Fls_GetStatus&#160;returns&#160;“busy”.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+4<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=5></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-5_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-5_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-5_3.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+<b>Caution&#160;<br/></b>It is&#160;assumed&#160;that&#160;Fls_GetStatus&#160;can&#160;be&#160;called&#160;reentrant.&#160;Please confirm&#160;this&#160;behavior&#160;<br/>
+<b>&#160;</b><br/>
+for the&#160;used&#160;Fls&#160;module.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<i>asynchronous&#160;handling&#160;of&#160;Fls&#160;HW</i><br/>
+Fls<br/>
+<i>Fls&#160;HW&#160;busy</i><br/>
+<i>Cry&#160;HW&#160;busy</i><br/>
+Cry&#160;<i>n</i><br/>
+<i>s</i><br/>
+<i>n</i><br/>
+<i>o</i><br/>
+<i>u</i><br/>
+<i>o</i><br/>
+<i>cti</i><br/>
+<i>at</i><br/>
+<i>no&#160;Fls&#160;HW&#160;</i><br/>
+<i>cti</i><br/>
+<i>n</i><br/>
+<i>no</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>St</i><br/>
+<i>o</i><br/>
+<i>access&#160;in&#160;</i><br/>
+<i>u</i><br/>
+<i>F</i><br/>
+<i>cti</i><br/>
+<i>te</i><br/>
+<i>F</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>cti</i><br/>
+<i>this&#160;call&#160;</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>n<br/>u</i><br/>
+<i>cycle</i><br/>
+<i>Mai</i><br/>
+<i>F<br/>n</i><br/>
+<i>s_Gl</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>n</i><br/>
+<i>Mai</i><br/>
+<i>C_</i><br/>
+<i>C_</i><br/>
+<i>O</i><br/>
+<i>ck&#160;</i><br/>
+<i>O</i><br/>
+<i>s_Mai</i><br/>
+<i>e</i><br/>
+<i>l</i><br/>
+<i>s_Mai</i><br/>
+<i>Sec</i><br/>
+<i>F</i><br/>
+<i>Ch</i><br/>
+<i>lF</i><br/>
+<i>Sec</i><br/>
+<i>cycle&#160;time</i><br/>
+&#160;<br/>
+Figure&#160;3&#160;-&#160;Prevent&#160;Execution&#160;of&#160;SecOC_MainFunction&#160;<br/>
+<b>3.2&#160;&#160;Prevent&#160;Execution&#160;of&#160;Cry&#160;Function&#160;</b><br/>
+This&#160;approach&#160;is&#160;similar to&#160;chapter<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">&#160;3.1.&#160;</a>But&#160;instead&#160;of&#160;preventing&#160;the&#160;execution&#160;of&#160;<br/>SecOC_MainFunction, an API&#160;like&#160;Cry_XXX_DataFlashReadStart_Callout&#160;would be used.&#160;<br/>With&#160;the&#160;API&#160;Cry_XXX_DataFlashReadStart_Callout, the read&#160;permission&#160;is&#160;checked&#160;by&#160;the&#160;<br/>
+Cry&#160;driver:&#160;this&#160;shall&#160;be denied&#160;in case&#160;the&#160;Fls&#160;is&#160;busy.&#160;<br/>
+The&#160;SecOC_MainFunction&#160;will&#160;retry&#160;with&#160;the&#160;next cyclic&#160;call,&#160;if&#160;the parameter&#160;<br/>SecOCAuthenticationBuildAttempts&#160;in&#160;SecOC&#160;is&#160;set&#160;accordingly.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Note&#160;<br/></b>The&#160;API&#160;Cry_XXX_DataFlashReadStart_Callout&#160;is&#160;not&#160;defined by&#160;AUTOSAR and&#160;<br/>
+&#160;<br/>
+might not&#160;be available for&#160;your&#160;hardware.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>3.3&#160;&#160;Optimized&#160;Execution&#160;Prevention&#160;</b><br/>
+The&#160;API&#160;Fls_GetStatus&#160;returns&#160;the&#160;status&#160;of&#160;the Fls&#160;driver.&#160;Whereas&#160;this&#160;is&#160;implementation-specific,&#160;<br/>
+it might be&#160;only&#160;updated&#160;in&#160;context of&#160;Fls_MainFunction.&#160;Therefore&#160;it&#160;would&#160;report&#160;still&#160;“busy”,&#160;<br/>
+whereas&#160;the&#160;operation in the&#160;Fls&#160;hardware&#160;might&#160;be&#160;already&#160;finished.&#160;<br/>
+It is&#160;assumed&#160;an&#160;API&#160;like&#160;Fls_GetHWStatus&#160;is&#160;available,&#160;which&#160;reads&#160;the status&#160;of&#160;the Fls&#160;hardware&#160;<br/>itself. An optimized&#160;version&#160;of&#160;methods&#160;in chapt<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">er&#160;3.1&#160;</a>and&#160;chapter<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">&#160;3.2&#160;</a>can&#160;be&#160;applied&#160;in this&#160;case:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+In&#160;task&#160;scheduling,&#160;SecOC_MainFunction&#160;is&#160;executed immediately&#160;before&#160;<br/>Fls_MainFunction. Therefore the&#160;Fls&#160;operation&#160;from&#160;the previous&#160;Fls_MainFunction&#160;might&#160;<br/>be&#160;already&#160;completed.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+The&#160;API&#160;Fls_GetHWStatus&#160;is&#160;used&#160;instead&#160;of&#160;Fls_GetStatus&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+5<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=6></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_6.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_7.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_8.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_9.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_10.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_11.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_12.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_13.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_14.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_15.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_16.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_17.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_18.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_19.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-6_20.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+<i>asynchronous&#160;handling&#160;of&#160;Fls&#160;HW</i><br/>
+Fls<br/>
+<i>Fls&#160;HW&#160;busy</i><br/>
+<i>Fls&#160;HW&#160;busy</i><br/>
+<i>Cry&#160;HW&#160;busy</i><br/>
+Cry<br/>
+<i>s<br/>u</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>at</i><br/>
+<i>o</i><br/>
+<i>o</i><br/>
+<i>cti</i><br/>
+<i>cti</i><br/>
+<i>n</i><br/>
+<i>no</i><br/>
+<i>n</i><br/>
+<i>WSt</i><br/>
+<i>n</i><br/>
+<i>o</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>H</i><br/>
+<i>u</i><br/>
+<i>t</i><br/>
+<i>o</i><br/>
+<i>F</i><br/>
+<i>cti</i><br/>
+<i>F</i><br/>
+<i>cti</i><br/>
+<i>e</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>cti</i><br/>
+<i>u</i><br/>
+<i>u</i><br/>
+<i>n<br/>u</i><br/>
+<i>Mai</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>n</i><br/>
+<i>s_G</i><br/>
+<i>Mai</i><br/>
+<i>l</i><br/>
+<i>n</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>n</i><br/>
+<i>C_</i><br/>
+<i>C_</i><br/>
+<i>O</i><br/>
+<i>O</i><br/>
+<i>ck&#160;</i><br/>
+<i>s_Mai</i><br/>
+<i>e</i><br/>
+<i>l</i><br/>
+<i>s_Mail</i><br/>
+<i>s_Mai</i><br/>
+<i>Sec</i><br/>
+<i>F</i><br/>
+<i>Sec</i><br/>
+<i>F</i><br/>
+<i>Ch</i><br/>
+<i>lF</i><br/>
+<i>cycle&#160;time</i><br/>
+&#160;<br/>
+Figure&#160;4&#160;-&#160;Optimized&#160;Execution&#160;Prevention&#160;<br/>
+With&#160;this&#160;approach,&#160;Cry&#160;handling&#160;is&#160;only&#160;skipped&#160;if&#160;the&#160;Fls&#160;needs&#160;a&#160;long processing time.&#160;<br/>
+<b>3.4&#160;&#160;Interrupt&#160;Fls&#160;Operation&#160;</b><br/>
+Some Fls&#160;drivers&#160;have&#160;a possibility&#160;to&#160;suspend&#160;and resume the&#160;current Fls&#160;operation.&#160;Such&#160;<br/>functionality&#160;is&#160;used&#160;for this&#160;approach:&#160;<br/>
+<b>&gt;&#160;</b><br/>
+In&#160;task&#160;scheduling,&#160;SecOC_MainFunction&#160;is&#160;executed immediately&#160;before&#160;<br/>Fls_MainFunction. Therefore the&#160;Fls&#160;operation&#160;from&#160;the previous&#160;Fls_MainFunction&#160;might&#160;<br/>be&#160;already&#160;completed.&#160;<br/>
+<b>&gt;&#160;</b><br/>
+In&#160;case Fls&#160;is&#160;busy:&#160;Fls&#160;operation&#160;is&#160;suspended before&#160;SecOC_MainFunction&#160;is&#160;called&#160;<br/>
+<b>&gt;&#160;</b><br/>
+If&#160;Fls&#160;operation&#160;was&#160;suspended:&#160;resume Fls&#160;operation&#160;after&#160;SecOC_MainFunction&#160;is&#160;completed&#160;<br/>
+Fls<br/>
+<i>Fls&#160;suspended</i><br/>
+<i>Fls&#160;busy</i><br/>
+<i>Fls&#160;busy</i><br/>
+<i>Cry&#160;busy</i><br/>
+Cry<br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>o</i><br/>
+<i>o</i><br/>
+<i>cti</i><br/>
+<i>cti</i><br/>
+<i>n</i><br/>
+<i>no</i><br/>
+<i>n</i><br/>
+<i>no</i><br/>
+<i>u</i><br/>
+<i>u</i><br/>
+<i>F</i><br/>
+<i>cti</i><br/>
+<i>F</i><br/>
+<i>cti</i><br/>
+<i>n</i><br/>
+<i>n</i><br/>
+<i>d</i><br/>
+<i>n</i><br/>
+<i>e</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>n</i><br/>
+<i>u</i><br/>
+<i>Mai</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>n</i><br/>
+<i>Mai</i><br/>
+<i>n</i><br/>
+<i>spe</i><br/>
+<i>sum</i><br/>
+<i>C_</i><br/>
+<i>C_</i><br/>
+<i>e</i><br/>
+<i>O</i><br/>
+<i>O</i><br/>
+<i>s_Mail</i><br/>
+<i>s_Sul</i><br/>
+<i>s_Rl</i><br/>
+<i>s_Mail</i><br/>
+<i>Sec</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>Sec</i><br/>
+<i>F</i><br/>
+<i>F</i><br/>
+<i>cycle&#160;time</i><br/>
+&#160;<br/>
+Figure&#160;5&#160;-&#160;Interrupt&#160;Fls&#160;Operation&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Caution&#160;<br/></b>The&#160;Fls_Suspend/Fls_Resume&#160;operation itself&#160;might need considerable&#160;time.&#160;This&#160;can&#160;<br/>
+<b>&#160;</b><br/>
+lead to&#160;issues, if&#160;a&#160;high&#160;call&#160;frequency&#160;of&#160;SecOC_MainFunction&#160;of&#160;Fls_MainFunction&#160;<br/>is&#160;needed.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+6<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=7></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_2.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_3.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_4.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_5.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_6.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_7.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_8.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_9.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_10.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_11.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_12.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_13.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_14.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_15.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_16.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_17.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_18.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_19.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_20.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_21.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_22.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_23.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_24.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_25.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_26.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_27.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_28.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_29.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_30.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_31.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_32.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_33.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_34.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_35.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_36.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_37.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_38.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_39.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_40.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_41.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_42.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-7_43.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+<b>3.5&#160;&#160;Asynchronous Operation&#160;of&#160;SecOC&#160;</b><br/>
+In&#160;case&#160;Fls_Suspend/Fls_Resume&#160;needs&#160;a&#160;long processing&#160;time,&#160;a full-preemptive&#160;operating&#160;<br/>
+system&#160;might be used during&#160;waiting&#160;time.&#160;<br/>
+Appl<br/>
+<i>Task&#160;active</i><br/>
+<i>g<br/>n</i><br/>
+<i>d</i><br/>
+<i>i</i><br/>
+<i>d</i><br/>
+Cry<br/>
+<i>ss</i><br/>
+<i>shei</i><br/>
+<i>shei</i><br/>
+<i>ceo</i><br/>
+<i>fin</i><br/>
+<i>r</i><br/>
+<i>&#160;</i><br/>
+<i>fin</i><br/>
+<i>d</i><br/>
+<i>on</i><br/>
+<i>&#160;</i><br/>
+<i>p</i><br/>
+<i>d</i><br/>
+<i>n</i><br/>
+<i>e</i><br/>
+<i>cti</i><br/>
+<i>C</i><br/>
+<i>n</i><br/>
+<i>O</i><br/>
+<i>spe</i><br/>
+<i>u</i><br/>
+<i>ishe</i><br/>
+<i>F</i><br/>
+<i>sum</i><br/>
+<i>d</i><br/>
+<i>e</i><br/>
+<i>in</i><br/>
+<i>Su</i><br/>
+<i>n</i><br/>
+<i>f</i><br/>
+<i>n</i><br/>
+<i>i</i><br/>
+<i>e</i><br/>
+<i>R</i><br/>
+<i>&#160;Sec</i><br/>
+<i>&#160;</i><br/>
+<i>&#160;</i><br/>
+<i>r</i><br/>
+<i>:</i><br/>
+<i>:</i><br/>
+<i>g&#160;</i><br/>
+<i>e</i><br/>
+<i>pe</i><br/>
+<i>r</i><br/>
+<i>Ma</i><br/>
+<i>r</i><br/>
+<i>s</i><br/>
+<i>in</i><br/>
+<i>g</i><br/>
+<i>e</i><br/>
+<i>_</i><br/>
+<i>sum</i><br/>
+<i>e</i><br/>
+<i>s</i><br/>
+<i>g</i><br/>
+<i>g</i><br/>
+<i>g</i><br/>
+<i>g</i><br/>
+<i>C</i><br/>
+<i>s</i><br/>
+<i>i</i><br/>
+<i>e</i><br/>
+<i>i</i><br/>
+<i>gi</i><br/>
+<i>e</i><br/>
+<i>Tr</i><br/>
+<i>_Su</i><br/>
+<i>c</i><br/>
+<i>Tr</i><br/>
+<i>cO</i><br/>
+<i>s</i><br/>
+<i>e</i><br/>
+<i>s_Rl</i><br/>
+<i>Tr</i><br/>
+<i>o</i><br/>
+<i>Fl</i><br/>
+<i>S</i><br/>
+<i>F</i><br/>
+<i>Pr</i><br/>
+&#160;<br/>
+Figure&#160;6&#160;-&#160;Asynchronous&#160;Operation&#160;of&#160;SecOC&#160;<br/>
+SecOC_MainFunction&#160;is&#160;called by&#160;a&#160;separated&#160;extended OS&#160;task. Following&#160;example code&#160;<br/>illustrates&#160;the&#160;concept.&#160;<br/>
+<b>SecOC_Task:&#160;<br/></b>While(TRUE){&#160;<br/>&#160;&#160;WaitEvent(Event_TriggerSecOC); &#160;&#160;<br/>&#160;&#160;If(FLS busy) {&#160;<br/>&#160; &#160;&#160;Fls_Suspend();&#160;<br/>&#160; &#160;&#160;suspended=true;&#160;<br/>&#160; &#160;&#160;WaitEvent(Event_SuspendFinished);&#160;<br/>&#160; &#160;&#160;ClearEvent(Event_SuspendFinished);&#160;<br/>&#160;&#160;}&#160;<br/>&#160;&#160;ClearEvent(Event_TriggerSecOC); //clear trigger&#160;<br/>&#160;&#160;SecOC_MainfunctionRx();&#160;<br/>&#160;&#160;SecOC_MainfunctionRx();&#160;// call a 2nd time for verification retry&#160;<br/>&#160;&#160;SecOC_MainfunctionTx();&#160;<br/>&#160;&#160;If(suspended){&#160;<br/>&#160; &#160;&#160;Fls_Resume();&#160;<br/>&#160; &#160;&#160;WaitEvent(Event_ResumeFinished);&#160;<br/>&#160; &#160;&#160;ClearEvent(Event_ResumeFinished);&#160;<br/>&#160; &#160;&#160;suspended=false;&#160;<br/>&#160;}}&#160;<br/>
+The&#160;Fls&#160;must inform&#160;the&#160;SecOC_Task&#160;when&#160;Fls_Suspend/Fls_Resume&#160;is&#160;finished.&#160;<br/>
+<b>Suspend_Finished:&#160;<br/></b>SetEvent(Event_SuspendFinished);&#160;<br/>
+<b>Resume_Finished:&#160;<br/></b>SetEvent(Event_ResumeFinished);&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+7<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name=8></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-8_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/_Bmw_5441_Eps_Impl_A/tools/SIP/Doc/ApplicationNotes/AN-ISC-8-1207_Synchronization_Cry_Fls-8_2.png"/><br/>
+Synchronization between AUTOSAR&#160;Cry&#160;and Fls&#160;<br/>
+The&#160;application&#160;can trigger&#160;SecOC_Task&#160;either&#160;cyclic,&#160;or only&#160;if&#160;SecOC processing is&#160;needed.&#160;&#160;<br/>
+The&#160;transmission&#160;trigger&#160;can be&#160;obtained&#160;in following&#160;way.&#160;<br/>
+<b>ComIPduCallout:&#160;</b>//get&#160;transmission&#160;condition&#160;–&#160;added&#160;for&#160;all&#160;secured&#160;messages&#160;in Com<b>&#160;<br/></b>SecOC_TxFlag=TRUE;&#160;<br/>
+<b>After&#160;call to&#160;Com_MainFunction:&#160;<br/></b>Com_MainFunction();&#160;<br/>if(SecOC_TxFlag){&#160;// call this after Com_MainFunction&#160;<br/>&#160;&#160;SecOC_TxFlag=FALSE;&#160;<br/>&#160;&#160;SetEvent(Event_TriggerSecOC); //data of SecOC&#160;was&#160;prepared in&#160;Com&#160;&#160;<br/>}&#160;<br/>
+The&#160;reception trigger can be obtained&#160;in following&#160;way.&#160;Please make sure the&#160;CAN driver is&#160;operated&#160;<br/>in&#160;interrupt&#160;mode.&#160;<br/>
+<b>CanGenericPrecopy:&#160;// enable “CanGenericPrecopy”&#160;feature in&#160;CAN driver&#160;<br/></b>If(CANID=SecOCMessage CANID){&#160;<br/>&#160;&#160;SetEvent(Event_TriggerSecOC);&#160;&#160;<br/>}&#160;<br/>
+The&#160;OS&#160;Event&#160;is&#160;set&#160;before&#160;the message data is&#160;transferred&#160;to&#160;SecOC.&#160;But&#160;the&#160;SecOC_Task&#160;is&#160;<br/>activated only&#160;after the CAN ISR&#160;processing&#160;is&#160;finished due&#160;to&#160;OS&#160;priority&#160;handling.&#160;<br/>
+<b>4&#160;</b><br/>
+<b>Synchronization Method for Key&#160;Management&#160;</b><br/>
+Synchronization&#160;between&#160;SecOC and&#160;Key&#160;Management is&#160;not&#160;needed,&#160;as&#160;both utilize the same Cry&#160;<br/>driver. Therefore the&#160;Cry&#160;driver should take care of&#160;this&#160;synchronization.&#160;<br/>
+&#160;<br/>
+&#160;<br/><b>Caution&#160;<br/></b>It&#160;is&#160;assumed&#160;that&#160;Fls_MainFunction&#160;cannot&#160;interrupt&#160;KM_MainFunction.&#160;E.g.&#160;<br/>
+<b>&#160;</b><br/>
+Fls_MainFunction&#160;is&#160;mapped to&#160;the&#160;same or&#160;a&#160;lower&#160;priority&#160;OS&#160;task&#160;as&#160;<br/>KM_MainFunction.&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Synchronization&#160;of&#160;Key&#160;Management and&#160;Fls&#160;is&#160;less&#160;time critical&#160;than&#160;the&#160;synchronization&#160;between&#160;<br/>SecOC and Fls. Therefore&#160;simpler&#160;methods&#160;as&#160;described&#160;in chapter<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">&#160;3.1&#160;</a>and&#160;chapt<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">er&#160;3.2&#160;</a>can be&#160;<br/>applied.&#160;<br/>
+If&#160;chapter<a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">&#160;3.2&#160;</a>is&#160;applied,&#160;a&#160;callback&#160;form&#160;Cry&#160;driver&#160;which queries&#160;the&#160;write permission&#160;should&#160;be&#160;used.&#160;<br/>Such an&#160;API&#160;Cry_XXX_DataFlashWriteStart_Callout&#160;is&#160;implemented&#160;as&#160;an AUTOSAR&#160;<br/>
+extension for some Cry&#160;drivers&#160;developed by&#160;Vector.&#160;<br/>
+<b>5&#160;</b><br/>
+<b>Contacts&#160;</b><br/>
+For a full&#160;list&#160;with all&#160;Vector&#160;locations&#160;and&#160;addresses&#160;worldwide, please&#160;visi<a href="http://vector.com/contact/">t&#160;http://vector.com/contact/.</a>&#160;<br/>
+&#160;<br/>
+Copyright&#160;©&#160;2017&#160;-&#160;Vector Informatik&#160;GmbH<i>&#160;</i><br/>
+8<i>&#160;</i><br/>
+Contact&#160;Information:&#160;&#160;&#160;www.vector.com&#160;&#160;&#160;or&#160;+49-711-80&#160;670-0<b>&#160;</b><br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#2">1 Introduction</a>
+<ul>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#2">1.1 Access Conflict Types</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3">1.2 Dependency of Access Conflics to the ECU use case</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#3">2 Use Case Description</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">3 Synchronization Methods of SecOC and Fls</a>
+<ul>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#4">3.1 Prevent Execution of SecOC_MainFunction</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">3.2 Prevent Execution of Cry Function</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#5">3.3 Optimized Execution Prevention</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#6">3.4 Interrupt Fls Operation</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#7">3.5 Asynchronous Operation of SecOC</a></li>
+</ul>
+</li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#8">4 Synchronization Method for Key Management</a></li>
+<li><a href="AN-ISC-8-1207_Synchronization_Cry_Flss.html#8">5 Contacts</a></li>
+</ul>
+<hr/>
+</body>
+</html>

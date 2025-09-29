@@ -1,0 +1,459 @@
+---
+title: McuErrInj Integration Manual
+linkTitle: McuErrInj Integration Manual
+weight: 2
+---
+
+<p><strong>Integration Manual</strong></p>
+<p><strong>For</strong></p>
+<p><strong>McuErrInj</strong></p>
+<p><strong>VERSION:</strong> <strong>2.0</strong></p>
+<p><strong>DATE:</strong> <strong>24-Jul-2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Software Group,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA</strong></p>
+<p><strong><br />
+Location:</strong> The official version of this document is stored in the Nexteer Configuration Management System.</p>
+<p><strong>Revision History</strong></p>
+<table>
+<caption><p>: ARM Cortex R4 Memory Usage</p></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 51%" />
+<col style="width: 16%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Sl. No.</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial version</td>
+<td>Avinash James</td>
+<td>1.0</td>
+<td>15-Mar-2017</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Update to include the tursted function</td>
+<td>Avinash James</td>
+<td>2.0</td>
+<td>24-Jul-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><u><br />
+Table of Contents</u></strong></p>
+<p><a href="#abbrevations-and-acronyms">1 Abbrevations And Acronyms <span>4</span></a></p>
+<p><a href="#references">2 References <span>5</span></a></p>
+<p><a href="#dependencies">3 Dependencies <span>6</span></a></p>
+<p><a href="#swcs">3.1 SWCs <span>6</span></a></p>
+<p><a href="#global-functionsnon-rte-to-be-provided-to-integration-project">3.2 Global Functions(Non RTE) to be provided to Integration Project <span>6</span></a></p>
+<p><a href="#configuration-requirements">4 Configuration REQUIREMeNTS <span>7</span></a></p>
+<p><a href="#build-time-config">4.1 Build Time Config <span>7</span></a></p>
+<p><a href="#configuration-files-to-be-provided-by-integration-project">4.2 Configuration Files to be provided by Integration Project <span>7</span></a></p>
+<p><a href="#da-vinci-parameter-configuration-changes">4.3 Da Vinci Parameter Configuration Changes <span>7</span></a></p>
+<p><a href="#davinci-interrupt-configuration-changes">4.4 DaVinci Interrupt Configuration Changes <span>7</span></a></p>
+<p><a href="#manual-configuration-changes">4.5 Manual Configuration Changes <span>7</span></a></p>
+<p><a href="#integration-dataflow-requirements">5 Integration DATAFLOW REQUIREMENTS <span>8</span></a></p>
+<p><a href="#required-global-data-inputs">5.1 Required Global Data Inputs <span>8</span></a></p>
+<p><a href="#required-global-data-outputs">5.2 Required Global Data Outputs <span>8</span></a></p>
+<p><a href="#specific-include-path-present">5.3 Specific Include Path present <span>8</span></a></p>
+<p><a href="#runnable-scheduling">6 Runnable Scheduling <span>9</span></a></p>
+<p><a href="#memory-map-requirements">7 Memory Map REQUIREMENTS <span>10</span></a></p>
+<p><a href="#mapping">7.1 Mapping <span>10</span></a></p>
+<p><a href="#usage">7.2 Usage <span>10</span></a></p>
+<p><a href="#nvm-blocks">7.3 NvM Blocks <span>10</span></a></p>
+<p><a href="#compiler-settings">8 Compiler Settings <span>11</span></a></p>
+<p><a href="#preprocessor-macro">8.1 Preprocessor MACRO <span>11</span></a></p>
+<p><a href="#optimization-settings">8.2 Optimization Settings <span>11</span></a></p>
+<p><a href="#appendix">9 Appendix <span>12</span></a></p>
+<h1 id="abbrevations-and-acronyms">Abbrevations And Acronyms</h1>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFD</td>
+<td>Design functional diagram</td>
+</tr>
+<tr class="even">
+<td>MDD</td>
+<td>Module design Document</td>
+</tr>
+<tr class="odd">
+<td>FDD</td>
+<td>Functional Design Document</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p>This section lists the title &amp; version of all the documents that are referred for development of this document</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 65%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Sr. No.</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>FDD – DF003A McuDiagc</td>
+<td>See Synergy subproject version</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Software Naming Conventions</td>
+<td>Process 04.04.02</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Software Coding Standards</td>
+<td>Process 04.04.02</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dependencies">Dependencies</h1>
+<h2 id="swcs">SWCs</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Module</strong></th>
+<th><strong>Required Feature</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Note : Referencing the external components should be avoided in most cases. Only in unavoidable circumstance external components should be referred. Developer should track the references.</p>
+<h2 id="global-functionsnon-rte-to-be-provided-to-integration-project">Global Functions(Non RTE) to be provided to Integration Project</h2>
+<p>InjVrfyCritRegErr() – Function to Inject micro diagnostic error in Critical Registers</p>
+<p>InjMcuVltgMonrErr() – Function to Inject micro diagnostic error in Core voltage monitor</p>
+<p>InjClkMonrErr() – Function to Inject micro diagnostic error in Clock Monitors</p>
+<p>InjOsTmpGenericRtErr () – Function to Inject Temporary Run time error in Operating System</p>
+<p>InjOsPrmntGenericRtErr () – Function to Inject Permanent Run time error in Operating System</p>
+<p>InjWdgErr () – Function to Watchdog errors</p>
+<p>InjFpuErr () – Function to Inject floating point exceptions</p>
+<p>InjMemProtnErr () – Function to Inject Memory protection errors</p>
+<p>InjModErr () – Function to Inject mode errors</p>
+<p>InjMcuRtErr () – Function to Inject Mcu Run Time errors</p>
+<p>InjCodFlsEccErr() – Function to Inject Code flash ECC errors</p>
+<p>InjRamMemErr( ) – Function to Inject peripheral and local RAM ECC errors</p>
+<p>InjEcmMstChkrRtErr(void) () – Function to Inject micro diagnostic error in ECM Master and Slave</p>
+<p>InjUkwnStrtUpDetdErr(void) -() – Function to Inject unknown startup</p>
+<p>InjIpgRtErr(void) () – Function to Inject Run time IPG errors</p>
+<p>InjRtPegErr(void) – Function to Inject Run time Peg errors</p>
+<p>InjDataParErr() – Function to Inject Data Parity errors</p>
+<p>InjDmaErr() – Function Dma errors</p>
+<p>InjMcuDiagcErr() – Function to Inject loss ofmotor control ISR errors</p>
+<p>InjAdcErr() – Function to Inject ADC errors</p>
+<p>InjProgSeqErr () – Function to inject program sequence errors</p>
+<p>InjPbgRtErr () - Function to inject PBG run time errors</p>
+<p>InjSwFpuErr () – Function to inject software Floating point error</p>
+<p>McuDiagcTestTrustd() – Trusted function call from OS</p>
+<h1 id="configuration-requirements">Configuration REQUIREMeNTS</h1>
+<h2 id="build-time-config">Build Time Config</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 53%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Modules</strong></th>
+<th><strong>Notes</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MCUDIAGCERRINJ</strong></td>
+<td><p>STD_OFF for other builds</p>
+<p>STD_ON for uDiag test builds</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-to-be-provided-by-integration-project">Configuration Files to be provided by Integration Project</h2>
+<p><em>None</em></p>
+<h2 id="da-vinci-parameter-configuration-changes">Da Vinci Parameter Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Parameter</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="davinci-interrupt-configuration-changes">DaVinci Interrupt Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 9%" />
+<col style="width: 38%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ISR Name</strong></th>
+<th><strong>VIM #</strong></th>
+<th><strong>Priority Dependency</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-configuration-changes">Manual Configuration Changes</h2>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 47%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Constant</strong></th>
+<th><strong>Notes</strong></th>
+<th><strong>SWC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>OS Memory protection has to be extended to include the reserved RAM &amp; invalid memory area .Also execution from RAM need to be enabled too as per the settings below</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>(osuint32)0x0100a000UL, /* MPU region 3 */</strong></p>
+<p><strong>(osuint32)0x0100bffcUL,</strong></p>
+<p><strong>(osuint32)0x03ff00edUL,</strong></p>
+<p><strong>(osuint32)0x10020000UL, /* MPU region 4 */</strong></p>
+<p><strong>(osuint32)0x10020848UL,</strong></p>
+<p><strong>(osuint32)0x03ff00dbUL,</strong></p>
+<p><strong>(osuint32)0xfb000000UL, /* MPU region 5 */</strong></p>
+<p><strong>(osuint32)0xfebdfffcUL,</strong></p>
+<p><strong>(osuint32)0x03ff00d9UL,</strong></p>
+<p><strong>(osuint32)</strong> <strong>0xF3000000UUL, /* MPU region 6 */</strong></p>
+<p><strong>(osuint32)</strong> <strong>0xF4000000UL,</strong></p>
+<p><strong>(osuint32)0x03ff00dbUL,</strong></p>
+<p><strong>(osuint32)&amp;osGlobalShared_StartAddr, /* MPU region Global shared*/</strong></p>
+<p><strong>(osuint32)&amp;osGlobalShared_EndAddr,</strong></p>
+<p><strong>(osuint32)0x03ff00fbUL,</strong></p>
+<h1 id="integration-dataflow-requirements">Integration DATAFLOW REQUIREMENTS</h1>
+<h2 id="required-global-data-inputs">Required Global Data Inputs</h2>
+<p>Refer DataDict.m file</p>
+<h2 id="required-global-data-outputs">Required Global Data Outputs</h2>
+<p>Refer DataDict.m file</p>
+<h2 id="specific-include-path-present">Specific Include Path present</h2>
+<p>Yes</p>
+<h1 id="runnable-scheduling">Runnable Scheduling </h1>
+<p>This section specifies the required runnable scheduling.</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 39%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Init</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>McuDiagcInit1</strong></td>
+<td><strong>None</strong></td>
+<td><strong>RTE (Init)</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 41%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Runnable</strong></th>
+<th><strong>Scheduling Requirements</strong></th>
+<th><strong>Trigger</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>McuDiagcPer1</strong></td>
+<td><strong>None</strong></td>
+<td><strong>RTE (2 ms)</strong></td>
+</tr>
+<tr class="even">
+<td><strong>ClrErrInjReg_Oper</strong></td>
+<td><strong>None</strong></td>
+<td><strong>On invocation</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>ReadErrInjReg_Oper</strong></td>
+<td><strong>None</strong></td>
+<td><strong>On invocation</strong></td>
+</tr>
+<tr class="even">
+<td><strong>StrtErrInjCntr_Oper</strong></td>
+<td><strong>None</strong></td>
+<td><strong>On invocation</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>UpdErrInjReg_Oper</strong></td>
+<td><strong>None</strong></td>
+<td><strong>On invocation</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="memory-map-requirements">Memory Map REQUIREMENTS</h1>
+<h2 id="mapping">Mapping</h2>
+<table>
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 23%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Memory Section</strong></th>
+<th><strong>Contents</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>McuErrInj_START_SEC_VAR_INIT_128</strong></td>
+<td>Data section for DMA write</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>McuErrInjGlobalShared_START_SEC_VAR_CLEARED_32</strong></td>
+<td>Global shared data access</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Each …START_SEC… constant is terminated by a …STOP_SEC… constant as specified in the AUTOSAR Memory Mapping requirements.</p>
+<h2 id="usage">Usage</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>RAM</strong></th>
+<th><strong>ROM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nvm-blocks">NvM Blocks</h2>
+<p>None</p>
+<h1 id="compiler-settings">Compiler Settings</h1>
+<h2 id="preprocessor-macro"> Preprocessor MACRO</h2>
+<p>None</p>
+<h2 id="optimization-settings">Optimization Settings</h2>
+<p>None</p>
+<h1 id="appendix">Appendix</h1>
+<p><em>None</em></p>

@@ -1,0 +1,744 @@
+---
+title: InertiaCmpVel_MDD
+linkTitle: InertiaCmpVel_MDD
+weight: 3
+---
+
+<p><strong>Module Design Document</strong></p>
+<p><strong>For</strong></p>
+<p><strong>InertiaCmpVel</strong></p>
+<p><strong>August 18, 2017</strong></p>
+<p><strong>Prepared By:</strong></p>
+<p><strong>Matthew Leser,</strong></p>
+<p><strong>Nexteer Automotive,</strong></p>
+<p><strong>Saginaw, MI, USA<br />
+<u>Change History</u></strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 34%" />
+<col style="width: 21%" />
+<col style="width: 13%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>SNo</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Author</strong></td>
+<td><strong>Version</strong></td>
+<td><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Initial Version</td>
+<td>SB</td>
+<td>1.0</td>
+<td>23-Jul-2015</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Updated to version 1.3.0 of design</td>
+<td>SB</td>
+<td>2.0</td>
+<td>11-Mar-2016</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Updated to version 1.7.0 and 1.8.0 of design</td>
+<td>KK</td>
+<td>3.0</td>
+<td>21-Jun-2016</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Updated to version 1.9.0 of design</td>
+<td>KK</td>
+<td>4.0</td>
+<td>14-Jul-2016</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Updated Graph and function input</td>
+<td>ML</td>
+<td>5.0</td>
+<td>18-Aug-2017</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br />
+</strong></p>
+<p><strong><u>Table of Contents</u></strong></p>
+<p><a href="#introduction">1 Introduction <span>4</span></a></p>
+<p><a href="#purpose">1.1 Purpose <span>4</span></a></p>
+<p><a href="#scope">1.2 Scope <span>4</span></a></p>
+<p><a href="#inertiacmpvel-high-level-description">2 InertiaCmpVel &amp; High-Level Description <span>5</span></a></p>
+<p><a href="#design-details-of-software-module">3 Design details of software module <span>6</span></a></p>
+<p><a href="#graphical-representation-of-inertiacmpvel">3.1 Graphical representation of InertiaCmpVel <span>6</span></a></p>
+<p><a href="#data-flow-diagram">3.2 Data Flow Diagram <span>7</span></a></p>
+<p><a href="#component-level-dfd">3.2.1 Component level DFD <span>7</span></a></p>
+<p><a href="#function-level-dfd">3.2.2 Function level DFD <span>7</span></a></p>
+<p><a href="#constant-data-dictionary">4 Constant Data Dictionary <span>8</span></a></p>
+<p><a href="#program-fixed-constants">4.1 Program (fixed) Constants <span>8</span></a></p>
+<p><a href="#embedded-constants">4.1.1 Embedded Constants <span>8</span></a></p>
+<p><a href="#software-component-implementation">5 Software Component Implementation <span>9</span></a></p>
+<p><a href="#sub-module-functions">5.1.1 Sub-Module Functions <span>9</span></a></p>
+<p><a href="#interrupt-service-routines">5.1.2 Interrupt Service Routines <span>9</span></a></p>
+<p><a href="#server-runnable-functions">5.1.3 Server Runnable Functions <span>9</span></a></p>
+<p><a href="#module-internal-local-functions">5.1.4 Module Internal (Local) Functions <span>9</span></a></p>
+<p><a href="#transition-functions">5.1.5 Transition Functions <span>11</span></a></p>
+<p><a href="#known-limitations-with-design">6 Known Limitations with Design <span>12</span></a></p>
+<p><a href="#unit-test-consideration">7 UNIT TEST CONSIDERATION <span>13</span></a></p>
+<p><a href="#abbreviations-and-acronyms">Appendix A Abbreviations and Acronyms <span>14</span></a></p>
+<p><a href="#glossary">Appendix B Glossary <span>15</span></a></p>
+<p><a href="#references">Appendix C References <span>16</span></a></p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="purpose">Purpose</h2>
+<h2 id="scope">Scope</h2>
+<h1 id="inertiacmpvel-high-level-description">InertiaCmpVel &amp; High-Level Description</h1>
+<p><em>Refer FDD</em></p>
+<h1 id="design-details-of-software-module">Design details of software module</h1>
+<h2 id="graphical-representation-of-inertiacmpvel">Graphical representation of InertiaCmpVel</h2>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image2.png" style="width:3.12337in;height:3.75941in" /></p>
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+<h3 id="component-level-dfd">Component level DFD</h3>
+<p>Refer FDD</p>
+<h3 id="function-level-dfd">Function level DFD</h3>
+<p>Refer FDD</p>
+<h1 id="constant-data-dictionary">Constant Data Dictionary</h1>
+<h2 id="program-fixed-constants">Program (fixed) Constants</h2>
+<h3 id="embedded-constants">Embedded Constants</h3>
+<h4 id="local-constants">Local Constants</h4>
+<p>None</p>
+<h4 id="global-constants">Global Constants</h4>
+<p>Refer .m file</p>
+<h4 id="user-defined-typedef-definitiondeclaration">User defined typedef definition/declaration </h4>
+<p>This section documents any user types uniquely used for the module.</p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 24%" />
+<col style="width: 16%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typedef Name</th>
+<th>Element Name</th>
+<th>User Defined Type</th>
+<th><p>Legal Range</p>
+<p>(min)</p></th>
+<th><p>Legal Range</p>
+<p>(max)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>typedef struct FilCoeffRec</td>
+<td>b0_Uls_f32</td>
+<td>Float32</td>
+<td>FULL</td>
+<td>FULL</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b1_Uls_f32</td>
+<td>Float32</td>
+<td>FULL</td>
+<td>FULL</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>b2_Uls_f32</td>
+<td>Float32</td>
+<td>FULL</td>
+<td>FULL</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a0_Uls_f32</td>
+<td>Float32</td>
+<td>FULL</td>
+<td>FULL</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a1_Uls_f32</td>
+<td>Float32</td>
+<td>FULL</td>
+<td>FULL</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a2_Uls_f32</td>
+<td>Float32</td>
+<td>FULL</td>
+<td>FULL</td>
+</tr>
+</tbody>
+</table>
+<h1 id="software-component-implementation">Software Component Implementation</h1>
+<h3 id="sub-module-functions">Sub-Module Functions</h3>
+<h4 id="initialization-sub-module-inertiacmpvelinit1">Initialization sub-module InertiaCmpVelInit1()</h4>
+<p><strong>Design Rational:</strong></p>
+<p><strong>Init function is not present in the model but in reference to the Init.txt text file Low pass filter and Notch filter are initialized.</strong></p>
+<p><strong>For Low pass filter standard EA4 LPF implementation from NxtrFil.h is followed and for Notch filter initialization, EA3 implementation is followed.</strong></p>
+<h4 id="periodic-sub-module-inertiacmpvelper1">Periodic sub-module InertiaCmpVelPer1() </h4>
+<h3 id="interrupt-service-routines">Interrupt Service Routines</h3>
+<p>None</p>
+<h3 id="server-runnable-functions">Server Runnable Functions</h3>
+<p>None</p>
+<h3 id="module-internal-local-functions">Module Internal (Local) Functions</h3>
+<h4 id="calculate-driver-velocity">Calculate Driver Velocity</h4>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 47%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DrvrVelCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>HwTq_HwNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-10</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotVelCrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350</td>
+<td>1350</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ScadDrvrVel_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350</td>
+<td>1350</td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculate-add-coefficient">Calculate ADD Coefficient</h4>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 46%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>ADDCoeffCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>AssiCmdBas_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>WhlImbRejctnAmp_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>8.8</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>ADDCoeffCalc_MotNwtMtrSpRad_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>0.00007</td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculate-gain">Calculate Gain</h4>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 47%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>DecelGain</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehLgtA_KphPerSec_T_f32</td>
+<td>float32</td>
+<td>-35</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MotVelCrf_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-1350</td>
+<td>1350</td>
+</tr>
+<tr class="even">
+<td><strong>Return Value</strong></td>
+<td>DecelGain_Uls_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculate-filter-coefficients">Calculate Filter Coefficients</h4>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td colspan="2">FilCoeffCalc</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td colspan="2">ADDCoeff_MotNwtMtrPerMotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>0.041306</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td colspan="2">WhlImbRejctnAmp_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>8.8</td>
+</tr>
+<tr class="even">
+<td></td>
+<td colspan="2">VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>*FilCoeff_T_Rec</td>
+<td>b0_Uls_f32</td>
+<td>float32</td>
+<td>-2.74156205240179</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>b1_Uls_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>0.330448</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>b2_Uls_f32</td>
+<td>float32</td>
+<td>-0.160083862455113</td>
+<td>2.41111405240179</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>a0_Uls_f32</td>
+<td>float32</td>
+<td>0.5525885</td>
+<td>3.9498924</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>a1_Uls_f32</td>
+<td>float32</td>
+<td>-7.9996842</td>
+<td>-4.8417266</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>a2_Uls_f32</td>
+<td>float32</td>
+<td>4.0504234</td>
+<td>10.6056849</td>
+</tr>
+</tbody>
+</table>
+<h4 id="generate-command">Generate Command</h4>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td colspan="2">GenFddIcCmd</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td colspan="2">ScadDrvrVel_MotRadPerSec_T_f32</td>
+<td>float32</td>
+<td>-7226.652</td>
+<td>7226.652</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td rowspan="6">*FilCoeff_T_Rec</td>
+<td>b0_Uls_f32</td>
+<td>float32</td>
+<td>-2.74156205240179</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b1_Uls_f32</td>
+<td>float32</td>
+<td>0.0</td>
+<td>0.330448</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>b2_Uls_f32</td>
+<td>float32</td>
+<td>-0.166262133009164</td>
+<td>2.41111405240179</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a0_Uls_f32</td>
+<td>float32</td>
+<td>0.5525885</td>
+<td>3.9498924</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a1_Uls_f32</td>
+<td>float32</td>
+<td>-7.9996842</td>
+<td>-4.8417266</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a2_Uls_f32</td>
+<td>float32</td>
+<td>4.0504234</td>
+<td>10.6056849</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td colspan="2">InertiaCmp_MotNwtMtr_T_f32</td>
+<td>Float</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="notchcmp">NotchCmp</h4>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 47%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>NotchCmp</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>VehSpd_Kph_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>511</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>InertiaCmp_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>WhlImbRejctnAmp_MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>0</td>
+<td>8.8</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>NotchCmp _MotNwtMtr_T_f32</td>
+<td>float32</td>
+<td>-8.8</td>
+<td>8.8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="filnotchfullupdoutp_f32">FilNotchFullUpdOutp_f32</h4>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 30%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>FilNotchFullUpdOutp_f32</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Inp</td>
+<td>float32</td>
+<td colspan="2" rowspan="4">See unit test consideration</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>FilNotchStRecPtr</td>
+<td>FilNotchStRec1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>FilNotchGainRecPtr</td>
+<td>FilNotchGainRec1</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="description">Description</h5>
+<p>Notch filter output calculation implemented based on ‘Inertia Comp Notch’ block functionality.</p>
+<h4 id="filnotchinit">FilNotchInit </h4>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 30%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function Name</strong></td>
+<td>FilNotchInit</td>
+<td>Type</td>
+<td>Min</td>
+<td>Max</td>
+</tr>
+<tr class="even">
+<td><strong>Arguments Passed</strong></td>
+<td>Inp</td>
+<td>float32</td>
+<td colspan="2" rowspan="4">See unit test consideration</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>FilNotchStRecPtr</td>
+<td>FilNotchStRec1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>FilNotchGainRecPtr</td>
+<td>FilNotchGainRec1</td>
+</tr>
+<tr class="odd">
+<td><strong>Return Value</strong></td>
+<td>FilOut</td>
+<td>float32</td>
+</tr>
+</tbody>
+</table>
+<h5 id="description-1">Description</h5>
+<p>Notch filter initialization function implemented based on EA3 design.</p>
+<h3 id="transition-functions">Transition Functions</h3>
+<p>None</p>
+<h1 id="known-limitations-with-design">Known Limitations with Design</h1>
+<p>None</p>
+<h1 id="unit-test-consideration">UNIT TEST CONSIDERATION</h1>
+<ol type="1">
+<li><p>Since the notch filter implementation used in this module is dynamic in nature, absolute ranges are difficult to determine without pre-defined knowledge on the combination of coefficient values (A1, A2, B0, B1, B2). Because of this, the systems group ran simulations on 10 different combinations of coefficients (2 with defined default calibrations, 8 considered extreme cases of notch filters) and logged the ranges of the filter state variables and outputs during a frequency sweep. The ranges given throughout this module were taken as the worst case results of all of the given test cases.</p></li>
+</ol>
+<blockquote>
+<p>To provide useful cases for unit testing, the boundary checks tested during unit testing should be altered to test the state variable minimum and maximum for each of the 10 test cases with the given coefficients set to the values given in that test case. In the case where the default values of the coefficients are used in a vector, the unit tester should not test the corresponding state variables with values over the range defined for that set of coefficients. See attached simulation results.</p>
+</blockquote>
+<p><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/static/media/image3.emf" /></p>
+<ol start="2" type="1">
+<li><p>GenFddIcCmd function is designed to work with argument values from the calling function as used with the other functions in the module, and outputs may be out of the expected range if tested with arbitrary combinations of input values. Unit testing of this function should use only passed argument value combinations coming from the calling function.</p></li>
+</ol>
+<p class="heading" id="abbreviations-and-acronyms">Abbreviations and Acronyms</p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Abbreviation or Acronym</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="glossary">Glossary</p>
+<p><strong>Note</strong>: Terms and definitions from the source “Nexteer Automotive” take precedence over all other definitions of the same term. Terms and definitions from the source “Nexteer Automotive” are formulated from multiple sources, including the following:</p>
+<ul>
+<li><p>ISO 9000</p></li>
+<li><p>ISO/IEC 12207</p></li>
+<li><p>ISO/IEC 15504</p></li>
+<li><p>Automotive SPICE® Process Reference Model (PRM)</p></li>
+<li><p>Automotive SPICE® Process Assessment Model (PAM)</p></li>
+<li><p>ISO/IEC 15288</p></li>
+<li><p>ISO 26262</p></li>
+<li><p>IEEE Standards</p></li>
+<li><p>SWEBOK</p></li>
+<li><p>PMBOK</p></li>
+<li><p>Existing Nexteer Automotive documentation</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 53%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MDD</td>
+<td>Module Design Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DFD</td>
+<td>Data Flow Diagram</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="heading" id="references">References</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 69%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ref. #</strong></th>
+<th><strong>Title</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AUTOSAR Specification of Memory Mapping (Link:<a href="http://www.autosar.org/download/R4.0/AUTOSAR_SWS_MemoryMapping.pdf">AUTOSAR_SWS_MemoryMapping.pdf</a>)</td>
+<td>v1.3.0 R4.0 Rev 2</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>MDD Guideline</td>
+<td>EA4 01.00.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><a href="http://misagweb01.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_fc55f/Software%20Naming%20Conventions%2003x(In%20Work).doc">Software Naming Conventions.doc</a></td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><a href="http://eroom1.nexteer.com/eRoomReq/Files/erooms8/NextGeneration/0_1a67a9/Software%20Design%20and%20Coding%20Standards.doc">Software Design and Coding Standards.doc</a></td>
+<td>2.1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>FDD – SF014A_InetiaCmpVel_Design</td>
+<td>See Synergy Sub project version</td>
+</tr>
+</tbody>
+</table>

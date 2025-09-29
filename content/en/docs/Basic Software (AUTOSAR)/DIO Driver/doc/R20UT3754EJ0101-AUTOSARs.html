@@ -1,0 +1,904 @@
+---
+title: R20UT3754EJ0101-AUTOSARs
+linkTitle: R20UT3754EJ0101-AUTOSARs
+weight: 15
+---
+
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-1_1.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-1_2.jpg"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-1_3.png"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+RUCG&#160;Tool&#160;<br/>
+User’s Manual&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Version 1.1.3&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+Target&#160;Device:&#160;<br/>
+RH850/P1M&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+All&#160;information&#160;contained&#160;in these&#160;materials,&#160;including&#160;products&#160;and&#160;product&#160;specifications,&#160;<br/>represents&#160;information on the&#160;product&#160;at&#160;the&#160;time&#160;of&#160;publication and&#160;is&#160;subject&#160;to change by&#160;<br/>Renesas&#160;Electronics&#160;Corp.&#160;without&#160;notice.&#160;Please&#160;review&#160;the&#160;latest&#160;information&#160;published by&#160;<br/>Renesas&#160;Electronics&#160;Corp.&#160;through&#160;various means,&#160;including&#160;the&#160;Renesas&#160;Electronics&#160;Corp.&#160;<br/>websit<a href="http://www.renesas.com/">e&#160;(http://www.renesas.com).&#160;</a><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+<a href="http://www.renesas.com/">www.renesas.com&#160;</a><br/>
+<a href="http://www.renesas.com/">Rev</a>.1.01 Feb 2017&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a>&#160;<br/>
+&#160;<br/>
+2&#160;<br/>&#160;<br/>
+<hr/>
+<a name=3></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+Notice&#160;<br/>
+1.&#160;<br/>
+Descriptions&#160;of&#160;circuits,&#160;software&#160;and&#160;other&#160;related&#160;information&#160;in&#160;this&#160;document&#160;are&#160;provided&#160;only&#160;to&#160;illustrate&#160;the&#160;operation&#160;of&#160;<br/>semiconductor&#160;products&#160;and&#160;application&#160;examples.&#160;You&#160;are&#160;fully&#160;responsible&#160;for&#160;the&#160;incorporation&#160;or&#160;any&#160;other&#160;use&#160;of&#160;the&#160;circuits,&#160;<br/>software,&#160;and&#160;information&#160;in&#160;the&#160;design&#160;of&#160;your&#160;product&#160;or&#160;system.&#160;Renesas&#160;Electronics&#160;disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;losses&#160;<br/>and&#160;damages&#160;incurred&#160;by&#160;you&#160;or&#160;third&#160;parties&#160;arising&#160;from&#160;the&#160;use&#160;of&#160;these&#160;circuits,&#160;software,&#160;or&#160;information.&#160;<br/>
+2.&#160;<br/>
+Renesas&#160;Electronics&#160;hereby&#160;expressly&#160;disclaims&#160;any&#160;warranties&#160;against&#160;and&#160;liability&#160;for&#160;infringement&#160;or&#160;any&#160;other&#160;disputes&#160;involving&#160;patents,&#160;<br/>copyrights,&#160;or&#160;other&#160;intellectual&#160;property&#160;rights of&#160;third&#160;parties,&#160;by&#160;or&#160;arising&#160;from the&#160;use&#160;of&#160;Renesas&#160;Electronics&#160;products&#160;or&#160;technical&#160;<br/>information&#160;described&#160;in&#160;this&#160;document,&#160;including&#160;but&#160;not&#160;limited&#160;to,&#160;the&#160;product&#160;data,&#160;drawing,&#160;chart,&#160;program,&#160;algorithm,&#160;application&#160;<br/>examples.&#160;<br/>
+3.&#160;<br/>
+No&#160;license,&#160;express,&#160;implied&#160;or&#160;otherwise,&#160;is granted&#160;hereby&#160;under&#160;any&#160;patents,&#160;copyrights or&#160;other&#160;intellectual&#160;property&#160;rights of&#160;Renesas&#160;<br/>Electronics or&#160;others.&#160;<br/>
+4.&#160;<br/>
+You&#160;shall&#160;not&#160;alter,&#160;modify,&#160;copy,&#160;or&#160;otherwise&#160;misappropriate&#160;any&#160;Renesas&#160;Electronics&#160;product,&#160;whether&#160;in&#160;whole&#160;or&#160;in&#160;part.&#160;Renesas&#160;<br/>Electronics&#160;disclaims any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;losses or&#160;damages incurred&#160;by&#160;you&#160;or&#160;third&#160;parties arising&#160;from such&#160;alteration,&#160;<br/>modification,&#160;copy&#160;or&#160;otherwise&#160;misappropriation&#160;of&#160;Renesas&#160;Electronics&#160;products.&#160;<br/>
+5.&#160;<br/>
+Renesas&#160;Electronics&#160;products are&#160;classified&#160;according&#160;to&#160;the&#160;following&#160;two&#160;quality&#160;grades:&#160;&#34;Standard&#34;&#160;and&#160;&#34;High&#160;Quality&#34;.&#160;The&#160;intended&#160;<br/>applications for&#160;each&#160;Renesas&#160;Electronics&#160;product&#160;depends on&#160;the&#160;product’s&#160;quality&#160;grade,&#160;as indicated&#160;below.&#160;&#160;<br/>
+&#34;Standard&#34;:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Computers;&#160;office&#160;equipment;&#160;communications&#160;equipment;&#160;test&#160;and&#160;measurement&#160;equipment;&#160;audio&#160;and&#160;visual&#160;equipment;&#160;<br/>
+home&#160;electronic&#160;appliances;&#160;machine&#160;tools;&#160;personal&#160;electronic&#160;equipment;&#160;and&#160;industrial&#160;robots&#160;etc.&#160;<br/>
+&#34;High&#160;Quality&#34;:&#160;&#160;&#160;Transportation&#160;equipment&#160;(automobiles,&#160;trains,&#160;ships,&#160;etc.);&#160;traffic&#160;control&#160;(traffic&#160;lights);&#160;large-scale&#160;communication&#160;<br/>
+equipment;&#160;key&#160;financial&#160;terminal&#160;systems;&#160;safety&#160;control&#160;equipment;&#160;etc.&#160;<br/>
+Renesas&#160;Electronics&#160;products are&#160;neither&#160;intended&#160;nor&#160;authorized&#160;for&#160;use&#160;in&#160;products&#160;or&#160;systems that&#160;may&#160;pose&#160;a&#160;direct&#160;threat&#160;to&#160;human&#160;life&#160;or&#160;<br/>bodily&#160;injury&#160;(artificial&#160;life&#160;support&#160;devices or&#160;systems,&#160;surgical&#160;implantations etc.),&#160;or&#160;may&#160;cause&#160;serious&#160;property&#160;damages (space&#160;and&#160;<br/>undersea&#160;repeaters;&#160;nuclear&#160;power&#160;control&#160;systems;&#160;aircraft&#160;control&#160;systems;&#160;key&#160;plant&#160;systems;&#160;military&#160;equipment;&#160;etc.).&#160;Renesas&#160;Electronics&#160;<br/>disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;damages or&#160;losses incurred&#160;by&#160;you&#160;or&#160;third&#160;parties arising&#160;from the&#160;use&#160;of&#160;any&#160;Renesas&#160;Electronics&#160;<br/>product&#160;for&#160;which&#160;the&#160;product&#160;is&#160;not&#160;intended&#160;by&#160;Renesas&#160;Electronics.&#160;<br/>
+6.&#160;<br/>
+When&#160;using&#160;the&#160;Renesas&#160;Electronics&#160;products,&#160;refer&#160;to&#160;the&#160;latest&#160;product&#160;information&#160;(data&#160;sheets,&#160;user’s manuals,&#160;application&#160;notes,&#160;&#34;General&#160;<br/>Notes for&#160;Handling&#160;and&#160;Using&#160;Semiconductor&#160;Devices&#34;&#160;in&#160;the&#160;reliability&#160;handbook,&#160;etc.),&#160;and&#160;ensure&#160;that&#160;usage&#160;conditions&#160;are&#160;within&#160;the&#160;<br/>ranges specified&#160;by&#160;Renesas&#160;Electronics with&#160;respect&#160;to&#160;maximum&#160;ratings,&#160;operating&#160;power&#160;supply&#160;voltage&#160;range,&#160;heat&#160;radiation&#160;<br/>characteristics,&#160;installation,&#160;etc.&#160;Renesas Electronics&#160;disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;any&#160;malfunctions or&#160;failure&#160;or&#160;accident&#160;arising&#160;out&#160;of&#160;<br/>the&#160;use&#160;of&#160;Renesas&#160;Electronics&#160;products&#160;beyond&#160;such&#160;specified&#160;ranges.&#160;<br/>
+7.&#160;<br/>
+Although&#160;Renesas&#160;Electronics&#160;endeavors to&#160;improve&#160;the&#160;quality&#160;and&#160;reliability&#160;of&#160;Renesas&#160;Electronics&#160;products,&#160;semiconductor&#160;products&#160;have&#160;<br/>specific&#160;characteristics such&#160;as the&#160;occurrence&#160;of&#160;failure&#160;at&#160;a&#160;certain&#160;rate&#160;and&#160;malfunctions&#160;under&#160;certain&#160;use&#160;conditions.&#160;Further,&#160;Renesas&#160;<br/>Electronics&#160;products&#160;are&#160;not&#160;subject&#160;to&#160;radiation&#160;resistance&#160;design.&#160;Please&#160;ensure&#160;to&#160;implement&#160;safety&#160;measures to&#160;guard&#160;them against&#160;the&#160;<br/>possibility&#160;of&#160;bodily&#160;injury,&#160;injury&#160;or&#160;damage&#160;caused&#160;by&#160;fire,&#160;and&#160;social&#160;damage&#160;in&#160;the&#160;event&#160;of&#160;failure&#160;or&#160;malfunction&#160;of&#160;Renesas&#160;Electronics&#160;<br/>products,&#160;such&#160;as safety&#160;design&#160;for&#160;hardware&#160;and&#160;software&#160;including&#160;but&#160;not&#160;limited&#160;to&#160;redundancy,&#160;fire&#160;control&#160;and&#160;malfunction&#160;prevention,&#160;<br/>appropriate&#160;treatment&#160;for&#160;aging&#160;degradation&#160;or&#160;any&#160;other&#160;appropriate&#160;measures by&#160;your&#160;own&#160;responsibility&#160;as warranty&#160;for&#160;your&#160;<br/>products/system.&#160;Because&#160;the&#160;evaluation&#160;of&#160;microcomputer&#160;software&#160;alone&#160;is very&#160;difficult&#160;and&#160;not&#160;practical,&#160;please&#160;evaluate&#160;the&#160;safety&#160;of&#160;the&#160;<br/>final&#160;products or&#160;systems manufactured&#160;by&#160;you.&#160;<br/>
+8.&#160;<br/>
+Please&#160;contact&#160;a&#160;Renesas&#160;Electronics sales office&#160;for&#160;details as&#160;to&#160;environmental&#160;matters such&#160;as&#160;the&#160;environmental&#160;compatibility&#160;of&#160;each&#160;<br/>Renesas&#160;Electronics&#160;product.&#160;Please&#160;investigate&#160;applicable&#160;laws and&#160;regulations&#160;that&#160;regulate&#160;the&#160;inclusion&#160;or&#160;use&#160;of&#160;controlled&#160;substances,&#160;<br/>including&#160;without&#160;limitation,&#160;the&#160;EU&#160;RoHS&#160;Directive&#160;carefully&#160;and&#160;sufficiently&#160;and&#160;use&#160;Renesas&#160;Electronics&#160;products in&#160;compliance&#160;with&#160;all&#160;<br/>these&#160;applicable&#160;laws and&#160;regulations.&#160;Renesas&#160;Electronics&#160;disclaims&#160;any&#160;and&#160;all&#160;liability&#160;for&#160;damages or&#160;losses occurring&#160;as&#160;a&#160;result&#160;of&#160;your&#160;<br/>noncompliance&#160;with&#160;applicable&#160;laws and&#160;regulations.&#160;<br/>
+9.&#160;<br/>
+Renesas&#160;Electronics&#160;products and&#160;technologies shall&#160;not&#160;be&#160;used&#160;for&#160;or&#160;incorporated&#160;into&#160;any&#160;products&#160;or&#160;systems whose&#160;manufacture,&#160;use,&#160;or&#160;<br/>sale&#160;is prohibited&#160;under&#160;any&#160;applicable&#160;domestic&#160;or&#160;foreign&#160;laws or&#160;regulations.&#160;You&#160;shall&#160;not&#160;use&#160;Renesas&#160;Electronics&#160;products or&#160;<br/>technologies for&#160;(1)&#160;any&#160;purpose&#160;relating&#160;to&#160;the&#160;development,&#160;design,&#160;manufacture,&#160;use,&#160;stockpiling,&#160;etc.,&#160;of&#160;weapons of&#160;mass&#160;destruction,&#160;<br/>such&#160;as&#160;nuclear&#160;weapons,&#160;chemical&#160;weapons,&#160;or&#160;biological&#160;weapons,&#160;or&#160;missiles (including&#160;unmanned&#160;aerial&#160;vehicles (UAVs))&#160;for&#160;delivering&#160;<br/>such&#160;weapons,&#160;(2)&#160;any&#160;purpose&#160;relating&#160;to&#160;the&#160;development,&#160;design,&#160;manufacture,&#160;or&#160;use&#160;of&#160;conventional&#160;weapons,&#160;or&#160;(3)&#160;any&#160;other&#160;purpose&#160;of&#160;<br/>disturbing&#160;international&#160;peace&#160;and&#160;security,&#160;and&#160;you&#160;shall&#160;not&#160;sell,&#160;export,&#160;lease,&#160;transfer,&#160;or&#160;release&#160;Renesas&#160;Electronics&#160;products or&#160;<br/>technologies to&#160;any&#160;third&#160;party&#160;whether&#160;directly&#160;or&#160;indirectly&#160;with&#160;knowledge&#160;or&#160;reason&#160;to&#160;know&#160;that&#160;the&#160;third&#160;party&#160;or&#160;any&#160;other&#160;party&#160;will&#160;<br/>engage&#160;in&#160;the&#160;activities described&#160;above.&#160;When&#160;exporting,&#160;selling,&#160;transferring,&#160;etc.,&#160;Renesas&#160;Electronics&#160;products&#160;or&#160;technologies,&#160;you&#160;shall&#160;<br/>comply&#160;with&#160;any&#160;applicable&#160;export&#160;control&#160;laws and&#160;regulations&#160;promulgated&#160;and&#160;administered&#160;by&#160;the&#160;governments of&#160;the&#160;countries asserting&#160;<br/>jurisdiction&#160;over&#160;the&#160;parties or&#160;transactions.&#160;<br/>
+10.&#160;&#160;Please&#160;acknowledge&#160;and&#160;agree&#160;that&#160;you&#160;shall&#160;bear&#160;all&#160;the&#160;losses and&#160;damages which&#160;are&#160;incurred&#160;from the&#160;misuse&#160;or&#160;violation&#160;of&#160;the&#160;terms and&#160;<br/>
+conditions&#160;described&#160;in&#160;this&#160;document,&#160;including&#160;this&#160;notice,&#160;and&#160;hold&#160;Renesas Electronics&#160;harmless,&#160;if&#160;such&#160;misuse&#160;or&#160;violation&#160;results from&#160;<br/>your&#160;resale&#160;or&#160;making&#160;Renesas&#160;Electronics&#160;products&#160;available&#160;any&#160;third&#160;party.&#160;<br/>
+11.&#160;&#160;This document&#160;shall&#160;not&#160;be&#160;reprinted,&#160;reproduced&#160;or&#160;duplicated&#160;in&#160;any&#160;form,&#160;in&#160;whole&#160;or&#160;in&#160;part,&#160;without&#160;prior&#160;written&#160;consent&#160;of&#160;Renesas&#160;<br/>
+Electronics.&#160;<br/>
+12.&#160;&#160;Please&#160;contact&#160;a&#160;Renesas&#160;Electronics sales office&#160;if&#160;you&#160;have&#160;any&#160;questions regarding&#160;the&#160;information&#160;contained&#160;in&#160;this&#160;document&#160;or&#160;Renesas&#160;<br/>
+Electronics&#160;products.&#160;<br/>
+&#160;<br/>
+(Note&#160;1)&#160;&#160;&#160;&#34;Renesas&#160;Electronics&#34;&#160;as&#160;used&#160;in&#160;this&#160;document&#160;means&#160;Renesas&#160;Electronics&#160;Corporation&#160;and&#160;also&#160;includes its majority-owned&#160;<br/>
+subsidiaries.&#160;<br/>
+(Note&#160;2)&#160;&#160;&#160;&#34;Renesas&#160;Electronics&#160;product(s)&#34;&#160;means&#160;any&#160;product&#160;developed&#160;or&#160;manufactured&#160;by&#160;or&#160;for&#160;Renesas&#160;Electronics<br/>
+3&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=4></a>&#160;<br/>
+4&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<hr/>
+<a name=5></a>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>Abbreviations&#160;and&#160;Acronyms</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Abbreviation&#160;/&#160;Acronym</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+ARXML/arxml&#160;<br/>
+AUTOSAR xml&#160;<br/>
+AUTOSAR&#160;<br/>
+AUTomotive&#160;Open&#160;System&#160;Architecture&#160;<br/>
+BSWMDT&#160;<br/>
+Basic&#160;Software&#160;Module Description&#160;Template&#160;<br/>
+&lt;MSN&gt;&#160;<br/>
+Module&#160;Short Name&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+DMA&#160;<br/>
+Direct&#160;Memory&#160;Access&#160;<br/>
+ECU&#160;<br/>
+Electronic&#160;Control&#160;Unit&#160;<br/>
+MCAL&#160;<br/>
+Microcontroller&#160;Abstraction&#160;Layer&#160;<br/>
+MCU&#160;<br/>
+Microcontroller&#160;Unit&#160;<br/>
+XML&#160;<br/>
+eXtensible&#160;Mark-up&#160;Language&#160;<br/>
+DLL&#160;<br/>
+Dynamic&#160;Linking&#160;Library&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Definitions</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Terminology</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+.arxml&#160;<br/>
+AUTOSAR XML&#160;File.&#160;<br/>
+.trxml&#160;<br/>
+Translation&#160;XML File.&#160;<br/>
+PerlCtrl&#160;<br/>
+The utility&#160;converts&#160;a&#160;Perl&#160;program&#160;into&#160;an&#160;ActiveX&#160;control.&#160;<br/>
+5&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=6></a>&#160;<br/>
+6&#160;<br/>&#160;<br/>
+<hr/>
+<a name=7></a>&#160;<br/>
+<b>Table&#160;of&#160;Contents&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#9"><b>Chapter&#160;1&#160;Introduction&#160;.........................................................................9</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#9"><b>1.1</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#9"><b>Document&#160;Overview&#160;...............................................................................................................&#160;9</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#11"><b>Chapter&#160;2&#160;Reference&#160;...........................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#11"><b>2.1.</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#11"><b>Reference&#160;Documents..........................................................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#11"><b>2.2.</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#11"><b>Trademark&#160;Notice&#160;................................................................................................................&#160;11</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#13"><b>Chapter&#160;3&#160;Tool&#160;Overview&#160;.....................................................................&#160;13</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#13"><b>3.1</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#13"><b>Usage.....................................................................................................................................&#160;13</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>Chapter&#160;4&#160;Input&#160;Files&#160;..........................................................................&#160;17</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>4.1</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>Msn Control DLL&#160;..................................................................................................................&#160;17</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>4.2</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>ECU Configuration&#160;Description&#160;File(s)&#160;..............................................................................&#160;17</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>4.3</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#17"><b>BSWMDT&#160;File&#160;........................................................................................................................&#160;17</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#18"><b>4.4</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#18"><b>Translation&#160;XML&#160;File&#160;............................................................................................................&#160;18</b>&#160;<br/>4.4.1&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#18">Translation&#160;Header&#160;File&#160;.............................................................................................&#160;18&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#18">4.4.2&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#18">Device Specific&#160;Header File&#160;......................................................................................&#160;18&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#19"><b>4.5</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#19"><b>Configuration&#160;XML&#160;File&#160;........................................................................................................&#160;19</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#19"><b>4.6</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#19"><b>Other&#160;Description&#160;Files........................................................................................................&#160;19</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#21"><b>Chapter&#160;5&#160;Output&#160;Files&#160;.......................................................................&#160;21</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#23"><b>Chapter&#160;6&#160;Precautions&#160;........................................................................&#160;23</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#25"><b>Chapter&#160;7&#160;User&#160;Configuration&#160;Validation&#160;..........................................&#160;25</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#27"><b>Chapter&#160;8&#160;Messages&#160;...........................................................................&#160;27</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#27"><b>8.1.</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#27"><b>RUCG&#160;Tool&#160;Messages&#160;..........................................................................................................&#160;27</b>&#160;<br/>8.1.1&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#27">Error Messages&#160;.........................................................................................................&#160;27&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28">8.1.2&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28">Warning&#160;Messages&#160;...................................................................................................&#160;28&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28">8.1.3&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28">Information&#160;Messages&#160;...............................................................................................&#160;28&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28"><b>8.2.</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28"><b>Common&#160;Messages&#160;.............................................................................................................&#160;28</b>&#160;<br/>8.2.1&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#28">Error Messages&#160;.........................................................................................................&#160;28&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#31">8.2.2&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#31">Warning&#160;Messages&#160;...................................................................................................&#160;31&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#31">8.2.3&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#31">Information&#160;Messages&#160;...............................................................................................&#160;31&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#31"><b>8.3.</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#31"><b>R3.2.2 Messages&#160;..................................................................................................................&#160;31</b>&#160;<br/></a><a href="R20UT3754EJ0101-AUTOSARs.html#32">8.3.1&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32">Error Messages&#160;.........................................................................................................&#160;32&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32">8.3.2&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32">Warning&#160;Messages&#160;...................................................................................................&#160;32&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32">8.3.3&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32">Information&#160;Messages&#160;...............................................................................................&#160;32&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32"><b>8.4.</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32"><b>R4.0.3 Messages&#160;..................................................................................................................&#160;32</b>&#160;<br/>8.4.1&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#32">Error Messages&#160;.........................................................................................................&#160;32&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#33">8.4.2&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#33">Warning&#160;Messages&#160;...................................................................................................&#160;33&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#33">8.4.3&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#33">Information&#160;Messages&#160;...............................................................................................&#160;33&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#35"><b>Chapter&#160;9&#160;Notes&#160;..................................................................................&#160;35</b>&#160;</a><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#37"><b>Chapter&#160;10&#160;Appendix&#160;..........................................................................&#160;37</b>&#160;</a><br/>
+7&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=8></a>&#160;<br/>
+<b>List&#160;of&#160;Figures&#160;</b><br/>
+<b>&#160;</b><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#13"><b>Figure 3.1 Tool Overview</b>&#160;........................................................................................................................&#160;13&#160;<br/></a><b>&#160;</b><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>List&#160;of&#160;Tables&#160;<br/>&#160;</b><br/>
+<a href="R20UT3754EJ0101-AUTOSARs.html#9"><b>Table 1.1&#160;Document&#160;Overview</b>&#160;..................................................................................................................&#160;9&#160;<br/></a><a href="R20UT3754EJ0101-AUTOSARs.html#11"><b>Table&#160;2.1&#160;Reference&#160;Documents</b>&#160;..............................................................................................................&#160;11&#160;<br/></a><a href="R20UT3754EJ0101-AUTOSARs.html#14"><b>Table&#160;3.1&#160;Options&#160;and&#160;Description</b>&#160;........................................................................................................&#160;14&#160;<br/></a><a href="R20UT3754EJ0101-AUTOSARs.html#32"><b>Table 8.1&#160;R3.2.2&#160;BSWMDT&#160;Mandatory&#160;Parameters</b>&#160;..............................................................................&#160;32&#160;<br/></a><a href="R20UT3754EJ0101-AUTOSARs.html#33"><b>Table 8.2&#160;R4.0.3&#160;BSWMDT&#160;Mandatory&#160;Parameters</b>&#160;..............................................................................&#160;33&#160;</a><br/>
+&#160;<br/>&#160;<br/>
+8&#160;<br/>&#160;<br/>
+<hr/>
+<a name=9></a><b>Introduction&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;1</b>&#160;<br/>
+<b>Chapter&#160;1&#160;&#160;</b><br/>
+<b>Introduction&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+The&#160;document describes&#160;the features&#160;of&#160;the&#160;RUCG&#160;Tool.&#160;&#160;<br/>&#160;<br/>RUCG&#160;Tool&#160;is&#160;a command line&#160;tool&#160;that&#160;extracts&#160;information from&#160;ECU&#160;<br/>Configuration Description File(s)&#160;and generates&#160;Driver&#160;C source and C&#160;header&#160;<br/>files.&#160;<br/>
+&#160;<br/>
+This&#160;document contains&#160;information&#160;on&#160;the&#160;options,&#160;input and&#160;output&#160;files&#160;of&#160;the&#160;<br/>RUCG&#160;Tool. In&#160;addition,&#160;this&#160;manual&#160;covers&#160;a&#160;step-by-step&#160;procedure for the&#160;<br/>usage&#160;of&#160;tool.&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>1.1&#160;</b><br/>
+<b>Document&#160;Overview&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;user&#160;manual&#160;is&#160;organized&#160;as&#160;given&#160;in&#160;the&#160;table&#160;below:&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Table&#160;1.1&#160;Document&#160;Overview&#160;</b><br/>
+<b>Section</b>&#160;<br/>
+<b>Contents</b>&#160;<br/>
+Section 1&#160;(Introduction)&#160;<br/>
+Provides&#160;an introduction&#160;to&#160;the&#160;document and&#160;explains&#160;how&#160;<br/>information&#160;is&#160;organized in this&#160;manual.&#160;<br/>
+Section 2 (Reference)&#160;<br/>
+Provides&#160;a&#160;list&#160;of&#160;documents&#160;referred&#160;while developing&#160;this&#160;<br/>document.&#160;<br/>
+Section 3&#160;(RUCG&#160;Tool&#160;<br/>
+Provides&#160;the component&#160;overview&#160;of&#160;RUCG.&#160;<br/>
+Overview)&#160;<br/>
+Section 4&#160;(Input&#160;Files)&#160;<br/>
+Provides&#160;information&#160;about&#160;all&#160;the&#160;input files&#160;supplied&#160;to&#160;<br/>Tool.&#160;<br/>
+Section 5&#160;(Output Files)&#160;<br/>
+Explains&#160;the&#160;output files&#160;that are generated&#160;by&#160;the&#160;RUCG&#160;Tool.&#160;<br/>
+Section 6&#160;(Precautions)&#160;<br/>
+Contains&#160;precautions&#160;to be&#160;taken&#160;during&#160;execution&#160;of&#160;<br/>RUCG&#160;Tool.&#160;<br/>
+Section 7 (User&#160;Configuration&#160;&#160;Describes&#160;about&#160;user&#160;configuration&#160;validation done by&#160;the&#160;RUCG&#160;<br/>Validation)&#160;<br/>
+Tool.&#160;<br/>
+Section 8&#160;(Messages)&#160;<br/>
+Describes&#160;all&#160;the&#160;Error/Warning/Information&#160;messages&#160;that&#160;<br/>help the&#160;user&#160;to understand&#160;the&#160;probable reason&#160;for&#160;the&#160;<br/>same.&#160;<br/>
+Section 9 (Notes)&#160;<br/>
+Provides&#160;notes&#160;to&#160;help&#160;the&#160;user to understand this&#160;document&#160;<br/>better.&#160;<br/>
+Section 10(Appendix)&#160;<br/>
+Provides&#160;additional&#160;information, if&#160;any.&#160;<br/>
+9&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=10></a><b>Chapter&#160;1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Introduction</b>&#160;<br/>
+<b>&#160;</b><br/>
+&#160;<br/>
+10&#160;<br/>&#160;<br/>
+<hr/>
+<a name=11></a><b>Reference&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;2</b>&#160;<br/>
+<b>Chapter&#160;2&#160;&#160;</b><br/>
+<b>Reference&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.1.&#160;</b><br/>
+<b>Reference&#160;Documents&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;following&#160;table&#160;lists&#160;the&#160;documents&#160;referred&#160;to&#160;develop&#160;this&#160;document:&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Table&#160;2.1&#160;Reference&#160;Documents&#160;</b><br/>
+<b>Sl.No.</b>&#160;&#160;<b>Title</b>&#160;<br/>
+<b>Version</b>&#160;<br/>
+1.&#160;<br/>
+EAAR-RS-0089.pdf&#160;<br/>
+1.1.0&#160;<br/>
+2.&#160;<br/>
+GettingStarted_MCAL_Drivers_X1x.pdf&#160;<br/>
+1.0.6&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>2.2.&#160;</b><br/>
+<b>Trademark&#160;Notice&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+Microsoft&#160;and&#160;Windows&#160;are&#160;trademarks/registered&#160;trademarks&#160;of&#160;Microsoft&#160;<br/>
+Corporation.&#160;<br/>
+11&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=12></a><b>Chapter&#160;2&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Reference</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+12&#160;<br/>&#160;<br/>
+<hr/>
+<a name=13></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-13_1.png"/><br/>
+<b>Tool Overview&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;3</b>&#160;<br/>
+<b>Chapter&#160;3&#160;&#160;&#160;Tool Overview&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+RUCG&#160;Tool&#160;is&#160;a command line&#160;tool&#160;that&#160;provides&#160;scalability&#160;and&#160;<br/>configurability&#160;for the&#160;component. It&#160;accepts&#160;Module&#160;Specific&#160;DLL,&#160;ECU&#160;<br/>Configuration Description File(s), BSWMDT&#160;File,&#160;Translation&#160;XML File&#160;and&#160;<br/>Configuration XML&#160;File as&#160;input&#160;and&#160;generates&#160;the&#160;C&#160;Header and C&#160;<br/>Source files. However Configuration XML&#160;File is&#160;optional.&#160;<br/>&#160;<br/>RUCG&#160;Tool&#160;is&#160;a standalone&#160;windows&#160;executable.&#160;The&#160;Tool&#160;can&#160;run&#160;without&#160;<br/>any&#160;additional&#160;dependencies.&#160;<br/>&#160;<br/><b>Operating&#160;Environment:&#160;&#160;<br/></b>Operating&#160;System&#160;<br/>
+Windows&#160;7&#160;Professional&#160;SP1 64 bit&#160;<br/>
+RAM&#160;<br/>
+8 GB&#160;<br/>
+&#160;<br/>RUCG&#160;Tool&#160;doesn’t support parallel&#160;execution.&#160;<br/>
+&#160;<br/>
+<b>Figure&#160;3.1&#160;Tool Overview&#160;</b><br/>
+For&#160;more&#160;information&#160;about&#160;input&#160;files&#160;to&#160;be given&#160;to the&#160;RUCG&#160;tool&#160;<br/>refer&#160;section&#160;“4&#160;<i>Input&#160;Files</i>”.&#160;<br/>&#160;<br/>For&#160;more&#160;information&#160;about&#160;output&#160;files&#160;generated by&#160;the&#160;RUCG&#160;tool&#160;<br/>refer&#160;section&#160;“5&#160;<i>Output&#160;Files</i>”.&#160;<br/>&#160;<br/>
+<b>3.1&#160;&#160;Usage&#160;</b><br/>
+&#160;<br/>
+This&#160;section&#160;provides&#160;the&#160;information&#160;regarding&#160;usage&#160;of&#160;the&#160;RUCG&#160;<br/>Tool.&#160;It&#160;also&#160;provides&#160;the syntax&#160;of&#160;the&#160;command&#160;line&#160;arguments&#160;<br/>(input&#160;filenames&#160;and&#160;options).&#160;<br/>RUCG&#160;Tool&#160;executable&#160;is&#160;invoked&#160;as&#160;shown&#160;below.&#160;<br/>&#160;<br/><b>RUCG.exe&#160;&lt;DLL&#160;Path&gt;&#160;[&lt;Options&gt;]&#160;{&lt;Input&#160;Filename&gt;}&#160;<br/>&#160;</b><br/>
+13&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=14></a><b>Chapter&#160;3&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Tool&#160;Overview</b>&#160;<br/>
+&#160;<br/>
+Where,&#160;<br/>&#160;<br/>RUCG.exe:&#160;RUCG&#160;Tool&#160;Executable&#160;<br/>DLL&#160;Path:&#160;Module specific&#160;DLL&#160;file&#160;path&#160;<br/>Options:&#160;[-H/-Help&#160;-C/-Config&#160;-O/-Output&#160;-Osrc&#160;-Oinc&#160;-L/-Log&#160;–F/-<br/>FILVERSION&#160;-D/-Dryrun&#160;–T/-TimeOut]&#160;<br/>Input&#160;Filename:&#160;{ECU&#160;Configuration&#160;Description&#160;File(s),&#160;BSWMDT&#160;<br/>File, Translation&#160;XML&#160;File&#160;[optional]&#160;and&#160;Configuration&#160;XML&#160;File&#160;<br/>[optional]}&#160;<br/>&#160;<br/>Notations:&#160;<br/>{data}&#160;represents&#160;compulsory&#160;data&#160;<br/>&lt;data&gt;&#160;represents&#160;the&#160;actual&#160;data&#160;that&#160;will&#160;be&#160;specified&#160;on&#160;command&#160;<br/>line&#160;during&#160;tool&#160;usage.&#160;<br/>[data]&#160;represents&#160;optional&#160;data.&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Table&#160;3.1&#160;Options&#160;and&#160;Description&#160;</b><br/>
+<b>Options</b>&#160;<br/>
+<b>Description</b>&#160;<br/>
+-H/-Help&#160;<br/>
+To display&#160;help regarding usage of&#160;the&#160;tool. Gets&#160;the&#160;highest priority&#160;when&#160;<br/>used&#160;with&#160;other&#160;options.&#160;<br/>
+-C/-Config&#160;<br/>
+To execute&#160;tool&#160;with&#160;the&#160;options&#160;provided in the Configuration XML&#160;File.&#160;<br/>Command line&#160;options&#160;get&#160;the&#160;higher priority&#160;than&#160;the&#160;options&#160;provided&#160;in&#160;<br/>Configuration XML&#160;File.&#160;<br/>
+-O/-Output&#160;<br/>
+By&#160;default, the tool&#160;generates&#160;output&#160;files&#160;in&#160;the&#160;&#160;<br/>“&lt;Msn&gt;_Output”&#160;folder in&#160;the path&#160;where DLL&#160;is&#160;present. The&#160;user can&#160;use&#160;<br/>the&#160;-O&#160;option followed by&#160;the folder&#160;name,&#160;to&#160;generate&#160;the&#160;output&#160;files&#160;in the&#160;<br/>specified&#160;folder. Either absolute path&#160;or relative&#160;path can&#160;be provided&#160;to&#160;<br/>specify&#160;the&#160;folder&#160;name.&#160;&#160;<br/>
+The&#160;C Source&#160;and&#160;C Header files&#160;are&#160;generated in the&#160;sub&#160;folders&#160;“src‟&#160;and&#160;<br/>“inc‟&#160;within&#160;the&#160;output folder.&#160;<br/>
+-Osrc&#160;<br/>
+The&#160;user can&#160;use the&#160;-Osrc&#160;option&#160;followed&#160;by&#160;the&#160;folder&#160;name,&#160;to&#160;generate&#160;<br/>the&#160;C&#160;Source files&#160;in the specified&#160;folder.&#160;<br/>
+-Oinc&#160;<br/>
+The&#160;user can&#160;use the&#160;-Oinc&#160;option&#160;followed&#160;by&#160;the&#160;folder name,&#160;to&#160;generate&#160;<br/>the&#160;C&#160;Header&#160;files&#160;in the&#160;specified&#160;folder.&#160;<br/>
+–L/-Log&#160;<br/>
+To log&#160;the output&#160;to&#160;the&#160;&lt;Msn&gt;.log&#160;file in the output folder.&#160;<br/>
+-D/-Dryrun&#160;<br/>
+To execute&#160;tool&#160;in&#160;validation mode.&#160;The&#160;tool&#160;will&#160;not&#160;generate&#160;output files&#160;even&#160;<br/>though&#160;the&#160;input&#160;file&#160;provided&#160;is&#160;error free.&#160;<br/>
+-F/-FILEVERSION&#160;&#160;To display&#160;the perl&#160;file version&#160;which&#160;are&#160;used&#160;to&#160;create the&#160;DLL.&#160;<br/>
+-T/-TimeOut&#160;<br/>
+The&#160;user can&#160;use&#160;the&#160;–TimeOut&#160;option&#160;followed by&#160;the&#160;timeout&#160;value,&#160;to set&#160;<br/>the&#160;maximum&#160;timeout&#160;for underlying&#160;DLL&#160;execution.&#160;Default timeout&#160;value is&#160;<br/>10&#160;seconds. Timeout&#160;value&#160;should be&#160;in&#160;the&#160;range of&#160;1&#160;–&#160;60 seconds.&#160;<br/>
+&#160;<br/>
+<b>Remark&#160;&#160;&#160;</b><br/>
+&#160;&#160;If&#160;the “-H/-Help”&#160;option&#160;is&#160;provided on&#160;the&#160;command line&#160;without any&#160;<br/>
+other&#160;inputs,&#160;RUCG&#160;Tool&#160;help&#160;is&#160;displayed.&#160;<br/>
+14&#160;<br/>&#160;<br/>
+<hr/>
+<a name=15></a><b>Tool Overview&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;3</b>&#160;<br/>
+&#160;&#160;If&#160;the “-H/-Help”&#160;option&#160;is&#160;provided&#160;with&#160;DLL&#160;path,&#160;module specific&#160;<br/>
+DLL&#160;help is&#160;displayed.&#160;<br/>
+&#160;&#160;If&#160;Translation XML&#160;File is&#160;not&#160;provided&#160;on&#160;the&#160;command line&#160;then&#160;<br/>
+&#34;&lt;Msn&gt;_X1x.trxml&#34;&#160;which is&#160;present in the same location&#160;of&#160;DLL&#160;is&#160;<br/>considered as&#160;&#34;default&#34;&#160;Translation&#160;XML File&#160;by&#160;the&#160;RUCG&#160;Tool.&#160;<br/>
+&#160;&#160;If&#160;Configuration&#160;XML File&#160;is&#160;not&#160;provided on the command&#160;line&#160;then&#160;<br/>
+&#34;&lt;Msn&gt;_X1x.cfgxml&#34;&#160;which&#160;is&#160;present&#160;in&#160;the&#160;same location&#160;of&#160;DLL&#160;is&#160;<br/>considered as&#160;&#34;default&#34;&#160;Configuration&#160;XML File&#160;by&#160;the&#160;RUCG&#160;Tool.&#160;<br/>
+&#160;&#160;The&#160;RUCG&#160;tool&#160;doesn’t allow&#160;parallel&#160;execution.&#160;<br/>&#160;&#160;The&#160;RUCG&#160;tool&#160;returns&#160;its&#160;execution status&#160;to&#160;the&#160;user&#160;through the&#160;<br/>
+console.&#160;User can&#160;get this&#160;tool&#160;return status&#160;using&#160;the&#160;environment&#160;<br/>variable %ERRORLEVEL%.<br/>
+15&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=16></a><b>Chapter&#160;3&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Tool&#160;Overview</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+16&#160;<br/>&#160;<br/>
+<hr/>
+<a name=17></a><b>Input&#160;Files&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;4</b>&#160;<br/>
+<b>Chapter&#160;4&#160;&#160;&#160;Input&#160;Files&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+RUCG&#160;Tool&#160;accepts&#160;the following files&#160;as&#160;inputs&#160;to&#160;generate&#160;output files.&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>4.1&#160;&#160;Msn&#160;Control&#160;DLL&#160;</b><br/>
+&#160;<br/>Module specific&#160;DLL&#160;File&#160;can&#160;be&#160;generated&#160;using&#160;PerlCtrl&#160;utility&#160;from&#160;the&#160;<br/>perl&#160;scripts.&#160;The&#160;Perl&#160;script&#160;contains&#160;implementation&#160;of&#160;generating&#160;<br/>configuration&#160;output&#160;files&#160;with&#160;PerlCtrl&#160;template.&#160;PerlCtrl&#160;accepts&#160;the&#160;perl&#160;<br/>scripts&#160;and&#160;generates&#160;module&#160;specific&#160;DLL.&#160;For&#160;the&#160;PerlCtrl&#160;template&#160;<br/>contents,&#160;refer&#160;Chapter&#160;&#34;10&#160;Appendix&#34;.&#160;<br/>
+&#160;<br/>
+<b>4.2&#160;&#160;ECU&#160;Configuration&#160;Description&#160;File(s)&#160;</b><br/>
+&#160;<br/>The&#160;ECU&#160;Configuration&#160;Description&#160;file&#160;is&#160;in XML format,&#160;which contains&#160;<br/>the&#160;configured&#160;values&#160;for&#160;Parameters,&#160;Containers&#160;and&#160;Modules.&#160;ECU&#160;<br/>Configuration&#160;Description&#160;XML&#160;File&#160;format&#160;will&#160;be&#160;compliant&#160;with&#160;the&#160;<br/>AUTOSAR&#160;ECU specification standards.&#160;ECU&#160;Configuration&#160;Description&#160;<br/>File&#160;can&#160;be&#160;created&#160;or&#160;edited&#160;using&#160;ECU&#160;Configuration&#160;Editor.&#160;<br/>
+&#160;&#160;<br/>
+<b>4.3&#160;&#160;BSWMDT&#160;File&#160;&#160;</b><br/>
+&#160;<br/>The&#160;BSWMDT&#160;File&#160;in&#160;XML&#160;format,&#160;which&#160;is&#160;the&#160;template&#160;for&#160;the&#160;Basic&#160;<br/>Software&#160;Module&#160;Description.&#160;BSWMDT&#160;File&#160;format&#160;will&#160;be&#160;compliant&#160;with&#160;<br/>the&#160;AUTOSAR&#160;BSWMDT&#160;specification&#160;standards.&#160;<br/>
+&#160;<br/>
+RUCG&#160;Tool&#160;uses&#160;&#34;Common&#160;Published&#160;Information&#34;&#160;from&#160;module&#160;specific&#160;<br/>BSWMDT&#160;file.&#160;BSWMDT&#160;file should&#160;not&#160;be&#160;updated&#160;manually&#160;since&#160;it&#160;is&#160;<br/>&#34;Static&#160;Configuration&#34;&#160;file.&#160;<br/>
+&#160;<br/>
+The&#160;required&#160;elements&#160;from&#160;BSWMDT&#160;File&#160;by&#160;module specific&#160;Generation&#160;<br/>Tool&#160;is&#160;as&#160;follows:&#160;<br/>&#160;<br/>BSW-MODULE-DESCRIPTION&#160;<br/>•&#160;MODULE-ID&#160;<br/>
+&#160;<br/>
+BSW-IMPLEMENTATION&#160;<br/>•&#160;SW-VERSION&#160;<br/>•&#160;VENDOR-ID&#160;<br/>•&#160;AR-RELEASE-VERSION&#160;<br/>•&#160;VENDOR-API-INFIX&#160;<br/>&#160;<br/>In&#160;case&#160;of&#160;multiple&#160;driver&#160;support&#160;implementation,&#160;VENDOR-API-INFIX&#160;is&#160;<br/>mandatory.&#160;In&#160;case&#160;of&#160;single&#160;driver&#160;support&#160;implementation,&#160;VENDOR-<br/>API-&#160;INFIX&#160;is&#160;not&#160;used.&#160;<br/>
+17&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=18></a><b>Chapter&#160;4&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Input&#160;Files</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>
+<b>4.4&#160;&#160;Translation&#160;XML&#160;File&#160;</b><br/>
+&#160;<br/>
+Translation XML&#160;File&#160;is&#160;in&#160;XML format&#160;which contains&#160;translation&#160;and&#160;<br/>device&#160;specific&#160;header file&#160;path.&#160;For&#160;the&#160;syntax&#160;of&#160;the&#160;contents&#160;of&#160;<br/>Translation XML&#160;File,&#160;please&#160;refer&#160;the&#160;Chapter&#160;10&#160;Appendix.&#160;<br/>
+If&#160;mapped&#160;device&#160;specific&#160;address&#160;label&#160;is&#160;changed/updated&#160;then&#160;only&#160;<br/>respective&#160;mapping&#160;in&#160;Translation&#160;Header&#160;File&#160;needs&#160;to&#160;be&#160;updated.&#160;In&#160;<br/>this&#160;case&#160;there&#160;will&#160;not&#160;be&#160;any&#160;impact&#160;on&#160;Generation Tool&#160;for&#160;the&#160;<br/>generation&#160;of&#160;address&#160;in&#160;tool&#160;generated&#160;output&#160;file(s).&#160;<br/>
+&#160;<br/>
+<b>4.4.1&#160;&#160;Translation Header File&#160;</b><br/>
+&#160;<br/>This&#160;file&#160;is&#160;look-up&#160;table (mapping&#160;in&#160;the form&#160;of&#160;definitions)&#160;for&#160;the&#160;device&#160;<br/>specific&#160;address&#160;labels.&#160;Based&#160;on&#160;the&#160;configuration&#160;in&#160;ECU&#160;Configuration&#160;<br/>Description&#160;File,&#160;the&#160;mapped&#160;device specific&#160;address&#160;labels&#160;will&#160;be&#160;<br/>searched&#160;in&#160;Device&#160;Specific&#160;Header&#160;File&#160;by&#160;RUCG&#160;Tool&#160;to&#160;generate&#160;<br/>associated&#160;address&#160;in&#160;tool&#160;generated&#160;output file(s).&#160;For&#160;the Translation&#160;<br/>Header&#160;File&#160;path,&#160;the&#160;value&#160;of&#160;&#34;&lt;Msn&gt;DeviceName&#34;&#160;parameter from&#160;the&#160;<br/>container&#160;&#34;&lt;Msn&gt;General&#34;&#160;container&#160;should&#160;be&#160;present&#160;as&#160;child&#160;tag&#160;of&#160;<br/>TRANSLATION-FILE-PATH&#160;in Translation&#160;XML&#160;File.&#160;Both&#160;&#34;Absolute&#34;&#160;and&#160;<br/>&#34;Relative&#34;&#160;paths&#160;are&#160;supported&#160;by&#160;generation&#160;tool&#160;however&#160;default&#160;path&#160;is&#160;<br/>&#34;Relative&#34;&#160;path.&#160;<br/>
+&#160;<br/>
+E.g.&#160;<br/>&lt;TRANSLATION-FILE-PATH&gt;&#160;<br/>&lt;Value_Of_MsnDeviceName&gt;..\DF_Timer.h&#160;..\DF_Timer_ISR.h&lt;/&#160;<br/>Value_Of_MsnDeviceName&gt;&#160;<br/>&lt;/TRANSLATION-FILE-PATH&gt;&#160;<br/>&#160;<br/>
+<b>4.4.2&#160;&#160;Device&#160;Specific&#160;Header File&#160;&#160;</b><br/>
+&#160;<br/>This&#160;file&#160;contains&#160;device&#160;specific&#160;labels&#160;and&#160;associated&#160;address.&#160;Based&#160;on&#160;<br/>the&#160;configuration&#160;in&#160;ECU&#160;Configuration&#160;Description File,&#160;the&#160;mapped&#160;<br/>device&#160;specific&#160;address&#160;labels&#160;will&#160;be&#160;used&#160;to&#160;generate&#160;associated&#160;<br/>address&#160;in&#160;tool&#160;generated&#160;output&#160;file(s).&#160;For&#160;the&#160;Device&#160;Specific&#160;Header&#160;<br/>File&#160;path,&#160;the&#160;value&#160;of&#160;“&lt;Msn&gt;DeviceName”&#160;parameter&#160;from&#160;the container&#160;<br/>“&lt;Msn&gt;General”&#160;container&#160;should&#160;be&#160;present&#160;as&#160;child&#160;tag&#160;of&#160;DEVICE-<br/>FILE-PATH&#160;in&#160;Translation&#160;XML&#160;File.&#160;Both&#160;“Absolute”&#160;and&#160;“Relative”&#160;paths&#160;<br/>are supported&#160;by&#160;generation&#160;tool&#160;however&#160;default&#160;path&#160;is&#160;“Relative”&#160;path.&#160;&#160;<br/>&#160;<br/>If&#160;multiple&#160;Device&#160;Specific&#160;Header&#160;Files&#160;need&#160;to&#160;be&#160;provided&#160;for&#160;the&#160;same&#160;<br/>device&#160;(value&#160;of&#160;“&lt;Msn&gt;DeviceName”&#160;parameter)&#160;in Translation XML&#160;File,&#160;<br/>then&#160;each&#160;Device&#160;Specific&#160;Header&#160;File&#160;path should&#160;be&#160;separated&#160;with&#160;<br/>“space”.&#160;&#160;<br/>
+18&#160;<br/>&#160;<br/>
+<hr/>
+<a name=19></a><b>Input&#160;Files&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;4</b>&#160;<br/>
+&#160;<br/>&#160;<br/>E.g.&#160;&#160;<br/>&lt;DEVICE-FILE-PATH&gt;&#160;&#160;<br/>&lt;Value_Of_MsnDeviceName&gt;..\DF_Timer.h&#160;..\DF_Timer_ISR.h&lt;/&#160;<br/>Value_Of_MsnDeviceName&gt;&#160;&#160;<br/>&lt;/DEVICE-FILE-PATH&gt;&#160;&#160;<br/>
+<b>4.5&#160;&#160;Configuration&#160;XML&#160;File&#160;&#160;</b><br/>
+&#160;<br/>
+Configuration&#160;XML&#160;File&#160;is&#160;in XML&#160;format&#160;which&#160;contains&#160;command&#160;line&#160;<br/>options&#160;and&#160;input/output&#160;path.&#160;For&#160;the&#160;syntax&#160;of&#160;the&#160;contents&#160;of&#160;<br/>Configuration&#160;XML&#160;File,&#160;please refer&#160;the&#160;Chapter&#160;10&#160;Appendix.&#160;<br/>
+E.g.&#160;<br/>&lt;LOG&gt;ON/OFF&lt;/LOG&gt;&#160;<br/>&lt;HELP&gt;ON/OFF&lt;/HELP&gt;&#160;<br/>&#160;<br/>
+<b>4.6&#160;&#160;Other&#160;Description&#160;Files&#160;</b><br/>
+&#160;<br/>
+RUCG&#160;Tool&#160;requires&#160;other&#160;description files&#160;(i.e.&#160;Dem&#160;File&#160;and&#160;MCU&#160;File)&#160;<br/>inputs,&#160;depends&#160;on&#160;the corresponding&#160;parameter&#160;configuration&#160;in&#160;the&#160;ECU&#160;<br/>Configuration&#160;Description&#160;File&#160;<br/>
+19&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=20></a><b>Chapter&#160;4&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Input&#160;Files</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+20&#160;<br/>&#160;<br/>
+<hr/>
+<a name=21></a><b>Output&#160;Files&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;5</b>&#160;<br/>
+<b>Chapter&#160;5&#160;&#160;</b><br/>
+<b>Output Files&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+RUCG&#160;Tool&#160;is&#160;a&#160;command&#160;line&#160;tool&#160;that&#160;provides&#160;scalability&#160;and&#160;<br/>configurability&#160;for&#160;Msn&#160;Driver&#160;component.&#160;It&#160;accepts&#160;inputs&#160;which&#160;<br/>mentioned&#160;in&#160;the&#160;Chapter&#160;4&#160;Input Files&#160;and&#160;generates&#160;configuration&#160;details&#160;<br/>in&#160;C&#160;Header&#160;and&#160;C&#160;Source&#160;files&#160;(&lt;Msn&gt;_Cfg.h, &lt;Msn&gt;_Cbk.h,&#160;<br/>&lt;Msn&gt;_Lcfg.c&#160;and&#160;&lt;Msn&gt;_PBcfg.c).&#160;<br/>&#160;<br/>&lt;Msn&gt;_Cfg.h&#160;<br/>This&#160;file contains&#160;pre-compile configuration&#160;parameters.&#160;<br/>&#160;<br/>&lt;Msn&gt;_Cbk.h&#160;<br/>This&#160;file contains&#160;prototype&#160;declarations&#160;for callback&#160;notification functions.&#160;<br/>&#160;<br/>&lt;Msn&gt;_Lcfg.c&#160;<br/>This&#160;file contains&#160;link-time&#160;parameters.&#160;<br/>&#160;<br/>&lt;Msn&gt;_PBcfg.c&#160;<br/>This&#160;file contains&#160;post-build&#160;configuration&#160;data.&#160;<br/>
+&#160;<br/>
+Log&#160;File&#160;<br/>The&#160;file&#160;which briefs&#160;the execution details&#160;of&#160;RUCG&#160;Tool.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>Remark:&#160;</b>Output&#160;files&#160;generated&#160;by&#160;Msn Driver Generation&#160;Tool&#160;should&#160;not&#160;be&#160;modified&#160;or&#160;<br/>
+edited&#160;manually&#160;<br/>
+21&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=22></a><b>Chapter&#160;5&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Output&#160;Files</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+22&#160;<br/>&#160;<br/>
+<hr/>
+<a name=23></a><b>Precautions&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;6</b>&#160;<br/>
+<b>Chapter&#160;6&#160;&#160;</b><br/>
+<b>Precautions&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Module&#160;Specific&#160;DLL&#160;must&#160;be&#160;created&#160;by&#160;using&#160;PerlCtrl&#160;with&#160;the&#160;<br/>PerlCtrl&#160;template&#160;which specified&#160;in this&#160;document. For&#160;the&#160;PerlCtrl&#160;<br/>template&#160;contents, refer Chapter&#160;&#34;10&#160;Appendix&#34;.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+ECU&#160;Configuration&#160;Description&#160;File&#160;and&#160;BSWMDT&#160;File&#160;must&#160;comply&#160;<br/>with&#160;AUTOSAR&#160;standard&#160;for&#160;R4.0&#160;ECU&#160;Configuration&#160;Description&#160;File&#160;<br/>and&#160;BSWMDT&#160;File&#160;respectively.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+Default&#160;Translation&#160;XML&#160;File&#160;(&lt;Msn&gt;_Xx4.trxml)&#160;must&#160;be&#160;present&#160;in&#160;<br/>same location&#160;of&#160;DLL&#160;file.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Default&#160;Configuration&#160;XML&#160;File&#160;(&lt;Msn&gt;_Xx4.cfgxml)&#160;must&#160;be&#160;present&#160;in&#160;<br/>same location&#160;of&#160;DLL&#160;file.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+If&#160;&#160;Translation&#160;&#160;XML&#160;&#160;File&#160;&#160;is&#160;&#160;not&#160;&#160;provided&#160;&#160;on&#160;&#160;the&#160;&#160;command&#160;&#160;line,&#160;<br/>&lt;msn&gt;_Xx4.trxml&#160;&#160;which&#160;&#160;is&#160;&#160;present&#160;&#160;in&#160;&#160;same&#160;&#160;location&#160;&#160;of&#160;&#160;DLL&#160;&#160;file&#160;&#160;is&#160;<br/>considered&#160;as&#160;‘default’&#160;Translation&#160;XML&#160;File.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+If&#160;Configuration&#160;XML&#160;File&#160;is&#160;not&#160;provided&#160;on&#160;the&#160;command&#160;line,&#160;<br/>Msn_Xx4.cfgxml&#160;which&#160;is&#160;present&#160;in&#160;same&#160;location&#160;of&#160;DLL file&#160;is&#160;<br/>considered&#160;as&#160;‘default’&#160;Configuration&#160;XML&#160;File.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+ECU Configuration Description&#160;File(s)&#160;should contain the&#160;file&#160;<br/>extension ‘.arxml’.&#160;<br/>&#160;<br/>
+•&#160;<br/>
+Translation&#160;XML File should contain&#160;the&#160;file extension&#160;‘.trxml’.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Configuration XML&#160;File should contain the&#160;file extension ‘.cfgxml’.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+If&#160;the&#160;output&#160;files&#160;generated&#160;by&#160;RUCG&#160;Tool&#160;are&#160;modified&#160;externally,&#160;<br/>then&#160;they&#160;may&#160;lead&#160;to&#160;error&#160;while&#160;compilation&#160;or&#160;not&#160;produce&#160;the&#160;<br/>expected&#160;results.&#160;<br/>&#160;<br/>
+&#160;<br/>&#160;<br/>
+23&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=24></a><b>Chapter&#160;6&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Precautions</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+24&#160;<br/>&#160;<br/>
+<hr/>
+<a name=25></a><b>User&#160;Configuration&#160;Validation&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;7</b>&#160;<br/>
+<b>Chapter&#160;7&#160;&#160;</b><br/>
+<b>User Configuration&#160;Validation&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+This&#160;section&#160;provides&#160;help to analyze&#160;the error,&#160;warning and information&#160;<br/>messages&#160;displayed&#160;during&#160;the&#160;execution&#160;of&#160;RUCG&#160;Tool. It&#160;ensures&#160;<br/>conformance of&#160;input&#160;file&#160;with&#160;syntax&#160;and semantics. It&#160;also performs&#160;<br/>validation&#160;on&#160;the&#160;input&#160;file for correctness&#160;of&#160;the data.&#160;<br/>
+&#160;<br/>&#160;<br/>
+For more details&#160;on&#160;list of&#160;Error/Warning/Information&#160;messages&#160;that are&#160;<br/>displayed&#160;as&#160;a&#160;result of&#160;input&#160;file(s)&#160;validation,&#160;refer Chapter “8&#160;<br/><i>Messages</i>”.&#160;<br/>
+&#160;<br/>&#160;<br/>
+The&#160;RUCG&#160;Tool&#160;displays&#160;error or&#160;warning&#160;or information&#160;messages&#160;when&#160;<br/>the&#160;user&#160;has&#160;configured&#160;incorrect inputs. There are&#160;two&#160;types&#160;of&#160;messages&#160;<br/>displayed,&#160;<br/>&#160;<br/>RUCG&#160;Tool&#160;generated&#160;messages&#160;<br/>Module&#160;Specific&#160;DLL&#160;generated messages&#160;<br/>&#160;<br/>The&#160;format&#160;of&#160;RUCG&#160;Tool&#160;generated&#160;message is&#160;as&#160;shown below.&#160;<br/>&#160;<br/>•&#160;<br/>
+CGERR/CGINF/CGWAR&lt;xx&gt;&lt;yy&gt;:&#160;<br/>
+&lt;Error/Warning/Information&#160;Message&gt;.&#160;<br/>
+&lt;xx&gt;:&#160;Stage of&#160;error happen&#160;<br/>
+&lt;yy&gt;:&#160;Actual&#160;error code&#160;<br/>
+&#160;<br/>The&#160;format&#160;of&#160;Module&#160;Specific&#160;DLL&#160;generated&#160;messages&#160;is&#160;as&#160;shown&#160;<br/>below.&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+ERR/WRN/INF&lt;mid&gt;&lt;xxx&gt;: &lt;Error/Warning/Information&#160;<br/>
+Message&gt;.&#160;where,&#160;<br/>
+&lt;mid&gt;: 123&#160;-&#160;MSN&#160;Driver Module&#160;id (123)&#160;for user configuration&#160;checks.&#160;<br/>
+&#160;<br/>
+000&#160;-&#160;for command line&#160;checks.&#160;<br/>
+&#160;<br/>
+&lt;xxx&gt;: 001-999&#160;-&#160;Message&#160;id.&#160;<br/>&#160;<br/>•&#160;<br/>
+File&#160;Name:&#160;Name of&#160;the file&#160;in&#160;which&#160;the&#160;error has&#160;occurred&#160;<br/>
+&#160;<br/>
+•&#160;<br/>
+Path: Absolute&#160;path&#160;of&#160;the&#160;container&#160;in&#160;which the&#160;parameter&#160;is&#160;present.&#160;<br/>
+&#160;<br/>
+‘File Name’&#160;and&#160;‘Path’&#160;need&#160;not&#160;be&#160;present&#160;for all&#160;<br/>Error/Warning/Information&#160;messages.&#160;<br/>
+25&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=26></a><b>Chapter&#160;7&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;User&#160;Configuration&#160;Validation</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+26&#160;<br/>&#160;<br/>
+<hr/>
+<a name=27></a><b>Messages&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8</b>&#160;<br/>
+<b>Chapter&#160;8&#160;&#160;</b><br/>
+<b>Messages&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+The&#160;messages&#160;help&#160;to&#160;identify&#160;the syntax&#160;or semantic&#160;errors&#160;in the inputs&#160;<br/>supplied&#160;to&#160;execution.&#160;&#160;<br/>The&#160;following&#160;section&#160;gives&#160;the&#160;list of&#160;error,&#160;warning and information&#160;<br/>messages&#160;displayed&#160;during&#160;the tool&#160;execution.&#160;<br/>When&#160;the&#160;tool&#160;detects&#160;the following&#160;errors, it&#160;will&#160;automatically&#160;exit&#160;after&#160;<br/>showing the error message.&#160;<br/>
+&#160;<br/>
+<b>8.1.&#160;</b><br/>
+<b>RUCG&#160;Tool&#160;Messages&#160;</b><br/>
+&#160;<br/>This&#160;section&#160;contains&#160;the&#160;list of&#160;error/warning/information&#160;messages&#160;which&#160;<br/>is&#160;generated by&#160;the&#160;RUCG&#160;tool.&#160;<br/>
+<b>8.1.1&#160;&#160;Error&#160;Messages&#160;</b><br/>
+<b>&#160;<br/>CG_ERR0001:&#160;Another&#160;instance&#160;is already&#160;running.&#160;<br/></b>This&#160;error occurs, if&#160;trying&#160;to run more than&#160;one instance of&#160;application&#160;in&#160;<br/>parallel.&#160;<br/>&#160;<br/><b>CG_ERR0002: First&#160;argument&#160;should be a&#160;module&#160;specific DLL&#160;file&#160;<br/>path.&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;first&#160;file&#160;argument&#160;does&#160;not have&#160;<br/>extension (.dll&#160;or .ocx).&#160;<br/>&#160;<br/><b>CG_ERR0003: DLL&#160;not&#160;found&#160;on&#160;specified path.&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;DLL file&#160;input&#160;is&#160;not found&#160;in the&#160;<br/>specified&#160;location.&#160;<br/>&#160;<br/><b>CG_ERR0004: Specified&#160;module&#160;specific&#160;DLL&#160;file is not&#160;DLL&#160;<br/>executable.&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;DLL file&#160;is&#160;not a&#160;windows&#160;executable&#160;<br/>DLL.&#160;<br/>&#160;<br/><b>CG_ERR0101: Please provide valid&#160;number&#160;of&#160;arguments.&#160;<br/></b>This&#160;error will&#160;occur, if&#160;the&#160;no option is&#160;provided in the command line.&#160;&#160;<br/>&#160;<br/><b>CG_ERR0102: Please provide valid&#160;time out&#160;value in&#160;seconds (1&#160;-&#160;60).&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;timeout&#160;value&#160;is&#160;invalid or&#160;out of&#160;range.&#160;<br/><b>&#160;<br/>CG_ERR0301: DLL&#160;activation&#160;context&#160;creation&#160;failed.&#160;<br/></b>This&#160;error occurs, if&#160;the generated&#160;manifest file for the&#160;specified&#160;DLL&#160;is&#160;<br/>wrong.&#160;Ensure&#160;the&#160;manifest&#160;file&#160;write&#160;implementation&#160;in&#160;the RUCG&#160;Tool.&#160;<br/><b>&#160;<br/>CG_ERR0302:&#160;Specified&#160;DLL&#160;implemented using&#160;wrong&#160;PerlCtrl&#160;<br/>template.&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;DLL file&#160;is&#160;created using&#160;wrong Control&#160;ID&#160;<br/>in&#160;PerlCtrl&#160;template.&#160;For the&#160;PerlCtrl&#160;template&#160;contents,&#160;refer Chapter&#160;&#34;10&#160;<br/>Appendix&#34;.&#160;<br/>&#160;<br/><b>CG_ERR0303: DLL&#160;directory&#160;should be&#160;write-enabled.&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;DLL file&#160;path is&#160;write&#160;protected.&#160;<br/><b>&#160;<br/>CG_ERR0401: Code generation&#160;is&#160;not&#160;completed&#160;within the time out.&#160;<br/></b>This&#160;error occurs, if&#160;the specified&#160;DLL does&#160;not&#160;return&#160;within&#160;a&#160;default or&#160;<br/>specified&#160;timeout.&#160;<br/>&#160;<br/>
+27&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=28></a><b>Chapter&#160;8&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Messages</b>&#160;<br/>
+<b>Note:</b>&#160;When Code&#160;Generation&#160;is&#160;terminated&#160;due&#160;to timeout,&#160;the&#160;RUCG&#160;Tool&#160;<br/>drops&#160;a temporary&#160;file&#160;(GLOB(0x2a8d104))&#160;in the&#160;execution&#160;location.&#160;Please&#160;<br/>delete&#160;the&#160;file after the&#160;execution.&#160;<br/>&#160;<br/><b>CG_ERR0402:&#160;Cannot&#160;find&#160;implementation&#160;of&#160;method&#160;&#34;execution”&#160;in&#160;<br/>the DLL.&#160;<br/></b>This&#160;error will&#160;occur, if&#160;the&#160;specified&#160;DLL&#160;created&#160;without&#160;entry&#160;function&#160;call&#160;<br/>&#34;execute&#34;.&#160;<br/>&#160;<br/><b>CG_ERR0403: Error&#160;occurred while&#160;code generation.&#160;<br/></b>This&#160;error will&#160;occur,&#160;when&#160;the&#160;specified DLL&#160;calls&#160;“exit”&#160;function&#160;while&#160;its&#160;<br/>execution. In the tool&#160;code&#160;implementation,&#160;general&#160;assumption&#160;is&#160;“exit”&#160;<br/>function&#160;in the&#160;perl&#160;script&#160;should called&#160;only&#160;at&#160;the&#160;erroneous&#160;conditions.&#160;&#160;<br/><b>&#160;&#160;</b><br/>
+<b>8.1.2&#160;&#160;Warning Messages&#160;</b><br/>
+&#160;<br/>None&#160;<br/>&#160;<br/>
+<b>8.1.3&#160;&#160;Information Messages&#160;</b><br/>
+<b>&#160;<br/>CG_INF0001:&#160;Tool Version&#160;</b>&#160;<br/>This&#160;is&#160;to&#160;display&#160;Tool&#160;Version&#160;for each execution&#160;of&#160;the tool.<b>&#160;<br/>&#160;<br/>CG_INF0002:&#160;Module&#160;DLL&#160;Path&#160;<br/></b>This&#160;is&#160;to&#160;display&#160;parsed&#160;Module DLL&#160;Path from&#160;the command line&#160;<br/>arguments.&#160;<br/>&#160;<br/><b>CG_INF0003:&#160;&lt;RUCG&#160;Tool Usage&#160;Information&gt;&#160;<br/></b>This&#160;is&#160;to&#160;display&#160;usage&#160;information&#160;of&#160;the tool.&#160;<br/>&#160;<br/><b>CG_INF0004:&#160;Execution&#160;terminated&#160;due to&#160;parallel&#160;execution&#160;errors.</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution&#160;is&#160;terminated&#160;due to&#160;parallel&#160;<br/>execution.&#160;<br/>&#160;<br/><b>CG_INF0005:&#160;Execution&#160;terminated&#160;due to&#160;command&#160;line errors.&#160;<br/></b>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution&#160;is&#160;terminated&#160;due to command&#160;<br/>line errors.&#160;<br/>&#160;<br/><b>CG_INF0006:&#160;Execution&#160;terminated&#160;due to&#160;the previous&#160;errors.&#160;<br/></b>This&#160;information&#160;will&#160;occur,&#160;if&#160;the error happened during the&#160;DLL&#160;execution.&#160;<br/>&#160;<br/><b>CG_INF0007:&#160;Code generation&#160;completed&#160;successfully.&#160;<br/></b>This&#160;information&#160;will&#160;occur,&#160;if&#160;the&#160;tool&#160;execution&#160;completed&#160;successfully.&#160;<br/>
+&#160;<br/>
+<b>8.2.&#160;</b><br/>
+<b>Common&#160;Messages&#160;</b><br/>
+&#160;<br/>
+This&#160;section&#160;contains&#160;the&#160;list of&#160;error/warning/information&#160;messages&#160;which&#160;<br/>is&#160;common&#160;for AUTOSAR Renesas&#160;R3.2.2 and R4.0.3 X1x&#160;MCAL Driver&#160;<br/>module that&#160;will&#160;be&#160;generated&#160;during the Module&#160;Specific&#160;DLL&#160;execution.&#160;<br/><b>&#160;</b><br/>
+<b>8.2.1&#160;&#160;Error&#160;Messages&#160;</b><br/>
+<b>&#160;<br/>ERR000001:&#160;File &lt;File_Name&gt;&#160;does not&#160;exist.&#160;<br/></b>This&#160;error occurs, if&#160;the input&#160;&lt;File_Name&gt;&#160;is&#160;not found.&#160;<br/><b>&#160;<br/>ERR000002:&#160;Name of&#160;the&#160;Generation&#160;Tool Configuration&#160;XML&#160;File is&#160;</b><br/>
+28&#160;<br/>&#160;<br/>
+<hr/>
+<a name=29></a><b>Messages&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8</b>&#160;<br/>
+<b>not&#160;given along&#160;with&#160;&lt;-C/-CONFIG&gt;&#160;option.&#160;<br/></b>This&#160;error occurs, if&#160;the name of&#160;the Generation&#160;Tool&#160;Configuration XML&#160;File&#160;<br/>is&#160;not&#160;given along&#160;with&#160;&lt;-C/-CONFIG&gt;&#160;option.&#160;<br/><b>&#160;<br/>ERR000003:&#160;File &lt;File&#160;name&gt;&#160;is not&#160;as&#160;per&#160;XML&#160;standard.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;input&#160;&lt;File&#160;name&gt;&#160;is&#160;not&#160;as&#160;per&#160;XML&#160;standard.<b>&#160;<br/>&#160;<br/>ERR000004:&#160;Cannot&#160;open&#160;the &lt;Log&#160;file&#160;name&gt;&#160;file.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;unable to open&#160;the&#160;&lt;Log&#160;file name&gt;&#160;file.&#160;<br/>&#160;<br/><b>ERR000005:&#160;Name of&#160;output&#160;directory is not&#160;given&#160;along&#160;with&#160;&lt;-O/-&#160;<br/>OUTPUT&gt;&#160;option.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;output&#160;directory&#160;name&#160;is&#160;not&#160;given&#160;along&#160;with &lt;-<br/>O/-&#160;OUTPUT&gt;&#160;option.&#160;<br/>&#160;<br/><b>ERR000006:&#160;Name of&#160;output&#160;directory is not&#160;given&#160;in OUTPUT-PATH&#160;<br/>tag in&#160;&lt;File name&gt;.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;output&#160;directory&#160;is&#160;not&#160;given in OUTPUT-PATH&#160;<br/>tag&#160;in configuration&#160;file.&#160;<br/>&#160;<br/><b>ERR000007:&#160;The Generation&#160;Tool expects inputs.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;Only&#160;specified&#160;Module Specific&#160;DLL&#160;path&#160;in&#160;the&#160;<br/>command line&#160;without&#160;default configuration&#160;file.<b>&#160;<br/>&#160;<br/>ERR000008:&#160;The option&#160;&lt;option&gt;&#160;is&#160;not&#160;supported&#160;by&#160;the&#160;Generation&#160;<br/>Tool.&#160;The Generation&#160;Tool supports&#160;&lt;-O/-OUTPUT,&#160;-Osrc ,&#160;-Oinc,&#160;-H/-<br/>HELP,&#160;-L/-LOG,&#160;-C/-CONFIGFILE and&#160;-D/-DRYRUN&gt;&#34;&#160;options.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;invalid&#160;&lt;option&gt;&#160;is&#160;provided&#160;to&#160;the tool.<b>&#160;<br/>&#160;<br/>ERR000009:&#160;Invalid&#160;output&#160;directory name&#160;&lt;output&#160;directory name&gt;&#160;as&#160;<br/>the file with&#160;same name exists.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;&lt;output&#160;directory&#160;name&gt;&#160;already&#160;exists.&#160;<br/>&#160;<br/><b>ERR000010:&#160;Invalid&#160;output&#160;directory name&#160;&lt;output&#160;directory name&gt;&#160;<br/>Directory&#160;name should not&#160;contain any&#160;of&#160;\*\?\&#34;\|\:&#160;characters.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;&lt;output&#160;directory&#160;name&gt;&#160;path contains&#160;junk&#160;<br/>character.<b>&#160;<br/>&#160;<br/>ERR000011:&#160;ECU Configuration&#160;Description&#160;File is&#160;not&#160;provided&#160;as&#160;<br/>input&#160;to&#160;the Generation&#160;Tool.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;ECU Configuration Description&#160;File is&#160;not&#160;given in&#160;<br/>the&#160;command line or&#160;in configuration file.&#160;<br/>&#160;<br/><b>ERR000012:&#160;The input&#160;&lt;File&#160;name&gt;&#160;is&#160;not&#160;as&#160;per&#160;XML&#160;standard.&#160;<br/>Provide the&#160;ECU Configuration&#160;Description&#160;File&#160;as&#160;input&#160;on&#160;the&#160;<br/>command&#160;line.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;ECU Configuration Description&#160;File is&#160;not&#160;as&#160;per&#160;<br/>XML&#160;standard.&#160;<br/>&#160;<br/><b>ERR000014:&#160;'TRANSLATION-FILE-PATH'&#160;tag in&#160;&lt;File name&gt;&#160;is empty.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;translation &lt;File name&gt;&#160;doesn’t have&#160;&#160;<br/>“TRANSLATION-FILE-PATH‟&#160;tags.&#160;<br/>&#160;<br/><b>ERR000015:&#160;The 'device_name' tag should be&#160;present&#160;as&#160;child of&#160;<br/>'TRANSLATION-FILE-PATH'' tag in&#160;&lt;File name&gt;.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;device mentioned&#160;in&#160;ECU Configuration&#160;<br/>Description&#160;File&#160;is&#160;not present&#160;in “TRANSLATION-FILE-PATH‟&#160;tag in&#160;the&#160;<br/>&lt;File name&gt;&#160;<br/>&#160;<br/><b>ERR000016:&#160;‘DEVICE-FILE-PATH’&#160;tag in&#160;&lt;File&#160;name&gt;&#160;is empty.&#160;</b>&#160;<br/>
+29&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=30></a><b>Chapter&#160;8&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Messages</b>&#160;<br/>
+This&#160;error will&#160;occur, if&#160;the&#160;translation file&#160;&lt;File&#160;name&gt;&#160;doesn’t&#160;have&#160;<br/>“DEVICE-&#160;FILE-PATH‟&#160;tags.&#160;<br/>&#160;<br/><b>ERR000017:&#160;The 'device_name’ tag&#160;should be present&#160;as&#160;child of&#160;<br/>‘DEVICE-FILE-PATH'&#160;tag&#160;in&#160;&lt;File&#160;name&gt;.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;device mentioned&#160;in&#160;ECU Configuration&#160;<br/>Description&#160;File&#160;is&#160;not present&#160;in “DEVICE-FILE-PATH‟&#160;tag.&#160;<br/>&#160;<br/><b>ERR000018:&#160;Cannot&#160;create directory&#160;&lt;output&#160;directory&#160;name&gt;.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;unable to create&#160;output&#160;directory&#160;&lt;output directory&#160;<br/>name&gt;.&#160;<br/>&#160;<br/><b>ERR000019:&#160;Cannot&#160;open&#160;&lt;File&#160;name&gt;.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;unable to open&#160;&lt;File&#160;name&gt;.&#160;<br/>&#160;<br/><b>ERR000020:&#160;The macro&#160;label&#160;&lt;macro&#160;label&gt;&#160;should be unique in&#160;<br/>&lt;translation&#160;file&#160;name&gt;&#160;translation&#160;C&#160;Header&#160;File.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;macro label&#160;is&#160;not&#160;unique&#160;in&#160;translation&#160;C&#160;Header&#160;<br/>File.&#160;<br/>&#160;<br/><b>ERR000021:&#160;The macro&#160;definition&#160;for&#160;&lt;macro&#160;label&gt;&#160;macro&#160;is not&#160;<br/>found&#160;in &lt;translation&#160;file&#160;name&gt;&#160;translation&#160;C Header&#160;File. The macro&#160;<br/>label format should be&#160;&lt;label format&gt;.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;macro definition&#160;is&#160;not&#160;found&#160;in translation C Header&#160;<br/>File.&#160;<br/>&#160;<br/><b>ERR000022:&#160;The macro&#160;value for&#160;&lt;macro&#160;label&gt;&#160;macro&#160;is empty&#160;in&#160;<br/>&lt;translation&#160;file&#160;name&gt;&#160;translation&#160;C&#160;Header&#160;File.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;macro label&#160;value&#160;is&#160;empty&#160;in&#160;translation&#160;C Header&#160;<br/>File.&#160;<br/>&#160;<br/><b>ERR000023:&#160;The macro&#160;definition&#160;for&#160;&lt;macro&#160;value&gt;&#160;macro&#160;is not&#160;<br/>found&#160;in input&#160;device&#160;specific C Header&#160;File(s).&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;macro definition&#160;is&#160;not&#160;found&#160;in&#160;input&#160;device specific&#160;<br/>C Header&#160;File(s).&#160;<br/>&#160;<br/><b>ERR000024:&#160;The macro&#160;value for&#160;&lt;macro&#160;value&gt;&#160;macro&#160;is empty&#160;in&#160;<br/>input&#160;device&#160;specific&#160;C Header&#160;File(s).&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;macro value is&#160;empty&#160;in&#160;input&#160;device specific&#160;C&#160;<br/>Header File(s).&#160;<br/><b>&#160;<br/>ERR000025:&#160;Path&#160;&lt;Configured Reference&#160;Path&gt;&#160;provided&#160;for&#160;Bsw&#160;<br/>Module&#160;is&#160;incorrect.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;reference provided&#160;for Bsw&#160;Module&#160;Component&#160;is&#160;<br/>incorrect.&#160;<br/>&#160;<br/><b>ERR000026:&#160;BSWMDT&#160;content&#160;is&#160;not&#160;present&#160;in the&#160;input&#160;file(s) for&#160;<br/>‘&lt;Module&#160;Name&gt;’&#160;module.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;module specific&#160;BSWMDT&#160;content&#160;is&#160;not&#160;present&#160;<br/>in the&#160;input&#160;files.&#160;<br/><b>&#160;<br/>ERR000027:&#160;&lt;MSN&gt;&#160;BSWMDT&#160;File of&#160;either&#160;AUTOSAR&#160;R3.2 or&#160;R4.0&#160;<br/>should be given as&#160;input.&#160;</b>&#160;<br/>This&#160;error will&#160;occur,&#160;if&#160;the&#160;both&#160;R3.2&#160;and&#160;R4.0&#160;BSWMDT&#160;file given&#160;to the&#160;<br/>input&#160;to&#160;the&#160;generation&#160;tool.<b>&#160;<br/>&#160;<br/>ERR000028:&#160;'MODULE-DESCRIPTION-REF' element&#160;should be present&#160;<br/>in the description&#160;file&#160;of&#160;'&lt;Module&#160;Name&gt;' module.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;MODULE-DESCRIPTION-REF&#160;element is&#160;not&#160;<br/>present module&#160;specific&#160;description&#160;file.&#160;<br/>
+30&#160;<br/>&#160;<br/>
+<hr/>
+<a name=31></a><b>Messages&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8</b>&#160;<br/>
+&#160;<br/><b>ERR000029:&#160;AUTOSAR version&#160;of&#160;BSWMDT&#160;File and&#160;Module&#160;<br/>Description&#160;File is different.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;the&#160;AUTOSAR&#160;version of&#160;the&#160;BSWMDT&#160;File and&#160;<br/>module description file&#160;is&#160;different.&#160;<br/>&#160;<br/>
+<b>Remark&#160;&#160;</b>Apart from&#160;the above&#160;error&#160;codes&#160;DLL&#160;will&#160;generates&#160;some additional&#160;<br/>
+Module&#160;Specific&#160;errors&#160;during&#160;the execution.&#160;<br/>
+<b>8.2.2&#160;&#160;Warning Messages&#160;</b><br/>
+&#160;<br/>
+<b>WRN000001:&#160;As&#160;per&#160;AUTOSAR&#160;ECU Configuration&#160;Description&#160;File&#160;<br/>naming&#160;convention, the file extension&#160;should be&#160;'.arxml' for&#160;file.&#160;</b>&#160;<br/>This&#160;warning&#160;will&#160;occur, if&#160;ECU Configuration&#160;Description&#160;files&#160;having an&#160;<br/>extension other&#160;than ‟.arxml‟.&#160;<br/>&#160;<br/>
+<b>8.2.3&#160;&#160;Information Messages&#160;</b><br/>
+<b>&#160;<br/>INF000001: DLL&#160;Version:&#160;</b>&#160;<br/>This&#160;is&#160;to&#160;display&#160;DLL&#160;Version&#160;of&#160;specified&#160;module specific&#160;DLL.&#160;<br/>&#160;<br/><b>INF000002: Command&#160;line arguments:&#160;</b>&#160;<br/>This&#160;is&#160;to&#160;display&#160;the&#160;DLL&#160;arguments&#160;received from&#160;the Tool.&#160;<br/>&#160;<br/><b>INF000003: The&#160;valid&#160;inputs are provided&#160;below.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the DLL option&#160;is&#160;not&#160;given.&#160;(I.e.&#160;only&#160;provide&#160;<br/>Module&#160;DLL&#160;Path&#160;as&#160;command&#160;line&#160;arguments)&#160;<br/>&#160;<br/><b>INF000004: Opened file&#160;&lt;filename&gt;&#160;at &lt;time&gt;.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;during opening&#160;the&#160;file.&#160;<br/>&#160;<br/><b>INF000005:&#160;Error(s) and&#160;Warning(s) detected.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;display&#160;the&#160;number&#160;of&#160;errors&#160;and&#160;warnings.&#160;<br/><b>INF000006:&#160;Execution&#160;completed&#160;successfully.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution completed&#160;successfully.&#160;<br/><b>&#160;<br/>INF000007:&#160;Execution&#160;completed&#160;successfully&#160;with&#160;warnings.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution completed&#160;successfully&#160;with&#160;<br/>warnings.&#160;<br/>&#160;<br/><b>INF000008:&#160;Execution&#160;terminated&#160;due to&#160;command&#160;line errors.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution terminated&#160;due to command line&#160;<br/>errors.&#160;<br/>&#160;<br/><b>INF000009:&#160;Execution&#160;terminated&#160;due to&#160;error&#160;in the input&#160;file.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution terminated&#160;due to error in the&#160;<br/>input&#160;file.&#160;<br/>&#160;<br/><b>INF000010:&#160;Execution&#160;terminated&#160;due to&#160;error, during&#160;the structure&#160;<br/>generation&#160;in the&#160;output&#160;file.&#160;</b>&#160;<br/>This&#160;information&#160;will&#160;occur,&#160;if&#160;the execution terminated&#160;during structure&#160;<br/>generation&#160;in output&#160;file.&#160;<br/>
+&#160;<br/>&#160;<br/>
+<b>8.3.&#160;</b><br/>
+<b>R3.2.2&#160;Messages&#160;</b><br/>
+&#160;<br/>
+This&#160;section&#160;contains&#160;the&#160;list of&#160;error/warning/information&#160;messages&#160;which is&#160;<br/>specific&#160;to&#160;AUTOSAR Renesas&#160;R3.2.2&#160;X1x&#160;MCAL Driver&#160;module that&#160;will&#160;be&#160;<br/>generated&#160;during&#160;the&#160;Module Specific&#160;DLL&#160;execution.&#160;<br/>
+31&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=32></a><b>Chapter&#160;8&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Messages</b>&#160;<br/>
+&#160;<br/>
+<b>8.3.1&#160;&#160;Error&#160;Messages&#160;</b><br/>
+<b>&#160;<br/>ERR000030:&#160;The 'parameter&#160;tag name' tag should be configured in&#160;<br/>BSWMDT&#160;File.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;any&#160;of&#160;the configuration&#160;parameter(s)&#160;mentioned&#160;<br/>below&#160;is&#160;(are)&#160;not configured in&#160;BSWMDT&#160;File.&#160;&#160;<br/>&#160;<br/>The&#160;list of&#160;mandatory&#160;parameters&#160;with&#160;respect to&#160;container is&#160;listed&#160;below:&#160;<br/>&#160;<br/>
+<b>Table&#160;8.1&#160;R3.2.2&#160;BSWMDT&#160;Mandatory&#160;Parameters&#160;</b><br/>
+<b>Container</b>&#160;<br/>
+<b>Parameters</b>&#160;<br/>
+BswImplementation&#160;<br/>
+SW-MAJOR-VERSION&#160;<br/>
+&#160;<br/>
+SW-MINOR-VERSION&#160;<br/>
+&#160;<br/>
+SW-PATCH-VERSION&#160;<br/>
+&#160;<br/>
+AR-MAJOR-VERSION&#160;<br/>
+&#160;<br/>
+AR-MINOR-VERSION&#160;<br/>
+&#160;<br/>
+AR-PATCH-VERSION&#160;<br/>
+&#160;<br/>
+VendorApiInfix&#160;<br/>
+&#160;<br/>
+BswModuleDescription&#160;<br/>
+ModuleId&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>Note: VendorApiInfix&#160;parameter&#160;is&#160;mandatory&#160;for&#160;only&#160;some modules.&#160;</b><br/>
+&#160;<br/>
+<b>8.3.2&#160;&#160;Warning Messages&#160;</b><br/>
+&#160;<br/>None.&#160;<br/>
+&#160;<br/>
+<b>8.3.3&#160;&#160;Information Messages&#160;</b><br/>
+&#160;<br/>None.&#160;<br/>
+&#160;<br/>
+<b>8.4.&#160;</b><br/>
+<b>R4.0.3&#160;Messages&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+This&#160;section&#160;contains&#160;the&#160;list of&#160;error/warning/information&#160;messages&#160;which is&#160;<br/>specific&#160;to&#160;AUTOSAR Renesas&#160;R4.0.3&#160;X1x&#160;MCAL Driver module that&#160;will&#160;be&#160;<br/>generated&#160;during&#160;the&#160;Module Specific&#160;DLL&#160;execution.&#160;<br/>&#160;<br/>
+<b>8.4.1&#160;&#160;Error&#160;Messages&#160;</b><br/>
+<b>&#160;<br/>ERR000030:&#160;The 'parameter&#160;tag name' tag should be configured in&#160;<br/>BSWMDT&#160;File.&#160;</b>&#160;<br/>This&#160;error will&#160;occur, if&#160;any&#160;of&#160;the configuration&#160;parameter(s)&#160;mentioned&#160;<br/>below&#160;is&#160;(are)&#160;not configured in&#160;BSWMDT&#160;File.&#160;&#160;<br/>
+32&#160;<br/>&#160;<br/>
+<hr/>
+<a name=33></a><b>Messages&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;8</b>&#160;<br/>
+&#160;<br/>The&#160;list of&#160;mandatory&#160;parameters&#160;with&#160;respect to&#160;container is&#160;listed&#160;below:&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Table&#160;8.2&#160;R4.0.3&#160;BSWMDT&#160;Mandatory&#160;Parameters&#160;</b><br/>
+<b>Container</b>&#160;<br/>
+<b>Parameters</b>&#160;<br/>
+BswImplementation&#160;<br/>
+SwVersion&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+VendorId&#160;&#160;<br/>
+&#160;<br/>
+ArReleaseVersion&#160;&#160;<br/>
+&#160;<br/>
+VendorApiInfix&#160;&#160;<br/>
+&#160;<br/>
+BswModuleDescription&#160;&#160;<br/>
+ModuleId&#160;&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<b>&#160;<br/>Note: VendorApiInfix&#160;parameter&#160;is&#160;mandatory&#160;for&#160;only&#160;some modules.&#160;</b><br/>
+&#160;<br/>
+<b>8.4.2&#160;&#160;Warning Messages&#160;</b><br/>
+&#160;<br/>None.&#160;<br/>
+&#160;<br/>
+<b>8.4.3&#160;&#160;Information Messages&#160;</b><br/>
+&#160;<br/>None.&#160;<br/>
+33&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=34></a><b>Chapter&#160;8&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Messages</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+34&#160;<br/>&#160;<br/>
+<hr/>
+<a name=35></a><b>Notes&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;9</b>&#160;<br/>
+<b>Chapter&#160;9&#160;&#160;</b><br/>
+<b>Notes&#160;</b><br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+“Tool”&#160;terminology&#160;is&#160;used interchangeably&#160;to refer&#160;RUCG&#160;Tool.&#160;<br/>
+35&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=36></a><b>Chapter&#160;9&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Notes</b>&#160;<br/>
+&#160;<br/>
+36&#160;<br/>&#160;<br/>
+<hr/>
+<a name=37></a><b>Appendix&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;10</b>&#160;<br/>
+<b>Chapter&#160;10&#160;&#160;&#160;&#160;Appendix&#160;</b><br/>
+&#160;<br/>&#160;<br/>
+•&#160;&#160;<b>Translation&#160;XML&#160;File</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+Translation&#160;XML File content&#160;format&#160;shall&#160;be&#160;given as&#160;mentioned&#160;below:&#160;<br/>
+&#160;<br/>
+&lt;?xml&#160;version=&#34;1.0&#34;&#160;encoding=&#34;UTF-8&#34;?&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+The&#160;tag PATH-DETAILS&#160;should not be&#160;renamed&#160;since&#160;it is&#160;top&#160;level&#160;<br/>element.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;PATH-DETAILS&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+TRANSLATION-FILE-PATH should contain the path&#160;of&#160;the translation&#160;<br/>
+header file.&#160;The&#160;tag&#160;TRANSLATION-FILE-PATH should not&#160;be&#160;<br/>
+renamed. Only&#160;respective value should&#160;be&#160;updated for the&#160;translation&#160;<br/>
+header file.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;TRANSLATION-FILE-PATH&gt;&#160;<br/>
+&lt;value_of_MsnDeviceName&gt;Path&lt;/value_of_MsnDeviceName&gt;&#160;<br/>
+&lt;/TRANSLATION-FILE-PATH&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+The&#160;tags&#160;present&#160;in&#160;DEVICE-FILE-PATH tag&#160;should contain the&#160;path&#160;<br/>of&#160;the device specific&#160;C Header File.&#160;<br/>
+The&#160;tags&#160;present&#160;in&#160;DEVICE-FILE-PATH should&#160;be&#160;equal&#160;to&#160;the&#160;value&#160;for&#160;<br/>parameter&#160;<br/>MsnDeviceName present in MsnGeneral&#160;container.&#160;The&#160;<br/>
+tag&#160;DEVICE-FILE-PATH should&#160;not&#160;be&#160;renamed.&#160;<br/>
+&#160;<br/>
+If&#160;multiple device header files&#160;need to&#160;provide for same device&#160;then&#160;<br/>each file&#160;name should be separated&#160;with&#160;space.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;DEVICE-FILE-PATH&gt;&#160;<br/>
+&lt;value_of_MsnDeviceName&gt;Path&lt;/value_of_MsnDeviceName&gt;&#160;<br/>
+&lt;/DEVICE-FILE-PATH&gt;&#160;<br/>
+&lt;/PATH-DETAILS&gt;&#160;<br/>&#160;<br/>
+37&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=38></a><b>Chapter&#160;10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Appendix</b>&#160;<br/>
+&#160;<br/>•&#160;&#160;<b>Configuration&#160;XML&#160;File</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+Configuration XML&#160;File content format&#160;shall&#160;be given&#160;as&#160;mentioned&#160;below:&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&lt;?xml&#160;version=”1.0” encoding=&#34;UTF-8&#34;?&gt;&#160;<br/>
+--&gt;&#160;<br/>
+&lt;!--&#160;<br/>
+None&#160;of&#160;the tag&#160;from&#160;this&#160;XML&#160;should be&#160;renamed&#160;or deleted.&#160;<br/>
+--&gt;&#160;<br/>
+&lt;XML&gt;&#160;<br/>
+&lt;!--&#160;Supported&#160;Command Line&#160;options&lt;OPTION&gt;&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or OFF&#160;should be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;HELP&gt;ON/OFF&lt;/HELP&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or OFF&#160;should be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;LOG&gt;ON/OFF&lt;/LOG&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or OFF&#160;should be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;DRYRUN&gt;ON/OFF&lt;/DRYRUN&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Only&#160;ON&#160;or OFF&#160;should be&#160;provided.&#160;--&gt;&#160;<br/>
+&lt;OUTPUT&gt;OFF&lt;/OUTPUT&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;Name of&#160;output&#160;directory&#160;--&gt;&#160;<br/>
+&lt;OUTPUT-PATH&gt;Path&lt;/OUTPUT-PATH&gt;&#160;<br/>
+&lt;/OPTION&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+&lt;!--&#160;To provide&#160;input files. If&#160;multiple&#160;input files&#160;need&#160;to&#160;be&#160;<br/>
+provided then&#160;each file should&#160;be&#160;separated&#160;with&#160;&#34;,&#34;.&#160;--&gt;&#160;<br/>
+&lt;INPUT-FILE&gt;Path&lt;/INPUT-FILE&gt;&#160;<br/>
+&lt;/XML&gt;&#160;<br/>
+&#160;<br/>&#160;<br/>
+38&#160;<br/>&#160;<br/>
+<hr/>
+<a name=39></a><b>Appendix&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chapter&#160;10</b>&#160;<br/>
+&#160;<br/>
+&#160;<br/>•&#160;&#160;<b>PerlCtrl&#160;Template&#160;<br/></b>&#160;<br/>
+Module&#160;Specific&#160;dll&#160;can&#160;be&#160;created&#160;by&#160;using PerlCtrl&#160;utility.&#160;PerlCtrl&#160;accepts&#160;<br/>the&#160;perl&#160;scripts&#160;which consists&#160;implementation of&#160;generating&#160;module specific&#160;<br/>configuration&#160;files&#160;with&#160;correct perlCtrl&#160;template.&#160;<br/>
+&#160;<br/>PerlCtrl&#160;Template&#160;content&#160;shall&#160;be given&#160;as&#160;mentioned&#160;below:&#160;<br/>&#160;<br/>=pod&#160;<br/>&#160; &#160;&#160;&#160;<br/>=begin PerlCtrl&#160;<br/>&#160; &#160;&#160;&#160;<br/>&#160; &#160; &#160; &#160;&#160;%TypeLib&#160;=&#160;(&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;PackageName &#160;&#160; &#160;=&gt;&#160;'MsnCtrl',&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;TypeLibGUID &#160; &#160;&#160;=&gt;&#160;'{52093072-B5B3-413B-B4CF-<br/>ACD3E3AAFE7A}', #&#160;do&#160;NOT&#160;edit this&#160;line&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;ControlGUID &#160; &#160;&#160;=&gt;&#160;'{1D887D1B-E692-4F8B-8552-F6957BB8B834}',&#160;<br/># do&#160;NOT&#160;edit this&#160;line either&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;DispInterfaceIID=&gt;&#160;'{CFC0FF40-EAE4-49C8-8720-<br/>850170DB1ADD}',&#160;# or&#160;this&#160;one&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;ControlName &#160;&#160; &#160;=&gt;&#160;'MsnVeryOwnControl',&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;ControlVer&#160;&#160; &#160;&#160;&#160;=&gt;&#160;1,&#160; #&#160;increment if&#160;new&#160;object&#160;with&#160;same ProgID&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;# create&#160;new&#160;GUIDs&#160;as&#160;well&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;ProgID&#160;&#160; &#160;&#160;&#160; &#160;&#160; =&gt;&#160;'MsnCtrl.Control',&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;DefaultMethod&#160; &#160;=&gt;&#160;'main',&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;Methods&#160; &#160;&#160;&#160;&#160;&#160; &#160;=&gt;&#160;{&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;'main'&#160;=&gt;&#160;{&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;DocString &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;=&gt;&#160;&#34;The&#160;main()&#160;method&#34;,&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;HelpContext&#160; &#160;&#160;&#160; &#160;&#160;&#160;=&gt;&#160;10,&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;RetType &#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; &#160;=&gt;&#160; VT_I4,&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;TotalParams&#160; &#160;&#160;&#160; &#160;&#160;&#160;=&gt;&#160;&#160;1,&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;NumOptionalParams&#160; &#160;=&gt;&#160; 0,&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160;&#160;&#160;&#160;ParamList &#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;=&gt;[ 'cmd_input'&#160;=&gt;&#160;VT_BSTR ]&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160;&#160;},&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;},&#160; #&#160;end&#160;of&#160;'Methods'&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;Properties&#160; &#160;&#160;&#160;&#160;=&gt;&#160;{&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;},&#160; #&#160;end&#160;of&#160;'Properties'&#160;<br/>&#160; &#160; &#160; &#160; &#160;&#160; &#160;); &#160;#&#160;end of&#160;%TypeLib&#160;<br/>&#160; &#160;&#160;&#160;<br/>=end PerlCtrl&#160;<br/>&#160; &#160;&#160;&#160;<br/>=cut&#160;<br/>&#160;<br/>
+39&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=40></a><b>Chapter&#160;10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Appendix</b>&#160;<br/>
+&#160;<br/>&#160;<br/>
+40&#160;<br/>&#160;<br/>
+<hr/>
+<a name=41></a>&#160;<br/>
+<b>Revision&#160;History</b>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>
+<b>Sl.No.</b>&#160;&#160;<b>Description</b>&#160;<br/>
+<b>Version</b>&#160;<br/>
+<b>Date</b>&#160;<br/>
+1&#160;<br/>
+Initial&#160;Version&#160;<br/>
+1.0.0&#160;<br/>
+7-Nov-2015&#160;<br/>
+2&#160;<br/>
+Section&#160;3.1&#160;and&#160;8.1&#160;are updated as&#160;per the&#160;new enhancement&#160;<br/>
+1.1.0&#160;<br/>
+12-Dec-2015&#160;<br/>
+feature requirements&#160;(EAAR_PN0089_FR_0018,&#160;<br/>EAAR_PN0089_FR_0019,&#160;EAAR_PN0089_NR_0010).&#160;<br/>
+3&#160;<br/>
+Reference section is&#160;updated&#160;with&#160;correct document name.&#160;<br/>
+1.1.1&#160;<br/>
+7-Apr-2016&#160;<br/>
+4&#160;<br/>
+R-Number&#160;corrected&#160;for the&#160;document&#160;<br/>
+1.1.2&#160;<br/>
+13-Jul-2016&#160;<br/>
+5&#160;<br/>
+Following&#160;changes&#160;are made,&#160;<br/>
+1.1.3&#160;<br/>
+17-Feb-2017&#160;<br/>
+1.&#160;Updated notice&#160;and&#160;copyright&#160;information.&#160;<br/>2.&#160;Updated R Number.&#160;<br/>
+41&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=42></a>&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>RUCG&#160;Tool&#160;User's&#160;Manual&#160;V1.1.3</b>&#160;<br/>&#160;<br/>Publication&#160;Date:&#160;Rev.1.01,&#160;February&#160;17,&#160;2017&#160;<br/>&#160;<br/>Published&#160;by:&#160;Renesas&#160;Electronics&#160;Corporation&#160;<br/>
+&#160;<br/>&#160;<br/>
+&#160;<br/>&#160;<br/>
+<hr/>
+<a name=43></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-43_1.png"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+<b>SALES&#160;&#160;OFFICES</b>&#160;<br/>
+&#160;<br/>
+<a href="http://www.renesas.com/">http://www.renesas.com&#160;</a><br/>
+Refer&#160;&#160;<a href="http://www.renesas.com/">to&#160;&#34;http://www.renesas.com/&#34;&#160;f</a>or&#160;the&#160;latest&#160;&#160;and&#160;&#160;de&#160;&#160;tailed&#160;&#160;information.&#160;<br/><b>Renesas&#160;Electronics&#160;America&#160;Inc.&#160;<br/></b>2801&#160;Scott&#160;Boulevard&#160;Santa&#160;Clara,&#160;CA&#160;95050-2549,&#160;U.S.A.&#160;<br/>Tel:&#160;+1-408-588-6000,&#160;Fax:&#160;+1-408-588-6130&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Canada&#160;Limited&#160;<br/></b>9251&#160;Yonge&#160;Street,&#160;Suite&#160;8309&#160;Richmond&#160;Hill,&#160;Ontario&#160;Canada&#160;L4C&#160;9T3&#160;<br/>Tel:&#160;+1-905-237-2004&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Europe&#160;Limited&#160;<br/></b>Dukes&#160;Meadow,&#160;Millboard&#160;Road,&#160;Bourne&#160;End,&#160;Buckinghamshire,&#160;SL8&#160;5FH,&#160;U.K&#160;<br/>Tel:&#160;+44-1628-585-100,&#160;Fax:&#160;+44-1628-585-900&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Europe&#160;GmbH&#160;<br/></b>Arcadiastrasse&#160;10,&#160;40472&#160;Düsseldorf,&#160;Germany&#160;<br/>Tel:&#160;+49-211-6503-0,&#160;Fax:&#160;+49-211-6503-1327&#160;<br/>
+<b>Renesas&#160;Electronics&#160;(China)&#160;Co.,&#160;Ltd.&#160;<br/></b>Room&#160;1709,&#160;Quantum&#160;Plaza,&#160;No.27&#160;ZhiChunLu&#160;Haidian&#160;District,&#160;Beijing&#160;100191,&#160;P.R.China&#160;<br/>Tel:&#160;+86-10-8235-1155,&#160;Fax:&#160;+86-10-8235-7679&#160;<br/>
+<b>Renesas&#160;Electronics&#160;(Shanghai)&#160;Co.,&#160;Ltd.&#160;<br/></b>Unit&#160;301,&#160;Tower&#160;A,&#160;Central&#160;Towers,&#160;555&#160;Langao&#160;Road,&#160;Putuo&#160;District,&#160;Shanghai,&#160;P.&#160;R.&#160;China&#160;200333&#160;<br/>Tel:&#160;+86-21-2226-0888,&#160;Fax:&#160;+86-21-2226-0999&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Hong&#160;Kong&#160;Limited&#160;<br/></b>Unit&#160;1601-1611,&#160;16/F.,&#160;Tower&#160;2,&#160;Grand&#160;Century&#160;Place,&#160;193&#160;Prince&#160;Edward&#160;Road&#160;West,&#160;Mongkok,&#160;Kowloon,&#160;Hong&#160;Kong&#160;<br/>Tel:&#160;+852-2265-6688,&#160;Fax:&#160;+852&#160;2886-9022&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Taiwan&#160;Co.,&#160;Ltd.&#160;<br/></b>13F,&#160;No.&#160;363,&#160;Fu&#160;Shing&#160;North&#160;Road,&#160;Taipei&#160;10543,&#160;Taiwan&#160;<br/>Tel:&#160;+886-2-8175-9600,&#160;Fax:&#160;+886&#160;2-8175-9670&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Singapore&#160;Pte.&#160;Ltd.&#160;<br/></b>80&#160;Bendemeer&#160;Road,&#160;Unit&#160;#06-02&#160;Hyflux&#160;Innovation&#160;Centre,&#160;Singapore&#160;339949&#160;<br/>Tel:&#160;+65-6213-0200,&#160;Fax:&#160;+65-6213-0300&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Malaysia&#160;Sdn.Bhd.&#160;<br/></b>Unit&#160;1207,&#160;Block&#160;B,&#160;Menara&#160;Amcorp,&#160;Amcorp&#160;Trade&#160;Centre,&#160;No.&#160;18,&#160;Jln&#160;Persiaran&#160;Barat,&#160;46050&#160;Petaling&#160;Jaya,&#160;Selangor&#160;Darul&#160;Ehsan,&#160;Malaysia&#160;<br/>Tel:&#160;+60-3-7955-9390,&#160;Fax:&#160;+60-3-7955-9510&#160;<br/>
+<b>Renesas&#160;Electronics&#160;India&#160;Pvt.&#160;Ltd.&#160;<br/></b>No.777C,&#160;100&#160;Feet&#160;Road,&#160;HAL&#160;II&#160;Stage,&#160;Indiranagar,&#160;Bangalore,&#160;India&#160;<br/>Tel:&#160;+91-80-67208700,&#160;Fax:&#160;+91-80-67208777&#160;<br/>
+<b>Renesas&#160;Electronics&#160;Korea&#160;Co.,&#160;Ltd.&#160;<br/></b>12F.,&#160;234&#160;Teheran-ro,&#160;Gangnam-Gu,&#160;Seoul,&#160;135-080,&#160;Korea&#160;<br/>Tel:&#160;+82-2-558-3737,&#160;Fax:&#160;+82-2-558-5141&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+©&#160;2006-2017&#160;Renesas&#160;&#160;Electronics&#160;&#160;Corporation.&#160;&#160;All&#160;rights&#160;reserved.&#160;<br/>
+Colophon&#160;&#160;4.1&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=44></a><img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-44_1.png"/><br/>
+<img src="ElectricPowerSteering_RH850_BMW_FAAR_WE_website/content/en/docs/Dio/doc/R20UT3754EJ0101-AUTOSAR-44_2.jpg"/><br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+RUCG Tool&#160;<br/>
+&#160;<br/>
+User’s Manual&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160; &#160; &#160; &#160;<br/>
+&#160;<br/>
+R20UT3754EJ0101&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#9">Chapter 1 &#160;Introduction</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#9">1.1 Document Overview</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#11">Chapter 2 &#160;Reference</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#11">2.1. Reference Documents</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#11">2.2. Trademark Notice</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#13">Chapter 3 &#160;Tool Overview</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#13">3.1 Usage</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#17">Chapter 4 &#160;Input Files</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#17">4.1 Msn Control DLL</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#17">4.2 ECU Configuration Description File(s)</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#17">4.3 BSWMDT File</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#18">4.4 Translation XML File</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#18">4.4.1 Translation Header File</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#18">4.4.2 Device Specific Header File</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#19">4.5 Configuration XML File</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#19">4.6 Other Description Files</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#21">Chapter 5 &#160;Output Files</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#23">Chapter 6 &#160;Precautions</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#25">Chapter 7 &#160;User Configuration Validation</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#27">Chapter 8 &#160;Messages</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#27">8.1. RUCG Tool Messages</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#27">8.1.1 Error Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#28">8.1.2 Warning Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#28">8.1.3 Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#28">8.2. Common Messages</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#28">8.2.1 Error Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#31">8.2.2 Warning Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#31">8.2.3 Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#31">8.3. R3.2.2 Messages</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#32">8.3.1 Error Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#32">8.3.2 Warning Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#32">8.3.3 Information Messages</a></li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#32">8.4. R4.0.3 Messages</a>
+<ul>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#32">8.4.1 Error Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#33">8.4.2 Warning Messages</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#33">8.4.3 Information Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#35">Chapter 9 &#160;Notes</a></li>
+<li><a href="R20UT3754EJ0101-AUTOSARs.html#37">Chapter 10 &#160; Appendix</a></li>
+</ul>
+<hr/>
+</body>
+</html>
